@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Production-ready data Actors — benthepythondev</title>
+  <meta name="description" content="Searchable catalog of Apify Actors by benthepythondev. Jobs, real estate, Reddit/RAG, finance, and more." />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:1100px; margin:0 auto; padding:28px 18px 64px; }
+    header { margin-bottom:22px; }
+    h1 { font-size:1.7rem; margin:0 0 8px; }
+    .sub { color:var(--muted); max-width:60ch; line-height:1.45; }
+    .hero-cta { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.95rem; }
+    .btn-primary { background:var(--accent); color:#061018; }
+    .btn-ghost { border:1px solid var(--line); color:var(--ink); }
+    .toolbar { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 14px; align-items:center; }
+    input[type=search] { flex:1; min-width:220px; padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#0e1626; color:var(--ink); }
+    select { padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#0e1626; color:var(--ink); }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+    .chip { border:1px solid var(--line); background:#0e1626; color:var(--muted); padding:6px 10px; border-radius:999px; cursor:pointer; font-size:.85rem; }
+    .chip.active { background:var(--accent); color:#061018; border-color:transparent; font-weight:600; }
+    .meta { color:var(--muted); font-size:.9rem; margin-bottom:12px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:8px; }
+    .card-top { display:flex; gap:10px; align-items:flex-start; }
+    .card img { width:40px; height:40px; border-radius:10px; object-fit:cover; background:#0e1626; }
+    .card h3 { margin:0; font-size:1.02rem; line-height:1.25; }
+    .card p { margin:0; color:var(--muted); font-size:.9rem; line-height:1.4; flex:1; }
+    .stats { display:flex; gap:10px; flex-wrap:wrap; font-size:.8rem; color:var(--muted); }
+    .stats span { border:1px solid var(--line); border-radius:999px; padding:3px 8px; }
+    .card a.cta { margin-top:4px; color:var(--accent); font-weight:600; text-decoration:none; font-size:.92rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Production-ready data Actors</h1>
+      <p class="sub" id="heroBlurb">Searchable catalog of public Apify Actors by benthepythondev — jobs, rentals, Reddit/RAG, finance, and more. Auto-synced from the Store; no manual pages.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://apify.com/benthepythondev?utm_source=catalog&utm_medium=site">Browse on Apify</a>
+        <a class="btn btn-ghost" href="mailto:benthepythondev@gmail.com?subject=Custom%20scraper%20/%20commission">Commission / custom</a>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="Search Actors…" />
+      <select id="sort">
+        <option value="users">Sort: Most users</option>
+        <option value="az">Sort: A→Z</option>
+        <option value="newest">Sort: Newest (feed order)</option>
+      </select>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="meta" id="count"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+  <script>
+    let DATA = { actors: [], chips: [] };
+    let activeChip = 'All';
+
+    const grid = document.getElementById('grid');
+    const chipsEl = document.getElementById('chips');
+    const countEl = document.getElementById('count');
+    const qEl = document.getElementById('q');
+    const sortEl = document.getElementById('sort');
+
+    function renderChips() {
+      chipsEl.innerHTML = '';
+      (DATA.chips || ['All']).forEach(c => {
+        const b = document.createElement('button');
+        b.className = 'chip' + (c === activeChip ? ' active' : '');
+        b.textContent = c;
+        b.onclick = () => { activeChip = c; render(); renderChips(); };
+        chipsEl.appendChild(b);
+      });
+    }
+
+    function filtered() {
+      const q = (qEl.value || '').trim().toLowerCase();
+      let rows = DATA.actors.slice();
+      if (activeChip !== 'All') rows = rows.filter(a => a.chip === activeChip);
+      if (q) rows = rows.filter(a =>
+        (a.title||'').toLowerCase().includes(q) ||
+        (a.name||'').toLowerCase().includes(q) ||
+        (a.oneLiner||'').toLowerCase().includes(q)
+      );
+      const s = sortEl.value;
+      if (s === 'az') rows.sort((a,b) => (a.title||'').localeCompare(b.title||''));
+      else if (s === 'users') rows.sort((a,b) => (b.users30d||0) - (a.users30d||0));
+      return rows;
+    }
+
+    function render() {
+      const rows = filtered();
+      countEl.textContent = `${rows.length} Actors` + (DATA.generatedAt ? ` · synced ${DATA.generatedAt}` : '');
+      grid.innerHTML = rows.map(a => `
+        <article class="card">
+          <div class="card-top">
+            ${a.iconUrl ? `<img src="${a.iconUrl}" alt="" loading="lazy" />` : `<div style="width:40px;height:40px;border-radius:10px;background:#0e1626"></div>`}
+            <h3>${escapeHtml(a.title || a.name)}</h3>
+          </div>
+          <p>${escapeHtml(a.oneLiner || '')}</p>
+          <div class="stats">
+            <span>${a.users30d ?? 0} users / 30d</span>
+            <span>${a.successRate30d != null ? a.successRate30d + '% success' : 'n/a success'}</span>
+          </div>
+          <a class="cta" href="${a.storeUrl}" target="_blank" rel="noopener">View on Apify →</a>
+        </article>
+      `).join('');
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    qEl.addEventListener('input', render);
+    sortEl.addEventListener('change', render);
+
+    fetch('data/actors.json')
+      .then(r => r.json())
+      .then(d => { DATA = d; renderChips(); render(); })
+      .catch(() => { countEl.textContent = 'Catalog feed missing — run scripts/sync_catalog.py'; });
+  </script>
+</body>
+</html>
