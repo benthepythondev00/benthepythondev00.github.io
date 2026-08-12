@@ -117,6 +117,28 @@ def main() -> None:
                 "iconUrl": a.get("pictureUrl") or None,
             }
         )
+    # Prefer unique actor names (Store is already unique); drop near-dupe titles
+    # keeping the higher users30d when titles normalize equal.
+    def _norm_title(s: str) -> str:
+        s = (s or "").lower()
+        s = re.sub(r"[^a-z0-9]+", " ", s)
+        return re.sub(r"\s+", " ", s).strip()
+
+    by_name = {}
+    for row in catalog:
+        prev = by_name.get(row["name"])
+        if prev is None or (row["users30d"] or 0) >= (prev["users30d"] or 0):
+            by_name[row["name"]] = row
+    catalog = list(by_name.values())
+
+    by_title = {}
+    for row in catalog:
+        key = _norm_title(row.get("title") or row.get("name"))
+        prev = by_title.get(key)
+        if prev is None or (row["users30d"] or 0) > (prev["users30d"] or 0):
+            by_title[key] = row
+    catalog = list(by_title.values())
+
     catalog.sort(key=lambda x: (-(x["users30d"] or 0), (x["title"] or "").lower()))
     OUT.parent.mkdir(parents=True, exist_ok=True)
     payload = {
