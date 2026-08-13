@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T06:44:05Z",
+  "generatedAt": "2026-08-13T08:42:25Z",
   "count": 863,
   "chips": [
     "All",
@@ -5592,21 +5592,6 @@
       "storeUrl": "https://apify.com/benthepythondev/google-keyword-suggestions-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect public Google autocomplete suggestions by seed query, language and country with rank and collection metadata.",
       "iconUrl": "https://images.apifyusercontent.com/DMKT2RBm6s2EtGEUavzUSOagWHWkikrnadX4zPa4XEs/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itb0FkV0w5cVRtUWtqT2x2U0ItYXo3T0FHcjhEWi1nb29nbGUta2V5d29yZC1zdWdnZXN0aW9ucy1zY3JhcGVyLnBuZw.webp"
-    },
-    {
-      "name": "google-maps-email-scraper",
-      "title": "Google Maps Email Scraper - B2B Leads with Verified Emails",
-      "categories": [
-        "LEAD_GENERATION",
-        "MARKETING",
-        "BUSINESS"
-      ],
-      "chip": "Lead gen",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/google-maps-email-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape businesses from Google Maps and enrich each with verified contact emails. Pulls name, phone, website, address,\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/3l-CPpycVQT4iGyYIikZwd6Io2dqCDnIi_ypbqmLkxI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNE1UeGRIZkdvS1RMRG9UckQtamYwTllHTUlkMC1nb29nbGUtbWFwcy1lbWFpbC1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "google-news-scraper",
@@ -12266,6 +12251,21 @@
       "storeUrl": "https://apify.com/benthepythondev/glassdoor-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Glassdoor company reviews, ratings and salary data: overall rating, recommend %, CEO approval, review count, p\u2026",
       "iconUrl": "https://images.apifyusercontent.com/yVUjXlaHJo6pxxSbmETtbT1iofvNOVJ5YbrW8LZDKk8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdXQyMk13RHFEdlVFQkVxVEgtZGp4U2VSWFZ5aC1nbGFzc2Rvb3Itc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "google-maps-email-scraper",
+      "title": "Google Maps Email Scraper - B2B Leads with Verified Emails",
+      "categories": [
+        "LEAD_GENERATION",
+        "MARKETING",
+        "BUSINESS"
+      ],
+      "chip": "Lead gen",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/google-maps-email-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape businesses from Google Maps and enrich each with verified contact emails. Pulls name, phone, website, address,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/3l-CPpycVQT4iGyYIikZwd6Io2dqCDnIi_ypbqmLkxI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNE1UeGRIZkdvS1RMRG9UckQtamYwTllHTUlkMC1nb29nbGUtbWFwcy1lbWFpbC1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "html-table-extractor",
