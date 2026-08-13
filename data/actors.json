@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-12T23:56:58Z",
-  "count": 843,
+  "generatedAt": "2026-08-13T02:45:35Z",
+  "count": 863,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -11938,6 +11938,66 @@
       "iconUrl": "https://images.apifyusercontent.com/6tzqz4dJ1XOfdvwjevdZhh7GmBp6J82FWDSSQgoxhtA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZVJYVjg4UHJFMVZxODdSVDItR1U0TUtYcms1bC1qYW1lZGEucG5n.webp"
     },
     {
+      "name": "7timer-civil-list2-scraper",
+      "title": "7timer Civil List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/7timer-civil-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect 7Timer civil records and export rh2m, temp2m, weather, prec type, timepoint, cloudcover as structured JSON, C\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/SOKGDEroc6-yyBnnOKyC0_OehWp58Ks3LUWNrPq1q2M/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTXB4M3c2a0hadGhSbkxOSFEtZzVhNmYyUVlJNy03dGltZXItY2l2aWwtbGlzdDItc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "alternative-me-fng-current-scraper",
+      "title": "Alternative Me FNG Current Scraper",
+      "categories": [
+        "BUSINESS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Real estate & rentals",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/alternative-me-fng-current-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Alternative.me FNG records and export value, timestamp, time until update, value classification, source, scra\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/wl1WK6bcsRf9rxfnXvTa0d8JiaaDOZeNL09CbRpghAo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcGNCbXpnUkRyZ2ZoemRheEItSkFFcDJ4bTdnaC1hbHRlcm5hdGl2ZS1tZS1mbmctY3VycmVudC1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "anilist-trending-list2-scraper",
+      "title": "Anilist Trending List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/anilist-trending-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect AniList trending records and export id, averagescore, romaji, english, source, scraped at as structured JSON,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/kUAPSJxztAKXDrE2qHLttNtSwrGWLezXaP0nPFwaEaQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNW1nNFlnNFozWVFlV3B3cjQtbko5SEd5ODRPYy1hbmlsaXN0LXRyZW5kaW5nLWxpc3QyLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "arbeitnow-api-jobs-list2-scraper",
+      "title": "Arbeitnow API Jobs List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Jobs & hiring",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/arbeitnow-api-jobs-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Arbeitnow API records and export title, url, description, created at, slug, tags as structured JSON, CSV or E\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/Lk63zPKwSWoy83rMvgrJS9iBeLnLwFdWkGKDc083R-4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQzMycVpiVE40b2NqWkk1SEwtVlA5Mk5HNUJKbi1hcmJlaXRub3ctYXBpLWpvYnMtbGlzdDItc2NyYXBlci5wbmc.webp"
+    },
+    {
       "name": "argentina-datos-packages-scraper",
       "title": "Argentina Datos Packages Scraper",
       "categories": [
@@ -11983,6 +12043,186 @@
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
+      "name": "bitfinex-tickers-list-scraper",
+      "title": "Bitfinex Tickers List Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/bitfinex-tickers-list-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Bitfinex tickers ALL records and export value, value 2, value 3, value 4, value 5, value 6 as structured JSON\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/e6_Dt77nGHzRsJV2pd9ncFOAUaw0yiShQG-YrVOsi_I/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItS1N4Z0dEMXNoV1hSSHBPZngtS3RFd01COU9nYy1iaXRmaW5leC10aWNrZXJzLWxpc3Qtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "bitstamp-pairs-list-scraper",
+      "title": "Bitstamp Pairs List Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/bitstamp-pairs-list-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Bitstamp pairs records and export name, description, trading, url symbol, base decimals, minimum order as str\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/jqJ4fsksmNJUEyj9R5e0EX_bTWZLcyGZEyLDJrwlkbE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaFRndk5DT2laSUNINkJyMXQtdk5pckJla3pLcC1iaXRzdGFtcC1wYWlycy1saXN0LXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "canada-open-data-packages-scraper",
+      "title": "Canada Open Data Packages Scraper",
+      "categories": [
+        "BUSINESS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/canada-open-data-packages-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect open.canada.ca records and export id, name, url, hash, size, state as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/MDOBlOkSfXxRRYnu_N3TXZcTdpSLxMYphEzxcLFEiXg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYk5aUW9SUnZFVlRXUXNPQ2YteXNMM29yYjFCSS1jYW5hZGEtb3Blbi1kYXRhLXBhY2thZ2VzLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "carbon-intensity-genmix-list2-scraper",
+      "title": "Carbon Intensity Genmix List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/carbon-intensity-genmix-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect UK Carbon genmix records and export fuel, perc, source, scraped at as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/2ugUTn4hCAM727vBzh9rNMZuXLeZ4U6TQBB1kNKFywA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWHlKQkoxVmN5SW5tbkdrVnAtNFI5aEZ5cElpQy1jYXJib24taW50ZW5zaXR5LWdlbm1peC1saXN0Mi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "carbon-intensity-uk-list2-scraper",
+      "title": "Carbon Intensity UK List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/carbon-intensity-uk-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect UK Carbon Intensity records and export to, from, index, actual, forecast, source as structured JSON, CSV or E\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/PZ0NNkQWXOaPbxGxB7oIzT99ffSlF4EaU_H03iKtf10/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMEZ5RGM2QU80UHVIczhDVnktcUFVRThYZ3owVy1jYXJib24taW50ZW5zaXR5LXVrLWxpc3QyLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "circl-cve-last-list2-scraper",
+      "title": "Circl Cve Last List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/circl-cve-last-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect CIRCL CVE last records and export id, url, type, references type, score, aliases as structured JSON, CSV or E\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/e5VNcYVfaUrxad7xrEliaUXzanevpgu8xoN2peui3Nc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQ3dUZ1hmZE00R3VDeWNWOXotazdUcFZudW1nUi1jaXJjbC1jdmUtbGFzdC1saXN0Mi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "cisa-kev-catalog-list2-scraper",
+      "title": "Cisa Kev Catalog List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/cisa-kev-catalog-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect CISA KEV records and export cwes, cveid, notes, duedate, product, dateadded as structured JSON, CSV or Excel\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/ylGXWRYOY9p61cMq8KDaWM6dgvMGq4a0EQnc_jg7xd4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItS0xXb0c0dFBzTU8wWmRkUE0tTzJUaDBtVWhabS1jaXNhLWtldi1jYXRhbG9nLWxpc3QyLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "codeberg-repos-search-list2-scraper",
+      "title": "Codeberg Repos Search List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/codeberg-repos-search-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Codeberg repos records and export value, source, scraped at as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/Zc5_EucCRgmj9euLkKhHgbIXpg9JHV60UBoyxd7-pIc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWWNGNmxrN291WTg4dXpibjItQ0xOT2hIb2dhTy1jb2RlYmVyZy1yZXBvcy1zZWFyY2gtbGlzdDItc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "coinbase-exchange-currencies-list-scraper",
+      "title": "Coinbase Exchange Currencies List Scraper",
+      "categories": [
+        "BUSINESS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/coinbase-exchange-currencies-list-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Coinbase Exchange currencies records and export id, supported networks id, name, supported networks name, sta\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/Wturi3hKtRjgFQ9V1vWrJHZfAYbC9bzl7Tu0FZIo_J8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItOW1rNDljWkZWQnZyakhwaFAtNEllcG40bE9qZC1jb2luYmFzZS1leGNoYW5nZS1jdXJyZW5jaWVzLWxpc3Qtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "coinbase-exchange-products-list-scraper",
+      "title": "Coinbase Exchange Products List Scraper",
+      "categories": [
+        "BUSINESS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/coinbase-exchange-products-list-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Coinbase Exchange products records and export id, status, post only, limit only, cancel only, auction mode as\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/p7znAK---Z5Fdyw3pOiqSGMrZVNaZLxyRY-G_Vny_Vk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbElBVlkycGF6OEl3V1VUVkItV2ZqRU9kYnB2ZC1jb2luYmFzZS1leGNoYW5nZS1wcm9kdWN0cy1saXN0LXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "coingecko-coins-markets-scraper",
+      "title": "Coingecko Coins Markets Scraper",
+      "categories": [
+        "BUSINESS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Finance",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/coingecko-coins-markets-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect CoinGecko markets records and export id, name, symbol, ath, atl, image as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/Uitg61FjcFS7rgqSL9V_31nXhNdPduCCLwtJFsUcVUw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUHBnUHh2YlMzRTdiYVNEanEtcVdVeml1UVF0MC1jb2luZ2Vja28tY29pbnMtbWFya2V0cy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "coingecko-exchanges-list2-scraper",
+      "title": "Coingecko Exchanges List2 Scraper",
+      "categories": [
+        "BUSINESS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Finance",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/coingecko-exchanges-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect CoinGecko exchanges records and export id, name, url, description, country, image as structured JSON, CSV or\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/BDFVsO_nxVdAnzJWLMws82Ek68NSkpHxNOChxB8gS38/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUWJxOXdrMGdLbXBWU2I1Rmgta0tjcVZlQ2lkaS1jb2luZ2Vja28tZXhjaGFuZ2VzLWxpc3QyLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "comeet-jobs-scraper",
       "title": "Comeet Jobs Scraper - Company Career Listings",
       "categories": [
@@ -11996,6 +12236,21 @@
       "storeUrl": "https://apify.com/benthepythondev/comeet-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract public Comeet vacancies with employer, department, location, remote status, experience level, description and\u2026",
       "iconUrl": "https://images.apifyusercontent.com/y_gZnbIucMSj1JDJfh4p5uDTEcjdqavrY3Z9U1BAl80/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYnVnQmNIN0dZN3NGbUw0ZUItZmFhVjJ6RzRFdC1jb21lZXQtam9icy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "github-events-public-list2-scraper",
+      "title": "Github Events Public List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/github-events-public-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect GitHub public events records and export id, repo id, actor id, name, url, actor url as structured JSON, CSV o\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/ahkm3tCpIRzQKpbmOAOIGtVCOIuAWVxS-0zl8AQDfVE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNktOaGpKTG4ySWR0V3dPS3EtQTJjUmpaOWRKQS1naXRodWItZXZlbnRzLXB1YmxpYy1saXN0Mi1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "glassdoor-scraper",
@@ -12041,6 +12296,21 @@
       "storeUrl": "https://apify.com/benthepythondev/idealista-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Idealista (Spain's #1 property portal), for sale or to rent: price, rooms, area (m2), floor, location, agency/\u2026",
       "iconUrl": "https://images.apifyusercontent.com/KCwiTQKY80U-afuYdVrD_N3xeNSLOvUI8PGTDkdhjLo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSjhSbmVxOVBCdVp3WTVnYUctcHdSQVQzN0pMTy1pZGVhbGlzdGEtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "jobicy-api-jobs-list2-scraper",
+      "title": "Jobicy API Jobs List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Jobs & hiring",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/jobicy-api-jobs-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Jobicy API records and export id, url, jobgeo, jobslug, jobtype, pubdate as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/sA3gLfu0Bo6lvZEr4O8p_07x3LFWRM3P_eHxW1jFP4E/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcUVhYnBVbG5qT0c5VnpSZlYtMXdxcUFwZlhoTi1qb2JpY3ktYXBpLWpvYnMtbGlzdDItc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "lamudi-property-scraper",
@@ -12116,6 +12386,36 @@
       "storeUrl": "https://apify.com/benthepythondev/reed-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Reed.co.uk job listings: title, company, location, salary, work type, posted date, badges, logo and listing URL.",
       "iconUrl": "https://images.apifyusercontent.com/HXQZ2TbIBIaxUSQy3MSG5U2B68jKMwmK3ZyiA57FgTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWUEwV0dBZXBOMnlZZ2tyaDctSDF1NGhCU3NMUC1yZWVkLWpvYnMtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "remoteok-api-jobs-list2-scraper",
+      "title": "Remoteok API Jobs List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Jobs & hiring",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/remoteok-api-jobs-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect RemoteOK API records and export legal, last updated, source, scraped at as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/A1zTMmHaOtXb3VBn6bAcZOJdQllqEZdTvJHoEhDinVg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ1ltV1BKdVJTWEVQNW9XUUEtZnN1WWdLTEdZai1yZW1vdGVvay1hcGktam9icy1saXN0Mi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "remotive-api-jobs-list2-scraper",
+      "title": "Remotive API Jobs List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Jobs & hiring",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/remotive-api-jobs-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Remotive API records and export value, source, scraped at as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/OX2sqsd67iscPZecKV3IoPdZ2sSRkWpZBwPM6zDPe5Y/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMFdCWkNHVFRqRFRpTU51VEMtdTFEM25LdXFjai1yZW1vdGl2ZS1hcGktam9icy1saXN0Mi1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "socialblade-scraper",
