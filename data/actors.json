@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-15T05:39:18Z",
-  "count": 883,
+  "generatedAt": "2026-08-15T06:57:05Z",
+  "count": 903,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -6509,6 +6509,21 @@
       "iconUrl": "https://images.apifyusercontent.com/qneVY8qHQgu3sTerDg2Gs9njuYvTVWx5ziAbs9iTHpU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZXRzTTQ2bTkyNG5jSmM2TFAteGsxd2doaFFpay1oZXgtcG0tcGFja2FnZXMtbGlzdC1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "hex-pm-packages-list2-scraper",
+      "title": "Hex Pm Packages List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/hex-pm-packages-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Hex.pm packages records and export name, url, releases url, description, updated at, html url as structured J\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/X-Y3bph4ro2JuYQDgkNZhn4zVu-mxJSbW2HawXPgMiw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbDhnWGhLOUNsVkp4cWpTaXAtRkRnY2swMXdKUy1oZXgtcG0tcGFja2FnZXMtbGlzdDItc2NyYXBlci5wbmc.webp"
+    },
+    {
       "name": "hex-pm-packages-scraper",
       "title": "Hex pm Packages Scraper",
       "categories": [
@@ -6612,6 +6627,21 @@
       "storeUrl": "https://apify.com/benthepythondev/homebrew-formulae-api-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Homebrew formulae API records and export name, url, tap, desc, pinned, license as structured JSON, CSV or Exc\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EtzX5aMDDTdrq7kOKi9tzJMXP5mW38skEb5rPqUWhpY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQXNTZ0QxVjcyM2toYld1TjYtdmgxMG9GSnd5TS1ob21lYnJldy1mb3JtdWxhZS1hcGktc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "homebrew-formulae-list2-scraper",
+      "title": "Homebrew Formulae List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/homebrew-formulae-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Homebrew formulae records and export name, url, tap, desc, pinned, license as structured JSON, CSV or Excel d\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/aY31gYE09I_mc90QAN2XMjCCe1BBt90R3sy0RFAqdbU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItS2NLdXdVZU5uaHd0djJXWkMtRmY3WnFEdU1qOC1ob21lYnJldy1mb3JtdWxhZS1saXN0Mi1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "homebrew-formulae-scraper",
@@ -6867,6 +6897,21 @@
       "storeUrl": "https://apify.com/benthepythondev/immoweb-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Immoweb.be (Belgium's largest property portal): type, price, bedrooms, surface, full address, postcode, provin\u2026",
       "iconUrl": "https://images.apifyusercontent.com/KfFgRKQrnxTMUNaIQQcSDTU-Rdg67FtJ8Kh3Eo7Rya4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3BMVTJMSURIWWk0ZHVya20tNXp2NXYwdmJSQi1pbW1vd2ViLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "inaturalist-observations-list2-scraper",
+      "title": "Inaturalist Observations List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/inaturalist-observations-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect iNaturalist observations records and export value, source, scraped at as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/HBbz3NcsPofbYIMVW9YxdTOKrmyNmsJ2teYziD1dt9o/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZGFhQ3lMY2x3c3YycllGNmYtZ2x6RllrcG8wRS1pbmF0dXJhbGlzdC1vYnNlcnZhdGlvbnMtbGlzdDItc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "inaturalist-observations-scraper",
@@ -7454,6 +7499,21 @@
       "iconUrl": "https://images.apifyusercontent.com/vvA7FGtKe4nxnmHJ_Zpbh0xc7vNjWN69a6T_u6Ku7mA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUjNSaHJLbUNTeXFZQk1ORzMtUW1SekxsM0lqNS1raXRzdS1hbmltZS1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "kraken-asset-pairs-list-scraper",
+      "title": "Kraken Asset Pairs List Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/kraken-asset-pairs-list-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Kraken AssetPairs records and export value, source, scraped at as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/2wEUWSu5ihATK3jz_vDQXbhiNoxBPsXAKyj9UGc6wCA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSjVJYldwN0xwU3IzSEdGUEQtbkZQS2ZRTlE2bi1rcmFrZW4tYXNzZXQtcGFpcnMtbGlzdC1zY3JhcGVyLnBuZw.webp"
+    },
+    {
       "name": "kraken-asset-pairs-public-scraper",
       "title": "Kraken Asset Pairs Public Scraper",
       "categories": [
@@ -7544,6 +7604,21 @@
       "iconUrl": "https://images.apifyusercontent.com/_lAW_3CglCoau94YeWuHukhSIDQIRn0LqYe01A7aP28/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaTNWSnluZmpIc0Zqa2JWOXctbGhxaWRZUVJIOS1rdWNvaW4tc3ltYm9scy1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "latvia-data-gov-packages-scraper",
+      "title": "Latvia Data Gov Packages Scraper",
+      "categories": [
+        "BUSINESS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/latvia-data-gov-packages-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect data.gov.lv records and export id, name, url, description, hash, size as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/MJRIKAH1OhOKxvkra6dxSi5KyGmFRB4JlQkbH34CniM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYmZURm5OQ1JtbU5aRmhZNlMtdDYxZU1aUGVkRS1sYXR2aWEtZGF0YS1nb3YtcGFja2FnZXMtc2NyYXBlci5wbmc.webp"
+    },
+    {
       "name": "latvia-data-gov-scraper",
       "title": "Latvia Data Gov Scraper",
       "categories": [
@@ -7589,6 +7664,21 @@
       "iconUrl": "https://images.apifyusercontent.com/2ZH1ALJ6QZYkZv0WNpvs7m4Fe1wFA4sUDjk4iC-b3QE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTkVhMDM3bUg1UVpFZ3dNMW4tdnNKQm0wVzI0VC1sYXVuY2gtbGlicmFyeS11cGNvbWluZy1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "launchlibrary-agencies-list2-scraper",
+      "title": "Launchlibrary Agencies List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/launchlibrary-agencies-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Launch Library agencies records and export id, name, url, description, type, abbrev as structured JSON, CSV o\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/MyRAOypNI-kRTai1rUL85Q2ZvQRbOgzYzhzWAurW1pk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdkZyaEJyNnJvY3dOU1B3MHctM293UnBVeE1kRi1sYXVuY2hsaWJyYXJ5LWFnZW5jaWVzLWxpc3QyLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "launchlibrary-agencies-scraper",
       "title": "Launchlibrary Agencies Scraper",
       "categories": [
@@ -7632,6 +7722,21 @@
       "storeUrl": "https://apify.com/benthepythondev/launchlibrary-launches-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Launch Library 2 records and export id, pad id, rocket id, status id, mission id, net precision id as structu\u2026",
       "iconUrl": "https://images.apifyusercontent.com/I3wBFCzNJazHtJXJAPQYYqWKXFRmFTQYxqjUHBeH41s/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTEVXTTBjUkppcENqbk5PaGgtYTFtNjZnZDR6bC1sYXVuY2hsaWJyYXJ5LWxhdW5jaGVzLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "launchlibrary-upcoming-list2-scraper",
+      "title": "Launchlibrary Upcoming List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/launchlibrary-upcoming-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Launch Library upcoming records and export id, pad id, rocket id, status id, mission id, net precision id as\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/8YftuV9HuwL7KE1HkyXdPo1jD5Rhg6eF1W8QfBpzfhg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itak1EclY2bkcyUnFidnJueEYtTVlscVBlU0M2dC1sYXVuY2hsaWJyYXJ5LXVwY29taW5nLWxpc3QyLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "launchlibrary-upcoming-scraper",
@@ -7784,6 +7889,21 @@
       "iconUrl": "https://images.apifyusercontent.com/VZkCMhn1muKy8T5veuuIuHpWtSOnlSA7knjMV9o0llc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQm11YWkzbmJBUFJadWluTEotNVVxYVZTSmdmZC1sb2JzdGVycy1ob3R0ZXN0LWpzb24tc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "lobsters-hottest-list2-scraper",
+      "title": "Lobsters Hottest List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/lobsters-hottest-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Lobsters hottest records and export title, url, description, created at, score, tags as structured JSON, CSV\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/IbNTuIzb1fbOWyPi4jojVBMoLJ2fy7PNxgLYZ3Wwwp4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdkZpYml3NThDSEx6S0hvTWEtejBzSURCSUdqaC1sb2JzdGVycy1ob3R0ZXN0LWxpc3QyLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "lobsters-hottest-scraper",
       "title": "Lobsters Hottest Scraper",
       "categories": [
@@ -7812,6 +7932,21 @@
       "storeUrl": "https://apify.com/benthepythondev/lobsters-newest-json-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Lobsters newest records and export title, url, description, created at, score, tags as structured JSON, CSV o\u2026",
       "iconUrl": "https://images.apifyusercontent.com/n4z1JzV8YvR1yZh4_oSgvZymIm5-uISON4aobB_Oevw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdU9lcks3TGQ1NmRnWGRraFotWWZoYnoxQTdzVS1sb2JzdGVycy1uZXdlc3QtanNvbi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "lobsters-newest-list2-scraper",
+      "title": "Lobsters Newest List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/lobsters-newest-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Lobsters newest records and export title, url, description, created at, score, tags as structured JSON, CSV o\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/8X1xW2sSv-QJKv_ZBHsJD33SKsJuQwo7Hj1F1JfEWyc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRnpaZGpoUFZKd1NJQlBuWGEtVFZONFEzZEVDdC1sb2JzdGVycy1uZXdlc3QtbGlzdDItc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "lobsters-newest-scraper",
@@ -8039,6 +8174,21 @@
       "iconUrl": "https://images.apifyusercontent.com/DDRstdSmc2emE8NE-SU5f-p9Qfy0N3ZPc0_EbWMRS3A/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSHJsQXRpYWNBdGFJQzBJZUUtRXRnSTVzR2FIRi1tZW1wb29sLWJpdGNvaW4tYmxvY2tzLXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "mempool-blocks-list2-scraper",
+      "title": "Mempool Blocks List2 Scraper",
+      "categories": [
+        "BUSINESS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/mempool-blocks-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Mempool blocks records and export id, pool id, name, slug, bits, size as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/2nN6j0oZ1WGgaTlaaL8Ro-wJbvP3DA5jCscqSqHyhbE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItalQ5UFA4VzFNTGxiMGVMaEstNnFjUlNnUGtOay1tZW1wb29sLWJsb2Nrcy1saXN0Mi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
       "name": "mempool-blocks-scraper",
       "title": "Mempool Blocks Scraper",
       "categories": [
@@ -8114,6 +8264,21 @@
       "iconUrl": "https://images.apifyusercontent.com/lAAqPh7O_AjJQ3Nw0bOEpv3kpS-j9zOB3eY_yU4ba9A/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaE52WnViMmVRakNjSGE0TWQtRFNoQ0FZaUliRC1tZXQtbm8tbG9jYXRpb25mb3JlY2FzdC1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "met-no-locationforecast-scraper2",
+      "title": "Met No Locationforecast Scraper2 Scraper",
+      "categories": [
+        "OTHER",
+        "DEVELOPER_TOOLS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/met-no-locationforecast-scraper2?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect MET Norway locationforecast records and export time, source, scraped at as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/jRYT462ESvgWB83-bOhE_HWKx3SRH2h2mjZL8lFowx0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWWdaUG01b2hPNEJPUXJsUVktTXNQS1M0ZFY0ei1tZXQtbm8tbG9jYXRpb25mb3JlY2FzdC1zY3JhcGVyMi5wbmc.webp"
+    },
+    {
       "name": "metacpan-modules-scraper",
       "title": "MetaCPAN Modules Scraper - Perl Package Data",
       "categories": [
@@ -8142,6 +8307,51 @@
       "storeUrl": "https://apify.com/benthepythondev/metmuseum-departments-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Met Museum departments records and export displayname, departmentid, source, scraped at as structured JSON, C\u2026",
       "iconUrl": "https://images.apifyusercontent.com/0vtyTu8qy6v_oD31vjiYBqj0pMAJPv4twaJQBaRWMYk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTEZxWWtSUzZkSmhJdVBLSDEtd1Z5N1JYV016ZC1tZXRtdXNldW0tZGVwYXJ0bWVudHMtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "metno-oceanforecast-scraper",
+      "title": "Metno Oceanforecast Scraper",
+      "categories": [
+        "OTHER",
+        "DEVELOPER_TOOLS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/metno-oceanforecast-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect MET Norway oceanforecast records and export time, source, scraped at as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/1aXlcHTZckWZUrxp1fW-lS-QoOu-xxjvaZNr4zNChog/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMUJFMnJSaFR2cGVOYjl0YXEteHJhd3FBVFVJVS1tZXRuby1vY2VhbmZvcmVjYXN0LXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "mexc-exchange-info-scraper",
+      "title": "Mexc Exchange Info Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/mexc-exchange-info-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect MEXC exchangeInfo records and export status, symbol, st, fullname, baseasset, ordertypes as structured JSON,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/iaImSsKuRWzMe1jynX0BRHlAGQV3iKGx0wFhUxNxjFo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItU05mSm5vaW5udWxDUklOR0gteU9hWWxzaFBZUy1tZXhjLWV4Y2hhbmdlLWluZm8tc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "mexc-ticker-24hr-scraper",
+      "title": "Mexc Ticker 24hr Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/mexc-ticker-24hr-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect MEXC 24hr ticker records and export symbol, volume, askqty, bidqty, askprice, bidprice as structured JSON, CS\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/X3QNvjyHspS4hezZbTVyHZ3Gt53dmp7dfHjY-Yh9d0A/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZllLRUM5Yno4c2ZXMEh2eDAtVDZXbVl5YTU4ci1tZXhjLXRpY2tlci0yNGhyLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "mia-artworks-scraper",
@@ -8202,6 +8412,66 @@
       "storeUrl": "https://apify.com/benthepythondev/cwe-weaknesses-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Look up MITRE CWE weaknesses and export identifiers, names, descriptions, status, abstraction and related taxonomy fi\u2026",
       "iconUrl": "https://images.apifyusercontent.com/AhZVt_rxvWRsJEz84xG_oGhksWePiI88okGNzjJrMNQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcmVNV2VMMXBPTEhENG13a0gtcGdzOVhoVHlCYS1jd2Utd2Vha25lc3Nlcy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "mlb-schedule-list2-scraper",
+      "title": "Mlb Schedule List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/mlb-schedule-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect MLB schedule records and export id, name, score, home score, link, istie as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/9P5TriKaBEo-qUzP8JAkwjPxc3CZDhZvLdgZ4ZFMGVg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbDBCNkVJUERwa1RLcGFJYmctUWpJcjlrVUxmdC1tbGItc2NoZWR1bGUtbGlzdDItc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "mlb-schedule-today-scraper",
+      "title": "Mlb Schedule Today Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/mlb-schedule-today-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect MLB schedule records and export id, name, score, home score, link, istie as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/I3kur4ByZLeExjXDZ-qbKAt3UFnoWTInmUR2o6gJ4cU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRUNQZDBTdnhqV1djZFBua28tOFZDcWRycnNXSi1tbGItc2NoZWR1bGUtdG9kYXktc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "mlb-standings-scraper",
+      "title": "Mlb Standings Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/mlb-standings-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect MLB standings records and export type, pct, wins, losses, source, scraped at as structured JSON, CSV or Excel\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/fR6qyFCXt_W5_0jcQMNu6Xl7U9FMwn3_U0lFIHv5-EY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItOGZLVEZUWUZSSDE0cW5hcDEtaHJ0bWRkZHZJOS1tbGItc3RhbmRpbmdzLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "mlb-teams-api-scraper",
+      "title": "Mlb Teams API Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/mlb-teams-api-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect MLB teams records and export id, sport id, venue id, league id, division id, springvenue id as structured JSO\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/6evavaUFB6ev2VkhZdoDfkinzYZqWZL5nn-fiVo2I9Y/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteWVFdzBvSldYQTVCcmFOeW4tc1E4V1VwZXgycy1tbGItdGVhbXMtYXBpLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "monarch-disease-ontology-scraper",
@@ -8322,6 +8592,21 @@
       "storeUrl": "https://apify.com/benthepythondev/nager-date-availablecountries-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Nager.Date available countries records and export name, countrycode, source, scraped at as structured JSON, C\u2026",
       "iconUrl": "https://images.apifyusercontent.com/6foXoXRZHl2XCDbZ1YKigLXb-DZatTPY6aF9B9rp-us/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3lyYkJGWjc3eGQ1cUFndmYtSHhFNVJ3RGgxVC1uYWdlci1kYXRlLWF2YWlsYWJsZWNvdW50cmllcy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "nager-date-countries-scraper",
+      "title": "Nager Date Countries Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/nager-date-countries-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Nager.Date countries records and export name, countrycode, source, scraped at as structured JSON, CSV or Exce\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/94GqSF6wGhbzdQHlaoCFrYAcqpgnhWm6BqMJMeGZ3_I/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTGZ1V0EyZ3F2NFJIODVnY1YtZlJoZ2ZkUWZRcC1uYWdlci1kYXRlLWNvdW50cmllcy1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "nager-date-holidays-scraper",
@@ -12596,6 +12881,21 @@
       "storeUrl": "https://apify.com/benthepythondev/google-maps-email-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape businesses from Google Maps and enrich each with verified contact emails. Pulls name, phone, website, address,\u2026",
       "iconUrl": "https://images.apifyusercontent.com/3l-CPpycVQT4iGyYIikZwd6Io2dqCDnIi_ypbqmLkxI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNE1UeGRIZkdvS1RMRG9UckQtamYwTllHTUlkMC1nb29nbGUtbWFwcy1lbWFpbC1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "homebrew-casks-list2-scraper",
+      "title": "Homebrew Casks List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/homebrew-casks-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Homebrew casks records and export name, url, tahoe url, sonoma url, big sur url, sequoia url as structured JS\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/w7yP49g05NAIsf9SH_IXKZH-cuVeH2rABIONJAucmnE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItT0ZDNThSc0hqVWx6MjQ4OVItMkZRQ1g5SmFhZy1ob21lYnJldy1jYXNrcy1saXN0Mi1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "html-table-extractor",
