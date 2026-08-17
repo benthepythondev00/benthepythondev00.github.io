@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-17T05:48:41Z",
-  "count": 923,
+  "generatedAt": "2026-08-17T07:14:55Z",
+  "count": 943,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -10304,6 +10304,21 @@
       "iconUrl": "https://images.apifyusercontent.com/DDmqtJZY-GQirALTurqk8GpUEZHSZIK_oTGrMBnzpDA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItczFOeENQQU1FYkZnUTJpNTAtaUlCS3FpVnM3Ri1wb2xvbmlleC1tYXJrZXRzLWxpc3Qtc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "poloniex-markets-scraper",
+      "title": "Poloniex Markets Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/poloniex-markets-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Poloniex markets records and export symbol, symboltradelimit symbol, state, displayname, basecurrencyname, vi\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/4vTjiIdM5hZ37-JiZGf2lntZT1rmFMfYJ_w2KDBXeD8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbjJpMWN3Q2tQbnh5RjM2VDktQnRMcmRiVUlSdS1wb2xvbmlleC1tYXJrZXRzLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "porto-open-data-scraper",
       "title": "Porto Open Data Scraper",
       "categories": [
@@ -10688,7 +10703,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 1,
-      "successRate30d": 75.0,
+      "successRate30d": 60.0,
       "storeUrl": "https://apify.com/benthepythondev/remotive-api-jobs-list2-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Remotive API records and export value, source, scraped at as structured JSON, CSV or Excel data.",
       "iconUrl": "https://images.apifyusercontent.com/OX2sqsd67iscPZecKV3IoPdZ2sSRkWpZBwPM6zDPe5Y/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMFdCWkNHVFRqRFRpTU51VEMtdTFEM25LdXFjai1yZW1vdGl2ZS1hcGktam9icy1saXN0Mi1zY3JhcGVyLnBuZw.webp"
@@ -10934,6 +10949,66 @@
       "iconUrl": "https://images.apifyusercontent.com/2SL6AJhGttg03DCGp9YP1faad61H6p0NngyiLhUDNzY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSWpNczZrd3BNRGRpU2ZlMWEtaUw5UXZ0M3k5RC1zY3J5ZmFsbC1jYXJkcy1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "scryfall-catalog-scraper",
+      "title": "Scryfall Catalog Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/scryfall-catalog-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Scryfall creature types records and export value, source, scraped at as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/Y8e-mb3VvwviGY7g-rEdjIHlbYdlLlyZ3EjtkSDify8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRlRlaWhjMlVKekhTN3VZZDctUHBRY0NoTWllaC1zY3J5ZmFsbC1jYXRhbG9nLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "scryfall-sets-list-scraper",
+      "title": "Scryfall Sets List Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/scryfall-sets-list-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Scryfall sets records and export id, name, code, uri, object, digital as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/jvqznRHr46gg91KCVt9SD0mvLOon2jZRXkekhOjrbf8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZmlmVjVGN2ZmVnR3TkZGVUEtek9yNWMyVHFtci1zY3J5ZmFsbC1zZXRzLWxpc3Qtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "scryfall-sets-list2-scraper",
+      "title": "Scryfall Sets List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/scryfall-sets-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Scryfall sets records and export id, name, code, uri, block, object as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/YX9JeoveFUoCeCrUg5BVxNaR8lX2DyIG3OlKw-qSEGQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItOFV4eENjaGJHREowZUFzVlotNmZpcDNmUHpwYS1zY3J5ZmFsbC1zZXRzLWxpc3QyLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "scryfall-sets-scraper",
+      "title": "Scryfall Sets Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/scryfall-sets-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Scryfall sets records and export id, name, code, uri, object, digital as structured JSON, CSV or Excel data.",
+      "iconUrl": "https://images.apifyusercontent.com/WZ9I6kVtltxodR9_xEG9SSxnFWTiR4MqfaQKkEezMNo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdHNJQmJQWW9kaFRwdE5VcHYtMmQ3a09iSVBpRS1zY3J5ZmFsbC1zZXRzLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "seattle-open-data-scraper",
       "title": "Seattle Open Data Scraper",
       "categories": [
@@ -11172,6 +11247,51 @@
       "storeUrl": "https://apify.com/benthepythondev/socrata-dataset-catalog-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search public Socrata datasets and export IDs, names, descriptions, domains, categories, tags, columns, views, licens\u2026",
       "iconUrl": "https://images.apifyusercontent.com/y4JNlkB8yUKOpwqE3O160HAYLjKhdKN6J11waERA9K4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itd3pJWERmNGdwY0lPTnFoa08tVGJNZEdtc2Y0Zi1zb2NyYXRhLWRhdGFzZXQtY2F0YWxvZy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "socrata-london-uk-packages-scraper",
+      "title": "Socrata London UK Packages Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/socrata-london-uk-packages-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect London Datastore CKAN records and export id, organization id, resources id, name, organization name, tags nam\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/pEsIUTwbKF0t6AABAAPL9V0plQaTF2u-MJ0zYNzAp64/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaGRMOEhsZ0FDSm1mbUt5YmMtQWVWUnlxaGkybi1zb2NyYXRhLWxvbmRvbi11ay1wYWNrYWdlcy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "socrata-london-uk-views-scraper",
+      "title": "Socrata London UK Views Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/socrata-london-uk-views-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect London Datastore records and export id, organization id, groups id, resources id, name, organization name as\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/Jj3pCF9dyLpIMcki3mv5Nhq4btT2NX59FKWDgClw9hQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItVDk3VUhZcFZwNFJNT3Z6WUItQm1JajNPczZZSS1zb2NyYXRhLWxvbmRvbi11ay12aWV3cy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "somerville-open-data-scraper",
+      "title": "Somerville Open Data Scraper",
+      "categories": [
+        "BUSINESS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/somerville-open-data-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Somerville Open Data records and export id, owner id, tableauthor id, name, description, type as structured J\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/oEomMpgvVAUqUe7j4Q07PHmkIcQBgEewP6s76av6z7c/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItVm5vblhOUGtpajlUUUx0b1otZ1hJTFhTekdONS1zb21lcnZpbGxlLW9wZW4tZGF0YS1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "sourceforge-software-scraper",
@@ -11728,6 +11848,21 @@
       "iconUrl": "https://images.apifyusercontent.com/v9sD5R-blNXF9MIO-Pp_dpd7Erm_exOgXz1QI_9NiZ8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUjdDb1dlQ2hSN2E3Yjg0NkwtWTZHVDNyMVlCQy10dm1hemUtdHYtc2hvd3Mtc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "tvmaze-schedule-full-scraper",
+      "title": "Tvmaze Schedule Full Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/tvmaze-schedule-full-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect TVmaze full schedule records and export id, show id, name, show name, show name 2, url as structured JSON, CS\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/K-D5GxUbbX1_fKngMjVJG2yPT9-OnzxStzb-bFT5Voo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZVZYdTNmOGR0ZjRPck1LRUQtRzJPMDZNS3Nwdy10dm1hemUtc2NoZWR1bGUtZnVsbC1zY3JhcGVyLnBuZw.webp"
+    },
+    {
       "name": "twitch-channel-scraper",
       "title": "Twitch Channel Scraper - Followers and Live Data",
       "categories": [
@@ -11953,6 +12088,81 @@
       "iconUrl": "https://images.apifyusercontent.com/CQDGwp-tNWa3x7c05ryScDvLsRXO194_iuWkFGREFvE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItU1BQM0JtbGQ1cmtnV2xlSHotN29SRmZvczJLSy11bmlwcm90LXByb3RlaW5zLXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "uniprot-search-list2-scraper",
+      "title": "Uniprot Search List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/uniprot-search-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect UniProt search records and export id, value, database, key, source, scraped at as structured JSON, CSV or Exc\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/c-J_YpJJlnVOTT64Xz5yimLTa4_r4jftMofUmMlBQpg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMFdXa09kc3FnTUJEZGd5R0QtRHc0TndmVzRqTi11bmlwcm90LXNlYXJjaC1saXN0Mi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "uniprot-search-scraper",
+      "title": "Uniprot Search Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/uniprot-search-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect UniProt search records and export id, value, database, key, source, scraped at as structured JSON, CSV or Exc\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/tDH--vAB-o4Brj01QvEwXN9T-rta56yJBN4xfvF7mtU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNTFadDZobTJjazVocUxWQmEtc0dzR3lsVFp1Ti11bmlwcm90LXNlYXJjaC1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "universities-hipolabs-list2-scraper",
+      "title": "Universities Hipolabs List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/universities-hipolabs-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Universities Hipolabs records and export name, country, domains, web pages, alpha two code, state province as\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/fD8O1J-AmgLSnXVtH1xAa26sRz4WjZ8iW4zvcKQvA3o/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTW9naGZyMWE0bXNTdnVjRngtY0VVTlMySHd2Sy11bml2ZXJzaXRpZXMtaGlwb2xhYnMtbGlzdDItc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "universities-hipolabs-scraper",
+      "title": "Universities Hipolabs Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/universities-hipolabs-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Hipolabs universities records and export name, country, domains, web pages, alpha two code, source as structu\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/_mcooGKVneznbBkVgxo3gaKQDqoB75nVJ9-8F58c13Y/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUUtvanphdExmcEhnN3RkSDYtdTQ1ajhvMHA4Ui11bml2ZXJzaXRpZXMtaGlwb2xhYnMtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "universities-hipolabs-search-scraper",
+      "title": "Universities Hipolabs Search Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/universities-hipolabs-search-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Universities Hipolabs records and export name, country, domains, web pages, alpha two code, source as structu\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/OXiqtaEAniN8ho4gRwmuTRQ3XwD7vbKaLln9FOXOQG0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdHFkQTBrVjJoZlh1UDFjYUYtd2NnS0hLTGVuSC11bml2ZXJzaXRpZXMtaGlwb2xhYnMtc2VhcmNoLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "unsplash-image-search-scraper",
       "title": "Unsplash Image Search Scraper - Photos and Creators",
       "categories": [
@@ -11996,6 +12206,81 @@
       "storeUrl": "https://apify.com/benthepythondev/username-availability-checker?utm_source=catalog&utm_medium=site",
       "oneLiner": "Check username availability across GitHub, GitLab, Reddit, YouTube and Twitch. Export status, profile URL and availab\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
+    },
+    {
+      "name": "usgs-quakes-day-all-scraper",
+      "title": "Usgs Quakes Day All Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/usgs-quakes-day-all-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect USGS quakes past day records and export id, title, url, status, type, geometry type as structured JSON, CSV o\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/eAZmwgPSDjxs4XbB3DXtNdrOfdqOo0YEmoqNad6RBek/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYjNFNEx6Z1JPeGdoTkd2WVEtb2RtT0NhS3ZmTy11c2dzLXF1YWtlcy1kYXktYWxsLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "usgs-quakes-day-list2-scraper",
+      "title": "Usgs Quakes Day List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/usgs-quakes-day-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect USGS quakes day records and export id, title, url, status, type, geometry type as structured JSON, CSV or Exc\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/uaHjbdjOehyLpadQblpe2HjrK2IBN8XzJ0b3yAug9g4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRnhpWkxHUlkydjU5TTJGMlotakUyOVUxNGhHeC11c2dzLXF1YWtlcy1kYXktbGlzdDItc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "usgs-quakes-hour-list2-scraper",
+      "title": "Usgs Quakes Hour List2 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/usgs-quakes-hour-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect USGS quakes hour records and export id, title, url, status, type, geometry type as structured JSON, CSV or Ex\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/hCK6fw0wATskWi3yfjSGhtAOTEZJllY2DM_znOyUK74/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYngxOFk1eUdNeEY2NUdURzUtZUJGTUlFaks3eS11c2dzLXF1YWtlcy1ob3VyLWxpc3QyLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "usgs-quakes-hour-scraper",
+      "title": "Usgs Quakes Hour Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/usgs-quakes-hour-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect USGS quakes past hour records and export id, title, url, status, type, geometry type as structured JSON, CSV\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/f8S3Ru_5DwG7qo4opPxm8y8WfALq75ky4iQtRcBDHdc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteTR4VU4wMjJFQ2hSdjJSZUQtaVlWcGRoVEx1OC11c2dzLXF1YWtlcy1ob3VyLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "usgs-quakes-week-m25-scraper",
+      "title": "Usgs Quakes Week M25 Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/usgs-quakes-week-m25-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect USGS M2.5+ week records and export id, title, url, status, type, geometry type as structured JSON, CSV or Exc\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/Nl8UCygD9FtZbBic3ItQaftVYzv_M0K7tWKaoEIm8gE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUXFOZXc2bkdLWnREdU5HdXEtTkVVQkNUdVJxUS11c2dzLXF1YWtlcy13ZWVrLW0yNS1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "usgs-sciencebase-scraper",
@@ -12371,6 +12656,21 @@
       "storeUrl": "https://apify.com/benthepythondev/wikipedia-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search Wikipedia by keyword (or look up exact titles) for structured article data: title, short description, intro ex\u2026",
       "iconUrl": "https://images.apifyusercontent.com/RVis_fvafX_jwnfs96_WRhk82TpbtQ5Hx2Q1k9XjxNo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itc1pYV1gyNldkSmI0Y2c5blEtSnVPTVhsZE9QOS13aWtpcGVkaWEtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "winget-pkgs-scraper",
+      "title": "Winget Pkgs Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/winget-pkgs-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect WinGet manifests search records and export name, url, type, sha, path, size as structured JSON, CSV or Excel\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/oFCP2FoWBdyG-YUB32Ke17NVPXh0rzGbC2gJ8KfqbEk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbUlGTGdmZ0I1cWNleE9haVotWkM3MUE0Y0RKai13aW5nZXQtcGtncy1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "winnipeg-open-data-scraper",
