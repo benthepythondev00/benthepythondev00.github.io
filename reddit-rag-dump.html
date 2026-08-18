@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reddit RAG dump — 90 days of r/X, posts + comments</title>
+  <meta name="description" content="Packaged historical Reddit dump for RAG: 90 days of r/X, posts and comments, past the 1,000-post cap. Sample $250 on your subreddit, then a fixed quote. No 4TB torrent." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/reddit-rag-dump.html" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/reddit-rag-dump.html" />
+  <meta property="og:title" content="Reddit RAG dump — 90 days of r/X, posts + comments" />
+  <meta property="og:description" content="Past the official 1,000-post cap. Sample $250 on your filters, then JSON/CSV/JSONL. Same Actor as the Apify listing." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Reddit RAG dump — 90 days of r/X, posts + comments" />
+  <meta name="twitter:description" content="Packaged historical Reddit dump for RAG. Sample $250, then a fixed quote." />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:760px; margin:0 auto; padding:28px 18px 64px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.75rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    .sub { color:var(--muted); line-height:1.55; }
+    .hero-cta { display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 8px; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.95rem; }
+    .btn-primary { background:var(--accent); color:#061018; }
+    .btn-ghost { border:1px solid var(--line); color:var(--ink); }
+    table { width:100%; border-collapse:collapse; margin:12px 0 8px; font-size:.95rem; }
+    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-weight:600; }
+    td:last-child, th:last-child { text-align:right; white-space:nowrap; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin:14px 0; }
+    .note { color:var(--muted); font-size:.9rem; line-height:1.45; }
+    ul, ol { color:var(--ink); line-height:1.55; }
+    code { font-size:.9em; }
+    details { border-bottom:1px solid var(--line); padding:10px 0; }
+    details summary { cursor:pointer; font-weight:600; }
+    details p { color:var(--muted); margin:8px 0 0; line-height:1.5; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Reddit RAG dump — 90 days of r/X, posts + comments",
+        "url": "https://benthepythondev00.github.io/reddit-rag-dump.html",
+        "description": "Packaged historical Reddit dump for RAG past the 1,000-post cap. Sample $250, then a fixed quote."
+      },
+      {
+        "@type": "Service",
+        "name": "Reddit RAG dump",
+        "provider": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+        "areaServed": "Worldwide",
+        "offers": [
+          { "@type": "Offer", "name": "Sample", "price": "250", "priceCurrency": "USD", "description": "1 subreddit, 90 days, posts + comments, up to 5,000 rows" },
+          { "@type": "Offer", "name": "Dump", "price": "2000", "priceCurrency": "USD", "description": "1–3 subreddits, named window, up to 250k rows" },
+          { "@type": "Offer", "name": "Fat dump", "price": "5000", "priceCurrency": "USD", "description": "Large window or multi-sub, up to 1M rows" },
+          { "@type": "Offer", "name": "Refresh", "price": "400", "priceCurrency": "USD", "description": "Weekly or monthly rerun of the same filters" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why not download Academic Torrents or Arctic Shift myself?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Those dumps are terabytes of compressed monthly files. You still have to pick subreddits, parse zst, join comments to posts, and cut a date window. The packaged dump is that work already done for named communities." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this a Pushshift replacement?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Public Pushshift is gone. This Actor reads the public PullPush and Arctic Shift archives and fails over when one is down. Coverage and freshness follow those archives. I do not claim a complete firehose or deleted-content vault." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I just run the Apify Actor myself?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Store PPE is $2.40 per 1,000 results on Gold. Use that for small or recurring pulls. The dump is for a 50k–1M row backfill you do not want to babysit." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you scrape usernames or search comment bodies?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. This SKU is RAG-only: named subreddits, a date window, posts and comments. No user-history scrape and no comment-body full-text search." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="./custom.html">All dump and feed prices</a> · <a href="https://apify.com/benthepythondev/reddit-archive-scraper">Apify Actor</a></p>
+    <h1>Reddit RAG dump: 90 days of r/X, posts + comments</h1>
+    <p class="sub">Past the official ~1,000-post cap. I run a sample on your subreddit and window, then deliver JSON, CSV, or JSONL. You do not download a multi-terabyte torrent or keep an archive API alive.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="mailto:benthepythondev0@gmail.com?subject=Reddit%20RAG%20dump%20quote&amp;body=Subreddit(s)%3A%0ADate%20window%20(e.g.%2090%20days%20or%202025)%3A%0AComments%20on%2Foff%3A%0ADelivery%20(JSON%2FCSV%2FJSONL%2FSheet)%3A%0AWhat%20you%20are%20building%20(RAG%20%2F%20research)%3A">Email a dump quote</a>
+      <a class="btn btn-ghost" href="https://apify.com/benthepythondev/reddit-archive-scraper/examples/archive-historical-python-posts">Run the r/Python sample</a>
+    </div>
+    <p class="note">Inbound only. I do not cold-email Store users. New buyers start here or on the Actor page.</p>
+
+    <h2>Who this is for</h2>
+    <p class="sub">People building a retrieval corpus who need what a subreddit said over months, not what is on the front page this morning. Typical job: last 90 days of r/MachineLearning plus comments, chunked for a vector store. Live scrapers stop at Reddit’s listing cap. Academic Torrents still leaves you with a warehouse of <code>.zst</code> files.</p>
+
+    <h2>What you get</h2>
+    <table>
+      <thead><tr><th>Package</th><th>Scope</th><th>Price</th></tr></thead>
+      <tbody>
+        <tr><td>Sample</td><td>1 subreddit, 90 days, posts + comments, up to 5,000 rows</td><td>$250 (credited if you take a dump)</td></tr>
+        <tr><td>Dump</td><td>1–3 subreddits, named window, up to 250k rows, one delivery</td><td>$2,000–$4,000</td></tr>
+        <tr><td>Fat dump</td><td>Large window or multi-sub pack, up to 1M rows</td><td>$5,000–$8,000</td></tr>
+        <tr><td>Refresh</td><td>Same filters, weekly or monthly, same sink</td><td>$400–$900 / mo</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Row caps are delivery caps, not a promise the archive holds that many items. Thin windows still bill the booked package. You pay Apify usage on your account unless the quote bundles a cap. Store PPE stays $2.40/1k Gold.</p>
+
+    <div class="card">
+      <p><strong>Fields that actually land in a RAG pack</strong></p>
+      <ul>
+        <li>Posts: <code>title</code>, <code>selftext</code>, <code>permalink</code>, <code>created_iso</code>, <code>score</code>, <code>subreddit</code>, <code>author</code></li>
+        <li>Comments (optional): <code>body</code>, <code>post_id</code>, <code>parent_id</code>, same timestamps</li>
+        <li>Every row has <code>type</code> = <code>post</code> or <code>comment</code></li>
+      </ul>
+      <p class="note">Not in this SKU: user-history scrape, comment-body full-text search, deleted-content recovery, or legal cover for how you use the text.</p>
+    </div>
+
+    <h2>Dump vs torrent vs running the Actor</h2>
+    <table>
+      <thead><tr><th>Path</th><th>Use it when</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://apify.com/benthepythondev/reddit-archive-scraper">Store Actor</a></td><td>You want a small or weekly pull and will start the run yourself</td></tr>
+        <tr><td>This dump</td><td>You want 50k–1M rows delivered once, with a sample first</td></tr>
+        <tr><td>Arctic Shift / Academic Torrents</td><td>You already have disk, DuckDB, and time to parse monthly dumps</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Proof already on file</h2>
+    <ul>
+      <li>Cloud run <code>gJAFTYmczF0JICN6B</code>: 119 items (25 posts + 94 comments) in ~38s</li>
+      <li>Public 30d on 18 Aug 2026: 1,633 succeeded / 1,635 total, 0 failed (2 aborted)</li>
+      <li>Example Task: <a href="https://apify.com/benthepythondev/reddit-archive-scraper/examples/archive-historical-python-posts">90-day r/Python RAG pack</a></li>
+    </ul>
+    <p class="note">A paid dump still starts with a new sample on <em>your</em> subreddit. That proof run is not your corpus.</p>
+
+    <h2>How to order</h2>
+    <ol>
+      <li>Email the subreddit(s), window, comments on/off, and delivery format.</li>
+      <li>I run a sample (or you run the public Task) and we confirm fields.</li>
+      <li>You pay the booked package. I deliver once to the sink you named.</li>
+    </ol>
+    <p class="sub">Jobs, rentals, and Maps feeds live on the <a href="./custom.html">quote hub</a> if Reddit is the wrong source.</p>
+
+    <h2>Questions</h2>
+    <details>
+      <summary>Why not download Academic Torrents or Arctic Shift myself?</summary>
+      <p>Those archives are terabytes of compressed monthly files. You still pick subreddits, parse zst, join comments to posts, and cut a date window. The dump is that work already done for named communities.</p>
+    </details>
+    <details>
+      <summary>Is this a Pushshift replacement?</summary>
+      <p>No. Public Pushshift is gone. The Actor reads PullPush and Arctic Shift and fails over when one is down. Coverage follows those archives. I do not sell a complete firehose or a deleted-content vault.</p>
+    </details>
+    <details>
+      <summary>Can I just run the Apify Actor myself?</summary>
+      <p>Yes. Store PPE is $2.40 per 1,000 results on Gold. Use that for small or recurring pulls. The dump is for a 50k–1M row backfill you do not want to babysit.</p>
+    </details>
+    <details>
+      <summary>Do you scrape usernames or search comment bodies?</summary>
+      <p>No. RAG-only: named subreddits, a date window, posts and comments. No user-history scrape and no comment-body full-text search.</p>
+    </details>
+    <p class="note" style="margin-top:28px">benthepythondev · <a href="mailto:benthepythondev0@gmail.com">benthepythondev0@gmail.com</a> · Actor bugs stay on the <a href="https://apify.com/benthepythondev/reddit-archive-scraper/issues">Issues tab</a>.</p>
+  </div>
+</body>
+</html>
