@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-18T10:45:09Z",
-  "count": 941,
+  "generatedAt": "2026-08-18T11:38:46Z",
+  "count": 943,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -158,7 +158,7 @@
       ],
       "chip": "Lead gen",
       "users30d": 13,
-      "successRate30d": 95.4,
+      "successRate30d": 95.43,
       "storeUrl": "https://apify.com/benthepythondev/google-maps-business-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract 200M+ businesses from Google Maps with AI lead scoring (0-100). Get contact info, ratings, reviews, photos fo\u2026",
       "iconUrl": "https://images.apifyusercontent.com/WxAYK1MeeLskeiN6lLLgTdolrDZpJqN7CEDZiFQ3kSk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdVU4eWJoMGRndkk2OFEzbzItTU5IbXBKZmhVdC1DaGF0R1BUX0ltYWdlX05vdl8xNF9fMjAyNV9hdF8xMl8yMF81NF9QTS5wbmc.webp"
@@ -668,7 +668,7 @@
       ],
       "chip": "Real estate & rentals",
       "users30d": 3,
-      "successRate30d": 89.36,
+      "successRate30d": 89.58,
       "storeUrl": "https://apify.com/benthepythondev/hotpads-rental-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract rental listings from Hotpads.com. Scrape apartments, houses, condos with pricing, beds/baths, photos, and ame\u2026",
       "iconUrl": "https://images.apifyusercontent.com/V65yNTCLUWqx1FQUxkRla7B56IX0ZUYBppxjmBqsN2Y/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteVlVa2xqQlYzdW9jaWZLSjYtMGk5Qk5TUmFVdS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3lpeTRyZ3lpeTRyZ3lpeTQuanBlZw.webp"
@@ -2978,7 +2978,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 96.15,
+      "successRate30d": 96.3,
       "storeUrl": "https://apify.com/benthepythondev/chile-open-data-catalog-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect datos.gob.cl records and export id, organization id, tags id, groups id, resources id, name as structured JSO\u2026",
       "iconUrl": "https://images.apifyusercontent.com/G-MqLmVIYhI8fnLL8HKjIybf9YjPNL0hl_AN74-mq6s/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itdkd6VHFlMVRnQlJvV2RQTFYtUnhlZUtyMVdXZy1jaGlsZS1vcGVuLWRhdGEtY2F0YWxvZy1zY3JhcGVyLnBuZw.webp"
@@ -10274,6 +10274,21 @@
       "iconUrl": "https://images.apifyusercontent.com/U2lBfUJOwLPOoVctp9DfFDOufb4VDtHiz1Pu01f1PGs/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjlHYjlHRTdNTlo2QXo2T3QtaFc3SUc1SDF2dS1wb2xvbmlleC1tYXJrZXRzLWFwaS1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "poloniex-markets-list-scraper",
+      "title": "Poloniex Markets List Scraper",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/poloniex-markets-list-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect Poloniex markets records and export symbol, symboltradelimit symbol, state, displayname, basecurrencyname, vi\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/DDmqtJZY-GQirALTurqk8GpUEZHSZIK_oTGrMBnzpDA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItczFOeENQQU1FYkZnUTJpNTAtaUlCS3FpVnM3Ri1wb2xvbmlleC1tYXJrZXRzLWxpc3Qtc2NyYXBlci5wbmc.webp"
+    },
+    {
       "name": "poloniex-markets-scraper",
       "title": "Poloniex Markets Scraper",
       "categories": [
@@ -10343,7 +10358,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 1,
-      "successRate30d": 88.24,
+      "successRate30d": 88.89,
       "storeUrl": "https://apify.com/benthepythondev/potterdb-characters-list-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Potter DB records and export id, name, type, slug, self, born as structured JSON, CSV or Excel data.",
       "iconUrl": "https://images.apifyusercontent.com/h6oD1jaJd2fLN38mGDf8i2A0g6KZBtpUjXM7NuhCyPQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteTlLdmF1RDc0d05YNEI0SUEtZjBQUkFabml0US1wb3R0ZXJkYi1jaGFyYWN0ZXJzLWxpc3Qtc2NyYXBlci5wbmc.webp"
@@ -12490,6 +12505,21 @@
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/webpage-text-extractor?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract clean readable text, titles and word counts from web pages.",
+      "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
+    },
+    {
+      "name": "website-status-checker",
+      "title": "Website Status Checker - Uptime URL Monitor",
+      "categories": [
+        "AUTOMATION",
+        "SEO_TOOLS",
+        "BUSINESS"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/website-status-checker?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Check website status, final URL, response time, redirects, content type, page title and basic availability for lists\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
