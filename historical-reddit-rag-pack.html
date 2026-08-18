@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get a historical Reddit RAG pack after Pushshift (without a 4TB torrent)</title>
+  <meta name="description" content="Public Pushshift is gone. Here is how to build a 90-day Reddit RAG pack past the 1,000-post cap without downloading a multi-terabyte torrent." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/historical-reddit-rag-pack.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/historical-reddit-rag-pack.html" />
+  <meta property="og:title" content="How to get a historical Reddit RAG pack after Pushshift" />
+  <meta property="og:description" content="90 days of r/X, posts + comments, past the 1,000-post cap. No 4TB torrent." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get a historical Reddit RAG pack after Pushshift (without a 4TB torrent)",
+    "datePublished": "2026-08-18",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/historical-reddit-rag-pack.html",
+    "description": "Public Pushshift is gone. Build a 90-day Reddit RAG pack past the 1,000-post cap without a multi-terabyte torrent."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="./reddit-rag-dump.html">Reddit RAG dump</a> · <a href="https://apify.com/benthepythondev/reddit-archive-scraper">Actor</a></p>
+    <h1>How to get a historical Reddit RAG pack after Pushshift (without a 4TB torrent)</h1>
+    <p class="note">18 Aug 2026 · benthepythondev</p>
+
+    <p>Public Pushshift is gone. The official Reddit listing APIs still stop around a thousand posts, which on a busy subreddit is a few weeks. The leftover options in 2026 are a volunteer API that blinks, a multi-terabyte torrent, or a small structured pull you can actually embed.</p>
+    <p>I run the third one.</p>
+
+    <h2>The job</h2>
+    <p>A retrieval system needs what r/X <em>said</em>, not what is hot this morning. For most packs that means:</p>
+    <ul>
+      <li>one or two subreddits</li>
+      <li>a date window (90 days is the default that fits a weekly refresh)</li>
+      <li>posts <strong>and</strong> comments</li>
+      <li><code>title</code> / <code>selftext</code> / <code>body</code> / <code>permalink</code> / <code>created_iso</code></li>
+      <li>a <code>type</code> field so you can split posts from comments</li>
+    </ul>
+    <p>You do not need every comment Reddit ever stored. You need a window you can re-run.</p>
+
+    <h2>What I do not recommend first</h2>
+    <p>Academic Torrents and Arctic Shift monthly files are the right tool if you already have disk and a DuckDB habit. Watchful1’s dump is measured in terabytes. That is a warehouse project, not a RAG pack.</p>
+    <p>PullPush still speaks a Pushshift-shaped API. It also rate-limits and goes down. Fine behind a failover. Bad as the only pipe you sell to yourself.</p>
+    <p>Live Store scrapers are for monitoring. They see what a visitor sees today. They do not walk years of archive.</p>
+
+    <h2>The pack I actually ship</h2>
+    <p>Actor: <a href="https://apify.com/benthepythondev/reddit-archive-scraper">Reddit Archive Scraper — Historical Posts for RAG</a></p>
+    <p>It pages PullPush and Arctic Shift, fails over when one archive is sick, and writes one row per post or comment. Public example: <a href="https://apify.com/benthepythondev/reddit-archive-scraper/examples/archive-historical-python-posts">90-day r/Python RAG pack</a>.</p>
+    <p>Cloud proof already on that listing: run <code>gJAFTYmczF0JICN6B</code>, 119 items (25 posts + 94 comments) in about 38 seconds. That is a staging pack, not a backfill.</p>
+    <p>Store price stays $2.40 per 1,000 results on Gold. Use that if you will start the run. If you want 50k–1M rows delivered once, the packaged dump is on <a href="./reddit-rag-dump.html">the Reddit RAG dump page</a>: sample $250 (credited), then a fixed quote.</p>
+    <p>
+      <a class="btn" href="./reddit-rag-dump.html">Dump prices</a>
+      <a class="btn btn-ghost" href="https://apify.com/benthepythondev/reddit-archive-scraper/examples/archive-historical-python-posts">Run the r/Python sample</a>
+    </p>
+
+    <h2>A tight first input</h2>
+    <pre><code>{
+  "subreddits": ["MachineLearning"],
+  "afterDate": "2026-05-20",
+  "maxPosts": 25,
+  "includeComments": true,
+  "maxCommentsPerPost": 20
+}</code></pre>
+    <p>Keep <code>maxPosts</code> small until the keyword and fields look right. Comments multiply the bill; leave them off if you only need thread titles and bodies.</p>
+
+    <h2>What this is not</h2>
+    <p>It is not a Pushshift clone. It is not user-history search. It is not comment-body full-text search across all of Reddit. Coverage follows the public archives. If a month is missing upstream, it is missing in the pack.</p>
+    <p>Use it for research and retrieval corpora. Do not use it to harass people.</p>
+
+    <h2>Try it</h2>
+    <ol>
+      <li>Run the r/Python example Task.</li>
+      <li>If the fields fit, either schedule the Actor or send the subreddit + window from the dump page.</li>
+      <li>I will not email you first.</li>
+    </ol>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
