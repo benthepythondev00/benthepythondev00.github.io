@@ -3,91 +3,175 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quoted Reddit dumps and scheduled data feeds</title>
-  <meta name="description" content="Fixed-price Reddit RAG dumps plus scheduled jobs, rentals, and Maps feeds on the same Apify Actors. Sample first, then a quote. Inbound only." />
+  <title>Managed real estate, hiring and local business data feeds</title>
+  <meta name="description" content="Live-tested managed data feeds for property listings, hiring signals, and local business research. Start with a source-specific sample and fixed-scope pilot." />
   <link rel="canonical" href="https://benthepythondev00.github.io/custom.html" />
   <meta name="robots" content="index,follow" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://benthepythondev00.github.io/custom.html" />
-  <meta property="og:title" content="Quoted Reddit dumps and scheduled data feeds" />
-  <meta property="og:description" content="Reddit RAG dump from $250. Jobs, rentals, and Maps feeds after a live sample. Same Actors as the Store." />
+  <meta property="og:title" content="Managed data feeds built on proven Apify Actors" />
+  <meta property="og:description" content="Property monitoring, hiring signals, and local business research with source testing, scheduled delivery, and clear operating costs." />
   <style>
-    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
-    .wrap { max-width:760px; margin:0 auto; padding:28px 18px 64px; }
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; --good:#79d49b; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:1040px; margin:0 auto; padding:28px 18px 64px; }
     a { color:var(--accent); }
-    h1 { font-size:1.7rem; margin:0 0 8px; }
-    h2 { font-size:1.15rem; margin:28px 0 10px; }
-    .sub { color:var(--muted); line-height:1.5; }
-    .hero-cta { display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 8px; }
-    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.95rem; }
+    h1 { max-width:820px; font-size:clamp(1.85rem,4vw,2.7rem); line-height:1.08; margin:12px 0; letter-spacing:-.025em; }
+    h2 { font-size:1.35rem; margin:34px 0 12px; }
+    h3 { font-size:1.12rem; margin:0; }
+    p { line-height:1.55; }
+    .sub { color:var(--muted); max-width:74ch; }
+    .eyebrow { color:var(--good); font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .hero-cta,.card-cta { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 8px; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:650; font-size:.93rem; }
     .btn-primary { background:var(--accent); color:#061018; }
     .btn-ghost { border:1px solid var(--line); color:var(--ink); }
-    table { width:100%; border-collapse:collapse; margin:12px 0 8px; font-size:.95rem; }
-    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+    .proof-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:24px 0 6px; }
+    .proof { border:1px solid var(--line); border-radius:12px; padding:12px; background:#0e1626; }
+    .proof strong { display:block; font-size:.95rem; margin-bottom:4px; }
+    .proof span { color:var(--muted); font-size:.84rem; line-height:1.4; }
+    .offer-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; align-items:stretch; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; }
+    .card p { color:var(--muted); font-size:.92rem; }
+    .card ul { margin:8px 0 10px; padding-left:19px; line-height:1.5; font-size:.9rem; }
+    .price { border-top:1px solid var(--line); margin-top:auto; padding-top:13px; }
+    .price strong { font-size:1.05rem; }
+    .price span { display:block; color:var(--muted); font-size:.82rem; margin-top:3px; }
+    .card-cta { margin-top:13px; }
+    .card-cta .btn { width:100%; text-align:center; }
+    table { width:100%; border-collapse:collapse; margin:12px 0 8px; font-size:.93rem; }
+    th,td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
     th { color:var(--muted); font-weight:600; }
-    td:last-child, th:last-child { text-align:right; white-space:nowrap; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin:14px 0; }
-    .note { color:var(--muted); font-size:.9rem; line-height:1.45; }
-    ul { color:var(--ink); line-height:1.5; }
+    td:last-child,th:last-child { text-align:right; white-space:nowrap; }
+    .panel { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin:14px 0; }
+    .note { color:var(--muted); font-size:.88rem; line-height:1.5; }
+    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; counter-reset:steps; padding:0; }
+    .steps li { list-style:none; background:#0e1626; border:1px solid var(--line); border-radius:12px; padding:12px; color:var(--muted); font-size:.88rem; line-height:1.45; }
+    .steps li::before { counter-increment:steps; content:counter(steps); display:block; width:24px; height:24px; line-height:24px; text-align:center; border-radius:50%; background:var(--accent); color:#061018; font-weight:700; margin-bottom:8px; }
     code { font-size:.9em; }
+    @media (max-width:820px) { .offer-grid,.proof-strip { grid-template-columns:1fr; } .steps { grid-template-columns:1fr 1fr; } }
+    @media (max-width:520px) { .steps { grid-template-columns:1fr; } td:last-child,th:last-child { white-space:normal; } }
   </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Quoted Reddit dumps and scheduled data feeds",
+    "name": "Managed real estate, hiring and local business data feeds",
     "url": "https://benthepythondev00.github.io/custom.html",
-    "isPartOf": { "@type": "WebSite", "url": "https://benthepythondev00.github.io/" }
+    "isPartOf": { "@type": "WebSite", "url": "https://benthepythondev00.github.io/" },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "Service", "name": "Real estate market monitoring feed" },
+        { "@type": "Service", "name": "Hiring signal and job intelligence feed" },
+        { "@type": "Service", "name": "Local business research feed" }
+      ]
+    }
   }
   </script>
 </head>
 <body>
-  <div class="wrap">
-    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev">Apify profile</a></p>
-    <h1>Quoted dumps and scheduled feeds</h1>
-    <p class="sub">Same Actors already on Store. I run a sample on your filters, then quote a packaged delivery. You pay Apify usage on your account unless the quote bundles a cap. New buyers only — this page is the inbound door, not a list I email.</p>
+  <main class="wrap">
+    <p class="note"><a href="./">← Actor catalog</a> · <a href="https://apify.com/benthepythondev">Apify profile</a> · <a href="./reddit-rag-dump.html">Reddit RAG dumps</a></p>
+    <p class="eyebrow">Managed data feeds</p>
+    <h1>Stop checking listings and job boards by hand.</h1>
+    <p class="sub">A Store Actor handles self-serve exports. A managed feed adds source setup, a schedule, stable IDs, change detection, delivery, and maintenance. Every engagement starts with a live sample from your exact source and filters. If the required fields do not return, I do not quote the monthly service.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="./reddit-rag-dump.html">Reddit RAG dump</a>
-      <a class="btn btn-ghost" href="mailto:benthepythondev0@gmail.com?subject=Dump%20or%20feed%20quote&amp;body=What%20I%20need%20(dump%20or%20feed)%3A%0ASource%20%2F%20subreddit%20%2F%20city%3A%0ADate%20window%20or%20refresh%3A%0AFields%3A%0ADelivery%20(JSON%2FCSV%2FSheet%2Fwebhook)%3A">Email a quote request</a>
+      <a class="btn btn-primary" href="mailto:benthepythondev0@gmail.com?subject=Managed%20data%20feed%20pilot&amp;body=Feed%20type%20(real%20estate%2C%20hiring%2C%20or%20local%20business)%3A%0ASource%20sites%20or%20company%20list%3A%0ARegions%20and%20filters%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0AExpected%20monthly%20rows%3A%0ADelivery%20(JSON%2FCSV%2FSheet%2Fwebhook%2FS3)%3A%0AIntended%20use%3A">Request a source test</a>
+      <a class="btn btn-ghost" href="#feeds">Compare feed pilots</a>
+      <a class="btn btn-ghost" href="./reddit-rag-dump.html">Reddit dump pricing</a>
     </div>
 
-    <h2>Reddit RAG dump</h2>
-    <p class="sub">Last three months of r/X (or a named year), posts and comments, past the ~1,000-post cap. RAG-only: no username history, no comment-body search. Full write-up and FAQ on the <a href="./reddit-rag-dump.html">Reddit RAG dump page</a>.</p>
-    <table>
-      <thead><tr><th>Package</th><th>Scope</th><th>Price</th></tr></thead>
-      <tbody>
-        <tr><td>Sample</td><td>1 subreddit, 90 days, posts + comments, up to 5,000 rows</td><td>$250 (credited if you take a dump)</td></tr>
-        <tr><td>Dump</td><td>1–3 subreddits, named window, up to 250k rows, one delivery</td><td>$2,000–$4,000</td></tr>
-        <tr><td>Fat dump</td><td>Large window / multi-sub, up to 1M rows</td><td>$5,000–$8,000</td></tr>
-        <tr><td>Refresh</td><td>Same filters, weekly or monthly, same sink</td><td>$400–$900 / mo</td></tr>
-      </tbody>
-    </table>
-    <p class="note">Store PPE stays $2.40/1k Gold. A dump is for the buyer who does not want to page 50k–1M rows themselves. Proof on file: cloud run <code>gJAFTYmczF0JICN6B</code>, 119 items in ~38s. I run a new sample on your subreddit before any invoice.</p>
+    <div class="proof-strip" aria-label="Recent live proof">
+      <div class="proof"><strong>Property listings</strong><span>Craigslist Real Estate cloud test: 3 San Francisco listings, build 1.0.16, no empty-output claim.</span></div>
+      <div class="proof"><strong>Only-new job monitoring</strong><span>Public six-board Task: 6 new roles in 4.1 seconds. An identical monitor run returned zero duplicates.</span></div>
+      <div class="proof"><strong>Public business contacts</strong><span>Berlin Maps proof: 8 unique places, 8 clean place IDs, with website-sourced email and phone fields.</span></div>
+    </div>
 
-    <h2>Scheduled feeds</h2>
-    <div class="card">
+    <h2 id="feeds">Choose the feed you need</h2>
+    <section class="offer-grid" aria-label="Managed feed offers">
+      <article class="card" id="real-estate-feed">
+        <p class="eyebrow">Listings and price changes</p>
+        <h3>Real estate monitoring feed</h3>
+        <p>For agencies, investors, relocation teams, and property managers tracking a defined market.</p>
+        <ul>
+          <li>Stable listing ID and source URL</li>
+          <li>Price, property facts, agent fields when public</li>
+          <li>First-seen, last-seen, and change events</li>
+          <li>Daily delivery by default</li>
+        </ul>
+        <p class="note">Pilot: one proven source, one market/filter, up to 5,000 delivered rows per month. Residential proxies or unblockers are quoted separately.</p>
+        <div class="price"><strong>$750 setup + $350/month</strong><span>Growth: $1,750 setup + $950/month for up to three proven sources.</span></div>
+        <div class="card-cta"><a class="btn btn-primary" href="mailto:benthepythondev0@gmail.com?subject=Real%20estate%20monitoring%20pilot&amp;body=Portal%20or%20source%3A%0ACity%20%2F%20region%3A%0ARent%2C%20sale%2C%20or%20both%3A%0AFilters%20(price%2C%20beds%2C%20property%20type)%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0AExpected%20monthly%20rows%3A%0ADelivery%20destination%3A">Request a property sample</a></div>
+        <p class="note">Self-serve proof: <a href="https://apify.com/benthepythondev/zumper-rental-scraper">Zumper Rental Scraper</a> and <a href="https://apify.com/benthepythondev/craigslist-real-estate-scraper">Craigslist Real Estate Scraper</a>.</p>
+      </article>
+
+      <article class="card" id="hiring-feed">
+        <p class="eyebrow">New roles and employer activity</p>
+        <h3>Hiring signal feed</h3>
+        <p>For recruiters, sales teams, workforce analysts, and job products monitoring roles or target employers.</p>
+        <ul>
+          <li>Normalized jobs across boards and ATS sources</li>
+          <li>Stable job ID with only-new delivery</li>
+          <li>Role, location, seniority, salary when public</li>
+          <li>Email, Slack, Sheets, webhook, or API output</li>
+        </ul>
+        <p class="note">Pilot: one source or ATS family, daily refresh, up to 5,000 delivered jobs per month. Current six-board monitor state is stored in the customer's Apify account.</p>
+        <div class="price"><strong>$600 setup + $300/month</strong><span>Growth: $1,500 setup + $850/month for up to five sources and twice-daily delivery.</span></div>
+        <div class="card-cta"><a class="btn btn-primary" href="mailto:benthepythondev0@gmail.com?subject=Hiring%20signal%20feed%20pilot&amp;body=Job%20boards%2C%20ATS%20sites%2C%20or%20target%20companies%3A%0ARoles%20and%20keywords%3A%0ALocations%20%2F%20remote%20rules%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0AExpected%20monthly%20jobs%3A%0ADelivery%20destination%3A">Request a hiring sample</a></div>
+        <p class="note">Try the <a href="https://apify.com/benthepythondev/remote-jobs-aggregator/examples/remote-python-jobs-daily">public only-new Remote Python Task</a> or download the <a href="https://gist.github.com/benthepythondev00/af0b724d2fb2c2fb503d4d035ba5e949">n8n workflows</a>.</p>
+      </article>
+
+      <article class="card" id="local-business-feed">
+        <p class="eyebrow">Maps and public contact research</p>
+        <h3>Local business research feed</h3>
+        <p>For agencies, franchise teams, B2B sales operations, and market research with a specific niche and region.</p>
+        <ul>
+          <li>Business, category, address, website, and phone</li>
+          <li>Public email with source evidence when found</li>
+          <li>Social links, confidence score, stable place ID</li>
+          <li>CSV, Sheet, webhook, or CRM-ready output</li>
+        </ul>
+        <p class="note">Pilot: one niche and region, up to 1,000 enriched businesses. Email coverage is measured in the sample and is never guaranteed. DACH Impressum pages are supported.</p>
+        <div class="price"><strong>$750 one-time pilot</strong><span>Optional refresh: $250. Growth: $1,750 setup + $900/month for up to five niche/region searches.</span></div>
+        <div class="card-cta"><a class="btn btn-primary" href="mailto:benthepythondev0@gmail.com?subject=Local%20business%20research%20pilot&amp;body=Business%20niche%3A%0ACities%20%2F%20regions%3A%0ATarget%20row%20count%3A%0ARequired%20contact%20fields%3A%0AMinimum%20rating%20or%20other%20filters%3A%0AOne-time%20or%20recurring%3A%0ADelivery%20destination%3A%0AIntended%20use%3A">Request a local sample</a></div>
+        <p class="note">Pipeline proof: <a href="https://apify.com/benthepythondev/google-maps-email-scraper">Google Maps Email Scraper</a> with website contact enrichment and place-ID deduplication.</p>
+      </article>
+    </section>
+
+    <h2>What happens after you email</h2>
+    <ol class="steps">
+      <li>I check the source, required fields, likely volume, and operating cost.</li>
+      <li>I run a small live probe and return two to ten real sample rows.</li>
+      <li>You receive a fixed pilot scope with setup, monthly service, usage, limits, and exclusions separated.</li>
+      <li>The monthly feed starts only after you accept the pilot output and schema.</li>
+    </ol>
+
+    <h2>Commercial boundaries</h2>
+    <div class="panel">
+      <ul>
+        <li>Apify platform, proxy, unblocker, and third-party API usage stays on your account unless the quote includes a stated cap.</li>
+        <li>Monthly pricing covers the named sources, fields, schedule, and destination. New sources or schema changes are separate work.</li>
+        <li>The operating target is 98% successful scheduled runs over 30 days, excluding upstream outages and customer credential failures.</li>
+        <li>Public or customer-authorized data only. This service does not include outbound campaigns, consent management, legal advice, or guaranteed email availability.</li>
+      </ul>
+    </div>
+
+    <h2>One-off Reddit archive delivery</h2>
+    <div class="panel">
+      <p class="sub">Need a bounded historical Reddit dataset rather than a recurring business feed? The <a href="./reddit-rag-dump.html">Reddit RAG dump</a> starts with a $250 sample and supports fixed-window deliveries up to 1 million rows. It is organic and inbound only; prior Store users are not contacted about it.</p>
       <table>
-        <thead><tr><th>Feed</th><th>Pilot</th><th>Growth</th></tr></thead>
+        <thead><tr><th>Package</th><th>Scope</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td>Real estate / rentals</td><td>$750 setup + $350/mo</td><td>$1,750 + $950/mo</td></tr>
-          <tr><td>Jobs / hiring signals</td><td>$600 + $300/mo</td><td>$1,500 + $850/mo</td></tr>
-          <tr><td>Local leads (Maps + public contact)</td><td>$750 + optional $250 refresh</td><td>$1,750 + $900/mo</td></tr>
+          <tr><td>Sample</td><td>One subreddit, 90 days, posts and comments, up to 5,000 rows</td><td>$250</td></tr>
+          <tr><td>Dump</td><td>One to three subreddits, named window, up to 250k rows</td><td>$2,000–$4,000</td></tr>
+          <tr><td>Large dump</td><td>Large window or multi-subreddit scope, up to 1M rows</td><td>$5,000–$8,000</td></tr>
         </tbody>
       </table>
-      <p class="note">Pilot is one proven source and a daily refresh. Growth adds more sources, a normalized schema, and a higher row cap. Managed quotes start at $2,000/mo after a live sample.</p>
     </div>
 
-    <h2>What to send</h2>
-    <ul>
-      <li>Dump or feed</li>
-      <li>Source (subreddit, portal, city, niche)</li>
-      <li>Window or refresh rate</li>
-      <li>Fields you actually need</li>
-      <li>Where it should land (JSON, CSV, Sheet, webhook)</li>
-    </ul>
-    <p class="note">I will not quote a monthly feed before a sample returns the fields. Issues on an Actor page stay for bugs. This page is for paid packaging.</p>
-  </div>
+    <p class="note">Actor issues are for product bugs. Paid pilot requests go to <a href="mailto:benthepythondev0@gmail.com?subject=Managed%20feed%20question&amp;body=Feed%20type%3A%0ASource%3A%0AQuestion%3A">benthepythondev0@gmail.com</a>.</p>
+  </main>
 </body>
 </html>
