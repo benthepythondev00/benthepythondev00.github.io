@@ -1,0 +1,77 @@
+{
+  "observed_at": "2026-08-20T19:54:24.747960+00:00",
+  "actor": "benthepythondev/zumper-rental-scraper",
+  "actor_build": "1.1.18",
+  "run_id": "iV5m9F3ukRZHOcDhw",
+  "input": {
+    "mode": "search",
+    "location": "austin-tx",
+    "propertyType": "apartments-for-rent",
+    "maxPrice": 3000,
+    "minBeds": 1,
+    "airbnbFriendly": false,
+    "maxListings": 3,
+    "includePhotos": false,
+    "useApifyProxy": true,
+    "onlyChanges": true,
+    "monitorId": "proof-austin-20260820-195358",
+    "firstRunMode": "emitAll",
+    "resetState": false
+  },
+  "limitations": [
+    "This was a three-listing verification run, not a complete Austin market export.",
+    "Building rows can contain a rent or bedroom range covering several available unit types.",
+    "A missing row from a capped search result is not treated as a removed listing.",
+    "Prices and availability can change after the observation time."
+  ],
+  "rows": [
+    {
+      "listing_id": 63223586,
+      "address": "3515 Manor Rd, Austin, TX 78723",
+      "city": "Austin",
+      "state": "TX",
+      "price_min": 702,
+      "price_max": 2079,
+      "beds_min": 1,
+      "beds_max": 4,
+      "baths_min": 1,
+      "baths_max": 2,
+      "lead_score": 59,
+      "change_type": "new",
+      "previous_price_min": null,
+      "url": "https://www.zumper.com/apartment-buildings/p1503505/seabrook-square-mlk-austin-tx"
+    },
+    {
+      "listing_id": 62077402,
+      "address": "2921 E 17th St, Austin, TX 78702",
+      "city": "Austin",
+      "state": "TX",
+      "price_min": 1590,
+      "price_max": 1590,
+      "beds_min": 2,
+      "beds_max": 2,
+      "baths_min": 2,
+      "baths_max": 2,
+      "lead_score": 69,
+      "change_type": "new",
+      "previous_price_min": null,
+      "url": "https://www.zumper.com/apartment-buildings/p519832/the-rail-chestnut-austin-tx"
+    },
+    {
+      "listing_id": 62884748,
+      "address": "2450 Wickersham Ln, Austin, TX 78741",
+      "city": "Austin",
+      "state": "TX",
+      "price_min": 1749,
+      "price_max": 1840,
+      "beds_min": 1,
+      "beds_max": 2,
+      "baths_min": 1,
+      "baths_max": 2,
+      "lead_score": 74,
+      "change_type": "new",
+      "previous_price_min": null,
+      "url": "https://www.zumper.com/apartment-buildings/p1466293/the-rhone-parker-lane-austin-tx"
+    }
+  ]
+}
