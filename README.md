@@ -6,6 +6,8 @@ Auto-synced searchable catalog of public [Apify](https://apify.com/benthepythond
 - Site: `index.html` (static, client-side search/filter)
 - Dump money page: `reddit-rag-dump.html` (crawlable; organic inbound only)
 - Quote hub: `custom.html`
+- Austin rental-monitoring case study: `austin-rental-monitoring.html`
+- Sanitized case-study sample: `data/austin-rental-monitor-sample-2026-08-20.json`
 - `sitemap.xml` + `robots.txt`
 - CI: hourly GitHub Action + manual dispatch
 
