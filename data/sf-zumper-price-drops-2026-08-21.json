@@ -1,0 +1,91 @@
+{
+  "observed_at": "2026-08-21T05:04:05Z",
+  "actor": "benthepythondev/zumper-rental-scraper",
+  "actor_build": "1.1.18",
+  "run_ids": {
+    "pass_a_baseline": "8BshKT4aaSE0Cajyb",
+    "pass_b_comparison": "VW3Py0fARVOiaLQ5l"
+  },
+  "dataset_id": "tjHHSm1XfKdLigBmW",
+  "market": "San Francisco, CA",
+  "limitations": [
+    "These six rows are the complete change output of one overnight two-pass comparison, not a San Francisco market export or rent index.",
+    "Building rows can contain a rent range covering several available unit types; the 360 Berry St event moved the top of a range.",
+    "A missing row from a capped search result is not treated as a removed listing.",
+    "Asking rents and availability can change again after the observation time."
+  ],
+  "rows": [
+    {
+      "listing_id": 65035849,
+      "address": "535 Taylor St, San Francisco, CA",
+      "city": "San Francisco",
+      "state": "CA",
+      "change_type": "price_changed",
+      "changed_field": "price_min",
+      "previous_price_min": 4295,
+      "price_min": 4095,
+      "drop_amount": -200,
+      "drop_pct": -4.66
+    },
+    {
+      "listing_id": 17811670,
+      "address": "1010 16th St, San Francisco, CA",
+      "city": "San Francisco",
+      "state": "CA",
+      "change_type": "price_changed",
+      "changed_field": "price_min",
+      "previous_price_min": 4133,
+      "price_min": 4034,
+      "drop_amount": -99,
+      "drop_pct": -2.40
+    },
+    {
+      "listing_id": 61999170,
+      "address": "1835 Vallejo St, San Francisco, CA",
+      "city": "San Francisco",
+      "state": "CA",
+      "change_type": "price_changed",
+      "changed_field": "price_min",
+      "previous_price_min": 5495,
+      "price_min": 5395,
+      "drop_amount": -100,
+      "drop_pct": -1.82
+    },
+    {
+      "listing_id": 63866280,
+      "address": "8 Locksley Ave, San Francisco, CA",
+      "city": "San Francisco",
+      "state": "CA",
+      "change_type": "price_changed",
+      "changed_field": "price_min",
+      "previous_price_min": 3786,
+      "price_min": 3711,
+      "drop_amount": -75,
+      "drop_pct": -1.98
+    },
+    {
+      "listing_id": 61998952,
+      "address": "2240 Larkin St, San Francisco, CA",
+      "city": "San Francisco",
+      "state": "CA",
+      "change_type": "price_changed",
+      "changed_field": "price_min",
+      "previous_price_min": 4645,
+      "price_min": 4595,
+      "drop_amount": -50,
+      "drop_pct": -1.08
+    },
+    {
+      "listing_id": 51424854,
+      "address": "360 Berry St, San Francisco, CA",
+      "city": "San Francisco",
+      "state": "CA",
+      "change_type": "price_changed",
+      "changed_field": "price_max",
+      "previous_price_max": 9273,
+      "price_max": 9254,
+      "drop_amount": -19,
+      "drop_pct": -0.20
+    }
+  ]
+}
