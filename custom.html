@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Managed real estate, hiring and local business data feeds</title>
-  <meta name="description" content="Live-tested managed data feeds for property listings, hiring signals, and local business research. Start with a source-specific sample and fixed-scope pilot." />
+  <title>Same-day SF rent-cut monitoring and local business data feeds</title>
+  <meta name="description" content="Live-tested managed data feeds: same-day San Francisco asking-rent cut monitoring for multifamily yield and acquisitions desks, plus local business research. Start with a source-specific sample and fixed-scope pilot." />
   <link rel="canonical" href="https://benthepythondev00.github.io/custom.html" />
   <meta name="robots" content="index,follow" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://benthepythondev00.github.io/custom.html" />
   <meta property="og:title" content="Managed data feeds built on proven Apify Actors" />
-  <meta property="og:description" content="Property monitoring, hiring signals, and local business research with source testing, scheduled delivery, and clear operating costs." />
+  <meta property="og:description" content="San Francisco rent-cut monitoring for yield and acquisitions desks, and local business research, with source testing, scheduled delivery, and clear operating costs." />
   <style>
     :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; --good:#79d49b; }
     * { box-sizing:border-box; }
@@ -27,7 +27,7 @@
     .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:650; font-size:.93rem; }
     .btn-primary { background:var(--accent); color:#061018; }
     .btn-ghost { border:1px solid var(--line); color:var(--ink); }
-    .proof-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:24px 0 6px; }
+    .proof-strip { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:24px 0 6px; }
     .proof { border:1px solid var(--line); border-radius:12px; padding:12px; background:#0e1626; }
     .proof strong { display:block; font-size:.95rem; margin-bottom:4px; }
     .proof span { color:var(--muted); font-size:.84rem; line-height:1.4; }
@@ -57,14 +57,13 @@
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Managed real estate, hiring and local business data feeds",
+    "name": "Same-day SF rent-cut monitoring and local business data feeds",
     "url": "https://benthepythondev00.github.io/custom.html",
     "isPartOf": { "@type": "WebSite", "url": "https://benthepythondev00.github.io/" },
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": [
-        { "@type": "Service", "name": "Real estate market monitoring feed" },
-        { "@type": "Service", "name": "Hiring signal and job intelligence feed" },
+        { "@type": "Service", "name": "San Francisco asking-rent cut monitoring feed" },
         { "@type": "Service", "name": "Local business research feed" }
       ]
     }
@@ -75,18 +74,17 @@
   <main class="wrap">
     <p class="note"><a href="./">← Actor catalog</a> · <a href="https://apify.com/benthepythondev">Apify profile</a> · <a href="./reddit-rag-dump.html">Reddit RAG dumps</a></p>
     <p class="eyebrow">Managed data feeds</p>
-    <h1>Stop checking listings and job boards by hand.</h1>
-    <p class="sub">A Store Actor handles self-serve exports. A managed feed adds source setup, a schedule, stable IDs, change detection, delivery, and maintenance. Every engagement starts with a live sample from your exact source and filters. If the required fields do not return, I do not quote the monthly service.</p>
+    <h1>Same-day San Francisco rent-cut alerts for multifamily yield and acquisitions desks.</h1>
+    <p class="sub">A Store Actor handles self-serve exports. A managed feed adds source setup, a schedule, stable IDs, change detection, delivery, and maintenance — so an asking-rent cut detected in the morning pass reaches your Slack or Sheet the same day. Every engagement starts with a live sample from your exact source and filters. If the required fields do not return, I do not quote the monthly service.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" data-inquiry-code="WEB-GENERAL" href="mailto:benthepythondev0@gmail.com?subject=%5BWEB-GENERAL%5D%20Managed%20data%20feed%20pilot&amp;body=Inquiry%20source%3A%20owned%20managed-feed%20page%0AOffer%20code%3A%20WEB-GENERAL%0A%0AFeed%20type%20(real%20estate%2C%20hiring%2C%20or%20local%20business)%3A%0ASource%20sites%20or%20company%20list%3A%0ARegions%20and%20filters%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0AExpected%20monthly%20rows%3A%0ADelivery%20(JSON%2FCSV%2FSheet%2Fwebhook%2FS3)%3A%0AIntended%20use%3A">Request a source test</a>
+      <a class="btn btn-primary" data-inquiry-code="WEB-GENERAL" href="mailto:benthepythondev0@gmail.com?subject=%5BWEB-GENERAL%5D%20Managed%20data%20feed%20pilot&amp;body=Inquiry%20source%3A%20owned%20managed-feed%20page%0AOffer%20code%3A%20WEB-GENERAL%0A%0AFeed%20type%20(real%20estate%20or%20local%20business)%3A%0ASource%20sites%20or%20company%20list%3A%0ARegions%20and%20filters%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0AExpected%20monthly%20rows%3A%0ADelivery%20(JSON%2FCSV%2FSheet%2Fwebhook%2FS3)%3A%0AIntended%20use%3A">Request a source test</a>
       <a class="btn btn-ghost" href="#feeds">Compare feed pilots</a>
       <a class="btn btn-ghost" href="./reddit-rag-dump.html">Reddit dump pricing</a>
     </div>
     <p class="note">Privacy: this page has no analytics, tracking pixels, cookies, or form backend. The short code in the email subject identifies the offer after you send the message.</p>
 
     <div class="proof-strip" aria-label="Recent live proof">
-      <div class="proof"><strong>Rental change monitoring</strong><span>Zumper build 1.1.18 caught 6 SF <code>price_drop</code> events overnight — 535 Taylor St fell $4,295→$4,095 (−4.66%); a managed feed Slacks that same day. <a href="./sf-rental-price-drops.html">Read the SF test</a>. Seed/baseline proof: <a href="./austin-rental-monitoring.html">Austin</a>.</span></div>
-      <div class="proof"><strong>Only-new job monitoring</strong><span>Public six-board Task: 6 new roles in 4.1 seconds. An identical monitor run returned zero duplicates.</span></div>
+      <div class="proof"><strong>Rental change monitoring</strong><span>Zumper build 1.1.20 caught five SF asking-rent (<code>price_min</code>) cuts overnight — listing <code>65035849</code> at 535 Taylor St fell $4,295→$4,095 (−4.66%); a managed feed Slacks that same day. <a href="./sf-rental-price-drops.html">Read the SF test</a>.</span></div>
       <div class="proof"><strong>Public business contacts</strong><span>Berlin Maps proof: 8 unique places, 8 clean place IDs, with website-sourced email and phone fields.</span></div>
     </div>
 
@@ -95,7 +93,7 @@
       <article class="card" id="real-estate-feed">
         <p class="eyebrow">Listings and price changes</p>
         <h3>Real estate monitoring feed</h3>
-        <p>For agencies, investors, relocation teams, and property managers tracking a defined market.</p>
+        <p>For San Francisco multifamily yield and acquisitions desks that price concessions and re-trades off same-day asking-rent movement.</p>
         <ul>
           <li>Stable listing ID and source URL</li>
           <li>Price, property facts, agent fields when public</li>
@@ -108,23 +106,14 @@
           <a class="btn btn-primary" data-inquiry-code="WEB-RE-PILOT" href="mailto:benthepythondev0@gmail.com?subject=%5BWEB-RE-PILOT%5D%20Real%20estate%20monitoring%20pilot&amp;body=Inquiry%20source%3A%20owned%20managed-feed%20page%0AOffer%20code%3A%20WEB-RE-PILOT%0APackage%3A%20Pilot%0A%0APortal%20or%20source%3A%0ACity%20%2F%20region%3A%0ARent%2C%20sale%2C%20or%20both%3A%0AFilters%20(price%2C%20beds%2C%20property%20type)%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0AExpected%20monthly%20rows%3A%0ADelivery%20destination%3A">Request a property sample</a>
           <a class="btn btn-ghost" data-inquiry-code="WEB-RE-GROWTH" href="mailto:benthepythondev0@gmail.com?subject=%5BWEB-RE-GROWTH%5D%20Real%20estate%20monitoring%20Growth%20feed&amp;body=Inquiry%20source%3A%20owned%20managed-feed%20page%0AOffer%20code%3A%20WEB-RE-GROWTH%0APackage%3A%20Growth%20(%241%2C750%20setup%20%2B%20%24950%2Fmonth)%0A%0APortals%20or%20sources%3A%0ACities%20%2F%20regions%3A%0AFilters%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0AExpected%20monthly%20rows%3A%0ADelivery%20destination%3A">Discuss the Growth feed</a>
         </div>
-        <p class="note">Change-event proof: <a href="./sf-rental-price-drops.html">SF overnight price drops</a>. Seed/baseline only: <a href="./austin-rental-monitoring.html">Austin</a>. Self-serve: <a href="https://apify.com/benthepythondev/zumper-rental-scraper">Zumper</a> + <a href="https://apify.com/benthepythondev/craigslist-real-estate-scraper">Craigslist RE</a>.</p>
+        <p class="note">Change-event proof: <a href="./sf-rental-price-drops.html">SF overnight price drops</a>. Self-serve: <a href="https://apify.com/benthepythondev/zumper-rental-scraper">Zumper</a> + <a href="https://apify.com/benthepythondev/craigslist-real-estate-scraper">Craigslist RE</a>.</p>
       </article>
 
       <article class="card" id="hiring-feed">
-        <p class="eyebrow">New roles and employer activity</p>
+        <p class="eyebrow">Paused</p>
         <h3>Hiring signal feed</h3>
-        <p>For recruiters, sales teams, workforce analysts, and job products monitoring roles or target employers.</p>
-        <ul>
-          <li>Normalized jobs across boards and ATS sources</li>
-          <li>Stable job ID with only-new delivery</li>
-          <li>Role, location, seniority, salary when public</li>
-          <li>Email, Slack, Sheets, webhook, or API output</li>
-        </ul>
-        <p class="note">Pilot: one source or ATS family, daily refresh, up to 5,000 delivered jobs per month. Current six-board monitor state is stored in the customer's Apify account.</p>
-        <div class="price"><strong>$600 setup + $300/month</strong><span>Growth: $1,500 setup + $850/month for up to five sources and twice-daily delivery.</span></div>
-        <div class="card-cta"><a class="btn btn-primary" data-inquiry-code="WEB-HIRING-PILOT" href="mailto:benthepythondev0@gmail.com?subject=%5BWEB-HIRING-PILOT%5D%20Hiring%20signal%20feed%20pilot&amp;body=Inquiry%20source%3A%20owned%20managed-feed%20page%0AOffer%20code%3A%20WEB-HIRING-PILOT%0A%0AJob%20boards%2C%20ATS%20sites%2C%20or%20target%20companies%3A%0ARoles%20and%20keywords%3A%0ALocations%20%2F%20remote%20rules%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0AExpected%20monthly%20jobs%3A%0ADelivery%20destination%3A">Request a hiring sample</a></div>
-        <p class="note">Try the <a href="https://apify.com/benthepythondev/remote-jobs-aggregator/examples/remote-python-jobs-daily">public only-new Remote Python Task</a> or download the <a href="https://gist.github.com/benthepythondev00/af0b724d2fb2c2fb503d4d035ba5e949">n8n workflows</a>.</p>
+        <p>Not currently offered. This feed will reopen only after a real only-new change event from a live monitoring run has been published as proof — the same standard the rental feed meets.</p>
+        <p class="note">No pilot, sample, or pricing is quoted for hiring signals until then.</p>
       </article>
 
       <article class="card" id="local-business-feed">
