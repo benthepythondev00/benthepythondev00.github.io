@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>San Francisco Rent Drops: Six Overnight Change Events, Delivered Same Day</title>
-  <meta name="description" content="A live two-pass San Francisco Zumper test caught six overnight rent drops — including a $200 cut at 535 Taylor St — and delivered the change rows to Slack the same day." />
+  <title>San Francisco Rent Drops: Six Overnight Change Events, Built for Same-Day Delivery</title>
+  <meta name="description" content="A live two-pass San Francisco Zumper test caught six overnight rent drops — including a $200 cut at 535 Taylor St. A managed feed delivers change rows like these to Slack or Sheets the same day." />
   <link rel="canonical" href="https://benthepythondev00.github.io/sf-rental-price-drops.html" />
   <meta name="robots" content="index,follow" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://benthepythondev00.github.io/sf-rental-price-drops.html" />
-  <meta property="og:title" content="San Francisco Rent Drops: Six Overnight Change Events, Delivered Same Day" />
-  <meta property="og:description" content="Two passes, one overnight window, six real price-drop events from live San Francisco Zumper data — with run IDs, the dataset, and same-day Slack delivery." />
+  <meta property="og:title" content="San Francisco Rent Drops: Six Overnight Change Events, Built for Same-Day Delivery" />
+  <meta property="og:description" content="Two passes, one overnight window, six real price-drop events from live San Francisco Zumper data — with run IDs, the dataset, and a same-day Slack delivery path." />
   <meta property="article:published_time" content="2026-08-21T05:04:05Z" />
   <style>
     :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; --good:#79d49b; --code:#09101d; }
@@ -60,8 +60,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "San Francisco Rent Drops: Six Overnight Change Events, Delivered Same Day",
-    "description": "A live two-pass San Francisco Zumper test that caught six overnight rent drops and delivered the change rows to Slack the same day.",
+    "headline": "San Francisco Rent Drops: Six Overnight Change Events, Built for Same-Day Delivery",
+    "description": "A live two-pass San Francisco Zumper test that caught six overnight rent drops, with same-day Slack or Sheets delivery as the managed-feed path.",
     "datePublished": "2026-08-21",
     "dateModified": "2026-08-21",
     "author": { "@type": "Person", "name": "Ben" },
@@ -74,8 +74,8 @@
     <p class="meta"><a href="./">← Actor catalog</a> · <a href="./custom.html">Managed data feeds</a> · <a href="https://apify.com/benthepythondev/zumper-rental-scraper">Zumper Actor</a></p>
     <article>
       <p class="eyebrow">Live change events · San Francisco, California</p>
-      <h1>535 Taylor St cut its asking rent $200 overnight. Slack knew the same day.</h1>
-      <p class="sub">On the morning of August 21, 2026, listing <code>65035849</code> at 535 Taylor St moved from $4,295 to $4,095 — a −4.66% cut between two monitoring passes. It was one of six San Francisco price drops the second pass emitted, and the change row landed in Slack the same day. This page is written for SF multifamily yield and acquisitions desks that price concessions and re-trades off asking-rent movement, not for buyer agents hunting a deal.</p>
+      <h1>535 Taylor St cut its asking rent $200 overnight. A feed puts that in Slack the same day.</h1>
+      <p class="sub">On the morning of August 21, 2026, listing <code>65035849</code> at 535 Taylor St moved from $4,295 to $4,095 — a −4.66% cut between two monitoring passes. It was one of six San Francisco price drops the second pass emitted. In a managed feed, a change row like that goes out to Slack or Sheets the same day it is detected. This page is written for SF multifamily yield and acquisitions desks that price concessions and re-trades off asking-rent movement, not for buyer agents hunting a deal.</p>
       <p class="sub">This is not a Zumper dump. Pass A stored a baseline of the search window without alerting anyone. Pass B re-ran the identical search overnight, compared every listing by stable ID, and emitted only the six rows whose tracked rent had moved. Everything unchanged stayed silent.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" data-inquiry-code="CASE-SF-PILOT" href="mailto:benthepythondev0@gmail.com?subject=%5BCASE-SF-PILOT%5D%20SF%20price-drop%20monitoring%20pilot&amp;body=Inquiry%20source%3A%20SF%20price-drop%20case%20study%0AOffer%20code%3A%20CASE-SF-PILOT%0APackage%3A%20Pilot%20(%24750%20setup%20%2B%20%24350%2Fmonth)%0A%0APortal%20or%20source%3A%0ACity%20%2F%20region%3A%0AFilters%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0ADelivery%20destination%3A">Request a source test</a>
@@ -87,7 +87,7 @@
       <div class="evidence" aria-label="Test results">
         <div class="metric"><strong>−4.66%</strong><span>Largest overnight drop: 535 Taylor St, $4,295 → $4,095 between Pass A and Pass B.</span></div>
         <div class="metric"><strong>6</strong><span>Price-drop change events in dataset <code>tjHHSm1XfKdLigBmW</code> — and nothing else. Unchanged listings emitted zero rows.</span></div>
-        <div class="metric"><strong>Same day</strong><span>The change rows were posted to Slack on August 21, the day the second pass detected them.</span></div>
+        <div class="metric"><strong>Same day</strong><span>The managed-feed delivery path: change rows are forwarded to Slack or Sheets the day a pass detects them.</span></div>
       </div>
 
       <h2 id="test">The two-pass San Francisco test</h2>
@@ -122,7 +122,7 @@
         <div class="method-card"><h3>4. Change-only output</h3><p>An unchanged listing emits nothing. A price event carries the prior value, the new value, and which field moved.</p></div>
       </div>
 
-      <h2>From overnight pass to Slack ping</h2>
+      <h2>How a managed feed delivers these events</h2>
       <div class="flow" aria-label="Delivery path">
         <div><strong>Zumper search</strong><span>Named SF window and filters</span></div>
         <div><strong>Apify Actor</strong><span>Normalize listings, build 1.1.18</span></div>
