@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T07:44:47Z",
+  "generatedAt": "2026-08-22T08:47:00Z",
   "count": 943,
   "chips": [
     "All",
@@ -105,7 +105,7 @@
     },
     {
       "name": "zumper-rental-scraper",
-      "title": "Zumper Rental Scraper \u2014 Apartments for Rent",
+      "title": "Zumper Rental Change Monitor (rent-cut event alerts, 1.1.20)",
       "categories": [
         "REAL_ESTATE",
         "AUTOMATION",
@@ -115,7 +115,7 @@
       "users30d": 15,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/zumper-rental-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape rental listings from Zumper.com with ratings, verification status, and Airbnb-friendly filters. Extract prices\u2026",
+      "oneLiner": "Use this when you want change events, not another listing dump. Turn on onlyChanges and you get price_drop / status_f\u2026",
       "iconUrl": "https://images.apifyusercontent.com/AekjCG05rJgANE57jioCXRCOhReDmiL4LTLnUQzuFYI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSFZidEdCbXVzSFBwNW9VbWEtNmFoRFBxemE1ay1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzI2bTYwcjI2bTYwcjI2bTYuanBlZw.webp"
     },
     {
