@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>San Francisco Rent Drops: Five Overnight Asking-Rent Cuts, Built for Same-Day Delivery</title>
-  <meta name="description" content="A live two-pass San Francisco Zumper test caught five overnight price_min cuts — including a $248 cut at NEMA, 8 10th St. A managed feed delivers change rows like these to Slack or Sheets the same day." />
+  <meta name="description" content="A live two-pass San Francisco Zumper test caught five overnight price_min cuts, and a newer overnight pass caught a $156 cut at SoMa Square, 1 Saint Francis Pl — still holding six hours later. A managed feed delivers change rows like these to Slack or Sheets the same day." />
   <link rel="canonical" href="https://benthepythondev00.github.io/sf-rental-price-drops.html" />
   <meta name="robots" content="index,follow" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://benthepythondev00.github.io/sf-rental-price-drops.html" />
   <meta property="og:title" content="San Francisco Rent Drops: Five Overnight Asking-Rent Cuts, Built for Same-Day Delivery" />
-  <meta property="og:description" content="Two passes, one overnight window, five real price_min cuts from live San Francisco Zumper data — with run IDs and a same-day Slack delivery path." />
+  <meta property="og:description" content="A $156 overnight cut at SoMa Square, 1 Saint Francis Pl — plus five real price_min cuts from an earlier window of live San Francisco Zumper data, with run IDs and a same-day Slack delivery path." />
   <meta property="article:published_time" content="2026-08-21T10:16:53Z" />
   <style>
     :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; --good:#79d49b; --code:#09101d; }
@@ -63,7 +63,7 @@
     "headline": "San Francisco Rent Drops: Five Overnight Asking-Rent Cuts, Built for Same-Day Delivery",
     "description": "A live two-pass San Francisco Zumper test that caught five overnight price_min cuts, with same-day Slack or Sheets delivery as the managed-feed path.",
     "datePublished": "2026-08-21",
-    "dateModified": "2026-08-21",
+    "dateModified": "2026-08-23",
     "author": { "@type": "Person", "name": "Ben" },
     "mainEntityOfPage": "https://benthepythondev00.github.io/sf-rental-price-drops.html"
   }
@@ -74,8 +74,8 @@
     <p class="meta"><a href="./">← Actor catalog</a> · <a href="./custom.html">Managed data feeds</a> · <a href="https://apify.com/benthepythondev/zumper-rental-scraper">Zumper Actor</a></p>
     <article>
       <p class="eyebrow">Live change events · San Francisco, California</p>
-      <h1>NEMA cut its advertised floor $248 overnight. A feed puts that in Slack the same day.</h1>
-      <p class="sub">Overnight into August 21, 2026 (Pacific time), listing <code>32687497</code> — NEMA, the multi-unit building at 8 10th St in SoMa — moved its observed <code>price_min</code> from $3,563 to $3,315: a −$248 (−6.96%) cut between two monitoring passes. It was one of five San Francisco <code>price_min</code> cuts the comparison pass emitted. In a managed feed, a change row like that goes out to Slack or Sheets the same day it is detected. This page is written for SF multifamily yield and acquisitions desks that price concessions and re-trades off asking-rent movement, not for buyer agents hunting a deal.</p>
+      <h1>SoMa Square cut its advertised floor $156 overnight. A feed puts that in Slack the same day.</h1>
+      <p class="sub">Overnight into August 23, 2026 (Pacific time), listing <code>16558691</code> — SoMa Square, the multi-unit building at 1 Saint Francis Pl in SoMa — moved its observed <code>price_min</code> from $3,912 to $3,756: a −$156 (−3.99%) cut between two monitoring passes. Six hours later, a third pass still observed $3,756 — the cut held rather than bouncing back. In a managed feed, a change row like that goes out to Slack or Sheets the same day it is detected. This page is written for SF multifamily yield and acquisitions desks that price concessions and re-trades off asking-rent movement, not for buyer agents hunting a deal.</p>
       <p class="sub">This is not a Zumper dump. Pass A stored a baseline of the search window without alerting anyone. Pass B re-ran the identical search overnight, compared every listing by stable ID, and emitted only the rows whose tracked rent had moved. Everything unchanged stayed silent.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" data-inquiry-code="CASE-SF-PILOT" href="mailto:benthepythondev0@gmail.com?subject=%5BCASE-SF-PILOT%5D%20SF%20price-drop%20monitoring%20pilot&amp;body=Inquiry%20source%3A%20SF%20price-drop%20case%20study%0AOffer%20code%3A%20CASE-SF-PILOT%0APackage%3A%20Pilot%20(%24750%20setup%20%2B%20%24350%2Fmonth)%0A%0APortal%20or%20source%3A%0ACity%20%2F%20region%3A%0AFilters%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0ADelivery%20destination%3A">Request a source test</a>
@@ -84,16 +84,17 @@
       <p class="note">No form backend, cookies, tracking pixels, or analytics. The email code identifies this case study only after you send the draft.</p>
 
       <div class="evidence" aria-label="Test results">
-        <div class="metric"><strong>−6.96%</strong><span>Largest overnight drop: NEMA, 8 10th St (SoMa), $3,563 → $3,315 between Pass A and Pass B.</span></div>
-        <div class="metric"><strong>5</strong><span>Observed <code>price_min</code> cuts emitted in one overnight window. Unchanged listings emitted zero rows.</span></div>
+        <div class="metric"><strong>−3.99%</strong><span>Featured overnight cut: SoMa Square, 1 Saint Francis Pl (SoMa), $3,912 → $3,756 between the August 23 passes — still $3,756 on the next pass six hours later.</span></div>
+        <div class="metric"><strong>5</strong><span>Observed <code>price_min</code> cuts emitted in one earlier overnight window (August 21). Unchanged listings emitted zero rows.</span></div>
         <div class="metric"><strong>Same day</strong><span>The managed-feed delivery path: change rows are forwarded to Slack or Sheets the day a pass detects them.</span></div>
       </div>
 
       <h2 id="test">The two-pass San Francisco test</h2>
       <p>The test used the Zumper Rental Scraper build 1.1.20 — the same build currently on the Store. Pass A (run <code>VW3Py0fARVOiaLQ5l</code>) seeded the comparison state for a San Francisco apartment search at <code>2026-08-21T05:03Z</code>: it stored a fingerprint per listing — rent range, bedroom and bathroom range, canonical URL — keyed by stable <code>listing_id</code>, and delivered no alert. Pass B (run <code>dmmjgJuSoOU1Zj4Gz</code>) repeated the identical search and finished at <code>2026-08-21T10:16Z</code> — an overnight window in San Francisco, 10:03 PM to 3:16 AM Pacific. It compared each listing against the stored fingerprint and emitted exactly five observed <code>price_min</code> cuts. Everything else stayed silent — including 535 Taylor St (<code>65035849</code>), the cut featured in an earlier window, which held $4,095 across both passes and therefore emitted nothing.</p>
+      <p>The featured SoMa Square cut comes from a newer pass pair on the same search. A baseline pass (run <code>dtSMZpiMd1cT1aDpH</code>, <code>2026-08-23T04:02Z</code>) observed <code>price_min</code> $3,912 for listing <code>16558691</code>; the comparison pass (run <code>93e1mKvinDj30uuf1</code>, <code>07:05Z</code>) observed $3,756 — an overnight window in San Francisco, 9:02 PM to 12:05 AM Pacific. A later pass (run <code>lTSRt9vMcefVBmmOL</code>, <code>13:03Z</code>) still observed $3,756, so the cut persisted through the morning rather than reverting. NEMA (<code>32687497</code>), the cut featured in the earlier window below, held its reduced $3,315 floor across all three newer passes and therefore emitted nothing.</p>
 
       <h2>The five real <code>price_min</code> cuts, in one overnight window</h2>
-      <p>Each listing below lowered its observed minimum asking rent (<code>price_min</code>) between the two passes. These five rows are the complete <code>price_min</code> cut output of the comparison — nothing sampled out, nothing added.</p>
+      <p>Each listing below lowered its observed minimum asking rent (<code>price_min</code>) between the two August 21 passes. These five rows are the complete <code>price_min</code> cut output of that comparison — nothing sampled out, nothing added.</p>
       <div class="table-scroll">
         <table>
           <thead><tr><th>Listing ID</th><th>Address</th><th>Rent change</th><th>Drop</th><th>Changed field</th></tr></thead>
@@ -167,7 +168,7 @@
       </div>
       <p class="note">Apify platform usage, Actor charges, residential proxies, unblockers, and third-party APIs are separate unless a written quote includes a cap. A monthly service starts only after the sample and schema pass the agreed acceptance check.</p>
 
-      <p class="meta">Published August 21, 2026 · Test evidence: Apify build 1.1.20, runs <code>VW3Py0fARVOiaLQ5l</code> (baseline, 05:03Z) and <code>dmmjgJuSoOU1Zj4Gz</code> (comparison, 10:16Z) · <a href="./custom.html">See all managed-feed terms</a></p>
+      <p class="meta">Published August 21, 2026 · Updated August 23, 2026 · Test evidence: Apify build 1.1.20, runs <code>VW3Py0fARVOiaLQ5l</code> (baseline, 05:03Z) and <code>dmmjgJuSoOU1Zj4Gz</code> (comparison, 10:16Z); featured SoMa Square cut: runs <code>dtSMZpiMd1cT1aDpH</code> (04:02Z), <code>93e1mKvinDj30uuf1</code> (07:05Z), and <code>lTSRt9vMcefVBmmOL</code> (13:03Z) on August 23 · <a href="./custom.html">See all managed-feed terms</a></p>
     </article>
   </main>
 </body>
