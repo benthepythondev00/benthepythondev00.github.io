@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>San Francisco Rent Drops: Five Overnight Asking-Rent Cuts, Built for Same-Day Delivery</title>
-  <meta name="description" content="A live two-pass San Francisco Zumper test caught five overnight price_min cuts — including a $248 cut at NEMA, 8 10th St. A managed feed delivers change rows like these to Slack or Sheets the same day." />
+  <title>San Francisco Rent Drops: One Overnight Asking-Rent Cut That Held, Built for Same-Day Delivery</title>
+  <meta name="description" content="A live two-pass San Francisco Zumper test caught a $156 overnight price_min cut at SoMa Square, 1 Saint Francis Pl — still holding six hours later. A managed feed delivers change rows like this to Slack or Sheets the same day." />
   <link rel="canonical" href="https://benthepythondev00.github.io/sf-rental-price-drops.html" />
   <meta name="robots" content="index,follow" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://benthepythondev00.github.io/sf-rental-price-drops.html" />
-  <meta property="og:title" content="San Francisco Rent Drops: Five Overnight Asking-Rent Cuts, Built for Same-Day Delivery" />
-  <meta property="og:description" content="Two passes, one overnight window, five real price_min cuts from live San Francisco Zumper data — with run IDs and a same-day Slack delivery path." />
+  <meta property="og:title" content="San Francisco Rent Drops: One Overnight Asking-Rent Cut That Held, Built for Same-Day Delivery" />
+  <meta property="og:description" content="One overnight window, one real price_min cut: SoMa Square, 1 Saint Francis Pl, $3,912 → $3,756, verified by a third pass six hours later — with run IDs and a same-day Slack delivery path." />
   <meta property="article:published_time" content="2026-08-21T10:16:53Z" />
   <style>
     :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; --good:#79d49b; --code:#09101d; }
@@ -60,10 +60,10 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "San Francisco Rent Drops: Five Overnight Asking-Rent Cuts, Built for Same-Day Delivery",
-    "description": "A live two-pass San Francisco Zumper test that caught five overnight price_min cuts, with same-day Slack or Sheets delivery as the managed-feed path.",
+    "headline": "San Francisco Rent Drops: One Overnight Asking-Rent Cut That Held, Built for Same-Day Delivery",
+    "description": "A live two-pass San Francisco Zumper test that caught a $156 overnight price_min cut at SoMa Square, verified by a third pass, with same-day Slack or Sheets delivery as the managed-feed path.",
     "datePublished": "2026-08-21",
-    "dateModified": "2026-08-21",
+    "dateModified": "2026-08-23",
     "author": { "@type": "Person", "name": "Ben" },
     "mainEntityOfPage": "https://benthepythondev00.github.io/sf-rental-price-drops.html"
   }
@@ -74,8 +74,8 @@
     <p class="meta"><a href="./">← Actor catalog</a> · <a href="./custom.html">Managed data feeds</a> · <a href="https://apify.com/benthepythondev/zumper-rental-scraper">Zumper Actor</a></p>
     <article>
       <p class="eyebrow">Live change events · San Francisco, California</p>
-      <h1>NEMA cut its advertised floor $248 overnight. A feed puts that in Slack the same day.</h1>
-      <p class="sub">Overnight into August 21, 2026 (Pacific time), listing <code>32687497</code> — NEMA, the multi-unit building at 8 10th St in SoMa — moved its observed <code>price_min</code> from $3,563 to $3,315: a −$248 (−6.96%) cut between two monitoring passes. It was one of five San Francisco <code>price_min</code> cuts the comparison pass emitted. In a managed feed, a change row like that goes out to Slack or Sheets the same day it is detected. This page is written for SF multifamily yield and acquisitions desks that price concessions and re-trades off asking-rent movement, not for buyer agents hunting a deal.</p>
+      <h1>SoMa Square cut its advertised floor $156 overnight. A feed puts that in Slack the same day.</h1>
+      <p class="sub">Overnight into August 23, 2026 (Pacific time), listing <code>16558691</code> — SoMa Square, the multi-unit building at 1 Saint Francis Pl in SoMa — moved its observed <code>price_min</code> from $3,912 to $3,756: a −$156 (−3.99%) cut between two monitoring passes. Six hours later, a third pass still observed $3,756 — the cut held rather than bouncing back. In a managed feed, a change row like that goes out to Slack or Sheets the same day it is detected. This page is written for SF multifamily yield and acquisitions desks that price concessions and re-trades off asking-rent movement, not for buyer agents hunting a deal.</p>
       <p class="sub">This is not a Zumper dump. Pass A stored a baseline of the search window without alerting anyone. Pass B re-ran the identical search overnight, compared every listing by stable ID, and emitted only the rows whose tracked rent had moved. Everything unchanged stayed silent.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" data-inquiry-code="CASE-SF-PILOT" href="mailto:benthepythondev0@gmail.com?subject=%5BCASE-SF-PILOT%5D%20SF%20price-drop%20monitoring%20pilot&amp;body=Inquiry%20source%3A%20SF%20price-drop%20case%20study%0AOffer%20code%3A%20CASE-SF-PILOT%0APackage%3A%20Pilot%20(%24750%20setup%20%2B%20%24350%2Fmonth)%0A%0APortal%20or%20source%3A%0ACity%20%2F%20region%3A%0AFilters%3A%0ARequired%20fields%3A%0ARefresh%20frequency%3A%0ADelivery%20destination%3A">Request a source test</a>
@@ -84,32 +84,29 @@
       <p class="note">No form backend, cookies, tracking pixels, or analytics. The email code identifies this case study only after you send the draft.</p>
 
       <div class="evidence" aria-label="Test results">
-        <div class="metric"><strong>−6.96%</strong><span>Largest overnight drop: NEMA, 8 10th St (SoMa), $3,563 → $3,315 between Pass A and Pass B.</span></div>
-        <div class="metric"><strong>5</strong><span>Observed <code>price_min</code> cuts emitted in one overnight window. Unchanged listings emitted zero rows.</span></div>
+        <div class="metric"><strong>−3.99%</strong><span>The overnight cut: SoMa Square, 1 Saint Francis Pl (SoMa), $3,912 → $3,756 between Pass A and Pass B on August 23.</span></div>
+        <div class="metric"><strong>6 hours</strong><span>How long the cut had held when a third pass re-checked: still $3,756 at 6:03 AM Pacific — a price event, not a listing glitch.</span></div>
         <div class="metric"><strong>Same day</strong><span>The managed-feed delivery path: change rows are forwarded to Slack or Sheets the day a pass detects them.</span></div>
       </div>
 
       <h2 id="test">The two-pass San Francisco test</h2>
-      <p>The test used the Zumper Rental Scraper build 1.1.20 — the same build currently on the Store. Pass A (run <code>VW3Py0fARVOiaLQ5l</code>) seeded the comparison state for a San Francisco apartment search at <code>2026-08-21T05:03Z</code>: it stored a fingerprint per listing — rent range, bedroom and bathroom range, canonical URL — keyed by stable <code>listing_id</code>, and delivered no alert. Pass B (run <code>dmmjgJuSoOU1Zj4Gz</code>) repeated the identical search and finished at <code>2026-08-21T10:16Z</code> — an overnight window in San Francisco, 10:03 PM to 3:16 AM Pacific. It compared each listing against the stored fingerprint and emitted exactly five observed <code>price_min</code> cuts. Everything else stayed silent — including 535 Taylor St (<code>65035849</code>), the cut featured in an earlier window, which held $4,095 across both passes and therefore emitted nothing.</p>
+      <p>The test used the Zumper Rental Scraper build 1.1.22 — the same build currently on the Store. Pass A (run <code>dtSMZpiMd1cT1aDpH</code>) recorded the baseline of a San Francisco apartment search at <code>2026-08-23T04:02Z</code>: listing <code>16558691</code> — SoMa Square — showed an observed <code>price_min</code> of $3,912. Pass B (run <code>93e1mKvinDj30uuf1</code>) repeated the identical search and finished at <code>2026-08-23T07:05Z</code> — an overnight window in San Francisco, 9:02 PM to 12:05 AM Pacific — and observed $3,756 for the same stable <code>listing_id</code>: a −$156 (−3.99%) cut. A third pass (run <code>lTSRt9vMcefVBmmOL</code>, <code>13:03Z</code>) still observed $3,756 six hours later, so the cut persisted through the morning rather than reverting.</p>
+      <p>An earlier window on the same search — build 1.1.20, baseline run <code>VW3Py0fARVOiaLQ5l</code> (<code>2026-08-21T05:03Z</code>) and comparison run <code>dmmjgJuSoOU1Zj4Gz</code> (<code>10:16Z</code>) — emitted five <code>price_min</code> cuts, from −$100 (−2.60%) at 300 Anzavista Ave to −$248 (−6.96%) at NEMA, 8 10th St. Those are that window's history, not this one's rows: NEMA (<code>32687497</code>) held its reduced $3,315 floor across all three August 23 passes and therefore emitted nothing new.</p>
 
-      <h2>The five real <code>price_min</code> cuts, in one overnight window</h2>
-      <p>Each listing below lowered its observed minimum asking rent (<code>price_min</code>) between the two passes. These five rows are the complete <code>price_min</code> cut output of the comparison — nothing sampled out, nothing added.</p>
+      <h2>The real <code>price_min</code> cut, in one overnight window</h2>
+      <p>The listing below lowered its observed minimum asking rent (<code>price_min</code>) between the two August 23 passes. This window's table is a single row — the cut exactly as observed, nothing sampled out, nothing added.</p>
       <div class="table-scroll">
         <table>
           <thead><tr><th>Listing ID</th><th>Address</th><th>Rent change</th><th>Drop</th><th>Changed field</th></tr></thead>
           <tbody>
-            <tr><td>32687497</td><td>8 10th St (NEMA, SoMa), San Francisco, CA</td><td>$3,563 → $3,315</td><td>−$248 (−6.96%)</td><td><code>price_min</code></td></tr>
-            <tr><td>23611709</td><td>855 Brannan St, San Francisco, CA</td><td>$4,085 → $3,885</td><td>−$200 (−4.90%)</td><td><code>price_min</code></td></tr>
-            <tr><td>56534694</td><td>191 Frederick St, San Francisco, CA</td><td>$4,195 → $3,995</td><td>−$200 (−4.77%)</td><td><code>price_min</code></td></tr>
-            <tr><td>39863644</td><td>1390 Market St Ste 107 (Fox Plaza), San Francisco, CA</td><td>$3,019 → $2,889</td><td>−$130 (−4.31%)</td><td><code>price_min</code></td></tr>
-            <tr><td>56457376</td><td>300 Anzavista Ave, San Francisco, CA</td><td>$3,850 → $3,750</td><td>−$100 (−2.60%)</td><td><code>price_min</code></td></tr>
+            <tr><td>16558691</td><td>1 Saint Francis Pl (SoMa Square, SoMa), San Francisco, CA</td><td>$3,912 → $3,756</td><td>−$156 (−3.99%)</td><td><code>price_min</code></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="note">Observed asking rents can change again after the observation time. A building record like NEMA covers several available unit types, so <code>price_min</code> is the advertised floor of a range, not one unit's rent.</p>
+      <p class="note">Observed asking rents can change again after the observation time. A building record like SoMa Square covers several available unit types, so <code>price_min</code> is the advertised floor of a range ($3,756–$6,189 at the comparison pass), not one unit's rent.</p>
 
-      <h2>Why a yield desk cares about a $100 cut</h2>
-      <p>Individually, a $100 or $130 trim looks like noise. Watched across a submarket, small <code>price_min</code> cuts are how effective-rent softness shows up before it reaches quarterly comps: operators shade the advertised floor first. This window ran from −$100 (−2.60%) at 300 Anzavista Ave to −$248 (−6.96%) at NEMA. A change-only feed gives an acquisitions or asset-management desk the timestamp, the prior price, and the delta per stable listing ID — enough to track how fast a competitor reprices, which submarkets are shading first, and whether an underwriting assumption about market rent still holds this week. A full nightly export of every SF listing tells you none of that without building the diff yourself.</p>
+      <h2>Why a yield desk cares about a $156 cut</h2>
+      <p>Individually, a $156 trim looks like noise. Watched across a submarket, small <code>price_min</code> cuts are how effective-rent softness shows up before it reaches quarterly comps: operators shade the advertised floor first. SoMa Square shaded its floor −3.99% overnight and was still holding the lower number six hours later — a deliberate reprice, verified twice, not a listing glitch. A change-only feed gives an acquisitions or asset-management desk the timestamp, the prior price, and the delta per stable listing ID — enough to track how fast a competitor reprices, which submarkets are shading first, and whether an underwriting assumption about market rent still holds this week. A full nightly export of every SF listing tells you none of that without building the diff yourself.</p>
 
       <h2>How the comparison works</h2>
       <div class="method-grid">
@@ -122,16 +119,16 @@
       <h2>How a managed feed delivers these events</h2>
       <div class="flow" aria-label="Delivery path">
         <div><strong>Zumper search</strong><span>Named SF window and filters</span></div>
-        <div><strong>Apify Actor</strong><span>Normalize listings, build 1.1.20</span></div>
+        <div><strong>Apify Actor</strong><span>Normalize listings, build 1.1.22</span></div>
         <div><strong>Customer state</strong><span>Compare fingerprints per ID</span></div>
-        <div><strong>Change dataset</strong><span>Five tabled rows; empty when unchanged</span></div>
+        <div><strong>Change dataset</strong><span>The tabled row; empty when unchanged</span></div>
         <div><strong>n8n delivery</strong><span>Slack same day; Sheets or email</span></div>
       </div>
       <p>The delivery workflow calls the Actor on a schedule, reads its dataset, stops when the dataset is empty, and forwards changed rows to the agreed destination. Credentials belong in n8n credential objects, not inside the workflow JSON.</p>
 
       <h2>Limits I keep in the product</h2>
       <div class="limits">
-        <p><strong>Five events describe one window, not the SF market.</strong> This was a single overnight comparison of one search. It demonstrates change detection on live data; it is not a market report or a rent index.</p>
+        <p><strong>One event describes one window, not the SF market.</strong> This was a single overnight comparison of one search. It demonstrates change detection on live data; it is not a market report or a rent index.</p>
         <p><strong>No removal claim from a capped search.</strong> A listing can disappear because the portal reordered the result window. The feed reports new, price, and detail changes; it does not call an absent row “removed.”</p>
         <p><strong>Price ranges need context.</strong> A building can expose several unit types in one row. The feed preserves the observed minimum and maximum rather than pretending each building has one rent.</p>
         <p><strong>Source access is tested before a quote.</strong> A working San Francisco run does not prove that every portal, market, or filter is available. Residential proxy or unblocker costs are scoped separately.</p>
@@ -167,7 +164,7 @@
       </div>
       <p class="note">Apify platform usage, Actor charges, residential proxies, unblockers, and third-party APIs are separate unless a written quote includes a cap. A monthly service starts only after the sample and schema pass the agreed acceptance check.</p>
 
-      <p class="meta">Published August 21, 2026 · Test evidence: Apify build 1.1.20, runs <code>VW3Py0fARVOiaLQ5l</code> (baseline, 05:03Z) and <code>dmmjgJuSoOU1Zj4Gz</code> (comparison, 10:16Z) · <a href="./custom.html">See all managed-feed terms</a></p>
+      <p class="meta">Published August 21, 2026 · Updated August 23, 2026 · Test evidence: Apify build 1.1.22, runs <code>dtSMZpiMd1cT1aDpH</code> (baseline, 04:02Z), <code>93e1mKvinDj30uuf1</code> (comparison, 07:05Z), and <code>lTSRt9vMcefVBmmOL</code> (later pass, 13:03Z) on August 23; earlier five-cut window: build 1.1.20, runs <code>VW3Py0fARVOiaLQ5l</code> and <code>dmmjgJuSoOU1Zj4Gz</code> (August 21) · <a href="./custom.html">See all managed-feed terms</a></p>
     </article>
   </main>
 </body>
