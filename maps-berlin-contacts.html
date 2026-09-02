@@ -75,7 +75,7 @@
     <article>
       <p class="eyebrow">Live contact-sheet sample · Berlin, Germany</p>
       <h1>Eight Berlin tax advisors. One row per unique place_id. Leftover-email 0. About $0.24.</h1>
-      <p class="sub">On August 21, 2026, a single live run of the Google Maps Email Extractor (run <code>reyHSgfydYMPXK3ak</code>, build 1.0.12) searched <code>steuerberater</code> in Berlin, Germany with <code>maxResults</code> 8. It returned exactly 8 contact rows — one per unique <code>place_id</code>, with a leftover-email count of 0, meaning every extracted email landed attached to the place it belongs to. Each row carries the business name, address, phone, website, the email itself, where the email was found (<code>email_source</code>), and a confidence score. This page is written for agencies, franchise teams, B2B sales operations, and market researchers who need a niche-and-city contact sheet built the same way.</p>
+      <p class="sub">On August 21, 2026, a single live run of the Google Maps Email Extractor (run <code>reyHSgfydYMPXK3ak</code>, build 1.0.15) searched <code>steuerberater</code> in Berlin, Germany with <code>maxResults</code> 8. It returned exactly 8 contact rows — one per unique <code>place_id</code>, with a leftover-email count of 0, meaning every extracted email landed attached to the place it belongs to. Each row carries the business name, address, phone, website, the email itself, where the email was found (<code>email_source</code>), and a confidence score. This page is written for agencies, franchise teams, B2B sales operations, and market researchers who need a niche-and-city contact sheet built the same way.</p>
       <p class="sub">The run's email-verify option stayed off: the confidence score reflects where and how the address was found on the business's own site, not a mailbox check. If your buying requirement is deliverability testing, this is not that product — this is source-evidenced public contact research, deduplicated per place.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" data-inquiry-code="CASE-MAPS-PILOT" href="mailto:benthepythondev0@gmail.com?subject=%5BCASE-MAPS-PILOT%5D%20Local%20business%20research%20pilot&amp;body=Inquiry%20source%3A%20Berlin%20Maps%20case%20study%0AOffer%20code%3A%20CASE-MAPS-PILOT%0APackage%3A%20Pilot%20(%24750%20one-time%2C%20optional%20%24250%20refresh)%0A%0ABusiness%20niche%3A%0ACities%20%2F%20regions%3A%0ATarget%20row%20count%3A%0ARequired%20contact%20fields%3A%0AMinimum%20rating%20or%20other%20filters%3A%0AOne-time%20or%20recurring%3A%0ADelivery%20destination%3A%0AIntended%20use%3A">Request a sample for your niche</a>
@@ -90,7 +90,7 @@
       </div>
 
       <h2 id="test">The Berlin proof run</h2>
-      <p>The run used the Google Maps Email Extractor build 1.0.12 — the same build currently on the Store as <a href="https://apify.com/benthepythondev/google-maps-email-scraper">benthepythondev/google-maps-email-scraper</a>. Run <code>reyHSgfydYMPXK3ak</code> searched one niche in one city: <code>steuerberater</code> (tax advisor) in Berlin, Germany, capped at <code>maxResults</code> 8. The output was 8 rows keyed by 8 unique <code>place_id</code> values, and the run's leftover-email counter finished at 0. That counter is the card's own honesty check: an email the site crawl finds but cannot tie back to a specific place is counted as leftover instead of being forced onto the nearest row. Zero means the sheet is clean.</p>
+      <p>The run used the Google Maps Email Extractor build 1.0.15 — the same build currently on the Store as <a href="https://apify.com/benthepythondev/google-maps-email-scraper">benthepythondev/google-maps-email-scraper</a>. Run <code>reyHSgfydYMPXK3ak</code> searched one niche in one city: <code>steuerberater</code> (tax advisor) in Berlin, Germany, capped at <code>maxResults</code> 8. The output was 8 rows keyed by 8 unique <code>place_id</code> values, and the run's leftover-email counter finished at 0. That counter is the card's own honesty check: an email the site crawl finds but cannot tie back to a specific place is counted as leftover instead of being forced onto the nearest row. Zero means the sheet is clean.</p>
 
       <h2>The first row of the sheet</h2>
       <p>This is the published first-screen sample from the run — one of the 8 rows, shown field by field so you can judge the schema. The other seven rows have the same shape; they belong to the run output, not to this page.</p>
@@ -128,7 +128,7 @@
       <h2>How a managed feed delivers a sheet like this</h2>
       <div class="flow" aria-label="Delivery path">
         <div><strong>Niche + city</strong><span>Your search terms and region</span></div>
-        <div><strong>Apify Actor</strong><span>Maps search, build 1.0.12</span></div>
+        <div><strong>Apify Actor</strong><span>Maps search, build 1.0.15</span></div>
         <div><strong>Site crawl</strong><span>Email + phone with source evidence</span></div>
         <div><strong>Clean sheet</strong><span>One row per place_id, leftover 0</span></div>
         <div><strong>Delivery</strong><span>CSV, Sheet, webhook, or CRM-ready</span></div>
@@ -173,7 +173,7 @@
       </div>
       <p class="note">Apify platform usage, Actor charges, residential proxies, and third-party APIs are separate unless a written quote includes a cap. A recurring service starts only after the sample and schema pass the agreed acceptance check.</p>
 
-      <p class="meta">Published August 21, 2026 · Test evidence: Google Maps Email Extractor build 1.0.12, run <code>reyHSgfydYMPXK3ak</code> — query <code>steuerberater</code> / Berlin, Germany, <code>maxResults</code> 8, 8 unique place_ids, leftover-email 0 · <a href="./custom.html">See all managed-feed terms</a></p>
+      <p class="meta">Published August 21, 2026 · Test evidence: Google Maps Email Extractor build 1.0.15, run <code>reyHSgfydYMPXK3ak</code> — query <code>steuerberater</code> / Berlin, Germany, <code>maxResults</code> 8, 8 unique place_ids, leftover-email 0 · <a href="./custom.html">See all managed-feed terms</a></p>
     </article>
   </main>
 </body>
