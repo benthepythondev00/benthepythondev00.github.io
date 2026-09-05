@@ -122,7 +122,6 @@
       td:last-child,
       th:last-child {
         text-align: right;
-        white-space: nowrap;
       }
       .card {
         background: var(--card);
@@ -143,6 +142,7 @@
       }
       code {
         font-size: 0.9em;
+        overflow-wrap: anywhere;
       }
       details {
         border-bottom: 1px solid var(--line);
@@ -232,7 +232,7 @@
                 "name": "Can I just run the Apify Actor myself?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. Store PPE is $2.40 per 1,000 results on Gold. Use that for small or recurring pulls. The dump is for a 50k–1M row backfill you do not want to babysit."
+                  "text": "Yes. Free-tier pricing is $3 per 1,000 saved posts or comments, plus $0.005 per post with returned comments and a memory-based start fee. Gold prices are $2.40 per 1,000 rows and $0.004 per non-empty comment thread. Use the Actor for self-serve pulls; the service adds scoped sampling, export checks and delivery."
                 }
               },
               {
@@ -280,6 +280,11 @@
         Inbound only. I do not cold-email Store users. New buyers start here or
         on the Actor page.
       </p>
+      <p class="sub">
+        Before booking, <a href="./data/reddit-archive-sample-2026-09-05.json">inspect nine real sample rows</a>
+        or follow the <a href="./historical-reddit-rag-pack.html#workflow">n8n import and refresh guide</a>.
+        The sample contains selected fields and shortened text from a January 2024 r/Python check.
+      </p>
 
       <h2>Who this is for</h2>
       <p class="sub">
@@ -325,8 +330,16 @@
       <p class="note">
         Row caps are delivery caps, not a promise the archive holds that many
         items. Thin windows still bill the booked package. You pay Apify usage
-        on your account unless the quote bundles a cap. Store PPE stays $2.40/1k
-        Gold.
+        on your account unless the quote bundles a cap.
+      </p>
+      <p class="note">
+        <strong>Self-serve Actor costs, checked 5 September 2026:</strong>
+        Free tier: $3 per 1,000 saved posts or comments, plus $0.005 for each post
+        whose comment fetch returns eligible comments. Gold: $2.40 per 1,000 rows
+        plus $0.004 per non-empty thread. A start event also applies per GB of memory,
+        minimum one: $0.00005 Free or $0.00004 Gold. At 512 MB, the nine-row sample
+        with three non-empty threads is $0.04205 before discounts. These are Actor
+        event fees; confirm your plan and maximum run charge in Apify before starting.
       </p>
 
       <div class="card">
@@ -387,10 +400,15 @@
       <h2>Proof already on file</h2>
       <ul>
         <li>
-          Current-build smoke, 3 Sep 2026: run <code>VtvRSJM1Wa86T0sSf</code>,
-          build 1.0.17, 3 live <code>r/Python</code> posts in 6s (~$0.001),
-          newest <code>2026-09-03T14:54:42Z</code>, dataset
-          <code>EF6qvELKC3E4om7FW</code>, zero warnings or errors
+          Pagination checks, 5 September 2026, build 1.0.18:
+          250 unique posts oldest-first and 250 unique posts newest-first
+          in separate January 2024 r/Python runs. Both had 250 result charges and zero warnings.
+        </li>
+        <li>
+          Comments check: three posts plus six comments, nine unique rows,
+          nine result charges and three comment-thread charges.
+          <a href="./data/reddit-archive-sample-2026-09-05.json">Inspect the sample and exact input</a>.
+          Subsequent documentation builds retain the repaired runtime.
         </li>
         <li>
           Example Task:
@@ -449,9 +467,11 @@
       <details>
         <summary>Can I just run the Apify Actor myself?</summary>
         <p>
-          Yes. Store PPE is $2.40 per 1,000 results on Gold. Use that for small
-          or recurring pulls. The dump is for a 50k–1M row backfill you do not
-          want to babysit.
+          Yes. Free-tier pricing is $3 per 1,000 saved posts or comments, plus
+          $0.005 per post with returned comments and a memory-based start fee.
+          Gold prices are $2.40 per 1,000 rows and $0.004 per non-empty comment thread.
+          Use the Actor for self-serve pulls; the service adds scoped sampling,
+          export checks and delivery.
         </p>
       </details>
       <details>

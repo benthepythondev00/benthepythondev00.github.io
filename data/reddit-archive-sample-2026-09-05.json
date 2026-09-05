@@ -1,0 +1,114 @@
+{
+  "description": "Nine real rows from an owner verification run, selected fields only. selftext and body excerpts are limited to 500 characters; the Actor returns full available text. Authors omitted from this public sample.",
+  "actor": "benthepythondev/reddit-archive-scraper",
+  "build": "1.0.18",
+  "runId": "zo6dQnyXG1PN6XsbW",
+  "verifiedOn": "2026-09-05",
+  "input": {
+    "subreddits": [
+      "Python"
+    ],
+    "afterDate": "2024-01-01",
+    "beforeDate": "2024-01-02",
+    "sortOrder": "oldest",
+    "maxPosts": 3,
+    "includeComments": true,
+    "maxCommentsPerPost": 2,
+    "minScore": 0
+  },
+  "items": [
+    {
+      "type": "post",
+      "id": "18vkgtu",
+      "title": "Monday Daily Thread: Project ideas!",
+      "selftext": "# Weekly Thread: Project Ideas 💡\n\nWelcome to our weekly Project Ideas thread! Whether you're a newbie looking for a first project or an expert seeking a new challenge, this is the place for you.\n\n## How it Works:\n\n1. **Suggest a Project**: Comment your project idea—be it beginner-friendly or advanced.\n2. **Build & Share**: If you complete a project, reply to the original comment, share your experience, and attach your source code.\n3. **Explore**: Looking for ideas? Check out Al Sweigart's [\"The …",
+      "subreddit": "Python",
+      "created_iso": "2024-01-01T00:00:08+00:00",
+      "permalink": "https://www.reddit.com/r/Python/comments/18vkgtu/monday_daily_thread_project_ideas/"
+    },
+    {
+      "type": "comment",
+      "id": "kfrrs4u",
+      "body": "This is a Fakespot Reviews Analysis bot. Fakespot detects fake reviews, fake products and unreliable sellers using AI.\n\nHere is the analysis for the Amazon product reviews:\n\n>**Name**: The Big Book of Small Python Projects: 81 Easy Practice Programs \n\n>**Company**: Al Sweigart\n\n>**Amazon Product Rating**: 4.6 \n\n>**Fakespot Reviews Grade**: D\n\n>**Adjusted Fakespot Rating**: 1.9\n\n>**Analysis Performed at**: 12-05-2023 \n\n[Link to Fakespot Analysis](https://fakespot.com/product/the-big-book-of-small…",
+      "subreddit": "Python",
+      "created_iso": "2024-01-01T00:20:05+00:00",
+      "permalink": "https://www.reddit.com/r/Python/comments/18vkgtu/monday_daily_thread_project_ideas/kfrrs4u/",
+      "post_id": "18vkgtu",
+      "parent_id": "t3_18vkgtu",
+      "link_id": "t3_18vkgtu"
+    },
+    {
+      "type": "comment",
+      "id": "kftcb6i",
+      "body": "maybe adding if else statements is enough ![gif](emote|free_emotes_pack|stuck_out_tongue)",
+      "subreddit": "Python",
+      "created_iso": "2024-01-01T09:23:56+00:00",
+      "permalink": "https://www.reddit.com/r/Python/comments/18vkgtu/monday_daily_thread_project_ideas/kftcb6i/",
+      "post_id": "18vkgtu",
+      "parent_id": "t3_18vkgtu",
+      "link_id": "t3_18vkgtu"
+    },
+    {
+      "type": "post",
+      "id": "18vks3q",
+      "title": "code competition topics",
+      "selftext": "hi guys, just looking to spark some conversation, maybe answering these questions will get some conversations going:  \n\n\ncoding comps for people in the 3-6 months mark?  \n\n\n also, how do these tournaments ensure there are no sand baggers?  \n\n\nany one competed and what was your experience?  \n\n\nwhat do you think is a realistic time-line to become a) good enough to compete and b) good enough to actually be competitive? ",
+      "subreddit": "Python",
+      "created_iso": "2024-01-01T00:17:05+00:00",
+      "permalink": "https://www.reddit.com/r/Python/comments/18vks3q/code_competition_topics/"
+    },
+    {
+      "type": "comment",
+      "id": "kfrxpz9",
+      "body": "I've never heard about such competitions really. I heard that there uni competitions between freshmen, sophomores, etc but majority of people who participate in it has been doing it since highschool. I used codewars to train when I was your level but from what I understand you need something more serious",
+      "subreddit": "Python",
+      "created_iso": "2024-01-01T01:02:09+00:00",
+      "permalink": "https://www.reddit.com/r/Python/comments/18vks3q/code_competition_topics/kfrxpz9/",
+      "post_id": "18vks3q",
+      "parent_id": "t3_18vks3q",
+      "link_id": "t3_18vks3q"
+    },
+    {
+      "type": "comment",
+      "id": "kfryc5a",
+      "body": "hi i just found codewars today lol pretty fun doing kata's and stuff, i did 3 kata's and now i need to do some tutorials for the next one there's a bit of data manipulation and stuff so i'll take this oppoortunity to do another tutorial rather than just find an answer, thanks for replying i appreciate it",
+      "subreddit": "Python",
+      "created_iso": "2024-01-01T01:06:37+00:00",
+      "permalink": "https://www.reddit.com/r/Python/comments/18vks3q/code_competition_topics/kfryc5a/",
+      "post_id": "18vks3q",
+      "parent_id": "t1_kfrxpz9",
+      "link_id": "t3_18vks3q"
+    },
+    {
+      "type": "post",
+      "id": "18vpdsd",
+      "title": "chrono24 - a simple API wrapper for watch enthusiasts 🕒",
+      "selftext": "The [Chrono24](https://www.chrono24.com/) [API wrapper](https://github.com/irahorecka/chrono24/) is designed for watch enthusiasts in the Python community. This library offers seamless access to Chrono24's watch listings.\n\nSimply `pip install chrono24`, and explore brands and listings using simple Python commands:\n\n    import chrono24\n    \n    for listing in chrono24(query=\"Rolex DateJust\").search():\n        print(listing)\n\nDive into one of the biggest timepiece markets with [chrono24](https://g…",
+      "subreddit": "Python",
+      "created_iso": "2024-01-01T04:57:33+00:00",
+      "permalink": "https://www.reddit.com/r/Python/comments/18vpdsd/chrono24_a_simple_api_wrapper_for_watch/"
+    },
+    {
+      "type": "comment",
+      "id": "kfus47n",
+      "body": "I'm curious why you decided to go for the hack of replacing your module with a callable? Why not do `chrono24.query()` or just `from chrono24 import Chrono24`? I guess your API makes for a slightly shorter program, but it's at the pretty hefty cost of being less intuitive and additionally confusing type checkers/linters.",
+      "subreddit": "Python",
+      "created_iso": "2024-01-01T17:26:59+00:00",
+      "permalink": "https://www.reddit.com/r/Python/comments/18vpdsd/chrono24_a_simple_api_wrapper_for_watch/kfus47n/",
+      "post_id": "18vpdsd",
+      "parent_id": "t3_18vpdsd",
+      "link_id": "t3_18vpdsd"
+    },
+    {
+      "type": "comment",
+      "id": "kfv1ixt",
+      "body": "Point well taken! Whenever I write these projects I like to explore the different programming paradigms Python offers. If Chrono24 offered a finite and intuitive URL endpoints for watch manufacturers (e.g., 'seiko'), I would've perhaps written the API like `chrono24.rolex(\"DateJust\")`, but given the current library only accepts a query, it makes sense to have a dedicated method, such as `chrono24.query`. You're right about the linters - they don't like this. Thanks for your advice - always fun t…",
+      "subreddit": "Python",
+      "created_iso": "2024-01-01T18:24:18+00:00",
+      "permalink": "https://www.reddit.com/r/Python/comments/18vpdsd/chrono24_a_simple_api_wrapper_for_watch/kfv1ixt/",
+      "post_id": "18vpdsd",
+      "parent_id": "t1_kfus47n",
+      "link_id": "t3_18vpdsd"
+    }
+  ]
+}

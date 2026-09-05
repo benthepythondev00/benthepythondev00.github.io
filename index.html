@@ -40,10 +40,11 @@
 <body>
   <div class="wrap">
     <header>
-      <h1>Production-ready data Actors</h1>
+      <h1>Apify scrapers and managed data feeds</h1>
       <p class="sub" id="heroBlurb">No-code, pay-per-result scrapers on Apify — jobs, rentals, Reddit/RAG, leads, finance. Auto-synced catalog; every new public Actor lands here.</p>
       <p class="sub">Need more than a self-serve run? Start with a live-tested <a href="./custom.html">property or local-business feed pilot</a> — fresh proof: the <a href="./sf-rental-price-drops.html?utm_source=owned_site&amp;utm_medium=internal_link&amp;utm_campaign=sf_price_drop_pilot&amp;utm_content=catalog">SF rent-watch caught SoMa Square listing 16558691 cutting its observed asking-rent floor from $3,912 to $3,756 (−3.99%), still held six hours later</a>. Historical Reddit delivery has its own <a href="./reddit-rag-dump.html">fixed-price RAG dump</a>.</p>
       <p class="sub">Local-business proof: a live Maps run pulled <a href="./maps-berlin-contacts.html">8 Berlin tax advisors — one contact row per unique place_id, leftover-email 0 — for about $0.24</a>.</p>
+      <p class="sub">Building a Reddit retrieval corpus? <a href="./historical-reddit-rag-pack.html#workflow">Start with real sample rows and the n8n import guide</a>, then choose a self-serve run or a scoped delivery.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="./reddit-rag-dump.html">Reddit RAG dump</a>
         <a class="btn btn-ghost" href="mailto:benthepythondev0@gmail.com?subject=Data%20dump%20or%20feed%20quote&amp;body=Source%20or%20Actor%3A%0ADate%20window%20or%20refresh%20frequency%3A%0ARequired%20fields%3A%0AEstimated%20row%20count%3A%0ADelivery%20(JSON%2FCSV%2FSheet%2Fwebhook)%3A">Request a quote</a>
@@ -53,8 +54,8 @@
     </header>
 
     <div class="toolbar">
-      <input id="q" type="search" placeholder="Search Actors, sites, use cases…" />
-      <select id="sort">
+      <input id="q" type="search" aria-label="Search Actors" placeholder="Search Actors, sites, use cases…" />
+      <select id="sort" aria-label="Sort Actors">
         <option value="users">Sort: Most users</option>
         <option value="az">Sort: A→Z</option>
         <option value="newest">Sort: Newest (feed order)</option>
