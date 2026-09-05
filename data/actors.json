@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T12:41:36Z",
+  "generatedAt": "2026-09-05T16:03:07Z",
   "count": 943,
   "chips": [
     "All",
@@ -22,8 +22,8 @@
         "AUTOMATION"
       ],
       "chip": "Jobs & hiring",
-      "users30d": 109,
-      "successRate30d": 99.86,
+      "users30d": 108,
+      "successRate30d": 99.87,
       "storeUrl": "https://apify.com/benthepythondev/remote-jobs-aggregator?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect remote jobs from Arbeitnow, Jobicy, Himalayas, RemoteOK, Remotive, and Working Nomads in one normalized datas\u2026",
       "iconUrl": "https://images.apifyusercontent.com/3c6FrPD6wiJu_68EP24vUJHkDjUUfG8EmL1Sdca4P7E/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNjNTMUZBcWlZM1VEcVZFdmItblJpZk9BVThRdi1yZW1vdGUtam9icy1hZ2dyZWdhdG9yLnBuZw.webp"
@@ -355,7 +355,7 @@
       "users30d": 6,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/bestbuy-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract Best Buy product data: prices, deals, ratings, reviews & availability. Search by keyword or category. Get SKU\u2026",
+      "oneLiner": "Source access is under repair. September 5 cloud checks returned no verified products. Price and product URL correcti\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EUU9VRtixYOqqYI-lkapDQt2-y1BL2Eds-k95ANqEbg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcGJVWjR6Mk9Sc3lLaFpzaEwtc0pUZWFZSjdPZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzhpdGtoZDhpdGtoZDhpdGsuanBlZw.webp"
     },
     {
@@ -402,6 +402,21 @@
       "storeUrl": "https://apify.com/benthepythondev/immobiliare-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Immobiliare.it (Italy's #1 property portal), for sale or to rent: price, surface, rooms, bathrooms, floor, ful\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EtBlAgN83xsAXQXGBunHUNqUuh2xXjt7s3NTuijU5q4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQ3BFUE1MR29qckZsUGFabXctSlR0SFZoWDZ1OC1pbW1vYmlsaWFyZS1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "reddit-archive-scraper",
+      "title": "Reddit Archive Scraper \u2014 Historical Posts for RAG",
+      "categories": [
+        "AI",
+        "AUTOMATION",
+        "SOCIAL_MEDIA"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 4,
+      "successRate30d": 99.38,
+      "storeUrl": "https://apify.com/benthepythondev/reddit-archive-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Pull every post and comment from r/X for the last 3 months, or years past the 1,000-post cap. RAG packs and weekly re\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/Y8-qCWkg_WfViP_3zelYNEdS-vr8CbljApfj-XkPmVM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSGdxNUFYYXZRQjVINm1nMlktRUVxaUxrejFmNC1yZWRkaXQtYXJjaGl2ZS5wbmc.webp"
     },
     {
       "name": "relocate-me-jobs-scraper",
@@ -612,21 +627,6 @@
       "storeUrl": "https://apify.com/benthepythondev/real-estate-agent-lead-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Find real-estate agents, brokers and agencies by city and get their contact emails, phones and websites. Built on Goo\u2026",
       "iconUrl": "https://images.apifyusercontent.com/wgkZKDgKcu6t34G3VDpW5OtZ6Y9u75s_HRS0JqxgdYo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNFNjR3J5dnh0cUptcnVjbmYtSXNyUmE0SWFPai1yZWFsLWVzdGF0ZS1hZ2VudC1sZWFkLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "reddit-archive-scraper",
-      "title": "Reddit Archive Scraper \u2014 Historical Posts for RAG",
-      "categories": [
-        "AI",
-        "AUTOMATION",
-        "SOCIAL_MEDIA"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 3,
-      "successRate30d": 99.38,
-      "storeUrl": "https://apify.com/benthepythondev/reddit-archive-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Pull every post and comment from r/X for the last 3 months, or years past the 1,000-post cap. RAG packs and weekly re\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/Y8-qCWkg_WfViP_3zelYNEdS-vr8CbljApfj-XkPmVM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSGdxNUFYYXZRQjVINm1nMlktRUVxaUxrejFmNC1yZWRkaXQtYXJjaGl2ZS5wbmc.webp"
     },
     {
       "name": "sitemap-url-extractor",
@@ -13704,7 +13704,7 @@
       "users30d": 0,
       "successRate30d": 97.22,
       "storeUrl": "https://apify.com/benthepythondev/yelp-intelligence-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract Yelp business listings with contact info, reviews, and AI sentiment analysis. Perfect for lead generation (90\u2026",
+      "oneLiner": "Source access is under repair. September 5 cloud checks returned no verified businesses. Listing, review and output-t\u2026",
       "iconUrl": "https://images.apifyusercontent.com/jx5viv7a0peWsPkV8iop4x1ACwgUucNrA9__MwWq1t4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSjFyZ3gyOWg1RG5KU2U1RWQtejFRaHVubWUxdi1DaGF0R1BUX0ltYWdlX05vdl8xM19fMjAyNV9hdF8wNF8wNF8zOV9QTS5wbmc.webp"
     },
     {
