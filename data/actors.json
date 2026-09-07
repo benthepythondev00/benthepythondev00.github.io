@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T15:52:30Z",
+  "generatedAt": "2026-09-07T19:56:51Z",
   "count": 943,
   "chips": [
     "All",
@@ -2457,21 +2457,6 @@
       "storeUrl": "https://apify.com/benthepythondev/builtin-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape BuiltIn job listings: title, company, location, remote/hybrid flag, salary range, seniority, industry tags and\u2026",
       "iconUrl": "https://images.apifyusercontent.com/DPP0p1nRZvbBdN7F9AKu_CqFsXxW2wnu6nmtFKTzDXU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdDNxN3gzOTlGanBYUWowdUQtQ1JLV3pCemFvMy1idWlsdGluLWpvYnMtc2NyYXBlci5wbmc.webp"
-    },
-    {
-      "name": "businessesforsale-scraper",
-      "title": "BusinessesForSale Scraper - Acquisition Listings",
-      "categories": [
-        "BUSINESS",
-        "LEAD_GENERATION",
-        "AUTOMATION"
-      ],
-      "chip": "Lead gen",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/businessesforsale-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape BusinessesForSale.com listings: business title, asking price, revenue, cash flow, location, description, image\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
       "name": "bybit-market-data-scraper",
@@ -13242,6 +13227,21 @@
       "storeUrl": "https://apify.com/benthepythondev/boligsiden-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Boligsiden.dk (Denmark's #1 property portal): price, price per m\u00b2, size, rooms, year built, energy label, coor\u2026",
       "iconUrl": "https://images.apifyusercontent.com/gPTm0KZBacU1ya68KOtp9MnGODlcUW70qXNXTkzrYDM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZGZITlBtN1ptd3lESlN3anEtTk5KQUc4VGdGNy1ib2xpZ3NpZGVuLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "businessesforsale-scraper",
+      "title": "BusinessesForSale Scraper - Acquisition Listings",
+      "categories": [
+        "BUSINESS",
+        "LEAD_GENERATION",
+        "AUTOMATION"
+      ],
+      "chip": "Lead gen",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/businessesforsale-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape BusinessesForSale.com listings: business title, asking price, revenue, cash flow, location, description, image\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
       "name": "comeet-jobs-scraper",
