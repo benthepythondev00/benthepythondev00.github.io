@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-09T14:34:43Z",
-  "count": 945,
+  "generatedAt": "2026-09-09T18:34:15Z",
+  "count": 947,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -22,7 +22,7 @@
         "AUTOMATION"
       ],
       "chip": "Jobs & hiring",
-      "users30d": 94,
+      "users30d": 95,
       "successRate30d": 99.87,
       "storeUrl": "https://apify.com/benthepythondev/remote-jobs-aggregator?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect remote jobs from Arbeitnow, Jobicy, Himalayas, RemoteOK, Remotive, and Working Nomads in one normalized datas\u2026",
@@ -233,7 +233,7 @@
       ],
       "chip": "E\u2011commerce",
       "users30d": 7,
-      "successRate30d": 98.14,
+      "successRate30d": 98.15,
       "storeUrl": "https://apify.com/benthepythondev/bestbuy-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Export Best Buy product prices, ratings, model numbers and specifications by keyword, category or SKU. Direct HTTP ac\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EUU9VRtixYOqqYI-lkapDQt2-y1BL2Eds-k95ANqEbg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcGJVWjR6Mk9Sc3lLaFpzaEwtc0pUZWFZSjdPZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzhpdGtoZDhpdGtoZDhpdGsuanBlZw.webp"
@@ -1334,6 +1334,21 @@
       "iconUrl": "https://images.apifyusercontent.com/cfyW6DnL9o_xx89_8tZnphM-M5ZJbdo1aWpg81CuMmA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcDFPSmV1V2lHSDRWakcwY3ktU2hpcm96Z0dRMy1DaGF0R1BUX0ltYWdlX05vdl8xM19fMjAyNV9hdF8wM18zMl8xNF9QTS5wbmc.webp"
     },
     {
+      "name": "usaspending-contracts-intelligence",
+      "title": "\ud83d\udcb0 USAspending Contracts Intelligence - Federal Data",
+      "categories": [
+        "AI",
+        "AGENTS",
+        "AUTOMATION"
+      ],
+      "chip": "Research & open data",
+      "users30d": 2,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/usaspending-contracts-intelligence?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Extract $600B+ federal contracts, grants & spending with AI opportunity analysis",
+      "iconUrl": "https://images.apifyusercontent.com/cMOos_STFHj2Jt8xdwy_qiYZv30qChL1zbCx0trbZi0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItY2hrcE9WZTQ5azgxY0JSYzctMEhjaWpldGdWRC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3BwOHhicXBwOHhicXBwOHguanBn.webp"
+    },
+    {
       "name": "workday-jobs-scraper",
       "title": "\ud83d\udcbc Workday Jobs Scraper - Enterprise Hiring Data",
       "categories": [
@@ -1362,6 +1377,21 @@
       "storeUrl": "https://apify.com/benthepythondev/gelbe-seiten-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape business listings from Gelbe Seiten (gelbeseiten.de), Germany's largest business directory. Extract business n\u2026",
       "iconUrl": "https://images.apifyusercontent.com/2VA_JuRrfdPWW0k3GNhiJYHz4kgBT0-c43-r0L7z1Yw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItY09CZ2tsSk1ETkNyOFU3TmktMmR5V01HZUI5My1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3JuOHZhenJuOHZhenJuOHYucG5n.webp"
+    },
+    {
+      "name": "newsletter-scraper",
+      "title": "\ud83d\udcf0 Newsletter Scraper - Substack Archives, LLM-Ready",
+      "categories": [
+        "AI",
+        "DEVELOPER_TOOLS",
+        "NEWS"
+      ],
+      "chip": "Research & open data",
+      "users30d": 2,
+      "successRate30d": 94.44,
+      "storeUrl": "https://apify.com/benthepythondev/newsletter-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Extract newsletter archives from Substack, Beehiiv, and Ghost platforms. Get full content in markdown format, complet\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/8PAYIePjZ3BQD4W0sUxyBmNspzsPlw9-MBnbXdj6Lqc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZE16Zml2RWFhUFN5dkNvR0QtbzFmWnNBbW1uVS1DaGF0R1BUX0ltYWdlXzMxLl9Pa3QuXzIwMjVfXzIxXzU4XzA1LnBuZw.webp"
     },
     {
       "name": "7timer-astro-scraper",
@@ -12794,21 +12824,6 @@
       "iconUrl": "https://images.apifyusercontent.com/qNfPaROOhcSTnhcBgT6SEY3gTL5sRY3O56HRJIiQpI4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSUZTWlVFQ2ZHZUNFRnlQbDYtRHlVT1VFWUl1UC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2pwdWhjbGpwdWhjbGpwdWgucG5n.webp"
     },
     {
-      "name": "usaspending-contracts-intelligence",
-      "title": "\ud83d\udcb0 USAspending Contracts Intelligence - Federal Data",
-      "categories": [
-        "AI",
-        "AGENTS",
-        "AUTOMATION"
-      ],
-      "chip": "Research & open data",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/usaspending-contracts-intelligence?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract $600B+ federal contracts, grants & spending with AI opportunity analysis",
-      "iconUrl": "https://images.apifyusercontent.com/cMOos_STFHj2Jt8xdwy_qiYZv30qChL1zbCx0trbZi0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItY2hrcE9WZTQ5azgxY0JSYzctMEhjaWpldGdWRC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3BwOHhicXBwOHhicXBwOHguanBn.webp"
-    },
-    {
       "name": "remote-jobs-intelligence",
       "title": "\ud83d\udcbc RemoteOK Jobs Scraper - Remote Roles with Salaries",
       "categories": [
@@ -12837,21 +12852,6 @@
       "storeUrl": "https://apify.com/benthepythondev/npm-package-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract npm package data with download stats, dependencies, maintainers, and quality scores. Search by keyword, autho\u2026",
       "iconUrl": "https://images.apifyusercontent.com/wGRP0XOuSVcwI7mqFRTjRibNVJeBRNkn7c2q65Q4sPk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcWlZd1k1ajNOVlU5TlVYckQtM3R2U3Jtcnk1WC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3dpYmp2c3dpYmp2c3dpYmouanBn.webp"
-    },
-    {
-      "name": "newsletter-scraper",
-      "title": "\ud83d\udcf0 Newsletter Scraper - Substack Archives, LLM-Ready",
-      "categories": [
-        "AI",
-        "DEVELOPER_TOOLS",
-        "NEWS"
-      ],
-      "chip": "Research & open data",
-      "users30d": 1,
-      "successRate30d": 94.44,
-      "storeUrl": "https://apify.com/benthepythondev/newsletter-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract newsletter archives from Substack, Beehiiv, and Ghost platforms. Get full content in markdown format, complet\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/8PAYIePjZ3BQD4W0sUxyBmNspzsPlw9-MBnbXdj6Lqc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZE16Zml2RWFhUFN5dkNvR0QtbzFmWnNBbW1uVS1DaGF0R1BUX0ltYWdlXzMxLl9Pa3QuXzIwMjVfXzIxXzU4XzA1LnBuZw.webp"
     },
     {
       "name": "youtube-channel-intelligence",
@@ -13124,6 +13124,21 @@
       "iconUrl": "https://images.apifyusercontent.com/lzc0HFjAPqgQcPm19wUAeGiiE6b9656qG1b8pgO9Lzc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbWNnNXBlZ3djVmdreVpxY0YtSzlmemdCcExIaC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3RxZWJubHRxZWJubHRxZWIuanBlZw.webp"
     },
     {
+      "name": "facebook-pages-scraper",
+      "title": "Facebook Pages Scraper - Business Info & Public Contacts",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "BUSINESS",
+        "LEAD_GENERATION"
+      ],
+      "chip": "Lead gen",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/facebook-pages-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export public Facebook Page names, categories, descriptions, follower text and published contact details with source\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/YYS_woRjuLcywVKspofQszcml-exif0d1_qgx2xyzwI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRnNQalVSV0FXUG80VEkxVTEtZWJzT3pib1VxVC1mYWNlYm9vay1wYWdlcy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
       "name": "finn-real-estate-scraper",
       "title": "Finn.no Real Estate Scraper - Norway Property Data",
       "categories": [
@@ -13242,6 +13257,21 @@
       "storeUrl": "https://apify.com/benthepythondev/lamudi-property-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Lamudi Philippines listings with price, beds, baths, floor area, address, coordinates, amenities, agency, publ\u2026",
       "iconUrl": "https://images.apifyusercontent.com/K90MM020MrPZSSizYdpGC2W7DPS__z1bTw67YPeJX-g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTmE0dDRXY21PNHBEUmdDaWUtVHpibE1PZ3FnRC1sYW11ZGktcHJvcGVydHktc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "linkedin-jobs-scraper",
+      "title": "LinkedIn Jobs Scraper - Full Descriptions & New Job Alerts",
+      "categories": [
+        "JOBS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Jobs & hiring",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/linkedin-jobs-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Search public LinkedIn jobs with full descriptions, company data, source filters and persistent only-new monitoring.\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/PJiaaP_U-3bRyIXBC_sW1ImbC_-iel8pBBuoWpGAX6w/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itb0xKRVoxMHNSdW9LaVpJblgtclNMbzg0ZEpZdy1saW5rZWRpbi1qb2JzLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "nhs-jobs-scraper",
