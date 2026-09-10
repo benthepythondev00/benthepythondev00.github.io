@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-10T18:26:07Z",
-  "count": 952,
+  "generatedAt": "2026-09-10T21:36:32Z",
+  "count": 953,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -311,7 +311,7 @@
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/tiktok-profile-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Export public TikTok profiles with follower counts, likes, bios and verified account identity. Skip duplicate handles\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/4xRYXWN3ObPaJMBI-zZErUXIFxUhtJ2uu9-i_vIkxgU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbXBiNnFka21QbnFXckdvaE8tMWpvYVRpOXlDby1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2c1dzljbWc1dzljbWc1dzkuanBlZw.webp"
+      "iconUrl": "https://images.apifyusercontent.com/yTl6IZSKguGQiyoe8PXTka3FgiBsrF7RlZ0e0GKuIMg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbXBiNnFka21QbnFXckdvaE8tYkxxSkhpYmM4ei10aWt0b2stcHJvZmlsZS1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "eu-jobs-intelligence",
@@ -614,6 +614,21 @@
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
+      "name": "youtube-transcript-scraper",
+      "title": "YouTube Transcript Scraper - Text, SRT & VTT",
+      "categories": [
+        "AI",
+        "AUTOMATION",
+        "DEVELOPER_TOOLS"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 3,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/youtube-transcript-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export available YouTube captions as text, timestamped segments, SRT, VTT or JSON. Choose preferred languages or requ\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/TcCwhGXeONTdGMd-085hcOjQxm5kYR7XaftPVY7iA_A/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZWtMMWtlV05PMGdQd0NudjktZzQ4TXBWRE0zZy15b3V0dWJlLXRyYW5zY3JpcHQtc2NyYXBlci5wbmc.webp"
+    },
+    {
       "name": "domain-intelligence-scraper",
       "title": "\ud83c\udf10 Domain Intelligence Scraper - WHOIS & Domain Age",
       "categories": [
@@ -657,21 +672,6 @@
       "storeUrl": "https://apify.com/benthepythondev/wg-gesucht-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape shared apartments (WG), 1-room apartments, full apartments, and houses from wg-gesucht.de. Filter by city, ren\u2026",
       "iconUrl": "https://images.apifyusercontent.com/hg2EIwYb6fgfX7ipdNeELci2uN7_T5hSYn-yUAHCfAc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNXNHcHAyYXNUNlpVQ0tyYlAtTGM5TEd0b3lQZy13Zy1nZXN1Y2h0LnBuZw.webp"
-    },
-    {
-      "name": "youtube-transcript-scraper",
-      "title": "\ud83d\udcdd YouTube Transcript Scraper - Captions to Text",
-      "categories": [
-        "AI",
-        "AUTOMATION",
-        "DEVELOPER_TOOLS"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 3,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/youtube-transcript-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract transcripts from any YouTube video with captions. Supports 100+ languages, auto-generated captions, and trans\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/Mko4APManGqMt-anEz06dYSHg3ihw4SzpYbhlp7dbxM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZWtMMWtlV05PMGdQd0NudjktNlZFb0VqYjBiMC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3BldTgzd3BldTgzd3BldTguanBlZw.webp"
     },
     {
       "name": "coingecko-crypto-intelligence",
@@ -10994,6 +10994,21 @@
       "iconUrl": "https://images.apifyusercontent.com/dZyNBkeYx8lgD6g5-GdIDiUmPJ1L093bFIv8La8L4VU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTlk1bEJ2V0lBdFA2STJTQTEtRU1jb1U0RzBHNS10aHJlYWRzLXB1YmxpYy1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "tiktok-video-details-scraper",
+      "title": "TikTok Video Scraper - Captions, Views & Engagement",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "OTHER"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/tiktok-video-details-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export known public TikTok video URLs to captions, author data, publication dates and engagement counts. Skip known I\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/k0OIpElXivmtDf36N2gahLACsIwfR2AHu-FL9rppvIg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itdm1XaEJTWnE1RE82T3J0VTMtSmpHRjdwczZjSS10aWt0b2stdmlkZW8tZGV0YWlscy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
       "name": "tle-satellite-catalog-scraper",
       "title": "TLE Satellite Catalog Scraper",
       "categories": [
@@ -12029,8 +12044,23 @@
       "iconUrl": "https://images.apifyusercontent.com/B05Elc65c_97aZcLxMSDE05RXd3mRXYbhD9a7zoRiUM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaWQ4SVJUTTAyZmNScnBmQVgtZFZSd3hOdk1Vby15Z29wcm9kZWNrLWNhcmRzLXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "youtube-channel-intelligence",
+      "title": "YouTube Channel RSS Scraper - Recent Video Feeds",
+      "categories": [
+        "AI",
+        "VIDEOS",
+        "SOCIAL_MEDIA"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/youtube-channel-intelligence?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export recent YouTube channel RSS videos with titles, dates and available feed metrics. Filter by keywords or age and\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/9g4dxYI5anXXxZGdj6hOOpEXP0tEv0AH6sBKsd9c5R0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQk5oVWFwSnA4bmJ4OEJDbmwtMWxTbkJzelkzeC15b3V0dWJlLWNoYW5uZWwtaW50ZWxsaWdlbmNlLnBuZw.webp"
+    },
+    {
       "name": "youtube-playlist-extractor",
-      "title": "YouTube Playlist Extractor - Video Metadata",
+      "title": "YouTube Playlist Scraper - Export Videos to CSV",
       "categories": [
         "SOCIAL_MEDIA",
         "MARKETING",
@@ -12040,8 +12070,8 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/youtube-playlist-extractor?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract YouTube playlist videos: playlist title, video title, URL, description, duration, channel, channel URL, views\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/Mko4APManGqMt-anEz06dYSHg3ihw4SzpYbhlp7dbxM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZWtMMWtlV05PMGdQd0NudjktNlZFb0VqYjBiMC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3BldTgzd3BldTgzd3BldTguanBlZw.webp"
+      "oneLiner": "Export public YouTube playlist videos with titles, URLs, available durations and view counts. Preserve playlist conte\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/JJTZpxXpXZSkhRYruo6tEoytw-FabcDIhzP1uMGrAzs/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcG8yNUFxdEpHbGpEUkgyNXQtSFpWbTdaQkswNC15b3V0dWJlLXBsYXlsaXN0LWV4dHJhY3Rvci5wbmc.webp"
     },
     {
       "name": "yugioh-cards-scraper",
@@ -12282,21 +12312,6 @@
       "storeUrl": "https://apify.com/benthepythondev/npm-package-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract npm package data with download stats, dependencies, maintainers, and quality scores. Search by keyword, autho\u2026",
       "iconUrl": "https://images.apifyusercontent.com/wGRP0XOuSVcwI7mqFRTjRibNVJeBRNkn7c2q65Q4sPk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcWlZd1k1ajNOVlU5TlVYckQtM3R2U3Jtcnk1WC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3dpYmp2c3dpYmp2c3dpYmouanBn.webp"
-    },
-    {
-      "name": "youtube-channel-intelligence",
-      "title": "\ud83d\udcf9 YouTube Channel Intelligence - Viral Analytics",
-      "categories": [
-        "AI",
-        "VIDEOS",
-        "SOCIAL_MEDIA"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/youtube-channel-intelligence?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract YouTube channel videos with AI viral potential scoring (0-100). Track trending videos, analyze engagement, mo\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/37LlQ9fLKuAPwgknPvobpaU6B6ctbmlBGoSz6tgWbL4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQk5oVWFwSnA4bmJ4OEJDbmwtMGY5SlNOMXFBSy1DaGF0R1BUX0ltYWdlX05vdl8xOF9fMjAyNV9hdF8wMV81NV8zN19QTS5wbmc.webp"
     },
     {
       "name": "website-tech-detector",
@@ -13511,11 +13526,11 @@
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/youtube-search-results-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search YouTube by keyword and export video titles, channels, views and search positions. Skip known video IDs and dup\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/Mko4APManGqMt-anEz06dYSHg3ihw4SzpYbhlp7dbxM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZWtMMWtlV05PMGdQd0NudjktNlZFb0VqYjBiMC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3BldTgzd3BldTgzd3BldTguanBlZw.webp"
+      "iconUrl": "https://images.apifyusercontent.com/P70u-R73egmMHK5f4-pvNEvfFjMLIhmdRwEK2jzEubA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTHg0aHNncjhNc2FncFIxYUotOTRoY1BrMlF6Ny15b3V0dWJlLXNlYXJjaC1yZXN1bHRzLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "youtube-shorts-scraper",
-      "title": "YouTube Shorts Scraper - Short Video Data",
+      "title": "YouTube Shorts Scraper - Channel Shorts to CSV",
       "categories": [
         "SOCIAL_MEDIA",
         "MARKETING",
@@ -13525,12 +13540,12 @@
       "users30d": 0,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/youtube-shorts-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape YouTube Shorts from channel URLs: short title, URL, views, duration, thumbnail and channel metadata.",
-      "iconUrl": "https://images.apifyusercontent.com/Mko4APManGqMt-anEz06dYSHg3ihw4SzpYbhlp7dbxM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZWtMMWtlV05PMGdQd0NudjktNlZFb0VqYjBiMC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3BldTgzd3BldTgzd3BldTguanBlZw.webp"
+      "oneLiner": "Export a channel\u2019s public YouTube Shorts with titles, URLs, views and channel fields. Set a per-channel limit and ins\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/5NqnvGA5xaPrOqdFWuqRGb1qQu0aajkKJEhCNrpqWwo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItOTdkakVsbHhETVRGc0lNeE0tS1ljTTI0V1lESS15b3V0dWJlLXNob3J0cy1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "youtube-video-metadata-scraper",
-      "title": "YouTube Video Metadata Scraper - Video Data",
+      "title": "YouTube Video Metadata Scraper - Details to JSON",
       "categories": [
         "SOCIAL_MEDIA",
         "MARKETING",
@@ -13540,8 +13555,8 @@
       "users30d": 0,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/youtube-video-metadata-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape metadata from YouTube video URLs: title, description, channel, views, likes, comments, duration, tags and thum\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/Mko4APManGqMt-anEz06dYSHg3ihw4SzpYbhlp7dbxM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZWtMMWtlV05PMGdQd0NudjktNlZFb0VqYjBiMC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3BldTgzd3BldTgzd3BldTguanBlZw.webp"
+      "oneLiner": "Export known YouTube video details with explicit source labels. Get available titles, descriptions and metrics, or re\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/gyCzSGEqF-KAnDVfGce96ntcO6MrUOLyQRn3gQq1OLQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRVZYTHR5ZHNJTjBaMlJERnItSXdZR1FBdm83ZS15b3V0dWJlLXZpZGVvLW1ldGFkYXRhLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "zenodo-records-scraper",
