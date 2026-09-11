@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T04:36:54Z",
+  "generatedAt": "2026-09-11T09:39:10Z",
   "count": 953,
   "chips": [
     "All",
@@ -1480,7 +1480,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/appsumo-software-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape AppSumo software pages and extract product names, URLs, descriptions and SaaS deal marketplace metadata.",
+      "oneLiner": "Export individual AppSumo product cards with names, product URLs and their own summaries. Excludes review links and p\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lzc0HFjAPqgQcPm19wUAeGiiE6b9656qG1b8pgO9Lzc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbWNnNXBlZ3djVmdreVpxY0YtSzlmemdCcExIaC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3RxZWJubHRxZWJubHRxZWIuanBlZw.webp"
     },
     {
@@ -2380,7 +2380,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/cdnjs-libraries-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape cdnjs library search results and extract JavaScript/CSS library names, versions, descriptions, homepages and r\u2026",
+      "oneLiner": "Export named cdnjs library records with descriptions and original version, license and repository metadata. Repositor\u2026",
       "iconUrl": "https://images.apifyusercontent.com/i2QE1OwgEYDgx01Ueb0SNRtCxk1QF6oJ5T0y2IlAC5g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjdqaVdhRDM3bDl6bXd3eDgtYWVhZnBGRE1QUi1weXBpLXNjcmFwZXIucG5n.webp"
     },
     {
@@ -7990,7 +7990,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/n8n-integrations-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape n8n integrations pages and extract app/integration names, URLs, categories and workflow automation metadata.",
+      "oneLiner": "Export individual n8n integration cards with app names, item URLs and available summaries. Keep missing descriptions\u2026",
       "iconUrl": "https://images.apifyusercontent.com/i2QE1OwgEYDgx01Ueb0SNRtCxk1QF6oJ5T0y2IlAC5g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjdqaVdhRDM3bDl6bXd3eDgtYWVhZnBGRE1QUi1weXBpLXNjcmFwZXIucG5n.webp"
     },
     {
@@ -12100,7 +12100,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/zapier-app-directory-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape Zapier app directory pages and extract app names, URLs, descriptions and automation integration metadata.",
+      "oneLiner": "Export Zapier app cards with names, integration URLs and each app\u2019s own description. Excludes navigation text and ret\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
@@ -12385,7 +12385,7 @@
       "users30d": 0,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/aitoptools-ai-tools-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape AITopTools directory pages and extract AI tool names, URLs, descriptions and category metadata.",
+      "oneLiner": "Extract individual AI tool names, directory URLs and card descriptions from public AITopTools pages, with source-page\u2026",
       "iconUrl": "https://images.apifyusercontent.com/SKbGbmVwek69SbDRCht-h_Kr_s_ZpQl1SRkidMq90KI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZE5UcFhreTdjTTZ5SjlxMUQtMlNQYVJRVWgybS1odWdnaW5nZmFjZS1tb2RlbHMtc2NyYXBlci5wbmc.webp"
     },
     {
