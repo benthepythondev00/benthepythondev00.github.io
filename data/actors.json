@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T09:39:10Z",
+  "generatedAt": "2026-09-11T14:24:42Z",
   "count": 953,
   "chips": [
     "All",
@@ -22,7 +22,7 @@
         "AUTOMATION"
       ],
       "chip": "Jobs & hiring",
-      "users30d": 93,
+      "users30d": 91,
       "successRate30d": 99.75,
       "storeUrl": "https://apify.com/benthepythondev/remote-jobs-aggregator?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect remote jobs from Arbeitnow, Jobicy, Himalayas, RemoteOK, Remotive, and Working Nomads in one normalized datas\u2026",
@@ -37,7 +37,7 @@
         "OTHER"
       ],
       "chip": "Finance",
-      "users30d": 40,
+      "users30d": 41,
       "successRate30d": 99.71,
       "storeUrl": "https://apify.com/benthepythondev/yahoo-finance-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape stock data from Yahoo Finance using yfinance. Get real-time quotes, company info, historical prices, financial\u2026",
@@ -68,10 +68,25 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 17,
-      "successRate30d": 81.26,
+      "successRate30d": 80.76,
       "storeUrl": "https://apify.com/benthepythondev/reddit-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape public Reddit posts, comments, user activity, subreddits, and search results through Reddit's app-only OAuth A\u2026",
       "iconUrl": "https://images.apifyusercontent.com/fZi3C7sTHRZ9hpvzBc8GRkp358jQJLJ7PGJu2d_X9_g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbHFPY20yQmdzZzRMR05BVGQtT01kNjNVMmJOVS1yZWRkaXQtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "tech-stack-detector",
+      "title": "\ud83d\udd0e Website Tech Stack Detector - Find Any Site's Tech",
+      "categories": [
+        "LEAD_GENERATION",
+        "DEVELOPER_TOOLS",
+        "OTHER"
+      ],
+      "chip": "Lead gen",
+      "users30d": 16,
+      "successRate30d": 99.7,
+      "storeUrl": "https://apify.com/benthepythondev/tech-stack-detector?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Detect 100+ technologies on any website: React, Next.js, Shopify, WordPress, Cloudflare, Stripe & more. Fast HTTP ana\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/EdboaSP9D2P5_G9FYnWs46Ig-MOPWyi-ARm2P7G4t0g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMjJIaERHSFJUVERyWFk1SEgteU9LSEtBaUsyZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzU1b3EzbDU1b3EzbDU1b3EuanBlZw.webp"
     },
     {
       "name": "smart-email-finder-verifier",
@@ -83,25 +98,10 @@
       ],
       "chip": "Lead gen",
       "users30d": 15,
-      "successRate30d": 96.05,
+      "successRate30d": 96.1,
       "storeUrl": "https://apify.com/benthepythondev/smart-email-finder-verifier?utm_source=catalog&utm_medium=site",
       "oneLiner": "Find professional emails from name + company domain. Generates 14 common patterns (first.last@, flast@, etc.), verifi\u2026",
       "iconUrl": "https://images.apifyusercontent.com/7yngk-GslWL_EM3QfmV33VdUWOS8ZyX0xHILmQr8LKo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItN2RBQUh0NXFTaGhlQ1hjenotZ2ljVmtxb2RSWi1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2g2N2U0dmg2N2U0dmg2N2UuanBlZw.webp"
-    },
-    {
-      "name": "tech-stack-detector",
-      "title": "\ud83d\udd0e Website Tech Stack Detector - Find Any Site's Tech",
-      "categories": [
-        "LEAD_GENERATION",
-        "DEVELOPER_TOOLS",
-        "OTHER"
-      ],
-      "chip": "Lead gen",
-      "users30d": 15,
-      "successRate30d": 99.7,
-      "storeUrl": "https://apify.com/benthepythondev/tech-stack-detector?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Detect 100+ technologies on any website: React, Next.js, Shopify, WordPress, Cloudflare, Stripe & more. Fast HTTP ana\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/EdboaSP9D2P5_G9FYnWs46Ig-MOPWyi-ARm2P7G4t0g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMjJIaERHSFJUVERyWFk1SEgteU9LSEtBaUsyZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzU1b3EzbDU1b3EzbDU1b3EuanBlZw.webp"
     },
     {
       "name": "arbeitsagentur-jobs-scraper",
@@ -112,7 +112,7 @@
         "BUSINESS"
       ],
       "chip": "Jobs & hiring",
-      "users30d": 14,
+      "users30d": 13,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/arbeitsagentur-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Germany's official Arbeitsagentur jobs API with full descriptions, employer, locations, coordinates, remote st\u2026",
@@ -127,8 +127,8 @@
         "OTHER"
       ],
       "chip": "Social & Reddit",
-      "users30d": 11,
-      "successRate30d": 100.0,
+      "users30d": 13,
+      "successRate30d": 99.39,
       "storeUrl": "https://apify.com/benthepythondev/stock-sentiment-intelligence?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract real-time stock and crypto sentiment from Reddit communities including WallStreetBets, r/stocks, r/investing.\u2026",
       "iconUrl": "https://images.apifyusercontent.com/KDfDBbL-R25Ef9EpQ82j37cAOX2MG93vRO6TvEON-t4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItS3pIVlRoZ2tUUVA0NmZBU1MtVGN6YVhwU0lmUS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX21reDR0OG1reDR0OG1reDQuanBn.webp"
@@ -188,7 +188,7 @@
       ],
       "chip": "E\u2011commerce",
       "users30d": 8,
-      "successRate30d": 97.68,
+      "successRate30d": 97.23,
       "storeUrl": "https://apify.com/benthepythondev/bestbuy-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Export Best Buy product prices, ratings, model numbers and specifications by keyword, category or SKU. Direct HTTP ac\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EUU9VRtixYOqqYI-lkapDQt2-y1BL2Eds-k95ANqEbg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcGJVWjR6Mk9Sc3lLaFpzaEwtc0pUZWFZSjdPZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzhpdGtoZDhpdGtoZDhpdGsuanBlZw.webp"
@@ -344,6 +344,21 @@
       "iconUrl": "https://images.apifyusercontent.com/u7NLWFMssSBNP0cC--NY8cLnlTgtRyqfJEAnq49pXg4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3FGZnllM3ZnQkM3WU1iV1ktMVdMMGN4b1Nnay1DaGF0R1BUX0ltYWdlX05vdl8xN19fMjAyNV9hdF8wMV80NV8wNV9QTS5wbmc.webp"
     },
     {
+      "name": "instagram-intelligence-scraper",
+      "title": "Instagram Scraper - Profiles, Posts & Reels",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "LEAD_GENERATION",
+        "AUTOMATION"
+      ],
+      "chip": "Lead gen",
+      "users30d": 4,
+      "successRate30d": 88.65,
+      "storeUrl": "https://apify.com/benthepythondev/instagram-intelligence-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Extract public Instagram profiles, posts and reels with full source captions, dates and engagement fields. Bound time\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/d7QuhOYTvUFRC_pNvDzpyYs5fttureoEUzM8kjmarz0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZXF4bEVGMEduWTBqa2VsaXotVFFHTUNUMzJNZi1pbnN0YWdyYW0taW50ZWxsaWdlbmNlLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "padmapper-rental-scraper",
       "title": "PadMapper Rental Scraper - Apartments & Houses",
       "categories": [
@@ -473,7 +488,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 3,
-      "successRate30d": 96.83,
+      "successRate30d": 96.88,
       "storeUrl": "https://apify.com/benthepythondev/breezyhr-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape public BreezyHR career portals for current jobs, companies, locations, remote status, salary ranges, descripti\u2026",
       "iconUrl": "https://images.apifyusercontent.com/PbvhBFRL6RR2TIZelcrY_8NqGK1l25fCBYkpIVXtaFg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTlV1UXBKdzhkRThVVU5IM3otdHZ1QmtQcmFIdy1icmVlenloci1qb2JzLXNjcmFwZXIucG5n.webp"
@@ -492,6 +507,21 @@
       "storeUrl": "https://apify.com/benthepythondev/dubizzle-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Dubizzle.com (UAE #1 property portal), for sale or for rent: price, beds, baths, size, location, coordinates,\u2026",
       "iconUrl": "https://images.apifyusercontent.com/mEOYTTYnZTfa0UdRUYasj1p5ITrBNUsOcr7QC71turI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaXc0NkE1UEhOMFo3NFhNWlotMHRGVWpBNU5meS1kdWJpenpsZS1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "eures-jobs-scraper",
+      "title": "EURES Jobs Scraper - European Employment Data",
+      "categories": [
+        "JOBS",
+        "BUSINESS",
+        "LEAD_GENERATION"
+      ],
+      "chip": "Jobs & hiring",
+      "users30d": 3,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/eures-jobs-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape jobs from the official EURES European employment portal with employer, locations, description, contract, sched\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/YJ4fVU0JgWRY0fylbJQrqPXO-f1RHEQuCNY8b3uIOe0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcnNLVTJMa2FWU2Q3TVF5MWYtS0czQ1RpRmNyUC1ldXJlcy1qb2JzLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "expired-domains-scraper",
@@ -533,7 +563,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 3,
-      "successRate30d": 100.0,
+      "successRate30d": 98.36,
       "storeUrl": "https://apify.com/benthepythondev/hiring-cafe-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape HiringCafe job listings with enriched company data, remote/visa flags, salary metadata, skills, locations, app\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EiIkj9_cWxJ3l4V17rnqeSPrM6CozvoLaI8HW0NRNmg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itc0tVa01GQkFzQnBrcW85N3otNmJUU3JuQkZNTC1zdGVwc3RvbmUtc2NyYXBlci5wbmc.webp"
@@ -569,36 +599,6 @@
       "iconUrl": "https://images.apifyusercontent.com/EtBlAgN83xsAXQXGBunHUNqUuh2xXjt7s3NTuijU5q4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQ3BFUE1MR29qckZsUGFabXctSlR0SFZoWDZ1OC1pbW1vYmlsaWFyZS1zY3JhcGVyLnBuZw.webp"
     },
     {
-      "name": "instagram-intelligence-scraper",
-      "title": "Instagram Scraper - Profiles, Posts & Reels",
-      "categories": [
-        "SOCIAL_MEDIA",
-        "LEAD_GENERATION",
-        "AUTOMATION"
-      ],
-      "chip": "Lead gen",
-      "users30d": 3,
-      "successRate30d": 88.97,
-      "storeUrl": "https://apify.com/benthepythondev/instagram-intelligence-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract public Instagram profiles, posts and reels with full source captions, dates and engagement fields. Bound time\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/d7QuhOYTvUFRC_pNvDzpyYs5fttureoEUzM8kjmarz0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZXF4bEVGMEduWTBqa2VsaXotVFFHTUNUMzJNZi1pbnN0YWdyYW0taW50ZWxsaWdlbmNlLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "pinterest-board-scraper",
-      "title": "Pinterest Board Scraper - Pins and Metadata",
-      "categories": [
-        "SOCIAL_MEDIA",
-        "MARKETING",
-        "SEO_TOOLS"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 3,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/pinterest-board-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape public Pinterest boards and pins with board, owner, image, video, engagement, creator and destination metadata\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/nwa4hZcrijUcT0KCFe7lfaLxm1Un2z6wA-F2Y6dvwpU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItN1VybXFES0VtZ3pleE0xYTctU1pzYXJScnh0Wi1waW50ZXJlc3QtYm9hcmQtc2NyYXBlci5wbmc.webp"
-    },
-    {
       "name": "webpage-text-extractor",
       "title": "Webpage Text Extractor",
       "categories": [
@@ -623,7 +623,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 3,
-      "successRate30d": 100.0,
+      "successRate30d": 98.57,
       "storeUrl": "https://apify.com/benthepythondev/youtube-transcript-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Export available YouTube captions as text, timestamped segments, SRT, VTT or JSON. Choose preferred languages or requ\u2026",
       "iconUrl": "https://images.apifyusercontent.com/TcCwhGXeONTdGMd-085hcOjQxm5kYR7XaftPVY7iA_A/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZWtMMWtlV05PMGdQd0NudjktZzQ4TXBWRE0zZy15b3V0dWJlLXRyYW5zY3JpcHQtc2NyYXBlci5wbmc.webp"
@@ -653,7 +653,7 @@
       ],
       "chip": "Real estate & rentals",
       "users30d": 3,
-      "successRate30d": 90.11,
+      "successRate30d": 86.46,
       "storeUrl": "https://apify.com/benthepythondev/kleinanzeigen-immobilien-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape rental & for-sale property listings from Kleinanzeigen (Germany). Parses rooms, m\u00b2, Kaltmiete/Warmmiete, depos\u2026",
       "iconUrl": "https://images.apifyusercontent.com/9WjA73Z1dtqHyIa6UZi5GCh4eZUQlZ__TVpnBjTdpwU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQ0xxWllCU1h4c2owcXBkdzQtWXFobnF5dUtNZy1rbGVpbmFuemVpZ2VuLWltbW9iaWxpZW4tc2NyYXBlci5wbmc.webp"
@@ -668,7 +668,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 3,
-      "successRate30d": 97.22,
+      "successRate30d": 97.14,
       "storeUrl": "https://apify.com/benthepythondev/wg-gesucht-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape shared apartments (WG), 1-room apartments, full apartments, and houses from wg-gesucht.de. Filter by city, ren\u2026",
       "iconUrl": "https://images.apifyusercontent.com/hg2EIwYb6fgfX7ipdNeELci2uN7_T5hSYn-yUAHCfAc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNXNHcHAyYXNUNlpVQ0tyYlAtTGM5TEd0b3lQZy13Zy1nZXN1Y2h0LnBuZw.webp"
@@ -747,21 +747,6 @@
       "storeUrl": "https://apify.com/benthepythondev/chess-com-player-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Look up Chess.com players and export username, name, title, status, country, location, followers, dates, streamer and\u2026",
       "iconUrl": "https://images.apifyusercontent.com/04VRi0oZhYGxfGy62bRUw6bNc0NcSPLzqvwZzbzxx_Y/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSkZmUGN2ZGxTR0FjRGtjU2UtblJ5TVFZT3hkMi1jaGVzcy1jb20tcGxheWVyLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "eures-jobs-scraper",
-      "title": "EURES Jobs Scraper - European Employment Data",
-      "categories": [
-        "JOBS",
-        "BUSINESS",
-        "LEAD_GENERATION"
-      ],
-      "chip": "Jobs & hiring",
-      "users30d": 2,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/eures-jobs-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape jobs from the official EURES European employment portal with employer, locations, description, contract, sched\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/YJ4fVU0JgWRY0fylbJQrqPXO-f1RHEQuCNY8b3uIOe0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcnNLVTJMa2FWU2Q3TVF5MWYtS0czQ1RpRmNyUC1ldXJlcy1qb2JzLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "foundit-jobs-scraper",
@@ -863,7 +848,7 @@
       ],
       "chip": "E\u2011commerce",
       "users30d": 2,
-      "successRate30d": 91.35,
+      "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/iaai-vehicle-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape IAAI search results and vehicle details with VIN, damage, odometer, title, auction, branch, bids, specificatio\u2026",
       "iconUrl": "https://images.apifyusercontent.com/-_EvJ61xvJOAwPmgsqEyOIpX_9w5XoSeIq-Hh_VF_Js/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTGJhcldKWWJlTjhwY2hPV2ctUHNOUzhHM1hLSy1pYWFpLXZlaGljbGUtc2NyYXBlci5wbmc.webp"
@@ -972,6 +957,21 @@
       "storeUrl": "https://apify.com/benthepythondev/pararius-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Pararius (NL rental portal): price, address, postcode, rooms, surface area, furnishing, letting agent name & p\u2026",
       "iconUrl": "https://images.apifyusercontent.com/PR0H-9UH6HmQpIZMll1VmfNalwMXvU8S-kVOLpiWJlc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNHFGRExsdGh3bGVYVWdxbW4tcGoxb1lFTE1EeC1wYXJhcml1cy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "pinterest-board-scraper",
+      "title": "Pinterest Board Scraper - Pins and Metadata",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "SEO_TOOLS"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 2,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/pinterest-board-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape public Pinterest boards and pins with board, owner, image, video, engagement, creator and destination metadata\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/nwa4hZcrijUcT0KCFe7lfaLxm1Un2z6wA-F2Y6dvwpU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItN1VybXFES0VtZ3pleE0xYTctU1pzYXJScnh0Wi1waW50ZXJlc3QtYm9hcmQtc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "pinterest-keyword-suggestions-scraper",
@@ -1122,6 +1122,21 @@
       "storeUrl": "https://apify.com/benthepythondev/rent-com-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract Rent.com listings with smart filters for price, bedrooms, sqft & pet policy. Get rental details, photos, phon\u2026",
       "iconUrl": "https://images.apifyusercontent.com/zjOtpNYfnhVMuKKJhIvWVrn8Yhu3jA4d0qv7Z_HaD0g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItV0JZZ1dPNjRjTXVodHl2UzQtaTJIOURiZXlrMy1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2Z4dDJkaWZ4dDJkaWZ4dDIuanBlZw.webp"
+    },
+    {
+      "name": "sec-edgar-filings-intelligence",
+      "title": "\ud83c\udfdb\ufe0f SEC EDGAR Filings - 10-K, 10-Q, 8-K & More",
+      "categories": [
+        "AI",
+        "AUTOMATION",
+        "DEVELOPER_TOOLS"
+      ],
+      "chip": "Finance",
+      "users30d": 2,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/sec-edgar-filings-intelligence?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Extract SEC EDGAR filings (10-K, 10-Q, 8-K, insider trading, proxy statements) with AI intelligence scoring (0-100).\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/gd3yzoWQgnzr2AiY0Z5b_t0huLa04Comk8WJoNkLZvU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itck1LRmFiV2doZ0tlWTZmQ3gtbldCd1hXUDRwdS1DaGF0R1BUX0ltYWdlX05vdl8xNV9fMjAyNV9hdF8wNV8wM18yMl9QTS5wbmc.webp"
     },
     {
       "name": "usaspending-contracts-intelligence",
@@ -1403,7 +1418,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 86.21,
+      "successRate30d": 86.67,
       "storeUrl": "https://apify.com/benthepythondev/anilist-trending-list2-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect AniList trending records and export id, averagescore, romaji, english, source, scraped at as structured JSON,\u2026",
       "iconUrl": "https://images.apifyusercontent.com/kUAPSJxztAKXDrE2qHLttNtSwrGWLezXaP0nPFwaEaQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNW1nNFlnNFozWVFlV3B3cjQtbko5SEd5ODRPYy1hbmlsaXN0LXRyZW5kaW5nLWxpc3QyLXNjcmFwZXIucG5n.webp"
@@ -1795,7 +1810,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/betapage-products-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape BetaPage/PitchWall product discovery pages and extract product names, URLs, descriptions and launch metadata.",
+      "oneLiner": "Extract PitchWall product titles, directory URLs and individual card descriptions through public BetaPage/PitchWall p\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
@@ -2558,7 +2573,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 96.55,
+      "successRate30d": 96.67,
       "storeUrl": "https://apify.com/benthepythondev/circl-cve-last-list2-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect CIRCL CVE last records and export id, url, type, references type, score, aliases as structured JSON, CSV or E\u2026",
       "iconUrl": "https://images.apifyusercontent.com/e5VNcYVfaUrxad7xrEliaUXzanevpgu8xoN2peui3Nc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQ3dUZ1hmZE00R3VDeWNWOXotazdUcFZudW1nUi1jaXJjbC1jdmUtbGFzdC1saXN0Mi1zY3JhcGVyLnBuZw.webp"
@@ -2710,7 +2725,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/clickup-templates-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape ClickUp template library pages and extract template names, URLs, descriptions and productivity workflow metadata.",
+      "oneLiner": "Extract ClickUp template names, item URLs and creator bylines. Keep absent summaries null and exclude category naviga\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
@@ -3370,7 +3385,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/coursera-courses-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape Coursera course search pages and extract course names, URLs, partners, descriptions and education metadata.",
+      "oneLiner": "Extract public Coursera catalog-card titles, URLs, providers and visible metadata. Preserve redirects; course descrip\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lzc0HFjAPqgQcPm19wUAeGiiE6b9656qG1b8pgO9Lzc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbWNnNXBlZ3djVmdreVpxY0YtSzlmemdCcExIaC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3RxZWJubHRxZWJubHRxZWIuanBlZw.webp"
     },
     {
@@ -3668,7 +3683,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 86.67,
+      "successRate30d": 90.0,
       "storeUrl": "https://apify.com/benthepythondev/datacite-dois-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search DataCite DOI records and export titles, creators, publishers, years, resource types, subjects and canonical DO\u2026",
       "iconUrl": "https://images.apifyusercontent.com/dzIVrPlDzsK0fX00hgocRtnEsuoQMJ7w7jiXi-OlkpQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItejZKUFJpRWJYb1FXb3FBQ3ItV3NhNlZSSmhkSS1kYXRhY2l0ZS1kb2lzLXNjcmFwZXIucG5n.webp"
@@ -4330,7 +4345,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/elementor-addons-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape Elementor add-on and resource pages and extract add-on names, URLs, descriptions and website-builder metadata.",
+      "oneLiner": "Source unavailable: Elementor's addon directory redirects to its homepage. This Actor reports failure instead of expo\u2026",
       "iconUrl": "https://images.apifyusercontent.com/i2QE1OwgEYDgx01Ueb0SNRtCxk1QF6oJ5T0y2IlAC5g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjdqaVdhRDM3bDl6bXd3eDgtYWVhZnBGRE1QUi1weXBpLXNjcmFwZXIucG5n.webp"
     },
     {
@@ -4763,7 +4778,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 89.66,
+      "successRate30d": 93.1,
       "storeUrl": "https://apify.com/benthepythondev/finland-avoindata-packages-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect avoindata.fi records and export id, organization id, groups id, resources id, name, organization name as stru\u2026",
       "iconUrl": "https://images.apifyusercontent.com/76g39Njp21pDuRA9O39Rk_dN9fuSn7DssxOZiFoxvO0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteFRpNjZIZDZaa0NGMHdJTzItZUo1cmFEWklzRy1maW5sYW5kLWF2b2luZGF0YS1wYWNrYWdlcy1zY3JhcGVyLnBuZw.webp"
@@ -4778,7 +4793,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 89.66,
+      "successRate30d": 93.1,
       "storeUrl": "https://apify.com/benthepythondev/finland-open-data-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search Finland's national open-data catalog and export dataset metadata, publishers, licenses, tags and resource counts.",
       "iconUrl": "https://images.apifyusercontent.com/6noo2FJMoKPJi-9Gb_Hs97-Hv6D5YkwxNuW6pKDWSxQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQmIyWndwZUd0ZDlQZXFBUUMtVk1MZ0dEOEs4cC1maW5sYW5kLW9wZW4tZGF0YS1zY3JhcGVyLnBuZw.webp"
@@ -5365,7 +5380,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/github-marketplace-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape GitHub Marketplace pages and extract app names, URLs, descriptions and developer integration metadata.",
+      "oneLiner": "Extract GitHub Marketplace item names, URLs and individual card summaries, excluding navigation and extension-creatio\u2026",
       "iconUrl": "https://images.apifyusercontent.com/i2QE1OwgEYDgx01Ueb0SNRtCxk1QF6oJ5T0y2IlAC5g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjdqaVdhRDM3bDl6bXd3eDgtYWVhZnBGRE1QUi1weXBpLXNjcmFwZXIucG5n.webp"
     },
     {
@@ -5828,7 +5843,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 93.33,
+      "successRate30d": 96.67,
       "storeUrl": "https://apify.com/benthepythondev/harvard-dataverse-datasets-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search Harvard Dataverse datasets and export names, descriptions, authors, publication dates, subjects, identifiers a\u2026",
       "iconUrl": "https://images.apifyusercontent.com/rnWs2aDsWuO68KVLjBVunlxNA6PSMvk-tIrClJBo7Ok/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcWZpbUUxclI4WFZ3bmdkbmktUUpkQTBPQ3lCVC1oYXJ2YXJkLWRhdGF2ZXJzZS1kYXRhc2V0cy1zY3JhcGVyLnBuZw.webp"
@@ -6353,7 +6368,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 92.31,
+      "successRate30d": 92.59,
       "storeUrl": "https://apify.com/benthepythondev/inaturalist-observations-list2-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect iNaturalist observations records and export value, source, scraped at as structured JSON, CSV or Excel data.",
       "iconUrl": "https://images.apifyusercontent.com/HBbz3NcsPofbYIMVW9YxdTOKrmyNmsJ2teYziD1dt9o/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZGFhQ3lMY2x3c3YycllGNmYtZ2x6RllrcG8wRS1pbmF0dXJhbGlzdC1vYnNlcnZhdGlvbnMtbGlzdDItc2NyYXBlci5wbmc.webp"
@@ -6563,7 +6578,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 96.55,
+      "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/itis-taxonomy-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search ITIS common names and export taxonomic serial numbers, names, language and authoritative record links.",
       "iconUrl": "https://images.apifyusercontent.com/A2JgjSkczA3XnvwXxicoq_NIeVOlR4WdsI-r-llHIgM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteEFtOUlTUjQ5VTNhNmRoS3UtaWREaTMxY0ltcS1pdGlzLXRheG9ub215LXNjcmFwZXIucG5n.webp"
@@ -6683,7 +6698,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 1,
-      "successRate30d": 100.0,
+      "successRate30d": 96.55,
       "storeUrl": "https://apify.com/benthepythondev/jobrapido-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Jobrapido job search results: title, company, location, posted date, description and job URL across multiple c\u2026",
       "iconUrl": "https://images.apifyusercontent.com/VSOaj5xjp9nr0W1Jp9OKdEUeAo58NzO33obnG_pLNHg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItclFqNlY2YVk3eEZWa3ltcE0tTkZ0MnFTSmZuZS1qb2JyYXBpZG8tc2NyYXBlci5wbmc.webp"
@@ -9488,7 +9503,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 1,
-      "successRate30d": 96.77,
+      "successRate30d": 96.88,
       "storeUrl": "https://apify.com/benthepythondev/pinpoint-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Read public Pinpoint job feeds with department, employment type, location, workplace type, compensation, description\u2026",
       "iconUrl": "https://images.apifyusercontent.com/yMO_Ybw6d7_gx1ruOEPossKnLD9SIKBkBT8kkU8ECU0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUlVqVXc2ZjRNZk1NZE1JaUYtNTBtNFdmVEE3WC1waW5wb2ludC1qb2JzLXNjcmFwZXIucG5n.webp"
@@ -9728,7 +9743,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 1,
-      "successRate30d": 96.67,
+      "successRate30d": 96.77,
       "storeUrl": "https://apify.com/benthepythondev/pracuj-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Pracuj.pl jobs with employers, locations, salaries, contracts, technologies, requirements, benefits and applic\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Pe2pQIt_ENbfPAy7hG8N7UFY1aP5wkxCdQQQu-8LMQY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQkZQM3RKaTRiVUVoeXpEWHUtV1VOZDVXNE5YaS1wcmFjdWotc2NyYXBlci5wbmc.webp"
@@ -10013,7 +10028,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 1,
-      "successRate30d": 93.1,
+      "successRate30d": 93.33,
       "storeUrl": "https://apify.com/benthepythondev/remotive-api-jobs-list2-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Remotive API records and export value, source, scraped at as structured JSON, CSV or Excel data.",
       "iconUrl": "https://images.apifyusercontent.com/OX2sqsd67iscPZecKV3IoPdZ2sSRkWpZBwPM6zDPe5Y/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMFdCWkNHVFRqRFRpTU51VEMtdTFEM25LdXFjai1yZW1vdGl2ZS1hcGktam9icy1saXN0Mi1zY3JhcGVyLnBuZw.webp"
@@ -10133,7 +10148,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 86.21,
+      "successRate30d": 82.76,
       "storeUrl": "https://apify.com/benthepythondev/rome-open-data-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Rome Open Data records and export id, organization id, tags id, groups id, resources id, name as structured J\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Tvr-64-I_RTs1FsrjM0Bqd4OpxSJRI9kZbvLszzIclY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUE1RbENNWVk3UXF4cmxDS1otaXN6QnY4bVBVVi1yb21lLW9wZW4tZGF0YS1zY3JhcGVyLnBuZw.webp"
@@ -10883,7 +10898,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 1,
-      "successRate30d": 97.5,
+      "successRate30d": 97.3,
       "storeUrl": "https://apify.com/benthepythondev/teamtailor-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape public Teamtailor career sites into structured job rows with titles, companies, locations, departments, remote\u2026",
       "iconUrl": "https://images.apifyusercontent.com/vBPn-lsVsEHTOeNCkBcUQfEdS945b7cEtZLNtkEHUSQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itd1AzQWY2NDF4RTB3NkFmUWItdWEzWTdDWWdRai10ZWFtdGFpbG9yLWpvYnMtc2NyYXBlci5wbmc.webp"
@@ -11003,7 +11018,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 1,
-      "successRate30d": null,
+      "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/tiktok-video-details-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Export known public TikTok video URLs to captions, author data, publication dates and engagement counts. Skip known I\u2026",
       "iconUrl": "https://images.apifyusercontent.com/k0OIpElXivmtDf36N2gahLACsIwfR2AHu-FL9rppvIg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itdm1XaEJTWnE1RE82T3J0VTMtSmpHRjdwczZjSS10aWt0b2stdmlkZW8tZGV0YWlscy1zY3JhcGVyLnBuZw.webp"
@@ -12044,21 +12059,6 @@
       "iconUrl": "https://images.apifyusercontent.com/B05Elc65c_97aZcLxMSDE05RXd3mRXYbhD9a7zoRiUM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaWQ4SVJUTTAyZmNScnBmQVgtZFZSd3hOdk1Vby15Z29wcm9kZWNrLWNhcmRzLXNjcmFwZXIucG5n.webp"
     },
     {
-      "name": "youtube-channel-intelligence",
-      "title": "YouTube Channel RSS Scraper - Recent Video Feeds",
-      "categories": [
-        "AI",
-        "VIDEOS",
-        "SOCIAL_MEDIA"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/youtube-channel-intelligence?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Export recent YouTube channel RSS videos with titles, dates and available feed metrics. Filter by keywords or age and\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/9g4dxYI5anXXxZGdj6hOOpEXP0tEv0AH6sBKsd9c5R0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQk5oVWFwSnA4bmJ4OEJDbmwtMWxTbkJzelkzeC15b3V0dWJlLWNoYW5uZWwtaW50ZWxsaWdlbmNlLnBuZw.webp"
-    },
-    {
       "name": "youtube-playlist-extractor",
       "title": "YouTube Playlist Scraper - Export Videos to CSV",
       "categories": [
@@ -12359,6 +12359,21 @@
       "iconUrl": "https://images.apifyusercontent.com/025k1O0TqhpLMB7NGQOLPJorb4JABjc79MNEfW96trw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNWc0QnRJU055V2c3NHNXZ2ItTGFCZzR3dFpFUy1ibHVlc2t5LXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "kleinanzeigen-jobs-scraper",
+      "title": "\ud83e\uddf0 Kleinanzeigen Jobs Scraper - German Local Job Ads",
+      "categories": [
+        "JOBS",
+        "BUSINESS",
+        "LEAD_GENERATION"
+      ],
+      "chip": "Jobs & hiring",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/kleinanzeigen-jobs-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape job listings (Stellenangebote) from Kleinanzeigen (Germany). Parses title, employment type, salary, company, c\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/tarkkVKYQoooiOfzDq_dajIBvh7Tk2-WfPkZ63kxh1A/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMTcxa0k0UkJIdGFETmI0eEktRWZDUlpKa3hqWC1rbGVpbmFuemVpZ2VuLWpvYnMtc2NyYXBlci5wbmc.webp"
+    },
+    {
       "name": "crossref-papers-scraper",
       "title": "Academic Papers Scraper - Citations & Metadata",
       "categories": [
@@ -12460,7 +12475,7 @@
       "users30d": 0,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/asana-apps-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape Asana Apps pages and extract integration names, URLs, descriptions and workflow metadata.",
+      "oneLiner": "Extract Asana app names, item URLs and individual card descriptions from public directory pages, with source provenance.",
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
@@ -12520,7 +12535,7 @@
       "users30d": 0,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/betalist-startups-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape BetaList startup discovery pages and extract startup names, URLs, descriptions and launch metadata.",
+      "oneLiner": "Extract individual BetaList startup names, directory URLs and card descriptions from public pages, preserving each in\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
@@ -12640,7 +12655,7 @@
       "users30d": 0,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/crozdesk-software-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape Crozdesk software directory pages and extract SaaS product names, URLs, descriptions and category metadata.",
+      "oneLiner": "Export Crozdesk software references with separate community review excerpts, product URLs and source provenance. Revi\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
@@ -13514,6 +13529,21 @@
       "iconUrl": "https://images.apifyusercontent.com/jx5viv7a0peWsPkV8iop4x1ACwgUucNrA9__MwWq1t4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSjFyZ3gyOWg1RG5KU2U1RWQtejFRaHVubWUxdi1DaGF0R1BUX0ltYWdlX05vdl8xM19fMjAyNV9hdF8wNF8wNF8zOV9QTS5wbmc.webp"
     },
     {
+      "name": "youtube-channel-intelligence",
+      "title": "YouTube Channel RSS Scraper - Recent Video Feeds",
+      "categories": [
+        "AI",
+        "VIDEOS",
+        "SOCIAL_MEDIA"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/youtube-channel-intelligence?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export recent YouTube channel RSS videos with titles, dates and available feed metrics. Filter by keywords or age and\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/9g4dxYI5anXXxZGdj6hOOpEXP0tEv0AH6sBKsd9c5R0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQk5oVWFwSnA4bmJ4OEJDbmwtMWxTbkJzelkzeC15b3V0dWJlLWNoYW5uZWwtaW50ZWxsaWdlbmNlLnBuZw.webp"
+    },
+    {
       "name": "youtube-search-results-scraper",
       "title": "YouTube Search Results Scraper - Keywords to CSV",
       "categories": [
@@ -13598,7 +13628,7 @@
       ],
       "chip": "Other",
       "users30d": 0,
-      "successRate30d": 96.67,
+      "successRate30d": 93.33,
       "storeUrl": "https://apify.com/benthepythondev/trustpilot-intelligence-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract Trustpilot reviews with AI sentiment analysis for brand reputation monitoring and competitor intelligence. Ge\u2026",
       "iconUrl": "https://images.apifyusercontent.com/DIm59-u4hKN0De26HHzlf2oNt1k5dXVb1ofIqrRhV7o/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNmw5cDZOaVQ4ejhKdVYwM0ktRGd1UjFqMHFXZS1DaGF0R1BUX0ltYWdlX05vdl8xM19fMjAyNV9hdF8wM18zN18wNF9QTS5wbmc.webp"
@@ -13769,21 +13799,6 @@
       "iconUrl": "https://images.apifyusercontent.com/9I2wl78_CJH2LT7TO_Iqju2JAKmjh9MrzNyXObCwat4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itakx2SXI2S2xzZ2ZmS1Zjd20tUXFrTzVBRjNZZC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3I4dnJyY3I4dnJyY3I4dnIuanBn.webp"
     },
     {
-      "name": "sec-edgar-filings-intelligence",
-      "title": "\ud83c\udfdb\ufe0f SEC EDGAR Filings - 10-K, 10-Q, 8-K & More",
-      "categories": [
-        "AI",
-        "AUTOMATION",
-        "DEVELOPER_TOOLS"
-      ],
-      "chip": "Finance",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/sec-edgar-filings-intelligence?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract SEC EDGAR filings (10-K, 10-Q, 8-K, insider trading, proxy statements) with AI intelligence scoring (0-100).\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/gd3yzoWQgnzr2AiY0Z5b_t0huLa04Comk8WJoNkLZvU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itck1LRmFiV2doZ0tlWTZmQ3gtbldCd1hXUDRwdS1DaGF0R1BUX0ltYWdlX05vdl8xNV9fMjAyNV9hdF8wNV8wM18yMl9QTS5wbmc.webp"
-    },
-    {
       "name": "sec-filings-intelligence",
       "title": "\ud83c\udfdb\ufe0f SEC Filings Intelligence - EDGAR & Financials",
       "categories": [
@@ -13898,7 +13913,7 @@
       ],
       "chip": "Lead gen",
       "users30d": 0,
-      "successRate30d": 97.22,
+      "successRate30d": 97.3,
       "storeUrl": "https://apify.com/benthepythondev/tiktok-comments-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract TikTok comments instantly. Get comment text, likes, replies, author info, and timestamps from any video URL.\u2026",
       "iconUrl": "https://images.apifyusercontent.com/E1yRXEFYIFJFWnj7kCgO56b_iIsNJCbticSCqipzx24/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRmtaMm1hRUlhTHFPcEdHak0tdnBsYnlDM1ZqNC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzUyY2RhbDUyY2RhbDUyY2QuanBlZw.webp"
@@ -14277,21 +14292,6 @@
       "storeUrl": "https://apify.com/benthepythondev/pubmed-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "PubMed Scraper for the official NCBI PubMed API. Search 37M+ biomedical citations; extract title, authors, journal, p\u2026",
       "iconUrl": "https://images.apifyusercontent.com/b_oVyOT3xueKaC7qAY9h406O29e2dt2RgK22lMbvAEI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUG1Zc2hMYXlsZ0pKdlUzelItbndBckFSMFhYWS1wdWJtZWQucG5n.webp"
-    },
-    {
-      "name": "kleinanzeigen-jobs-scraper",
-      "title": "\ud83e\uddf0 Kleinanzeigen Jobs Scraper - German Local Job Ads",
-      "categories": [
-        "JOBS",
-        "BUSINESS",
-        "LEAD_GENERATION"
-      ],
-      "chip": "Jobs & hiring",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/kleinanzeigen-jobs-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape job listings (Stellenangebote) from Kleinanzeigen (Germany). Parses title, employment type, salary, company, c\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/tarkkVKYQoooiOfzDq_dajIBvh7Tk2-WfPkZ63kxh1A/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMTcxa0k0UkJIdGFETmI0eEktRWZDUlpKa3hqWC1rbGVpbmFuemVpZ2VuLWpvYnMtc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "jameda-scraper",
