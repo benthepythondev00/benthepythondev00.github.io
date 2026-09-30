@@ -6,7 +6,7 @@
     <title>Reddit RAG dump — 90 days of r/X, posts + comments</title>
     <meta
       name="description"
-      content="Packaged historical Reddit dump for RAG: 90 days of r/X, posts and comments, past the 1,000-post cap. Sample $250 on your subreddit, then a fixed quote. No 4TB torrent."
+      content="Packaged historical Reddit dump for RAG: 90 days of r/X, posts and comments, past the 1,000-post cap. Free sample first: one subreddit, the most recent week, CSV or JSON. Then a $250 backfill sample and a fixed quote. No 4TB torrent."
     />
     <link
       rel="canonical"
@@ -24,7 +24,7 @@
     />
     <meta
       property="og:description"
-      content="Past the official 1,000-post cap. Sample $250 on your filters, then JSON/CSV/JSONL. Same Actor as the Apify listing."
+      content="Past the official 1,000-post cap. Free sample on your subreddit first, then a $250 backfill sample and a fixed quote. Same Actor as the Apify listing."
     />
     <meta name="twitter:card" content="summary" />
     <meta
@@ -33,7 +33,7 @@
     />
     <meta
       name="twitter:description"
-      content="Packaged historical Reddit dump for RAG. Sample $250, then a fixed quote."
+      content="Packaged historical Reddit dump for RAG. Free sample first, then a $250 backfill sample and a fixed quote."
     />
     <style>
       :root {
@@ -166,7 +166,7 @@
             "@type": "WebPage",
             "name": "Reddit RAG dump — 90 days of r/X, posts + comments",
             "url": "https://benthepythondev00.github.io/reddit-rag-dump.html",
-            "description": "Packaged historical Reddit dump for RAG past the 1,000-post cap. Sample $250, then a fixed quote."
+            "description": "Packaged historical Reddit dump for RAG past the 1,000-post cap. Free sample first, then a $250 backfill sample and a fixed quote."
           },
           {
             "@type": "Service",
@@ -180,7 +180,14 @@
             "offers": [
               {
                 "@type": "Offer",
-                "name": "Sample",
+                "name": "Free sample",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "1 subreddit, most recent week of posts and comments, CSV or JSON"
+              },
+              {
+                "@type": "Offer",
+                "name": "Backfill sample",
                 "price": "250",
                 "priceCurrency": "USD",
                 "description": "1 subreddit, 90 days, posts + comments, up to 5,000 rows"
@@ -264,9 +271,24 @@
         window, then deliver JSON, CSV, or JSONL. You do not download a
         multi-terabyte torrent or keep an archive API alive.
       </p>
+      <div class="card">
+        <p><strong>Free sample — start here</strong></p>
+        <p class="sub">
+          One subreddit, the most recent week of posts and comments, delivered
+          as CSV or JSON. No charge. Email which subreddit you want and I send
+          the file.
+        </p>
+        <div class="hero-cta">
+          <a
+            class="btn btn-primary"
+            href="mailto:benthepythondev0@gmail.com?subject=Free%20Reddit%20sample&amp;body=Subreddit%3A%0ACSV%20or%20JSON%3A"
+            >Email your subreddit — free sample</a
+          >
+        </div>
+      </div>
       <div class="hero-cta">
         <a
-          class="btn btn-primary"
+          class="btn btn-ghost"
           href="mailto:benthepythondev0@gmail.com?subject=Reddit%20RAG%20dump%20quote&amp;body=Subreddit(s)%3A%0ADate%20window%20(e.g.%2090%20days%20or%202025)%3A%0AComments%20on%2Foff%3A%0ADelivery%20(JSON%2FCSV%2FJSONL%2FSheet)%3A%0AWhat%20you%20are%20building%20(RAG%20%2F%20research)%3A"
           >Email a dump quote</a
         >
@@ -296,6 +318,9 @@
       </p>
 
       <h2>What you get</h2>
+      <p class="sub">
+        After the free sample, these are the paid next steps:
+      </p>
       <table>
         <thead>
           <tr>
@@ -306,7 +331,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>Sample</td>
+            <td>Backfill sample</td>
             <td>1 subreddit, 90 days, posts + comments, up to 5,000 rows</td>
             <td>$250 (credited if you take a dump)</td>
           </tr>
@@ -327,6 +352,11 @@
           </tr>
         </tbody>
       </table>
+      <p class="sub">
+        A managed weekly feed is also available: new posts and comments from
+        your subreddit every week, delivered as CSV or JSON (other formats on
+        request). Email if you want that set up.
+      </p>
       <p class="note">
         Row caps are delivery caps, not a promise the archive holds that many
         items. Thin windows still bill the booked package. You pay Apify usage
@@ -426,7 +456,12 @@
       <h2>How to order</h2>
       <ol>
         <li>
-          Email the subreddit(s), window, comments on/off, and delivery format.
+          Email the subreddit you want. I send the free sample: the most
+          recent week of posts and comments, CSV or JSON.
+        </li>
+        <li>
+          For a paid dump, email the subreddit(s), window, comments on/off,
+          and delivery format.
         </li>
         <li>
           I run a sample (or you run the public Task) and we confirm fields.
