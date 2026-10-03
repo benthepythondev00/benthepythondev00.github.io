@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-02T20:42:47Z",
-  "count": 962,
+  "generatedAt": "2026-10-03T00:28:24Z",
+  "count": 965,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -1557,21 +1557,6 @@
       "storeUrl": "https://apify.com/benthepythondev/successfactors-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect public SAP SuccessFactors vacancies with title, employer, location, requisition ID, employment type, descript\u2026",
       "iconUrl": "https://images.apifyusercontent.com/NOmwG6SY1CXo6IQewn411LhDfE9nyEGk0cpFNOqh6K4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZG1mSGNOOHNvcnlSUHU2WEEtR2c3azhFelBqNy1zdWNjZXNzZmFjdG9ycy1qb2JzLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "threads-public-scraper",
-      "title": "Threads Scraper - Public Profiles & Post URLs",
-      "categories": [
-        "SOCIAL_MEDIA",
-        "MARKETING",
-        "BUSINESS"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 2,
-      "successRate30d": 77.42,
-      "storeUrl": "https://apify.com/benthepythondev/threads-public-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract public Threads profiles, recent visible posts and exact post URLs with full text, dates, engagement counts, i\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/dZyNBkeYx8lgD6g5-GdIDiUmPJ1L093bFIv8La8L4VU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTlk1bEJ2V0lBdFA2STJTQTEtRU1jb1U0RzBHNS10aHJlYWRzLXB1YmxpYy1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "treasury-fiscal-data-scraper",
@@ -11022,6 +11007,66 @@
       "storeUrl": "https://apify.com/benthepythondev/thesportsdb-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search TheSportsDB for sports teams or players by name and get structured data: name, sport, league, country, stadium\u2026",
       "iconUrl": "https://images.apifyusercontent.com/6HXZWoKEmFDvIxkQHRcFlS1FX2Caq7e7Ce5HswzAP04/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdXhoU0VnOFY1d1dFMUMxTWEtbW5uOFRjRUkyUC10aGVzcG9ydHNkYi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "threads-profile-scraper",
+      "title": "Threads Profile Scraper - Followers, Bio & Engagement",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "LEAD_GENERATION",
+        "MARKETING"
+      ],
+      "chip": "Lead gen",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/threads-profile-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape Meta Threads profiles in bulk without login: followers, bio, bio links, verified badge, private flag, last pos\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/3WZFyFj8Tfal-0ZYPS4-iETXsOVaKrpRg_ablb7Lnos/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItampONGFnVk5BN3lhT2ozUDAtWVJHQjNPaVRJSC10aHJlYWRzLXByb2ZpbGUtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "threads-replies-scraper",
+      "title": "Threads Replies Scraper - Comments Under Any Post",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "BUSINESS"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/threads-replies-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape the replies under Meta Threads posts without login: reply text, author, time, likes, reply counts and media, w\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/Y273r9wR-PB8rJmYwMCKVh5rdDZyUENb-O4xLsuQu8c/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcnE3U0VjRjdMZGh1cEl0Z2ktZEY0UmsxRDBIUi10aHJlYWRzLXJlcGxpZXMtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "threads-public-scraper",
+      "title": "Threads Scraper - Posts, Profiles & Replies",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "BUSINESS"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": 77.42,
+      "storeUrl": "https://apify.com/benthepythondev/threads-public-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape Meta Threads without login: the full public post history of any account, its replies and reposts, profile data\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/dZyNBkeYx8lgD6g5-GdIDiUmPJ1L093bFIv8La8L4VU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTlk1bEJ2V0lBdFA2STJTQTEtRU1jb1U0RzBHNS10aHJlYWRzLXB1YmxpYy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "threads-user-posts-scraper",
+      "title": "Threads User Posts Scraper - Full Post History",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "AI"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/threads-user-posts-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export every public post of any Meta Threads account without login: text, date, likes, replies, reposts, quotes, medi\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/FLUGeVsEs2cvJjGuaq-J46NhM1LIuerNUHtHuNRSpWk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYUxvOGpvSGk0bllGcHR5Zk4tVTBOdVl3UmdiWi10aHJlYWRzLXVzZXItcG9zdHMtc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "tiktok-video-details-scraper",
