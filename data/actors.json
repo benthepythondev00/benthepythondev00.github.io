@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-04T02:36:42Z",
-  "count": 973,
+  "generatedAt": "2026-10-04T09:44:26Z",
+  "count": 979,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -4874,6 +4874,21 @@
       "iconUrl": "https://images.apifyusercontent.com/2BxohtO7YENbPeWmJkZQpXmJiWqDggpn74vD54U_rrQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbWFialpJcVBRd2dNbDFhMDctV0tZNnhJeUdKYy1mYWEtYWlycG9ydC1zdGF0dXMtc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "facebook-groups-scraper",
+      "title": "Facebook Groups Scraper - Public Group Posts, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "LEAD_GENERATION"
+      ],
+      "chip": "Lead gen",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/facebook-groups-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns the posts of public Facebook groups: text, author, date, reactions, comments, shares, pictures, video and lin\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/8IeUe8t9Yqz7Zf_yFSiTvSgJPcNWgeThUijDml3lL0U/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcXVLS2VSbGdvNUJGZGJBS3AtYmQzYlBKWUFaNy1mYWNlYm9vay1ncm91cHMtc2NyYXBlci5wbmc.webp"
+    },
+    {
       "name": "facebook-pages-scraper",
       "title": "Facebook Pages Scraper - Business Info & Contacts",
       "categories": [
@@ -4883,10 +4898,25 @@
       ],
       "chip": "Lead gen",
       "users30d": 1,
-      "successRate30d": 90.91,
+      "successRate30d": 91.3,
       "storeUrl": "https://apify.com/benthepythondev/facebook-pages-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Export public Facebook Page names, categories, descriptions, follower text and published contact details with source\u2026",
       "iconUrl": "https://images.apifyusercontent.com/YYS_woRjuLcywVKspofQszcml-exif0d1_qgx2xyzwI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRnNQalVSV0FXUG80VEkxVTEtZWJzT3pib1VxVC1mYWNlYm9vay1wYWdlcy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "facebook-posts-scraper",
+      "title": "Facebook Posts Scraper - Page & Profile Posts, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "AUTOMATION"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/facebook-posts-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns the posts of public Facebook pages and profiles: text, date, reactions by type, comments, shares, video views\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/XStHJtPBpjDFzQmWRxtqbQYqRAqSy8JaGjNq4BncD-0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3RTMnRhSzFkcnNGdVFEaFQta01oSHFTVWprVy1mYWNlYm9vay1wb3N0cy1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "fantasy-premier-league-scraper",
@@ -5639,6 +5669,21 @@
       "iconUrl": "https://images.apifyusercontent.com/rIYdlA1ml1LwK5xUs9vRzShY9rT7xcCXQofcZJZ-6Lg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNVNsT0p3c1lkdlBsN1lMbEMtSURwUnlVUkRkYy1nb29kcmVhZHMtcmV2aWV3cy1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "google-ads-transparency-scraper",
+      "title": "Google Ads Transparency Scraper - Competitor Ads, No Login",
+      "categories": [
+        "MARKETING",
+        "SEO_TOOLS",
+        "BUSINESS"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/google-ads-transparency-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns the ads any advertiser runs on Google Search, YouTube, Shopping, Maps and Play, from Google's Ads Transparenc\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/vtWbe7myYqVr7qtGoy95pYfHGMDgeE362uNYh96-3hw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWEZVeTM1Yk9IQTdQQVJheFotdXlGOGdaQTJDZi1nb29nbGUtYWRzLXRyYW5zcGFyZW5jeS1zY3JhcGVyLnBuZw.webp"
+    },
+    {
       "name": "google-keyword-suggestions-scraper",
       "title": "Google Keyword Suggestions Scraper - Autocomplete Data",
       "categories": [
@@ -5680,7 +5725,7 @@
       "users30d": 1,
       "successRate30d": 96.43,
       "storeUrl": "https://apify.com/benthepythondev/google-maps-reviews-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract customer reviews from any Google Maps place by search or place URL: reviewer, star rating, review text, date\u2026",
+      "oneLiner": "Returns the reviews Google Maps shows a visitor who is not signed in: the three to five most relevant reviews of each\u2026",
       "iconUrl": "https://images.apifyusercontent.com/74NGTMW9iI8nnz1-khun421RJL1_HlTZgEoG0Ia9yaQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMDlkV0FZdTVoTDlaeTA0b2YtUXV6aEVHbW9oTS1nb29nbGUtbWFwcy1yZXZpZXdzLXNjcmFwZXIucG5n.webp"
     },
     {
@@ -7362,6 +7407,21 @@
       "storeUrl": "https://apify.com/benthepythondev/lichess-player-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Look up Lichess users and export username, title, activity dates, game counts, performance ratings, country, bio and\u2026",
       "iconUrl": "https://images.apifyusercontent.com/46kiUzlCGuYB_kXU-Duk67NTcNMfqNLlXpMFVBc02a4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItVUVyNkhtaGNWcEJDTEJkaWwtYTQwMUtNZmg1OC1saWNoZXNzLXBsYXllci1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "linkedin-ad-library-scraper",
+      "title": "LinkedIn Ad Library Scraper - Competitor Ads, No Login",
+      "categories": [
+        "MARKETING",
+        "LEAD_GENERATION",
+        "BUSINESS"
+      ],
+      "chip": "Lead gen",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/linkedin-ad-library-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns the ads a company runs on LinkedIn, from LinkedIn's public Ad Library: ad text, headline, format, picture or\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/pNw9XnfqkR94t1xLLpbodPabZVwa17uy3d7Xhw7O0Kg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbU1ITGR0REtZRnNhRW1VQW4teXZjRjd6YW5BRy1saW5rZWRpbi1hZC1saWJyYXJ5LXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "listenbrainz-top-artists-scraper",
@@ -13709,6 +13769,21 @@
       "iconUrl": "https://images.apifyusercontent.com/vBPn-lsVsEHTOeNCkBcUQfEdS945b7cEtZLNtkEHUSQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itd1AzQWY2NDF4RTB3NkFmUWItdWEzWTdDWWdRai10ZWFtdGFpbG9yLWpvYnMtc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "telegram-channel-scraper",
+      "title": "Telegram Channel Scraper - Posts, Views & Reactions",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "NEWS",
+        "MARKETING"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/telegram-channel-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export the posts of public Telegram channels without an account or API keys: text, date, views, reactions, photos, vi\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/3x2kPeM5R8xGR-cNdmhEjPxF5sEN64HRBY1TZegSiaQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itdkd4ajhGMnJLTEQ0Z2FLWTMtSUF4TzVPbGtudy10ZWxlZ3JhbS1jaGFubmVsLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "tiktok-keyword-suggestions-scraper",
       "title": "TikTok Keyword Suggestions Scraper",
       "categories": [
@@ -13722,6 +13797,21 @@
       "storeUrl": "https://apify.com/benthepythondev/tiktok-keyword-suggestions-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect ranked TikTok autocomplete suggestions from seed keywords with bounded alphabet, number and recursive expansi\u2026",
       "iconUrl": "https://images.apifyusercontent.com/wuW3Khit7tXoVY2Vq6WRFYkvYv6IxOuYAhUBTbiJcZA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQ3hCQU5ZbTFleTFtVTd1Q1MtWWdGbzFRMjRCRC10aWt0b2sta2V5d29yZC1zdWdnZXN0aW9ucy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "tiktok-shop-scraper",
+      "title": "TikTok Shop Scraper - Products, Stock, Prices & Sellers",
+      "categories": [
+        "ECOMMERCE",
+        "SOCIAL_MEDIA",
+        "LEAD_GENERATION"
+      ],
+      "chip": "Lead gen",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/tiktok-shop-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export TikTok Shop (US) products without a browser or account: price, discount, units sold, rating, seller and, on re\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/oNVueGivDzaXCjD97a02N6saXrb7ctf9KIGz4L2aX0E/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWGlUSTJiZFNGNXJna3NLRE8tR3NScmNISUxVUS10aWt0b2stc2hvcC1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "twitch-channel-scraper",
