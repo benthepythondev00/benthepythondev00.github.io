@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-06T15:08:57Z",
-  "count": 980,
+  "generatedAt": "2026-10-06T20:17:19Z",
+  "count": 986,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -2382,6 +2382,21 @@
       "storeUrl": "https://apify.com/benthepythondev/betapage-products-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract PitchWall product titles, directory URLs and individual card descriptions through public BetaPage/PitchWall p\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
+    },
+    {
+      "name": "bilibili-scraper",
+      "title": "Bilibili Scraper \u54d4\u54e9\u54d4\u54e9 - Videos, Comments, Creators, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "VIDEOS",
+        "MARKETING"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/bilibili-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns Bilibili (\u54d4\u54e9\u54d4\u54e9, B\u7ad9) videos with views, likes, coins and tags, every comment and reply under a video, a creato\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/Dx3qVvmrYheCTk919zrlS0Hu42d6sk03f8E9VRcaXSk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRmo3TTZEYnBLNklCSHhEdXktMHRPYnFCNzFXbS1iaWxpYmlsaS1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "binance-market-data-scraper",
@@ -13109,6 +13124,21 @@
       "iconUrl": "https://images.apifyusercontent.com/yVUjXlaHJo6pxxSbmETtbT1iofvNOVJ5YbrW8LZDKk8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdXQyMk13RHFEdlVFQkVxVEgtZGp4U2VSWFZ5aC1nbGFzc2Rvb3Itc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "google-flights-scraper",
+      "title": "Google Flights Scraper - All Fares, Price History, Calendar",
+      "categories": [
+        "TRAVEL",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Real estate & rentals",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/google-flights-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns the flights Google Flights lists for a route and date: price, airlines, flight numbers, times, stops, layover\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/7fTVocrVPaLCO9aJd7bJoK8bNR9IiAu7TFSOavmaEuU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYzJTbWMzOWtSVmNSYVQ1RVktcUlrSTJoV1o2ai1nb29nbGUtZmxpZ2h0cy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
       "name": "google-images-scraper",
       "title": "Google Images Scraper - Image Search Results",
       "categories": [
@@ -13257,6 +13287,51 @@
       "storeUrl": "https://apify.com/benthepythondev/immoweb-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Immoweb.be (Belgium's largest property portal): type, price, bedrooms, surface, full address, postcode, provin\u2026",
       "iconUrl": "https://images.apifyusercontent.com/KfFgRKQrnxTMUNaIQQcSDTU-Rdg67FtJ8Kh3Eo7Rya4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3BMVTJMSURIWWk0ZHVya20tNXp2NXYwdmJSQi1pbW1vd2ViLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "indeed-jobs-scraper",
+      "title": "Indeed Jobs Scraper - Beyond 1,000 Jobs, Pay Data, No Login",
+      "categories": [
+        "JOBS",
+        "LEAD_GENERATION",
+        "AUTOMATION"
+      ],
+      "chip": "Jobs & hiring",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/indeed-jobs-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns Indeed job postings from 62 countries: title, employer, location, pay, full description, job type, remote fla\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/rzx-FAnr5wepdR8dv6I4aPX35IMAvm-b81l5WnVeglM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaDUyMEU3Y2lrYWtGU3pqQWctWmZaOVZzZHpsSy1pbmRlZWQtam9icy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "instagram-reel-transcript-scraper",
+      "title": "Instagram Reel Transcript Scraper - Speech to Text, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "VIDEOS",
+        "AI"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/instagram-reel-transcript-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Transcripts of public Instagram reels: the spoken text with timed segments, the detected language and the length, plu\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/vqJdIECe2PPiXKIb89IXoLjdvCZnjOpayymW7fVx-xc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcWlSU2dGQVJKUGdQbWpucjAtc0pWUzJzb3A4US1pbnN0YWdyYW0tcmVlbC10cmFuc2NyaXB0LXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "instagram-video-downloader",
+      "title": "Instagram Video Downloader - Reels & Posts, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "VIDEOS",
+        "AUTOMATION"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/instagram-video-downloader?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns direct MP4 links for public Instagram reels, video posts and carousels: the file with sound, every video-only\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/n33tr7PmgGOuCfZXJLegl7oYSi7_Dsg0t0lOrIuF-58/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNmN0bmJSRDhTUE9vMzlvYU4tRUlKVWJQbGZsVC1pbnN0YWdyYW0tdmlkZW8tZG93bmxvYWRlci5wbmc.webp"
     },
     {
       "name": "ip-geolocation-scraper",
@@ -13827,6 +13902,21 @@
       "storeUrl": "https://apify.com/benthepythondev/tiktok-keyword-suggestions-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect ranked TikTok autocomplete suggestions from seed keywords with bounded alphabet, number and recursive expansi\u2026",
       "iconUrl": "https://images.apifyusercontent.com/wuW3Khit7tXoVY2Vq6WRFYkvYv6IxOuYAhUBTbiJcZA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQ3hCQU5ZbTFleTFtVTd1Q1MtWWdGbzFRMjRCRC10aWt0b2sta2V5d29yZC1zdWdnZXN0aW9ucy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "tiktok-scraper",
+      "title": "TikTok Scraper - Profiles, Videos, Comments, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "VIDEOS",
+        "MARKETING"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/tiktok-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns TikTok videos from profiles and video links in one run: caption, date, views, likes, comments, shares, saves,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/gdKX0q-Tr-PBa2M2r5uTqOruBp6_Fm978cvT-8XGeSI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRUhnOUtFQ1ZGZnY0ZEZ0ZXItOFdyQWxiSWJTRi10aWt0b2stc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "twitch-channel-scraper",
