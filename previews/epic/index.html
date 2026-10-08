@@ -1,0 +1,474 @@
+<!doctype html>
+<!--
+DESIGN PLAN (Epic Roofing & Construction, Tulsa OK)
+
+Design read: local roofing + solar contractor, homeowners after a storm on a phone,
+trust-first. Dials: variance 5, motion 3, density 4.
+
+Direction: Tulsa art deco. The city's oil-boom towers (Philtower's green tile roof,
+Boston Avenue's gold-leaf sunbursts) give a vocabulary nobody else in roofing uses,
+and the deco sunburst doubles as the solar story. One memorable thing: a sunburst
+rising behind a roof that is half shingle courses, half solar panels. Everything
+else stays quiet.
+
+Palette
+  deco green  #173F38  hero, footer, roof
+  verdigris   #3F8475  secondary lines, shingle tabs
+  stone       #EDF0EB  page background (cool limestone, not cream)
+  ink         #13211E  text, focus ring on light
+  gold leaf   #D9A43E  the one accent: sun, primary buttons, focus ring on green
+  muted       #4A5A55  secondary text (7:1 on stone)
+
+Type
+  Josefin Sans 700 for headings: geometric 1920s letterforms, set sentence case.
+  Atkinson Hyperlegible for body and form: built for legibility, plain and sturdy.
+
+Layout
+  [preview bar                                                 ]
+  [mark Epic Roofing & Construction   nav   (918) 771-0177     ]
+  [ H1 left, 18-word sub, 2 CTAs   |   SVG sunburst + roof     ]   green
+  [ open every day | license # | 4.9 on Google Maps            ]   facts row
+  [ H2 insurance (sticky) | big quote / two small quotes       ]   split
+  [ full-width statement: founded Oct 2017, Garrett + Chris    ]   statement
+  [ wide shingle tile        | narrow solar tile               ]   asymmetric pair
+  [ form (labels above)      | phone, email, address, hours    ]   contact
+  [ footer                                                     ]
+  Left-aligned throughout; no centered blocks except the preview bar.
+
+Principles
+  - Only facts from their own site. Reviews quoted verbatim (Adriana's taken out of
+    all caps and trimmed to one sentence), names as written.
+  - Insurance help is what three separate customers wrote about, so it gets the
+    first section after the hero.
+  - No math captcha on the form and no stale copyright year: the two faults on the
+    current site. No emoji anywhere.
+  - Radius rule: 4px on buttons, inputs and tiles. Nothing else rounded.
+
+Review against the AI-default list, and what changed
+  - First pass had a "4.9 / 2017 / 20+ years" big-number band under the hero. That
+    is the default stat treatment, and "20+ years" is Chris's own phrase from a
+    quote, not a company stat. Replaced with a plain facts row and kept the 20+
+    years inside his quote.
+  - First pass used a gold eyebrow label over each section. Removed all of them;
+    headings carry the section.
+  - Considered warm cream + clay for "Oklahoma red dirt". That is the #1 default
+    look, so the base became cool limestone with deco green.
+  - Considered a review carousel. Reviews are few and short; they sit next to the
+    claim they back up instead.
+  - Skipped: dark mode (single preview page), scroll reveals (one load moment only).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epic Roofing &amp; Construction | Free roof inspections in Tulsa, OK</title>
+<meta name="description" content="Free, no-risk roof inspections in Tulsa with help on the insurance claim. Roofing and solar. Call (918) 771-0177.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23173F38'/%3E%3Cpath d='M4 24h24L22 16h-3l-3-6-3 6h-3z' fill='%23D9A43E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Josefin+Sans:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#173F38; --verd:#3F8475; --stone:#EDF0EB; --ink:#13211E; --gold:#D9A43E; --muted:#4A5A55;
+    --head:"Josefin Sans", "Century Gothic", system-ui, sans-serif;
+    --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--stone);color:var(--ink);font:400 18px/1.6 var(--body);overflow-x:hidden}
+  svg{display:block}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1.1;margin:0;letter-spacing:-.01em}
+  h2{font-size:clamp(28px,4vw,40px)}
+  p{margin:0}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .on-green :focus-visible{outline-color:var(--gold)}
+  .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:var(--ink);padding:10px 14px;z-index:30}
+  .skip:focus{left:8px}
+
+  .preview{background:var(--ink);color:#E4EAE6;font-size:14px;text-align:center;padding:6px 12px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:4px;
+       font:700 17px/1 var(--body);text-decoration:none;border:2px solid transparent;cursor:pointer;white-space:nowrap}
+  .btn-gold{background:var(--gold);color:var(--ink)}
+  .btn-gold:hover{background:#E6B65A}
+  .btn-line{border-color:rgba(255,255,255,.6);color:#fff}
+  .btn-line:hover{border-color:#fff}
+  .btn:active{transform:translateY(1px)}
+
+  /* header + hero share the green */
+  .top{background:var(--green);color:#fff}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 19px/1.15 var(--head)}
+  .brand svg{flex:none}
+  .bar nav{display:flex;gap:26px;font-size:16px}
+  .bar nav a{text-decoration:none;padding:12px 0}
+  .bar nav a:hover{text-decoration:underline;text-underline-offset:5px}
+  .bar .tel{font-weight:700;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:8px;
+            border:2px solid var(--gold);border-radius:4px;padding:0 14px}
+
+  .hero{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:end;padding:40px 0 0}
+  .hero-copy{padding-bottom:64px}
+  .hero h1{font-size:clamp(38px,5.4vw,62px);max-width:12ch}
+  .hero p{margin-top:20px;font-size:20px;max-width:34ch;color:#D5E1DC}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .art{width:100%;height:auto}
+  .rays{transform-origin:300px 250px}
+  @media (prefers-reduced-motion:no-preference){
+    .rays{animation:rise 1.4s cubic-bezier(.2,.7,.2,1) both}
+    @keyframes rise{from{transform:rotate(-14deg) scale(.82);opacity:0}to{transform:none;opacity:1}}
+  }
+
+  .facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:12px 56px;padding:22px 0;border-bottom:1px solid #C9D2CD}
+  .facts dt{font-size:14px;color:var(--muted)}
+  .facts dd{margin:0;font-weight:700}
+
+  section{padding:88px 0}
+
+  /* insurance */
+  .ins{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+  .ins-head{position:sticky;top:24px}
+  .ins-head p{margin-top:18px;color:var(--muted);max-width:36ch}
+  blockquote{margin:0}
+  blockquote p::before{content:"\201C"}
+  blockquote p::after{content:"\201D"}
+  cite{display:block;margin-top:12px;font-style:normal;font-weight:700;font-size:16px}
+  .q-big{border-left:6px solid var(--gold);padding-left:24px}
+  .q-big p{font:600 clamp(22px,2.6vw,28px)/1.35 var(--head)}
+  .q-pair{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:44px;padding-top:32px;border-top:1px solid #C9D2CD}
+  .q-pair p{font-size:17px}
+
+  /* about statement */
+  .about{background:#E2E8E3}
+  .about h2{font-size:clamp(30px,4.6vw,52px);max-width:22ch}
+  .about-body{display:grid;grid-template-columns:7fr 5fr;gap:56px;margin-top:36px}
+  .about-body > p{max-width:52ch}
+  .about-body p + p{margin-top:16px}
+  .about blockquote p{font-size:17px}
+
+  /* materials */
+  .mat{display:grid;grid-template-columns:3fr 2fr;gap:20px}
+  .tile{border-radius:4px;padding:36px;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+  .tile h3{font-size:30px}
+  .tile p{margin-top:10px;max-width:34ch}
+  .tile-shingle{background-color:var(--green);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='36'%3E%3Cpath d='M0 17.5h56M0 35.5h56M.5 0v18M28.5 18v18' stroke='%233F8475' fill='none'/%3E%3C/svg%3E");
+    box-shadow:inset 0 -170px 120px -60px var(--green)}
+  .tile-solar{background-color:#1C2A2E;
+    background-image:repeating-linear-gradient(90deg,transparent 0 46px,#4E6A72 46px 48px),repeating-linear-gradient(0deg,transparent 0 70px,#4E6A72 70px 72px);
+    box-shadow:inset 0 -170px 120px -60px #1C2A2E}
+  .tile .sun{width:46px;height:46px;border-radius:50%;background:var(--gold);margin-bottom:auto}
+
+  /* contact */
+  .contact{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:start}
+  .contact h2 + p{margin-top:14px;color:var(--muted);max-width:44ch}
+  form{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .field{display:grid;gap:6px}
+  .field.full{grid-column:1/-1}
+  label{font-weight:700;font-size:16px}
+  label small{font-weight:400;color:var(--muted)}
+  input,select,textarea{font:inherit;font-size:17px;color:var(--ink);background:#fff;border:2px solid #8A9993;border-radius:4px;min-height:48px;padding:10px 12px;width:100%}
+  textarea{min-height:120px;resize:vertical}
+  input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--ink);outline-offset:1px;border-color:var(--ink)}
+  [aria-invalid="true"]{border-color:#A3261B}
+  .err{color:#A3261B;font-size:15px;min-height:0}
+  .err:empty{display:none}
+  .send{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+  .send p{font-size:15px;color:var(--muted);max-width:40ch}
+  .status{grid-column:1/-1;font-weight:700}
+  .status:empty{display:none}
+
+  .details{background:var(--green);color:#fff;border-radius:4px;padding:32px}
+  .details dl{margin:0;display:grid;gap:20px}
+  .details dt{font-size:14px;color:#B9CCC5}
+  .details dd{margin:2px 0 0;font-size:18px}
+  .details a{font-weight:700}
+  .details .big{font:700 28px/1.1 var(--head);text-decoration:none;display:inline-block;padding:6px 0}
+  .details .rev{margin-top:28px;padding-top:24px;border-top:1px solid #3F6A61}
+  .details .rev p{font-size:16px}
+
+  footer{background:var(--green);color:#C9D9D3;font-size:15px;padding:28px 0 36px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+
+  .callbar{display:none}
+
+  @media (max-width:900px){
+    .hero,.ins,.about-body,.contact{grid-template-columns:1fr}
+    .hero{gap:0;padding-top:24px}
+    .hero-copy{padding-bottom:28px}
+    .ins-head{position:static}
+    .mat{grid-template-columns:1fr}
+  }
+  @media (max-width:760px){
+    body{font-size:17px;padding-bottom:64px}
+    .bar nav{display:none}
+    .bar .tel span{display:none}
+    .brand{font-size:17px}
+    section{padding:60px 0}
+    .facts{grid-template-columns:1fr 1fr}
+    .q-pair{grid-template-columns:1fr}
+    form{grid-template-columns:1fr}
+    .tile{min-height:240px;padding:26px}
+    .details{padding:24px}
+    .callbar{display:flex;position:fixed;inset:auto 0 0 0;z-index:20;min-height:56px;align-items:center;justify-content:center;
+             background:var(--gold);color:var(--ink);font-weight:700;font-size:18px;text-decoration:none;box-shadow:0 -2px 10px rgba(19,33,30,.25)}
+  }
+  @media (max-width:420px){
+    .hero p{font-size:18px}
+    .ctas .btn{flex:1 1 100%}
+    .facts{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="preview">Preview built for Epic Roofing &amp; Construction. Not live yet.</div>
+
+<header class="top on-green">
+  <div class="wrap bar">
+    <a class="brand" href="#main" aria-label="Epic Roofing and Construction, home">
+      <svg width="34" height="28" viewBox="0 0 34 28" aria-hidden="true"><path d="M1 27h32l-7-9h-4l-5-9-5 9H8z" fill="#D9A43E"/><path d="M17 1v6" stroke="#D9A43E" stroke-width="2"/></svg>
+      Epic Roofing &amp;&nbsp;Construction
+    </a>
+    <nav aria-label="Main">
+      <a href="#insurance">Insurance help</a>
+      <a href="#materials">Shingles and solar</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="tel" href="tel:+19187710177" aria-label="Call (918) 771-0177">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#D9A43E" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+      <span>(918) 771-0177</span>
+    </a>
+  </div>
+
+  <div class="wrap hero">
+    <div class="hero-copy">
+      <h1>When you want your roof done right.</h1>
+      <p>Free, no-risk roof inspections in Tulsa. We check the damage and help you work with your insurance company.</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="#contact">Book a free inspection</a>
+        <a class="btn btn-line" href="tel:+19187710177">Call (918) 771-0177</a>
+      </div>
+    </div>
+
+    <svg class="art" viewBox="0 0 600 400" role="img" aria-label="Drawing of a house roof with shingles on one side and solar panels on the other, with a sunburst rising behind it">
+      <defs>
+        <clipPath id="sky"><rect width="600" height="252"/></clipPath>
+        <pattern id="shingle" width="36" height="20" patternUnits="userSpaceOnUse">
+          <rect width="36" height="20" fill="#1F5047"/>
+          <path d="M0 9.5h36M0 19.5h36M.5 0v10M18.5 10v10" stroke="#3F8475" fill="none"/>
+        </pattern>
+      </defs>
+      <g clip-path="url(#sky)"><g class="rays">
+        <path d="M300 250L0 250L4 203Z M300 250L15 157L33 114Z M300 250L57 74L88 38Z M300 250L124 7L164 -17Z M300 250L207 -35L253 -46Z M300 250L300 -50L347 -46Z M300 250L393 -35L436 -17Z M300 250L476 7L512 38Z M300 250L543 74L567 114Z M300 250L585 157L596 203Z" fill="#D9A43E"/>
+        <path d="M300 250L4 203L15 157Z M300 250L33 114L57 74Z M300 250L88 38L124 7Z M300 250L164 -17L207 -35Z M300 250L253 -46L300 -50Z M300 250L347 -46L393 -35Z M300 250L436 -17L476 7Z M300 250L512 38L543 74Z M300 250L567 114L585 157Z M300 250L596 203L600 250Z" fill="#B98A33"/>
+        <circle cx="300" cy="250" r="78" fill="#E9C26D"/>
+      </g></g>
+      <!-- chimney -->
+      <rect x="168" y="128" width="30" height="50" fill="#13211E"/>
+      <rect x="162" y="122" width="42" height="9" fill="#13211E"/>
+      <!-- roof plane -->
+      <path d="M44 262L150 160H450L556 262Z" fill="url(#shingle)"/>
+      <!-- solar array on right half -->
+      <g fill="#13211E" stroke="#4E6A72" stroke-width="1.5">
+        <path d="M318 172H436L470 205H318Z"/>
+        <path d="M318 211H476L510 244H318Z"/>
+      </g>
+      <g stroke="#4E6A72" stroke-width="1.5">
+        <path d="M357 172V205M397 172V205M437 172L443 205M357 211V244M397 211V244M437 211V244M477 211L483 244"/>
+      </g>
+      <!-- ridge + gutter -->
+      <path d="M150 160H450" stroke="#13211E" stroke-width="6"/>
+      <path d="M36 263H564" stroke="#13211E" stroke-width="8"/>
+      <!-- wall -->
+      <rect x="84" y="267" width="432" height="133" fill="#EDF0EB"/>
+      <g fill="#173F38">
+        <rect x="122" y="300" width="70" height="56"/><rect x="408" y="300" width="70" height="56"/>
+        <rect x="274" y="300" width="52" height="100"/>
+      </g>
+      <g stroke="#EDF0EB" stroke-width="3"><path d="M157 300v56M122 328h70M443 300v56M408 328h70"/></g>
+    </svg>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <dl class="facts">
+      <div><dt>Hours</dt><dd>Open every day, 8:30am to 7:00pm</dd></div>
+      <div><dt>Oklahoma license</dt><dd># 80003667</dd></div>
+      <div><dt>Google Maps rating</dt><dd>4.9</dd></div>
+    </dl>
+  </div>
+
+  <section id="insurance">
+    <div class="wrap ins">
+      <div class="ins-head">
+        <h2>Storm damage comes with paperwork. We help with both.</h2>
+        <p>The inspection is free. If there is damage, we help you deal with the insurance company too. Here is what customers wrote about that part.</p>
+      </div>
+      <div>
+        <blockquote class="q-big">
+          <p>They came to my house checked my roof and we found that our insurance wasn't what we thought we had.</p>
+          <cite>Adriana Fout</cite>
+        </blockquote>
+        <div class="q-pair">
+          <blockquote>
+            <p>They were there when they said they would be, did a quick and professional installation, and helped with the insurance company. I would definitely recommend them.</p>
+            <cite>Jennifer K</cite>
+          </blockquote>
+          <blockquote>
+            <p>My insurance company also has given me a 16% discount on my homeowner's insurance due to the quality of materials used. A savings of over $500 a year.</p>
+            <cite>Marty Castens Jr.</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2>Founded in October 2017 by Garrett Boulware and Chris Jensen.</h2>
+      <div class="about-body">
+        <div>
+          <p>Two partners started Epic Roofing &amp; Construction with one priority: customer service and quality work.</p>
+          <p>In Oklahoma, home isn't just a house. It's a castle. That's how we treat the roof over it.</p>
+        </div>
+        <blockquote>
+          <p>Chris and Garrett are phenomenal- they have both Integrity and expertise and are energetic and thorough- what more can you ask for?</p>
+          <cite>Erin Garcia</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="materials">
+    <div class="wrap mat">
+      <div class="tile tile-shingle">
+        <h3>Premier shingles</h3>
+        <p>We only use the best of the best. Ask what goes on your roof during the inspection.</p>
+      </div>
+      <div class="tile tile-solar">
+        <div class="sun" aria-hidden="true"></div>
+        <h3>Ask us about solar</h3>
+        <p>We can talk you through how solar panels can save you money and energy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <div>
+        <h2>Book a free inspection</h2>
+        <p>Tell us where the house is and what you've noticed. We'll call you back to set a time.</p>
+        <form id="book" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
+            <span class="err" id="e-name" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="e-phone">
+            <span class="err" id="e-phone" aria-live="polite"></span>
+          </div>
+          <div class="field full">
+            <label for="f-addr">Property address</label>
+            <input id="f-addr" name="address" autocomplete="street-address" required aria-describedby="e-addr">
+            <span class="err" id="e-addr" aria-live="polite"></span>
+          </div>
+          <div class="field full">
+            <label for="f-need">What do you need?</label>
+            <select id="f-need" name="need" required aria-describedby="e-need">
+              <option value="">Choose one</option>
+              <option>Storm or hail damage check</option>
+              <option>Roof leak</option>
+              <option>General roof inspection</option>
+              <option>New roof</option>
+              <option>Solar question</option>
+            </select>
+            <span class="err" id="e-need" aria-live="polite"></span>
+          </div>
+          <div class="field full">
+            <label for="f-msg">Anything else <small>(optional)</small></label>
+            <textarea id="f-msg" name="message"></textarea>
+          </div>
+          <div class="send">
+            <button class="btn btn-gold" type="submit">Send my request</button>
+            <p>This opens your email app with the details filled in, addressed to info@epicroofs.net.</p>
+          </div>
+          <p class="status" id="status" role="status"></p>
+        </form>
+      </div>
+
+      <aside class="details on-green" aria-label="Contact details">
+        <dl>
+          <div><dt>Phone</dt><dd><a class="big" href="tel:+19187710177">(918) 771-0177</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:info@epicroofs.net">info@epicroofs.net</a></dd></div>
+          <div><dt>Office</dt><dd>11047 S Memorial Dr.<br>Tulsa, OK 74133</dd></div>
+          <div><dt>Hours</dt><dd>Monday to Sunday, 8:30am to 7:00pm</dd></div>
+        </dl>
+        <blockquote class="rev">
+          <p>Honest, great work, fun to work with! I would not hesitate to recommend Epic Roofing to anyone.</p>
+          <cite>Jordan Price</cite>
+        </blockquote>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="on-green">
+  <div class="wrap">
+    <span>Epic Roofing &amp; Construction, 11047 S Memorial Dr., Tulsa, OK 74133</span>
+    <span>Oklahoma license # 80003667</span>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19187710177">Call (918) 771-0177</a>
+
+<script>
+  const form = document.getElementById('book');
+  const rules = {
+    name: v => v.trim() ? '' : 'Enter your name so we know who to ask for.',
+    phone: v => v.replace(/\D/g, '').length >= 10 ? '' : 'Enter a phone number with area code, like (918) 555-0100.',
+    address: v => v.trim().length > 4 ? '' : 'Enter the street address of the house.',
+    need: v => v ? '' : 'Choose what you need help with.'
+  };
+  const errIds = { name: 'e-name', phone: 'e-phone', address: 'e-addr', need: 'e-need' };
+
+  function check(el) {
+    const msg = rules[el.name](el.value);
+    document.getElementById(errIds[el.name]).textContent = msg;
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+
+  Object.keys(rules).forEach(n => {
+    const el = form.elements[n];
+    el.addEventListener('blur', () => { if (el.value || el.getAttribute('aria-invalid')) check(el); });
+    el.addEventListener('input', () => { if (el.getAttribute('aria-invalid') === 'true') check(el); });
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const bad = Object.keys(rules).map(n => form.elements[n]).filter(el => !check(el));
+    const status = document.getElementById('status');
+    if (bad.length) { status.textContent = ''; bad[0].focus(); return; }
+    const f = form.elements;
+    const body = [
+      'Name: ' + f.name.value.trim(),
+      'Phone: ' + f.phone.value.trim(),
+      'Property address: ' + f.address.value.trim(),
+      'Need: ' + f.need.value,
+      '',
+      f.message.value.trim()
+    ].join('\n');
+    location.href = 'mailto:info@epicroofs.net?subject=' + encodeURIComponent('Free inspection request: ' + f.address.value.trim()) +
+                    '&body=' + encodeURIComponent(body);
+    status.textContent = 'Your email app should open now. If it doesn\'t, call (918) 771-0177.';
+  });
+</script>
+</body>
+</html>

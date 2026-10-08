@@ -1,0 +1,466 @@
+<!doctype html>
+<!--
+DESIGN PLAN: Barton Roofing preview
+
+Design read: local trade landing page for Spokane homeowners (many of them older, many with cedar shake
+or composition roofs), trust-first and phone-first, plain and practical. Dials: variance 5, motion 3, density 4.
+
+Subject: a roofer who has worked the Inland Northwest since 1976, roofs all year (snow season included),
+and already runs a pitch-based roofing calculator on its old site. The identity comes from the roof deck itself:
+weathered cedar shake courses, a snow cap on the ridge, and the blue chalk line a roofer snaps to keep courses straight.
+The pitch numbers (4/12 to 10/12) are their own vocabulary, so the estimate tool is drawn as a pitch gauge.
+
+Color
+  snow     #F1F4F5  page background (cool, not cream)
+  frost    #DDE5E8  quiet panels, rules
+  basalt   #263035  text, header (Columbia basalt, cool dark grey, not #111)
+  shake    #8E8478  weathered cedar shake grey-brown (drawing only)
+  chalk    #1D63B8  chalk-line blue: the one accent (buttons, links, focus, chalk lines)
+  slate    #56636A  secondary text (AA on snow)
+
+Type
+  Archivo, expanded width (wdth 112-120), 800: headings and the phone number, set wide like stencilled truck/yard lettering.
+  Atkinson Hyperlegible 400/700: body, labels, form. Chosen for legibility for older homeowners.
+
+Layout (left aligned throughout, max 1140px)
+  [preview bar: "Preview built for Barton Roofing. Not live yet."]
+  [Barton Roofing            Roof signs  Estimate   (509) 535-3768]
+  [H1 + 19-word sub + Call / Request an estimate | gable drawing: shake courses, snow ridge, chalk line, 6/12 mark]
+  [plain facts, two columns of short statements separated by chalk rules (no cards)]
+  [when to replace: text left | lifespan axis drawing (15-25 yrs shake/composition, metal/tile "much longer")]
+  [estimate: pitch gauge drawing + length/width/pitch/removal -> live roof size | name/email/phone/comment -> mailto]
+  [footer: address, license no., email, phone, service area]
+  [mobile < 760px: fixed bottom call bar]
+
+Principles
+  1. One memorable thing: the roof drawing with the chalk line. Everything else is quiet.
+  2. Their own facts only, in their own terms (pitch, tear off, shingle over, permits, since 1976).
+  3. Phone is never more than a thumb away.
+  4. One motion moment: the chalk line snaps once on load. Pitch changes animate because the user asked for them.
+
+Review against AI defaults, and revisions
+  - First pass used a cedar-red accent on a warm paper background: that is the cream + clay default. Changed to cool
+    snow background, weathered (grey) shake, chalk-line blue accent. Grey shake is also truer to old cedar roofs here.
+  - First pass used a condensed display face: too close to the herzberg demo's Big Shoulders direction.
+    Changed to Archivo at expanded width.
+  - First pass had four equal "why choose us" cards: SaaS card kit. Changed to two columns of plain statements on rules.
+  - No eyebrows, no middle-dot strings, no mono labels, no arrows on buttons, no reviews (none in the brief),
+    no Google rating shown, no prices: the tool reports roof size only.
+  Radius rule: controls 4px, nothing else rounded.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barton Roofing | Spokane roofing contractor since 1976</title>
+<meta name="description" content="Full service roofing for greater Spokane and Coeur d'Alene since 1976. Licensed, bonded and insured. No up-front costs. Call (509) 535-3768.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23263035'/%3E%3Cpath d='M4 22 16 10l12 12' stroke='%23F1F4F5' stroke-width='3' fill='none'/%3E%3Cpath d='M6 25h20' stroke='%231D63B8' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --snow:#F1F4F5; --frost:#DDE5E8; --basalt:#263035; --shake:#8E8478; --chalk:#1D63B8; --chalk-dark:#154E93; --slate:#56636A;
+    --err:#A3261B;
+    --display:"Archivo", "Arial Black", sans-serif;
+    --body:"Atkinson Hyperlegible", system-ui, sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--snow); color:var(--basalt); font:400 18px/1.6 var(--body); }
+  svg { display:block; }
+  a { color:var(--chalk); }
+  :focus-visible { outline:3px solid var(--chalk); outline-offset:3px; }
+  .wrap { width:min(1140px, 100% - 40px); margin-inline:auto; }
+  h1, h2, h3 { font-family:var(--display); font-stretch:115%; font-weight:800; line-height:1.08; margin:0; letter-spacing:-.01em; }
+  h2 { font-size:clamp(28px, 4vw, 40px); }
+  p { margin:0; max-width:62ch; }
+
+  .preview { background:var(--basalt); color:var(--snow); font-size:14px; padding:6px 20px; }
+
+  header { border-bottom:1px solid var(--frost); }
+  header .wrap { display:flex; align-items:center; gap:28px; min-height:72px; }
+  .name { font:800 22px/1 var(--display); font-stretch:120%; color:var(--basalt); text-decoration:none; margin-right:auto; padding:10px 0; }
+  header nav { display:flex; gap:24px; }
+  header nav a { color:var(--basalt); text-decoration:none; padding:12px 0; }
+  header nav a:hover { color:var(--chalk); }
+  .tel { font:800 22px/1 var(--display); font-stretch:110%; color:var(--chalk); text-decoration:none; white-space:nowrap; padding:12px 0; }
+  @media (max-width:760px) { header nav { display:none; } .tel { font-size:18px; } header .name { font-size:18px; font-stretch:105%; } }
+
+  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 22px; border-radius:4px;
+         font:700 17px/1 var(--body); text-decoration:none; border:2px solid var(--chalk); cursor:pointer; white-space:nowrap;
+         transition:transform .12s; }
+  .btn:active { transform:translateY(1px); }
+  .btn-solid { background:var(--chalk); color:#fff; }
+  .btn-solid:hover { background:var(--chalk-dark); border-color:var(--chalk-dark); }
+  .btn-line { background:transparent; color:var(--chalk); }
+  .btn-line:hover { background:#fff; }
+
+  /* hero */
+  .hero .wrap { display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center; padding:56px 0 64px; }
+  .hero h1 { font-size:clamp(34px, 4.6vw, 54px); }
+  .hero p { margin-top:20px; font-size:20px; color:var(--slate); }
+  .ctas { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+  .gable { width:100%; height:auto; }
+  .snap { stroke-dasharray:640; stroke-dashoffset:0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .snap { animation:snap .7s cubic-bezier(.2,.9,.3,1.2) .4s both; }
+    @keyframes snap { from { stroke-dashoffset:640; } to { stroke-dashoffset:0; } }
+    .dust { animation:dust 1.2s ease-out 1s both; }
+    @keyframes dust { from { opacity:0; } 30% { opacity:.9; } to { opacity:.45; } }
+  }
+  @media (max-width:860px) {
+    .hero .wrap { grid-template-columns:1fr; gap:32px; padding:36px 0 44px; }
+  }
+
+  /* facts */
+  .facts { background:#fff; border-block:1px solid var(--frost); }
+  .facts .wrap { display:grid; grid-template-columns:repeat(2, 1fr); column-gap:56px; padding:20px 0; }
+  .facts p { padding:20px 0; border-bottom:2px solid var(--chalk); font-size:18px; max-width:none; }
+  .facts p:nth-last-child(-n+2) { border-bottom:0; }
+  .facts strong { display:block; font:800 21px/1.25 var(--display); font-stretch:110%; margin-bottom:4px; }
+  @media (max-width:760px) {
+    .facts .wrap { grid-template-columns:1fr; }
+    .facts p:nth-last-child(2) { border-bottom:2px solid var(--chalk); }
+  }
+
+  /* signs */
+  .signs .wrap { display:grid; grid-template-columns:1.1fr 1fr; gap:56px; padding:80px 0; align-items:start; }
+  .signs h2 + p { margin-top:18px; }
+  .signs ul { margin:24px 0 0; padding:0; list-style:none; }
+  .signs li { padding-left:28px; position:relative; margin-top:14px; max-width:58ch; }
+  .signs li::before { content:""; position:absolute; left:0; top:.8em; width:16px; height:2px; background:var(--chalk); }
+  figure { margin:0; }
+  figcaption { font-size:15px; color:var(--slate); margin-top:10px; }
+  @media (max-width:860px) { .signs .wrap { grid-template-columns:1fr; gap:36px; padding:56px 0; } }
+
+  /* estimate */
+  .estimate { background:var(--basalt); color:var(--snow); }
+  .estimate .wrap { padding:72px 0 80px; }
+  .estimate h2 + p { margin-top:14px; color:#C9D3D7; }
+  .estimate form { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:40px; }
+  fieldset { border:0; margin:0; padding:0; min-width:0; }
+  legend { font:800 20px/1.2 var(--display); font-stretch:110%; padding:0; margin-bottom:16px; }
+  .field { display:grid; gap:6px; margin-bottom:18px; }
+  .field label, .group-label { font-weight:700; font-size:16px; }
+  .hint { font-size:14px; color:#B5C1C6; }
+  input[type=text], input[type=email], input[type=tel], input[type=number], textarea {
+    width:100%; min-height:48px; padding:10px 12px; border:2px solid #8C9AA0; border-radius:4px;
+    background:var(--snow); color:var(--basalt); font:400 17px/1.4 var(--body);
+  }
+  textarea { min-height:110px; resize:vertical; }
+  input:focus-visible, textarea:focus-visible { outline:3px solid #7FB0EE; outline-offset:2px; border-color:var(--chalk); }
+  .estimate :focus-visible { outline-color:#7FB0EE; }
+  [aria-invalid=true] { border-color:#F08A7E !important; }
+  .error { color:#FFB4AA; font-size:15px; font-weight:700; min-height:0; }
+  .error:empty { display:none; }
+  .pair { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+  .pitches { display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; margin:8px 0 18px; }
+  .pitches label { display:grid; justify-items:center; gap:6px; min-height:72px; padding:10px 4px; border:2px solid #56656B; border-radius:4px; cursor:pointer; font-weight:700; font-size:15px; }
+  .pitches input, .removal input { position:absolute; opacity:0; width:1px; height:1px; }
+  .pitches input:checked + label, .removal input:checked + label { border-color:#7FB0EE; background:#31414A; }
+  .pitches input:focus-visible + label, .removal input:focus-visible + label { outline:3px solid #7FB0EE; outline-offset:2px; }
+  .pitches svg { width:44px; height:22px; }
+  .removal { display:grid; gap:8px; margin:8px 0 18px; }
+  .removal label { display:block; min-height:48px; padding:12px 14px; border:2px solid #56656B; border-radius:4px; cursor:pointer; }
+  .gauge { margin-top:8px; padding-top:18px; border-top:2px solid var(--chalk); }
+  .gauge svg { width:100%; height:auto; max-height:150px; }
+  .gauge-poly { transition:none; }
+  @media (prefers-reduced-motion: no-preference) { .gauge-poly, .gauge-rise { transition:all .35s ease; } }
+  .size { font:800 24px/1.2 var(--display); font-stretch:110%; margin-top:10px; }
+  .size-note { font-size:15px; color:#B5C1C6; margin-top:4px; }
+  .send { margin-top:6px; }
+  .send-note { font-size:14px; color:#B5C1C6; margin-top:12px; }
+  @media (max-width:860px) { .estimate form { grid-template-columns:1fr; gap:36px; } .estimate .wrap { padding:56px 0 64px; } }
+  @media (max-width:400px) { .pitches { grid-template-columns:repeat(2, 1fr); } }
+
+  footer .wrap { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:32px; padding:48px 0 56px; font-size:16px; }
+  footer .name { display:inline-block; margin-bottom:8px; }
+  footer p { color:var(--slate); }
+  footer a:not(.name) { display:inline-block; padding:10px 0; }
+  @media (max-width:760px) { footer .wrap { grid-template-columns:1fr; gap:8px; } }
+
+  .callbar { display:none; }
+  @media (max-width:759px) {
+    body { padding-bottom:72px; }
+    .callbar { display:flex; position:fixed; left:0; right:0; bottom:0; z-index:10; gap:8px; padding:10px 12px;
+               background:var(--snow); border-top:1px solid var(--frost); }
+    .callbar .btn { flex:1; padding:0 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="preview">Preview built for Barton Roofing. Not live yet.</div>
+
+<header>
+  <div class="wrap">
+    <a class="name" href="#top">Barton Roofing</a>
+    <nav aria-label="Main">
+      <a href="#signs">Roof signs</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+    <a class="tel" href="tel:+15095353768">(509) 535-3768</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Roofing the Inland Northwest since 1976</h1>
+        <p>Full service roofing across greater Spokane and Coeur d'Alene, all year round. You pay when the work is done.</p>
+        <div class="ctas">
+          <a class="btn btn-solid" href="tel:+15095353768">Call (509) 535-3768</a>
+          <a class="btn btn-line" href="#estimate">Request an estimate</a>
+        </div>
+      </div>
+
+      <svg class="gable" viewBox="0 180 560 200" role="img" aria-label="Drawing of a cedar shake gable roof with snow on the ridge and a blue chalk line snapped across the shakes">
+        <defs>
+          <pattern id="shakes" width="168" height="44" patternUnits="userSpaceOnUse">
+            <rect width="168" height="44" fill="#4A4540"/>
+            <g fill="#8E8478">
+              <rect x="1" y="1" width="25" height="20"/><rect x="28" y="1" width="17" height="20"/><rect x="47" y="1" width="31" height="20"/>
+              <rect x="80" y="1" width="21" height="20"/><rect x="103" y="1" width="27" height="20"/><rect x="132" y="1" width="35" height="20"/>
+            </g>
+            <g fill="#9C9286">
+              <rect x="-12" y="23" width="26" height="20"/><rect x="16" y="23" width="29" height="20"/><rect x="47" y="23" width="18" height="20"/>
+              <rect x="67" y="23" width="33" height="20"/><rect x="102" y="23" width="22" height="20"/><rect x="126" y="23" width="28" height="20"/><rect x="156" y="23" width="26" height="20"/>
+            </g>
+            <g fill="#7C7369"><rect x="28" y="1" width="17" height="4"/><rect x="103" y="1" width="27" height="4"/><rect x="47" y="23" width="18" height="4"/><rect x="126" y="23" width="28" height="4"/></g>
+          </pattern>
+          <clipPath id="roof"><polygon points="20,330 280,200 540,330"/></clipPath>
+        </defs>
+        <!-- wall and fascia -->
+        <rect x="60" y="330" width="440" height="50" fill="#DDE5E8"/>
+        <polygon points="20,330 280,200 540,330" fill="url(#shakes)"/>
+        <rect x="14" y="328" width="532" height="10" fill="#263035"/>
+        <!-- chalk line along a course -->
+        <g clip-path="url(#roof)">
+          <line class="dust" x1="20" y1="295" x2="540" y2="295" stroke="#7FB0EE" stroke-width="7" opacity=".45"/>
+        </g>
+        <line class="snap" x1="70" y1="295" x2="490" y2="295" stroke="#1D63B8" stroke-width="2.5" clip-path="url(#roof)"/>
+        <!-- snow cap on ridge -->
+        <path d="M200 240 L 280 199 L 360 240 Q 345 234 330 239 Q 312 230 296 236 Q 280 226 262 235 Q 246 230 230 238 Q 214 233 200 240 Z" fill="#FFFFFF"/>
+        <!-- pitch mark: 12 run, 6 rise -->
+        <g stroke="#1D63B8" stroke-width="2.5" fill="none">
+          <path d="M400 260 H 480 V 300"/>
+        </g>
+        <g font-family="Atkinson Hyperlegible, sans-serif" font-size="17" font-weight="700" fill="#1D63B8">
+          <text x="425" y="250">12</text>
+          <text x="488" y="286">6</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="About Barton Roofing">
+    <div class="wrap">
+      <p><strong>In business since 1976</strong>Doing business in the Inland Northwest, from Spokane to Coeur d'Alene.</p>
+      <p><strong>Licensed, bonded and insured</strong>License no. BARTOR*077DD.</p>
+      <p><strong>Permits pulled, codes followed</strong>We always pull the required permits and follow all relevant construction and roofing codes.</p>
+      <p><strong>No up-front costs</strong>Payment is due when the work is complete. Our roofers work all year, so we are here in winter too.</p>
+    </div>
+  </section>
+
+  <section class="signs" id="signs">
+    <div class="wrap">
+      <div>
+        <h2>How to tell your roof is due</h2>
+        <p>Many people wait until the roof leaks. Most would rather replace it just before that point. Here is what to look for.</p>
+        <ul>
+          <li>Its age. Cedar shake and composition roofs usually last 15 to 25 years. Metal and tile last much longer.</li>
+          <li>On a cedar shake roof, shakes blown off by the wind.</li>
+          <li>Water running down the face of your fascia instead of off the ends of the shakes.</li>
+        </ul>
+      </div>
+      <figure>
+        <svg viewBox="0 0 480 220" role="img" aria-label="Chart: cedar shake and composition roofs last 15 to 25 years; metal and tile last much longer">
+          <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="#263035">
+            <text x="0" y="40" font-weight="700">Cedar shake, composition</text>
+            <text x="0" y="120" font-weight="700">Metal, tile</text>
+            <text x="0" y="214" fill="#56636A">0</text><text x="110" y="214" fill="#56636A">10</text>
+            <text x="230" y="214" fill="#56636A">20</text><text x="350" y="214" fill="#56636A">30</text>
+            <text x="440" y="214" fill="#56636A">years</text>
+          </g>
+          <line x1="0" y1="190" x2="470" y2="190" stroke="#8C9AA0" stroke-width="1.5"/>
+          <g stroke="#8C9AA0"><line x1="4" y1="184" x2="4" y2="196"/><line x1="124" y1="184" x2="124" y2="196"/><line x1="244" y1="184" x2="244" y2="196"/><line x1="364" y1="184" x2="364" y2="196"/></g>
+          <!-- 15 to 25 years: x = 4 + yrs*12 -->
+          <rect x="184" y="52" width="120" height="26" fill="#8E8478"/>
+          <text x="184" y="98" font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="#263035">15 to 25 years</text>
+          <defs><linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#1D63B8"/><stop offset="1" stop-color="#1D63B8" stop-opacity="0"/></linearGradient></defs>
+          <rect x="304" y="132" width="170" height="26" fill="url(#fade)"/>
+          <text x="304" y="178" font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="#263035">Much longer</text>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <section class="estimate" id="estimate">
+    <div class="wrap">
+      <h2>Request an estimate</h2>
+      <p>Add your roof's size and pitch if you know them. We get the specs with your message.</p>
+
+      <form id="est" novalidate>
+        <fieldset>
+          <legend>Your roof (optional)</legend>
+          <div class="pair">
+            <div class="field">
+              <label for="len">Length in feet</label>
+              <input id="len" name="len" type="number" inputmode="decimal" min="1" max="1000" aria-describedby="len-err">
+              <span class="error" id="len-err"></span>
+            </div>
+            <div class="field">
+              <label for="wid">Width in feet</label>
+              <input id="wid" name="wid" type="number" inputmode="decimal" min="1" max="1000" aria-describedby="wid-err">
+              <span class="error" id="wid-err"></span>
+            </div>
+          </div>
+
+          <span class="group-label" id="pitch-label">Pitch</span>
+          <div class="pitches" role="radiogroup" aria-labelledby="pitch-label">
+            <input type="radio" name="pitch" id="p4" value="4" data-deg="18.4"><label for="p4"><svg viewBox="0 0 44 22" aria-hidden="true"><polygon points="2,20 22,13.3 42,20" fill="#8E8478"/></svg>4/12</label>
+            <input type="radio" name="pitch" id="p6" value="6" data-deg="26.6" checked><label for="p6"><svg viewBox="0 0 44 22" aria-hidden="true"><polygon points="2,20 22,10 42,20" fill="#8E8478"/></svg>6/12</label>
+            <input type="radio" name="pitch" id="p8" value="8" data-deg="33.7"><label for="p8"><svg viewBox="0 0 44 22" aria-hidden="true"><polygon points="2,20 22,6.7 42,20" fill="#8E8478"/></svg>8/12</label>
+            <input type="radio" name="pitch" id="p10" value="10" data-deg="39.8"><label for="p10"><svg viewBox="0 0 44 22" aria-hidden="true"><polygon points="2,20 22,3.3 42,20" fill="#8E8478"/></svg>10/12</label>
+          </div>
+
+          <span class="group-label" id="rem-label">Roof removal</span>
+          <div class="removal" role="radiogroup" aria-labelledby="rem-label">
+            <input type="radio" name="removal" id="r-over" value="Shingle over existing roof"><label for="r-over">Shingle over the existing roof (only one layer there now)</label>
+            <input type="radio" name="removal" id="r-off" value="Tear off existing roof"><label for="r-off">Tear off the existing roof</label>
+          </div>
+
+          <div class="gauge" aria-live="polite">
+            <svg viewBox="0 0 300 120" aria-hidden="true">
+              <polygon class="gauge-poly" id="gpoly" points="10,110 150,40 290,110" fill="url(#shakes)" stroke="#F1F4F5" stroke-width="2"/>
+              <path class="gauge-rise" id="grise" d="M180 45 H 250 V 80" stroke="#7FB0EE" stroke-width="2.5" fill="none"/>
+            </svg>
+            <div class="size" id="size">6/12 pitch, 26.6°</div>
+            <div class="size-note" id="size-note">Enter length and width to see the roof's surface size. This is a size, not a price.</div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>How to reach you</legend>
+          <div class="field">
+            <label for="nm">Name</label>
+            <input id="nm" name="name" type="text" autocomplete="name" required aria-describedby="nm-err">
+            <span class="error" id="nm-err"></span>
+          </div>
+          <div class="field">
+            <label for="em">Email</label>
+            <input id="em" name="email" type="email" autocomplete="email" required aria-describedby="em-err">
+            <span class="error" id="em-err"></span>
+          </div>
+          <div class="field">
+            <label for="ph">Phone <span class="hint">(optional)</span></label>
+            <input id="ph" name="phone" type="tel" autocomplete="tel" aria-describedby="ph-err">
+            <span class="error" id="ph-err"></span>
+          </div>
+          <div class="field">
+            <label for="cm">What do you need done? <span class="hint">(optional)</span></label>
+            <textarea id="cm" name="comment"></textarea>
+          </div>
+          <button class="btn btn-solid send" type="submit">Send estimate request</button>
+          <p class="send-note">Opens your email app with everything filled in, addressed to bartonroof@bartonroof.com.</p>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="name" href="#top">Barton Roofing</a>
+      <p>Proudly roofing Spokane without compromise. Serving the greater Spokane and Coeur d'Alene area.</p>
+    </div>
+    <div>
+      <p>5423 East Union<br>Spokane, WA 99212</p>
+      <p>License no. BARTOR*077DD</p>
+    </div>
+    <div>
+      <a href="tel:+15095353768">(509) 535-3768</a><br>
+      <a href="mailto:bartonroof@bartonroof.com">bartonroof@bartonroof.com</a>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-solid" href="tel:+15095353768">Call (509) 535-3768</a>
+  <a class="btn btn-line" href="#estimate">Estimate</a>
+</div>
+
+<script>
+  const f = document.getElementById('est');
+  const $ = id => document.getElementById(id);
+
+  function pitch() { return f.querySelector('input[name=pitch]:checked'); }
+
+  function updateGauge() {
+    const p = pitch(), rise = +p.value;
+    const peak = 110 - 140 * rise / 12;               // half-span 140 units
+    $('gpoly').setAttribute('points', `10,110 150,${peak} 290,110`);
+    $('grise').setAttribute('d', `M180 ${110 - 110 * rise / 12} H 250 V ${110 - 40 * rise / 12}`); // 70 run, rise to the slope
+    let txt = `${rise}/12 pitch, ${p.dataset.deg}°`;
+    const L = +$('len').value, W = +$('wid').value;
+    if (L > 0 && W > 0) {
+      const area = Math.round(L * W * Math.sqrt(1 + (rise / 12) ** 2));
+      txt = `About ${area.toLocaleString('en-US')} sq ft of roof (${(area / 100).toFixed(1)} squares)`;
+      $('size-note').textContent = `${rise}/12 pitch, ${p.dataset.deg}°. Rough size from length × width, before overhangs. Not a price.`;
+    } else {
+      $('size-note').textContent = 'Enter length and width to see the roof\'s surface size. This is a size, not a price.';
+    }
+    $('size').textContent = txt;
+  }
+
+  const checks = {
+    nm: v => v.trim() ? '' : 'Enter your name so we know who to reply to.',
+    em: v => !v.trim() ? 'Enter your email address.' : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Check the email address. It needs an @ and a domain, like name@example.com.',
+    ph: v => !v.trim() || v.replace(/\D/g, '').length >= 10 ? '' : 'Phone needs 10 digits including area code, or leave it empty.',
+    len: v => !v || (+v > 0 && +v <= 1000) ? '' : 'Length should be a number of feet between 1 and 1000.',
+    wid: v => !v || (+v > 0 && +v <= 1000) ? '' : 'Width should be a number of feet between 1 and 1000.',
+  };
+
+  function check(id) {
+    const el = $(id), msg = checks[id](el.value);
+    $(id + '-err').textContent = msg;
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+
+  Object.keys(checks).forEach(id => {
+    $(id).addEventListener('blur', () => check(id));
+    $(id).addEventListener('input', () => { if ($(id).getAttribute('aria-invalid') === 'true') check(id); });
+  });
+  f.addEventListener('input', updateGauge);
+  f.addEventListener('change', updateGauge);
+
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const bad = Object.keys(checks).filter(id => !check(id));
+    if (bad.length) { $(bad[0]).focus(); return; }
+    const p = pitch(), rem = f.querySelector('input[name=removal]:checked');
+    const lines = [
+      `Name: ${$('nm').value.trim()}`,
+      `Email: ${$('em').value.trim()}`,
+      `Phone: ${$('ph').value.trim() || 'not given'}`,
+      '',
+      `Length: ${$('len').value || 'not given'} ft`,
+      `Width: ${$('wid').value || 'not given'} ft`,
+      `Pitch: ${p.value}/12 (${p.dataset.deg}°)`,
+      `Roof removal: ${rem ? rem.value : 'not sure'}`,
+      '',
+      $('cm').value.trim(),
+    ];
+    location.href = 'mailto:bartonroof@bartonroof.com?subject=' + encodeURIComponent('Estimate request from ' + $('nm').value.trim())
+      + '&body=' + encodeURIComponent(lines.join('\n'));
+  });
+
+  updateGauge();
+</script>
+</body>
+</html>

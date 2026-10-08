@@ -1,0 +1,391 @@
+<!doctype html>
+<!--
+DESIGN PLAN - Travis Calder Tree Specialist (preview)
+
+Design read: one-page local-service site for Lexington homeowners and property managers
+who need a tree job done, with a plain, personal owner-operator voice. Dials: variance 6,
+motion 3 (one load moment), density 4.
+
+Identity: his own line, "I will go out on a limb for you", taken literally. A single bark
+limb reaches in from the edge of the page, a climbing rope hangs from it, and his phone
+number hangs on the rope as a high-vis gear tag. That tag is the call button.
+
+Color (light / dark via prefers-color-scheme)
+  limestone  #E8EBE4  page (Kentucky limestone grey, cool, not cream)
+  shade      #1E2B22  ink and buttons (deep bluegrass shade, not #111)
+  bark       #5B4636  the limb and small rules
+  leaf       #4F7A3A  leaves, storm panel tint in dark mode
+  hi-vis     #F06A2A  rope and the number tag only (ink text on it, 4.7:1)
+
+Type: Familjen Grotesk only (400/500/700). Headlines 700 with tight tracking, body 400 at
+18px / 1.55, measure under 65ch. Sentence case everywhere, no caps labels, no mono.
+
+Layout
+  [ Preview built for Travis Calder Tree Specialist. Not live yet.            ]
+  [ Travis Calder Tree Specialist                     (859) 417-2480 call    ]
+  +----------------------------------+-------------------------------limb====
+  | I'll go out on a limb for you.   |                               |rope
+  | removal, trimming, stumps, storm |                            [ tag: number ]
+  | [Ask for a free estimate]        |
+  +----------------------------------+--------------------------------------
+  | Work I take on                                                         |
+  | [Taking a tree down: removal + stump grinding    ][When a storm hits   ]|
+  | [Keeping a tree healthy: trimming and pruning    ][ dark panel, 2 rows ]|
+  +------------------------------------------------------------------------+
+  | his belief quote, large, left aligned, full width                      |
+  +----------------------------------+-------------------------------------+
+  | Free estimates, fair prices      | form with labels above inputs       |
+  +----------------------------------+-------------------------------------+
+  | footer: name, phone, email, Lexington, Fayette County 40517            |
+  mobile: limb + tag sits above the headline, everything one column, call bar fixed.
+  Alignment: left aligned throughout.
+
+Principles
+  1. The tag on the rope is the one bold thing. Everything else stays quiet.
+  2. His words, cleaned of typos, never new claims. First person, because it is one man.
+  3. Group services by the job the visitor has (down, healthy, storm), not five equal cards.
+  4. One radius (6px) for buttons, inputs and panels. The tag is the only odd shape.
+
+Review against the AI-default list, and what changed
+  - First instinct was a tree-ring cross-section hero. Every tree service reaches for it and
+    the other Lexington arborist site likely will too. Replaced by his own limb line.
+  - First font pick was Bricolage Grotesque, a current default. Swapped to Familjen Grotesk.
+  - Rejected cream + clay and dark + single neon. Light cool limestone with a hi-vis orange
+    used only on the rope keeps the accent tied to real climbing gear.
+  - Dropped eyebrows above sections, numbered service markers and arrow-suffixed links.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travis Calder Tree Specialist | Tree work in Lexington, KY</title>
+<meta name="description" content="Tree removal, trimming and pruning, stump grinding, emergency and storm cleanup in Lexington, Kentucky. Call Travis Calder at (859) 417-2480 for a free estimate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E8EBE4; --surface:#F3F5F0; --ink:#1E2B22; --muted:#46524A;
+  --bark:#5B4636; --bark-dark:#3F3025; --leaf:#4F7A3A; --vis:#F06A2A;
+  --line:#C9CFC4; --panel:#1E2B22; --panel-ink:#E8EBE4; --err:#A3260F;
+  --focus:#1E2B22;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#151D18; --surface:#1C2620; --ink:#E3E8E0; --muted:#AEB8AE;
+    --bark:#8A6E57; --bark-dark:#6B5442; --leaf:#7FA866; --line:#334038;
+    --panel:#24342A; --panel-ink:#E3E8E0; --err:#FF9C80; --focus:#F06A2A;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.55 "Familjen Grotesk",system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.02em;margin:0}
+p{margin:0}
+
+.preview{background:var(--ink);color:var(--bg);font-size:.875rem;text-align:center;padding:6px 16px}
+
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.brand{font-size:1.15rem;line-height:1.15;text-decoration:none}
+.brand b{display:block;font-weight:700}
+.brand span{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:6px;background:var(--ink);color:var(--bg);font:inherit;font-weight:700;font-size:1.05rem;text-decoration:none;border:0;cursor:pointer;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.head-call{font-variant-numeric:tabular-nums}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:24px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;align-items:start;gap:24px}
+.hero h1{font-size:clamp(2.6rem,6.2vw,5.2rem);max-width:11ch;margin-top:56px}
+.hero .lede{margin-top:24px;max-width:40ch;font-size:1.25rem;color:var(--muted)}
+.hero .actions{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.art{position:relative;height:440px;margin-right:calc(-1 * max(24px,(100vw - 1180px)/2 + 24px))}
+.limb{position:absolute;top:18px;right:0;width:100%;height:150px}
+.rope{position:absolute;top:96px;left:30%;width:12px;height:190px;border-radius:6px;transform-origin:top;
+  background:repeating-linear-gradient(-35deg,var(--vis) 0 6px,#1F4E8C 6px 8px,var(--vis) 8px 14px)}
+.tag{position:absolute;top:272px;left:calc(30% + 6px);transform:translateX(-50%) rotate(-3deg);transform-origin:50% -8px;
+  display:block;background:var(--vis);color:#1E2B22;text-decoration:none;border-radius:10px 10px 6px 6px;
+  padding:34px 22px 18px;text-align:center;min-width:220px;box-shadow:0 10px 24px rgb(30 43 34 / .22)}
+.tag::before{content:"";position:absolute;top:12px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 3px #1E2B22}
+.tag small{display:block;font-size:.95rem;font-weight:500}
+.tag strong{display:block;font-size:1.7rem;letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){
+  .rope{animation:drop .7s cubic-bezier(.3,1.3,.6,1) both .2s}
+  .tag{animation:swing 1.6s cubic-bezier(.25,1,.4,1) both .5s}
+  @keyframes drop{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  @keyframes swing{0%{opacity:0;transform:translateX(-50%) translateY(-190px) rotate(0)}30%{opacity:1;transform:translateX(-50%) rotate(9deg)}60%{transform:translateX(-50%) rotate(-6deg)}100%{transform:translateX(-50%) rotate(-3deg)}}
+}
+
+/* services */
+.services{padding:80px 0;border-top:2px solid var(--line)}
+.services h2,.estimate h2{font-size:clamp(2rem,4vw,3rem)}
+.svc-grid{margin-top:40px;display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:24px}
+.group{background:var(--surface);border-radius:6px;padding:32px}
+.group h3{font-size:1.6rem}
+.group h4{font-size:1.15rem;margin:24px 0 6px;font-weight:700}
+.group p{max-width:60ch}
+.group .note{margin-top:16px;color:var(--muted)}
+.storm{grid-column:2;grid-row:1 / span 2;background:var(--panel);color:var(--panel-ink)}
+.storm .seen{font-size:1.5rem;line-height:1.3;font-weight:500;margin:20px 0 4px}
+.storm p+p{margin-top:12px}
+.storm .btn{margin-top:28px;background:var(--vis);color:#1E2B22}
+.storm :focus-visible{outline-color:var(--vis)}
+
+/* belief */
+.belief{padding:96px 0;background:var(--surface)}
+.belief blockquote{margin:0;max-width:30ch;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.2;font-weight:500;letter-spacing:-.015em}
+.belief .rest{margin-top:28px;max-width:58ch;color:var(--muted);font-size:1.2rem}
+.belief .who{margin-top:20px;font-weight:700}
+
+/* estimate */
+.estimate{padding:88px 0}
+.estimate .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.estimate .intro p{margin-top:20px;max-width:44ch}
+.estimate .promise{margin-top:24px;padding-left:16px;border-left:4px solid var(--vis);font-weight:500}
+.estimate .direct{margin-top:28px}
+.estimate .direct a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;background:var(--surface);padding:32px;border-radius:6px}
+.field{display:grid;gap:6px;align-content:start}
+.field.full{grid-column:1 / -1}
+label{font-weight:700;font-size:1rem}
+label .opt{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:2px solid #7D877F;border-radius:6px;min-height:48px;padding:10px 12px;width:100%}
+textarea{min-height:130px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline-offset:1px;border-color:var(--ink)}
+[aria-invalid=true]{border-color:var(--err)}
+.err{color:var(--err);font-size:.95rem;min-height:1.2em;font-weight:500}
+.form-foot{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.form-foot p{color:var(--muted);font-size:.95rem;max-width:40ch}
+
+footer{border-top:2px solid var(--line);padding:40px 0 48px;font-size:1rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px}
+footer a{display:inline-flex;align-items:center;min-height:44px}
+footer p{color:var(--muted)}
+
+.callbar{display:none}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .art{order:-1;height:250px;margin:0 -24px}
+  .limb{top:0;height:110px}
+  .rope{top:62px;left:58%;height:86px}
+  .tag{top:136px;left:calc(58% + 6px);min-width:200px;padding:30px 18px 14px}
+  .tag strong{font-size:1.45rem}
+  .hero h1{margin-top:20px}
+  .svc-grid{grid-template-columns:1fr}
+  .storm{grid-column:auto;grid-row:auto}
+  .estimate .wrap{grid-template-columns:1fr;gap:32px}
+}
+@media (max-width:760px){
+  .head-call{display:none}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--ink)}
+  .callbar a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:6px;font-weight:700;text-decoration:none}
+  .callbar .c1{background:var(--vis);color:#1E2B22}
+  .callbar .c2{color:var(--bg);box-shadow:inset 0 0 0 2px var(--bg)}
+  .callbar :focus-visible{outline-color:var(--vis)}
+  body{padding-bottom:76px}
+  form{grid-template-columns:1fr;padding:22px}
+  .group{padding:24px}
+  .wrap{padding:0 18px}
+  .art{margin:0 -18px}
+  .hero{padding-bottom:64px}
+  .services,.estimate{padding:60px 0}
+  .belief{padding:64px 0}
+}
+@media (max-width:420px){
+  .rope{left:52%}
+  .tag{left:calc(52% + 6px)}
+}
+</style>
+</head>
+<body>
+<div class="preview">Preview built for Travis Calder Tree Specialist. Not live yet.</div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Travis Calder Tree Specialist, home"><b>Travis Calder</b><span>Tree Specialist</span></a>
+    <a class="btn head-call" href="tel:+18594172480">Call (859) 417-2480</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <h1 id="h1">I'll go out on a limb for you.</h1>
+      <p class="lede">Tree removal, trimming, stump grinding and storm cleanup for homes and businesses in Lexington, Kentucky.</p>
+      <div class="actions">
+        <a class="btn ghost" href="#estimate">Ask for a free estimate</a>
+      </div>
+    </div>
+    <div class="art">
+      <svg class="limb" viewBox="0 0 800 150" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false">
+        <path d="M800 38 C640 44 520 56 400 70 C300 82 190 92 60 104 L50 108 C46 98 52 92 62 92 C190 80 300 66 400 54 C520 40 640 22 800 14 Z" fill="var(--bark)"/>
+        <path d="M560 45 C600 30 640 12 690 -6 L700 4 C650 22 610 40 572 54 Z" fill="var(--bark)"/>
+        <path d="M300 74 C330 96 350 112 372 132 L362 140 C340 120 318 102 290 82 Z" fill="var(--bark)"/>
+        <ellipse cx="54" cy="100" rx="7" ry="9" fill="var(--bark-dark)"/>
+        <path d="M760 26 C700 30 650 36 600 42 M520 54 C470 60 430 64 380 70 M250 84 C200 88 160 92 120 96" stroke="var(--bark-dark)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <g fill="var(--leaf)">
+          <path d="M700 -2 c18 -6 34 2 40 16 c-18 6 -34 -2 -40 -16z"/>
+          <path d="M690 6 c4 18 -4 32 -18 38 c-4 -18 4 -32 18 -38z"/>
+          <path d="M372 134 c18 -2 30 8 32 22 c-18 2 -30 -8 -32 -22z"/>
+        </g>
+        <path d="M232 84 c8 -8 22 -8 30 0 c-6 10 -24 10 -30 0z" fill="none" stroke="var(--vis)" stroke-width="7"/>
+      </svg>
+      <div class="rope" aria-hidden="true"></div>
+      <a class="tag" href="tel:+18594172480"><small>Call Travis</small><strong>(859) 417-2480</strong></a>
+    </div>
+  </div>
+</section>
+
+<section class="services" aria-labelledby="svc">
+  <div class="wrap">
+    <h2 id="svc">Work I take on</h2>
+    <div class="svc-grid">
+      <article class="group">
+        <h3>Taking a tree down</h3>
+        <h4>Tree removal</h4>
+        <p>Rid your yard of unwanted, hazardous and dead trees of any size. I'll help you get the permits your city and county require. I take trees down by carefully piecing out branches and lowering limbs, so they come down safely.</p>
+        <h4>Stump grinding</h4>
+        <p>I can safely remove stumps of any size from your property using advanced equipment.</p>
+      </article>
+      <article class="group storm">
+        <h3>When a storm hits</h3>
+        <p class="seen">"In my 20 years of experience with tree care, I have seen the good, the bad and the ugly."</p>
+        <p>From trees blocking major roads to trees landing on homes, cars and pools, I have seen it. I know how to handle your emergency in the fastest and most efficient way possible.</p>
+        <p>Heavy wind and rain can damage your property. Clearing scattered leaves, dead branches or a fallen tree takes time and equipment most homeowners don't have. I handle storm preparation and wind damage cleanup.</p>
+        <a class="btn" href="tel:+18594172480">Call (859) 417-2480</a>
+      </article>
+      <article class="group">
+        <h3>Keeping a tree healthy</h3>
+        <h4>Trimming and pruning</h4>
+        <p>I'll assess your trees' pruning needs, from removing unhealthy limbs to disease reduction. Timely trimming is the key to healthy, attractive trees, and the pruning I do stimulates natural growth and strength.</p>
+        <p class="note">My approach keeps evolving with current arboriculture practices and standards.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="belief" aria-label="About Travis">
+  <div class="wrap">
+    <blockquote>"I believe that your trees are important, not only for their beauty, but also as a natural resource on our earth."</blockquote>
+    <p class="rest">That's why I'm dedicated to the health, beauty and safety of your trees. I have been maintaining commercial and residential properties since 2008, providing excellence in tree care at an affordable price.</p>
+    <p class="who">Travis Calder</p>
+  </div>
+</section>
+
+<section class="estimate" id="estimate" aria-labelledby="est">
+  <div class="wrap">
+    <div class="intro">
+      <h2 id="est">Free estimates, fair prices</h2>
+      <p>Give me a call and I'll come to you with a free assessment and estimate for your trees. In most cases I'm more affordable and can get to your work sooner than other companies.</p>
+      <p class="promise">Best price guarantee. Satisfaction guaranteed.</p>
+      <div class="direct">
+        <a href="tel:+18594172480">(859) 417-2480</a><br>
+        <a href="mailto:85traviscalder@gmail.com">85traviscalder@gmail.com</a>
+        <p>Lexington, Fayette County, KY 40517</p>
+      </div>
+    </div>
+
+    <form id="form" novalidate>
+      <div class="field">
+        <label for="f-name">Name</label>
+        <input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
+        <span class="err" id="e-name" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-phone">Phone</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="e-phone">
+        <span class="err" id="e-phone" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-email">Email <span class="opt">(optional)</span></label>
+        <input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="e-email">
+        <span class="err" id="e-email" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-job">What do you need?</label>
+        <select id="f-job" name="job" required aria-describedby="e-job">
+          <option value="">Choose one</option>
+          <option>Tree removal</option>
+          <option>Trimming and pruning</option>
+          <option>Stump grinding</option>
+          <option>Emergency</option>
+          <option>Storm preparation or cleanup</option>
+          <option>Not sure yet</option>
+        </select>
+        <span class="err" id="e-job" aria-live="polite"></span>
+      </div>
+      <div class="field full">
+        <label for="f-addr">Address of the trees</label>
+        <input id="f-addr" name="address" autocomplete="street-address" required aria-describedby="e-addr">
+        <span class="err" id="e-addr" aria-live="polite"></span>
+      </div>
+      <div class="field full">
+        <label for="f-msg">Tell me about the tree <span class="opt">(optional)</span></label>
+        <textarea id="f-msg" name="message"></textarea>
+      </div>
+      <div class="form-foot">
+        <button class="btn" type="submit">Send estimate request</button>
+        <p>This opens your email app with the details filled in, addressed to Travis.</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong>Travis Calder Tree Specialist</strong>
+      <p>Lexington, Fayette County, KY 40517</p>
+    </div>
+    <div>
+      <a href="tel:+18594172480">(859) 417-2480</a><br>
+      <a href="mailto:85traviscalder@gmail.com">85traviscalder@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<nav class="callbar" aria-label="Quick contact">
+  <a class="c1" href="tel:+18594172480">Call (859) 417-2480</a>
+  <a class="c2" href="#estimate">Free estimate</a>
+</nav>
+
+<script>
+const form = document.getElementById('form');
+const rules = {
+  'f-name': v => v.trim() ? '' : 'Enter your name so Travis knows who to ask for.',
+  'f-phone': v => v.replace(/\D/g,'').length >= 10 ? '' : 'Enter a phone number with area code, like 859 555 0100.',
+  'f-email': v => !v.trim() || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Check the email address, or leave it blank.',
+  'f-job': v => v ? '' : 'Pick the closest job, or choose "Not sure yet".',
+  'f-addr': v => v.trim() ? '' : 'Enter the address where the trees are.'
+};
+function check(id){
+  const el = document.getElementById(id), msg = rules[id](el.value);
+  el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  document.getElementById(el.getAttribute('aria-describedby')).textContent = msg;
+  return !msg;
+}
+for (const id in rules) {
+  const el = document.getElementById(id);
+  el.addEventListener('blur', () => { if (el.value || el.hasAttribute('aria-invalid')) check(id); });
+  el.addEventListener('input', () => { if (el.getAttribute('aria-invalid') === 'true') check(id); });
+}
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const bad = Object.keys(rules).filter(id => !check(id));
+  if (bad.length) { document.getElementById(bad[0]).focus(); return; }
+  const f = Object.fromEntries(new FormData(form));
+  const body = `Name: ${f.name}\nPhone: ${f.phone}\nEmail: ${f.email || '-'}\nJob: ${f.job}\nAddress: ${f.address}\n\n${f.message}`;
+  location.href = 'mailto:85traviscalder@gmail.com?subject=' + encodeURIComponent('Free estimate request: ' + f.job) + '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>

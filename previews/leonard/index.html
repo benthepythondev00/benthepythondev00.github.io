@@ -1,0 +1,493 @@
+<!doctype html>
+<!--
+DESIGN PLAN (Dave Leonard Tree Specialists preview)
+
+Read: local service landing for Central Kentucky homeowners and property managers
+deciding who to trust with a large tree. The thing that sets this firm apart is
+not trucks or speed, it is who diagnoses the tree: two Board Certified Master
+Arborists, six more ISA Certified Arborists, a consulting arborist, TRAQ risk assessors.
+
+Palette (cool, from Bluegrass limestone and a living crown):
+  limestone  #EDF0EA  page ground (cool grey-green, deliberately not cream)
+  spruce     #16302B  text, header, primary buttons
+  bluegrass  #3D6B70  secondary text, links, diagram linework
+  cambium    #A8C24A  the one accent: live tissue in the diagram, focus ring, small highlights
+  bark       #6E5A4A  roots and soil linework only
+  white      #FBFCFA  form fields, review panel
+
+Type: Archivo only. Its width axis is the device: condensed 700 for headings and the
+credential roster (reads like a stamped field tag), normal width 400/500 for body.
+Scale ~ 1.25 (15/18/22/28/36/52).
+
+Layout:
+  [preview bar]
+  [wordmark ............ nav ............ 859-252-2529]
+  +-----------------------------+--------------------------------+
+  | headline (2 lines)          |   tree drawn above AND below   |
+  | 18-word subtext             |   the ground line, leader lines|
+  | [Call] [Request estimate]   |   to the service each part gets|
+  +-----------------------------+--------------------------------+
+  | credential roster: big condensed words, one per row, left aligned |
+  | team: Ross / Dave in two columns, Nick under                      |
+  | services: tree work list | plant health care (below ground)      |
+  | reviews: one large quote + three small, Google 4.6 note          |
+  | where we work (8 towns as type) | estimate form                  |
+  | footer: address, phone, fax, email                               |
+  Left aligned throughout; nothing centered except the tap bar.
+
+Principles:
+  1. The diagram is the one bold thing: an arborist sees the root zone as much as the crown.
+  2. Credentials are named exactly as the firm states them, with license numbers. No invented stats.
+  3. Labels encode content (diagram callouts link to the service they describe); no eyebrows.
+  4. Quiet everywhere else: no cards with shadows, one radius (3px, controls only).
+
+Review against AI defaults, and what changed:
+  - First idea was a tree-ring cross-section hero. That is the stock tree-service motif and
+    likely what a one-man-operator site lands on too. Replaced with the above/below-ground
+    diagram, which is about diagnosis and plant health care, i.e. about a team of arborists.
+  - First palette draft was cream + forest + rust; that is trait 1 on the default list.
+    Moved the ground to cool limestone and the accent to a cambium green used sparingly.
+  - Dropped a planned "01/02/03" service numbering (services are not a sequence) and an
+    all-caps label above each section.
+  - Big-number stats row rejected; the roster is written as words in the firm's own phrasing.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dave Leonard Tree Specialists | Certified arborists, Central Kentucky</title>
+<meta name="description" content="Tree trimming, removal, planting and plant health care across Central Kentucky from a team led by two ISA Board Certified Master Arborists. Call 859-252-2529.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lime:#EDF0EA; --spruce:#16302B; --blue:#3D6B70; --cambium:#A8C24A; --bark:#6E5A4A; --white:#FBFCFA;
+  --muted:#46595A; --line:#C9D2CB; --err:#A3291C;
+  --cond:"Archivo", "Arial Narrow", sans-serif;
+  --r:3px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--lime);color:var(--spruce);font:400 1.0625rem/1.6 var(--cond);font-stretch:100%;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--cambium);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--cond);font-stretch:75%;font-weight:750;line-height:1.05;letter-spacing:-.005em;margin:0}
+h2{font-size:clamp(2rem,4.2vw,3rem);margin-bottom:.6em}
+h3{font-size:1.5rem}
+p{margin:0 0 1em;max-width:62ch}
+
+.preview{background:var(--spruce);color:#DDE6DF;font-size:.85rem;padding:6px 24px;text-align:center}
+
+header.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;min-height:68px}
+.brand{font-stretch:75%;font-weight:750;font-size:1.3rem;line-height:1.1;color:var(--spruce);text-decoration:none;margin-right:auto}
+.brand small{display:block;font-stretch:100%;font-weight:400;font-size:.8rem;color:var(--muted)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav a{color:var(--spruce);text-decoration:none;font-weight:500;font-size:.95rem;padding:12px 0;display:inline-block}
+nav a:hover{color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+.tel-top{font-stretch:75%;font-weight:750;font-size:1.45rem;color:var(--spruce);text-decoration:none;white-space:nowrap;padding:8px 0}
+.tel-top span{display:block;font-stretch:100%;font-size:.75rem;font-weight:500;color:var(--muted);line-height:1}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:var(--r);font:600 1rem/1 var(--cond);text-decoration:none;border:2px solid var(--spruce);cursor:pointer;white-space:nowrap}
+.btn-dark{background:var(--spruce);color:var(--white)}
+.btn-dark:hover{background:#21443D}
+.btn-line{background:transparent;color:var(--spruce)}
+.btn-line:hover{background:var(--white)}
+.btn:active{transform:translateY(1px)}
+
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:40px}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.4rem);margin-bottom:.35em}
+.hero p{font-size:1.2rem;color:var(--muted);max-width:34ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.diagram{width:100%;height:auto}
+.diagram text{font-family:var(--cond);font-size:19px;font-weight:600;fill:var(--spruce)}
+.diagram a:hover text,.diagram a:focus text{fill:var(--blue);text-decoration:underline}
+.diagram .lead{stroke:var(--blue);stroke-width:1.2;fill:none}
+@media (prefers-reduced-motion:no-preference){
+  .diagram .grow{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.6s cubic-bezier(.3,.6,.2,1) forwards;animation-delay:var(--d,0s)}
+  .diagram .tag{opacity:0;animation:fade .5s ease forwards;animation-delay:var(--d,1.4s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes fade{to{opacity:1}}
+}
+
+section{padding:72px 0}
+.roster{border-top:1px solid var(--line)}
+.roster-list{list-style:none;margin:0 0 28px;padding:0}
+.roster-list li{font-stretch:75%;font-weight:750;font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.15;padding:6px 0}
+.roster-list li span{color:var(--blue);font-weight:500}
+.roster .note{color:var(--muted)}
+
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:8px}
+.person h3{margin-bottom:4px}
+.creds{font-size:.9rem;color:var(--blue);margin:0 0 14px;padding:0;list-style:none;font-variant-numeric:tabular-nums}
+.nick{margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+
+.services{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.svc-grid{display:grid;grid-template-columns:5fr 7fr;gap:56px}
+.work-list{list-style:none;margin:0 0 24px;padding:0}
+.work-list li{font-stretch:75%;font-weight:700;font-size:1.6rem;line-height:1.3}
+.phc{display:grid;grid-template-columns:1fr 1fr;gap:28px 36px;margin-top:8px}
+.phc h3{font-size:1.25rem;margin-bottom:6px}
+.phc p{font-size:1rem;color:var(--muted);margin:0}
+
+.reviews .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+blockquote{margin:0}
+.big q{display:block;font-stretch:75%;font-weight:700;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.15;quotes:"\201C" "\201D"}
+.who{display:block;margin-top:14px;color:var(--muted);font-size:.95rem}
+.small blockquote{padding:0 0 22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.small blockquote:last-child{border:0}
+.small q{quotes:"\201C" "\201D"}
+.rating{margin-top:28px;color:var(--muted)}
+
+.contact{border-top:1px solid var(--line)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.towns{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-wrap:wrap;gap:4px 18px}
+.towns li{font-stretch:75%;font-weight:700;font-size:1.7rem;line-height:1.2}
+address{font-style:normal}
+form{background:var(--white);border:1px solid var(--line);padding:28px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+label{font-weight:600;font-size:.95rem}
+.opt{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--spruce);background:var(--white);border:1.5px solid #7D8E88;border-radius:var(--r);padding:11px 12px;min-height:48px;width:100%}
+textarea{min-height:120px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--cambium);outline-offset:1px;border-color:var(--spruce)}
+[aria-invalid="true"]{border-color:var(--err)}
+.error{color:var(--err);font-size:.9rem;min-height:0}
+.error:empty{display:none}
+.form-note{font-size:.9rem;color:var(--muted);margin:12px 0 0}
+
+footer{background:var(--spruce);color:#D3DDD6;padding:40px 0 48px;font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 48px;justify-content:space-between}
+footer a{color:#fff}
+footer p{margin:0}
+
+.callbar{display:none}
+
+@media (max-width:980px){
+  nav{display:none}
+  .hero .wrap,.svc-grid,.reviews .wrap,.contact .wrap{grid-template-columns:1fr}
+  .hero .wrap{padding-top:36px}
+  .diagram{max-width:520px}
+}
+@media (max-width:760px){
+  .wrap{padding:0 18px}
+  .tel-top{font-size:1.15rem}
+  .brand{font-size:1.1rem}
+  section{padding:52px 0}
+  .team-grid,.phc{grid-template-columns:1fr;gap:28px}
+  form{padding:20px}
+  .actions .btn{flex:1 1 100%}
+  body{padding-bottom:68px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--spruce);padding:8px 12px calc(8px + env(safe-area-inset-bottom))}
+  .callbar a{flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;background:var(--cambium);color:var(--spruce);font-weight:700;font-size:1.1rem;text-decoration:none;border-radius:var(--r)}
+}
+@media (max-width:400px){
+  .tel-top span{display:none}
+}
+</style>
+</head>
+<body>
+<div class="preview">Preview built for Dave Leonard Tree Specialists. Not live yet.</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Dave Leonard Tree Specialists<small>Certified arborists, Central Kentucky</small></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#arborists">Arborists</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#estimate">Service area</a></li>
+      </ul>
+    </nav>
+    <a class="tel-top" href="tel:+18592522529"><span>Call us</span>859-252-2529</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <h1>Your trees, looked at by certified arborists</h1>
+      <p>Pruning, removal, planting and plant health care across Central Kentucky, led by two ISA Board Certified Master Arborists.</p>
+      <div class="actions">
+        <a class="btn btn-dark" href="tel:+18592522529">Call 859-252-2529</a>
+        <a class="btn btn-line" href="#estimate">Request an estimate</a>
+      </div>
+    </div>
+
+    <svg class="diagram" viewBox="0 0 540 560" role="img" aria-labelledby="dgt">
+      <title id="dgt">Drawing of a tree above and below the ground line, with each part linked to the service that cares for it</title>
+      <!-- soil -->
+      <rect x="0" y="330" width="540" height="230" fill="#DCE1D6"/>
+      <line x1="0" y1="330" x2="540" y2="330" stroke="var(--bark)" stroke-width="2"/>
+      <!-- roots -->
+      <g stroke="var(--bark)" stroke-linecap="round" fill="none">
+        <path class="grow" style="--len:260;--d:.2s" stroke-width="5" d="M262 332 C240 360 200 372 150 380 C110 386 70 384 30 394"/>
+        <path class="grow" style="--len:260;--d:.3s" stroke-width="5" d="M282 332 C304 360 344 370 392 378 C432 384 470 380 512 392"/>
+        <path class="grow" style="--len:180;--d:.4s" stroke-width="3.5" d="M268 334 C258 380 236 420 200 452 C180 470 150 478 120 486"/>
+        <path class="grow" style="--len:180;--d:.45s" stroke-width="3.5" d="M278 334 C292 384 318 420 352 446 C374 462 404 470 438 474"/>
+        <path class="grow" style="--len:120;--d:.55s" stroke-width="2.5" d="M272 336 C274 390 270 430 262 480"/>
+        <path class="grow" style="--len:90;--d:.7s" stroke-width="2" d="M150 380 C130 400 116 418 96 430"/>
+        <path class="grow" style="--len:90;--d:.7s" stroke-width="2" d="M392 378 C414 396 430 414 452 424"/>
+        <path class="grow" style="--len:70;--d:.8s" stroke-width="1.6" d="M200 452 C206 474 204 494 196 512"/>
+        <path class="grow" style="--len:70;--d:.8s" stroke-width="1.6" d="M352 446 C350 470 356 490 366 506"/>
+      </g>
+      <!-- deep root injection points -->
+      <g stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round">
+        <line x1="110" y1="318" x2="110" y2="404"/><line x1="182" y1="318" x2="182" y2="420"/>
+        <line x1="364" y1="318" x2="364" y2="414"/><line x1="436" y1="318" x2="436" y2="400"/>
+      </g>
+      <g fill="var(--cambium)">
+        <circle cx="110" cy="408" r="7"/><circle cx="182" cy="424" r="7"/><circle cx="364" cy="418" r="7"/><circle cx="436" cy="404" r="7"/>
+      </g>
+      <!-- trunk -->
+      <path d="M258 332 C262 280 262 240 258 196 L286 196 C282 240 282 280 288 332 Z" fill="var(--white)" stroke="var(--spruce)" stroke-width="2.5"/>
+      <!-- scaffold limbs -->
+      <g stroke="var(--spruce)" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M266 214 C246 176 214 150 176 134"/>
+        <path d="M278 210 C300 172 334 150 372 138"/>
+        <path d="M272 200 C272 150 270 110 272 60"/>
+        <path d="M214 156 C200 124 196 102 200 80"/>
+      </g>
+      <!-- pruned limb with cut -->
+      <path d="M284 236 C310 226 334 228 352 236" stroke="var(--spruce)" stroke-width="3" fill="none"/>
+      <line x1="352" y1="226" x2="350" y2="246" stroke="var(--spruce)" stroke-width="2"/>
+      <!-- crown -->
+      <g fill="none" stroke="var(--blue)" stroke-width="2">
+        <path class="grow" style="--len:1300;--d:0s" d="M150 170 C118 160 112 118 138 100 C130 70 160 44 192 52 C200 22 244 14 266 34 C290 12 336 20 344 52 C376 44 408 70 400 102 C428 118 422 162 392 172 C392 196 362 208 340 198 C320 214 290 210 276 196 C258 212 226 214 208 198 C186 208 152 196 150 170 Z"/>
+      </g>
+      <path d="M150 170 C118 160 112 118 138 100 C130 70 160 44 192 52 C200 22 244 14 266 34 C290 12 336 20 344 52 C376 44 408 70 400 102 C428 118 422 162 392 172 C392 196 362 208 340 198 C320 214 290 210 276 196 C258 212 226 214 208 198 C186 208 152 196 150 170 Z" fill="var(--cambium)" opacity=".18"/>
+      <!-- callouts -->
+      <g class="tag" style="--d:1.2s">
+        <path class="lead" d="M150 120 L58 120 L58 104"/>
+        <a href="#services"><text x="10" y="96">Tree trimming</text></a>
+      </g>
+      <g class="tag" style="--d:1.35s">
+        <path class="lead" d="M352 236 L430 236"/>
+        <a href="#services"><text x="436" y="226">Pruned</text><text x="436" y="246">limb</text></a>
+      </g>
+      <g class="tag" style="--d:1.5s">
+        <path class="lead" d="M286 290 L430 290"/>
+        <a href="#plant-health"><text x="436" y="282">Tree</text><text x="436" y="302">preservation</text></a>
+      </g>
+      <g class="tag" style="--d:1.65s">
+        <path class="lead" d="M182 432 L182 520 L30 520"/>
+        <a href="#plant-health"><text x="30" y="545">Deep root fertilization</text></a>
+      </g>
+      <g class="tag" style="--d:1.8s">
+        <path class="lead" d="M366 506 L366 520 L510 520"/>
+        <a href="#plant-health"><text x="510" y="545" text-anchor="end">Soil and roots</text></a>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section class="roster" id="arborists">
+  <div class="wrap">
+    <h2>Who comes out to look at your tree</h2>
+    <ul class="roster-list">
+      <li>Two ISA Board Certified Master Arborists</li>
+      <li>Six other ISA Certified Arborists</li>
+      <li>An ASCA Registered Consulting Arborist</li>
+      <li>Two Certified Tree Risk Assessors <span>(TRAQ qualified)</span></li>
+      <li>Multiple bachelor degrees in horticulture and forestry</li>
+    </ul>
+    <p class="note">Board Certified Master Arborist is the highest level of certification offered by ISA. Fewer than 2% of all arborists currently hold it.</p>
+
+    <div class="team-grid">
+      <div class="person">
+        <h3>Ross Raterman, President</h3>
+        <ul class="creds">
+          <li>ISA Board Certified Master Arborist #KY-0648B</li>
+          <li>Certified Tree Care Safety Professional</li>
+          <li>ISA Tree Risk Assessment Qualified</li>
+        </ul>
+        <p>Ross earned his ISA Certified Arborist designation at 22, while a senior horticulture student at the University of Kentucky. He became Dave's business partner in 2012, and in 2017 one of the youngest Board Certified Master Arborists in ISA history.</p>
+      </div>
+      <div class="person">
+        <h3>Dave Leonard</h3>
+        <ul class="creds">
+          <li>ISA Certified Arborist #KY-0147</li>
+          <li>Board Certified Master Arborist #KY-0147BT</li>
+          <li>ASCA Registered Consulting Arborist #346</li>
+          <li>Certified Tree Risk Assessor 748</li>
+        </ul>
+        <p>Dave has promoted tree health care in Lexington for 39 years. He served 18 years on ISA's Board of Directors and was part of the team of 10 arborists who wrote the ISA Arborist Certification and Board Certified Master Arborist exams.</p>
+      </div>
+    </div>
+    <div class="nick">
+      <h3>Nick Tomlin, Plant Health Care Manager</h3>
+      <ul class="creds"><li>ISA Certified Arborist #KY-9859A</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap svc-grid">
+    <div>
+      <h2>Tree work</h2>
+      <ul class="work-list">
+        <li>Tree trimming and pruning</li>
+        <li>Tree removal</li>
+        <li>Tree planting</li>
+        <li>Emerald ash borer</li>
+        <li>Commercial</li>
+      </ul>
+      <p>Every crew member is trained in proper pruning and in tree biology. Crews climb or work from a bucket truck, and rig limbs down without damaging the property around the tree.</p>
+    </div>
+    <div id="plant-health">
+      <h2>Plant health care</h2>
+      <div class="phc">
+        <div>
+          <h3>Insect and disease pests</h3>
+          <p>A certified arborist evaluates your trees and explains the insect and disease issues common in the area, and your treatment options.</p>
+        </div>
+        <div>
+          <h3>Deep root fertilization</h3>
+          <p>Liquid fertilizer is pressure injected deep into the root zone of the tree or shrub.</p>
+        </div>
+        <div>
+          <h3>Soil and root improvement</h3>
+          <p>Solutions for soil and root care when the ground under a tree is the problem.</p>
+        </div>
+        <div>
+          <h3>Tree preservation</h3>
+          <p>Root protection, pruning and care that keep a tree stable and viable long term.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="big">
+      <h2>What clients say</h2>
+      <blockquote>
+        <q>Dave Leonard and team were outstanding! The work performed was so clean and precise. I didn't even notice them in my yard!!</q>
+        <span class="who">S. H, Lexington</span>
+      </blockquote>
+      <p class="rating">Rated 4.6 on Google Maps.</p>
+    </div>
+    <div class="small">
+      <blockquote>
+        <q>The Sweetbay Magnolia you planted in my yard as a replacement is beautiful. It greatly enhances that area of the yard.</q>
+        <span class="who">B. B, Lexington</span>
+      </blockquote>
+      <blockquote>
+        <q>Work done professionally at competitive pricing. Would not hesitate to use for future tree removal work.</q>
+        <span class="who">T.W, Lexington</span>
+      </blockquote>
+      <blockquote>
+        <q>Your employees did a GREAT job! It was a joy to have such a professional job done.</q>
+        <span class="who">R. M, Georgetown</span>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="estimate">
+  <div class="wrap">
+    <div>
+      <h2>Where we work</h2>
+      <ul class="towns">
+        <li>Lexington</li><li>Georgetown</li><li>Frankfort</li><li>Versailles</li>
+        <li>Nicholasville</li><li>Paris</li><li>Winchester</li><li>Danville</li>
+      </ul>
+      <p>Call to schedule an appointment with an arborist, or send the form and we will call you back.</p>
+      <address>
+        <a href="tel:+18592522529"><strong>859-252-2529</strong></a><br>
+        <a href="mailto:info@dlarborist.com">info@dlarborist.com</a><br>
+        544 Old Frankfort Pike, Versailles, KY 40383
+      </address>
+    </div>
+
+    <form id="est" novalidate>
+      <h3 style="margin-bottom:18px">Request an estimate</h3>
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
+        <span class="error" id="e-name" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-phone">Phone</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="e-phone">
+        <span class="error" id="e-phone" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-email">Email <span class="opt">(optional)</span></label>
+        <input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="e-email">
+        <span class="error" id="e-email" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-town">Town</label>
+        <select id="f-town" name="town" required aria-describedby="e-town">
+          <option value="">Choose a town</option>
+          <option>Lexington</option><option>Georgetown</option><option>Frankfort</option><option>Versailles</option>
+          <option>Nicholasville</option><option>Paris</option><option>Winchester</option><option>Danville</option>
+          <option>Somewhere else</option>
+        </select>
+        <span class="error" id="e-town" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-msg">What is going on with the tree</label>
+        <textarea id="f-msg" name="msg" required aria-describedby="e-msg"></textarea>
+        <span class="error" id="e-msg" aria-live="polite"></span>
+      </div>
+      <button class="btn btn-dark" type="submit">Request an estimate</button>
+      <p class="form-note">This opens an email to info@dlarborist.com in your mail app.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Dave Leonard Tree Specialists</strong><br>544 Old Frankfort Pike, Versailles, Kentucky 40383</p>
+    <p>Phone <a href="tel:+18592522529">859-252-2529</a><br>Fax 859-255-1428<br><a href="mailto:info@dlarborist.com">info@dlarborist.com</a></p>
+  </div>
+</footer>
+
+<div class="callbar"><a href="tel:+18592522529">Call 859-252-2529</a></div>
+
+<script>
+(function(){
+  var f = document.getElementById('est');
+  var checks = {
+    name: function(v){ return v.trim() ? '' : 'Enter your name so we know who to ask for.'; },
+    phone: function(v){ return v.replace(/\D/g,'').length >= 10 ? '' : 'Enter a phone number with area code.'; },
+    email: function(v){ return !v.trim() || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Check the email address, or leave it blank.'; },
+    town: function(v){ return v ? '' : 'Choose the town the tree is in.'; },
+    msg: function(v){ return v.trim().length >= 10 ? '' : 'Tell us a little about the tree, for example the kind of tree and what you have noticed.'; }
+  };
+  function check(el){
+    var msg = checks[el.name](el.value);
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    document.getElementById('e-' + el.name).textContent = msg;
+    return !msg;
+  }
+  Object.keys(checks).forEach(function(n){
+    var el = f.elements[n];
+    el.addEventListener('blur', function(){ if (el.value) check(el); });
+    el.addEventListener('input', function(){ if (el.getAttribute('aria-invalid') === 'true') check(el); });
+  });
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var first = null;
+    Object.keys(checks).forEach(function(n){ if (!check(f.elements[n]) && !first) first = f.elements[n]; });
+    if (first) { first.focus(); return; }
+    var v = function(n){ return f.elements[n].value.trim(); };
+    var body = 'Name: ' + v('name') + '\nPhone: ' + v('phone') + (v('email') ? '\nEmail: ' + v('email') : '') +
+      '\nTown: ' + v('town') + '\n\n' + v('msg');
+    location.href = 'mailto:info@dlarborist.com?subject=' + encodeURIComponent('Estimate request from ' + v('name')) +
+      '&body=' + encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
