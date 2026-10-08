@@ -54,12 +54,13 @@
   .plate:active { transform:translateY(5px); box-shadow:0 1px 0 var(--yellow-dark); }
   .plate span { font:600 15px/1.2 var(--body); }
   .plate strong { font:900 clamp(30px,5vw,44px)/1 var(--display); }
-  .hero .alt { display:inline-block; margin-left:4px; margin-top:22px; color:#fff; font-weight:600; text-underline-offset:4px; }
+  .hero .alt { display:inline-block; margin-left:4px; margin-top:14px; padding:10px 0; color:#fff; font-weight:600; text-underline-offset:4px; }
 
   /* credentials */
   .creds { background:var(--paper); border-bottom:1px solid #D3DAE0; }
   .creds dl { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); margin-block:0; }
   .creds div { padding:22px 0; }
+  @media (max-width:560px) { .creds dl { grid-template-columns:1fr 1fr; gap:0 16px; } .creds div { padding:16px 0; } .creds dd { font-size:22px; } }
   .creds dt { font-size:14px; color:var(--muted); }
   .creds dd { margin:2px 0 0; font:800 26px/1.15 var(--display); font-variant-numeric:tabular-nums; }
 
