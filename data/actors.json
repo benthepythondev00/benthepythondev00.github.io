@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T22:57:00Z",
+  "generatedAt": "2026-10-13T03:32:03Z",
   "count": 986,
   "chips": [
     "All",
@@ -855,17 +855,17 @@
     },
     {
       "name": "linkedin-company-scraper",
-      "title": "LinkedIn Company Scraper - Profiles, Websites & Size",
+      "title": "LinkedIn Company Scraper - No Login, With Posts",
       "categories": [
-        "BUSINESS",
         "LEAD_GENERATION",
+        "BUSINESS",
         "SOCIAL_MEDIA"
       ],
       "chip": "Lead gen",
       "users30d": 2,
-      "successRate30d": 69.85,
+      "successRate30d": 69.87,
       "storeUrl": "https://apify.com/benthepythondev/linkedin-company-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract public LinkedIn company profiles with strict URL and company ID matching, industry, website, employee range a\u2026",
+      "oneLiner": "Scrape public LinkedIn company pages without login or cookies: name, website, industry, size, exact employee count, f\u2026",
       "iconUrl": "https://images.apifyusercontent.com/xPTYNeGCbZ6O3s2w2yZe66m_FkOdgjrullKKhnrrqYA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItOEhkdTJjMkMySW5zNDZ1Y3QtdDFjcWJtMjhOYi1saW5rZWRpbi1jb21wYW55LXNjcmFwZXIucG5n.webp"
     },
     {
@@ -4439,6 +4439,21 @@
       "iconUrl": "https://images.apifyusercontent.com/QFYd1M8RNsIUKMTJqjFJ6BTP8fW3XPTfvEzoD3iC3Vg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItV0lJdXp3aVlDYTJZM3NlbDAtcXRmMTF3Y1F2ay1maXJzdC1lcHNzLXNjb3Jlcy1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "flashscore-scraper",
+      "title": "Flashscore Scraper - Live Scores, Results, Stats & Lineups",
+      "categories": [
+        "NEWS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Jobs & hiring",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/flashscore-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape Flashscore live scores, fixtures and results for 16 sports (football, tennis, basketball, hockey, cricket\u2026): t\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/6HXZWoKEmFDvIxkQHRcFlS1FX2Caq7e7Ce5HswzAP04/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdXhoU0VnOFY1d1dFMUMxTWEtbW5uOFRjRUkyUC10aGVzcG9ydHNkYi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
       "name": "flathub-apps-scraper-v2",
       "title": "Flathub Apps Scraper - Linux Application Catalog",
       "categories": [
@@ -6582,6 +6597,21 @@
       "storeUrl": "https://apify.com/benthepythondev/linkedin-ad-library-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns the ads a company runs on LinkedIn, from LinkedIn's public Ad Library: ad text, headline, format, picture or\u2026",
       "iconUrl": "https://images.apifyusercontent.com/pNw9XnfqkR94t1xLLpbodPabZVwa17uy3d7Xhw7O0Kg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbU1ITGR0REtZRnNhRW1VQW4teXZjRjd6YW5BRy1saW5rZWRpbi1hZC1saWJyYXJ5LXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "linkedin-posts-scraper",
+      "title": "LinkedIn Posts Scraper - No Login, With Comments",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "LEAD_GENERATION",
+        "MARKETING"
+      ],
+      "chip": "Lead gen",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/linkedin-posts-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape LinkedIn posts without login or cookies: give post links, profiles or company pages and get each post's full t\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/v9sD5R-blNXF9MIO-Pp_dpd7Erm_exOgXz1QI_9NiZ8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUjdDb1dlQ2hSN2E3Yjg0NkwtWTZHVDNyMVlCQy10dm1hemUtdHYtc2hvd3Mtc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "listenbrainz-top-artists-scraper",
@@ -9044,21 +9074,6 @@
       "iconUrl": "https://images.apifyusercontent.com/TJWdl8v90ia_L0v_OKjjvQ62lBMGP7pG6lPxNot4b5w/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbGtzYVBNNTlGRWh6T0ZMVDQtMEhzNXdvUWVaSi1wdXBwZXQtZm9yZ2UtbW9kdWxlcy1zY3JhcGVyLnBuZw.webp"
     },
     {
-      "name": "pypi-scraper",
-      "title": "PyPI Scraper - Python Package Data",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "AUTOMATION"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/pypi-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Look up Python packages on PyPI and get clean metadata: version, summary, author, license, dependencies, classifiers,\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/i2QE1OwgEYDgx01Ueb0SNRtCxk1QF6oJ5T0y2IlAC5g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjdqaVdhRDM3bDl6bXd3eDgtYWVhZnBGRE1QUi1weXBpLXNjcmFwZXIucG5n.webp"
-    },
-    {
       "name": "quay-containers-scraper",
       "title": "Quay Containers Scraper - Repository Search Data",
       "categories": [
@@ -10079,21 +10094,6 @@
       "iconUrl": "https://images.apifyusercontent.com/utJ-RANq73nAlbwLmPI3odjOjmEG-JgB_wrI5G-oPtk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNk9ha1VzTGhPdktWeVVjVk4tS3E2T0hmalc4Qi10aGVtdXNlLWpvYnMtc2NyYXBlci5wbmc.webp"
     },
     {
-      "name": "thesportsdb-scraper",
-      "title": "TheSportsDB Scraper - Teams, Players & Data",
-      "categories": [
-        "VIDEOS",
-        "BUSINESS",
-        "OTHER"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/thesportsdb-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Search TheSportsDB for sports teams or players by name and get structured data: name, sport, league, country, stadium\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/6HXZWoKEmFDvIxkQHRcFlS1FX2Caq7e7Ce5HswzAP04/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdXhoU0VnOFY1d1dFMUMxTWEtbW5uOFRjRUkyUC10aGVzcG9ydHNkYi1zY3JhcGVyLnBuZw.webp"
-    },
-    {
       "name": "threads-profile-scraper",
       "title": "Threads Profile Scraper - Followers, Bio & Engagement",
       "categories": [
@@ -10302,21 +10302,6 @@
       "storeUrl": "https://apify.com/benthepythondev/trustmrr-startups-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape public TrustMRR startup cards with name, category, revenue, sale price, valuation multiple, status and profile\u2026",
       "iconUrl": "https://images.apifyusercontent.com/AUfNYI6uBqKoKPHa9ApYdWUQI86Xn0KK7NIk8lCK5EI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItczlJTVJ3eG91MDJ4SGpCY3ctaUNjeGE0c29keS10cnVzdG1yci1zdGFydHVwcy1zY3JhcGVyLnBuZw.webp"
-    },
-    {
-      "name": "tvmaze-tv-shows-scraper",
-      "title": "TV Shows Scraper - Episodes, Cast & Ratings",
-      "categories": [
-        "VIDEOS",
-        "BUSINESS",
-        "MARKETING"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/tvmaze-tv-shows-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Search TV shows by name or ID and get structured data: genres, status, network, premiere/end dates, rating, runtime,\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/v9sD5R-blNXF9MIO-Pp_dpd7Erm_exOgXz1QI_9NiZ8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUjdDb1dlQ2hSN2E3Yjg0NkwtWTZHVDNyMVlCQy10dm1hemUtdHYtc2hvd3Mtc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "tvmaze-schedule-full-scraper",
@@ -10979,21 +10964,6 @@
       "iconUrl": "https://images.apifyusercontent.com/CTMWcO4kYARppEb-GTdCIp2kVe4XDsbmc4jnjIkytTE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itc2xMUVFBcWZsRlZvcmFLSkUtREJYa0NQQXBwTS13aWtpbWVkaWEtcGFnZXZpZXdzLXNjcmFwZXIucG5n.webp"
     },
     {
-      "name": "wikipedia-scraper",
-      "title": "Wikipedia Scraper - Articles, Summaries & Data",
-      "categories": [
-        "AI",
-        "NEWS",
-        "OTHER"
-      ],
-      "chip": "Research & open data",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/wikipedia-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Search Wikipedia by keyword (or look up exact titles) for structured article data: title, short description, intro ex\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/RVis_fvafX_jwnfs96_WRhk82TpbtQ5Hx2Q1k9XjxNo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itc1pYV1gyNldkSmI0Y2c5blEtSnVPTVhsZE9QOS13aWtpcGVkaWEtc2NyYXBlci5wbmc.webp"
-    },
-    {
       "name": "winnipeg-open-data-scraper",
       "title": "Winnipeg Open Data Scraper",
       "categories": [
@@ -11142,6 +11112,36 @@
       "storeUrl": "https://apify.com/benthepythondev/wttr-in-london-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect wttr.in London records and export date, sunhour, uvindex, avgtempc, avgtempf, maxtempc as structured JSON, CS\u2026",
       "iconUrl": "https://images.apifyusercontent.com/h4BGe3Ki8QXrqVDSy6g6sCJNw02l7-1U_4ysVfAqJgk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItS0dvYU1QWjI3NmswS0ltWHYtaUtDZUkwOUgwei13dHRyLWluLWxvbmRvbi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "x-post-scraper",
+      "title": "X (Twitter) Post Scraper - No Login, By URL",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "AI"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/x-post-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape X (Twitter) posts by link or id without login, cookies or API key: full text, exact date, likes, reposts, repl\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/RVis_fvafX_jwnfs96_WRhk82TpbtQ5Hx2Q1k9XjxNo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itc1pYV1gyNldkSmI0Y2c5blEtSnVPTVhsZE9QOS13aWtpcGVkaWEtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "x-profile-scraper",
+      "title": "X (Twitter) Profile Scraper - No Login, With Latest Posts",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "LEAD_GENERATION",
+        "MARKETING"
+      ],
+      "chip": "Lead gen",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/x-profile-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape X (Twitter) profiles without login, cookies or API key: name, bio, location, website, followers, following, po\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/i2QE1OwgEYDgx01Ueb0SNRtCxk1QF6oJ5T0y2IlAC5g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjdqaVdhRDM3bDl6bXd3eDgtYWVhZnBGRE1QUi1weXBpLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "xing-jobs-scraper",
@@ -11669,21 +11669,6 @@
       "iconUrl": "https://images.apifyusercontent.com/5DiKnIcu3KyzVU6HmLBAx1c8ASx5XYL9rkOuLg0CefQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbHVHWGp2QUV5SXFMcUttY1ctOGhIVGpXQXhiSi1hbHRlcm5hdGl2ZS1tZS1mbmctc2NyYXBlci5wbmc.webp"
     },
     {
-      "name": "anime-scraper",
-      "title": "Anime Scraper - MyAnimeList Data (Jikan)",
-      "categories": [
-        "AUTOMATION",
-        "VIDEOS",
-        "NEWS"
-      ],
-      "chip": "Research & open data",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/anime-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Search anime titles, scores, rankings, episodes and artwork through Jikan, with automatic AniList and Kitsu fallbacks\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/fmeCeGD_AAwZixf3deK6BkyUuQwyXiLmRQ9uhxk_CEU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItODBOY1NBS3hmTjFZWWVuaHQtVHR4TmpnZkpudS1hbmltZS5wbmc.webp"
-    },
-    {
       "name": "argentina-datos-packages-scraper",
       "title": "Argentina Datos Packages Scraper",
       "categories": [
@@ -11727,6 +11712,21 @@
       "storeUrl": "https://apify.com/benthepythondev/ashby-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape public Ashby job boards: job title, company board, department, team, remote flag, employment type, compensatio\u2026",
       "iconUrl": "https://images.apifyusercontent.com/wCjHLkDPIKQZ58ReD2qFUdKxec6hZSgmrI-_cJw4mUM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaU1LNmM4ZW5LZ1ZMOFc1YmktRHBmTkMxQUx6Zi1hc2hieS1qb2JzLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "asos-scraper",
+      "title": "ASOS Scraper - Products, Prices, Sizes & Stock, No Login",
+      "categories": [
+        "ECOMMERCE",
+        "MARKETING",
+        "AUTOMATION"
+      ],
+      "chip": "E\u2011commerce",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/asos-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape ASOS products by search term, category or link in 10 markets: name, brand, price, previous price, discount, co\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/fmeCeGD_AAwZixf3deK6BkyUuQwyXiLmRQ9uhxk_CEU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItODBOY1NBS3hmTjFZWWVuaHQtVHR4TmpnZkpudS1hbmltZS5wbmc.webp"
     },
     {
       "name": "australia-open-data-scraper",
@@ -12162,6 +12162,21 @@
       "storeUrl": "https://apify.com/benthepythondev/coursera-courses-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract public Coursera catalog-card titles, URLs, providers and visible metadata. Preserve redirects; course descrip\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lzc0HFjAPqgQcPm19wUAeGiiE6b9656qG1b8pgO9Lzc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbWNnNXBlZ3djVmdreVpxY0YtSzlmemdCcExIaC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3RxZWJubHRxZWJubHRxZWIuanBlZw.webp"
+    },
+    {
+      "name": "cricbuzz-scraper",
+      "title": "Cricbuzz Scraper - Live Cricket Scores & Scorecards, No Login",
+      "categories": [
+        "NEWS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Research & open data",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/cricbuzz-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape Cricbuzz live cricket scores, recent results and upcoming fixtures: teams, scores per innings, status, series,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/y0Ji30Ckgugu4D6fLovmsZn99AJnWy9R7hZIZ3eD1tY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itcnh3amtyYkFlck9oSkJZb0ItYlNnR2lyYlVpWC1pcC1nZW9sb2NhdGlvbi1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "crozdesk-software-scraper",
@@ -12897,21 +12912,6 @@
       "storeUrl": "https://apify.com/benthepythondev/internet-archive-items-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search Internet Archive items and export identifiers, titles, creators, dates, media types, downloads, descriptions,\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EPi6PJl3tfYJz2V4voXgKS9vV38F71URgrb6gi3kmGY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItS0pKa0pVc0hPcm5kWDJTMlgtM3ZGbXI1RzBpOC1pbnRlcm5ldC1hcmNoaXZlLWl0ZW1zLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "ip-geolocation-scraper",
-      "title": "IP Geolocation Scraper - Country, City & ISP",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "AUTOMATION",
-        "OTHER"
-      ],
-      "chip": "Other",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/ip-geolocation-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Look up the geographic location and network owner for any IP address: country, region, city, zip, latitude/longitude,\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/y0Ji30Ckgugu4D6fLovmsZn99AJnWy9R7hZIZ3eD1tY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itcnh3amtyYkFlck9oSkJZb0ItYlNnR2lyYlVpWC1pcC1nZW9sb2NhdGlvbi1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "jobsdb-jobs-scraper",
@@ -13874,6 +13874,21 @@
       "iconUrl": "https://images.apifyusercontent.com/LGc_LsPIL3MXB9-4pIcH9d20G4juOKbC7mmaDh8DT7U/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZXVvNWpUYWhkUWx6RDdSVW8tOUxkR2kyU1BoUy12YWxvcmFudC1hZ2VudHMtc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "walmart-scraper",
+      "title": "Walmart Scraper - Products, Prices, Reviews & Specs, No Login",
+      "categories": [
+        "ECOMMERCE",
+        "MARKETING",
+        "AUTOMATION"
+      ],
+      "chip": "E\u2011commerce",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/walmart-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape Walmart products by search term, category or link: name, brand, price, was price, rating, review count, availa\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/_uZxcNjtiakV5zvxJeOjS4oq2hFfJC9NZfFQepZOtqg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWnhsWWpkWTZURWFTeGtiSlgtNHRwNWNUQ0RBRS1zdGVhbS5wbmc.webp"
+    },
+    {
       "name": "warframe-market-items-scraper",
       "title": "Warframe Market Items Scraper",
       "categories": [
@@ -14247,21 +14262,6 @@
       "storeUrl": "https://apify.com/benthepythondev/podcast-intelligence-aggregator?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract comprehensive podcast data from iTunes/Apple Podcasts and RSS feeds. Perfect for podcast networks, advertiser\u2026",
       "iconUrl": "https://images.apifyusercontent.com/cfyW6DnL9o_xx89_8tZnphM-M5ZJbdo1aWpg81CuMmA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcDFPSmV1V2lHSDRWakcwY3ktU2hpcm96Z0dRMy1DaGF0R1BUX0ltYWdlX05vdl8xM19fMjAyNV9hdF8wM18zMl8xNF9QTS5wbmc.webp"
-    },
-    {
-      "name": "steam-scraper",
-      "title": "\ud83c\udfae Steam Store Scraper - Games, Prices & Ratings",
-      "categories": [
-        "ECOMMERCE",
-        "AUTOMATION",
-        "OTHER"
-      ],
-      "chip": "E\u2011commerce",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/steam-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Steam Scraper to extract game data from the Steam store by keyword. Get name, price, discount, Metacritic score, genr\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/_uZxcNjtiakV5zvxJeOjS4oq2hFfJC9NZfFQepZOtqg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWnhsWWpkWTZURWFTeGtiSlgtNHRwNWNUQ0RBRS1zdGVhbS5wbmc.webp"
     },
     {
       "name": "itunes-scraper",
