@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T23:09:26Z",
+  "generatedAt": "2026-10-19T01:14:10Z",
   "count": 985,
   "chips": [
     "All",
@@ -5069,21 +5069,6 @@
       "iconUrl": "https://images.apifyusercontent.com/DMKT2RBm6s2EtGEUavzUSOagWHWkikrnadX4zPa4XEs/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itb0FkV0w5cVRtUWtqT2x2U0ItYXo3T0FHcjhEWi1nb29nbGUta2V5d29yZC1zdWdnZXN0aW9ucy1zY3JhcGVyLnBuZw.webp"
     },
     {
-      "name": "google-maps-email-scraper",
-      "title": "Google Maps Email Extractor - Emails, Phones & Social Links",
-      "categories": [
-        "LEAD_GENERATION",
-        "MARKETING",
-        "BUSINESS"
-      ],
-      "chip": "Lead gen",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/google-maps-email-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Returns Google Maps places with the emails, phone numbers and social profiles their websites publish: one row per bus\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/3l-CPpycVQT4iGyYIikZwd6Io2dqCDnIi_ypbqmLkxI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNE1UeGRIZkdvS1RMRG9UckQtamYwTllHTUlkMC1nb29nbGUtbWFwcy1lbWFpbC1zY3JhcGVyLnBuZw.webp"
-    },
-    {
       "name": "greece-data-gov-scraper",
       "title": "Greece Data Gov Scraper",
       "categories": [
@@ -8768,7 +8753,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 1,
-      "successRate30d": 96.43,
+      "successRate30d": 96.55,
       "storeUrl": "https://apify.com/benthepythondev/pinterest-board-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns Pinterest pins by keyword, from boards, from whole profiles or by pin link: title, description, image and vid\u2026",
       "iconUrl": "https://images.apifyusercontent.com/nwa4hZcrijUcT0KCFe7lfaLxm1Un2z6wA-F2Y6dvwpU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItN1VybXFES0VtZ3pleE0xYTctU1pzYXJScnh0Wi1waW50ZXJlc3QtYm9hcmQtc2NyYXBlci5wbmc.webp"
@@ -12702,6 +12687,21 @@
       "storeUrl": "https://apify.com/benthepythondev/google-images-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search Google Images and export ranked image previews, titles, dimensions, source domains and publisher page URLs for\u2026",
       "iconUrl": "https://images.apifyusercontent.com/ENKYc95BNDc7BvYjlCuSV2phyelvr6CVgzTEzPLX1dk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZkRYUmNjZXljY095c0FNblgtYWRrdEJ6Um5UMS1nb29nbGUtaW1hZ2VzLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "google-maps-email-scraper",
+      "title": "Google Maps Email Extractor - Emails, Phones & Social Links",
+      "categories": [
+        "LEAD_GENERATION",
+        "MARKETING",
+        "BUSINESS"
+      ],
+      "chip": "Lead gen",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/google-maps-email-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns Google Maps places with the emails, phone numbers and social profiles their websites publish: one row per bus\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/3l-CPpycVQT4iGyYIikZwd6Io2dqCDnIi_ypbqmLkxI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNE1UeGRIZkdvS1RMRG9UckQtamYwTllHTUlkMC1nb29nbGUtbWFwcy1lbWFpbC1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "google-maps-reviews-scraper",
