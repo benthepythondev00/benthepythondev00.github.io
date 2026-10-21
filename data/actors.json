@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T22:17:24Z",
+  "generatedAt": "2026-10-21T01:33:19Z",
   "count": 985,
   "chips": [
     "All",
@@ -1439,6 +1439,21 @@
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
+      "name": "amazon-bestsellers-scraper",
+      "title": "Amazon Best Sellers Scraper - Full Top 100, No Login",
+      "categories": [
+        "ECOMMERCE",
+        "LEAD_GENERATION",
+        "AUTOMATION"
+      ],
+      "chip": "Lead gen",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/amazon-bestsellers-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns the full top 100 of any Amazon Best Sellers or New Releases category: rank, ASIN, title, clean product link,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/gHFIFSWHzcTJjqFkFkfz6cU9MtYo0N4k27fQ8UH7sEk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUE50Sk8wUm9TaVoxcGVyWkwtejFuZHBNMFQyZy1hbWF6b24tcHJvZHVjdC5wbmc.webp"
+    },
+    {
       "name": "anilist-anime-scraper",
       "title": "Anilist Anime Scraper",
       "categories": [
@@ -1919,6 +1934,21 @@
       "iconUrl": "https://images.apifyusercontent.com/gPTm0KZBacU1ya68KOtp9MnGODlcUW70qXNXTkzrYDM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZGZITlBtN1ptd3lESlN3anEtTk5KQUc4VGdGNy1ib2xpZ3NpZGVuLXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "booking-reviews-scraper",
+      "title": "Booking.com Reviews Scraper - No Login, Dates and Replies",
+      "categories": [
+        "TRAVEL",
+        "LEAD_GENERATION",
+        "MARKETING"
+      ],
+      "chip": "Real estate & rentals",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/booking-reviews-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns Booking.com guest reviews: score, date, title, liked and disliked text, property reply, guest name and countr\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/w3xcP3qR9M-nuasxXk2bYLA45OLdmL0nL0t_zhtWBPc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcGloQ0U4andXdTNFNHYzemstb25SaDVCdGJqMi10cmlwYWR2aXNvci1yZXZpZXdzLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "brussels-open-data-scraper",
       "title": "Brussels Open Data Scraper",
       "categories": [
@@ -2157,21 +2187,6 @@
       "storeUrl": "https://apify.com/benthepythondev/catfact-breeds-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect CatFact breeds records and export country, coat, breed, origin, pattern, source as structured JSON, CSV or Ex\u2026",
       "iconUrl": "https://images.apifyusercontent.com/awdfVQiFU7vU9TgZCkrAu6aUKeWXr7AJnw8Wbyqb5i0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdVJWcVZMZHBaRUtjVmJlMHQteXVHMWZNVHNPdS1jYXRmYWN0LWJyZWVkcy1zY3JhcGVyLnBuZw.webp"
-    },
-    {
-      "name": "catfact-ninja-facts-scraper",
-      "title": "Catfact Ninja Facts Scraper",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "AUTOMATION"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/catfact-ninja-facts-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Collect Cat Fact Ninja records and export fact, length, source, scraped at as structured JSON, CSV or Excel data.",
-      "iconUrl": "https://images.apifyusercontent.com/v_5033MilrAxKoq8oio3VqbF0FPIX3p-_IaQus2iqL8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItOXhBRlFZSkhQc0xFUFJNQ0stdDRwckFsRmF2bC1jYXRmYWN0LW5pbmphLWZhY3RzLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "catfact-random-scraper",
@@ -3807,21 +3822,6 @@
       "storeUrl": "https://apify.com/benthepythondev/dockerhub-search-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Docker Hub search records and export repo name, pull count, repo owner, star count, is official, is automated\u2026",
       "iconUrl": "https://images.apifyusercontent.com/h0GAItnOSe6WyagJaPbY4Q078T6PKUBkqPh3sO4K-BM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNWliZnhGNFdiTjg4RndTa2MtN0JsV1J0dnZWSi1kb2NrZXJodWItc2VhcmNoLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "dog-ceo-breeds-list-scraper",
-      "title": "Dog Ceo Breeds List Scraper",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "AUTOMATION"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/dog-ceo-breeds-list-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Collect Dog CEO breeds records and export breed, sub breeds, status, source, scraped at as structured JSON, CSV or Ex\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/uducoU8loHMGSRcUlRblvMszLdHTzeGpiboGX7YCHOg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItU3F6UVU3anhyVnFQYjgyc08taEdxSHdLcFpCOC1kb2ctY2VvLWJyZWVkcy1saXN0LXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "dog-ceo-list-scraper",
