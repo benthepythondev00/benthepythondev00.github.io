@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T20:45:33Z",
+  "generatedAt": "2026-10-24T23:11:06Z",
   "count": 985,
   "chips": [
     "All",
@@ -29,6 +29,21 @@
       "iconUrl": "https://images.apifyusercontent.com/3c6FrPD6wiJu_68EP24vUJHkDjUUfG8EmL1Sdca4P7E/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNjNTMUZBcWlZM1VEcVZFdmItblJpZk9BVThRdi1yZW1vdGUtam9icy1hZ2dyZWdhdG9yLnBuZw.webp"
     },
     {
+      "name": "yahoo-finance-scraper",
+      "title": "Yahoo Finance Scraper - Stocks, Fundamentals & News",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "AUTOMATION",
+        "OTHER"
+      ],
+      "chip": "Finance",
+      "users30d": 42,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/yahoo-finance-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns stock data from Yahoo Finance for a list of tickers: live quote, company profile and fundamentals, historical\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/r3ZjUJ6OU1vU-Y5j-OLx4osWW6PehxmuzJX20vA3gt0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYTVWRmU4OGpMdzN0bjRHMkMtQmsySVRiZE00TS15YWhvby1maW5hbmNlLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "reddit-scraper",
       "title": "Reddit Scraper - Posts, Comments, Users & Search",
       "categories": [
@@ -42,21 +57,6 @@
       "storeUrl": "https://apify.com/benthepythondev/reddit-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape public Reddit posts, comments, user activity, subreddits, and search results through Reddit's app-only OAuth A\u2026",
       "iconUrl": "https://images.apifyusercontent.com/fZi3C7sTHRZ9hpvzBc8GRkp358jQJLJ7PGJu2d_X9_g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbHFPY20yQmdzZzRMR05BVGQtT01kNjNVMmJOVS1yZWRkaXQtc2NyYXBlci5wbmc.webp"
-    },
-    {
-      "name": "yahoo-finance-scraper",
-      "title": "Yahoo Finance Scraper - Stocks, Fundamentals & News",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "AUTOMATION",
-        "OTHER"
-      ],
-      "chip": "Finance",
-      "users30d": 38,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/yahoo-finance-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Returns stock data from Yahoo Finance for a list of tickers: live quote, company profile and fundamentals, historical\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/r3ZjUJ6OU1vU-Y5j-OLx4osWW6PehxmuzJX20vA3gt0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYTVWRmU4OGpMdzN0bjRHMkMtQmsySVRiZE00TS15YWhvby1maW5hbmNlLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "arbeitsagentur-jobs-scraper",
@@ -143,7 +143,7 @@
       ],
       "chip": "Lead gen",
       "users30d": 12,
-      "successRate30d": 97.06,
+      "successRate30d": 97.1,
       "storeUrl": "https://apify.com/benthepythondev/instagram-intelligence-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns public Instagram profiles, posts, reels and the comments under posts, without a login: full captions, UTC dat\u2026",
       "iconUrl": "https://images.apifyusercontent.com/d7QuhOYTvUFRC_pNvDzpyYs5fttureoEUzM8kjmarz0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZXF4bEVGMEduWTBqa2VsaXotVFFHTUNUMzJNZi1pbnN0YWdyYW0taW50ZWxsaWdlbmNlLXNjcmFwZXIucG5n.webp"
@@ -233,7 +233,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 9,
-      "successRate30d": 91.25,
+      "successRate30d": 91.36,
       "storeUrl": "https://apify.com/benthepythondev/socialblade-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns SocialBlade statistics for YouTube, TikTok, Instagram and Twitch creators: audience size, platform statistics\u2026",
       "iconUrl": "https://images.apifyusercontent.com/lZ1Vs_ydtcJecpAyfZaiIAfu6PzXYaTotPATnIbv318/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMGVhaUtlb0tSNFV6MkhrVzktTkJuY3Z0dWxOMC1zb2NpYWxibGFkZS1zY3JhcGVyLnBuZw.webp"
@@ -308,7 +308,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 8,
-      "successRate30d": 99.64,
+      "successRate30d": 99.65,
       "storeUrl": "https://apify.com/benthepythondev/stock-sentiment-intelligence?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract real-time stock and crypto sentiment from Reddit communities including WallStreetBets, r/stocks, r/investing.\u2026",
       "iconUrl": "https://images.apifyusercontent.com/KDfDBbL-R25Ef9EpQ82j37cAOX2MG93vRO6TvEON-t4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItS3pIVlRoZ2tUUVA0NmZBU1MtVGN6YVhwU0lmUS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX21reDR0OG1reDR0OG1reDQuanBn.webp"
@@ -2577,6 +2577,21 @@
       "storeUrl": "https://apify.com/benthepythondev/clinicaltrials-gov-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape ClinicalTrials.gov study records: NCT IDs, titles, status, conditions, phases, dates and locations.",
       "iconUrl": "https://images.apifyusercontent.com/XWJTYAOwqDw7w0Retec14QgtgLrdD4z9jklWRavIa2U/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTGgxN2VCS2VqVjJwSlhFM3YtNU5CYkVzVHZQMS1jaXNhLWtldi1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "clip-campaign-tracker",
+      "title": "Clip View Tracker & Fake View Check - TikTok, Reels, Shorts, X",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "AUTOMATION"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/clip-campaign-tracker?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Track the clips of a clipping campaign (Whop Content Rewards and others) without login: views, likes, comments and sh\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/lZ1Vs_ydtcJecpAyfZaiIAfu6PzXYaTotPATnIbv318/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMGVhaUtlb0tSNFV6MkhrVzktTkJuY3Z0dWxOMC1zb2NpYWxibGFkZS1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "clojars-packages-scraper",
@@ -8892,21 +8907,6 @@
       "storeUrl": "https://apify.com/benthepythondev/portugal-open-data-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search Portugal's national open-data catalog and export titles, descriptions, organizations, tags, licenses, dates an\u2026",
       "iconUrl": "https://images.apifyusercontent.com/4VEQaQZk3hYqAMWbtLijHxMIk5UJu1k4fNc1ThmEbkI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itd3Jsd3RPd05rOEFBdm5WUmotMXZRb3FLTjJoeS1wb3J0dWdhbC1vcGVuLWRhdGEtc2NyYXBlci5wbmc.webp"
-    },
-    {
-      "name": "potterdb-characters-list-scraper",
-      "title": "Potterdb Characters List Scraper",
-      "categories": [
-        "SOCIAL_MEDIA",
-        "BUSINESS",
-        "AUTOMATION"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/potterdb-characters-list-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Collect Potter DB records and export id, name, type, slug, self, born as structured JSON, CSV or Excel data.",
-      "iconUrl": "https://images.apifyusercontent.com/h6oD1jaJd2fLN38mGDf8i2A0g6KZBtpUjXM7NuhCyPQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteTlLdmF1RDc0d05YNEI0SUEtZjBQUkFabml0US1wb3R0ZXJkYi1jaGFyYWN0ZXJzLWxpc3Qtc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "pracuj-scraper",
