@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T18:06:54Z",
+  "generatedAt": "2026-10-24T20:45:33Z",
   "count": 985,
   "chips": [
     "All",
@@ -254,6 +254,21 @@
       "iconUrl": "https://images.apifyusercontent.com/eGaadTTPcgXoMZdt3Kpxi8OdramsE3v91l93pyw1qgQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Ita0NjUWdSNXViV3htaXF3YkctbzY3Y2lqWTBUZC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2Z4bXVhMmZ4bXVhMmZ4bXUuanBn.webp"
     },
     {
+      "name": "reddit-archive-scraper",
+      "title": "Reddit Archive Scraper \u2014 Historical Posts for RAG",
+      "categories": [
+        "AI",
+        "AUTOMATION",
+        "SOCIAL_MEDIA"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 8,
+      "successRate30d": 78.57,
+      "storeUrl": "https://apify.com/benthepythondev/reddit-archive-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns historical Reddit posts and comments by subreddit, keyword and exact UTC date range from public Reddit archiv\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/Y8-qCWkg_WfViP_3zelYNEdS-vr8CbljApfj-XkPmVM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSGdxNUFYYXZRQjVINm1nMlktRUVxaUxrejFmNC1yZWRkaXQtYXJjaGl2ZS5wbmc.webp"
+    },
+    {
       "name": "website-status-checker",
       "title": "Website Status Checker - Uptime URL Monitor",
       "categories": [
@@ -372,21 +387,6 @@
       "storeUrl": "https://apify.com/benthepythondev/appstore-reviews-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape customer reviews from any iOS/macOS app on the Apple App Store. Extract ratings (1-5 stars), review titles, fu\u2026",
       "iconUrl": "https://images.apifyusercontent.com/GEdto0DkpUmVbr0WImK5dvWWY6umO2J4qQU6NsOJuBk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itc1JCVnhzcnRJSWZPME5pZWUtdHRiSXRGNU9yWC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3IybWxvMHIybWxvMHIybWwuanBlZw.webp"
-    },
-    {
-      "name": "reddit-archive-scraper",
-      "title": "Reddit Archive Scraper \u2014 Historical Posts for RAG",
-      "categories": [
-        "AI",
-        "AUTOMATION",
-        "SOCIAL_MEDIA"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 5,
-      "successRate30d": 79.63,
-      "storeUrl": "https://apify.com/benthepythondev/reddit-archive-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Returns historical Reddit posts and comments by subreddit, keyword and exact UTC date range from public Reddit archiv\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/Y8-qCWkg_WfViP_3zelYNEdS-vr8CbljApfj-XkPmVM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSGdxNUFYYXZRQjVINm1nMlktRUVxaUxrejFmNC1yZWRkaXQtYXJjaGl2ZS5wbmc.webp"
     },
     {
       "name": "snapchat-stories-scraper",
@@ -3758,7 +3758,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 75.0,
+      "successRate30d": 75.56,
       "storeUrl": "https://apify.com/benthepythondev/doaj-journals-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search DOAJ articles and export titles, abstracts, journals, publishers, authors, identifiers, keywords and full-text\u2026",
       "iconUrl": "https://images.apifyusercontent.com/oBM8TicqKM6FAELb87FGqYL4mAB1DDhdHzG7pc2nkC0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSklwU0gwQmZKZnFMb1RFdTgtOVhFbVQ3Zm0zWi1kb2FqLWpvdXJuYWxzLXNjcmFwZXIucG5n.webp"
@@ -8513,7 +8513,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 92.31,
+      "successRate30d": 92.59,
       "storeUrl": "https://apify.com/benthepythondev/osf-preprints-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect recent OSF preprints with IDs, titles, descriptions, dates, DOI, subjects, license and public links.",
       "iconUrl": "https://images.apifyusercontent.com/e7WsIqN-2K7q5mqKLlV0e18spsG7noKu4WcKKWnjGvM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMWNRb056V2Z3czlYV293RmstT1BhSDRYS2ZqQi1vc2YtcHJlcHJpbnRzLXNjcmFwZXIucG5n.webp"
@@ -13808,7 +13808,7 @@
       ],
       "chip": "E\u2011commerce",
       "users30d": 0,
-      "successRate30d": 92.31,
+      "successRate30d": 88.89,
       "storeUrl": "https://apify.com/benthepythondev/walmart-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Walmart products by search term, category or link: name, brand, price, was price, rating, review count, availa\u2026",
       "iconUrl": "https://images.apifyusercontent.com/wRQKRM_bQ7CsB0ek2qJxzBIP6GMiQ1geQlwrYyvDV4w/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWUZyRmQyNDVCNGdNeU5OTU4tU29wZGZXRE5oMS1vbHgtc2NyYXBlci5wbmc.webp"
