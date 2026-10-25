@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T11:22:23Z",
+  "generatedAt": "2026-10-25T19:02:38Z",
   "count": 985,
   "chips": [
     "All",
@@ -15,7 +15,7 @@
   "actors": [
     {
       "name": "remote-jobs-aggregator",
-      "title": "Remote Jobs Scraper \u2014 6 Boards, One Feed",
+      "title": "Remote Jobs Scraper: RemoteOK, Remotive, Himalayas + 3 more",
       "categories": [
         "JOBS",
         "DEVELOPER_TOOLS",
@@ -67,7 +67,7 @@
         "BUSINESS"
       ],
       "chip": "Jobs & hiring",
-      "users30d": 34,
+      "users30d": 35,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/arbeitsagentur-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns vacancies from Germany's official job board (Bundesagentur f\u00fcr Arbeit): title, occupation, employer, location\u2026",
@@ -112,7 +112,7 @@
         "AUTOMATION"
       ],
       "chip": "Social & Reddit",
-      "users30d": 15,
+      "users30d": 16,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/instagram-video-downloader?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns direct MP4 links for public Instagram reels, video posts and carousels: the file with sound, every video-only\u2026",
@@ -127,7 +127,7 @@
         "AUTOMATION"
       ],
       "chip": "Real estate & rentals",
-      "users30d": 11,
+      "users30d": 12,
       "successRate30d": 98.86,
       "storeUrl": "https://apify.com/benthepythondev/casa-it-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns property listings from Casa.it, for sale or to rent: price, surface, rooms, bathrooms, floor, full address, c\u2026",
@@ -158,7 +158,7 @@
       ],
       "chip": "Lead gen",
       "users30d": 10,
-      "successRate30d": 97.49,
+      "successRate30d": 97.0,
       "storeUrl": "https://apify.com/benthepythondev/instagram-intelligence-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns public Instagram profiles, posts, reels and the comments under posts, without a login: full captions, UTC dat\u2026",
       "iconUrl": "https://images.apifyusercontent.com/d7QuhOYTvUFRC_pNvDzpyYs5fttureoEUzM8kjmarz0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZXF4bEVGMEduWTBqa2VsaXotVFFHTUNUMzJNZi1pbnN0YWdyYW0taW50ZWxsaWdlbmNlLXNjcmFwZXIucG5n.webp"
@@ -623,7 +623,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 3,
-      "successRate30d": 98.89,
+      "successRate30d": 98.9,
       "storeUrl": "https://apify.com/benthepythondev/instagram-reel-transcript-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns the spoken text of public Instagram reels with timed segments, detected language and length, plus caption, da\u2026",
       "iconUrl": "https://images.apifyusercontent.com/vqJdIECe2PPiXKIb89IXoLjdvCZnjOpayymW7fVx-xc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcWlSU2dGQVJKUGdQbWpucjAtc0pWUzJzb3A4US1pbnN0YWdyYW0tcmVlbC10cmFuc2NyaXB0LXNjcmFwZXIucG5n.webp"
@@ -792,21 +792,6 @@
       "storeUrl": "https://apify.com/benthepythondev/remotive-jobs-intelligence?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns remote jobs from Remotive with an opportunity score from 0 to 100 on every job: title, company, salary range,\u2026",
       "iconUrl": "https://images.apifyusercontent.com/u7NLWFMssSBNP0cC--NY8cLnlTgtRyqfJEAnq49pXg4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3FGZnllM3ZnQkM3WU1iV1ktMVdMMGN4b1Nnay1DaGF0R1BUX0ltYWdlX05vdl8xN19fMjAyNV9hdF8wMV80NV8wNV9QTS5wbmc.webp"
-    },
-    {
-      "name": "airbnb-search-scraper",
-      "title": "Airbnb Scraper - Search Prices, Stay Dates & Guests",
-      "categories": [
-        "REAL_ESTATE",
-        "TRAVEL",
-        "BUSINESS"
-      ],
-      "chip": "Real estate & rentals",
-      "users30d": 2,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/airbnb-search-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Export Airbnb listings for exact stay dates and guest counts with room IDs, property IDs, total prices, fees, ratings\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/mJ5rhZEIt-auoVmIORDKibBPcwiebztaKdN7dZuApuM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSU1IdmlTVU1XY2JWakloSmcteGlxUW5CU1hkZi1haXJibmItc2VhcmNoLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "betalist-startups-scraper",
@@ -1350,7 +1335,7 @@
     },
     {
       "name": "7timer-civil-scraper",
-      "title": "7timer Civil Scraper",
+      "title": "7Timer Weather Forecast API: Worldwide by Coordinates",
       "categories": [
         "DEVELOPER_TOOLS",
         "BUSINESS",
@@ -1360,7 +1345,7 @@
       "users30d": 1,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/7timer-civil-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Collect 7Timer civil records and export rh2m, temp2m, weather, prec type, timepoint, cloudcover as structured JSON, C\u2026",
+      "oneLiner": "Worldwide 7-day forecast by coordinates from 7Timer (NOAA GFS), no API key: temperature, weather, cloud cover, rain,\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Cas4yeQvDHe9lDVlrZ0O4NrMEuD8TKGnVxC0Qm89tFg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRktIVWUzUUZnaVBTNVRpU2MtQll0WktOM3VPNS03dGltZXItY2l2aWwtc2NyYXBlci5wbmc.webp"
     },
     {
@@ -1379,6 +1364,21 @@
       "iconUrl": "https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp"
     },
     {
+      "name": "airbnb-search-scraper",
+      "title": "Airbnb Scraper - Search Prices, Stay Dates & Guests",
+      "categories": [
+        "REAL_ESTATE",
+        "TRAVEL",
+        "BUSINESS"
+      ],
+      "chip": "Real estate & rentals",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/airbnb-search-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export Airbnb listings for exact stay dates and guest counts with room IDs, property IDs, total prices, fees, ratings\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/mJ5rhZEIt-auoVmIORDKibBPcwiebztaKdN7dZuApuM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSU1IdmlTVU1XY2JWakloSmcteGlxUW5CU1hkZi1haXJibmItc2VhcmNoLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "amazon-bestsellers-scraper",
       "title": "Amazon Best Sellers Scraper - Full Top 100, No Login",
       "categories": [
@@ -1395,7 +1395,7 @@
     },
     {
       "name": "anilist-anime-scraper",
-      "title": "Anilist Anime Scraper",
+      "title": "Anime Search Scraper for AniList (Unofficial)",
       "categories": [
         "SOCIAL_MEDIA",
         "BUSINESS",
@@ -1407,36 +1407,6 @@
       "storeUrl": "https://apify.com/benthepythondev/anilist-anime-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect AniList GraphQL records and export id, description, siteurl, episodes, seasonyear, romaji as structured JSON,\u2026",
       "iconUrl": "https://images.apifyusercontent.com/SwuhZtTaHGAeVkxFgKlKxoO6Er9MYpCL1oXk0iVcPQE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWWg0dkxCU3RoNFFoQWNNYk0tYmFFdElYUThxSy1hbmlsaXN0LWFuaW1lLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "anilist-trending-list2-scraper",
-      "title": "Anilist Trending List2 Scraper",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "AUTOMATION"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/anilist-trending-list2-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Collect AniList trending records and export id, averagescore, romaji, english, source, scraped at as structured JSON,\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/kUAPSJxztAKXDrE2qHLttNtSwrGWLezXaP0nPFwaEaQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNW1nNFlnNFozWVFlV3B3cjQtbko5SEd5ODRPYy1hbmlsaXN0LXRyZW5kaW5nLWxpc3QyLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "anilist-trending-scraper",
-      "title": "AniList Trending Scraper",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "AUTOMATION"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/anilist-trending-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Export the current AniList anime trend list with mapped IDs, source labels and an outage-safe Kitsu fallback as JSON,\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/7b5eKOKRZel89pjXy9bdJYiDhotFsSwYvovjHVvUGiQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteWZHMVBFS25BMWcyNm9oSzctTzI4TlZLa3BJSC1hbmlsaXN0LXRyZW5kaW5nLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "ansible-galaxy-search-scraper",
@@ -10199,6 +10169,36 @@
       "iconUrl": "https://images.apifyusercontent.com/sc8kdAnknBuVXGyvJrByyJub-GA1O_y-j4ku3jM5vwM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itak1mam1NOTMxazhTcjJzUkctYzRDcDF3dWpSTy10b3RhbGpvYnMtc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "anilist-trending-list2-scraper",
+      "title": "Trending Anime List Scraper for AniList (Unofficial)",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/anilist-trending-list2-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Collect AniList trending records and export id, averagescore, romaji, english, source, scraped at as structured JSON,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/kUAPSJxztAKXDrE2qHLttNtSwrGWLezXaP0nPFwaEaQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNW1nNFlnNFozWVFlV3B3cjQtbko5SEd5ODRPYy1hbmlsaXN0LXRyZW5kaW5nLWxpc3QyLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "anilist-trending-scraper",
+      "title": "Trending Anime Scraper for AniList (Unofficial)",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/anilist-trending-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export the current AniList anime trend list with mapped IDs, source labels and an outage-safe Kitsu fallback as JSON,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/7b5eKOKRZel89pjXy9bdJYiDhotFsSwYvovjHVvUGiQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteWZHMVBFS25BMWcyNm9oSzctTzI4TlZLa3BJSC1hbmlsaXN0LXRyZW5kaW5nLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "trustmate-reviews-scraper",
       "title": "TrustMate Reviews Scraper - Company Feedback",
       "categories": [
@@ -11605,7 +11605,7 @@
       "users30d": 0,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/alternative-me-fng-history-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Collect Alternative.me FNG records and export value, timestamp, time until update, value classification, source, scra\u2026",
+      "oneLiner": "Download the daily Alternative.me Crypto Fear & Greed Index history as rows with a date column: every day since 2018-\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Gw1rsF7VkfPPZkiMh6U03e0HCEs16fkvcFsHdH9B7as/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQ0xuUTFhalhzMjhCQ1BVZUMtbXJtM3NiZG5hZy1hbHRlcm5hdGl2ZS1tZS1mbmctaGlzdG9yeS1zY3JhcGVyLnBuZw.webp"
     },
     {
