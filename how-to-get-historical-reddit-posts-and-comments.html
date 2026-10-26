@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get historical Reddit posts and comments by subreddit and date range</title>
+  <meta name="description" content="Get a subreddit's posts and archived comments from years ago, inside a fixed UTC date window, as JSON or CSV. Fields, real output, pricing and limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-historical-reddit-posts-and-comments.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-historical-reddit-posts-and-comments.html" />
+  <meta property="og:title" content="How to get historical Reddit posts and comments by subreddit and date range" />
+  <meta property="og:description" content="Subreddits, an optional keyword, UTC date bounds and a post cap in; structured JSON or CSV out, with archived comments if you want them." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get historical Reddit posts and comments by subreddit and date range",
+    "datePublished": "2026-10-26",
+    "dateModified": "2026-10-26",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-historical-reddit-posts-and-comments.html",
+    "description": "Get a subreddit's posts and archived comments inside a fixed UTC date window as JSON or CSV, with fields, real output, pricing and limits."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="./historical-reddit-rag-pack.html">Reddit RAG pack guide</a> · <a href="./reddit-rag-dump.html">Reddit RAG dump</a> · <a href="https://apify.com/benthepythondev/reddit-archive-scraper">Actor</a></p>
+    <h1>How to get historical Reddit posts and comments by subreddit and date range</h1>
+    <p class="note">26 Oct 2026 · benthepythondev</p>
+
+    <p>Reddit's own listings only reach back so far. If you need a subreddit's posts from years ago, or every post on a topic inside a fixed date window, you need an archive. The <a href="https://apify.com/benthepythondev/reddit-archive-scraper">Reddit Archive Scraper</a> works as a Pushshift alternative. You give it subreddits, an optional keyword, UTC date bounds and a post cap, and it returns structured JSON or CSV. It can also return each post's archived comments.</p>
+    <p>The oldest date verified so far is r/Python's first archived post on 2008-01-25. That came from a cloud run on October 25, 2026, sorted oldest-first with no start date set.</p>
+
+    <h2>What you get</h2>
+    <p>Each row has a <code>type</code> field set to <code>post</code> or <code>comment</code>, so you can split the two or join them back together later.</p>
+    <p><strong>Post rows</strong> include:</p>
+    <ul>
+      <li><code>id</code>, <code>title</code>, <code>selftext</code> (the post body), <code>author</code>, <code>subreddit</code></li>
+      <li><code>score</code>, <code>upvote_ratio</code>, <code>num_comments</code></li>
+      <li><code>created_utc</code> (Unix epoch) and <code>created_iso</code> (ISO timestamp)</li>
+      <li><code>permalink</code>, <code>url</code> (the link target, which for image posts is the image itself), <code>domain</code>, <code>link_flair_text</code></li>
+      <li>Flags: <code>is_self</code>, <code>is_video</code>, <code>over_18</code>, <code>locked</code>, <code>stickied</code>, <code>spoiler</code>, <code>total_awards_received</code></li>
+    </ul>
+    <p><strong>Comment rows</strong> (only when you turn comments on) include:</p>
+    <ul>
+      <li><code>id</code>, <code>post_id</code>, <code>parent_id</code>, <code>link_id</code>, <code>body</code>, <code>author</code>, <code>subreddit</code></li>
+      <li><code>score</code>, <code>created_utc</code>, <code>created_iso</code>, <code>permalink</code></li>
+      <li><code>is_submitter</code>, <code>total_awards_received</code></li>
+    </ul>
+
+    <h2>Real example output</h2>
+    <p>These two rows came from an actual call against r/webscraping. A few flag fields are left out to keep it short.</p>
+    <pre><code>[
+  {
+    "type": "post",
+    "id": "1wzf7jo",
+    "title": "Claude Code refusing to build scraper. Any way around this?",
+    "selftext": "Claude Code is refusing to build a scraper because it doesn't want to violate the websites terms and conditions. Is there any way around this?",
+    "author": "RayDonavanProg",
+    "subreddit": "webscraping",
+    "score": 1,
+    "upvote_ratio": 1,
+    "num_comments": 0,
+    "created_utc": 1791322996,
+    "created_iso": "2026-10-06T21:43:16+00:00",
+    "permalink": "https://www.reddit.com/r/webscraping/comments/1wzf7jo/claude_code_refusing_to_build_scraper_any_way/",
+    "domain": "self.webscraping",
+    "link_flair_text": null,
+    "is_self": true,
+    "over_18": false
+  },
+  {
+    "type": "post",
+    "id": "1wzeinr",
+    "title": "Reading this for the first time",
+    "selftext": "",
+    "author": "redittburneraccount",
+    "subreddit": "webscraping",
+    "score": 1,
+    "num_comments": 0,
+    "created_iso": "2026-10-06T21:14:41+00:00",
+    "url": "https://i.redd.it/jefp5qyuxwth1.jpeg",
+    "domain": "i.redd.it",
+    "link_flair_text": "Getting started 🌱",
+    "is_self": false
+  }
+]</code></pre>
+    <p>On a text post, <code>is_self</code> is <code>true</code> and the body is in <code>selftext</code>. On an image or link post, <code>selftext</code> is empty and <code>url</code> points to the content.</p>
+
+    <h2>What people use it for</h2>
+    <p>These come straight from the README:</p>
+    <ol>
+      <li><strong>Building RAG corpora.</strong> Mainly for AI engineers who need years of Reddit, not just the latest ~1,000 posts. There's a linked n8n workflow (<a href="https://gist.github.com/benthepythondev00/e28968a940fe4195ffb5a997fe309503">reddit-archive to Sheets/Slack</a>) that turns the rows into Markdown and a Google Sheets export for retrieval projects.</li>
+      <li><strong>Backfilling a database</strong> with a subreddit's history, so a live collector only has to handle new posts from then on.</li>
+      <li><strong>Sentiment and research datasets</strong>, where you need posts and comments for a defined window.</li>
+      <li><strong>Studying how a topic was discussed over years.</strong> Combine a subreddit with a keyword and walk the timeline oldest-first.</li>
+    </ol>
+    <p class="note">The step-by-step n8n import and a tested first input are in the <a href="./historical-reddit-rag-pack.html#workflow">historical Reddit RAG pack guide</a>.</p>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the actor at <a href="https://apify.com/benthepythondev/reddit-archive-scraper">apify.com/benthepythondev/reddit-archive-scraper</a> and fill in:</p>
+    <ul>
+      <li><code>subreddits</code>: one or more names, without the <code>r/</code>. This field is required.</li>
+      <li><code>searchQuery</code>: an optional keyword.</li>
+      <li><code>afterDate</code> / <code>beforeDate</code>: optional UTC bounds for the window.</li>
+      <li><code>maxPosts</code>: a cap on the number of posts.</li>
+      <li>Sort order: oldest-first or newest-first.</li>
+      <li><code>includeComments</code>: turn it on if you also want each post's archived comments.</li>
+    </ul>
+    <p>Results go into an Apify dataset, and you can download that as JSON or CSV. To see the inputs filled in, start from the <a href="https://apify.com/benthepythondev/reddit-archive-scraper/examples/archive-historical-python-posts">Archive historical Python posts</a> example.</p>
+    <p>Pricing on the Free tier, before plan discounts: each saved post or comment costs $0.003. If comments are on and a post returns at least one eligible comment, that post's thread adds $0.005, charged once per post. The start event is $0.00005 at 512 MB. The README gives two examples: 250 posts with comments off comes to $0.75005, and 3 posts plus 6 comments across 3 non-empty threads comes to $0.04205.</p>
+
+    <h2>How to call it as an API on RapidAPI</h2>
+    <p>If you'd rather call it from your own code with a RapidAPI key, it's listed at <a href="https://rapidapi.com/benthepythondev0/api/reddit-archive-scraper">rapidapi.com/benthepythondev0/api/reddit-archive-scraper</a>. The output rows have the same shape as the ones above.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Coverage and freshness vary.</strong> The README says plainly that archive coverage isn't complete. The verified checks (250 unique posts oldest-first and 250 newest-first over January 2024, plus a small comment check) only prove correct output for those inputs. Run a small dated sample before you start a large backfill.</li>
+      <li><strong>No search across all of Reddit.</strong> The public archives no longer support it, so you have to name at least one subreddit.</li>
+      <li><strong><code>maxPosts</code> caps posts, not rows.</strong> With comments on, both the row count and the bill grow past the cap. You can set Apify's maximum run charge as a separate budget limit.</li>
+      <li><strong>Scores are what the archive holds.</strong> In the sample rows above, recent posts show low scores and <code>num_comments</code> of 0. Don't treat those numbers as the post's current live values.</li>
+      <li><strong>Empty runs still cost something.</strong> An empty result has no result or thread charge, but the start event still applies.</li>
+    </ul>
+    <p>If you'd rather not run it yourself, the README also offers a managed weekly feed with backfilled history and a free sample first.</p>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
