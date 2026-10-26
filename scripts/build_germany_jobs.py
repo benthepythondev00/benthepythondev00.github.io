@@ -53,6 +53,11 @@ RULES = [
                           r"|applicants from abroad|international applicants)"), None),
 ]
 SUPPORT = re.compile(r"(unterstütz|helfen|begleite|kümmern|übernehmen|support)")
+# EU Blue Card gross salary per year, 2026 (https://digital.diplo.de/Blaue-Karte, § 18g AufenthG). The reduced
+# threshold applies to shortage occupations (IT, engineering, science, medicine, health); update both each January.
+BLUE_CARD = 50_700
+BLUE_CARD_SHORTAGE = 45_934.20
+SHORTAGE_FIELDS = {"IT", "Engineering", "Medicine", "Nursing"}
 ORDER = {"permit": 0, "eu": 1, "abroad": 2}
 GERMAN = re.compile(r"deutsch")
 LEVEL = re.compile(r"\b([abc]) ?([12])\b")
@@ -189,6 +194,7 @@ def build_job(job: dict, detail: dict | None, tr: Translator) -> dict:
         "region": ((job.get("stellenlokationen") or [{}])[0].get("adresse") or {}).get("region"),
         "published": job.get("datumErsteVeroeffentlichung") or (job.get("veroeffentlichungszeitraum") or {}).get("von"),
         "full_time": bool(job.get("arbeitszeitVollzeit")),
+        "part_time": any(job.get(k) for k in ("arbeitszeitTeilzeitFlexibel", "arbeitszeitTeilzeitVormittag", "arbeitszeitTeilzeitNachmittag", "arbeitszeitTeilzeitAbend")),
         "permanent": job.get("vertragsdauer") == "UNBEFRISTET",
         "home_office": bool(job.get("homeofficemoeglich")),
         "salary_min": lo,
@@ -200,6 +206,22 @@ def build_job(job: dict, detail: dict | None, tr: Translator) -> dict:
         "german": lang["level"],
         "german_de": lang["sentence"],
     }
+
+
+def blue_card(j: dict) -> str | None:
+    """'yes', 'shortage' (clears only the reduced threshold), 'below', or None when no full-time yearly salary is stated."""
+    if not j["salary_min"] or (j["salary_hourly"] and not j["full_time"]):
+        return None
+    if j["salary_min"] >= BLUE_CARD:
+        return "yes"
+    if j["salary_min"] >= BLUE_CARD_SHORTAGE and j["field"] in SHORTAGE_FIELDS:
+        return "shortage"
+    return "below"
+
+
+def opportunity_card(j: dict) -> bool:
+    """Part-time hours fit the Opportunity Card's 20 hours a week, and the ad doesn't exclude non-EU applicants."""
+    return j["part_time"] and j["who"] in ("abroad", "unknown")
 
 
 def summary(j: dict) -> str:
@@ -238,11 +260,19 @@ def card(j: dict) -> str:
         quote_html = f'<blockquote lang="de">“{e(j["who_de"])}”</blockquote>{en}'
     sub = f'<p class="de" lang="de">{e(j["title_de"])}</p>' if j["title_en"] and j["title_en"] != j["title_de"] else ""
     where = ", ".join(x for x in [j["employer"], j["city"]] if x)
+    bc, oc = blue_card(j), opportunity_card(j)
+    tags = "".join([
+        {"yes": f'<span class="tag tag-bc">Salary clears the Blue Card threshold (€{BLUE_CARD:,})</span>',
+         "shortage": f'<span class="tag tag-bc">Clears the reduced Blue Card threshold (€{BLUE_CARD_SHORTAGE:,.0f})</span>',
+         "below": '<span class="tag tag-low">Salary below the Blue Card threshold</span>'}.get(bc, ""),
+        '<span class="tag tag-oc">Opportunity Card friendly: part-time hours</span>' if oc else "",
+    ])
+    tags = f'<p class="tags">{tags}</p>' if tags else ""
     return (
-        f'<li class="job" data-who="{cls}" data-field="{e(j["field"])}" data-text="{e((title + " " + j["title_de"] + " " + where).lower())}">'
+        f'<li class="job" data-who="{cls}" data-field="{e(j["field"])}" data-bc="{bc or ""}" data-oc="{int(oc)}" data-text="{e((title + " " + j["title_de"] + " " + where).lower())}">'
         f'<div class="job-head"><h3>{e(title)}</h3><span class="who who-{cls}">{label}</span></div>{sub}'
         f'<p class="where">{e(where)}<span class="dot">·</span><time datetime="{e(j["published"] or "")}">{e(j["published"] or "")}</time></p>'
-        f'<p class="sum">{e(summary(j))}</p>{quote_html}'
+        f'<p class="sum">{e(summary(j))}</p>{tags}{quote_html}'
         f'<a class="orig" href="{e(j["url"])}" target="_blank" rel="noopener">Original listing on arbeitsagentur.de</a></li>'
     )
 
@@ -255,6 +285,9 @@ def render(jobs: list[dict], today: str) -> str:
     out = out.replace("<!--FIELDS-->", "".join(f'<option value="{html.escape(f)}">{html.escape(f)}</option>' for f in fields))
     for k, v in counts.items():
         out = out.replace(f"__N_{k.upper()}__", str(v))
+    out = out.replace("__N_BC__", str(sum(blue_card(j) in ("yes", "shortage") for j in jobs)))
+    out = out.replace("__N_OC__", str(sum(opportunity_card(j) for j in jobs)))
+    out = out.replace("__BC__", f"€{BLUE_CARD:,}").replace("__BC_SHORT__", f"€{BLUE_CARD_SHORTAGE:,.2f}")
     return out.replace("__N_ALL__", str(len(jobs))).replace("__UPDATED__", today)
 
 

@@ -80,7 +80,7 @@ class Rendering(unittest.TestCase):
         "region": None, "published": "2026-10-26", "full_time": True, "permanent": True, "home_office": False,
         "salary_min": 41600, "salary_max": 52000, "salary_hourly": True, "who": "abroad",
         "who_de": "Bewerbungen aus dem Ausland willkommen.", "who_en": "Applications from abroad welcome.",
-        "german": "B2", "german_de": None,
+        "german": "B2", "german_de": None, "part_time": False,
     }
 
     def test_summary(self):
@@ -88,6 +88,19 @@ class Rendering(unittest.TestCase):
 
     def test_part_time_hourly_stays_hourly(self):
         self.assertIn("€20.00 to €25.00 an hour", b.summary({**self.job, "full_time": False}))
+
+    def test_blue_card(self):
+        full = {**self.job, "salary_hourly": False}
+        self.assertEqual(b.blue_card({**full, "salary_min": 50700}), "yes")
+        self.assertEqual(b.blue_card({**full, "salary_min": 46000, "field": "IT"}), "shortage")
+        self.assertEqual(b.blue_card({**full, "salary_min": 46000, "field": "Skilled trades"}), "below")
+        self.assertEqual(b.blue_card({**full, "salary_min": None}), None)
+        self.assertEqual(b.blue_card({**self.job, "full_time": False}), None)  # part-time hourly: no yearly figure
+
+    def test_opportunity_card(self):
+        self.assertTrue(b.opportunity_card({**self.job, "part_time": True}))
+        self.assertFalse(b.opportunity_card({**self.job, "part_time": True, "who": "eu"}))
+        self.assertFalse(b.opportunity_card(self.job))
 
     def test_card_escapes_and_links_original(self):
         html = b.card(self.job)
@@ -99,7 +112,7 @@ class Rendering(unittest.TestCase):
 
     def test_render_fills_every_placeholder(self):
         out = b.render([self.job], "2026-10-27")
-        self.assertNotIn("__", out.replace("__qa", ""))
+        self.assertNotRegex(out, r"__[A-Z_]+__")
         self.assertNotIn("<!--JOBS-->", out)
         self.assertIn('<option value="Nursing">Nursing</option>', out)
 

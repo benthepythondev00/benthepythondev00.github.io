@@ -18,8 +18,8 @@
     @font-face { font-family: "Public Sans"; src: url(fonts/public-sans-latin-wght-normal.woff2) format("woff2"); font-weight: 100 900; font-display: swap; }
     @font-face { font-family: "Source Serif 4"; src: url(fonts/source-serif-4-latin-opsz-normal.woff2) format("woff2"); font-weight: 200 900; font-display: swap; }
     :root {
-      --paper: #f5f3ec; --sheet: #fbfaf6; --ink: #1b1e23; --muted: #555b64; --line: #d8d3c6; --rule: #b9b2a2;
-      --go: #1d6a47; --go-bg: #e3efe6; --eu: #7a5200; --eu-bg: #f4ead2; --no: #962f2f; --no-bg: #f5e2df; --na: #555b64; --na-bg: #e9e6dd;
+      --paper: #eef1f3; --sheet: #ffffff; --ink: #1b1e23; --muted: #4f5761; --line: #d3d9de; --rule: #a9b2ba;
+      --go: #1d6a47; --go-bg: #e3efe6; --eu: #7a5200; --eu-bg: #f4ead2; --no: #962f2f; --no-bg: #f5e2df; --na: #555b64; --na-bg: #e1e6ea;
       --focus: #1f4f9c;
     }
     * { box-sizing: border-box; }
@@ -42,7 +42,8 @@
     label.f { display: grid; gap: 4px; font-size: .8125rem; font-weight: 600; color: var(--muted); }
     select, input[type=search] { font: inherit; font-size: .95rem; color: var(--ink); background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 9px 10px; width: 100%; min-height: 42px; }
     input[type=search]::placeholder { color: #6b707a; }
-    .check { grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; font-size: .95rem; }
+    .checks { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 26px; }
+    .check { display: flex; gap: 10px; align-items: center; font-size: .95rem; }
     .check input { width: 18px; height: 18px; accent-color: var(--go); margin: 0; }
     .count { margin: 22px 0 6px; font-size: .95rem; color: var(--muted); }
     ol.jobs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
@@ -59,6 +60,11 @@
     .who-eu { color: var(--eu); background: var(--eu-bg); }
     .who-permit { color: var(--no); background: var(--no-bg); }
     .who-unknown { color: var(--na); background: var(--na-bg); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 10px 0 0; }
+    .tag { font-size: .8125rem; font-weight: 600; padding: 2px 8px; border: 1px solid var(--rule); border-radius: 4px; color: var(--ink); background: var(--sheet); }
+    .tag-bc { border-color: #8fb3a0; color: var(--go); }
+    .tag-oc { border-color: #9fb4d6; color: var(--focus); }
+    .tag-low { color: var(--muted); }
     blockquote { margin: 12px 0 0; padding: 0 0 0 14px; border-left: 1px solid var(--rule); font: italic 400 1rem/1.5 "Source Serif 4", Georgia, serif; max-width: 72ch; overflow-wrap: anywhere; }
     .q-en { display: block; padding-left: 15px; margin-top: 2px; color: var(--muted); font-size: .9rem; max-width: 72ch; }
     .orig { display: inline-block; margin-top: 12px; font-size: .9rem; font-weight: 600; }
@@ -99,7 +105,7 @@
     <h1>Jobs in Germany for skilled workers from abroad</h1>
     <p class="lede">Most German job ads never get an English version, so English-only job boards miss them. This page takes fresh nursing, trade, engineering and IT ads from the Federal Employment Agency, gives each one an English title and summary, and shows what the employer says about who can apply.</p>
     <p class="meta">Updated __UPDATED__ · ads published in the last 14 days · rebuilt every day</p>
-    <p class="tally"><span><b>__N_ALL__</b> jobs</span><span><b>__N_ABROAD__</b> welcome applicants from abroad</span><span><b>__N_EU__</b> EU/EEA residents only</span><span><b>__N_PERMIT__</b> ask for an existing permit</span></p>
+    <p class="tally"><span><b>__N_ALL__</b> jobs</span><span><b>__N_ABROAD__</b> welcome applicants from abroad</span><span><b>__N_EU__</b> EU/EEA residents only</span><span><b>__N_PERMIT__</b> ask for an existing permit</span><span><b>__N_BC__</b> pay enough for a Blue Card</span><span><b>__N_OC__</b> Opportunity Card friendly</span></p>
   </header>
 
   <form class="filters" role="search" aria-label="Filter jobs" onsubmit="return false">
@@ -116,7 +122,11 @@
       <label class="f">Search title, employer or city
         <input id="q" type="search" placeholder="e.g. nurse, Munich" autocomplete="off" />
       </label>
-      <label class="check"><input id="welcome" type="checkbox" /> Only ads that say applicants from abroad are welcome</label>
+      <div class="checks">
+        <label class="check"><input id="welcome" type="checkbox" /> Only ads that say applicants from abroad are welcome</label>
+        <label class="check"><input id="bc" type="checkbox" /> Salary clears the Blue Card threshold</label>
+        <label class="check"><input id="oc" type="checkbox" /> Opportunity Card friendly (part-time)</label>
+      </div>
     </div>
   </form>
 
@@ -141,8 +151,12 @@
         <dt><span class="who who-unknown">Ad doesn't say who can apply</span></dt>
         <dd>Most ads say nothing either way. That isn't a no: many of these employers hire from abroad when the qualification fits.</dd>
       </dl>
+      <h3>The Blue Card check</h3>
+      <p>An EU Blue Card needs a job offer paying at least __BC__ gross a year in 2026, or __BC_SHORT__ in shortage occupations such as IT, engineering, medicine and nursing with a degree (<a href="https://digital.diplo.de/Blaue-Karte" target="_blank" rel="noopener">Federal Foreign Office</a>). We compare the lowest salary in the ad's own salary field with that line. Full-time hourly pay counts at 40 hours a week. A Blue Card also needs a university degree or, in IT, three years of experience, so most trade jobs go through the skilled-worker visa instead, which has no fixed salary line under age 45.</p>
+      <h3>The Opportunity Card tag</h3>
+      <p>On an Opportunity Card (Chancenkarte) you can look for work in Germany for up to a year and work up to 20 hours a week while you search, plus trial work of up to two weeks (<a href="https://www.gesetze-im-internet.de/aufenthg_2004/__20a.html" target="_blank" rel="noopener">§ 20a AufenthG</a>). We tag ads that offer part-time hours and don't exclude applicants from outside the EU.</p>
       <h3>What the summary is</h3>
-      <p>The English title is a machine translation. The summary line is built from the ad's own data fields (hours, contract, salary, German level), so it can't misquote the ad. Salaries given per hour are shown per year at 40 hours a week. The full German ad, and the way to apply, are on arbeitsagentur.de behind each "Original listing" link.</p>
+      <p>The English title is a machine translation. The summary line is built from the ad's own data fields (hours, contract, salary, German level), so it can't misquote the ad. Full-time hourly pay is shown per year at 40 hours a week; part-time pay stays per hour. The full German ad, and the way to apply, are on arbeitsagentur.de behind each "Original listing" link.</p>
       <h3>Why German ads matter</h3>
       <p>Indeed's research found that only <a href="https://hiringlab.indeed.com/de/blog/2024/10/22/indeed-sprachanforderungen-deutsch/" target="_blank" rel="noopener">2.7% of job ads in Germany</a> say German isn't required, and most of those are low-wage jobs. Skilled jobs that ask for some German are where the real demand is, and many employers pay for language courses.</p>
     </section>
@@ -158,10 +172,12 @@
     const jobs = [...document.querySelectorAll(".job")];
     let shown = PAGE;
     function apply() {
-      const home = $("home").value, field = $("field").value, q = $("q").value.trim().toLowerCase(), welcome = $("welcome").checked;
+      const home = $("home").value, field = $("field").value, q = $("q").value.trim().toLowerCase(), welcome = $("welcome").checked, bc = $("bc").checked, oc = $("oc").checked;
       const hits = jobs.filter((j) => {
         const who = j.dataset.who;
         if (welcome && who !== "abroad") return false;
+        if (bc && j.dataset.bc !== "yes" && j.dataset.bc !== "shortage") return false;
+        if (oc && j.dataset.oc !== "1") return false;
         if (home === "outside" && (who === "eu" || who === "permit")) return false;
         if (field && j.dataset.field !== field) return false;
         return !q || j.dataset.text.includes(q);
@@ -172,7 +188,7 @@
       $("empty").hidden = hits.length > 0;
       $("more").hidden = hits.length <= shown;
     }
-    for (const id of ["home", "field", "welcome"]) $(id).addEventListener("change", () => { shown = PAGE; apply(); });
+    for (const id of ["home", "field", "welcome", "bc", "oc"]) $(id).addEventListener("change", () => { shown = PAGE; apply(); });
     $("q").addEventListener("input", () => { shown = PAGE; apply(); });
     $("more").addEventListener("click", () => { shown += PAGE; apply(); });
     apply();

@@ -59,6 +59,21 @@ test('only-welcome checkbox keeps ads whose employer sentence invites applicants
   await snap(page, 'welcome', 1)
 })
 
+test('Blue Card and Opportunity Card filters keep only matching ads', async ({ page }) => {
+  await page.getByLabel('Salary clears the Blue Card threshold').check()
+  const bc = await page.locator('.job:visible').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.bc))
+  expect(bc.length).toBeGreaterThan(0)
+  expect(bc.every((v) => v === 'yes' || v === 'shortage')).toBe(true)
+  await expect(page.locator('.job:visible .tag-bc').first()).toBeVisible()
+  await snap(page, 'visa', 1)
+  await page.getByLabel('Salary clears the Blue Card threshold').uncheck()
+  await page.getByLabel('Opportunity Card friendly (part-time)').check()
+  const oc = await page.locator('.job:visible').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.oc))
+  expect(oc.length).toBeGreaterThan(0)
+  expect(new Set(oc)).toEqual(new Set(['1']))
+  await snap(page, 'visa', 2)
+})
+
 test('field filter, search and the empty state', async ({ page }) => {
   await page.selectOption('#field', 'Nursing')
   const fields = await page.locator('.job:visible').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.field))
