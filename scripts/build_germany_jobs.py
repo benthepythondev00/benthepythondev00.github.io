@@ -123,11 +123,12 @@ def annual_salary(job: dict) -> tuple[float | None, float | None]:
 
 class Translator:
     def __init__(self, client: httpx.Client, cache: dict):
-        self.client, self.cache, self.failed = client, cache, False
+        self.client, self.cache, self.failed, self.used = client, cache, False, set()
 
     def __call__(self, text: str | None) -> str | None:
         if not text:
             return None
+        self.used.add(text)
         if text in self.cache:
             return self.cache[text]
         if self.failed:  # quota or outage: keep the German, retry tomorrow
@@ -315,7 +316,7 @@ def main() -> int:
     jobs.sort(key=lambda j: rank[j["who"]])
     today = date.today().isoformat()
     DATA.write_text(json.dumps({"updated": today, "jobs": jobs}, ensure_ascii=False, indent=1))
-    CACHE.write_text(json.dumps(cache, ensure_ascii=False, indent=0, sort_keys=True))
+    CACHE.write_text(json.dumps({k: cache[k] for k in tr.used if k in cache}, ensure_ascii=False, indent=0, sort_keys=True))
     (PAGE_DIR / "index.html").write_text(render(jobs, today))
     print(f"{len(jobs)} jobs, {sum(j['who'] == 'abroad' for j in jobs)} welcome applicants from abroad, translator failed: {tr.failed}")
     return 0
