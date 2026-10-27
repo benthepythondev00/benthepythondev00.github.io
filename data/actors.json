@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T02:03:22Z",
+  "generatedAt": "2026-10-27T07:48:45Z",
   "count": 985,
   "chips": [
     "All",
@@ -53,7 +53,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 38,
-      "successRate30d": 98.13,
+      "successRate30d": 98.07,
       "storeUrl": "https://apify.com/benthepythondev/reddit-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Reddit RSS ends Nov 13, 2026: a scheduled run with onlyNew and a watchName returns only the new posts of each subredd\u2026",
       "iconUrl": "https://images.apifyusercontent.com/fZi3C7sTHRZ9hpvzBc8GRkp358jQJLJ7PGJu2d_X9_g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbHFPY20yQmdzZzRMR05BVGQtT01kNjNVMmJOVS1yZWRkaXQtc2NyYXBlci5wbmc.webp"
@@ -97,7 +97,7 @@
         "BUSINESS"
       ],
       "chip": "Other",
-      "users30d": 26,
+      "users30d": 25,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/favicon-extractor?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns every icon a website declares, one row per site: favicon, apple-touch-icon and mask-icon URLs with their size\u2026",
@@ -11534,6 +11534,21 @@
       "iconUrl": "https://images.apifyusercontent.com/jVXuI9FS9Mq590Kd0AgEXMoyMTPbifTZ31zaxyKNG10/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itc29LZzFnS0VsaWNla2lZdVgtQkRXYnNhSmUzNy1DaGF0R1BUX0ltYWdlX05vdl8xOF9fMjAyNV9hdF8xMl80M18zNl9QTS5wbmc.webp"
     },
     {
+      "name": "2gis-places-scraper",
+      "title": "2GIS Places Scraper - Businesses by City and Keyword, No Login",
+      "categories": [
+        "LEAD_GENERATION",
+        "BUSINESS",
+        "AUTOMATION"
+      ],
+      "chip": "Lead gen",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/2gis-places-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns 2GIS businesses by city and keyword or search link: name, category, address, district, coordinates, rating, r\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/nm47EqM1emFyD73N1HQbxicA_j-AkNyoERLXbgLC1Zc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTEh6cGQxUm00U0llbkY2cmItYk5IMVBLc21sMC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2Q5djBhNWQ5djBhNWQ5djAuanBn.webp"
+    },
+    {
       "name": "crossref-papers-scraper",
       "title": "Academic Papers Scraper - Citations & Metadata",
       "categories": [
@@ -13838,7 +13853,7 @@
       ],
       "chip": "E\u2011commerce",
       "users30d": 0,
-      "successRate30d": 88.46,
+      "successRate30d": 88.89,
       "storeUrl": "https://apify.com/benthepythondev/walmart-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Walmart products by search term, category or link: name, brand, price, was price, rating, review count, availa\u2026",
       "iconUrl": "https://images.apifyusercontent.com/wRQKRM_bQ7CsB0ek2qJxzBIP6GMiQ1geQlwrYyvDV4w/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWUZyRmQyNDVCNGdNeU5OTU4tU29wZGZXRE5oMS1vbHgtc2NyYXBlci5wbmc.webp"
@@ -14727,21 +14742,6 @@
       "storeUrl": "https://apify.com/benthepythondev/open-food-facts-product-intelligence?utm_source=catalog&utm_medium=site",
       "oneLiner": "Extract food product data with AI-powered health scoring. Access nutrition facts, ingredients, allergens, and environ\u2026",
       "iconUrl": "https://images.apifyusercontent.com/V2ZMJ1sdAPRBDuzpoOa1yeuRxuioRqp7nd8IDfQFqyw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itc2FPeThCY1ZqSm5LRkpqTTEtTXd6Y1dEMVF5Qy1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2hodXhkNmhodXhkNmhodXgucG5n.webp"
-    },
-    {
-      "name": "vscode-extensions-scraper",
-      "title": "\ud83e\udde9 VS Code Extensions Scraper - Installs & Ratings",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "OTHER",
-        "BUSINESS"
-      ],
-      "chip": "Other",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/vscode-extensions-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract VS Code extensions with install counts, ratings, publisher info, and trending data. Search by keyword, browse\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/nm47EqM1emFyD73N1HQbxicA_j-AkNyoERLXbgLC1Zc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTEh6cGQxUm00U0llbkY2cmItYk5IMVBLc21sMC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2Q5djBhNWQ5djBhNWQ5djAuanBn.webp"
     },
     {
       "name": "pubmed-scraper",
