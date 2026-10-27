@@ -10,6 +10,7 @@ Auto-synced searchable catalog of public [Apify](https://apify.com/benthepythond
 - Zumper rental data tutorial: `how-to-get-zumper-rental-listing-data.html`
 - Austin rental-monitoring case study: `austin-rental-monitoring.html`
 - Sanitized case-study sample: `data/austin-rental-monitor-sample-2026-08-20.json`
+- Germany jobs for foreign skilled workers: `jobs-in-germany/` (built daily by `scripts/build_germany_jobs.py` from `jobs-in-germany/template.html`; tests: `python -m unittest discover -s tests`, `npx playwright test`)
 - `sitemap.xml` + `robots.txt`
 - CI: hourly GitHub Action + manual dispatch
 
