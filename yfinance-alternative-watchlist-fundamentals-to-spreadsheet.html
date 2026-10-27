@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>yfinance alternative: a watchlist's quotes, P/E and financials in CSV or Google Sheets</title>
+  <meta name="description" content="Pull quote, valuation ratios and financials for a list of tickers into CSV or Google Sheets on a schedule, without installing or patching yfinance. Real input, real output, Python code." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/yfinance-alternative-watchlist-fundamentals-to-spreadsheet.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/yfinance-alternative-watchlist-fundamentals-to-spreadsheet.html" />
+  <meta property="og:title" content="yfinance alternative: a watchlist's quotes, P/E and financials in a spreadsheet" />
+  <meta property="og:description" content="A list of tickers in; one row per ticker with price, P/E, margins and analyst targets out, as CSV or a Google Sheet, refreshed on a schedule." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "yfinance alternative: a watchlist's quotes, P/E and financials in CSV or Google Sheets",
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-10-27",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/yfinance-alternative-watchlist-fundamentals-to-spreadsheet.html",
+    "description": "Pull quote, valuation ratios and financials for a list of tickers into CSV or Google Sheets on a schedule, with a real input, a real output row and a Python snippet."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/yahoo-finance-scraper">Actor</a></p>
+    <h1>yfinance alternative: a watchlist's quotes, P/E and financials in a spreadsheet</h1>
+    <p class="note">27 Oct 2026 · benthepythondev · Last checked 27 Oct 2026 with live runs</p>
+
+    <p>To get quotes, valuation ratios and financials for a list of tickers into CSV or Google Sheets on a schedule, run the <a href="https://apify.com/benthepythondev/yahoo-finance-scraper">Yahoo Finance Scraper</a> on Apify with your symbols. Save that input as a Task, schedule the Task, and read its last run as CSV from Python or with <code>IMPORTDATA</code> in Sheets.</p>
+
+    <h2>Why not just run yfinance?</h2>
+    <p>You can, and for a few tickers on your laptop it is the simplest option. The trouble starts when the script has to run unattended. The yfinance issue tracker has a long thread of people hitting <code>YFRateLimitError('Too Many Requests')</code>; one wrote <a href="https://github.com/ranaroussi/yfinance/issues/2411">"I keep getting the following error even from different IPs"</a>. Then the cron job fails quietly and the sheet goes stale.</p>
+    <p>To be clear about what this is: the Actor uses the yfinance library itself, inside its own container on Apify. What changes is where it runs and who keeps it working. You don't install, pin or patch anything, the requests don't leave from your machine, and you get one JSON record per ticker that exports straight to CSV.</p>
+
+    <h2>The input</h2>
+    <p>Tickers go in one string, comma-separated or one per line. <code>dataTypes</code> picks the blocks per ticker. For a fundamentals watchlist, <code>quote</code> and <code>info</code> are enough:</p>
+    <pre><code>{
+  "tickers": "MSFT, KO, NVDA, JNJ, XOM",
+  "dataTypes": ["quote", "info"]
+}</code></pre>
+    <p>Add <code>"financials"</code> for income statement, balance sheet and cash flow, <code>"history"</code> with <code>historyPeriod</code> and <code>historyInterval</code> for candles, or <code>"holders"</code>, <code>"recommendations"</code>, <code>"earnings"</code>, <code>"dividends"</code>, <code>"splits"</code> and <code>"news"</code>. The price per ticker is the same whichever blocks you pick.</p>
+
+    <h2>A real output row</h2>
+    <p>This is the MSFT record from a run on 27 Oct 2026, with the long <code>description</code> and the address fields cut:</p>
+    <pre><code>{
+  "symbol": "MSFT",
+  "scraped_at": "2026-10-27T21:18:21.736299",
+  "quote": {
+    "price": 531.3300170898438,
+    "previous_close": 532.4412,
+    "day_high": 534.7000122070312,
+    "day_low": 528.3309936523438,
+    "volume": 19419705,
+    "market_cap": 3945415212634.4424,
+    "fifty_day_average": 509.1716009521484,
+    "two_hundred_day_average": 436.78714935302736,
+    "year_high": 553.719970703125,
+    "year_low": 349.20001220703125
+  },
+  "info": {
+    "name": "Microsoft Corporation",
+    "exchange": "NMS",
+    "currency": "USD",
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "employees": 223000,
+    "enterprise_value": 4006815465472,
+    "pe_ratio": 29.600557,
+    "forward_pe": 22.428717,
+    "peg_ratio": 1.73,
+    "price_to_book": 8.920172,
+    "price_to_sales": 11.889546,
+    "dividend_yield": 0.74,
+    "dividend_rate": 3.92,
+    "beta": 1.099,
+    "eps": 17.95,
+    "forward_eps": 23.68972,
+    "revenue": 331839012864,
+    "ebitda": 194237005824,
+    "net_income": 133748998144,
+    "profit_margin": 0.40305,
+    "operating_margin": 0.45111,
+    "return_on_equity": 0.34039003,
+    "debt_to_equity": 29.118,
+    "current_ratio": 1.23,
+    "free_cash_flow": 16545500160,
+    "target_mean_price": 605.1243,
+    "target_high_price": 870,
+    "target_low_price": 440,
+    "recommendation": "strong_buy",
+    "analyst_count": 53
+  }
+}</code></pre>
+    <p>Note the units: <code>dividend_yield</code> came back as a percent (0.74 means 0.74%), while <code>profit_margin</code> and <code>return_on_equity</code> are fractions (0.40305 means 40.3%). These are the values Yahoo returns. Label your columns so nobody reads them as the same unit.</p>
+
+    <h2>Into a CSV with Python</h2>
+    <p>Install the client with <code>pip install apify-client</code> (tested with version 3.4.0) and set <code>APIFY_TOKEN</code> to the token from Apify Console → Settings → API &amp; Integrations. The script runs the Actor, waits for it and writes one row per ticker with the columns you name:</p>
+    <pre><code>import csv
+import os
+
+from apify_client import ApifyClient
+
+WATCHLIST = "MSFT, KO, NVDA, JNJ, XOM"
+COLUMNS = ["price", "market_cap", "pe_ratio", "forward_pe", "price_to_book",
+           "dividend_yield", "profit_margin", "debt_to_equity", "target_mean_price"]
+
+client = ApifyClient(os.environ["APIFY_TOKEN"])
+run = client.actor("benthepythondev/yahoo-finance-scraper").call(
+    run_input={"tickers": WATCHLIST, "dataTypes": ["quote", "info"]},
+    logger=None,
+)
+items = client.dataset(run.default_dataset_id).list_items().items
+
+with open("watchlist.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["symbol", "name"] + COLUMNS)
+    for item in items:
+        values = {**item.get("info", {}), **item.get("quote", {})}
+        writer.writerow([item["symbol"], values.get("name")] + [values.get(c) for c in COLUMNS])</code></pre>
+    <p>The Actor run itself took about six seconds. This is the file the script wrote, unedited:</p>
+    <pre><code>symbol,name,price,market_cap,pe_ratio,forward_pe,price_to_book,dividend_yield,profit_margin,debt_to_equity,target_mean_price
+MSFT,Microsoft Corporation,531.3300170898438,3945415212634.4424,29.600557,22.428717,8.920172,0.74,0.40305,29.118,605.1243
+KO,The Coca-Cola Company,91.18000030517578,392306441289.7738,27.381382,25.872097,10.85347,2.29,0.28558,115.519,95.625
+NVDA,NVIDIA Corporation,217.94000244140625,5262597238952.637,27.552465,13.694344,22.98218,0.46,0.63663,16.971,328.95346
+JNJ,Johnson &amp; Johnson,268.7300109863281,646916514229.6804,40.778454,23.130926,7.9341607,2.01,0.16203,54.767,279.4091
+XOM,ExxonMobil Holdings Corporation,179.91000366210938,739774095781.8713,23.15444,14.735453,2.8520925,2.23,0.09072,15.921,179.40909</code></pre>
+    <p>With apify-client 2.x the run is a dict, so write <code>run["defaultDatasetId"]</code> instead of <code>run.default_dataset_id</code>.</p>
+
+    <h2>On a schedule, into Google Sheets</h2>
+    <ol>
+      <li>Open the <a href="https://apify.com/benthepythondev/yahoo-finance-scraper">Actor</a>, enter your tickers and data types, and save the input as a new Task named, for example, <code>my-watchlist</code> (<a href="https://docs.apify.com/platform/actors/running/tasks">Apify docs on Tasks</a>).</li>
+      <li>In Apify Console go to <strong>Schedules</strong>, create a schedule with a cron expression such as <code>30 21 * * 1-5</code> (weekdays at 21:30 UTC, after the US close) and add your Task to it (<a href="https://docs.apify.com/platform/schedules">Apify docs on schedules</a>).</li>
+      <li>In Google Sheets, put this in cell A1, with your username, Task name and token filled in:
+        <pre><code>=IMPORTDATA("https://api.apify.com/v2/actor-tasks/YOUR_USERNAME~my-watchlist/runs/last/dataset/items?status=SUCCEEDED&amp;format=csv&amp;fields=symbol,quote,info&amp;omit=info.description&amp;token=YOUR_TOKEN")</code></pre>
+      </li>
+    </ol>
+    <p>That URL always points at the Task's latest successful run, so the sheet follows the schedule without extra code. Nested blocks are flattened into columns named <code>quote/price</code>, <code>info/pe_ratio</code> and so on, and <code>omit=info.description</code> blanks out the long company description. Google refreshes <a href="https://support.google.com/docs/answer/3093335"><code>IMPORTDATA</code></a> on its own timing, not the moment a run ends.</p>
+    <p>Anyone who can open the sheet can read the token in that formula, so use a token you can revoke and keep the sheet private. If that is a problem, run the Python script on a schedule and upload the CSV instead.</p>
+
+    <h2>What it costs</h2>
+    <p>You pay one record charge per ticker plus one Actor Start charge per run. On the Free plan a record is $0.005. From 4 Nov 2026 the start charge is $0.00005 for a default run, so the five-ticker watchlist above costs about $0.025 per run. Until then the start charge on the Free plan is $0.02. Higher Apify plans pay less per record, and the <a href="https://apify.com/benthepythondev/yahoo-finance-scraper">Store page</a> always shows the price in force.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/yahoo-finance-scraper">Open the actor</a>
+      <a class="btn btn-ghost" href="https://apify.com/benthepythondev/yahoo-finance-scraper/examples/compare-megacap-tech-stocks">See a megacap example</a>
+    </p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Check your symbols.</strong> An unknown or delisted symbol still comes back as a row, with an empty <code>quote</code> block and every <code>info</code> field set to null, and today that row is charged like the others. The test symbol <code>ZZZZQX</code> did exactly that on 27 Oct 2026.</li>
+      <li><strong>The data is Yahoo's.</strong> Fields are what Yahoo returns at run time. Some can be missing for a given company (a fund has no P/E, a stock without a dividend has no yield), so handle nulls.</li>
+      <li><strong>It is still yfinance underneath.</strong> When Yahoo changes something that breaks the library, the fix lands as a new build of the Actor, not as an upgrade you make. Runs can still fail until that build ships.</li>
+      <li><strong>Big lists run longer.</strong> Tickers are read one after another, so hundreds of tickers with <code>financials</code> or long <code>history</code> need more than the default 600-second run timeout.</li>
+      <li><strong>Terms.</strong> Yahoo's <a href="https://legal.yahoo.com/us/en/yahoo/terms/otos/index.html">terms of service</a> govern how the data may be used. Read them for your use case; this page makes no claim beyond that.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
