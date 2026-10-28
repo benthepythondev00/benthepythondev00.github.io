@@ -111,7 +111,8 @@ class Render(unittest.TestCase):
              "employer": "Foo A/S", "cvr": "12345678", "board": "lever", "pay": None}
         page = b.render([j], 982, 120, "2026-10-28")
         self.assertNotIn("__", page.replace("__init__", ""))
-        self.assertIn("Salary not posted", page)
+        self.assertNotIn("Salary not posted", page)  # no salary: no repeated filler line
+        self.assertIn("<p class=\"sum\">Fast-Track certified employer (CVR 12345678).</p>", page)
         self.assertIn("120</b> of 982", page)
 
 
