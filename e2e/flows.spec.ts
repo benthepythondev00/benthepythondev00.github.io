@@ -96,3 +96,59 @@ test('show more reveals the next page of jobs', async ({ page }) => {
 test.afterEach(async () => {
   expect(errors, 'console or page errors').toEqual([])
 })
+
+// Custom Apify actor page: coverage check, live quote and the prefilled email.
+test.describe('custom actor page', () => {
+  const CA = '/custom-apify-actor.html'
+  const sendHref = async (page: Page) => decodeURIComponent((await page.locator('#send').getAttribute('href'))!)
+
+  test('first visit shows the three fixed prices and the starter quote', async ({ page }) => {
+    await page.goto(CA)
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('A custom Apify actor for one website, delivered in 1 to 3 days.')
+    await expect(page.locator('#actorCount')).toHaveText(/^\d[\d,]* public$/)
+    for (const p of ['$150, delivered in 1 day', '$300, delivered in 2 days', '$600, delivered in 3 days']) await expect(page.getByText(p, { exact: true })).toBeVisible()
+    await expect(page.locator('#tierPrice')).toHaveText('$150')
+    await snap(page, 'custom-actor-first-visit', 1)
+  })
+
+  test('a covered site lists our actors and puts the closest one in the email', async ({ page }) => {
+    await page.goto(CA)
+    await expect(page.locator('#actorCount')).toHaveText(/public$/)
+    await page.getByLabel('Website or URL you need data from').fill('https://www.yelp.com/biz/some-cafe')
+    await expect(page.locator('#verdict')).toHaveText(/^Covered/)
+    await expect(page.locator('#matches li').first()).toContainText('yelp')
+    expect(await sendHref(page)).toContain('Closest existing actor: yelp-')
+    await snap(page, 'custom-actor-covered', 1)
+    await page.getByLabel('Website or URL you need data from').fill('zzqx-nosuchsite.com')
+    await expect(page.locator('#verdict')).toHaveText('No public actor of ours reads that site yet, so this is a new build.')
+    await expect(page.locator('#matches li')).toHaveCount(0)
+    await snap(page, 'custom-actor-covered', 2)
+  })
+
+  test('pages, schedule, monitor and the Store option move the quote and the email code', async ({ page }) => {
+    await page.goto(CA)
+    await page.getByLabel('Pages per run (listings, profiles or result pages)').fill('3000')
+    await expect(page.locator('#tierPrice')).toHaveText('$300')
+    expect(await sendHref(page)).toContain('[WEB-ACTOR-STANDARD]')
+    await page.getByLabel(/Add the 30-day break monitor/).check()
+    await expect(page.locator('#tierPrice')).toHaveText('$600')
+    await page.getByLabel(/A generic version may be published/).check()
+    await expect(page.locator('#tierPrice')).toHaveText('$550')
+    const href = await sendHref(page)
+    expect(href).toContain('[WEB-ACTOR-PRODUCTION]')
+    expect(href).toContain('Package: Production ($550)')
+    await snap(page, 'custom-actor-quote', 1)
+    await page.getByLabel('Pages per run (listings, profiles or result pages)').fill('90000')
+    await expect(page.locator('#tierPrice')).toHaveText('Custom quote')
+    expect(await sendHref(page)).toContain('[WEB-ACTOR-QUOTE]')
+    await snap(page, 'custom-actor-quote', 2)
+  })
+
+  test('the FAQ opens and links to the managed feeds', async ({ page }) => {
+    await page.goto(CA)
+    await page.getByText('What happens when the site changes its layout?').click()
+    await expect(page.getByText(/daily check run that emails you/).last()).toBeVisible()
+    await expect(page.locator('details[open] a[href="./custom.html"]')).toBeVisible()
+    await snap(page, 'custom-actor-faq', 1)
+  })
+})
