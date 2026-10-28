@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T23:45:52Z",
+  "generatedAt": "2026-10-28T05:37:58Z",
   "count": 985,
   "chips": [
     "All",
@@ -1137,6 +1137,21 @@
       "storeUrl": "https://apify.com/benthepythondev/tiktok-keyword-suggestions-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect ranked TikTok autocomplete suggestions from seed keywords with bounded alphabet, number and recursive expansi\u2026",
       "iconUrl": "https://images.apifyusercontent.com/wuW3Khit7tXoVY2Vq6WRFYkvYv6IxOuYAhUBTbiJcZA/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQ3hCQU5ZbTFleTFtVTd1Q1MtWWdGbzFRMjRCRC10aWt0b2sta2V5d29yZC1zdWdnZXN0aW9ucy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "tiktok-scraper",
+      "title": "TikTok Scraper - Profiles, Videos, Comments, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "VIDEOS",
+        "MARKETING"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 2,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/tiktok-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns TikTok videos from profiles and video links in one run: caption, date, views, likes, comments, shares, saves,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/gdKX0q-Tr-PBa2M2r5uTqOruBp6_Fm978cvT-8XGeSI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRUhnOUtFQ1ZGZnY0ZEZ0ZXItOFdyQWxiSWJTRi10aWt0b2stc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "tiktok-trending-videos-scraper",
@@ -4287,6 +4302,21 @@
       "storeUrl": "https://apify.com/benthepythondev/facebook-pages-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns one record per public Facebook Page: name, category, description, follower count as shown, address, verified\u2026",
       "iconUrl": "https://images.apifyusercontent.com/YYS_woRjuLcywVKspofQszcml-exif0d1_qgx2xyzwI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRnNQalVSV0FXUG80VEkxVTEtZWJzT3pib1VxVC1mYWNlYm9vay1wYWdlcy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "facebook-posts-scraper",
+      "title": "Facebook Posts Scraper - Page & Profile Posts, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "AUTOMATION"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/facebook-posts-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns the posts of public Facebook pages and profiles: text, date, reactions by type, comments, shares, video views\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/XStHJtPBpjDFzQmWRxtqbQYqRAqSy8JaGjNq4BncD-0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3RTMnRhSzFkcnNGdVFEaFQta01oSHFTVWprVy1mYWNlYm9vay1wb3N0cy1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "fantasy-premier-league-scraper",
@@ -10109,21 +10139,6 @@
       "iconUrl": "https://images.apifyusercontent.com/-e_nDMqqESbGWcG7u2pTlqwjDWQkLpe0zAjtBLeArk0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItelpCOGNiUmtKOEhCaWE3TVQtM3VkZWRtOG5MUC1pc3Mtbm93LXBvc2l0aW9uLXNjcmFwZXIucG5n.webp"
     },
     {
-      "name": "tiktok-scraper",
-      "title": "TikTok Scraper - Profiles, Videos, Comments, No Login",
-      "categories": [
-        "SOCIAL_MEDIA",
-        "VIDEOS",
-        "MARKETING"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/tiktok-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Returns TikTok videos from profiles and video links in one run: caption, date, views, likes, comments, shares, saves,\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/gdKX0q-Tr-PBa2M2r5uTqOruBp6_Fm978cvT-8XGeSI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRUhnOUtFQ1ZGZnY0ZEZ0ZXItOFdyQWxiSWJTRi10aWt0b2stc2NyYXBlci5wbmc.webp"
-    },
-    {
       "name": "tiktok-shop-scraper",
       "title": "TikTok Shop Scraper - Product Data, Stock & Sellers, No Login",
       "categories": [
@@ -10568,7 +10583,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 1,
-      "successRate30d": 91.67,
+      "successRate30d": 92.0,
       "storeUrl": "https://apify.com/benthepythondev/upwork-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Upwork job scraper for keywords or search URLs: title, full description, hourly rate or fixed budget, skills, experie\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Sv5FdDiIQOuAlUvT_pgmY2sZg0Rnr8gCR9mESWowtU4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGE2TXRhMklXcEg4cHdNRWktS1ZsUmpxNFhOTi11cHdvcmstam9icy1zY3JhcGVyLnBuZw.webp"
@@ -12267,21 +12282,6 @@
       "storeUrl": "https://apify.com/benthepythondev/facebook-groups-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns the posts of public Facebook groups: text, author, date, reactions, comments, shares, pictures, video and lin\u2026",
       "iconUrl": "https://images.apifyusercontent.com/8IeUe8t9Yqz7Zf_yFSiTvSgJPcNWgeThUijDml3lL0U/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcXVLS2VSbGdvNUJGZGJBS3AtYmQzYlBKWUFaNy1mYWNlYm9vay1ncm91cHMtc2NyYXBlci5wbmc.webp"
-    },
-    {
-      "name": "facebook-posts-scraper",
-      "title": "Facebook Posts Scraper - Page & Profile Posts, No Login",
-      "categories": [
-        "SOCIAL_MEDIA",
-        "MARKETING",
-        "AUTOMATION"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/facebook-posts-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Returns the posts of public Facebook pages and profiles: text, date, reactions by type, comments, shares, video views\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/XStHJtPBpjDFzQmWRxtqbQYqRAqSy8JaGjNq4BncD-0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3RTMnRhSzFkcnNGdVFEaFQta01oSHFTVWprVy1mYWNlYm9vay1wb3N0cy1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "facebook-reels-scraper",
