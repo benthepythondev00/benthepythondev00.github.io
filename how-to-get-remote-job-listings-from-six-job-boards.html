@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get remote job listings you can actually apply to, from six job boards</title>
+  <meta name="description" content="Many remote jobs are limited to one country or region. Pull listings from six boards into one dataset and keep only the ones you can apply to, with real fields, a real output row and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-remote-job-listings-from-six-job-boards.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-remote-job-listings-from-six-job-boards.html" />
+  <meta property="og:title" content="How to get remote job listings you can actually apply to, from six job boards" />
+  <meta property="og:description" content="Six boards, one dataset, and a filter for the countries and regions each job is really open to." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get remote job listings you can actually apply to, from six job boards",
+    "datePublished": "2026-10-28",
+    "dateModified": "2026-10-28",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-remote-job-listings-from-six-job-boards.html",
+    "description": "Read remote jobs from Arbeitnow, Jobicy, Himalayas, RemoteOK, Remotive and Working Nomads into one dataset and filter by where you can work from."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="./jobs-in-germany/">Jobs in Germany</a> · <a href="https://apify.com/benthepythondev/remote-jobs-aggregator">Actor</a></p>
+    <h1>How to get remote job listings you can actually apply to, from six job boards</h1>
+    <p class="note">28 Oct 2026 · benthepythondev</p>
+
+    <p>A lot of jobs labelled "Remote" aren't open to everyone. Some are limited to one country, a region or a time zone. Others ask for office days. The <a href="https://apify.com/benthepythondev/remote-jobs-aggregator">Remote Jobs Aggregator</a> Actor on Apify reads six boards: Arbeitnow, Jobicy, Himalayas, RemoteOK, Remotive and Working Nomads. It merges duplicate title/company pairs into one row and returns everything in one dataset, whichever board a job came from.</p>
+
+    <h2>What you get</h2>
+    <p>Each row is one job. The fields in a real run look like this:</p>
+    <ul>
+      <li><code>title</code>, <code>company</code>, <code>location</code>: the job title, the employer, and the board's location text (for example "APAC, EMEA, USA")</li>
+      <li><code>salary</code>: the pay range when the board gives one, otherwise <code>null</code></li>
+      <li><code>description</code>: the full job text</li>
+      <li><code>work_type</code> and <code>job_type</code>: for example "Remote" and "Full-time"</li>
+      <li><code>seniority</code>: for example "senior"</li>
+      <li><code>tags</code>: the board's categories, such as "DevOps &amp; Infrastructure"</li>
+      <li><code>url</code>, <code>platform</code>, <code>posted_date</code>: the link to the listing, which board it came from, and when it was posted</li>
+      <li><code>job_id</code>, <code>scraped_at</code>: a stable id and the time of the run</li>
+      <li><code>is_new</code>, <code>monitor_id</code>, <code>first_seen_at</code>: used when you run it as a feed of only new jobs</li>
+    </ul>
+    <p>The README also describes eligibility fields that say who can apply:</p>
+    <ul>
+      <li><code>remote_scope</code>: <code>worldwide</code>, <code>restricted</code> or <code>unknown</code></li>
+      <li><code>eligible_locations</code>: the countries or regions named, such as <code>["United States", "Canada"]</code> or <code>["EMEA"]</code>. A time zone rule like "CET +/- 3 hours" becomes <code>Europe</code></li>
+      <li><code>eligibility_evidence</code>: the sentence the answer came from, so you can check it yourself</li>
+      <li><code>work_arrangement</code>: <code>hybrid</code> when the text asks for office days, otherwise <code>remote</code></li>
+    </ul>
+    <p>When the employer's own sentence disagrees with the board's label, the sentence wins. A job filed under "Worldwide" that says "must be authorized to work in the United States" comes back as <code>restricted</code>.</p>
+
+    <h2>Example output</h2>
+    <p>Here is a trimmed excerpt from a real call. The description is cut short:</p>
+    <pre><code>{
+  "title": "Senior Software Engineer, Internal Tooling",
+  "company": "RevenueCat",
+  "location": "APAC,  EMEA,  USA",
+  "salary": null,
+  "description": "RevenueCat gives app businesses the infrastructure and tools to build, run, and improve their monetization. ...",
+  "work_type": "Remote",
+  "job_type": "Full-time",
+  "tags": [["DevOps &amp; Infrastructure"]],
+  "url": "https://jobicy.com/jobs/154567-senior-software-engineer-internal-tooling",
+  "posted_date": "2026-10-05T08:23:32+00:00",
+  "platform": "jobicy",
+  "scraped_at": "2026-10-05T12:31:03.025883",
+  "job_id": "469065a79c5b43d4726100f6",
+  "seniority": "senior",
+  "is_new": false
+}</code></pre>
+    <p>The README shows the eligibility fields of a restricted row like this:</p>
+    <pre><code>{
+  "location": "Worldwide",
+  "remote_scope": "restricted",
+  "eligible_locations": ["United States"],
+  "eligibility_evidence": "Applicants must be eligible to live and work in the US",
+  "work_arrangement": "remote"
+}</code></pre>
+
+    <h2>Use cases</h2>
+    <ol>
+      <li><strong>Job hunting from a specific country.</strong> Set <code>eligibleFrom</code> to where you can work from (for example <code>Germany</code>, <code>India</code>, <code>Brazil</code>, <code>Europe</code>, <code>EMEA</code> or <code>LATAM</code>). The run keeps worldwide jobs plus jobs whose named places include you. A job for <code>Europe</code> or <code>EMEA</code> passes for <code>Germany</code>, but a job for the <code>United States</code> doesn't. Add <code>excludeHybrid</code> to drop jobs that want office days.</li>
+      <li><strong>A scheduled hiring feed.</strong> Turn on <code>onlyNew</code> and schedule the Actor so each run returns only jobs it hasn't seen before. The Actor's page has a ready example for new remote Python jobs, daily.</li>
+      <li><strong>Sending jobs to other tools.</strong> Export JSON, CSV or Excel, send rows to Google Sheets, or connect the dataset to n8n, Make, Zapier, Slack or email. The README links n8n templates for email alerts and for Google Sheets plus Slack.</li>
+      <li><strong>One merged dataset for analysis.</strong> Every board names its fields differently (one calls the employer <code>company_name</code>, another nests it in a company object). This Actor maps them all to one shape, so you can compare boards without writing a parser for each one.</li>
+    </ol>
+
+    <h2>How to run it on Apify</h2>
+    <ol>
+      <li>Open <a href="https://apify.com/benthepythondev/remote-jobs-aggregator">the Actor on Apify</a>.</li>
+      <li>Pick the boards you want and set <code>eligibleFrom</code> if you only want jobs you can apply to. Turn on <code>includeUnclearEligibility</code> if you also want jobs where the listing names no location.</li>
+      <li>Start the run, then download the dataset or call it through the Apify API.</li>
+      <li>If you want a recurring feed, turn on <code>onlyNew</code> and add a schedule.</li>
+    </ol>
+    <p>Pricing, per the README: $15 per 1,000 jobs on the Free plan until November 9, 2026, then $6 per 1,000 jobs on Free from that date, with lower rates on paid plans. A small run-start charge applies even when a run returns nothing. The README puts a 20-job run at 512 MB at about $0.30 on Free now, or $0.12 from November 9.</p>
+    <p>There's no RapidAPI listing for this Actor. Use the Apify API to call it from code.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li>The eligibility reading is pattern-based and only works in English. A requirement written in an unusual way can be missed.</li>
+      <li>City names outside the US aren't mapped to a country. An Arbeitnow job in "Berlin" stays <code>unknown</code>.</li>
+      <li>A phrase like "+ 35 other countries" only gives you the countries it actually names.</li>
+      <li>Many listings name no location at all. In the README's sample of 179 jobs from all six boards (October 26, 2026), 117 were restricted, 10 worldwide and 52 unknown. Jobs with <code>unknown</code> scope are dropped when you filter by <code>eligibleFrom</code>, unless you turn on <code>includeUnclearEligibility</code>.</li>
+      <li><code>salary</code> is often <code>null</code>, because many boards don't publish pay.</li>
+      <li>The boards are fetched at the same time. If one is down, you still get rows from the others and the log names the board that failed, so a run can have gaps.</li>
+      <li>The real example row above came from a call that didn't include the eligibility fields. Check your own output before you build on <code>remote_scope</code>.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
