@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How do I get historical Reddit data for a date range now that Pushshift is closed?</title>
+  <meta name="description" content="Reddit's own API caps lists at about 1,000 items and has no date search. Options compared: official API, archive dumps, Arctic Shift and a hosted archive API with a curl example." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/reddit-historical-data-by-date-range.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/reddit-historical-data-by-date-range.html" />
+  <meta property="og:title" content="How do I get historical Reddit data for a date range now that Pushshift is closed?" />
+  <meta property="og:description" content="Reddit's own API caps lists at about 1,000 items and has no date search. Options compared: official API, archive dumps, Arctic Shift and a hosted archive API with a curl example." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    table { width:100%; border-collapse:collapse; font-size:.9rem; margin:12px 0; }
+    th, td { text-align:left; vertical-align:top; padding:8px 10px; border:1px solid var(--line); }
+    th { background:var(--card); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How do I get historical Reddit data for a date range now that Pushshift is closed?",
+    "datePublished": "2026-10-28",
+    "dateModified": "2026-10-28",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/reddit-historical-data-by-date-range.html",
+    "description": "Reddit's own API caps lists at about 1,000 items and has no date search. Options compared: official API, archive dumps, Arctic Shift and a hosted archive API with a curl example."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="./how-to-get-historical-reddit-posts-and-comments.html">Historical posts how-to</a> · <a href="./historical-reddit-rag-pack.html">Reddit RAG pack</a></p>
+    <h1>How do I get historical Reddit data for a date range now that Pushshift is closed?</h1>
+    <p class="note">Updated 28 Oct 2026 · benthepythondev</p>
+
+    <p><strong>Use an archive, not Reddit's API.</strong> Reddit's official API shows about the latest 1,000 items of a listing and has no date-range search. Public archives (Arctic Shift, PullPush, static dumps) hold older posts. Our <a href="https://apify.com/benthepythondev/reddit-archive-scraper">Reddit Archive Scraper</a> queries them by subreddit, keyword and UTC dates and returns JSON. Verified: r/Python back to 2008-01-25.</p>
+
+    <h2>The options side by side</h2>
+    <table>
+      <tr><th>Option</th><th>Date range</th><th>Reach and limits</th><th>Source</th></tr>
+      <tr><td>Reddit official API</td><td>No date-range search</td><td>Free tier: 100 queries a minute, 1,000-item listing cap, no historical search on any tier.</td><td><a href="https://www.xpoz.ai/blog/tutorials/how-to-get-historical-reddit-data-after-pushshift/">xpoz.ai summary</a></td></tr>
+      <tr><td>Pushshift</td><td>Closed</td><td>Public access revoked in May 2023; moderators only.</td><td><a href="https://www.xpoz.ai/blog/tutorials/how-to-get-historical-reddit-data-after-pushshift/">xpoz.ai summary</a></td></tr>
+      <tr><td>Per-subreddit dumps on Academic Torrents</td><td>You filter files yourself</td><td>Static snapshots that end on a fixed month. An older torrent is titled 2005-06 to 2024-12; the same summary describes a newer one to 2025-12. Check the torrent page for the current end date and whether it is still offered.</td><td><a href="https://www.xpoz.ai/blog/tutorials/how-to-get-historical-reddit-data-after-pushshift/">xpoz.ai summary</a></td></tr>
+      <tr><td>Arctic Shift (API and monthly dumps)</td><td>Yes: <code>after</code> and <code>before</code></td><td>Search returns 1 to 100 rows per call (default 25). New items carry placeholder scores for about 36 hours. "No uptime or performance guarantees." Heavy use: take the dumps.</td><td><a href="https://github.com/ArthurHeitmann/arctic_shift/blob/master/api/README.md">API README</a></td></tr>
+      <tr><td>Reddit Archive API (ours)</td><td>Yes: UTC <code>afterDate</code> and <code>beforeDate</code>, oldest or newest first</td><td>Reads PullPush and Arctic Shift and picks a healthy one. r/Python back to 2008-01-25 (cloud run, 25 Oct 2026). Smaller or newer subreddits start later. Name at least one subreddit.</td><td><a href="https://apify.com/benthepythondev/reddit-archive-scraper">Actor README</a></td></tr>
+    </table>
+
+    <h2>One call, one date window</h2>
+    <pre><code>curl -X POST "https://api.apify.com/v2/acts/benthepythondev~reddit-archive-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"subreddits":["Python"],"afterDate":"2008-01-01","beforeDate":"2008-03-01","sortOrder":"oldest","maxPosts":10}'</code></pre>
+    <p>It returns a JSON array of post rows (<code>id</code>, <code>title</code>, <code>selftext</code>, <code>author</code>, <code>score</code>, <code>created_iso</code>, <code>permalink</code>). Set <code>includeComments</code> to add archived comments. Field list and real output: <a href="./how-to-get-historical-reddit-posts-and-comments.html">the how-to page</a>.</p>
+
+    <h2>Where to call it</h2>
+    <ul>
+      <li><a href="https://apify.com/benthepythondev/reddit-archive-scraper">Apify listing</a>: pay per result, $0.003 per post on the Free tier before plan discounts.</li>
+      <li><a href="https://api.market/store/benthepythondev/reddit-archive">API.market listing</a>: the same data behind one API key. It has a free trial plan and paid plans.</li>
+    </ul>
+
+    <h2>Limits</h2>
+    <ul>
+      <li>Archive coverage and freshness depend on third-party services. Run a small dated sample before a large backfill.</li>
+      <li>Archived scores and comment counts on recent posts can be placeholders, as Arctic Shift documents.</li>
+      <li>No search across all of Reddit: you name the subreddits.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>

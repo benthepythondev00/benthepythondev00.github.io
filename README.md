@@ -7,6 +7,7 @@ Auto-synced searchable catalog of public [Apify](https://apify.com/benthepythond
 - Dump money page: `reddit-rag-dump.html` (crawlable; organic inbound only)
 - Quote hub: `custom.html`
 - SocialBlade MCP FAQ: `socialblade-mcp.html` (source: api-selling `docs/socialblade-mcp/index.html`)
+- Reddit history by date range (options table + curl): `reddit-historical-data-by-date-range.html`
 - Zumper rental data tutorial: `how-to-get-zumper-rental-listing-data.html`
 - Austin rental-monitoring case study: `austin-rental-monitoring.html`
 - Sanitized case-study sample: `data/austin-rental-monitor-sample-2026-08-20.json`
