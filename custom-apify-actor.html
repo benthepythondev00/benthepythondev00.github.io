@@ -236,7 +236,7 @@
       actors = d.actors
       $('actorCount').textContent = `${actors.length.toLocaleString('en-US')} public`
       render()
-    })
+    }).catch(() => { $('verdict').textContent = 'The catalog did not load, so the check is off. Email the site and you get the answer in the reply.' })
     render()
   </script>
 </body>
