@@ -11,6 +11,7 @@ Auto-synced searchable catalog of public [Apify](https://apify.com/benthepythond
 - Austin rental-monitoring case study: `austin-rental-monitoring.html`
 - Sanitized case-study sample: `data/austin-rental-monitor-sample-2026-08-20.json`
 - Germany jobs for foreign skilled workers: `jobs-in-germany/` (built daily by `scripts/build_germany_jobs.py` from `jobs-in-germany/template.html`; tests: `python -m unittest discover -s tests`, `npx playwright test`)
+- Denmark Fast-Track jobs: `jobs-in-denmark/` (built daily by `scripts/build_denmark_jobs.py` from `jobs-in-denmark/template.html`; SIRI certified companies mapped to public job boards in `data/denmark-ats.json`)
 - `sitemap.xml` + `robots.txt`
 - CI: hourly GitHub Action + manual dispatch
 
