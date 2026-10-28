@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-28T18:50:15Z",
-  "count": 985,
+  "generatedAt": "2026-10-28T23:12:27Z",
+  "count": 986,
   "chips": [
     "All",
     "Jobs & hiring",
@@ -40,7 +40,7 @@
       "users30d": 44,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/yahoo-finance-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Returns stock data from Yahoo Finance for a list of tickers: live quote, company profile and fundamentals, historical\u2026",
+      "oneLiner": "One record and one charge per ticker from Yahoo Finance: live quote, valuation and fundamentals, financial statements\u2026",
       "iconUrl": "https://images.apifyusercontent.com/r3ZjUJ6OU1vU-Y5j-OLx4osWW6PehxmuzJX20vA3gt0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYTVWRmU4OGpMdzN0bjRHMkMtQmsySVRiZE00TS15YWhvby1maW5hbmNlLXNjcmFwZXIucG5n.webp"
     },
     {
@@ -128,7 +128,7 @@
       ],
       "chip": "Lead gen",
       "users30d": 13,
-      "successRate30d": 98.66,
+      "successRate30d": 98.68,
       "storeUrl": "https://apify.com/benthepythondev/tech-stack-detector?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns each website's email provider (Google Workspace, Microsoft 365, Zoho) and the SaaS tools connected to its dom\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EdboaSP9D2P5_G9FYnWs46Ig-MOPWyi-ARm2P7G4t0g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMjJIaERHSFJUVERyWFk1SEgteU9LSEtBaUsyZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzU1b3EzbDU1b3EzbDU1b3EuanBlZw.webp"
@@ -188,7 +188,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 9,
-      "successRate30d": 78.57,
+      "successRate30d": 79.31,
       "storeUrl": "https://apify.com/benthepythondev/reddit-archive-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Pushshift alternative: historical Reddit posts and comments by subreddit, keyword and exact UTC date range from publi\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Y8-qCWkg_WfViP_3zelYNEdS-vr8CbljApfj-XkPmVM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSGdxNUFYYXZRQjVINm1nMlktRUVxaUxrejFmNC1yZWRkaXQtYXJjaGl2ZS5wbmc.webp"
@@ -263,7 +263,7 @@
       ],
       "chip": "Lead gen",
       "users30d": 8,
-      "successRate30d": 97.26,
+      "successRate30d": 97.3,
       "storeUrl": "https://apify.com/benthepythondev/google-maps-business-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns Google Maps places for any search and location: name, phone, website, address parts, coordinates, rating, rev\u2026",
       "iconUrl": "https://images.apifyusercontent.com/LVkUOa5sZqMrq9bFB2hD78i-0LBylQdYGGzJFYwG82Y/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdVU4eWJoMGRndkk2OFEzbzItY2djUzdjZmtrcy1nb29nbGUtbWFwcy1idXNpbmVzcy1zY3JhcGVyLnBuZw.webp"
@@ -368,7 +368,7 @@
       ],
       "chip": "Real estate & rentals",
       "users30d": 6,
-      "successRate30d": 98.75,
+      "successRate30d": 98.85,
       "storeUrl": "https://apify.com/benthepythondev/craigslist-real-estate-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Craigslist FSBO homes and rentals for any city, with a by-owner flag and a 0-100 lead score on every listing, plus pr\u2026",
       "iconUrl": "https://images.apifyusercontent.com/63KPkcgPKiUVxvwKut5hIuVnSyCf0e6XFyIYSuazuYM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjV4YzhDdGttOWlrUk9lZlItWmRIZWRjOWlETC1jcmFpZ3NsaXN0LXJlYWwtZXN0YXRlLXNjcmFwZXIucG5n.webp"
@@ -12434,6 +12434,21 @@
       "iconUrl": "https://images.apifyusercontent.com/SKbGbmVwek69SbDRCht-h_Kr_s_ZpQl1SRkidMq90KI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZE5UcFhreTdjTTZ5SjlxMUQtMlNQYVJRVWgybS1odWdnaW5nZmFjZS1tb2RlbHMtc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "g2-reviews-scraper",
+      "title": "G2 Reviews Scraper - Seller URLs, Stars, Dates, No Login",
+      "categories": [
+        "LEAD_GENERATION",
+        "MARKETING",
+        "DEVELOPER_TOOLS"
+      ],
+      "chip": "Lead gen",
+      "users30d": 0,
+      "successRate30d": null,
+      "storeUrl": "https://apify.com/benthepythondev/g2-reviews-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns published G2 software reviews: stars, title, likes, dislikes, problems solved, date, reviewer role, company s\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/8vxajVlYB29LpVZQuSL_SGCmRRJATT0h7gjPAC3G-bk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNlVJQVpoY3NXZ2hXV3UxeE4tQVkwWjAzUHpqMi1nMi1yZXZpZXdzLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "gateio-pairs-scraper",
       "title": "Gateio Pairs Scraper",
       "categories": [
@@ -13915,7 +13930,7 @@
       "users30d": 0,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/weworkremotely-jobs-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape We Work Remotely category jobs: title, company, company URL, headquarters, published date, remote flag, job UR\u2026",
+      "oneLiner": "Scrape We Work Remotely jobs by keyword across every category: title, company, region, job type, salary, apply-before\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Y0rFgoGTGifqEukHlgBFwdbgwuUwUvpbgtrzoN-4cIc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRFBNWDNGdlRMY1ZiNGk5ZkQtU2lXdTJOdWhzOC13ZXdvcmtyZW1vdGVseS1qb2JzLXNjcmFwZXIucG5n.webp"
     },
     {
