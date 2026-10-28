@@ -79,6 +79,22 @@ class Pay(unittest.TestCase):
         self.assertIsNone(b.pay_check(None, None))
 
 
+class SmartRecruiters(unittest.TestCase):
+    def test_language_comes_from_the_posting_field(self):
+        class Resp:
+            status_code = 200
+            def json(self):
+                return {"totalFound": 2, "content": [
+                    {"id": "1", "name": "Software Engineer", "language": {"code": "en"}, "location": {"city": "Aarhus"}, "releasedDate": "2026-10-20T10:00:00Z"},
+                    {"id": "2", "name": "Sælger", "language": {"code": "da"}, "location": {"city": "Slagelse"}}]}
+        class Client:
+            def get(self, *a, **k):
+                return Resp()
+        jobs = b.smartrecruiters(Client(), "jysk")
+        self.assertEqual([j["english"] for j in jobs], [True, False])
+        self.assertEqual(jobs[0]["url"], "https://jobs.smartrecruiters.com/jysk/1")
+
+
 class Render(unittest.TestCase):
     def test_card_escapes_and_links_original(self):
         j = {"title": "Engineer <Data>", "url": "https://boards.greenhouse.io/x/jobs/1", "place": "Copenhagen", "published": "2026-10-20",

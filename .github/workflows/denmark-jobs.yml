@@ -15,9 +15,10 @@ jobs:
           python-version: "3.12"
       - run: pip install httpx
       - run: python -m unittest discover -s tests
-      - run: python scripts/build_denmark_jobs.py
+      - id: build
+        run: python scripts/build_denmark_jobs.py
       - name: Commit page
-        if: always()
+        if: ${{ !cancelled() && steps.build.conclusion != 'skipped' }}  # keep new board mappings even when the page is not rebuilt
         run: |
           git config user.name "catalog-bot"
           git config user.email "catalog-bot@users.noreply.github.com"

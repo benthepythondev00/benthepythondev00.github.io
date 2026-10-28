@@ -183,8 +183,12 @@ def smartrecruiters(c: httpx.Client, s: str):
     r = c.get(f"https://api.smartrecruiters.com/v1/companies/{s}/postings", params={"country": "dk", "limit": 100})
     if r.status_code != 200 or not r.json().get("totalFound"):
         return None  # the API answers 200 for every slug, so an empty Danish list is no proof of a board
-    return [job(j["name"], f"https://jobs.smartrecruiters.com/{s}/{j['id']}", (j.get("location") or {}).get("city"),
-                j["name"], j.get("releasedDate")) for j in r.json().get("content", [])]
+    out = []
+    for j in r.json().get("content", []):
+        out.append(job(j["name"], f"https://jobs.smartrecruiters.com/{s}/{j['id']}", (j.get("location") or {}).get("city"),
+                       j["name"], j.get("releasedDate")))
+        out[-1]["english"] = (j.get("language") or {}).get("code", "").startswith("en")  # the list has no ad text, only its language
+    return out
 
 
 def teamtailor(c: httpx.Client, s: str):
