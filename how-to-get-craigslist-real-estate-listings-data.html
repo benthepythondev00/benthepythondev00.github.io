@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Get Craigslist Real Estate Listings as Structured Data (FSBO, Rentals, Rooms)</title>
+  <meta name="description" content="Turn a Craigslist housing search into one row per listing: fields, a real sample row, FSBO and rental inputs, a lead score you can check by hand, and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-craigslist-real-estate-listings-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-craigslist-real-estate-listings-data.html" />
+  <meta property="og:title" content="How to Get Craigslist Real Estate Listings as Structured Data (FSBO, Rentals, Rooms)" />
+  <meta property="og:description" content="Fields, a real sample row, inputs, use cases and honest limits of the Craigslist Real Estate Scraper." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); overflow-wrap:anywhere; }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to Get Craigslist Real Estate Listings as Structured Data (FSBO, Rentals, Rooms)",
+    "datePublished": "2026-10-29",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-craigslist-real-estate-listings-data.html",
+    "description": "Turn a Craigslist housing search into one structured row per listing: fields, a real sample row, FSBO and rental inputs and honest limits."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="./how-to-get-zumper-rental-listing-data.html">Zumper rental data</a> · <a href="./custom.html">Managed feeds</a> · <a href="https://apify.com/benthepythondev/craigslist-real-estate-scraper">Actor</a></p>
+    <h1>How to Get Craigslist Real Estate Listings as Structured Data (FSBO, Rentals, Rooms)</h1>
+    <p class="note">29 Oct 2026 · benthepythondev</p>
+
+    <p>Craigslist carries a lot of housing listings that never show up on the big portals: homes sold by their owners, rentals posted by landlords and property managers, rooms and sublets. Reading them one at a time in a browser is slow, and the pages aren't built for export. The <a href="https://apify.com/benthepythondev/craigslist-real-estate-scraper">Craigslist Real Estate Scraper</a> turns a Craigslist housing search into one structured row per listing. You can download the results as JSON, CSV or Excel, or call it as an API.</p>
+    <p>Looking for rentals from a portal instead? See the <a href="./how-to-get-zumper-rental-listing-data.html">Zumper rental data guide</a>.</p>
+
+    <h2>What you get</h2>
+    <p>Each listing comes back as one record with these fields:</p>
+    <ul>
+      <li><strong>url</strong> and <strong>post_id</strong>: the listing link and Craigslist's own ID for the post</li>
+      <li><strong>title</strong> and <strong>body</strong>: the headline and the full description text</li>
+      <li><strong>price</strong>, <strong>bedrooms</strong>, <strong>bathrooms</strong>, <strong>sqft</strong>: the numbers you'd filter on</li>
+      <li><strong>location</strong>, <strong>latitude</strong>, <strong>longitude</strong>: the street location plus map coordinates</li>
+      <li><strong>posting_date</strong>: when the listing went up, so you can spot fresh posts</li>
+      <li><strong>photos</strong>: image URLs (up to 20 per listing)</li>
+      <li><strong>attributes</strong>: Craigslist's tag list, such as "w/d in unit", "cats are OK", "carport", "wheelchair accessible"</li>
+      <li><strong>by_owner</strong>: true for by-owner listings, false for agents or dealers</li>
+      <li><strong>contact_available</strong> and <strong>reply_link</strong>: whether the post has contact options, and the Craigslist reply URL</li>
+      <li><strong>housing_type</strong>: the raw housing summary line from the page</li>
+      <li><strong>lead_score</strong>: a 0 to 100 score from a fixed, published formula</li>
+      <li><strong>source</strong> and <strong>scraped_at</strong>: where and when the row was collected</li>
+    </ul>
+
+    <h2>Real example output</h2>
+    <p>This is a trimmed excerpt from a real run on the SF Bay Area apartments category (the body text and photo list are shortened):</p>
+    <pre><code>{
+  "url": "https://www.craigslist.org/view/d/walnut-creek-inviting-br-wood-style/kpMrJkDZ319i1rCzAVaZFG",
+  "source": "craigslist",
+  "scraped_at": "2026-10-24T22:57:25.323130",
+  "post_id": "7989377496",
+  "title": "Inviting 2 BR-Wood-Style Floors, Laundry, Walk Everywhere",
+  "price": 2425,
+  "body": "North Main Apartments\n2971 N Main St , Walnut Creek, CA, 94597\n...",
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "sqft": 925,
+  "location": "2971 N Main St",
+  "latitude": 37.927894,
+  "longitude": -122.062031,
+  "posting_date": "2026-10-24T15:44:22-0700",
+  "photos": ["https://images.craigslist.org/00000_amiLdLysa5q_0jm0dP_600x450.jpg"],
+  "attributes": ["2BR / 1Ba", "925ft2", "rent period:", "monthly", "cats are OK - purrr", "apartment", "laundry in bldg", "carport", "wheelchair accessible"],
+  "reply_link": "https://sfbay.craigslist.org/reply/sfo/apa/7989377496",
+  "by_owner": false,
+  "housing_type": "/ 2br - 925ft2 -",
+  "contact_available": true,
+  "lead_score": 58
+}</code></pre>
+    <p>You can check that score by hand. It's an agent listing (10 points), it has 6 photos (10) and contact is available (10), the price is under $100k (5), it's under 1,000 sq ft (3), and price, bedrooms, size and photos are all present (20). That adds up to 58.</p>
+
+    <h2>Use cases</h2>
+    <p>From the actor's README:</p>
+    <ol>
+      <li><strong>FSBO lead generation for agents.</strong> Set <code>listingType</code> to <code>owner</code> and <code>category</code> to <code>rea</code> to list owners selling without an agent. Sort by <code>lead_score</code> so the listings with photos and a reply option come first.</li>
+      <li><strong>Off-market deals for investors.</strong> The same by-owner filter, combined with price limits and <code>postalCode</code> plus <code>searchDistance</code>, gives you a short list of direct sellers in one area.</li>
+      <li><strong>Rental benchmarking for property managers and landlords.</strong> Pull the <code>apa</code> category for a city and compare <code>price</code>, <code>sqft</code>, <code>bedrooms</code> and the <code>attributes</code> tags (laundry, parking, pets) across neighborhoods.</li>
+      <li><strong>Market research over time.</strong> Run the same search on a schedule and track how pricing and supply change across cities.</li>
+    </ol>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the actor at <a href="https://apify.com/benthepythondev/craigslist-real-estate-scraper">apify.com/benthepythondev/craigslist-real-estate-scraper</a> and fill in the input. There are two modes. <code>search</code> takes a city code (<code>sfbay</code>, <code>newyork</code>, <code>losangeles</code>, <code>chicago</code> and so on) and a category: <code>apa</code> for rentals, <code>rea</code> for sale, <code>roo</code> for rooms, <code>sub</code> for sublets or <code>vac</code> for vacation. <code>direct_urls</code> takes exact listing URLs instead.</p>
+    <p>A for-sale-by-owner search looks like this:</p>
+    <pre><code>{
+  "mode": "search",
+  "city": "sfbay",
+  "category": "rea",
+  "listingType": "owner",
+  "minPrice": 200000,
+  "maxPrice": 900000,
+  "minBedrooms": 2,
+  "maxListings": 100,
+  "includeLeadScore": true
+}</code></pre>
+    <p>Once a run finishes, you can view the dataset as a table or export it. Runs can also go on a schedule or feed Make, Zapier or n8n.</p>
+    <p><strong>Pricing:</strong> $0.02 per returned listing, plus a $0.00005 actor-start event per GB of run memory. At the standard 512 MB setting, 10 listings cost about $0.20005 before account discounts.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/craigslist-real-estate-scraper">Open the actor</a>
+    </p>
+
+    <h2>How to call it as an API on RapidAPI</h2>
+    <p>If you'd rather make HTTP requests than use the Apify console, the same scraper is listed on RapidAPI: <a href="https://rapidapi.com/benthepythondev0/api/craigslist-real-estate-scraper">rapidapi.com/benthepythondev0/api/craigslist-real-estate-scraper</a>. Use the endpoint docs and plans on that page.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Contact details are not extracted.</strong> Craigslist hides phone numbers behind "show contact info", and you'll see that placeholder in the <code>body</code> text. What you get is <code>contact_available</code> and the <code>reply_link</code>.</li>
+      <li><strong>The lead score is tuned for homes for sale.</strong> Its price bands start at $100k, so monthly rents always land in the lowest band. That's why rental listings in the example score in the 50s. For rentals, use the score to compare rentals with each other, not with sale listings.</li>
+      <li><strong>Some fields are raw.</strong> <code>housing_type</code> is the page's summary string as written (for example "/ 2br - 925ft2 -"), and <code>location</code> is often only a street address. A studio comes back with <code>bedrooms</code> set to 0.</li>
+      <li><strong>Many rental posts come from managed buildings.</strong> In the example rows, <code>by_owner</code> is false and the body text is a property manager's marketing copy. If you only want individual owners, filter with <code>listingType: owner</code>.</li>
+      <li><strong>Run size is capped.</strong> <code>maxListings</code> accepts 1 to 500 per run, and each listing returns at most 20 photos.</li>
+      <li><strong>Coverage is only what's on Craigslist</strong> for the city and category you pick. Listings that get deleted or expire won't come back in later runs.</li>
+    </ul>
+  </article>
+</body>
+</html>
