@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T02:25:14Z",
+  "generatedAt": "2026-10-29T09:54:50Z",
   "count": 986,
   "chips": [
     "All",
@@ -22,11 +22,11 @@
         "AUTOMATION"
       ],
       "chip": "Jobs & hiring",
-      "users30d": 52,
-      "successRate30d": 99.8,
+      "users30d": 50,
+      "successRate30d": 99.79,
       "storeUrl": "https://apify.com/benthepythondev/remote-jobs-aggregator?utm_source=catalog&utm_medium=site",
       "oneLiner": "Remote jobs from six boards, each tagged worldwide, region-restricted or hybrid, with the employer's sentence as proo\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/3c6FrPD6wiJu_68EP24vUJHkDjUUfG8EmL1Sdca4P7E/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNjNTMUZBcWlZM1VEcVZFdmItblJpZk9BVThRdi1yZW1vdGUtam9icy1hZ2dyZWdhdG9yLnBuZw.webp"
+      "iconUrl": "https://images.apifyusercontent.com/Phv06h_B2wdZpOdB2Ezl3BkYdsK7d4eYq62e81yE6n0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNjNTMUZBcWlZM1VEcVZFdmItY0NwUkVpSFlxaC1yZW1vdGUtam9icy1hZ2dyZWdhdG9yLnBuZw.webp"
     },
     {
       "name": "yahoo-finance-scraper",
@@ -45,14 +45,14 @@
     },
     {
       "name": "arbeitsagentur-jobs-scraper",
-      "title": "Bundesagentur f\u00fcr Arbeit Jobb\u00f6rse - Arbeitsagentur Jobs Scraper",
+      "title": "Arbeitsagentur Jobs Scraper | $1.20/1K | Bundesagentur Jobb\u00f6rse",
       "categories": [
         "JOBS",
         "LEAD_GENERATION",
         "BUSINESS"
       ],
       "chip": "Jobs & hiring",
-      "users30d": 40,
+      "users30d": 42,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/arbeitsagentur-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Jobs from the Jobb\u00f6rse of the Bundesagentur f\u00fcr Arbeit: title, employer, place with coordinates, dates, full text, ho\u2026",
@@ -60,7 +60,7 @@
     },
     {
       "name": "reddit-scraper",
-      "title": "Reddit Scraper - Posts, Comments, Users & Search",
+      "title": "Reddit Scraper: Posts & Full Comment Threads, Excel Rows, MCP",
       "categories": [
         "DEVELOPER_TOOLS",
         "SOCIAL_MEDIA",
@@ -68,9 +68,9 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 37,
-      "successRate30d": 97.52,
+      "successRate30d": 96.9,
       "storeUrl": "https://apify.com/benthepythondev/reddit-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Keep a subreddit feed after Reddit ends RSS on Nov 13, 2026: a scheduled run with onlyNew returns only the new posts,\u2026",
+      "oneLiner": "Public Reddit posts with full comment threads, as nested JSON or one Excel row per comment with depth and path. Subre\u2026",
       "iconUrl": "https://images.apifyusercontent.com/fZi3C7sTHRZ9hpvzBc8GRkp358jQJLJ7PGJu2d_X9_g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbHFPY20yQmdzZzRMR05BVGQtT01kNjNVMmJOVS1yZWRkaXQtc2NyYXBlci5wbmc.webp"
     },
     {
@@ -112,10 +112,10 @@
         "AUTOMATION"
       ],
       "chip": "Social & Reddit",
-      "users30d": 18,
+      "users30d": 19,
       "successRate30d": 100.0,
       "storeUrl": "https://apify.com/benthepythondev/instagram-video-downloader?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Direct MP4 links for public Instagram reels, video posts and carousels: file with sound, every quality up to 1080p, a\u2026",
+      "oneLiner": "Instagram reel and video downloader with stored files: saveFiles keeps each MP4 in the run's storage after Instagram'\u2026",
       "iconUrl": "https://images.apifyusercontent.com/n33tr7PmgGOuCfZXJLegl7oYSi7_Dsg0t0lOrIuF-58/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNmN0bmJSRDhTUE9vMzlvYU4tRUlKVWJQbGZsVC1pbnN0YWdyYW0tdmlkZW8tZG93bmxvYWRlci5wbmc.webp"
     },
     {
@@ -128,7 +128,7 @@
       ],
       "chip": "Lead gen",
       "users30d": 13,
-      "successRate30d": 98.68,
+      "successRate30d": 98.67,
       "storeUrl": "https://apify.com/benthepythondev/tech-stack-detector?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns each website's email provider (Google Workspace, Microsoft 365, Zoho) and the SaaS tools connected to its dom\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EdboaSP9D2P5_G9FYnWs46Ig-MOPWyi-ARm2P7G4t0g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMjJIaERHSFJUVERyWFk1SEgteU9LSEtBaUsyZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzU1b3EzbDU1b3EzbDU1b3EuanBlZw.webp"
@@ -188,7 +188,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 9,
-      "successRate30d": 79.31,
+      "successRate30d": 78.95,
       "storeUrl": "https://apify.com/benthepythondev/reddit-archive-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Pushshift alternative: historical Reddit posts and comments by subreddit, keyword and exact UTC date range from publi\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Y8-qCWkg_WfViP_3zelYNEdS-vr8CbljApfj-XkPmVM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSGdxNUFYYXZRQjVINm1nMlktRUVxaUxrejFmNC1yZWRkaXQtYXJjaGl2ZS5wbmc.webp"
