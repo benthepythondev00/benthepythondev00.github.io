@@ -9,6 +9,7 @@ Auto-synced searchable catalog of public [Apify](https://apify.com/benthepythond
 - SocialBlade MCP FAQ: `socialblade-mcp.html` (source: api-selling `docs/socialblade-mcp/index.html`)
 - Reddit history by date range (options table + curl): `reddit-historical-data-by-date-range.html`
 - Zumper rental data tutorial: `how-to-get-zumper-rental-listing-data.html`
+- Craigslist real estate data tutorial: `how-to-get-craigslist-real-estate-listings-data.html`
 - Austin rental-monitoring case study: `austin-rental-monitoring.html`
 - Sanitized case-study sample: `data/austin-rental-monitor-sample-2026-08-20.json`
 - Germany jobs for foreign skilled workers: `jobs-in-germany/` (built daily by `scripts/build_germany_jobs.py` from `jobs-in-germany/template.html`; tests: `python -m unittest discover -s tests`, `npx playwright test`)
