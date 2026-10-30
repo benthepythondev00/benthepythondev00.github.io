@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get the tech stack and email provider of any website</title>
+  <meta name="description" content="Turn a list of company domains into one structured record per site: CMS, frameworks, payment and support tools, plus the email provider from DNS. Real fields, a real row and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-website-tech-stack-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-website-tech-stack-data.html" />
+  <meta property="og:title" content="How to get the tech stack and email provider of any website" />
+  <meta property="og:description" content="A list of domains in, one record per site out: technologies, categories and the email provider read from DNS." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get the tech stack and email provider of any website",
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-website-tech-stack-data.html",
+    "description": "Detect the technologies a website runs and its email provider from a list of URLs, with one structured record per site."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/tech-stack-detector">Actor</a></p>
+    <h1>How to get the tech stack and email provider of any website</h1>
+    <p class="note">30 Oct 2026 · benthepythondev</p>
+
+    <p>Say you have a list of company domains and want to know what each one runs: which CMS or frontend framework, which payment provider, which support widget, which email provider. You could open view-source on every site, but that stops being practical after about ten domains. The <a href="https://apify.com/benthepythondev/tech-stack-detector">Tech Stack Detector</a> takes a list of URLs and returns one structured record per site.</p>
+    <p>It works over plain HTTP with no headless browser. It reads the response headers, HTML, scripts, stylesheets, meta tags and cookies and matches them against 100+ technology signatures in 15+ categories. With DNS turned on, it also reads the domain's MX, SPF and TXT records to find the email provider and the SaaS tools that have verified the domain.</p>
+
+    <h2>What you get</h2>
+    <p>Each row describes one website:</p>
+    <ul>
+      <li><strong>url</strong> and <strong>domain</strong>: what you asked for and the domain that was analyzed.</li>
+      <li><strong>technologies</strong>: a deduplicated list. Each entry has a <code>name</code>, a <code>category</code> (for example Frontend Framework, Payment, Customer Support), a <code>confidence</code> of high or medium, and a <code>version</code> when the site exposes one. The README says versions are picked up for common frameworks like WordPress, jQuery, Bootstrap, React, Vue and Angular. Each entry also has a <code>detectedBy</code> field that says which signal found it: header, cookie, html, script, meta or dns.</li>
+      <li><strong>technology_count</strong> and <strong>categories</strong>: the total, plus the same technologies grouped by category.</li>
+      <li><strong>Email</strong> and <strong>SaaS verification</strong> categories (when <code>includeDns</code> is on): the email provider and senders from MX and SPF (Google Workspace, Microsoft 365, Zoho, SendGrid, Mailgun, Amazon SES, HubSpot and others), and SaaS tools from TXT tokens (Atlassian, Slack, Zoom, OpenAI, Canva, DocuSign and others).</li>
+      <li><strong>server</strong>, <strong>powered_by</strong> and <strong>meta_generator</strong>: the Server and X-Powered-By headers and the generator meta tag.</li>
+      <li><strong>title</strong> and <strong>description</strong>: the page title and meta description.</li>
+      <li><strong>status_code</strong>, <strong>redirect_url</strong> and <strong>ssl</strong>: basic HTTP facts.</li>
+      <li><strong>analyzed_at</strong> and <strong>analysis_time_ms</strong>: when the site was checked and how long it took.</li>
+    </ul>
+
+    <h2>Real example output</h2>
+    <p>Below is part of a real row for stripe.com, cut down to a few technologies:</p>
+    <pre><code>{
+  "url": "https://stripe.com",
+  "domain": "stripe.com",
+  "success": true,
+  "technologies": [
+    {"name": "React", "category": "Frontend Framework", "confidence": "high", "version": null},
+    {"name": "Next.js", "category": "Frontend Framework", "confidence": "high", "version": null},
+    {"name": "Intercom", "category": "Customer Support", "confidence": "high", "version": null},
+    {"name": "Stripe", "category": "Payment", "confidence": "high", "version": null}
+  ],
+  "technology_count": 7,
+  "categories": {
+    "Frontend Framework": ["React", "Next.js"],
+    "Customer Support": ["Intercom"],
+    "Payment": ["Stripe", "PayPal"]
+  },
+  "server": "nginx",
+  "title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+  "status_code": 200,
+  "ssl": true,
+  "analysis_time_ms": 167
+}</code></pre>
+    <p>That site took 167 ms to analyze, which is what you'd expect from a check that skips the browser.</p>
+
+    <h2>What people use it for</h2>
+    <p>The README lists these uses:</p>
+    <ol>
+      <li><strong>Lead qualification.</strong> The email provider and connected SaaS tools come from DNS, and you won't see them on the page itself. A sales team can use them to tell whether a company runs Google Workspace or Microsoft 365, or uses tools like Atlassian or DocuSign, before reaching out.</li>
+      <li><strong>Prospect research in bulk.</strong> Give it a list of domains and get the CMS, frameworks, analytics, payment provider and CDN for each one, so nobody has to inspect every site by hand.</li>
+      <li><strong>Competitor tracking.</strong> Run the same list on a schedule and compare the rows over time to see when a competitor adds or drops a tool.</li>
+    </ol>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the actor at <a href="https://apify.com/benthepythondev/tech-stack-detector">apify.com/benthepythondev/tech-stack-detector</a> and pass your input:</p>
+    <pre><code>{
+  "urls": ["https://stripe.com", "vercel.com", "shopify.com", "notion.so"],
+  "maxUrls": 0,
+  "includeDns": true
+}</code></pre>
+    <ul>
+      <li><code>urls</code>: the sites to check. <code>https://</code> is optional.</li>
+      <li><code>maxUrls</code>: a cap on how many to process (<code>0</code> means no limit).</li>
+      <li><code>includeDns</code>: reads MX and TXT records for the email and SaaS layer. It's on by default and runs in parallel with the page fetch.</li>
+    </ul>
+    <p>You can export results as JSON, CSV or Excel, run the actor on a schedule, call it through the Apify API, or connect it to Make, Zapier or n8n.</p>
+    <p>Pricing is per website row: $0.0025 on the Free plan and less on paid Apify plans, plus a $0.00005 start fee per run. From November 12, 2026 a row costs $0.002875 on the Free plan, with the same plan discounts. You aren't charged for a site that can't be reached. It gets no dataset row and is listed with its <code>error</code> and <code>error_type</code> in the run's <code>FAILED_SITES</code> key-value store record.</p>
+
+    <h2>How to call it as an API on RapidAPI</h2>
+    <p>If you'd rather call a plain REST endpoint with a RapidAPI key, the same detector is listed at <a href="https://rapidapi.com/benthepythondev0/api/tech-stack-detector3">rapidapi.com/benthepythondev0/api/tech-stack-detector3</a>.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>It's signature matching, not a full audit.</strong> The detector only finds technologies that match one of its 100+ signatures. Anything outside that list won't show up.</li>
+      <li><strong>Check surprising results.</strong> The stripe.com row above lists WooCommerce and PayPal next to Stripe. A signature can fire on something the page's HTML or scripts only mention, so read <code>confidence</code> and <code>detectedBy</code> before you trust an unexpected entry.</li>
+      <li><strong>No browser means no client-side-only detection.</strong> Plain HTTP is fast, but a tool that only loads after JavaScript runs in a browser may be missed.</li>
+      <li><strong>Versions are often empty.</strong> Every technology in the stripe.com row has <code>version: null</code>. You only get versions when the site exposes them.</li>
+      <li><strong>The DNS layer depends on public records.</strong> Email and SaaS detection only works when the domain publishes MX, SPF or TXT records that point to those services.</li>
+      <li><strong>Unreachable sites are left out of the dataset.</strong> Look in <code>FAILED_SITES</code> to see which ones failed and why.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
