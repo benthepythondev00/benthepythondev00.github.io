@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Get Google Play Reviews as Structured Data</title>
+  <meta name="description" content="Get Google Play reviews as one row per review: rating, text, date, app version and developer reply. Real fields, real example rows and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-google-play-reviews-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-google-play-reviews-data.html" />
+  <meta property="og:title" content="How to Get Google Play Reviews as Structured Data" />
+  <meta property="og:description" content="App package IDs in, one row per review out, ready to sort, filter and analyse." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to Get Google Play Reviews as Structured Data",
+    "datePublished": "2026-10-31",
+    "dateModified": "2026-10-31",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-google-play-reviews-data.html",
+    "description": "Collect Google Play reviews for one or more apps as structured rows, with no login or API key."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/google-play-reviews-scraper">Actor</a></p>
+    <h1>How to Get Google Play Reviews as Structured Data</h1>
+    <p class="note">31 Oct 2026 · benthepythondev</p>
+
+    <p>If you want to read what users say about an Android app, the Google Play page works for a handful of reviews. For hundreds or thousands, you need them in a file you can sort, filter and analyse.</p>
+    <p>The <a href="https://apify.com/benthepythondev/google-play-reviews-scraper">Google Play Reviews Scraper</a> does that. You give it one or more app package IDs or Google Play URLs, and each review comes back as one row. You don't need a login or an API key, and it reads Google Play's review data directly instead of driving a browser.</p>
+
+    <h2>What you get</h2>
+    <p>Each row describes one review:</p>
+    <ul>
+      <li><code>review_id</code> and <code>review_date</code>: the review's identifier and when it was posted</li>
+      <li><code>rating</code>: the star rating, from 1 to 5</li>
+      <li><code>content</code>: the full review text</li>
+      <li><code>author_name</code> and <code>author_image</code>: the reviewer's display name and a link to their photo</li>
+      <li><code>thumbs_up_count</code>: how many other users marked the review as helpful</li>
+      <li><code>app_version</code>: the app version the review was written on</li>
+      <li><code>app_id</code>, <code>app_name</code> and <code>app_url</code>: which app the review belongs to</li>
+      <li><code>country</code>: the store the review was collected from</li>
+      <li><code>reply_content</code> and <code>reply_date</code>: the developer's reply and its date, when the developer has responded</li>
+    </ul>
+
+    <h2>Real example output</h2>
+    <p>These two rows come from a real call for <code>com.twitter.android</code>. The <code>author_image</code> field is removed here to keep the excerpt short.</p>
+    <pre><code>[
+  {
+    "review_id": "e93d25e3-c028-441e-a320-887e2f6783d3",
+    "app_id": "com.twitter.android",
+    "app_name": "X",
+    "author_name": "Anandamoy Mondal",
+    "rating": 5,
+    "content": "nice",
+    "thumbs_up_count": 0,
+    "review_date": "2026-10-06T07:42:16",
+    "app_version": "12.31.0-prod.01",
+    "country": "US",
+    "app_url": "https://play.google.com/store/apps/details?id=com.twitter.android"
+  },
+  {
+    "review_id": "c3a61119-2285-4eb9-ae60-2004c484b5de",
+    "app_id": "com.twitter.android",
+    "app_name": "X",
+    "author_name": "Angela Rigau",
+    "rating": 1,
+    "content": "I don't understand why I got kicked out. There was a pastor that needed help and I sent out his video the next thing I know they kicked me out of x. Also cash app wouldn't cash my 47 dollar check. Hopefully the bank will.",
+    "thumbs_up_count": 0,
+    "review_date": "2026-10-06T07:43:06",
+    "app_version": "10.16.0-release.0",
+    "country": "US",
+    "app_url": "https://play.google.com/store/apps/details?id=com.twitter.android"
+  }
+]</code></pre>
+    <p>Neither row has reply fields, which fits the rule above: replies only appear when a developer has responded.</p>
+
+    <h2>What people use it for</h2>
+    <ul>
+      <li><strong>App store optimization:</strong> track review sentiment and pull out common complaints and feature requests for your own apps.</li>
+      <li><strong>Sentiment analysis:</strong> build NLP or machine learning datasets, or watch brand perception over time.</li>
+      <li><strong>Competitor research:</strong> compare review volume and ratings across rival apps, then read their negative reviews to find weak spots.</li>
+      <li><strong>Market research:</strong> look across an app category or niche and spot gaps from what users actually ask for.</li>
+    </ul>
+
+    <h2>How to run it on Apify</h2>
+    <ol>
+      <li>Open the <a href="https://apify.com/benthepythondev/google-play-reviews-scraper">actor page on Apify</a>.</li>
+      <li>Add your apps in <code>appIds</code> or paste full links into <code>appUrls</code>. The package ID is the <code>id=</code> part of the Google Play URL, so <code>https://play.google.com/store/apps/details?id=com.twitter.android</code> gives you <code>com.twitter.android</code>.</li>
+      <li>Set <code>countries</code>, <code>language</code> and <code>maxReviews</code>. The default for <code>maxReviews</code> is only 5, so raise it for a real dataset.</li>
+      <li>Optionally choose a <code>sortBy</code> value (<code>newest</code> or <code>most_relevant</code>) and a <code>filterRating</code>.</li>
+      <li>Run it, then view the results as a table or export them as JSON, CSV or Excel.</li>
+    </ol>
+    <p>This input collects up to 500 of the newest 1-star English reviews for each app in each country, which is a good start for studying complaints:</p>
+    <pre><code>{
+  "appIds": ["com.twitter.android", "com.instagram.android"],
+  "countries": ["us", "gb"],
+  "language": "en",
+  "maxReviews": 500,
+  "sortBy": "newest",
+  "filterRating": 1
+}</code></pre>
+    <p>You can also run it on a schedule, call it through the API, or connect it to Make, Zapier or n8n.</p>
+    <p><strong>Price:</strong> $0.30 per 1,000 reviews, or $0.24 from the Gold plan up, since October 19, 2026. Apify's standard start event ($0.00005 per run) is the only other charge.</p>
+
+    <h2>How to use it as an API on RapidAPI</h2>
+    <p>If you'd rather call it as an API from your own code, it's also <a href="https://rapidapi.com/benthepythondev0/api/google-play-reviews-scraper1">listed on RapidAPI</a>. The listing has the current endpoints, parameters and plans, so check it before you build.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Developer replies are not always there.</strong> You only get reply fields when a developer has answered, so expect many rows without them. Your code should handle those fields being missing.</li>
+      <li><strong><code>maxReviews</code> applies per app and per country.</strong> The cap is 100,000, and 0 also means 100,000. Two apps across two countries at 500 each can return up to 2,000 reviews, so the cost grows with each app and country you add.</li>
+      <li><strong><code>filterRating</code> takes one star rating.</strong> To get both 1-star and 2-star reviews, plan on separate runs.</li>
+      <li><strong>Short reviews carry little signal.</strong> Rows like "nice" count as reviews, so filter on text length if you're doing text analysis.</li>
+      <li><strong>The app version may not be the current one.</strong> The rows above, collected within minutes of each other, show both <code>12.31.0-prod.01</code> and <code>10.16.0-release.0</code>. Group by <code>app_version</code> before blaming a recent release for a complaint.</li>
+      <li><strong>Countries are limited to the supported stores.</strong> The README lists 50+ country codes, including <code>us</code>, <code>gb</code>, <code>de</code>, <code>jp</code> and <code>in</code>.</li>
+      <li><strong>Request pacing matters.</strong> <code>delaySeconds</code> adds a delay between requests to avoid rate limits, and the default is 0.5.</li>
+      <li><strong>Rows include reviewers' names and photo links.</strong> Drop <code>author_name</code> and <code>author_image</code> if your analysis doesn't need them.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
