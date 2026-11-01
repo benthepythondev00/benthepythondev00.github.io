@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Get Threads User Posts Data</title>
+  <meta name="description" content="Export a public Threads account's full post history as rows: text, engagement counts, replies and reposts. No login, cookies or API key. Real example rows and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-threads-user-posts-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-threads-user-posts-data.html" />
+  <meta property="og:title" content="How to Get Threads User Posts Data" />
+  <meta property="og:description" content="Usernames in, one row per post, reply or repost out, back to the account's first post." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+    .tbl { overflow-x:auto; }
+    table { border-collapse:collapse; width:100%; font-size:.92rem; }
+    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-weight:600; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to Get Threads User Posts Data",
+    "datePublished": "2026-11-01",
+    "dateModified": "2026-11-01",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-threads-user-posts-data.html",
+    "description": "Export a public Threads account's full post history as rows, with no login, cookies or API key."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/threads-user-posts-scraper">Actor</a></p>
+    <h1>How to Get Threads User Posts Data</h1>
+    <p class="note">1 Nov 2026 · benthepythondev</p>
+
+    <p>If you need everything a public Threads account has published, the <a href="https://apify.com/benthepythondev/threads-user-posts-scraper">Threads User Posts Scraper</a> exports it as rows you can download or pull over an API. It reads accounts the way a logged-out visitor's browser does. It doesn't stop where the profile page asks you to log in, so it keeps paging back to the account's first post. You don't need a login, cookies or an API key.</p>
+
+    <h2>What you get</h2>
+    <p>Each row is one post, reply or repost. In plain words, a row contains:</p>
+    <ul>
+      <li><strong>The post itself:</strong> its numeric <code>id</code>, the short <code>code</code>, the full <code>url</code>, the <code>text</code>, when it was published (<code>posted_at</code>, in UTC), and whether it is pinned, edited or a reply (<code>is_pinned</code>, <code>is_edited</code>, <code>is_reply</code>, <code>reply_to_author</code>).</li>
+      <li><strong>Engagement counts:</strong> <code>likes</code>, <code>replies</code>, <code>reposts</code>, <code>quotes</code> and <code>shares</code>.</li>
+      <li><strong>The author:</strong> <code>username</code>, display name (<code>full_name</code>), the stable numeric <code>author_id</code> and <code>is_verified</code>.</li>
+      <li><strong>Content:</strong> <code>mentions</code>, <code>links</code> (the real destination, not a Threads redirect), <code>link_title</code>, <code>quoted_post_url</code>, <code>image_urls</code> and <code>video_urls</code>.</li>
+      <li><strong>Attached long text:</strong> <code>attachment_text</code> holds the longer text Threads lets authors attach under a post. That text isn't part of <code>text</code>.</li>
+      <li><strong>Mode extras:</strong> reply rows add <code>reply_to_url</code> and <code>reply_to_text</code>. Repost rows add <code>reposted_by</code> and <code>reposted_at</code>.</li>
+    </ul>
+    <p>The Actor has three modes: <code>posts</code> (what the accounts published, newest first, thread continuations by the same author included), <code>replies</code> (replies the accounts wrote, each with the post it answers) and <code>reposts</code> (the original posts an account reposted, with the repost time).</p>
+
+    <h2>A real example</h2>
+    <p>These two rows come from a real run on <code>@natgeo</code>. Some fields are trimmed:</p>
+    <pre><code>[
+  {
+    "record_type": "post",
+    "id": "4000516918599612781",
+    "url": "https://www.threads.com/@natgeo/post/DeEsPEbEflt",
+    "username": "natgeo",
+    "author_id": "63269174602",
+    "full_name": "National Geographic",
+    "is_verified": true,
+    "text": "Some days call for productivity. Others call for watching a beluga whale do barrel rolls in front of a mirror.",
+    "posted_at": "2026-10-04T13:00:20+00:00",
+    "likes": 1420,
+    "replies": 21,
+    "reposts": 21,
+    "quotes": 1,
+    "shares": 4,
+    "is_reply": false,
+    "links": []
+  },
+  {
+    "record_type": "post",
+    "id": "4001153096084173246",
+    "url": "https://www.threads.com/@natgeo/post/DeG84q4DTG-",
+    "username": "natgeo",
+    "posted_at": "2026-10-05T10:03:59+00:00",
+    "likes": 74,
+    "replies": 1,
+    "reposts": 1,
+    "quotes": 0,
+    "shares": null,
+    "is_reply": false,
+    "quoted_post_url": "https://www.threads.com/@natgeoanimals/post/Dd7JH1Oo8Ga"
+  }
+]</code></pre>
+    <p>The second row quotes another account's post, so <code>quoted_post_url</code> points to it. Its <code>shares</code> came back as <code>null</code>. Count fields can be empty, so plan for that.</p>
+
+    <h2>Use cases</h2>
+    <ul>
+      <li><strong>Archive an account's full history.</strong> The README describes a test run that saved National Geographic's whole public history, 1,819 posts from July 2023 to the day of the run, in 128 seconds. Smaller accounts take a few seconds.</li>
+      <li><strong>Run a cheap daily feed.</strong> Set <code>postedAfter</code> to yesterday's date and schedule the run. Reading stops once the Actor reaches older posts, so a daily run only collects the new ones.</li>
+      <li><strong>Study how an account replies.</strong> In <code>replies</code> mode, every reply comes with the link and text of the post it answers, so you can read each conversation without opening Threads.</li>
+      <li><strong>Track what an account amplifies.</strong> <code>reposts</code> mode returns the original posts with <code>reposted_by</code> and <code>reposted_at</code>, which shows what an account shared and when.</li>
+    </ul>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the <a href="https://apify.com/benthepythondev/threads-user-posts-scraper">Actor page on Apify</a> and fill in the input:</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Field</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td><code>mode</code></td><td><code>posts</code>, <code>replies</code> or <code>reposts</code></td></tr>
+          <tr><td><code>usernames</code></td><td>Usernames, @handles or profile links</td></tr>
+          <tr><td><code>maxResults</code></td><td>Rows per account, newest first. 20 by default, up to 100,000</td></tr>
+          <tr><td><code>postedAfter</code></td><td>Only rows from this UTC date on (YYYY-MM-DD)</td></tr>
+          <tr><td><code>postedBefore</code></td><td>Only rows up to this UTC date</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>This input pulls every September 2026 post from two accounts:</p>
+    <pre><code>{
+  "mode": "posts",
+  "usernames": ["natgeo", "nasa"],
+  "maxResults": 1000,
+  "postedAfter": "2026-09-01",
+  "postedBefore": "2026-09-30"
+}</code></pre>
+    <p>You can export results as JSON, CSV or Excel, run the Actor on a schedule, call it through the Apify API, or connect it to Make, Zapier or n8n.</p>
+
+    <h2>How to call it as an API on RapidAPI</h2>
+    <p>If you already use RapidAPI for your other API keys and billing, the same scraper is listed there as <a href="https://rapidapi.com/benthepythondev0/api/threads-user-posts-scraper">Threads User Posts Scraper on RapidAPI</a>. The listing's own page has the endpoint and request format.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li>It reads <strong>public accounts only</strong>, exactly what a logged-out visitor can see. Private profiles aren't available.</li>
+      <li>The default <code>maxResults</code> is 20. To get a full history you have to raise it (up to 100,000 per account).</li>
+      <li>Some engagement fields can be <code>null</code>, as <code>shares</code> was in the example above.</li>
+      <li>Media comes back as URLs in <code>image_urls</code> and <code>video_urls</code>. The files themselves aren't downloaded.</li>
+      <li>Date filters use UTC dates, so posts near midnight in your local time can land on the day before or after.</li>
+      <li>A missing or misspelled username doesn't fail the run. It's skipped and named in the status message and in the <code>SUMMARY</code> record, so check that record if an account is missing from your results.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
