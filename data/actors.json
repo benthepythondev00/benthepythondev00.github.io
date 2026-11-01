@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T02:12:05Z",
+  "generatedAt": "2026-11-01T09:13:00Z",
   "count": 987,
   "chips": [
     "All",
@@ -12779,6 +12779,21 @@
       "iconUrl": "https://images.apifyusercontent.com/KfFgRKQrnxTMUNaIQQcSDTU-Rdg67FtJ8Kh3Eo7Rya4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3BMVTJMSURIWWk0ZHVya20tNXp2NXYwdmJSQi1pbW1vd2ViLXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "immowelt-scraper",
+      "title": "Immowelt Scraper - German Real Estate Listings",
+      "categories": [
+        "REAL_ESTATE",
+        "LEAD_GENERATION",
+        "OTHER"
+      ],
+      "chip": "Real estate & rentals",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/immowelt-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape rental and sale real estate listings from immowelt.de. Extract prices, sizes, locations, rooms, agent info. Pe\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/6zt9aowYZUJ7L3UaJoWzsTJWz5i81VdHHowQ13unUnM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itd2RpQWFJNHBhY0RqeGFRV1otdk1yTVAzM0poSi1pbW1vd2VsdC5wbmc.webp"
+    },
+    {
       "name": "imovirtual-scraper",
       "title": "Imovirtual Scraper - Portuguese Real Estate",
       "categories": [
@@ -14352,21 +14367,6 @@
       "storeUrl": "https://apify.com/benthepythondev/sec-filings-intelligence?utm_source=catalog&utm_medium=site",
       "oneLiner": "Access SEC EDGAR database for public company filings. Search by ticker symbol, get 10-K/10-Q reports, 8-K filings, an\u2026",
       "iconUrl": "https://images.apifyusercontent.com/U3P0aSzj9GJqdqh1_6vOdqOZbEYjXP9VqLNHsCOe7No/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTGhyRmF6T3pqcW8ySzJoRDItTmkxbjg4Z1NQNS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2wzdHh6c2wzdHh6c2wzdHguanBn.webp"
-    },
-    {
-      "name": "immowelt-scraper",
-      "title": "\ud83c\udfe0 Immowelt Scraper - German Real Estate Listings",
-      "categories": [
-        "REAL_ESTATE",
-        "LEAD_GENERATION",
-        "OTHER"
-      ],
-      "chip": "Real estate & rentals",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/immowelt-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape rental and sale real estate listings from immowelt.de. Extract prices, sizes, locations, rooms, agent info. Pe\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/6zt9aowYZUJ7L3UaJoWzsTJWz5i81VdHHowQ13unUnM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itd2RpQWFJNHBhY0RqeGFRV1otdk1yTVAzM0poSi1pbW1vd2VsdC5wbmc.webp"
     },
     {
       "name": "redfin-scraper",
