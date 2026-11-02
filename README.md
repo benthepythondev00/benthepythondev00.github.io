@@ -11,6 +11,7 @@ Auto-synced searchable catalog of public [Apify](https://apify.com/benthepythond
 - Zumper rental data tutorial: `how-to-get-zumper-rental-listing-data.html`
 - Craigslist real estate data tutorial: `how-to-get-craigslist-real-estate-listings-data.html`
 - Website tech stack and email provider tutorial: `how-to-get-website-tech-stack-data.html`
+- Google Maps business data tutorial: `how-to-get-google-maps-business-data.html`
 - Google Play reviews tutorial: `how-to-get-google-play-reviews-data.html`
 - Austin rental-monitoring case study: `austin-rental-monitoring.html`
 - Sanitized case-study sample: `data/austin-rental-monitor-sample-2026-08-20.json`
