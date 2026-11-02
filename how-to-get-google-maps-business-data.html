@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get Google Maps business data: contacts, ratings and leads for any city</title>
+  <meta name="description" content="Turn a search like dentist in Austin, TX into one row per place: phone, website, address, rating, reviews and a lead score. Real fields, a real San Francisco row and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-google-maps-business-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-google-maps-business-data.html" />
+  <meta property="og:title" content="How to get Google Maps business data: contacts, ratings and leads for any city" />
+  <meta property="og:description" content="A query and a city in, one row per place out: contact details, address, rating, reviews and a lead score." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get Google Maps business data: contacts, ratings and leads for any city",
+    "datePublished": "2026-11-02",
+    "dateModified": "2026-11-02",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-google-maps-business-data.html",
+    "description": "Get phone, website, address, rating, reviews and a lead score for every place Google Maps shows for a search, one row per place."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/google-maps-business-scraper">Actor</a></p>
+    <h1>How to get Google Maps business data: contacts, ratings and leads for any city</h1>
+    <p class="note">2 Nov 2026 · benthepythondev</p>
+
+    <p>Say you need a list of every dentist in Austin or every restaurant in San Francisco, with phone numbers, websites and ratings. The <a href="https://apify.com/benthepythondev/google-maps-business-scraper">Google Maps Business Scraper</a> returns the places Google Maps shows for a search. You give it a query like "dentist" and a location like "Austin, TX". You don't need a Google login or an API key.</p>
+    <p>If you also need the email address for each place, read the <a href="./maps-berlin-contacts.html">Berlin tax advisor case study</a> on the Google Maps Email Extractor. This page covers the business data itself.</p>
+
+    <h2>What you get</h2>
+    <p>Each place comes back as one row with these fields:</p>
+    <ul>
+      <li><strong>Business:</strong> name, the main category plus all categories, a short description, price range, and whether Google marks the place as permanently closed.</li>
+      <li><strong>Contact:</strong> phone in local format and in international format, website, and the website's domain.</li>
+      <li><strong>Address:</strong> the full address, plus street, neighborhood, city, state, postal code, country code and plus code as separate fields.</li>
+      <li><strong>Position:</strong> latitude, longitude and time zone.</li>
+      <li><strong>Reputation:</strong> rating, number of reviews, and a lead score from 0 to 100.</li>
+      <li><strong>Opening hours:</strong> one entry for each weekday.</li>
+      <li><strong>"About" tab:</strong> groups such as accessibility, service options, payments and parking, each given as a list of what the place has.</li>
+      <li><strong>Identifiers:</strong> place id, CID, feature id, Knowledge Graph id, and the Google Maps link.</li>
+      <li><strong>Media:</strong> the main photo and the number of photos. Photo links are available on request.</li>
+      <li><strong>With full details turned on:</strong> how many 1, 2, 3, 4 and 5 star reviews the place has, plus up to eight reviews with author, rating, text and date.</li>
+    </ul>
+    <p>Every row also records the query it came from, its rank in the results, and when it was scraped.</p>
+
+    <h2>Example output</h2>
+    <p>This is a trimmed row from a real run of "restaurants San Francisco, CA":</p>
+    <pre><code>{
+  "name": "Piccolo Forno",
+  "rating": 4.7,
+  "review_count": 2435,
+  "address": "725 Columbus Ave, San Francisco, CA 94133",
+  "phone": "(415) 757-0087",
+  "phone_international": "+1 415-757-0087",
+  "website": "https://piccolo-forno-sf.com/",
+  "domain": "piccolo-forno-sf.com",
+  "category": "Italian restaurant",
+  "description": "Casual neighborhood trattoria with Italian classics &amp; espresso in colorful, contemporary quarters.",
+  "price": null,
+  "latitude": 37.801362999999995,
+  "longitude": -122.412033,
+  "neighborhood": "Russian Hill",
+  "city": "San Francisco",
+  "state": "California",
+  "postal_code": "94133",
+  "country_code": "US",
+  "timezone": "America/Los_Angeles",
+  "permanently_closed": false,
+  "lead_score": 90,
+  "place_id": "ChIJLeYyO_CAhYAR6j9XsEIm3GI",
+  "cid": "7123610778461487082",
+  "photo_count": 1877,
+  "attributes": {
+    "Accessibility": ["Wheelchair accessible entrance", "Wheelchair accessible restroom", "Wheelchair accessible seating"]
+  },
+  "query": "restaurants San Francisco, CA",
+  "rank": 1
+}</code></pre>
+    <p>The same run also returned Lazy Bear (Mission District, 1,211 reviews) and Rich Table (Lower Haight, 1,622 reviews). The <code>opening_hours</code> field, left out above, has one object per day such as <code>{"day": "Tuesday", "hours": "Closed"}</code>.</p>
+
+    <h2>Use cases</h2>
+    <p><strong>Building local lead lists.</strong> You get phone, website, a lead score and a split address for every place, so you can export a city's businesses to CSV or Excel and send them straight to outreach. The <code>websiteFilter</code> input can keep only places with a website, or only places without one.</p>
+    <p><strong>Covering a whole city, not just the first page.</strong> A single Google list stops at somewhere between 120 and 240 places. When you ask for more, the Actor searches the map tile by tile and splits any crowded tile into four. It also looks the location up in OpenStreetMap, so places outside the city, district or state you named are not saved. The README gives an example: a search for restaurants in Los Angeles returned 4,000 places in about two minutes, and none of them came from Pasadena, Glendale or Long Beach.</p>
+    <p><strong>Running many cities or categories in one go.</strong> <code>queries</code> and <code>locations</code> both take lists, and every query is searched in every location.</p>
+    <p><strong>Monitoring for new places.</strong> Run it on a schedule with <code>onlyNew</code> and a monitor name, or pass <code>excludePlaceIds</code>, and you'll only get places you haven't seen before. Results can also go to Make, Zapier or n8n.</p>
+
+    <h2>How to run it</h2>
+    <p><strong>On Apify:</strong> open the <a href="https://apify.com/benthepythondev/google-maps-business-scraper">Actor page</a> and enter a <code>query</code> and a <code>location</code>. Set <code>maxResults</code> (the default is 10 and the maximum is 20,000 per search). You can also filter with <code>minRating</code>, <code>minReviews</code> or <code>websiteFilter</code>. If you already have specific places, pass them in <code>startUrls</code> as links, place ids or feature ids and set <code>mode</code> to <code>direct_urls</code>. You can export results as JSON, CSV or Excel, call the Actor through the Apify API, or run it on a schedule.</p>
+    <p>The price is $1.50 per 1,000 places, or $1.20 per 1,000 on the Gold plan and above. Filters, full details and reviews don't cost extra, and you aren't charged for places a filter drops.</p>
+    <p><strong>As an API on RapidAPI:</strong> the same scraper is listed as <a href="https://rapidapi.com/benthepythondev0/api/google-maps-scraper17">Google Maps Scraper on RapidAPI</a>. Use it if you'd rather call an HTTP endpoint with a RapidAPI key.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li>The boundary filter isn't perfect at the edges. In the Los Angeles example, 16 of the 4,000 places sat on the city line and had a neighboring town in their address.</li>
+      <li>Some fields are often empty. <code>price</code> was <code>null</code> for all three San Francisco rows above, and fields like website or description only appear when Google has them.</li>
+      <li>Google sometimes sends answers without review counts. The Actor notices and asks again. In a test run of 260 places, every place with a rating also had its review count, but that is one test, not a guarantee.</li>
+      <li>Reviews are limited to up to eight per place, and only when full details are turned on. Use a separate tool if you need every review.</li>
+      <li>The README doesn't explain how the lead score is calculated. Use it as a rough way to sort, not as a measured value.</li>
+      <li>The data is whatever Google Maps shows when the run happens. Hours, closures and phone numbers can change after that.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
