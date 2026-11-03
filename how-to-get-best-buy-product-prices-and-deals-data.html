@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get Best Buy product prices, deals and open-box data</title>
+  <meta name="description" content="Export Best Buy products by keyword, category or product URL with price, savings, rating, open-box grade and model number as JSON, CSV or Excel." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-best-buy-product-prices-and-deals-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-best-buy-product-prices-and-deals-data.html" />
+  <meta property="og:title" content="How to get Best Buy product prices, deals and open-box data" />
+  <meta property="og:description" content="Fields, real sample rows, inputs, use cases and honest limits of the Best Buy Scraper." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get Best Buy product prices, deals and open-box data",
+    "datePublished": "2026-11-03",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-best-buy-product-prices-and-deals-data.html",
+    "description": "Export Best Buy products by keyword, category or product URL with price, savings, rating, open-box grade and model number."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/bestbuy-scraper">Actor</a></p>
+    <h1>How to get Best Buy product prices, deals and open-box data</h1>
+    <p class="note">3 Nov 2026 · benthepythondev</p>
+
+    <p>The Best Buy Scraper exports Best Buy products as rows of data. You can start from a keyword search, a category URL or a list of product URLs. It reads Best Buy's public product API, so you don't need a Best Buy login, a developer key or a browser. It downloads product data only. It skips photos, fonts, ads and browser bundles.</p>
+
+    <h2>What you get</h2>
+    <p>Each saved row describes one product (one SKU). The fields are:</p>
+    <ul>
+      <li><strong>skuId</strong>: Best Buy's SKU number for the product.</li>
+      <li><strong>title</strong>, <strong>brand</strong> and <strong>modelNumber</strong>: the product name as Best Buy lists it, the maker, and the manufacturer model number.</li>
+      <li><strong>price</strong>: the current customer price in USD.</li>
+      <li><strong>originalPrice</strong>, <strong>savings</strong>, <strong>savingsPercent</strong> and <strong>onSale</strong>: the regular price, how much is taken off in dollars and percent, and whether a saving is reported.</li>
+      <li><strong>rating</strong> and <strong>reviewCount</strong>: the average customer rating and how many reviews it's based on.</li>
+      <li><strong>url</strong> and <strong>imageUrl</strong>: the canonical SKU link and the primary product image.</li>
+      <li><strong>condition</strong> and <strong>openBoxCondition</strong>: whether the offer is new or open-box, plus the open-box grade when there is one.</li>
+      <li><strong>availability</strong> and <strong>isSponsored</strong>: compatibility fields. They are always null (see the limits section).</li>
+      <li><strong>source</strong> and <strong>scrapedAt</strong>: a fixed <code>bestbuy</code> label and a UTC timestamp for when the row was collected.</li>
+    </ul>
+    <p>Set <code>includeSpecifications</code> and search or category rows also get specifications (a name/value object), features (a list of text), a description and image URLs. Direct product URL exports always include these detail fields.</p>
+
+    <h2>Example output</h2>
+    <p>These rows came from a real laptop search. Two of them are shown here, trimmed slightly:</p>
+    <pre><code>[
+  {
+    "skuId": "6667483",
+    "title": "HP - 14\" Laptop - Intel N150 Processor - 4GB Memory - 128GB UFS Storage - Pale Rose Gold",
+    "brand": "HP",
+    "modelNumber": "14-dq6105dx",
+    "price": 209.99,
+    "originalPrice": 349.99,
+    "savings": 140,
+    "savingsPercent": 40,
+    "onSale": true,
+    "rating": 4.4,
+    "reviewCount": 112,
+    "url": "https://www.bestbuy.com/product/hp-14-laptop-intel-n150-processor-4gb-memory-128gb-ufs-storage-pale-rose-gold/JJGW3FGF9T/sku/6667483",
+    "availability": null,
+    "isSponsored": null,
+    "condition": "new",
+    "openBoxCondition": null,
+    "source": "bestbuy",
+    "scrapedAt": "2026-10-07T07:48:01.875719+00:00"
+  },
+  {
+    "skuId": "6613865",
+    "title": "HP - OmniBook X Flip 2-in-1 - 16\" 2K Touchscreen Laptop - Intel Core Ultra 7 (2024) - 16GB Memory - 1TB SSD - Copilot+ PC - Eclipse Gray",
+    "brand": "HP",
+    "modelNumber": "16-as0023dx",
+    "price": 749.99,
+    "originalPrice": 1199.99,
+    "savings": 450,
+    "savingsPercent": 37.5,
+    "onSale": true,
+    "rating": 4.7,
+    "reviewCount": 2295,
+    "condition": "new",
+    "openBoxCondition": null,
+    "source": "bestbuy"
+  }
+]</code></pre>
+    <p>Prices and review counts in these rows will have changed by the time you read this. Treat a row as a snapshot taken at the <code>scrapedAt</code> time.</p>
+
+    <h2>Use cases</h2>
+    <p><strong>Price tracking.</strong> Schedule the same input to run daily, then compare the <code>price</code> column between runs to spot price drops on the products you care about.</p>
+    <p><strong>Deal hunting.</strong> Set <code>onSaleOnly</code> to keep only products where Best Buy reports a saving. Add <code>minPrice</code> and <code>maxPrice</code> to stay inside a budget, and <code>minRating</code> to skip poorly rated items.</p>
+    <p><strong>Open-box shopping.</strong> Set <code>openBoxOnly</code> and each SKU's row shows the lowest-priced matching open-box offer, with its grade in <code>openBoxCondition</code>.</p>
+    <p><strong>Catalog enrichment.</strong> Feed in product URLs with <code>mode</code> set to <code>direct_urls</code> to get the SKU, model number, specifications, features and description for products already on your list.</p>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the Actor at <a href="https://apify.com/benthepythondev/bestbuy-scraper">apify.com/benthepythondev/bestbuy-scraper</a>. A small first run is a good idea. This input saves up to 25 laptops and follows to another search page if it has to:</p>
+    <pre><code>{
+  "mode": "search",
+  "searchQuery": "laptop",
+  "maxProducts": 25,
+  "includeSpecifications": false
+}</code></pre>
+    <p>You can narrow it down. This one returns Lenovo laptops between $500 and $1,000, cheapest first:</p>
+    <pre><code>{
+  "mode": "search",
+  "searchQuery": "laptop",
+  "brands": ["Lenovo"],
+  "minPrice": 500,
+  "maxPrice": 1000,
+  "sortBy": "priceLow",
+  "maxProducts": 25
+}</code></pre>
+    <p>For category mode, pass a public category URL ending in <code>.c</code>, such as <code>https://www.bestbuy.com/site/laptop-computers/all-laptops/pcmcat138500050001.c</code>. Any filters already in the URL are kept. <code>sortBy</code> accepts <code>bestMatch</code>, <code>priceLow</code>, <code>priceHigh</code>, <code>rating</code>, <code>bestSelling</code> or <code>newest</code>. <code>maxProducts</code> can be anywhere from 1 to 1,000, and the default is 5.</p>
+    <p>When the run finishes, open the default dataset's Overview table. You can export it as JSON, CSV or Excel, or read it through the Apify API. Direct access is the default. You can add an Apify proxy or your own proxy if you want one.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/bestbuy-scraper">Open the actor</a>
+    </p>
+
+    <h2>Use it as an API on RapidAPI</h2>
+    <p>If you'd rather call it from your own code with a standard API key, the same scraper is listed on RapidAPI: <a href="https://rapidapi.com/benthepythondev0/api/best-buy-products-scraper">Best Buy Products Scraper on RapidAPI</a>.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li>It doesn't cover local store inventory or delivery promises. The <code>availability</code> and <code>isSponsored</code> fields are always null because this API path can't verify them. The old <code>zipCode</code> input never controlled local inventory, and it's been removed.</li>
+      <li><code>maxProducts</code> caps the number of saved rows, including when filters drop some products. A lower run charge limit can cut the count further, and the log tells you how many rows you can afford before collection starts.</li>
+      <li>A minimum-only price filter is checked against the products that come back, so it may need to fetch more search pages.</li>
+      <li>Sorting follows Best Buy's own order. One product group can hold several offers, so the offer that gets picked won't always line up perfectly with the price sort.</li>
+      <li>Products without a rating never pass a <code>minRating</code> filter.</li>
+      <li>Each SKU is saved at most once per run. Search rankings, prices and offer conditions can change between requests. A row isn't a price quote and doesn't reserve stock.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
