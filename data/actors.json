@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T23:19:11Z",
+  "generatedAt": "2026-11-04T06:14:16Z",
   "count": 987,
   "chips": [
     "All",
@@ -8084,6 +8084,21 @@
       "iconUrl": "https://images.apifyusercontent.com/F7ww0yW7k4CuD0mRlmhxHya3Y_wMfXxw8Zukwmk71EM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItOEhWc2o5REQxaWJoWlZlSnctaXJwdE1XMFNFQi1vcGVuLWVyLWFwaS1jdXJyZW5jaWVzLXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "book-intelligence",
+      "title": "Open Library Book Intelligence",
+      "categories": [
+        "DEVELOPER_TOOLS",
+        "OTHER",
+        "AI"
+      ],
+      "chip": "Other",
+      "users30d": 1,
+      "successRate30d": 90.62,
+      "storeUrl": "https://apify.com/benthepythondev/book-intelligence?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Extract book metadata from Open Library's catalog of 20+ million books. Search by title, author, subject, or ISBN. Ge\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/EkmVF8qoXHvJhm-mgmgTSCfcflMxgKacE2U09O1dJto/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItT1NzYTFTM1VSdVZVeEpsbjQtN29DNXNoMWpUci1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3ZlbGd6bXZlbGd6bXZlbGcuanBn.webp"
+    },
+    {
       "name": "open-meteo-air-quality-scraper",
       "title": "Open Meteo Air Quality Scraper",
       "categories": [
@@ -11367,21 +11382,6 @@
       "storeUrl": "https://apify.com/benthepythondev/gelbe-seiten-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns German business listings from Gelbe Seiten (gelbeseiten.de): company name, street address, phone, email, fax,\u2026",
       "iconUrl": "https://images.apifyusercontent.com/2VA_JuRrfdPWW0k3GNhiJYHz4kgBT0-c43-r0L7z1Yw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItY09CZ2tsSk1ETkNyOFU3TmktMmR5V01HZUI5My1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3JuOHZhenJuOHZhenJuOHYucG5n.webp"
-    },
-    {
-      "name": "book-intelligence",
-      "title": "\ud83d\udcda Open Library Book Intelligence - Book & Author Data",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "OTHER",
-        "AI"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 90.32,
-      "storeUrl": "https://apify.com/benthepythondev/book-intelligence?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract book metadata from Open Library's catalog of 20+ million books. Search by title, author, subject, or ISBN. Ge\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/EkmVF8qoXHvJhm-mgmgTSCfcflMxgKacE2U09O1dJto/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItT1NzYTFTM1VSdVZVeEpsbjQtN29DNXNoMWpUci1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3ZlbGd6bXZlbGd6bXZlbGcuanBn.webp"
     },
     {
       "name": "npm-package-scraper",
