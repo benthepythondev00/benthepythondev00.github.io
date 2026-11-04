@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get Yahoo Finance stock data (quotes, fundamentals, financials) without running yfinance</title>
+  <meta name="description" content="Fields, a real AAPL record, inputs, pricing and honest limits of the Yahoo Finance Scraper: quotes, fundamentals, financials, history and news per ticker." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-yahoo-finance-stock-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-yahoo-finance-stock-data.html" />
+  <meta property="og:title" content="How to get Yahoo Finance stock data (quotes, fundamentals, financials) without running yfinance" />
+  <meta property="og:description" content="One record per ticker with quote, info, history, financials, holders, earnings and news blocks." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    code { overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    table { border-collapse:collapse; width:100%; font-size:.95rem; }
+    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get Yahoo Finance stock data (quotes, fundamentals, financials) without running yfinance",
+    "datePublished": "2026-11-04",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-yahoo-finance-stock-data.html",
+    "description": "Fields, a real AAPL record, inputs, pricing and honest limits of the Yahoo Finance Scraper: quotes, fundamentals, financials, history and news per ticker."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/yahoo-finance-scraper">Actor</a></p>
+    <h1>How to get Yahoo Finance stock data (quotes, fundamentals, financials) without running yfinance</h1>
+    <p class="note">4 Nov 2026 · benthepythondev</p>
+
+    <p>If you've ever kept a <code>yfinance</code> script alive, you've probably hit the usual problems: crumb tokens, cookies, and <code>429 Too Many Requests</code>. The <a href="https://apify.com/benthepythondev/yahoo-finance-scraper">Yahoo Finance Scraper</a> takes a list of ticker symbols and returns <strong>one record per ticker</strong>. Each record holds only the data blocks you ask for. You don't need a Yahoo account or a Yahoo API key.</p>
+
+    <h2>What you get</h2>
+    <p>Every record has a <code>symbol</code> and a <code>scraped_at</code> timestamp. The rest depends on the <code>dataTypes</code> you request:</p>
+    <ul>
+      <li><strong>quote</strong>: live price, previous close, open, day high and low, volume, market cap, 50-day and 200-day averages, and the 52-week high and low (11 fields).</li>
+      <li><strong>info</strong>: the company profile (name, exchange, currency, sector, industry, description, website, employee count, address and phone), valuation ratios (P/E, forward P/E, PEG, price to book, price to sales), dividend yield and rate, beta, EPS, revenue, gross profit, EBITDA, net income, margins, returns, debt to equity, liquidity ratios, free cash flow, and analyst targets with a consensus recommendation (43 fields).</li>
+      <li><strong>history</strong>: daily OHLCV bars for the <code>historyPeriod</code> you set. The README's AAPL test run returned 252 bars for <code>1y</code>.</li>
+      <li><strong>financials</strong>: four years of the income statement, balance sheet and cash flow statement.</li>
+      <li><strong>holders</strong>: major holders, the top 10 institutions and the top 10 mutual funds.</li>
+      <li><strong>recommendations</strong>: analyst rating counts by month.</li>
+      <li><strong>earnings</strong>: past and upcoming earnings dates, each with the EPS estimate and the surprise.</li>
+      <li><strong>dividends</strong> and <strong>splits</strong>: the full payment and split history.</li>
+      <li><strong>news</strong>: up to 20 recent headlines, each with its publisher and a link.</li>
+    </ul>
+    <p>The keys are easier to read than yfinance's. <code>longName</code> becomes <code>name</code>, <code>trailingPE</code> becomes <code>pe_ratio</code>, and <code>fullTimeEmployees</code> becomes <code>employees</code>.</p>
+
+    <h2>Real example output</h2>
+    <p>Here is an excerpt from a real run with <code>quote</code> and <code>info</code> for AAPL. I removed some fields and shortened the description:</p>
+    <pre><code>{
+  "symbol": "AAPL",
+  "scraped_at": "2026-10-07T07:48:49.947457",
+  "quote": {
+    "price": 333.6300048828125,
+    "previous_close": 332.85,
+    "volume": 30425700,
+    "market_cap": 4869056344660.645,
+    "fifty_day_average": 322.3479998779297,
+    "year_high": 345.3399963378906,
+    "year_low": 243.4199981689453
+  },
+  "info": {
+    "name": "Apple Inc.",
+    "exchange": "NMS",
+    "currency": "USD",
+    "sector": "Technology",
+    "industry": "Consumer Electronics",
+    "employees": 150000,
+    "pe_ratio": 38.26032,
+    "forward_pe": 34.81532,
+    "dividend_yield": 0.32,
+    "profit_margin": 0.27618998,
+    "free_cash_flow": 107721875456,
+    "target_mean_price": 328.09384,
+    "recommendation": "buy",
+    "analyst_count": 39
+  }
+}</code></pre>
+    <p>The same run returned a second record for MSFT ("Microsoft Corporation", industry "Software - Infrastructure", price 529.2999877929688) with the same layout.</p>
+
+    <h2>Use cases</h2>
+    <p><strong>1. Screening a watchlist on fundamentals.</strong> Pass <code>"AAPL, MSFT, GOOGL"</code> with <code>quote</code> and <code>info</code>, then sort or filter on <code>pe_ratio</code>, <code>profit_margin</code>, <code>debt_to_equity</code> or <code>target_mean_price</code> in a spreadsheet or in code. For a scheduled CSV or Google Sheets setup, see <a href="./yfinance-alternative-watchlist-fundamentals-to-spreadsheet.html">the watchlist-to-spreadsheet guide</a>.</p>
+    <p><strong>2. Pulling financial statements.</strong> Add <code>financials</code> and you get the income statement, balance sheet and cash flow statement in the same record as the quote.</p>
+    <p><strong>3. Feeding a model with market data.</strong> Add <code>history</code> with a <code>historyPeriod</code> for daily prices, or <code>news</code> for recent headlines. Every block goes into that ticker's single record.</p>
+    <p><strong>4. Replacing a self-hosted yfinance script.</strong> The README shows a swap of about ten lines:</p>
+    <pre><code>from apify_client import ApifyClient
+client = ApifyClient("&lt;YOUR_APIFY_TOKEN&gt;")
+run = client.actor("benthepythondev/yahoo-finance-scraper").call(
+    run_input={"tickers": "AAPL", "dataTypes": ["quote", "info"]})
+info = client.dataset(run.default_dataset_id).list_items().items[0]["info"]</code></pre>
+    <p>That snippet is written for <code>apify-client</code> 3.x. On 2.x, use <code>run["defaultDatasetId"]</code> on the last line.</p>
+    <p>AI agents can reach the same Actor through the Apify MCP server as <code>benthepythondev/yahoo-finance-scraper</code>. The smallest useful input is <code>{"tickers": "AAPL", "dataTypes": ["quote", "info", "financials"]}</code>.</p>
+
+    <h2>How to run it</h2>
+    <p><strong>On Apify:</strong> open the <a href="https://apify.com/benthepythondev/yahoo-finance-scraper">Actor page</a>, enter your tickers separated by commas, and pick the data blocks you want. Results export to JSON, CSV or Excel. You can also run it on a schedule, call it through the Apify API, or connect it to Make, Zapier or n8n.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/yahoo-finance-scraper">Open the actor</a>
+    </p>
+    <p><strong>As an API on RapidAPI:</strong> the same scraper is listed at <a href="https://rapidapi.com/benthepythondev0/api/yahoo-finance-scraper3">rapidapi.com/benthepythondev0/api/yahoo-finance-scraper3</a>. Use that listing if you already handle API keys and billing through RapidAPI.</p>
+
+    <h2>Pricing on Apify</h2>
+    <p>You pay once per ticker record, no matter how many blocks the record contains, plus one Actor Start charge per run. These are the README prices from 2026-11-04:</p>
+    <table>
+      <thead><tr><th>Plan</th><th>Per ticker record</th><th>Actor Start</th></tr></thead>
+      <tbody>
+        <tr><td>Free</td><td>$0.005</td><td>$0.00005</td></tr>
+        <tr><td>Bronze</td><td>$0.0045</td><td>$0.000045</td></tr>
+        <tr><td>Silver</td><td>$0.00425</td><td>$0.0000425</td></tr>
+        <tr><td>Gold and up</td><td>$0.004</td><td>$0.00004</td></tr>
+      </tbody>
+    </table>
+    <p>Errors and empty results cost nothing.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Plain quotes for a large list are cheaper elsewhere.</strong> The README says so directly: if you only need prices for many tickers, a per-row tool costs less. This one pays off when you also want financials, news or history for each ticker.</li>
+      <li><strong>Unknown symbols return nothing.</strong> A typo or a delisted ticker writes no record and isn't charged. If you check your output against your input list, a missing <code>symbol</code> means Yahoo didn't recognize it.</li>
+      <li><strong>Numbers come back raw.</strong> Prices keep their full float precision (<code>333.6300048828125</code>), so round them yourself. Market cap appears in both <code>quote</code> and <code>info</code>, and the two values differ slightly (4869056344660.645 vs 4869056364544).</li>
+      <li><strong>Check the units before you compare fields.</strong> In the sample, <code>dividend_yield</code> is 0.32 while <code>profit_margin</code> is 0.276. The dividend yield looks like a percentage and the margin looks like a fraction, so confirm the units before mixing them in a formula.</li>
+      <li><strong>The data comes from Yahoo.</strong> What Yahoo shows for a ticker is what you get. Smaller or non-US listings may have fewer filled fields than AAPL or MSFT.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
