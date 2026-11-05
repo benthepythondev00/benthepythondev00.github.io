@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T21:18:05Z",
+  "generatedAt": "2026-11-05T02:24:32Z",
   "count": 987,
   "chips": [
     "All",
@@ -29,6 +29,21 @@
       "iconUrl": "https://images.apifyusercontent.com/H3F-D265YeTfn5VdwzpUEEZ3sPtSGtPeRTgW590ks1k/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNjNTMUZBcWlZM1VEcVZFdmItbzlRWklITktCYi1yZW1vdGUtam9icy1hZ2dyZWdhdG9yLnBuZw.webp"
     },
     {
+      "name": "yahoo-finance-scraper",
+      "title": "Yahoo Finance Scraper: yfinance Alternative, Financials & News",
+      "categories": [
+        "NEWS",
+        "DEVELOPER_TOOLS",
+        "AUTOMATION"
+      ],
+      "chip": "Finance",
+      "users30d": 46,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/yahoo-finance-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "One record and one charge per ticker from Yahoo Finance: live quote, valuation and fundamentals, financial statements\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/r3ZjUJ6OU1vU-Y5j-OLx4osWW6PehxmuzJX20vA3gt0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYTVWRmU4OGpMdzN0bjRHMkMtQmsySVRiZE00TS15YWhvby1maW5hbmNlLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "arbeitsagentur-jobs-scraper",
       "title": "Arbeitsagentur Jobs Scraper: Stellenangebote & Jobb\u00f6rse",
       "categories": [
@@ -42,21 +57,6 @@
       "storeUrl": "https://apify.com/benthepythondev/arbeitsagentur-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Jobs from the Jobb\u00f6rse of the Bundesagentur f\u00fcr Arbeit: title, employer, place with coordinates, dates, full text, ho\u2026",
       "iconUrl": "https://images.apifyusercontent.com/h1LWkT96HyibdYjB2INMqOXPaauf7i9HyjkQpc23UpY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaHFsRURrYkgya2JoVjkxUGUtMVN6T0RCNGhoZS1hcmJlaXRzYWdlbnR1ci1qb2JzLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "yahoo-finance-scraper",
-      "title": "Yahoo Finance Scraper: yfinance Alternative, Financials & News",
-      "categories": [
-        "NEWS",
-        "DEVELOPER_TOOLS",
-        "AUTOMATION"
-      ],
-      "chip": "Finance",
-      "users30d": 44,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/yahoo-finance-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "One record and one charge per ticker from Yahoo Finance: live quote, valuation and fundamentals, financial statements\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/r3ZjUJ6OU1vU-Y5j-OLx4osWW6PehxmuzJX20vA3gt0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYTVWRmU4OGpMdzN0bjRHMkMtQmsySVRiZE00TS15YWhvby1maW5hbmNlLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "favicon-extractor",
@@ -6098,7 +6098,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 1,
-      "successRate30d": 92.86,
+      "successRate30d": 89.66,
       "storeUrl": "https://apify.com/benthepythondev/jobrapido-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Jobrapido job search results: title, company, location, posted date, description and job URL across multiple c\u2026",
       "iconUrl": "https://images.apifyusercontent.com/VSOaj5xjp9nr0W1Jp9OKdEUeAo58NzO33obnG_pLNHg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItclFqNlY2YVk3eEZWa3ltcE0tTkZ0MnFTSmZuZS1qb2JyYXBpZG8tc2NyYXBlci5wbmc.webp"
@@ -11753,7 +11753,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 0,
-      "successRate30d": 96.43,
+      "successRate30d": 96.55,
       "storeUrl": "https://apify.com/benthepythondev/bayt-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Bayt.com jobs: title, company, location, summary, career level, experience, posted date, easy apply flag and j\u2026",
       "iconUrl": "https://images.apifyusercontent.com/xSUH9zR4NSe3zNlcM1xKjNaQTE7e9tC-h7wCUp5Txmc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWE1nTHZ3N2hnREw1VlBzcE4tWlRFdHp0ME0wUy1iYXl0LWpvYnMtc2NyYXBlci5wbmc.webp"
@@ -12713,7 +12713,7 @@
       ],
       "chip": "Jobs & hiring",
       "users30d": 0,
-      "successRate30d": 96.55,
+      "successRate30d": 96.67,
       "storeUrl": "https://apify.com/benthepythondev/icims-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape iCIMS/Jibe career sites via their public jobs API: title, company, location, category, employment type, descri\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Mu-RBXYUD0x-aQCSV07OI8Qtl9sLIMNK4zE9Fbb3t18/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdEFCTWhPSUM3MkFSQjlnTmQtMlFEOEF3T05kaS1pY2ltcy1qb2JzLXNjcmFwZXIucG5n.webp"
