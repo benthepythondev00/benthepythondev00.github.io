@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T10:49:43Z",
+  "generatedAt": "2026-11-05T18:42:54Z",
   "count": 987,
   "chips": [
     "All",
@@ -503,7 +503,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 4,
-      "successRate30d": 97.18,
+      "successRate30d": 95.83,
       "storeUrl": "https://apify.com/benthepythondev/reddit-search-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns Reddit posts that match your keywords, across Reddit or inside chosen subreddits: title, text, score, comment\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Ndw7tCBCwOkz8WesyXRAzWTZ6BmG--LI1SYIIv7ArQM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItV2tjTHdOMHhjbjFDdGFJN0Qtc1pXc2NBRUFYTS1yZWRkaXQtc2VhcmNoLXNjcmFwZXIucG5n.webp"
@@ -1392,6 +1392,21 @@
       "storeUrl": "https://apify.com/benthepythondev/7timer-civil-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Worldwide 7-day forecast by coordinates from 7Timer (NOAA GFS), no API key: temperature, weather, cloud cover, rain,\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Cas4yeQvDHe9lDVlrZ0O4NrMEuD8TKGnVxC0Qm89tFg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRktIVWUzUUZnaVBTNVRpU2MtQll0WktOM3VPNS03dGltZXItY2l2aWwtc2NyYXBlci5wbmc.webp"
+    },
+    {
+      "name": "adobe-stock-scraper",
+      "title": "Adobe Stock Scraper - Assets, Creators & Niche Report",
+      "categories": [
+        "VIDEOS",
+        "SOCIAL_MEDIA",
+        "MARKETING"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/adobe-stock-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape Adobe Stock search results and creator portfolios without login: title, creator, category, size, AI-generated\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/iRyjpyIvSyhADM0xdkE0Ym2E9XInhk_0595wRGBd1Ao/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMGVnMG44Nlk4T2JPQmdEQ3UtWGYyeHpnRXBKOS1wdWItZGV2LXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "ads-txt-scraper",
@@ -4182,6 +4197,21 @@
       "storeUrl": "https://apify.com/benthepythondev/facebook-comments-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Facebook comments scraper and extractor: export the comments and replies of public Facebook posts, reels, videos, pho\u2026",
       "iconUrl": "https://images.apifyusercontent.com/a55_JaA2G9PjW2FXcoyYo3DjzCE0Dcw8yvfpA0VsoQw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNmlZSlZxSm5sWVNaYzFRVEwtbFJrRjJCWXV2bi1mYWNlYm9vay1jb21tZW50cy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
+      "name": "facebook-events-scraper",
+      "title": "Facebook Events Scraper - Page & Venue Events, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "LEAD_GENERATION",
+        "TRAVEL"
+      ],
+      "chip": "Real estate & rentals",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/facebook-events-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Exports public Facebook events from any page, venue or event link, past the 8-event limit a logged-out visitor sees:\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/ns1jLGe7SQXV5fc4yjw1c6GTqLuqG6oy7mDR7fos7z8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYjJWS0NkWDBNR284VDhmaEktbzJvT2REYkM1OC1mYWNlYm9vay1ldmVudHMtc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "facebook-pages-scraper",
@@ -8078,7 +8108,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 92.86,
+      "successRate30d": 89.66,
       "storeUrl": "https://apify.com/benthepythondev/omicsdi-datasets-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect OmicsDI records and export id, title, description, source, claimable, omicstype as structured JSON, CSV or Ex\u2026",
       "iconUrl": "https://images.apifyusercontent.com/MDJW5CasuWwrf75XucaXqlNDbhddrnOA5kdMXPZ6an8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItR0NOeE5MSDdTMnpXWkg3SzItbEttVTV5OGFOSi1vbWljc2RpLWRhdGFzZXRzLXNjcmFwZXIucG5n.webp"
@@ -8937,21 +8967,6 @@
       "storeUrl": "https://apify.com/benthepythondev/providence-open-data-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect Providence Open Data records and export id, owner id, tableauthor id, name, description, type as structured J\u2026",
       "iconUrl": "https://images.apifyusercontent.com/nb9cqFs_YTTnXGmMCn7eoPIX1aIWRmuYW_smSD5lbAo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdEpMT2JpUkxhUnBZbjBZRVctUkluYlI5TVBtTy1wcm92aWRlbmNlLW9wZW4tZGF0YS1zY3JhcGVyLnBuZw.webp"
-    },
-    {
-      "name": "pub-dev-scraper",
-      "title": "pub.dev Scraper - Dart Package Metadata",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "LEAD_GENERATION"
-      ],
-      "chip": "Lead gen",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/pub-dev-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape pub.dev Dart and Flutter package metadata with package name, version, description, publisher, repository, like\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/iRyjpyIvSyhADM0xdkE0Ym2E9XInhk_0595wRGBd1Ao/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMGVnMG44Nlk4T2JPQmdEQ3UtWGYyeHpnRXBKOS1wdWItZGV2LXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "pubchem-compounds-scraper",
@@ -10002,21 +10017,6 @@
       "storeUrl": "https://apify.com/benthepythondev/telegram-keyword-search-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Finds public Telegram posts that mention your keywords: channels about each keyword are found for you, then Telegram'\u2026",
       "iconUrl": "https://images.apifyusercontent.com/SOKGDEroc6-yyBnnOKyC0_OehWp58Ks3LUWNrPq1q2M/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTXB4M3c2a0hadGhSbkxOSFEtZzVhNmYyUVlJNy03dGltZXItY2l2aWwtbGlzdDItc2NyYXBlci5wbmc.webp"
-    },
-    {
-      "name": "terraform-registry-scraper",
-      "title": "Terraform Registry Scraper - Module Metadata",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "LEAD_GENERATION"
-      ],
-      "chip": "Lead gen",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/terraform-registry-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape Terraform Registry module metadata with namespace, module name, provider, downloads, verification status, sour\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/pAO0iDOQPtJeSElfJBCyjPkLS_KkppRhBhRsKh2MQ5I/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYjJWS0NkWDBNR284VDhmaEktM2lERGNmZXZCTS10ZXJyYWZvcm0tcmVnaXN0cnktc2NyYXBlci5wbmc.webp"
     },
     {
       "name": "tfl-service-status-scraper",
