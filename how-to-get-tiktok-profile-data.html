@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get TikTok profile data: followers, likes, bios and recent videos</title>
+  <meta name="description" content="Export TikTok profiles by username or URL with exact followers, likes, bio, account flags and recent videos with play counts as JSON, CSV or Excel. Fields, a real nasa row and limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-tiktok-profile-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-tiktok-profile-data.html" />
+  <meta property="og:title" content="How to get TikTok profile data: followers, likes, bios and recent videos" />
+  <meta property="og:description" content="Fields, a real sample row, use cases and honest limits of the TikTok Profile Scraper." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get TikTok profile data: followers, likes, bios and recent videos",
+    "datePublished": "2026-11-07",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-tiktok-profile-data.html",
+    "description": "Export TikTok profiles by username or URL with exact followers, likes, bio, account flags and recent videos with play counts as JSON, CSV or Excel. Fields, a real nasa row and limits."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">&larr; Catalog</a> · <a href="https://apify.com/benthepythondev/tiktok-profile-scraper">Actor</a></p>
+    <h1>How to get TikTok profile data: followers, likes, bios and recent videos</h1>
+    <p class="note">7 Nov 2026 · benthepythondev</p>
+
+    <p>If you already have a list of TikTok accounts and want their public stats in a spreadsheet, the <a href="https://apify.com/benthepythondev/tiktok-profile-scraper">TikTok Profile Scraper</a> does that job. You give it usernames or profile URLs. It returns one row per account with exact follower and like totals, the bio, account flags and the account's latest videos with play counts. Results export as JSON, CSV or Excel. You don't need a TikTok login or a developer key.</p>
+
+    <h2>What you get</h2>
+    <p>Each profile row contains:</p>
+    <ul>
+      <li><strong>Identity:</strong> <code>username</code>, <code>user_id</code>, <code>nickname</code> and <code>sec_uid</code>.</li>
+      <li><strong>Public totals:</strong> <code>followers</code>, <code>following</code>, <code>likes</code> and <code>video_count</code>. These are exact numbers. TikTok's own page shows something like "1.9M", but the row gives the full count.</li>
+      <li><strong>Profile details:</strong> <code>bio</code>, <code>bio_link</code> and <code>avatar_url</code>.</li>
+      <li><strong>Account flags:</strong> <code>verified</code>, <code>private_account</code>, <code>business_account</code>, <code>business_category</code> and <code>tiktok_shop_seller</code>.</li>
+      <li><strong>Metadata:</strong> <code>region</code>, <code>language</code> and <code>created_at</code>. These can be null when the source has no value.</li>
+      <li><strong>Recent videos:</strong> a <code>recent_videos</code> list. Pinned videos come first, then the latest ten. Each video has <code>id</code>, <code>url</code>, <code>description</code>, <code>plays</code>, <code>posted_at</code>, <code>pinned</code>, <code>cover_url</code> and <code>video_url</code>.</li>
+      <li><strong>Summary figures:</strong> <code>recent_avg_plays</code>, <code>recent_median_plays</code>, <code>posts_per_week</code> and <code>last_post_at</code>. Pinned videos are left out of the averages, so one old viral clip doesn't skew them.</li>
+      <li><strong>Lookup status:</strong> <code>input_url</code> and <code>scraped_at</code>.</li>
+    </ul>
+    <p>Turn on <code>includeVideoStats</code> and each of the latest videos (1 to 50 of them) also gets <code>likes</code>, <code>comments</code>, <code>shares</code>, <code>music_title</code> and its own <code>engagement_rate</code>. The profile row then gets a <code>recent_avg_engagement_rate</code> as well.</p>
+
+    <h2>Real example output</h2>
+    <p>Here is a trimmed excerpt from a real lookup of the <code>nasa</code> account. Long CDN URLs are shortened and only two of the videos are shown:</p>
+    <pre><code>{
+  "username": "nasa",
+  "user_id": "7664638705177150477",
+  "nickname": "NASA",
+  "bio": "Making the seemingly impossible, possible.✨",
+  "verified": true,
+  "followers": 1989721,
+  "following": 23,
+  "likes": 10509089,
+  "video_count": 53,
+  "bio_link": null,
+  "language": "en",
+  "private_account": false,
+  "business_account": false,
+  "tiktok_shop_seller": false,
+  "scraped_at": "2026-10-07T07:40:11.687664",
+  "input_url": "nasa",
+  "recent_videos": [
+    {
+      "id": "7665075736742530317",
+      "url": "https://www.tiktok.com/@nasa/video/7665075736742530317",
+      "description": "Something big just landed on TikTok.",
+      "plays": 1500000,
+      "posted_at": "2026-07-21T20:08:37",
+      "pinned": true
+    },
+    {
+      "id": "7691727731800673549",
+      "url": "https://www.tiktok.com/@nasa/video/7691727731800673549",
+      "description": "Off Earth, working for Earth.🚀🧑‍🚀 Crew-13 is headed to the ISS to conduct research and test new technologies in microgravity!",
+      "plays": 425300,
+      "posted_at": "2026-10-01T15:51:58",
+      "pinned": false
+    }
+  ]
+}</code></pre>
+    <p>The pinned July video comes first. The newer October posts follow it.</p>
+
+    <h2>What people use it for</h2>
+    <p>These come straight from what the tool is built to do:</p>
+    <ol>
+      <li><strong>Enriching a list of creators you already know.</strong> Paste in handles from a spreadsheet or CRM and get follower counts, verification status and bio links back for each one.</li>
+      <li><strong>Tracking growth over time.</strong> The scraper doesn't store history. Instead, you save the run as an Apify Task, schedule it, and compare each new snapshot with the previous one by <code>user_id</code>.</li>
+      <li><strong>Checking whether an account is a business or a shop.</strong> <code>business_account</code>, <code>business_category</code> and <code>tiktok_shop_seller</code> show whether an account is registered as a business, which category it picked (for example <code>Clothing &amp; Accessories</code>) and whether it sells through TikTok Shop.</li>
+      <li><strong>Comparing recent performance.</strong> Median plays, posting rate and (with <code>includeVideoStats</code>) engagement rate let you see how active an account is right now, not just how big it is.</li>
+    </ol>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the <a href="https://apify.com/benthepythondev/tiktok-profile-scraper">actor page on Apify</a>. Paste this into the JSON input and start the run:</p>
+    <pre><code>{"profiles": ["nasa"], "maxProfiles": 1, "delayBetweenRequests": 500}</code></pre>
+    <p>When it finishes, go to <strong>Dataset &rarr; Export</strong> and choose your format. For a batch, list several entries in <code>profiles</code>. Plain usernames (<code>nasa</code>), handles with an @ (<code>@mrbeast</code>) and full profile URLs (<code>https://www.tiktok.com/@nasa</code>) all work, and case doesn't matter. Duplicate handles are only looked up once.</p>
+    <p>Pricing according to the README: one successfully exported profile costs $0.0015 on the Free plan, plus the Actor-start event. Failed profiles go into a separate error report instead of the dataset.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/tiktok-profile-scraper">Open the actor</a>
+      <a class="btn btn-ghost" href="https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2">Call it on RapidAPI</a>
+    </p>
+
+    <h2>How to use it as an API on RapidAPI</h2>
+    <p>To call it from your own code without an Apify account, use the <a href="https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2">TikTok Profile Scraper API on RapidAPI</a>. You send the same kind of input and get the same profile fields back.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>It only works on accounts you name.</strong> It can't find creators by topic, list an account's followers, download videos or give you past follower counts. For a short public history of daily counts, see the <a href="./socialblade-mcp.html">SocialBlade creator stats guide</a>.</li>
+      <li><strong>Large play counts are rounded.</strong> Plays come from the list TikTok publishes for embedding a profile, so big numbers show up as values like 425300 or 1500000. Small counts are exact.</li>
+      <li><strong>Per-video likes, comments and shares need <code>includeVideoStats</code>.</strong> Turning it on adds one extra request per 15 videos. It costs nothing extra.</li>
+      <li><strong>Media links expire.</strong> <code>video_url</code> and <code>cover_url</code> stop working after a few hours. <code>avatar_url</code> can expire too, so download anything you want to keep right away.</li>
+      <li><strong>Private accounts have no video list.</strong> Their <code>private_account</code> flag doesn't give you access to private content.</li>
+      <li><strong>Short links are skipped.</strong> Shortened share links and video URLs are reported in <code>ERRORS</code>. Use the account's normal profile URL instead.</li>
+      <li><strong>Numbers change constantly.</strong> The same NASA profile showed 1,940,958 followers on October 3 and 1,989,721 on October 7, 2026. Every row is a snapshot from the moment of the run.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
