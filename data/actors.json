@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T13:58:29Z",
+  "generatedAt": "2026-11-07T18:45:09Z",
   "count": 987,
   "chips": [
     "All",
@@ -1394,6 +1394,21 @@
       "iconUrl": "https://images.apifyusercontent.com/mJ5rhZEIt-auoVmIORDKibBPcwiebztaKdN7dZuApuM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSU1IdmlTVU1XY2JWakloSmcteGlxUW5CU1hkZi1haXJibmItc2VhcmNoLXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "airbnb-reviews-scraper",
+      "title": "Airbnb Reviews Scraper - Category Ratings & Host Replies",
+      "categories": [
+        "TRAVEL",
+        "REAL_ESTATE",
+        "MARKETING"
+      ],
+      "chip": "Real estate & rentals",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/airbnb-reviews-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export Airbnb guest reviews with date, stars, text, translation, host reply, reviewer city and stay length, plus one\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/jfAFwGaY252gYqGnkYzTcHuOQYX7HWmYtLITv58xnrc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUUQzZHo5RWM1aUdmN2tlYk4tT3RuN0FxckNMaS1jbG9qYXJzLXBhY2thZ2VzLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "amazon-bestsellers-scraper",
       "title": "Amazon Bestsellers Scraper: Full Top 100 + ASINs, No Login",
       "categories": [
@@ -2487,21 +2502,6 @@
       "storeUrl": "https://apify.com/benthepythondev/clip-campaign-tracker?utm_source=catalog&utm_medium=site",
       "oneLiner": "Track the clips of a clipping campaign (Whop Content Rewards and others) without login: views, likes, comments and sh\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Xuw1VRua9fbefhPDl2mxmLqksqUZuOPYCfJFMDZifcc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbG9oZDhLbzd0RGMyQnZHNzgtNVoyWTlhcEpCMS1jbGlwLWNhbXBhaWduLXRyYWNrZXIucG5n.webp"
-    },
-    {
-      "name": "clojars-packages-scraper",
-      "title": "Clojars Packages Scraper - Clojure Library Data",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "AUTOMATION"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/clojars-packages-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Search Clojars and export group, artifact, version, description, creation timestamp and package link.",
-      "iconUrl": "https://images.apifyusercontent.com/jfAFwGaY252gYqGnkYzTcHuOQYX7HWmYtLITv58xnrc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUUQzZHo5RWM1aUdmN2tlYk4tT3RuN0FxckNMaS1jbG9qYXJzLXBhY2thZ2VzLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "cocoapods-specs-scraper",
@@ -3749,6 +3749,21 @@
       "iconUrl": "https://images.apifyusercontent.com/9yxnJzK7HcCol1ozPsO5p8BvlWr9ZqBkRcdoRhq4ZqI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQktROUJqNFVqYlNYRFVvajEtbVF6SjNJSXVzcC1kb2luZ2dvb2RsZWVkcy1qb2JzLXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "douban-scraper",
+      "title": "Douban Scraper - Movie, TV, Book Reviews & Comments, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "AI",
+        "MARKETING"
+      ],
+      "chip": "Social & Reddit",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/douban-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export Douban (\u8c46\u74e3) movie, TV, book and music data: subject details with the 1-5 star split, the most helpful short co\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/7JcbBq6AoyYEXTF5GX-wu7qA5vG9jWsWxihzKX1AA4I/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itdm1laUkycGZlQVlEQzBFT1otM1FHdFFPQUFiVC1tZXRhY3Bhbi1tb2R1bGVzLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "dribbble-designers-scraper",
       "title": "Dribbble Designers Scraper - Profiles & Skills",
       "categories": [
@@ -3944,19 +3959,19 @@
       "iconUrl": "https://images.apifyusercontent.com/i2QE1OwgEYDgx01Ueb0SNRtCxk1QF6oJ5T0y2IlAC5g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjdqaVdhRDM3bDl6bXd3eDgtYWVhZnBGRE1QUi1weXBpLXNjcmFwZXIucG5n.webp"
     },
     {
-      "name": "elm-packages-scraper",
+      "name": "airbnb-listing-details-scraper",
       "title": "Elm Packages Scraper - Library Metadata",
       "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "AUTOMATION"
+        "REAL_ESTATE",
+        "TRAVEL",
+        "LEAD_GENERATION"
       ],
-      "chip": "Other",
+      "chip": "Real estate & rentals",
       "users30d": 1,
       "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/elm-packages-scraper?utm_source=catalog&utm_medium=site",
+      "storeUrl": "https://apify.com/benthepythondev/airbnb-listing-details-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Search Elm packages and export package name, summary, license, latest version and canonical documentation link.",
-      "iconUrl": "https://images.apifyusercontent.com/NU985ipNA5vBhpiFlzw6nIPaC-XAiTjek9_olpbtWfc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRXAwWng3Y01MbHdSMUZOOTctZ2tDbDBvNEtuYy1lbG0tcGFja2FnZXMtc2NyYXBlci5wbmc.webp"
+      "iconUrl": "https://images.apifyusercontent.com/gWjXlpiv5-O7Msfn5HhVFuBS70ulJWLc4m5s7VEG-YU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRXAwWng3Y01MbHdSMUZOOTctUkxwbGZuMEtKUi1haXJibmItbGlzdGluZy1kZXRhaWxzLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "emsc-earthquakes-scraper",
@@ -6293,7 +6308,7 @@
       ],
       "chip": "E\u2011commerce",
       "users30d": 1,
-      "successRate30d": 93.33,
+      "successRate30d": 93.41,
       "storeUrl": "https://apify.com/benthepythondev/kleinanzeigen-autos-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape used-car listings from Kleinanzeigen (Germany). Parses make, model, year, mileage, fuel, transmission, power &\u2026",
       "iconUrl": "https://images.apifyusercontent.com/-b7s94XvBHT1naLW8La7D851wyj-CkQl9Ra4Dh9xdwY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRTFMbHFQUGJCSFN1M2diOWYtcGFTWnloNjJyYS1rbGVpbmFuemVpZ2VuLWF1dG9zLXNjcmFwZXIucG5n.webp"
@@ -7017,21 +7032,6 @@
       "storeUrl": "https://apify.com/benthepythondev/met-no-locationforecast-scraper2?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect MET Norway locationforecast records and export time, source, scraped at as structured JSON, CSV or Excel data.",
       "iconUrl": "https://images.apifyusercontent.com/jRYT462ESvgWB83-bOhE_HWKx3SRH2h2mjZL8lFowx0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWWdaUG01b2hPNEJPUXJsUVktTXNQS1M0ZFY0ei1tZXQtbm8tbG9jYXRpb25mb3JlY2FzdC1zY3JhcGVyMi5wbmc.webp"
-    },
-    {
-      "name": "metacpan-modules-scraper",
-      "title": "MetaCPAN Modules Scraper - Perl Package Data",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "AUTOMATION"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/metacpan-modules-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Search MetaCPAN modules and export package, distribution, version, author, release, status, documentation and downloa\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/7JcbBq6AoyYEXTF5GX-wu7qA5vG9jWsWxihzKX1AA4I/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itdm1laUkycGZlQVlEQzBFT1otM1FHdFFPQUFiVC1tZXRhY3Bhbi1tb2R1bGVzLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "metmuseum-departments-scraper",
@@ -8123,7 +8123,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 89.29,
+      "successRate30d": 89.66,
       "storeUrl": "https://apify.com/benthepythondev/omicsdi-datasets-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect OmicsDI records and export id, title, description, source, claimable, omicstype as structured JSON, CSV or Ex\u2026",
       "iconUrl": "https://images.apifyusercontent.com/MDJW5CasuWwrf75XucaXqlNDbhddrnOA5kdMXPZ6an8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItR0NOeE5MSDdTMnpXWkg3SzItbEttVTV5OGFOSi1vbWljc2RpLWRhdGFzZXRzLXNjcmFwZXIucG5n.webp"
