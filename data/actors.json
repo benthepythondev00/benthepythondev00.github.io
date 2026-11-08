@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T22:43:10Z",
+  "generatedAt": "2026-11-08T02:26:23Z",
   "count": 987,
   "chips": [
     "All",
@@ -67,8 +67,8 @@
         "AI"
       ],
       "chip": "Social & Reddit",
-      "users30d": 38,
-      "successRate30d": 91.28,
+      "users30d": 37,
+      "successRate30d": 91.32,
       "storeUrl": "https://apify.com/benthepythondev/reddit-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Public Reddit posts with full comment threads, as nested JSON or one Excel row per comment with depth and path. Subre\u2026",
       "iconUrl": "https://images.apifyusercontent.com/fZi3C7sTHRZ9hpvzBc8GRkp358jQJLJ7PGJu2d_X9_g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbHFPY20yQmdzZzRMR05BVGQtT01kNjNVMmJOVS1yZWRkaXQtc2NyYXBlci5wbmc.webp"
@@ -134,21 +134,6 @@
       "iconUrl": "https://images.apifyusercontent.com/XJYNnvhVfQDQoYMZCWNKMBVNqyQsKasFyj9KwdWt1hg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItajFMbDdtbHlCYkNLSXF5Q1ItT0hYVXpidzNaRC1jYXNhLWl0LXNjcmFwZXIucG5n.webp"
     },
     {
-      "name": "facebook-profile-scraper",
-      "title": "Facebook Profile Scraper - Public Profiles & Pages, No Login",
-      "categories": [
-        "SOCIAL_MEDIA",
-        "LEAD_GENERATION",
-        "AUTOMATION"
-      ],
-      "chip": "Lead gen",
-      "users30d": 13,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/facebook-profile-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Returns the public record of Facebook profiles and Pages as a logged-out visitor sees it: name, id, username, verifie\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/ToNT2t9KKx6l3SJBgycKeuDT__oMJYO_If8VKQ84HZU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRmtrTHIxZmxCdEpPekxMNUUtZFZXM3poeGo2ay1mZWMtY2FuZGlkYXRlcy1zY3JhcGVyLnBuZw.webp"
-    },
-    {
       "name": "tech-stack-detector",
       "title": "Tech Stack Detector - Wappalyzer & BuiltWith Alternative",
       "categories": [
@@ -162,6 +147,21 @@
       "storeUrl": "https://apify.com/benthepythondev/tech-stack-detector?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns each website's email provider (Google Workspace, Microsoft 365, Zoho) and the SaaS tools connected to its dom\u2026",
       "iconUrl": "https://images.apifyusercontent.com/EdboaSP9D2P5_G9FYnWs46Ig-MOPWyi-ARm2P7G4t0g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMjJIaERHSFJUVERyWFk1SEgteU9LSEtBaUsyZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzU1b3EzbDU1b3EzbDU1b3EuanBlZw.webp"
+    },
+    {
+      "name": "facebook-profile-scraper",
+      "title": "Facebook Profile Scraper - Public Profiles & Pages, No Login",
+      "categories": [
+        "SOCIAL_MEDIA",
+        "LEAD_GENERATION",
+        "AUTOMATION"
+      ],
+      "chip": "Lead gen",
+      "users30d": 12,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/facebook-profile-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Returns the public record of Facebook profiles and Pages as a logged-out visitor sees it: name, id, username, verifie\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/ToNT2t9KKx6l3SJBgycKeuDT__oMJYO_If8VKQ84HZU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRmtrTHIxZmxCdEpPekxMNUUtZFZXM3poeGo2ay1mZWMtY2FuZGlkYXRlcy1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "instagram-intelligence-scraper",
@@ -4184,6 +4184,21 @@
       "iconUrl": "https://images.apifyusercontent.com/ns1jLGe7SQXV5fc4yjw1c6GTqLuqG6oy7mDR7fos7z8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYjJWS0NkWDBNR284VDhmaEktbzJvT2REYkM1OC1mYWNlYm9vay1ldmVudHMtc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "facebook-marketplace-scraper",
+      "title": "Facebook Marketplace Scraper - Exact Location, No Login",
+      "categories": [
+        "ECOMMERCE",
+        "REAL_ESTATE",
+        "LEAD_GENERATION"
+      ],
+      "chip": "Real estate & rentals",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/facebook-marketplace-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export Facebook Marketplace listings with price, original price, city, listing time and sold flag, at the exact place\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/Cr7hAIbHDmqdLVwp4HHYv0D6VnWb4UHJW0N8a1FyXnM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaWI4VTNyWHphWlRtMkUyTVAtTkhWRVJjRnVaTC1oYWNrYWdlLXBhY2thZ2VzLXNjcmFwZXIucG5n.webp"
+    },
+    {
       "name": "facebook-pages-scraper",
       "title": "Facebook Pages Scraper - Business Info, Contacts, No Login",
       "categories": [
@@ -5097,21 +5112,6 @@
       "storeUrl": "https://apify.com/benthepythondev/gwas-catalog-studies-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect GWAS studies with accession IDs, traits, sample sizes, platforms, publication metadata and canonical links.",
       "iconUrl": "https://images.apifyusercontent.com/BA5Pc_OpBQDRdRmbwXWsQ0ZNnJwy33EMPUloU81-iWY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYm84TzVZS0xrY2h4T0RWZ28tbmttU3lBTGNFby1nd2FzLWNhdGFsb2ctc3R1ZGllcy1zY3JhcGVyLnBuZw.webp"
-    },
-    {
-      "name": "hackage-packages-scraper",
-      "title": "Hackage Packages Scraper - Haskell Package Search",
-      "categories": [
-        "DEVELOPER_TOOLS",
-        "BUSINESS",
-        "AUTOMATION"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/hackage-packages-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Search Hackage package names and export matching package identifiers with canonical package links.",
-      "iconUrl": "https://images.apifyusercontent.com/Cr7hAIbHDmqdLVwp4HHYv0D6VnWb4UHJW0N8a1FyXnM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaWI4VTNyWHphWlRtMkUyTVAtTkhWRVJjRnVaTC1oYWNrYWdlLXBhY2thZ2VzLXNjcmFwZXIucG5n.webp"
     },
     {
       "name": "hacker-news-ask-ids-scraper",
@@ -9188,7 +9188,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 1,
-      "successRate30d": 95.45,
+      "successRate30d": 95.56,
       "storeUrl": "https://apify.com/benthepythondev/reddit-comments-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Reddit comments and nested replies from any post link: text, author, score, time, depth and parent, one row pe\u2026",
       "iconUrl": "https://images.apifyusercontent.com/Tpj67MR9oRK-yV891wxrTxDP8QnmSSxF55MG3IRl2Fg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTkdLYTVWbjRIQ3pETnpPeHktbVpLWnF2c2lFWi1yZWRkaXQtY29tbWVudHMtc2NyYXBlci5wbmc.webp"
@@ -11457,21 +11457,6 @@
       "storeUrl": "https://apify.com/benthepythondev/producthunt-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns Product Hunt's newest featured launches from its public feed: product name, tagline, Product Hunt link, produ\u2026",
       "iconUrl": "https://images.apifyusercontent.com/CssL8Ur5UD43Qc7jf95-HvsIOh0n871r5g0ezs6LId8/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdG1jNldEWEd1TDFhV1hYU2YtcHpMbmtMNDFEcS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2U5YjQzdGU5YjQzdGU5YjQuanBn.webp"
-    },
-    {
-      "name": "vehicle-recalls-intelligence",
-      "title": "\ud83d\ude97 Vehicle Recalls - NHTSA Safety & Complaint Data",
-      "categories": [
-        "AUTOMATION",
-        "DEVELOPER_TOOLS",
-        "OTHER"
-      ],
-      "chip": "Other",
-      "users30d": 1,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/vehicle-recalls-intelligence?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Access comprehensive vehicle safety data from NHTSA. Search recalls by make/model/year, decode VINs, find consumer co\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/alUth3Qzhy2iKzw7-uzdoR-eOnA9Bqm2Ojo06153iPw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTVg5Yk14WjdFbHJyYjVBOUgtWVVselBMOHdUUy1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2w0aWtzc2w0aWtzc2w0aWsuanBn.webp"
     },
     {
       "name": "coingecko-crypto-intelligence",
@@ -14682,6 +14667,21 @@
       "storeUrl": "https://apify.com/benthepythondev/spacex-launch-intelligence?utm_source=catalog&utm_medium=site",
       "oneLiner": "Track SpaceX rocket launches, missions, and space exploration data. Get launch schedules, mission details, rocket spe\u2026",
       "iconUrl": "https://images.apifyusercontent.com/a_DufNNrKgSGuV4q-LieVYwF4uGrHvBJ-U68QxBkPkI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItengxV2lqWHhmbWJzWDFxMEwtNEltcDJZWUxjei1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2YxcHZ2c2YxcHZ2c2YxcHYuanBlZw.webp"
+    },
+    {
+      "name": "vehicle-recalls-intelligence",
+      "title": "\ud83d\ude97 Vehicle Recalls - NHTSA Safety & Complaint Data",
+      "categories": [
+        "AUTOMATION",
+        "DEVELOPER_TOOLS",
+        "OTHER"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/vehicle-recalls-intelligence?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Access comprehensive vehicle safety data from NHTSA. Search recalls by make/model/year, decode VINs, find consumer co\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/alUth3Qzhy2iKzw7-uzdoR-eOnA9Bqm2Ojo06153iPw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTVg5Yk14WjdFbHJyYjVBOUgtWVVselBMOHdUUy1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2w0aWtzc2w0aWtzc2w0aWsuanBn.webp"
     },
     {
       "name": "fbi-wanted-intelligence",
