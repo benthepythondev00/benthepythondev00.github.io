@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T02:26:23Z",
+  "generatedAt": "2026-11-08T10:15:42Z",
   "count": 987,
   "chips": [
     "All",
@@ -68,7 +68,7 @@
       ],
       "chip": "Social & Reddit",
       "users30d": 37,
-      "successRate30d": 91.32,
+      "successRate30d": 90.18,
       "storeUrl": "https://apify.com/benthepythondev/reddit-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Public Reddit posts with full comment threads, as nested JSON or one Excel row per comment with depth and path. Subre\u2026",
       "iconUrl": "https://images.apifyusercontent.com/fZi3C7sTHRZ9hpvzBc8GRkp358jQJLJ7PGJu2d_X9_g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbHFPY20yQmdzZzRMR05BVGQtT01kNjNVMmJOVS1yZWRkaXQtc2NyYXBlci5wbmc.webp"
@@ -1793,7 +1793,7 @@
       ],
       "chip": "Other",
       "users30d": 1,
-      "successRate30d": 96.55,
+      "successRate30d": 96.43,
       "storeUrl": "https://apify.com/benthepythondev/biomodels-models-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Collect BioModels records and export id, name, url, format, submitter, submissiondate as structured JSON, CSV or Exce\u2026",
       "iconUrl": "https://images.apifyusercontent.com/i1JJRtIolzJmokTmjXO4ovES63vbvGz1tY4_7pXwUsw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItVFpzVFpKM2gzWWVEcnZsMW4taTdHNmFnUTdoai1iaW9tb2RlbHMtbW9kZWxzLXNjcmFwZXIucG5n.webp"
@@ -5560,7 +5560,7 @@
       "users30d": 1,
       "successRate30d": 93.1,
       "storeUrl": "https://apify.com/benthepythondev/hp-api-characters-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Collect HP API characters records and export id, name, actor, alive, house, image as structured JSON, CSV or Excel data.",
+      "oneLiner": "Collect Harry Potter character records from Potter DB and export id, name, actor, alive, house, image as structured J\u2026",
       "iconUrl": "https://images.apifyusercontent.com/iYzuUTt9NvkJl-wNvjeD2coAHC-imFWOgrHGNoFf3JY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZGptbHo3cU5DUXhQUDBYdk8tZ1dJWk1FeGFMZi1ocC1hcGktY2hhcmFjdGVycy1zY3JhcGVyLnBuZw.webp"
     },
     {
@@ -13244,6 +13244,21 @@
       "iconUrl": "https://images.apifyusercontent.com/sebC6JQouxG8zLPcWFH-qJa9ZbGlTeEly34dAxX5ZSc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdXVtY2doS2Q3YXFuZ085VDMtZWd6MVNqQ3UwOC1uaHMtam9icy1zY3JhcGVyLnBuZw.webp"
     },
     {
+      "name": "vehicle-recalls-intelligence",
+      "title": "NHTSA Vehicle Recalls Intelligence",
+      "categories": [
+        "AUTOMATION",
+        "DEVELOPER_TOOLS",
+        "OTHER"
+      ],
+      "chip": "Other",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/vehicle-recalls-intelligence?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Access comprehensive vehicle safety data from NHTSA. Search recalls by make/model/year, decode VINs, find consumer co\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/alUth3Qzhy2iKzw7-uzdoR-eOnA9Bqm2Ojo06153iPw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTVg5Yk14WjdFbHJyYjVBOUgtWVVselBMOHdUUy1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2w0aWtzc2w0aWtzc2w0aWsuanBn.webp"
+    },
+    {
       "name": "nonprofit-explorer-scraper",
       "title": "Nonprofit Explorer Scraper - US Organization Data",
       "categories": [
@@ -14667,21 +14682,6 @@
       "storeUrl": "https://apify.com/benthepythondev/spacex-launch-intelligence?utm_source=catalog&utm_medium=site",
       "oneLiner": "Track SpaceX rocket launches, missions, and space exploration data. Get launch schedules, mission details, rocket spe\u2026",
       "iconUrl": "https://images.apifyusercontent.com/a_DufNNrKgSGuV4q-LieVYwF4uGrHvBJ-U68QxBkPkI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItengxV2lqWHhmbWJzWDFxMEwtNEltcDJZWUxjei1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2YxcHZ2c2YxcHZ2c2YxcHYuanBlZw.webp"
-    },
-    {
-      "name": "vehicle-recalls-intelligence",
-      "title": "\ud83d\ude97 Vehicle Recalls - NHTSA Safety & Complaint Data",
-      "categories": [
-        "AUTOMATION",
-        "DEVELOPER_TOOLS",
-        "OTHER"
-      ],
-      "chip": "Other",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/vehicle-recalls-intelligence?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Access comprehensive vehicle safety data from NHTSA. Search recalls by make/model/year, decode VINs, find consumer co\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/alUth3Qzhy2iKzw7-uzdoR-eOnA9Bqm2Ojo06153iPw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTVg5Yk14WjdFbHJyYjVBOUgtWVVselBMOHdUUy1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2w0aWtzc2w0aWtzc2w0aWsuanBn.webp"
     },
     {
       "name": "fbi-wanted-intelligence",
