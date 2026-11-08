@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Get Apple App Store Reviews as Structured Data</title>
+  <meta name="description" content="Get Apple App Store reviews as one row per review: rating, text, version, country and vote data. Real example rows, a monitor mode for new 1-star reviews and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-apple-app-store-reviews-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-apple-app-store-reviews-data.html" />
+  <meta property="og:title" content="How to Get Apple App Store Reviews as Structured Data" />
+  <meta property="og:description" content="App IDs and countries in, one row per review out, ready to sort, filter and analyse." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to Get Apple App Store Reviews as Structured Data",
+    "datePublished": "2026-11-08",
+    "dateModified": "2026-11-08",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-apple-app-store-reviews-data.html",
+    "description": "Collect Apple App Store reviews for one or more apps and countries as structured rows, with no browser, login or API key."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/appstore-reviews-scraper">Actor</a></p>
+    <h1>How to Get Apple App Store Reviews as Structured Data</h1>
+    <p class="note">8 Nov 2026 · benthepythondev</p>
+
+    <p>Reading App Store reviews one at a time in the store doesn't scale once you're tracking more than one app or more than one country. The <a href="https://apify.com/benthepythondev/appstore-reviews-scraper">App Store Reviews Scraper</a> pulls reviews for any iOS or macOS app and gives you one row per review. You give it app IDs or full App Store URLs (it pulls the ID out of the URL) and a list of country storefronts. It reads the App Store's own review data, so you don't need a browser, a login or an API key.</p>
+    <p>Tracking Android apps too? See <a href="./how-to-get-google-play-reviews-data.html">how to get Google Play reviews as structured data</a>.</p>
+
+    <h2>What you get</h2>
+    <p>Each review comes back as one row with these fields:</p>
+    <ul>
+      <li><strong>rating</strong>: the star score, 1 to 5</li>
+      <li><strong>title</strong> and <strong>content</strong>: the review headline and the full review text</li>
+      <li><strong>author_name</strong> and <strong>author_uri</strong>: the reviewer's display name and a link to their reviews</li>
+      <li><strong>version</strong>: the app version the review was written for</li>
+      <li><strong>vote_count</strong> and <strong>vote_sum</strong>: helpfulness vote data for the review</li>
+      <li><strong>country</strong>: the storefront the review came from</li>
+      <li><strong>updated_date</strong>: the date and time of the review</li>
+      <li><strong>app_id</strong>, <strong>app_name</strong> and <strong>app_url</strong>: which app the review belongs to</li>
+      <li><strong>review_id</strong>: a stable ID for the review, which monitor mode uses to tell new reviews from ones it has already seen</li>
+    </ul>
+    <p>The README also lists <code>review_date</code>, <code>is_edited</code>, <code>average_user_rating</code> and <code>user_rating_count</code>. None of those were in the sample run below, so don't assume every row will have them.</p>
+    <p>You can export results as JSON, CSV or Excel, or view them as a table in the Apify Console.</p>
+
+    <h2>Example output</h2>
+    <p>These rows come from a real run for X (app ID <code>333903271</code>) in the US store. The review text is cut short here:</p>
+    <pre><code>[
+  {
+    "review_id": "11030535102",
+    "app_id": "333903271",
+    "app_name": "X",
+    "author_name": "Darncuter",
+    "author_uri": "https://itunes.apple.com/us/reviews/id226283382",
+    "rating": 5,
+    "title": "so much better",
+    "content": "I've had X (TWITTER) since the start but rarely used it the 1st many years...",
+    "version": "10.31.1",
+    "vote_count": 0,
+    "vote_sum": 0,
+    "country": "US",
+    "updated_date": "2024-03-10T13:25:10-07:00",
+    "app_url": "https://apps.apple.com/us/app/x/id333903271?uo=4"
+  },
+  {
+    "review_id": "9349148738",
+    "app_id": "333903271",
+    "app_name": "X",
+    "author_name": "team Elon for free speech",
+    "rating": 5,
+    "title": "Elon asked for a review",
+    "content": "I was on Twitter years and I left Twitter way before the insanity started...",
+    "version": "9.34.6",
+    "country": "US",
+    "updated_date": "2022-12-01T07:16:27-07:00"
+  }
+]</code></pre>
+
+    <h2>Use cases</h2>
+    <p><strong>Sentiment analysis for product teams.</strong> Pull a large batch of reviews for your app and run them through whatever text analysis you already use. Because each row has the <code>version</code> field, you can see how feedback changed after a release.</p>
+    <p><strong>Competitor comparison.</strong> Pass several app IDs in one run, for example <code>["333903271", "389801252"]</code>, along with the same set of countries. You get reviews for all of them in one dataset and can compare ratings and complaints side by side.</p>
+    <p><strong>Alerts for new 1-star reviews.</strong> Turn on <code>monitorMode</code>, set <code>minRating</code> and <code>maxRating</code> to 1, save the input as a Task and put it on a schedule (every 6 hours, say). Every run after the first one saves only reviews written since the previous run. Add a webhook or the Slack or email integration on "Run succeeded" and you'll get a message whenever a new 1-star review appears.</p>
+    <p><strong>Filtering by stars.</strong> <code>"minRating": 4</code> gives you only 4 and 5 star reviews, which is handy for picking out praise. A low <code>maxRating</code> gives you only the complaints. Reviews outside the range aren't saved and aren't charged.</p>
+
+    <h2>How to run it on Apify</h2>
+    <ol>
+      <li>Open the <a href="https://apify.com/benthepythondev/appstore-reviews-scraper">actor page on Apify</a>.</li>
+      <li>Enter <code>appIds</code> or <code>appUrls</code>, plus <code>countries</code> (for example <code>["us", "gb", "de", "jp"]</code>).</li>
+      <li>Set <code>maxReviews</code> per app per country, and choose <code>sortBy</code>: <code>mostRecent</code>, <code>mostHelpful</code> or <code>both</code>.</li>
+      <li>Start the run, then export the dataset or read it through the Apify API. You can also connect it to Make, Zapier or n8n.</li>
+    </ol>
+    <p>Example input:</p>
+    <pre><code>{
+  "appIds": ["333903271", "389801252"],
+  "countries": ["us", "gb", "ca"],
+  "maxReviews": 300,
+  "sortBy": "mostRecent"
+}</code></pre>
+
+    <h2>Use it as an API on RapidAPI</h2>
+    <p>If you'd rather call it as a plain HTTP API with RapidAPI keys and billing, it's also listed at <a href="https://rapidapi.com/benthepythondev0/api/app-store-reviews-scraper1">App Store Reviews Scraper on RapidAPI</a>.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Review caps.</strong> You can get at most 1,000 reviews per app per country. With <code>sortBy: both</code> the limit is 2,000, because the scraper reads both lists and removes duplicates. If you set <code>maxReviews</code> to 0, you get 500. For apps with years of reviews, that means you won't get the full history.</li>
+      <li><strong>The first monitor run saves nothing.</strong> It only records which reviews already exist. Set <code>maxReviews</code> higher than the number of reviews the app gets between two runs, because the feed is read newest first and anything past the cap is missed.</li>
+      <li><strong>Each app and country is tracked on its own.</strong> When you add a new country, it needs its own baseline run before it starts reporting new reviews.</li>
+      <li><strong>Fields can vary.</strong> The sample rows didn't match the README's field list exactly, so check a small run before you build anything that depends on specific fields.</li>
+      <li><strong>Personal data.</strong> Reviewer names and profile links are personal data. You're responsible for having a lawful basis under the GDPR and similar laws, collecting only what you need, and not using the data for unsolicited marketing.</li>
+      <li><strong>Country count.</strong> The README says 48 storefronts in one place and "50+" in another. Test the country codes you need before you rely on them.</li>
+    </ul>
+    <p>To start, run it once for one app in one country and look at the rows you get back.</p>
+  </article>
+</body>
+</html>
