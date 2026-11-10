@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T17:47:19Z",
+  "generatedAt": "2026-11-10T23:16:21Z",
   "count": 987,
   "chips": [
     "All",
@@ -854,6 +854,21 @@
       "iconUrl": "https://images.apifyusercontent.com/1b3Oh5Nls--DX-XsZ7zNG8zXlnemy7wwKl1yyWr9N2g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZDBycm1uZnl4dks3dlN5aHItS1RJMHIyUFBGWC1kYXRhY2l0ZS1kb2ktc2NyYXBlci5wbmc.webp"
     },
     {
+      "name": "domain-intelligence-scraper",
+      "title": "Domain Intelligence Scraper",
+      "categories": [
+        "LEAD_GENERATION",
+        "SEO_TOOLS",
+        "OTHER"
+      ],
+      "chip": "Lead gen",
+      "users30d": 2,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/domain-intelligence-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Extract domain registration data including age, expiry dates, registrar, nameservers, and DNSSEC status using free RD\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/dl0D9Oi6QmJlX43n8_M6ckLanHJafXifDBhwsEijPgI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZGF1YXdpY29JQjRoMko1dW0tTGdGUGkyVXVYSC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX21obmM2MG1obmM2MG1obmMuanBlZw.webp"
+    },
+    {
       "name": "dubizzle-scraper",
       "title": "Dubizzle Scraper - UAE Real Estate & Agent Leads",
       "categories": [
@@ -1242,21 +1257,6 @@
       "storeUrl": "https://apify.com/benthepythondev/workingnomads-jobs-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Working Nomads remote jobs: title, company, category, tags, location, published date, job URL and description.",
       "iconUrl": "https://images.apifyusercontent.com/O-Vk-LHvSAzdQlSnd0d_Gei_UAl4sEaVLqDBVJKG7G4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSGVXd25MekZIbkVEOWd3bVUtRzVqMnVpR3FicC13b3JraW5nbm9tYWRzLWpvYnMtc2NyYXBlci5wbmc.webp"
-    },
-    {
-      "name": "domain-intelligence-scraper",
-      "title": "\ud83c\udf10 Domain Intelligence Scraper - WHOIS & Domain Age",
-      "categories": [
-        "LEAD_GENERATION",
-        "SEO_TOOLS",
-        "OTHER"
-      ],
-      "chip": "Lead gen",
-      "users30d": 2,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/domain-intelligence-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Extract domain registration data including age, expiry dates, registrar, nameservers, and DNSSEC status using free RD\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/dl0D9Oi6QmJlX43n8_M6ckLanHJafXifDBhwsEijPgI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZGF1YXdpY29JQjRoMko1dW0tTGdGUGkyVXVYSC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX21obmM2MG1obmM2MG1obmMuanBlZw.webp"
     },
     {
       "name": "redfin-rental-scraper",
