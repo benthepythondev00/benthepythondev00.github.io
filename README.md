@@ -8,6 +8,7 @@ Auto-synced searchable catalog of public [Apify](https://apify.com/benthepythond
 - Quote hub: `custom.html`
 - SocialBlade MCP FAQ: `socialblade-mcp.html` (source: api-selling `docs/socialblade-mcp/index.html`)
 - Reddit history by date range (options table + curl): `reddit-historical-data-by-date-range.html`
+- PadMapper rental data tutorial: `how-to-get-padmapper-rental-listing-data.html`
 - Zumper rental data tutorial: `how-to-get-zumper-rental-listing-data.html`
 - Craigslist real estate data tutorial: `how-to-get-craigslist-real-estate-listings-data.html`
 - Website tech stack and email provider tutorial: `how-to-get-website-tech-stack-data.html`
