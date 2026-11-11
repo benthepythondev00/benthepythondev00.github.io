@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get Instagram posts data from any public account</title>
+  <meta name="description" content="Export the posts and reels of any public Instagram account with captions, likes, comments and media links as JSON, CSV or Excel. Fields, a real natgeo record, input and limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-instagram-posts-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-instagram-posts-data.html" />
+  <meta property="og:title" content="How to get Instagram posts data from any public account" />
+  <meta property="og:description" content="Fields, a real sample record, use cases and honest limits of the Instagram Posts Scraper." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get Instagram posts data from any public account",
+    "datePublished": "2026-11-11",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-instagram-posts-data.html",
+    "description": "Export the posts and reels of any public Instagram account with captions, likes, comments and media links as JSON, CSV or Excel. Fields, a real natgeo record, input and limits."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">&larr; Catalog</a> · <a href="https://apify.com/benthepythondev/instagram-posts-scraper">Actor</a></p>
+    <h1>How to get Instagram posts data from any public account</h1>
+    <p class="note">11 Nov 2026 · benthepythondev</p>
+
+    <p>If you need the posts of a public Instagram account in a spreadsheet or a database, copying them by hand doesn't scale. The <a href="https://apify.com/benthepythondev/instagram-posts-scraper">Instagram Posts Scraper</a> exports an account's posts and reels, newest first, as structured records. It doesn't log in and needs no cookies or Instagram API key. It asks Instagram for the same data its website loads for a visitor who isn't logged in.</p>
+
+    <h2>What you get</h2>
+    <p>Each post or reel is one record. Here are the fields, grouped:</p>
+    <ul>
+      <li><strong>The post itself:</strong> <code>id</code>, the short <code>code</code>, the public <code>url</code>, the <code>caption</code>, <code>posted_at</code> (UTC timestamp) and <code>media_type</code> (<code>image</code>, <code>video</code> or <code>carousel</code>). <code>record_type</code> tells you whether it's a <code>post</code> or a <code>reel</code>. Flags show whether the post was edited, is pinned to the grid, or is marked as a paid partnership.</li>
+      <li><strong>Engagement:</strong> <code>likes</code>, <code>comments</code>, and <code>likes_hidden</code>, which is true when the author hid the like count.</li>
+      <li><strong>Author:</strong> <code>username</code>, <code>full_name</code>, <code>author_id</code>, <code>is_verified</code>, plus <code>from_profile</code>, the account whose grid the post came from. That matters for collaboration posts.</li>
+      <li><strong>People and places:</strong> <code>mentions</code> (handles written in the caption), <code>tagged_users</code>, <code>coauthors</code> (collaborators), <code>location_name</code> and <code>location_id</code>.</li>
+      <li><strong>Content:</strong> <code>hashtags</code>, <code>image_url</code>, <code>video_url</code> and <code>slide_urls</code> for carousel slides.</li>
+      <li><strong>Audio on reels:</strong> <code>music_title</code> and <code>music_artist</code>.</li>
+      <li><strong>Extras:</strong> <code>alt_text</code> and <code>scraped_at</code>.</li>
+    </ul>
+
+    <h2>Real example output</h2>
+    <p>This is one record from a real run on <code>natgeo</code>, trimmed. The long signed media links are shortened.</p>
+    <pre><code>{
+  "record_type": "reel",
+  "id": "3947535193527528320",
+  "code": "DbIdlf0j6uA",
+  "url": "https://www.instagram.com/reel/DbIdlf0j6uA/",
+  "username": "natgeo",
+  "full_name": "National Geographic",
+  "author_id": "787132",
+  "is_verified": true,
+  "caption": "Describe Pompeii: Out of Time in 3 words? It's Now Streaming.\n\n#PompeiiOutOfTime with @twhiddleston is now streaming on @DisneyPlus and @hulu.",
+  "posted_at": "2026-07-23T13:00:03+00:00",
+  "likes": 28156,
+  "comments": 317,
+  "plays": null,
+  "media_type": "video",
+  "image_url": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/752808040_...",
+  "video_url": "https://scontent-iad3-2.cdninstagram.com/o1/v/t2/f2/m86/AQOvM90z....mp4?...",
+  "slide_urls": [],
+  "hashtags": ["PompeiiOutOfTime"],
+  "mentions": ["twhiddleston", "DisneyPlus", "hulu"],
+  "coauthors": ["disneyplus", "hulu", "twhiddleston"],
+  "location_name": null,
+  "music_title": "Original audio",
+  "music_artist": "natgeo",
+  "is_pinned": true,
+  "is_paid_partnership": false,
+  "from_profile": "natgeo",
+  "scraped_at": "2026-10-05T12:28:07.605223+00:00"
+}</code></pre>
+    <p>A record from the same run shows the partnership flag in use. The pinned reel <code>DdG4RIxIPyf</code> has <code>is_paid_partnership: true</code>, <code>coauthors: ["rolex"]</code> and the hashtags <code>Rolex</code> and <code>PerpetualPlanet</code>.</p>
+
+    <h2>What people use it for</h2>
+    <p>The README lists these use cases:</p>
+    <ul>
+      <li><strong>Competitor and brand monitoring.</strong> Schedule a daily run with <code>postedAfter</code> set to yesterday. Each run then collects only the new posts from the accounts you watch.</li>
+      <li><strong>Content analysis.</strong> Compare likes and comments by format, hashtag, collaborator and posting time. <code>media_type</code>, <code>hashtags</code>, <code>coauthors</code> and <code>posted_at</code> are already split into their own fields for this.</li>
+      <li><strong>Influencer vetting.</strong> Look at real engagement on recent posts instead of relying on a follower count.</li>
+      <li><strong>Datasets for AI and research.</strong> Captions with dates, tags and alt text work for classification, trend studies or RAG.</li>
+    </ul>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the <a href="https://apify.com/benthepythondev/instagram-posts-scraper">Instagram Posts Scraper on Apify</a> and fill in the input:</p>
+    <ul>
+      <li><code>usernames</code>: usernames, @handles or profile links</li>
+      <li><code>maxResults</code>: posts per account, newest first (20 by default, up to 100,000)</li>
+      <li><code>postedAfter</code> / <code>postedBefore</code>: an optional UTC date window in <code>YYYY-MM-DD</code> format</li>
+    </ul>
+    <p>This example gets everything two accounts posted in September 2026:</p>
+    <pre><code>{
+  "usernames": ["natgeo", "nasa"],
+  "maxResults": 1000,
+  "postedAfter": "2026-09-01",
+  "postedBefore": "2026-09-30"
+}</code></pre>
+    <p>When <code>postedAfter</code> is set, reading stops as soon as the scraper reaches older posts, so daily runs stay small. You can export the results as JSON, CSV or Excel, run it on a schedule, call it through the Apify API, or connect it to Make, Zapier or n8n.</p>
+    <p>Pricing is per saved post plus a small start fee per run. It's $1.50 per 1,000 posts on the free plan and less on paid plans. The README puts the default 20-post run at 3 cents. If you set <strong>Maximum cost per run</strong> in the run options, the Actor stops saving at that amount and says so in the status message.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/instagram-posts-scraper">Open the actor</a>
+      <a class="btn btn-ghost" href="https://rapidapi.com/benthepythondev0/api/instagram-posts-scraper">Call it on RapidAPI</a>
+    </p>
+
+    <h2>How to use it as an API on RapidAPI</h2>
+    <p>If you'd rather call a plain HTTP endpoint than manage Apify runs, the same scraper is listed on <a href="https://rapidapi.com/benthepythondev0/api/instagram-posts-scraper">RapidAPI</a>. Check the listing for its endpoints and plans.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Public accounts only.</strong> The scraper never logs in, so it can't see private accounts.</li>
+      <li><strong>Media links expire.</strong> Instagram signs <code>image_url</code>, <code>video_url</code> and <code>slide_urls</code>, and the links stop working after some hours. Download the files soon after the run if you need them.</li>
+      <li><strong>Some fields are often empty.</strong> In the example rows <code>plays</code>, <code>location_name</code> and <code>alt_text</code> are <code>null</code>. Whether a field is filled depends on the post.</li>
+      <li><strong><code>maxResults</code> counts per account, not per run.</strong> Three usernames with <code>maxResults: 100</code> can return up to 300 records.</li>
+      <li><strong>Rate limits on long exports.</strong> Instagram limits how much one address can read. The README says the Actor then continues through another address without starting over, but very large exports still take longer.</li>
+      <li><strong>Tags can repeat.</strong> In one example row, <code>tagged_users</code> lists <code>hulu</code>, <code>twhiddleston</code> and <code>disneyplus</code> twice each. Remove duplicates if you count them.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
