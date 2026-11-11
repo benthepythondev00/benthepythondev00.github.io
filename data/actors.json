@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T23:16:21Z",
+  "generatedAt": "2026-11-11T02:49:35Z",
   "count": 987,
   "chips": [
     "All",
@@ -1047,21 +1047,6 @@
       "storeUrl": "https://apify.com/benthepythondev/pinterest-search-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Scrape Pinterest search results with pin titles, descriptions, images, destination URLs, boards, creators, follower c\u2026",
       "iconUrl": "https://images.apifyusercontent.com/mHPyE0Lp9o2uqdbWY4aTFnzlOeC2ghqMN-pLHcXvzD0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZGhMdW1nTzl4ZWczb3EzbmQtZUNuOG5JMURKUS1waW50ZXJlc3Qtc2VhcmNoLXNjcmFwZXIucG5n.webp"
-    },
-    {
-      "name": "reclame-aqui-complaints-scraper",
-      "title": "Reclame Aqui Scraper - Complaints & Reputation, No Login",
-      "categories": [
-        "LEAD_GENERATION",
-        "MARKETING",
-        "ECOMMERCE"
-      ],
-      "chip": "Lead gen",
-      "users30d": 2,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/reclame-aqui-complaints-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Export Reclame Aqui complaints and company reputation from Brazil: title, status, solved, consumer score, problem typ\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/wlH9hFT2RjYcVBoKe0HmrK5GTsf-_X55GUqZeeRZWzs/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNEVOYmM2MVpIcnBoMlViUWwtSjBtSlJ1NE44Zy1yZWNsYW1lLWFxdWktY29tcGxhaW50cy1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "socrata-dataset-catalog-scraper",
@@ -9164,6 +9149,21 @@
       "iconUrl": "https://images.apifyusercontent.com/wgkZKDgKcu6t34G3VDpW5OtZ6Y9u75s_HRS0JqxgdYo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNFNjR3J5dnh0cUptcnVjbmYtSXNyUmE0SWFPai1yZWFsLWVzdGF0ZS1hZ2VudC1sZWFkLXNjcmFwZXIucG5n.webp"
     },
     {
+      "name": "reclame-aqui-complaints-scraper",
+      "title": "Reclame Aqui Scraper - Complaints & Reputation, No Login",
+      "categories": [
+        "LEAD_GENERATION",
+        "MARKETING",
+        "ECOMMERCE"
+      ],
+      "chip": "Lead gen",
+      "users30d": 1,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/reclame-aqui-complaints-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Export Reclame Aqui complaints and company reputation from Brazil: title, status, solved, consumer score, problem typ\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/wlH9hFT2RjYcVBoKe0HmrK5GTsf-_X55GUqZeeRZWzs/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNEVOYmM2MVpIcnBoMlViUWwtSjBtSlJ1NE44Zy1yZWNsYW1lLWFxdWktY29tcGxhaW50cy1zY3JhcGVyLnBuZw.webp"
+    },
+    {
       "name": "reddit-comments-scraper",
       "title": "Reddit Comments Scraper - Threads & Replies to CSV, No Login",
       "categories": [
@@ -13844,21 +13844,6 @@
       "iconUrl": "https://images.apifyusercontent.com/BiUeponVnegjoG1pV3JKY3lYLJpar2rPCvvBkTwf7lI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itelp0SWFJbGxuaG9QQnV5U2otYmxkMDd3ZlRwRy10cnV0aC1zb2NpYWwtc2NyYXBlci5wbmc.webp"
     },
     {
-      "name": "twitch-channel-scraper",
-      "title": "Twitch Channel Scraper - Followers and Live Data",
-      "categories": [
-        "SOCIAL_MEDIA",
-        "MARKETING",
-        "BUSINESS"
-      ],
-      "chip": "Social & Reddit",
-      "users30d": 0,
-      "successRate30d": 100.0,
-      "storeUrl": "https://apify.com/benthepythondev/twitch-channel-scraper?utm_source=catalog&utm_medium=site",
-      "oneLiner": "Scrape public Twitch channels with follower counts, profile data, social links, partnership status, live stream detai\u2026",
-      "iconUrl": "https://images.apifyusercontent.com/SWGAxHKmQc0iar3CWXAfbV1O9XqUw1JuiJz9G50Itrc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSVBxREVjVmxvWldFdzduT3EtU25JY0FrZHlRdS10d2l0Y2gtY2hhbm5lbC1zY3JhcGVyLnBuZw.webp"
-    },
-    {
       "name": "username-availability-checker",
       "title": "Username Availability Checker - Handle Lookup",
       "categories": [
@@ -14127,6 +14112,21 @@
       "storeUrl": "https://apify.com/benthepythondev/youtube-video-metadata-scraper?utm_source=catalog&utm_medium=site",
       "oneLiner": "Returns the details of YouTube videos by link: title, exact view count, likes, comment count, upload date, full descr\u2026",
       "iconUrl": "https://images.apifyusercontent.com/gyCzSGEqF-KAnDVfGce96ntcO6MrUOLyQRn3gQq1OLQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRVZYTHR5ZHNJTjBaMlJERnItSXdZR1FBdm83ZS15b3V0dWJlLXZpZGVvLW1ldGFkYXRhLXNjcmFwZXIucG5n.webp"
+    },
+    {
+      "name": "zap-vivareal-listings-scraper",
+      "title": "ZAP Im\u00f3veis + VivaReal Scraper: Brazil Rent & Sale, No Login",
+      "categories": [
+        "REAL_ESTATE",
+        "LEAD_GENERATION",
+        "AUTOMATION"
+      ],
+      "chip": "Real estate & rentals",
+      "users30d": 0,
+      "successRate30d": 100.0,
+      "storeUrl": "https://apify.com/benthepythondev/zap-vivareal-listings-scraper?utm_source=catalog&utm_medium=site",
+      "oneLiner": "Scrape Brazil rental and for-sale property listings from ZAP Im\u00f3veis and VivaReal in one run: price, condo fee, IPTU,\u2026",
+      "iconUrl": "https://images.apifyusercontent.com/SWGAxHKmQc0iar3CWXAfbV1O9XqUw1JuiJz9G50Itrc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSVBxREVjVmxvWldFdzduT3EtU25JY0FrZHlRdS10d2l0Y2gtY2hhbm5lbC1zY3JhcGVyLnBuZw.webp"
     },
     {
       "name": "zenodo-records-scraper",
