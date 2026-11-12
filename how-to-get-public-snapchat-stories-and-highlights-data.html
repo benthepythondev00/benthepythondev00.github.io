@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get public Snapchat stories and highlights as structured data</title>
+  <meta name="description" content="Export public Snapchat stories and curated highlights as one row per snap, with media links, timestamps and creator details. Fields, a real nasa excerpt and limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-public-snapchat-stories-and-highlights-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-public-snapchat-stories-and-highlights-data.html" />
+  <meta property="og:title" content="How to get public Snapchat stories and highlights as structured data" />
+  <meta property="og:description" content="Fields, a real sample, use cases and honest limits of the Snapchat Stories Scraper." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    h3 { font-size:1rem; margin:20px 0 8px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get public Snapchat stories and highlights as structured data",
+    "datePublished": "2026-11-12",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-public-snapchat-stories-and-highlights-data.html",
+    "description": "Export public Snapchat stories and curated highlights as one row per snap, with media links, timestamps and creator details. Fields, a real nasa excerpt and limits."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">&larr; Catalog</a> · <a href="https://apify.com/benthepythondev/snapchat-stories-scraper">Actor</a></p>
+    <h1>How to get public Snapchat stories and highlights as structured data</h1>
+    <p class="note">12 Nov 2026 · benthepythondev</p>
+
+    <p>If you follow a set of public Snapchat creators and want their story snaps in a spreadsheet or a database, copying links by hand gets old fast. The <a href="https://apify.com/benthepythondev/snapchat-stories-scraper">Snapchat Stories Scraper</a> reads the public profile page for each username you give it. It saves one row per snap, covering both the active story (when one is live) and the curated highlights pinned to the profile. You don't need a Snapchat login or an API key.</p>
+
+    <h2>What you get</h2>
+    <p>Each row is one snap. The fields fall into four groups.</p>
+
+    <h3>Where the snap came from</h3>
+    <ul>
+      <li><code>source_type</code>: <code>active_story</code> for the short-lived current story, or <code>curated_highlight</code> for snaps the creator pinned to their profile.</li>
+      <li><code>story_id</code>, <code>highlight_id</code>, <code>snap_id</code>: the public identifiers, when Snapchat exposes them.</li>
+      <li><code>record_id</code>: always filled. If Snapchat leaves out a snap ID (common for highlights), the Actor builds a deterministic key from the story, the snap index and the media URL, so the same snap gets the same ID on every run.</li>
+      <li><code>snap_index</code> and <code>rank</code>: the snap's position inside its story or highlight.</li>
+    </ul>
+
+    <h3>The highlight or story itself</h3>
+    <ul>
+      <li><code>story_title</code>, <code>story_subtitle</code>, <code>story_emoji</code>, <code>story_thumbnail_url</code>, <code>story_type</code>.</li>
+    </ul>
+
+    <h3>The media</h3>
+    <ul>
+      <li><code>media_type</code> (for example <code>video</code>), <code>media_url</code>, <code>preview_url</code>, and, when present, <code>overlay_url</code>, <code>attachment_url</code> and <code>transcript_url</code>.</li>
+      <li><code>published_at</code>: the timestamp for the snap.</li>
+      <li>Other per-snap fields such as <code>snap_title</code>, <code>snap_subtitles</code>, <code>is_sponsored</code>, <code>latitude</code> and <code>longitude</code>. Snapchat often leaves these empty.</li>
+    </ul>
+
+    <h3>The creator</h3>
+    <ul>
+      <li><code>creator_username</code>, <code>creator_name</code>, <code>creator_url</code>, <code>creator_profile_picture_url</code>, <code>creator_subscriber_count</code>, <code>creator_badge</code>, <code>creator_category</code>, <code>creator_subcategory</code>, <code>creator_bio</code>.</li>
+    </ul>
+
+    <p>Every row also carries <code>source_url</code> and <code>scraped_at</code>.</p>
+
+    <h2>A real example</h2>
+    <p>Here is a trimmed excerpt from a real run on the <code>nasa</code> profile. It returned snaps from a curated highlight called "Moon Joy". The long CDN URLs are shortened here.</p>
+    <pre><code>[
+  {
+    "record_id": "7c399b992daf7f5506298049f704d812",
+    "source_type": "curated_highlight",
+    "story_id": "",
+    "highlight_id": "ddf02468-ae16-4fc6-b1bc-bde7e1e22218",
+    "story_title": "Moon Joy",
+    "snap_id": "",
+    "snap_index": 0,
+    "media_type": "video",
+    "media_url": "https://cf-st.sc-cdn.net/d/wAUDrJs74QBAl504N3DhT.1322?mo=...",
+    "preview_url": "https://cf-st.sc-cdn.net/d/wAUDrJs74QBAl504N3DhT.410?mo=...",
+    "transcript_url": null,
+    "published_at": "2026-04-10T15:32:54+00:00",
+    "creator_username": "nasa",
+    "creator_name": "NASA",
+    "creator_subscriber_count": 755400,
+    "creator_category": "public-profile-category-v3-business-group",
+    "creator_subcategory": "public-profile-subcategory-v3-government-org",
+    "creator_bio": "Explore the universe and discover our home planet with official NASA snaps.",
+    "rank": 1,
+    "source_url": "https://www.snapchat.com/@nasa",
+    "scraped_at": "2026-10-07T18:19:06.116405+00:00"
+  },
+  {
+    "record_id": "468bb6044507c9b19e9ea5becfced356",
+    "source_type": "curated_highlight",
+    "highlight_id": "ddf02468-ae16-4fc6-b1bc-bde7e1e22218",
+    "story_title": "Moon Joy",
+    "snap_index": 1,
+    "media_type": "video",
+    "media_url": "https://cf-st.sc-cdn.net/d/h2ao1JvA4lER8PICU97Gc.1322?mo=...",
+    "published_at": "2026-04-10T15:32:54+00:00",
+    "creator_username": "nasa",
+    "rank": 2
+  }
+]</code></pre>
+    <p>In this run <code>story_id</code> and <code>snap_id</code> came back as empty strings, so <code>record_id</code> is the field to use as a stable key.</p>
+
+    <h2>What people use it for</h2>
+    <p>The README lists these uses, among others:</p>
+    <ul>
+      <li><strong>Watching a creator list.</strong> Run it on a schedule against a set of usernames to see which public stories are live right now.</li>
+      <li><strong>Spotting changes between runs.</strong> Because <code>record_id</code> stays the same for the same snap, you can compare two snapshots and see which snaps were added or removed.</li>
+      <li><strong>Building a research table.</strong> Combine snap order, timestamps, media type and creator category and bio into one table you can review.</li>
+      <li><strong>Passing media to your own tools.</strong> Send the image, video, preview, attachment or transcript URLs into an internal workflow, keeping ephemeral stories apart from durable highlights by filtering on <code>source_type</code>.</li>
+    </ul>
+
+    <h2>How to run it</h2>
+    <h3>On Apify</h3>
+    <p>Open the <a href="https://apify.com/benthepythondev/snapchat-stories-scraper">Actor page on Apify</a> and give it input like this:</p>
+    <pre><code>{
+  "usernames": ["nasa", "jeremy-lynch"],
+  "includeActiveStory": true,
+  "includeCuratedHighlights": true,
+  "maxProfiles": 10,
+  "maxSnapsPerProfile": 15
+}</code></pre>
+    <ul>
+      <li><code>usernames</code> accepts plain usernames, <code>@handles</code>, <code>/add/</code> links or <code>snapchat.com/@...</code> URLs.</li>
+      <li><code>maxProfiles</code> and <code>maxSnapsPerProfile</code> both go from 1 to 100.</li>
+      <li>At least one of <code>includeActiveStory</code> or <code>includeCuratedHighlights</code> has to stay on.</li>
+    </ul>
+    <p>You can export results as JSON, CSV or Excel, or pull them through the Apify API, webhooks or a scheduled run.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/snapchat-stories-scraper">Open the actor</a>
+      <a class="btn btn-ghost" href="https://rapidapi.com/benthepythondev0/api/snapchat-stories-scraper">Call it on RapidAPI</a>
+    </p>
+
+    <h3>As an API on RapidAPI</h3>
+    <p>If you'd rather call it as a plain HTTP API, it's also listed on <a href="https://rapidapi.com/benthepythondev0/api/snapchat-stories-scraper">RapidAPI</a>.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Public data only.</strong> The Actor reads what an anonymous visitor can see on a public profile. It doesn't sign in, it can't see friends-only snaps, and it doesn't get around audience controls. It also won't message, follow or post.</li>
+      <li><strong>No full archive.</strong> You get what the profile shows at the moment of the run: the active story, if there is one, plus the curated highlights. Older stories that have expired are gone.</li>
+      <li><strong>Active stories may be empty.</strong> Many profiles have no live story at a given time. The default <code>nasa</code> input is there because its highlights give you rows even when nothing is live.</li>
+      <li><strong>The snap limit is shared.</strong> <code>maxSnapsPerProfile</code> counts active story and highlight snaps together, and active story snaps are handled first. With a low limit, highlights can get cut.</li>
+      <li><strong>Lots of nulls.</strong> Fields like <code>snap_title</code>, <code>is_sponsored</code>, location and <code>transcript_url</code> are only filled when Snapchat provides them. In the example above they were all null.</li>
+      <li><strong>Media links are CDN URLs.</strong> The README describes <code>media_url</code> and <code>preview_url</code> as current public Snapchat CDN resources. If you need the files later, download them yourself rather than counting on the link staying the same.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
