@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Check Website Status Codes and Response Times for a List of URLs</title>
+  <meta name="description" content="Check a list of URLs for status codes, redirects and response times, one row per URL. Real fields, a real two-row run, use cases and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-check-website-status-codes-for-a-list-of-urls.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-check-website-status-codes-for-a-list-of-urls.html" />
+  <meta property="og:title" content="How to Check Website Status Codes and Response Times for a List of URLs" />
+  <meta property="og:description" content="A list of URLs in, one row out per URL: status code, final URL after redirects and response time." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to Check Website Status Codes and Response Times for a List of URLs",
+    "datePublished": "2026-11-13",
+    "dateModified": "2026-11-13",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-check-website-status-codes-for-a-list-of-urls.html",
+    "description": "Check a list of URLs for status codes, redirects and response times, one row per URL. Real fields, a real two-row run, use cases and honest limits."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/website-status-checker">Actor</a></p>
+    <h1>How to Check Website Status Codes and Response Times for a List of URLs</h1>
+    <p class="note">13 Nov 2026 · benthepythondev</p>
+
+    <p>You have a list of URLs. It might come from a sitemap, an ad campaign, a backlink export or a client handover. You want to know if each one still loads, where it ends up and how long it takes to respond. The <a href="https://apify.com/benthepythondev/website-status-checker">Website Status Checker</a> actor on Apify does this. It fetches each URL you give it, follows redirects and saves one row per URL to an Apify dataset.</p>
+    <p>It is not a crawler. It checks only the URLs you supply, so you need a known list of pages before you start. If you also want the tech stack behind each site, see <a href="./how-to-get-website-tech-stack-data.html">how to get the tech stack and email provider of any website</a>.</p>
+
+    <h2>What you get</h2>
+    <p>Each checked URL becomes one record with these fields:</p>
+    <ul>
+      <li><strong>input</strong>: the value you typed in, exactly as given.</li>
+      <li><strong>url</strong>: the normalized version of that URL.</li>
+      <li><strong>final_url</strong>: where the request ended up after following redirects.</li>
+      <li><strong>domain</strong>: the domain of the final URL.</li>
+      <li><strong>status_code</strong>: the HTTP status code, such as 200 or 404.</li>
+      <li><strong>ok</strong>: <code>true</code> for 2xx and 3xx responses.</li>
+      <li><strong>response_time_ms</strong>: how long the response took, in milliseconds, measured from the Apify runtime.</li>
+      <li><strong>redirect_count</strong>: how many redirects were followed.</li>
+      <li><strong>content_type</strong> and <strong>content_length</strong>: response metadata from the server.</li>
+      <li><strong>title</strong>: the page's <code>&lt;title&gt;</code> tag, when there is one in the returned HTML.</li>
+      <li><strong>server</strong>: the server header, when the site exposes it. Otherwise <code>null</code>.</li>
+      <li><strong>error</strong>: a connection or timeout error message, or <code>null</code> if the request worked.</li>
+    </ul>
+
+    <h2>Real example output</h2>
+    <p>The input can be a short list:</p>
+    <pre><code>{
+  "urls": [
+    "https://apify.com",
+    "https://example.com"
+  ]
+}</code></pre>
+    <p>Here are the two rows that came back from a real run:</p>
+    <pre><code>[
+  {
+    "input": "https://apify.com",
+    "final_url": "https://apify.com",
+    "domain": "apify.com",
+    "status_code": 200,
+    "ok": true,
+    "response_time_ms": 165,
+    "redirect_count": 0,
+    "content_type": "text/html; charset=utf-8",
+    "content_length": 514402,
+    "title": "Apify: Marketplace of ready-to-run tools for AI",
+    "server": null,
+    "error": null
+  },
+  {
+    "input": "https://example.com",
+    "final_url": "https://example.com",
+    "domain": "example.com",
+    "status_code": 200,
+    "ok": true,
+    "response_time_ms": 33,
+    "redirect_count": 0,
+    "content_type": "text/html; charset=utf-8",
+    "content_length": 577,
+    "title": "Example Domain",
+    "server": "cloudflare",
+    "error": null
+  }
+]</code></pre>
+    <p class="note">The <code>url</code> field is trimmed here. In both rows it matched the input.</p>
+    <p>Look at <code>server</code> in these two rows. example.com sends a <code>cloudflare</code> header, but apify.com sent no server header, so the field is <code>null</code>. Plan for that field to be empty fairly often.</p>
+
+    <h2>Use cases</h2>
+    <p>These come from the actor's README.</p>
+    <p><strong>Post-migration checks.</strong> Save a baseline of your important URLs before a site migration. After launch, run the same list again and compare <code>final_url</code> and <code>status_code</code>. A page can return 200 and still redirect to the wrong place, so check both fields.</p>
+    <p><strong>Finding broken backlink targets.</strong> Export the backlink URLs from your SEO tool, run them through the checker and filter for rows where <code>status_code</code> is not 200 or <code>ok</code> is <code>false</code>.</p>
+    <p><strong>Validating campaign links.</strong> Before a paid or email campaign goes out, check every destination URL. Check them again after any big website release.</p>
+    <p><strong>Recurring checks for landing pages or client sites.</strong> Schedule the actor on Apify (the README gives hourly runs for high-value landing pages as an example). Then use a webhook to send rows with <code>ok = false</code> to Slack, email, Google Sheets, Airtable, Make, Zapier or n8n. Agencies can attach the export to monthly technical reports.</p>
+
+    <h2>How to run it on Apify</h2>
+    <ol>
+      <li>Open the actor page: <a href="https://apify.com/benthepythondev/website-status-checker">https://apify.com/benthepythondev/website-status-checker</a>.</li>
+      <li>Add your URLs or domains to the <code>urls</code> input field.</li>
+      <li>Start the run. When it finishes, the results are in the run's dataset, and you can export them as JSON, CSV or Excel from there.</li>
+      <li>If you want regular checks, add a schedule. To act on the results when a run ends, add a webhook.</li>
+    </ol>
+    <p>You can also start runs and read the dataset through the Apify API, so the checker fits into a release QA script or a CI step. No RapidAPI listing exists for this actor at the moment, so use the Apify API directly.</p>
+    <p>Some tips from the README:</p>
+    <ul>
+      <li>Keep the list focused. Find URLs first with a sitemap or a crawler, then pass in only the pages that matter.</li>
+      <li>Don't check just the homepage. Product pages, blog posts, docs and checkout routes can each fail on their own.</li>
+      <li>For alerts, compare against the previous run. A single timeout is often a temporary network issue, not an outage.</li>
+    </ul>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>No JavaScript.</strong> The actor reads the HTML the server returns and takes the <code>&lt;title&gt;</code> from it. If a page builds its title or content in the browser, you won't see that here.</li>
+      <li><strong>Response time is relative.</strong> <code>response_time_ms</code> is measured from Apify's runtime, not from your users' locations. It's useful for spotting a page that got slower over time. It doesn't tell you what real visitors experience around the world.</li>
+      <li><strong>Protected sites may behave differently.</strong> The README says some protected sites may return different responses to an automated check. A block page can show up as an error or as a status code that doesn't match what a browser gets.</li>
+      <li><strong>No discovery.</strong> It won't find pages for you. If a URL isn't in your input, it doesn't get checked.</li>
+      <li><strong>Header fields can be missing.</strong> <code>server</code> and <code>title</code> are filled only when the site provides them, as the apify.com row above shows.</li>
+    </ul>
+    <p>If you have a list of URLs and want status codes, redirects and load times in a table, this is a quick way to get them.</p>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
