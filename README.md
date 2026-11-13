@@ -12,6 +12,7 @@ Auto-synced searchable catalog of public [Apify](https://apify.com/benthepythond
 - Zumper rental data tutorial: `how-to-get-zumper-rental-listing-data.html`
 - Craigslist real estate data tutorial: `how-to-get-craigslist-real-estate-listings-data.html`
 - Website tech stack and email provider tutorial: `how-to-get-website-tech-stack-data.html`
+- Website status codes and response times tutorial: `how-to-check-website-status-codes-for-a-list-of-urls.html`
 - Google Maps business data tutorial: `how-to-get-google-maps-business-data.html`
 - Google Play reviews tutorial: `how-to-get-google-play-reviews-data.html`
 - Apple App Store reviews tutorial: `how-to-get-apple-app-store-reviews-data.html`
