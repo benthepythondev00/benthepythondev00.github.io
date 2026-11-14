@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get eBay listing data: prices, shipping, condition and seller ratings</title>
+  <meta name="description" content="Export eBay listings by keyword with price, shipping, condition and seller feedback as JSON, CSV or Excel, using the official Browse API." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-ebay-listing-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-ebay-listing-data.html" />
+  <meta property="og:title" content="How to get eBay listing data: prices, shipping, condition and seller ratings" />
+  <meta property="og:description" content="Fields, real sample rows, inputs, use cases and honest limits of the eBay Scraper." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get eBay listing data: prices, shipping, condition and seller ratings",
+    "datePublished": "2026-11-14",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-ebay-listing-data.html",
+    "description": "Export eBay listings by keyword with price, shipping, condition and seller feedback using the official Browse API."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/ebay-scraper">Actor</a></p>
+    <h1>How to get eBay listing data: prices, shipping, condition and seller ratings</h1>
+    <p class="note">14 Nov 2026 · benthepythondev</p>
+
+    <p>If you want to know what something sells for on eBay right now, a spreadsheet of live listings is the useful starting point. That means price, shipping, condition and some idea of whether each seller can be trusted. The <a href="https://apify.com/benthepythondev/ebay-scraper">eBay Scraper on Apify</a> turns a keyword search into that dataset. It queries eBay's official Browse API, not the HTML pages, so there is no browser, proxy or captcha involved.</p>
+
+    <h2>What you get</h2>
+    <p>Each listing comes back as one row with these fields:</p>
+    <ul>
+      <li><strong>title</strong>: the listing title as the seller wrote it</li>
+      <li><strong>price</strong> and <strong>currency</strong>: the price is a plain number and the currency sits in its own field</li>
+      <li><strong>original_price</strong> and <strong>discount_percentage</strong>: filled only when the item is on sale, otherwise <code>null</code></li>
+      <li><strong>shipping_cost</strong>: the cheapest shipping option eBay offers for that item</li>
+      <li><strong>condition</strong>: for example "New with box", "New without box", Pre-owned or Refurbished</li>
+      <li><strong>seller_username</strong>, <strong>seller_feedback_pct</strong> and <strong>seller_feedback_score</strong>: who is selling and their feedback record</li>
+      <li><strong>buying_options</strong>: fixed price or auction</li>
+      <li><strong>category</strong>: the item's top category, such as "Athletic Shoes"</li>
+      <li><strong>item_location_country</strong>: the country code where the item is located</li>
+      <li><strong>item_id</strong>, <strong>url</strong> and <strong>image</strong>: the listing ID, a link to it, and a thumbnail</li>
+      <li><strong>marketplace</strong>, <strong>search_query</strong> and <strong>scraped_at</strong>: which eBay site and keyword produced the row, and when it was collected</li>
+    </ul>
+
+    <h2>Real example output</h2>
+    <p>These rows came from a real run searching <code>nike air max</code> on <code>EBAY_US</code>. A few fields are trimmed from the second row:</p>
+    <pre><code>[
+  {
+    "item_id": "860008419369",
+    "title": "Nike Air Max 95 OG HM4740-005 Men Black White Orange Gradient Air Sneakers\t ",
+    "price": 158,
+    "currency": "USD",
+    "original_price": null,
+    "discount_percentage": null,
+    "shipping_cost": 0,
+    "condition": "New with box",
+    "seller_username": "238r_64",
+    "seller_feedback_pct": "0.0",
+    "seller_feedback_score": 0,
+    "buying_options": ["FIXED_PRICE"],
+    "category": "Casual Shoes",
+    "item_location_country": "GU",
+    "url": "https://www.ebay.com/itm/860008419369?_skw=nike+air+max&amp;hash=itemc83c7f1029:g:ke4AAeSwZPtqwqno",
+    "marketplace": "EBAY_US",
+    "search_query": "nike air max",
+    "scraped_at": "2026-10-05T12:31:45.128253+00:00"
+  },
+  {
+    "item_id": "407209123413",
+    "title": "Nike Air Max TN Plus 3 Men Shoe Low Top Running Sneaker Trainer",
+    "price": 69.99,
+    "currency": "USD",
+    "shipping_cost": 0,
+    "condition": "New without box",
+    "seller_username": "chathu_88",
+    "seller_feedback_pct": "99.5",
+    "seller_feedback_score": 1814,
+    "category": "Casual Shoes",
+    "item_location_country": "US"
+  }
+]</code></pre>
+    <p>Put those two rows side by side and you can see why the seller fields matter. The first listing is more expensive and comes from an account with a feedback score of 0. The second comes from a seller with 1814 feedback and 99.5% positive.</p>
+
+    <h2>Use cases</h2>
+    <p>The README lists these uses:</p>
+    <ul>
+      <li><strong>Price monitoring</strong>: run the same search on a schedule and track competitor prices or the market value of a product over time.</li>
+      <li><strong>Reselling and arbitrage</strong>: look for underpriced items, spot discounted listings through <code>original_price</code> and <code>discount_percentage</code>, and check seller trends.</li>
+      <li><strong>Market research</strong>: compare price spread, condition mix and seller reputation across the supported countries.</li>
+      <li><strong>Product analytics</strong>: feed dashboards or repricing tools with current marketplace data.</li>
+    </ul>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the <a href="https://apify.com/benthepythondev/ebay-scraper">eBay Scraper actor page</a> and set the input:</p>
+    <ul>
+      <li><code>searchQueries</code>: one or more keywords. Each one is searched separately, and every row records its keyword in <code>search_query</code>.</li>
+      <li><code>marketplace</code>: one of <code>EBAY_US</code>, <code>EBAY_GB</code>, <code>EBAY_DE</code>, <code>EBAY_FR</code>, <code>EBAY_IT</code>, <code>EBAY_ES</code>, <code>EBAY_AU</code> or <code>EBAY_CA</code>.</li>
+      <li><code>condition</code>: <code>all</code>, <code>new</code> or <code>used</code>.</li>
+      <li><code>sort</code>: <code>best_match</code>, <code>price_asc</code>, <code>price_desc</code> or <code>newly_listed</code>.</li>
+      <li><code>maxResults</code>: the cap per search query, from 1 to 10000. The actor pages through results until it reaches the cap.</li>
+    </ul>
+    <p>Example input:</p>
+    <pre><code>{
+  "searchQueries": ["nike air max", "iphone 15"],
+  "marketplace": "EBAY_US",
+  "condition": "all",
+  "sort": "best_match",
+  "maxResults": 100
+}</code></pre>
+    <p>You don't need an eBay developer account or API key. Results can be exported as JSON, CSV or Excel, and you can schedule runs, call the actor through the Apify API, or connect it to Make, Zapier or n8n. You pay per result, so a search that finds nothing costs nothing.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/ebay-scraper">Open the actor</a>
+    </p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Keyword search only.</strong> The input is a search term plus filters. You can't give it a seller page or a list of item IDs.</li>
+      <li><strong>Eight marketplaces.</strong> Only the US, UK, Germany, France, Italy, Spain, Australia and Canada sites are supported.</li>
+      <li><strong>Active listings as the Browse API returns them.</strong> The README says nothing about sold or completed listings, so don't count on getting sold prices.</li>
+      <li><strong>Shipping is the cheapest option.</strong> If an item ships at different prices to different places, you only see the lowest.</li>
+      <li><strong>Discount fields are often empty.</strong> <code>original_price</code> and <code>discount_percentage</code> are <code>null</code> unless the item is on sale, as in all three rows from the real run.</li>
+      <li><strong>Titles come through raw.</strong> The first example title ends with a tab and a space. Trim whitespace before you match or deduplicate.</li>
+      <li><strong>Location is not always the marketplace country.</strong> On <code>EBAY_US</code>, the real rows included items located in <code>GU</code> and <code>VI</code> as well as <code>US</code>.</li>
+      <li><strong>Some fields are strings.</strong> <code>seller_feedback_pct</code> comes back as text (<code>"99.5"</code>), and in the README sample so does <code>discount_percentage</code>. Convert them before doing any math.</li>
+      <li><strong>Thumbnails are small.</strong> The image URLs in the real rows point to a 225 pixel version (<code>s-l225.jpg</code>).</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
