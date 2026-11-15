@@ -16,6 +16,7 @@ Auto-synced searchable catalog of public [Apify](https://apify.com/benthepythond
 - Google Maps business data tutorial: `how-to-get-google-maps-business-data.html`
 - Google Play reviews tutorial: `how-to-get-google-play-reviews-data.html`
 - Apple App Store reviews tutorial: `how-to-get-apple-app-store-reviews-data.html`
+- Greenhouse job listings tutorial: `how-to-get-greenhouse-job-listings-data.html`
 - Austin rental-monitoring case study: `austin-rental-monitoring.html`
 - Sanitized case-study sample: `data/austin-rental-monitor-sample-2026-08-20.json`
 - Germany jobs for foreign skilled workers: `jobs-in-germany/` (built daily by `scripts/build_germany_jobs.py` from `jobs-in-germany/template.html`; tests: `python -m unittest discover -s tests`, `npx playwright test`)
