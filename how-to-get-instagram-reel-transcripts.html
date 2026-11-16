@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get transcripts of Instagram reels</title>
+  <meta name="description" content="Get the spoken words of public Instagram reels as text with timestamps, from reel links or usernames, with no login. Fields, a real TED row, input, price and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-instagram-reel-transcripts.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-instagram-reel-transcripts.html" />
+  <meta property="og:title" content="How to get transcripts of Instagram reels" />
+  <meta property="og:description" content="Fields, a real sample row, use cases and honest limits of the Instagram Reel Transcript Scraper." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+    .tbl { overflow-x:auto; }
+    table { border-collapse:collapse; width:100%; font-size:.92rem; }
+    th, td { text-align:left; vertical-align:top; padding:8px 10px; border-bottom:1px solid var(--line); }
+    th { color:var(--muted); font-weight:600; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get transcripts of Instagram reels",
+    "datePublished": "2026-11-16",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-instagram-reel-transcripts.html",
+    "description": "Get the spoken words of public Instagram reels as text with timestamps, from reel links or usernames, with no login. Fields, a real TED row, input, price and honest limits."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">&larr; Catalog</a> · <a href="https://apify.com/benthepythondev/instagram-reel-transcript-scraper">Actor</a></p>
+    <h1>How to get transcripts of Instagram reels</h1>
+    <p class="note">16 Nov 2026 · benthepythondev</p>
+
+    <p>Instagram doesn't show subtitles to visitors who aren't logged in, so you can't copy a reel's spoken words from the page. The <a href="https://apify.com/benthepythondev/instagram-reel-transcript-scraper">Instagram Reel Transcript Scraper</a> on Apify does the listening for you. It works on public reels with no login and no cookies. It downloads the reel's separate audio-only stream and runs it through a Whisper speech model built into the Actor. No third-party speech service is involved, and you don't need an extra key.</p>
+    <p>If you want the captions, likes and media links of an account's posts instead of the spoken words, see <a href="./how-to-get-instagram-posts-data.html">How to get Instagram posts data from any public account</a>.</p>
+
+    <p>There are two ways to feed it:</p>
+    <ul>
+      <li><strong>Reel links.</strong> Links to reels or video posts (<code>/reel/</code>, <code>/p/</code>, <code>/tv/</code>), or bare shortcodes. You get one row per link.</li>
+      <li><strong>Usernames.</strong> Usernames, @handles or profile links. The Actor reads the newest reels of each account, up to your limit. Pinned reels are sorted by their real date, so old pinned reels don't push out this week's posts.</li>
+    </ul>
+
+    <h2>What you get</h2>
+    <p>You get one row per reel. These are the fields:</p>
+    <ul>
+      <li><strong>Speech:</strong> <code>transcript</code> (the full text), <code>segments</code> (every spoken line with <code>start</code> and <code>end</code> in seconds plus its <code>text</code>), <code>language</code>, and <code>languageProbability</code></li>
+      <li><strong>Reel:</strong> <code>shortCode</code>, <code>postUrl</code>, <code>caption</code>, <code>takenAt</code> (when it was posted), <code>durationSeconds</code>, <code>isPinned</code></li>
+      <li><strong>Author:</strong> <code>ownerUsername</code>, <code>ownerFullName</code>, and <code>handle</code> (the account from your input the reel was found under)</li>
+      <li><strong>Reach:</strong> <code>likes</code>, <code>comments</code>, <code>plays</code></li>
+      <li><strong>Files:</strong> <code>thumbnailUrl</code>, <code>videoUrl</code>, <code>audioUrl</code></li>
+      <li><strong>Outcome:</strong> <code>status</code>, plus <code>statusReason</code> when there's no transcript</li>
+    </ul>
+    <p>If nobody speaks in a reel, the row tells you why. You won't get invented text.</p>
+
+    <h2>Example output</h2>
+    <p>Here's a trimmed row from a real run on a TED reel (most segments and the long file URLs are cut):</p>
+    <pre><code>{
+  "status": "transcribed",
+  "statusReason": null,
+  "shortCode": "Dfnn7HLs5TI",
+  "postUrl": "https://www.instagram.com/reel/Dfnn7HLs5TI/",
+  "handle": "ted",
+  "ownerUsername": "ted",
+  "ownerFullName": "TED Talks",
+  "transcript": "There's pressure to share more of ourselves than we want, to be relevant, to fit in, to get ahead, to be trusted and liked, accepted and understood. A private life makes a public life worth living, ...",
+  "language": "en",
+  "languageProbability": 0.99,
+  "durationSeconds": 81.04,
+  "segments": [
+    {"start": 0, "end": 3.4, "text": "There's pressure to share more of ourselves than we want,"},
+    {"start": 3.4, "end": 8.04, "text": "to be relevant, to fit in, to get ahead, to be trusted and liked,"},
+    {"start": 8.04, "end": 10.68, "text": "accepted and understood."}
+  ],
+  "takenAt": "2026-11-11T23:08:08+00:00",
+  "isPinned": false,
+  "plays": 188051,
+  "likes": 5160,
+  "comments": 67
+}</code></pre>
+
+    <h2>Use cases</h2>
+    <p>These come straight from what the Actor is built to do:</p>
+    <ul>
+      <li><strong>Turn an account's recent reels into text.</strong> Enter a username and <code>maxReelsPerUsername</code>, and you get the spoken words of the newest reels in a single run. You don't need a second Actor to find the reel links first.</li>
+      <li><strong>Make subtitles or quote clips.</strong> Each segment has start and end times, so you can line text up with the video or jump to a specific sentence.</li>
+      <li><strong>Compare what a reel says with how it did.</strong> Every row has the transcript next to its caption, posting date, likes, comments and plays.</li>
+      <li><strong>Transcribe non-English accounts.</strong> Set <code>language</code> to a two-letter code such as <code>de</code>, <code>es</code> or <code>pt</code>. The README's example uses the German account <code>tagesschau</code>.</li>
+    </ul>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the <a href="https://apify.com/benthepythondev/instagram-reel-transcript-scraper">Actor page</a>, fill in the input and start a run. These are the input fields:</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Field</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td><code>reelUrls</code></td><td>Reel or post links, or shortcodes. For a carousel, the first video is transcribed</td></tr>
+          <tr><td><code>usernames</code></td><td>Accounts whose newest reels you want</td></tr>
+          <tr><td><code>maxReelsPerUsername</code></td><td>Reels per account, default 3, up to 500. It doesn't apply to links</td></tr>
+          <tr><td><code>language</code></td><td>Two-letter language code. Leave it empty to detect the language for each reel</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>You can fill both lists in the same run. Example:</p>
+    <pre><code>{
+  "usernames": ["ted", "https://www.instagram.com/bbcnews/"],
+  "maxReelsPerUsername": 10
+}</code></pre>
+    <p>You can export results as JSON, CSV or Excel, put the run on a schedule, call it through the Apify API, or connect it to Make, Zapier or n8n. If you're switching from another transcript Actor, it also accepts the input names <code>handles</code>, <code>maxReelsPerHandle</code>, <code>startUrls</code>, <code>bulkUrls</code>, <code>videoUrl</code> and <code>resultsLimit</code>.</p>
+    <p><strong>Price:</strong> $0.006 per started minute of transcribed reel on the Apify Free plan, dropping to $0.0051 on the Gold plan and above. A reel up to 60 seconds counts as one minute. Rows without a transcript (music only, no audio, reel not found) cost nothing.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/instagram-reel-transcript-scraper">Open the actor</a>
+    </p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Public reels only.</strong> The Actor doesn't log in, so private accounts are out of reach.</li>
+      <li><strong>Language detection can be wrong.</strong> It only listens to the first 30 seconds of speech. If a reel opens with music, noise or a second language, it may pick the wrong language and the text will be useless. In the author's tests, a news reel was detected as Swahili and came back as <code>unclear_speech</code>. With <code>"language": "en"</code> it gave a correct English transcript. If all the reels in a run share one language, set it.</li>
+      <li><strong>It's machine transcription.</strong> Expect some misheard words. The example above contains the line "we're left with shallowness and avoid", which most likely should be "a void".</li>
+      <li><strong>Carousels:</strong> only the first video is transcribed.</li>
+      <li><strong>Usernames</strong> are capped at 500 reels each.</li>
+      <li><strong>No speech, no text.</strong> Music-only or silent reels come back with a status and a reason, not a transcript.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
