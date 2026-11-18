@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get startup job listings from Wellfound (salary, equity and remote policy included)</title>
+  <meta name="description" content="Export public Wellfound startup jobs with salary ranges, equity, accepted remote regions and company size as JSON, CSV or Excel, with no login, proxy or API key." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-wellfound-startup-job-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-wellfound-startup-job-data.html" />
+  <meta property="og:title" content="How to get startup job listings from Wellfound (salary, equity and remote policy included)" />
+  <meta property="og:description" content="Fields, a real Berlin row, inputs, use cases and honest limits of the Wellfound Jobs Scraper." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get startup job listings from Wellfound (salary, equity and remote policy included)",
+    "datePublished": "2026-11-18",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-wellfound-startup-job-data.html",
+    "description": "Collect public Wellfound startup job listings with salary, equity and remote policy, one row per job."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/wellfound-jobs-scraper">Actor</a></p>
+    <h1>How to get startup job listings from Wellfound (salary, equity and remote policy included)</h1>
+    <p class="note">18 Nov 2026 · benthepythondev</p>
+
+    <p>Wellfound, formerly AngelList Talent, lists jobs at startups and technology companies. Its public job records often include salary ranges, equity ranges, accepted remote regions and company size. General job boards often leave those details out. The <a href="https://apify.com/benthepythondev/wellfound-jobs-scraper">Wellfound Jobs Scraper</a> collects these public listings by city, country or region and returns one row for each job.</p>
+    <p>You don't need a Wellfound login, a proxy or an API key.</p>
+
+    <h2>What you get</h2>
+    <p>Each row is one public job. In plain words, a row tells you:</p>
+    <ul>
+      <li><strong>The job itself:</strong> Wellfound job ID, link, title and the full public description, kept in its original markdown formatting.</li>
+      <li><strong>Role and type:</strong> the job type (for example <code>full-time</code>) and the primary role (for example <code>Software Engineer</code>).</li>
+      <li><strong>Where and how:</strong> the listed locations, accepted remote regions, whether the job is remote, the kind of remote, and whether work from home is flexible.</li>
+      <li><strong>Experience:</strong> minimum and maximum years of experience, when the posting gives them.</li>
+      <li><strong>Pay:</strong> the compensation text as Wellfound shows it, the salary minimum, salary maximum and currency, plus minimum and maximum equity percent.</li>
+      <li><strong>Posting details:</strong> publication time, whether the job was auto-posted, and the ATS source.</li>
+      <li><strong>The company:</strong> ID, name, slug, Wellfound profile URL, logo, size band (for example <code>SIZE_11_50</code>), a short summary, and hiring badges such as "Responds within a day".</li>
+      <li><strong>Search context:</strong> a lead score, the location page the job came from, the keywords you searched, the job's rank in the results, the source URL and the time it was scraped.</li>
+    </ul>
+
+    <h2>Real example output</h2>
+    <p>Here is one row from a real run that searched Berlin for <code>software engineer</code> and <code>python</code>. It is trimmed: the description is shortened and a few fields are left out.</p>
+    <pre><code>{
+  "job_id": "4949395",
+  "url": "https://wellfound.com/jobs/4949395-algorithm-engineer",
+  "title": "Algorithm Engineer",
+  "description": "As an **Algorithms Engineer**, you will design and improve optimization algorithms that help solve complex logistics and supply chain problems. ...",
+  "job_type": "full-time",
+  "primary_role": "Software Engineer",
+  "locations": ["Berlin"],
+  "accepted_remote_locations": ["North America", "Africa", "Asia"],
+  "is_remote": true,
+  "remote_kind": "REMOTE",
+  "work_from_home_flexible": false,
+  "years_experience_minimum": 3,
+  "years_experience_maximum": null,
+  "salary_minimum": 30000,
+  "salary_maximum": 50000,
+  "salary_currency": "USD",
+  "equity_minimum_percent": null,
+  "published_at": "2026-10-31T07:12:26+00:00",
+  "company_name": "Alpha Augmented Services",
+  "company_url": "https://wellfound.com/company/alpha-augmented-services",
+  "company_size": "SIZE_11_50",
+  "company_badges": ["Actively Hiring", "Top 5% of responders", "Responds within a day"],
+  "lead_score": 90,
+  "source_location": "berlin",
+  "search_keywords": ["software engineer", "python"],
+  "search_rank": 1,
+  "scraped_at": "2026-11-18T01:09:49.632339+00:00"
+}</code></pre>
+
+    <h2>What you can use it for</h2>
+    <p>The README lists several uses. These four match the data most directly:</p>
+    <ol>
+      <li><strong>Find roles that disclose pay before you apply.</strong> Set <code>minimumSalary</code> and turn <code>includeJobsWithoutSalary</code> off. You then keep only jobs with a published salary range at or above your floor.</li>
+      <li><strong>Build hiring signal lists for sales, recruiting or investment research.</strong> Company name, size, badges like "Actively Hiring" and the role category show you which startups are hiring and for what.</li>
+      <li><strong>Compare remote work across startup markets.</strong> Run the same keywords against several locations and compare <code>is_remote</code>, <code>remote_kind</code> and <code>accepted_remote_locations</code>. For remote roles from other boards, see <a href="./how-to-get-remote-job-listings-from-six-job-boards.html">how to get remote job listings from six job boards</a>; for employers on Greenhouse, see <a href="./how-to-get-greenhouse-job-listings-data.html">how to get Greenhouse job listings</a>.</li>
+      <li><strong>Feed a job alert, spreadsheet or labor market dashboard.</strong> Schedule the Actor on Apify and export results as JSON, CSV, Excel or XML, or read them through the dataset API.</li>
+    </ol>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the <a href="https://apify.com/benthepythondev/wellfound-jobs-scraper">Wellfound Jobs Scraper on Apify</a> and fill in the input. By default it searches Berlin for <code>software engineer</code> and returns up to 10 jobs. Here is an example input:</p>
+    <pre><code>{
+  "locations": ["Berlin", "United States"],
+  "keywords": ["python", "machine learning"],
+  "remoteOnly": true,
+  "jobTypes": ["full-time"],
+  "minimumSalary": 100000,
+  "includeJobsWithoutSalary": false,
+  "maxResultsPerLocation": 25,
+  "maxPagesPerLocation": 10
+}</code></pre>
+    <p>Locations are readable names of cities, countries or regions, such as <code>Berlin</code>, <code>London</code>, <code>New York</code> or <code>United States</code>. Country pages work for broad research and city pages for a focused list. <code>jobTypes</code> accepts full-time, part-time, contract and internship.</p>
+    <p>Pricing is per saved job: $0.0015 on the Free plan, down to $0.00105 on Diamond. You are not charged for jobs that your filters drop or that are duplicates.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/wellfound-jobs-scraper">Open the actor</a>
+    </p>
+
+    <h2>How to use it as an API on RapidAPI</h2>
+    <p>To call the scraper from your own code without an Apify account, use the <a href="https://rapidapi.com/benthepythondev0/api/wellfound-jobs-scraper">Wellfound Jobs Scraper API on RapidAPI</a>. It returns the same job fields.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Public location pages only.</strong> The Actor reads the structured data that Wellfound publishes on its public location pages. It does not log in, so anything visible only to signed-in users is not included.</li>
+      <li><strong>Keywords are broad.</strong> Keywords use an OR match against the title, full description, primary role, startup name and company summary. A row counts as a match if any one term appears anywhere in those fields. So a <code>python</code> search can return a job where Python is only a bonus skill.</li>
+      <li><strong>Pay and equity are often missing.</strong> Many postings leave out salary or equity, and those fields come back as <code>null</code>. The minimum salary filter checks the lower bound of the published range.</li>
+      <li><strong>Some fields are short or raw.</strong> <code>company_high_concept</code> can be cut off mid word (in the run we checked, a summary ending in "solutions" came back as "sol"). Descriptions keep markdown and can contain HTML entities such as <code>&amp;amp;</code>.</li>
+      <li><strong><code>lead_score</code> is not explained in the README.</strong> Treat it as a rough ranking aid, not as a defined metric.</li>
+      <li><strong>Results are capped.</strong> <code>maxResultsPerLocation</code> and <code>maxPagesPerLocation</code> limit how much comes back from each location. A job that shows up in several locations is saved once, matched by its Wellfound job ID.</li>
+      <li><strong>It depends on Wellfound's page structure.</strong> If Wellfound changes how it publishes data on these pages, fields could change or go missing until the Actor is updated.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
