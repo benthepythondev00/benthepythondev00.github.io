@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get remote job listings from Remotive with salary ranges and a quality score</title>
+  <meta name="description" content="Export live Remotive remote jobs as rows with salary text split into numbers and a 0 to 100 opportunity score, with no API key or login." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-remote-job-listings-from-remotive.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-remote-job-listings-from-remotive.html" />
+  <meta property="og:title" content="How to get remote job listings from Remotive with salary ranges and a quality score" />
+  <meta property="og:description" content="Fields, a real row, filters, use cases and honest limits of the Remotive Remote Jobs Intelligence Actor." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get remote job listings from Remotive with salary ranges and a quality score",
+    "datePublished": "2026-11-19",
+    "dateModified": "2026-11-19",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-remote-job-listings-from-remotive.html",
+    "description": "Collect live Remotive remote job listings with salary numbers and an opportunity score, one row per job."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/remotive-jobs-intelligence">Actor</a></p>
+    <h1>How to get remote job listings from Remotive with salary ranges and a quality score</h1>
+    <p class="note">19 Nov 2026 · benthepythondev</p>
+
+    <p>Remotive is a job board for fully remote roles. If you want those listings as rows you can filter, sort or load into a spreadsheet, the <a href="https://apify.com/benthepythondev/remotive-jobs-intelligence">Remotive Remote Jobs Intelligence</a> Actor on Apify reads Remotive's live jobs feed and gives you one record per job. It also splits the salary text into separate numbers and adds a 0 to 100 opportunity score. You don't need an API key or a login.</p>
+    <p>If you want Remotive and five other boards in one dataset, see the <a href="./how-to-get-remote-job-listings-from-six-job-boards.html">six job boards guide</a> instead.</p>
+
+    <h2>What you get</h2>
+    <p>Each job comes back as one row with these fields:</p>
+    <ul>
+      <li><strong>id</strong>: Remotive's job id.</li>
+      <li><strong>title</strong> and <strong>company_name</strong>, plus <strong>company_logo</strong> (a URL to the logo).</li>
+      <li><strong>category</strong>: for example Software Development or Marketing.</li>
+      <li><strong>tags</strong>: the skills and topics attached to the job, such as <code>react</code>, <code>postgresql</code>, <code>shopify</code> or <code>video editing</code>.</li>
+      <li><strong>job_type</strong>: one of <code>full_time</code>, <code>contract</code>, <code>freelance</code>, <code>part_time</code>, <code>internship</code>.</li>
+      <li><strong>publication_date</strong>: when the job was posted.</li>
+      <li><strong>location</strong>: who can apply, for example "USA, Canada" or "Worldwide".</li>
+      <li><strong>salary</strong>: the salary text exactly as the employer wrote it.</li>
+      <li><strong>salary_min</strong>, <strong>salary_max</strong>, <strong>salary_currency</strong>: the same salary as numbers.</li>
+      <li><strong>url</strong>: the Remotive page for the job, where people apply.</li>
+      <li><strong>description_short</strong>: the first part of the job description. You can also ask for the full text.</li>
+      <li><strong>opportunity_score</strong>: a score from 0 to 100. The README says it combines four factors, two of which are the job category (high-demand tech roles score higher) and the salary level (a higher maximum salary scores higher).</li>
+    </ul>
+
+    <h2>Example output</h2>
+    <p>Here is one row from a real run, with the tags list and description shortened:</p>
+    <pre><code>{
+  "id": 2069746,
+  "title": "Tech Lead Full-Stack Rails Engineer",
+  "company_name": "Mitre Media",
+  "company_logo": "https://remotive.com/job/2069746/logo",
+  "category": "Software Development",
+  "tags": ["api", "docker", "postgresql", "react", "ruby/rails", "Redis", "fintech"],
+  "job_type": "full_time",
+  "publication_date": "2026-11-14T20:33:53",
+  "location": "USA, Canada, USA timezones",
+  "salary": "$170k - $200k",
+  "salary_min": 170000,
+  "salary_max": 200000,
+  "salary_currency": "USD",
+  "url": "https://remotive.com/remote-jobs/software-development/tech-lead-full-stack-rails-engineer-2069746",
+  "description_short": "About Mitre Media Mitre Media is redefining FinTech with AI-driven tools...",
+  "opportunity_score": 93
+}</code></pre>
+    <p>The same run also returned a full-time Marketing role, "Content Creator - YouTube" at Metics Media, open to the USA and Canada at "$85k - $155k". That one scored 82.</p>
+
+    <h2>Filters you can set</h2>
+    <p>Every input is optional. If you set none of them, you get all current jobs.</p>
+    <ul>
+      <li><code>categories</code>: Software Development, DevOps / Sysadmin, Data Science, Design, Product, Customer Support, Marketing, Sales, Writing, Finance / Legal, Human Resources, All others.</li>
+      <li><code>jobTypes</code>: <code>full_time</code>, <code>contract</code>, <code>freelance</code>, <code>part_time</code>, <code>internship</code>.</li>
+      <li><code>keywords</code>: keeps only jobs that contain the word in the title, description, company or tags.</li>
+      <li><code>locations</code>: for example <code>USA</code>, <code>Europe</code>, <code>Worldwide</code>.</li>
+      <li><code>minSalary</code>: the lowest salary you want, in USD (0 means no filter).</li>
+      <li><code>maxResults</code>: how many jobs to return, from 1 to 2000.</li>
+      <li><code>includeOpportunityScore</code> and <code>includeFullDescription</code>: turn the score on, and choose whether to get the full description.</li>
+    </ul>
+    <p>This example input asks for Python or AWS jobs in software development or DevOps, open to the USA, paying at least $120k:</p>
+    <pre><code>{
+  "categories": ["Software Development", "DevOps / Sysadmin"],
+  "jobTypes": ["full_time", "contract"],
+  "keywords": ["python", "aws"],
+  "locations": ["USA"],
+  "minSalary": 120000,
+  "maxResults": 100,
+  "includeOpportunityScore": true,
+  "includeFullDescription": false
+}</code></pre>
+
+    <h2>Use cases</h2>
+    <p>These come from the Actor's README:</p>
+    <ol>
+      <li><strong>Remote job boards and aggregators.</strong> Fill a niche board, such as one for developers, designers or data roles, with fresh filtered listings ranked by the score.</li>
+      <li><strong>Recruitment and talent sourcing.</strong> See which companies are hiring remotely, compare salary ranges and find well-paid roles early.</li>
+      <li><strong>Remote work market research.</strong> Look at demand by category, salary trends and location requirements over time, for example by running it on a schedule and keeping each run.</li>
+      <li><strong>Job alerts and career tools.</strong> Send email digests or Slack or Discord bot messages with scored job picks.</li>
+    </ol>
+
+    <h2>How to run it on Apify</h2>
+    <ol>
+      <li>Open the Actor page: <a href="https://apify.com/benthepythondev/remotive-jobs-intelligence">apify.com/benthepythondev/remotive-jobs-intelligence</a>.</li>
+      <li>Fill in the filters you want, or leave them empty, and set <code>maxResults</code>.</li>
+      <li>Click Start. When the run finishes, view the results as a table or export them as JSON, CSV or Excel.</li>
+    </ol>
+    <p>You can also put it on a schedule in Apify, start it through the Apify API, or connect it to Make, Zapier or n8n. There is no RapidAPI listing for this Actor right now, so use Apify's own API if you want to call it from code.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/remotive-jobs-intelligence">Open the actor</a>
+    </p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Remotive only.</strong> The data covers only jobs posted on Remotive, not the whole remote job market.</li>
+      <li><strong>The salary parser can get odd salary text wrong.</strong> In the same real run, "Remote Office Assistant" at Coalition Technologies had the salary text "$35,3k- $52k". It came out as <code>salary_min: 52000</code> and <code>salary_max: 353000</code>, which is clearly not what the employer meant. Check the original <code>salary</code> text before you use the numbers, especially when the max is far above the min.</li>
+      <li><strong>Not every job lists a salary.</strong> Jobs without one can't be ranked on pay. Keep that in mind when you set <code>minSalary</code>.</li>
+      <li><strong>Tags come from the listing and can be loose.</strong> The office assistant role above was tagged with things like <code>php</code>, <code>magento</code> and <code>bootstrap</code>. Tags are a rough signal, not a verified skill list.</li>
+      <li><strong>The score is a ranking aid.</strong> It is based on factors like category and salary. It says nothing about the employer, the team or the hiring process, and a bad salary parse can push a score up.</li>
+      <li><strong>Short descriptions are cut off.</strong> Turn on <code>includeFullDescription</code> if you need the full text.</li>
+      <li><strong>Location is a free-text field.</strong> Values like "USA, Canada, USA timezones" mix countries and time zones, so location filters match text, not exact regions.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
