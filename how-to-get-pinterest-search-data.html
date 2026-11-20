@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Get Pinterest Search Data: Pins, Creators, Boards and Rank</title>
+  <meta name="description" content="Export Pinterest search results as rows: pin titles, images, creators, boards, destination links and rank, one row per public pin." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-pinterest-search-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-pinterest-search-data.html" />
+  <meta property="og:title" content="How to Get Pinterest Search Data: Pins, Creators, Boards and Rank" />
+  <meta property="og:description" content="Fields, a real example row, use cases and honest limits of the Pinterest Search Scraper Actor." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to Get Pinterest Search Data: Pins, Creators, Boards and Rank",
+    "datePublished": "2026-11-20",
+    "dateModified": "2026-11-20",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-pinterest-search-data.html",
+    "description": "Export Pinterest search results as rows: pin titles, images, creators, boards, destination links and rank, one row per public pin."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/pinterest-search-scraper">Actor</a></p>
+    <h1>How to Get Pinterest Search Data: Pins, Creators, Boards and Rank</h1>
+    <p class="note">20 Nov 2026 · benthepythondev</p>
+
+    <p>You can type a keyword into Pinterest and scroll through the results. The hard part is getting those results into a spreadsheet you can use: titles, images, who posted each pin, which board it sits on, and where it ranked. Pinterest Search Scraper does that. You give it one or more search phrases, and it returns one row per public pin, in the order Pinterest showed them.</p>
+
+    <h2>What you get</h2>
+    <p>Each row is one public pin found for one search query. These are the fields:</p>
+    <ul>
+      <li><strong>Pin identity</strong>: <code>id</code> and <code>url</code>, the pin's Pinterest link.</li>
+      <li><strong>Content</strong>: <code>title</code> and <code>description</code>, the text the creator wrote.</li>
+      <li><strong>Image</strong>: <code>image_url</code> plus <code>image_width</code> and <code>image_height</code>. This is the best available version of the image.</li>
+      <li><strong>Outbound link</strong>: <code>destination_url</code> and <code>domain</code>, the site the pin points to, if it points anywhere.</li>
+      <li><strong>Dates and engagement</strong>: <code>created_at</code>, <code>repin_count</code> (save count) and <code>reaction_counts</code>.</li>
+      <li><strong>Creator</strong>: <code>pinner_id</code>, <code>pinner_username</code>, <code>pinner_name</code>, <code>pinner_followers</code> and <code>pinner_profile_url</code>.</li>
+      <li><strong>Board</strong>: <code>board_id</code>, <code>board_name</code> and <code>board_url</code>, when Pinterest shows them.</li>
+      <li><strong>Search context</strong>: <code>search_query</code>, <code>rank</code> (the pin's position for that query) and <code>scraped_at</code>.</li>
+    </ul>
+    <p>Pins are deduplicated within each query. You can download the results as JSON, CSV, Excel, XML or RSS, send them to a webhook, pass them to Make or Zapier, or read them through the Apify API.</p>
+
+    <h2>Real example output</h2>
+    <p>Below is a trimmed excerpt from a real run for the query <code>web scraping</code>. It shows the first result:</p>
+    <pre><code>{
+  "id": "e1_AfqPShzbFe6dYmxt8wYB9tf_zES7o3Xve141m8nDT084pVk7VkCH",
+  "url": "https://www.pinterest.com/pin/e1_AfqPShzbFe6dYmxt8wYB9tf_zES7o3Xve141m8nDT084pVk7VkCH/",
+  "title": "Web Scraping: What the Scraper Actually Does | Visual Guide",
+  "destination_url": null,
+  "domain": "Uploaded by user",
+  "image_url": "https://i.pinimg.com/originals/6b/f3/cc/6bf3ccaf1fb2365898310fc71ceb0964.png",
+  "image_width": 1024,
+  "image_height": 1536,
+  "created_at": "Mon, 09 Nov 2026 03:44:03 +0000",
+  "repin_count": null,
+  "reaction_counts": {},
+  "pinner_username": "bigiByte",
+  "pinner_name": "BigiByte",
+  "pinner_followers": 4,
+  "board_name": "Web Scraping Tutorials",
+  "board_url": "https://www.pinterest.com/bigiByte/web-scraping-tutorials/",
+  "search_query": "web scraping",
+  "rank": 1,
+  "scraped_at": "2026-11-19T02:01:41.425929+00:00"
+}</code></pre>
+    <p>In the same run, the pin ranked 2 had <code>"reaction_counts": {"1": 1}</code>, and the pin ranked 3 had a square 1254 x 1254 image. Fields vary from pin to pin, so plan your analysis around that.</p>
+
+    <h2>Use cases</h2>
+    <p><strong>Pinterest SEO and ranking monitoring.</strong> Run the same keyword list every day or every week, then compare <code>rank</code>, <code>id</code> and <code>url</code> between runs. This shows which pins stay visible, which creators enter the results, and whether a campaign is gaining or losing search exposure.</p>
+    <p><strong>Product and visual trend research.</strong> Search product categories, styles, seasonal phrases, materials or colors. Then look for themes that keep coming up in the titles, descriptions, images, boards and save counts before you plan a campaign or a product collection.</p>
+    <p><strong>Creator and competitor discovery.</strong> Group rows by <code>pinner_username</code>, compare follower counts, and find the creators who rank for a topic again and again. This helps with manual partnership research. A profile showing up in the results does not make that creator a qualified lead.</p>
+    <p><strong>Ecommerce destination analysis.</strong> Use <code>destination_url</code> and <code>domain</code> to see which sites get Pinterest traffic for a query. These can include marketplaces, publisher pages, brand stores and product collections.</p>
+
+    <h2>How to run it on Apify</h2>
+    <p>Open the Actor at <a href="https://apify.com/benthepythondev/pinterest-search-scraper">apify.com/benthepythondev/pinterest-search-scraper</a> and enter your input:</p>
+    <pre><code>{
+  "queries": ["minimalist home office", "sustainable packaging ideas"],
+  "maxResultsPerQuery": 50,
+  "maxPagesPerQuery": 5
+}</code></pre>
+    <ul>
+      <li><code>queries</code>: a list of search phrases. The default is <code>web scraping</code>.</li>
+      <li><code>maxResultsPerQuery</code>: the most unique pins returned per query. The default is 10 and the maximum is 1,000.</li>
+      <li><code>maxPagesPerQuery</code>: the most result pages requested per query. The default is 2 and the maximum is 50.</li>
+    </ul>
+    <p>Start with a small limit when you test a new keyword set. Raise it only after the first output shows the query returns useful pins. To track changes over time, put the run on a schedule.</p>
+    <p>Pricing is pay per event: $0.00005 for each Actor start and $0.003 for each pin result.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/pinterest-search-scraper">Open the actor</a>
+    </p>
+
+    <h2>How to use it as an API on RapidAPI</h2>
+    <p>If you want to call it from your own code with a RapidAPI key, use the listing at <a href="https://rapidapi.com/benthepythondev0/api/pinterest-search-scraper1">rapidapi.com/benthepythondev0/api/pinterest-search-scraper1</a>. You can also read results directly through the Apify API.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Public pins only.</strong> It collects what Pinterest search shows publicly. It does not log in or read private boards.</li>
+      <li><strong>Fields can be null.</strong> Pinterest does not show every field for every pin. Organic pins, product pins, promoted content, older pins and different account types can carry different metadata. Missing values come back as <code>null</code> and are never made up. In the real rows above, <code>repin_count</code> is <code>null</code> on all three pins.</li>
+      <li><strong>Uploaded pins have no outbound link.</strong> A pin uploaded directly to Pinterest shows <code>destination_url: null</code> and <code>domain: "Uploaded by user"</code>. For destination analysis, filter these rows out.</li>
+      <li><strong>Date format.</strong> <code>created_at</code> is a text date such as <code>Mon, 09 Nov 2026 03:44:03 +0000</code>. You will probably need to parse it before sorting or charting by date.</li>
+      <li><strong>Bounded depth.</strong> Each query is capped at 1,000 results and 50 pages. The scraper can go past the first visible batch of results, but it will not return every pin ever made for a keyword.</li>
+      <li><strong>Rank is a snapshot.</strong> <code>rank</code> is the order Pinterest returned at the time shown in <code>scraped_at</code>. Results can change between runs.</li>
+      <li><strong>Results can be narrow.</strong> In the example run, the top three pins for <code>web scraping</code> all came from one creator with 4 followers. Check your sample before you draw conclusions about a whole niche.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
