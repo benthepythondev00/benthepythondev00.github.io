@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Managed B2B Data Feeds ($199–$999/mo) — Real Estate, Social, E-Commerce &amp; Jobs</title>
+  <meta name="description" content="Scheduled JSON, CSV, Webhook, S3, and Snowflake data feeds built on our Top 15 production Apify scrapers: Zumper, Craigslist, Redfin, Reddit, Threads, Best Buy, App Store, Tech Stack, Remote Jobs, Google Maps, and Yahoo Finance." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/feeds/" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/feeds/" />
+  <meta property="og:title" content="Managed B2B Data Feeds ($199–$999/mo) — Built on Proven Apify Actors" />
+  <meta property="og:description" content="Turn per-run scrapers into monitored, deduplicated B2B data feeds delivered to JSON, CSV, Webhooks, S3, or Snowflake with clear SLAs." />
+  <style>
+    :root {
+      --bg: #0a101d;
+      --surface: #11192b;
+      --surface-2: #0d1424;
+      --ink: #eaf0fc;
+      --muted: #98accf;
+      --accent: #38bdf8;
+      --accent-ink: #04131d;
+      --good: #4ade80;
+      --line: #21304a;
+      --line-strong: #2f4469;
+      --code-bg: #070c16;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(10, 16, 29, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      font-size: 0.98rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--good);
+      display: inline-block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+    .nav-links a { color: var(--muted); font-weight: 500; }
+    .nav-links a:hover { color: var(--ink); text-decoration: none; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 36px 20px 80px; }
+    .banner {
+      display: none;
+      margin-bottom: 24px;
+      padding: 16px 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(74, 222, 128, 0.45);
+      background: rgba(74, 222, 128, 0.08);
+      color: var(--ink);
+    }
+    .banner.show { display: block; }
+    .eyebrow {
+      color: var(--good);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4.4vw, 3.1rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin: 0 0 16px;
+      max-width: 840px;
+    }
+    h2 {
+      font-size: clamp(1.45rem, 2.5vw, 1.9rem);
+      letter-spacing: -0.02em;
+      margin: 56px 0 10px;
+    }
+    h3 {
+      font-size: 1.15rem;
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 72ch;
+      margin: 0 0 22px;
+    }
+    .sub { color: var(--muted); max-width: 74ch; margin: 0 0 20px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 18px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 650;
+      font-size: 0.94rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); }
+    .btn-primary:hover { background: #5ccbff; }
+    .btn-ghost { border-color: var(--line-strong); color: var(--ink); background: var(--surface-2); }
+    .btn-ghost:hover { border-color: var(--accent); }
+    .btn-sm { padding: 8px 13px; font-size: 0.86rem; border-radius: 8px; }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 0;
+    }
+    .badge {
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 30px 0 10px;
+    }
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .metric span {
+      display: block;
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .vertical-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      scroll-margin-top: 76px;
+    }
+    .card.highlight {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.25);
+    }
+    .card p { color: var(--muted); font-size: 0.93rem; margin: 0 0 14px; }
+    .actor-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .actor-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      padding: 8px 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 0.88rem;
+    }
+    .actor-list .actor-meta { color: var(--muted); font-size: 0.8rem; text-align: right; }
+    .card-foot {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 12px;
+    }
+    .tab {
+      background: var(--surface);
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .tab.active {
+      background: var(--accent);
+      color: var(--accent-ink);
+      border-color: var(--accent);
+    }
+    .schema-panel {
+      display: none;
+      background: var(--code-bg);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .schema-panel.active { display: block; }
+    .schema-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-2);
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    pre {
+      margin: 0;
+      padding: 16px;
+      overflow-x: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: #cfe6ff;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+      align-items: stretch;
+    }
+    .tier-badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      color: var(--accent);
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    .price-line {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin: 8px 0 6px;
+    }
+    .price-line strong { font-size: 2.1rem; letter-spacing: -0.03em; }
+    .price-line span { color: var(--muted); font-size: 0.92rem; }
+    .tier-list {
+      margin: 12px 0 20px;
+      padding-left: 18px;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+    .tier-list li { margin-bottom: 7px; }
+    .tier-actions {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .tier-actions .btn { width: 100%; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 10px;
+      font-size: 0.92rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th { color: var(--muted); font-weight: 600; background: var(--surface-2); }
+    tr:last-child td { border-bottom: none; }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-top: 16px;
+    }
+    .panel ul { margin: 8px 0 0; padding-left: 20px; color: var(--muted); font-size: 0.92rem; }
+    .panel li { margin-bottom: 6px; }
+    .note { color: var(--muted); font-size: 0.86rem; }
+    footer {
+      margin-top: 56px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+    @media (max-width: 900px) {
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .vertical-grid, .pricing-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .metrics { grid-template-columns: 1fr; }
+      .actor-list li { flex-direction: column; gap: 3px; }
+      .actor-list .actor-meta { text-align: left; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Managed B2B Data Feeds",
+    "provider": {
+      "@type": "Person",
+      "name": "benthepythondev",
+      "url": "https://benthepythondev00.github.io/"
+    },
+    "url": "https://benthepythondev00.github.io/feeds/",
+    "description": "Scheduled JSON, CSV, Webhook, S3, and Snowflake B2B data feeds built on our Top 15 production Apify scrapers across Real Estate, Social/Reddit/Threads, E-Commerce/Reviews, and Jobs/B2B Leads.",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Feed", "price": "199", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Pro Feed", "price": "499", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Dedicated SLA Feed", "price": "999", "priceCurrency": "USD" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="brand" href="../"><span class="brand-dot" aria-hidden="true"></span> benthepythondev · Managed Feeds</a>
+      <div class="nav-links">
+        <a href="#catalog">Feed Catalog</a>
+        <a href="#schemas">JSON Schemas</a>
+        <a href="#pricing">Pricing ($199–$999)</a>
+        <a href="#sla">SLA &amp; Scope</a>
+        <a href="../">All Apify Actors</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div id="checkout-banner" class="banner" role="status">
+      <strong>Subscription confirmed.</strong> Thank you for activating your Managed B2B Data Feed. We received your Stripe checkout details and will send your onboarding confirmation and first sample payload within one business day. Need to add filters or a webhook endpoint right away? Email <a href="mailto:benthepythondev0@gmail.com?subject=Managed%20Feed%20Onboarding">benthepythondev0@gmail.com</a>.
+    </div>
+
+    <header>
+      <p class="eyebrow">Managed B2B Data Feeds · Top 15 Production Sources</p>
+      <h1>Scheduled JSON, Webhook, S3 &amp; Snowflake feeds — without babysitting scrapers.</h1>
+      <p class="lead">Already paying per-run on Apify or RapidAPI? Upgrade any of our Top 15 battle-tested engines into a monitored, deduplicated B2B feed with change detection, normalized schemas, and clear run-success SLAs. Self-serve Stripe checkout or start with a free 10-row sample on your exact filters.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#pricing">See Plans ($199–$999/mo)</a>
+        <a class="btn btn-ghost" data-track-pilot="hero" data-vertical="general" href="mailto:benthepythondev0@gmail.com?subject=%5BFEED-PILOT%5D%20Managed%20B2B%20Data%20Feed%20Sample&amp;body=Vertical%20%2F%20Source%20(e.g.%20Zumper%2C%20Reddit%2C%20Best%20Buy%2C%20Remote%20Jobs)%3A%0AFilters%20%2F%20Markets%20%2F%20Keywords%3A%0ARefresh%20Frequency%20(daily%2C%204x%2Fday%2C%20hourly)%3A%0ADelivery%20Destination%20(JSON%2C%20CSV%2C%20Webhook%2C%20S3%2C%20Snowflake%2C%20Sheets)%3A%0AExpected%20Monthly%20Rows%3A">Request Free 10-Row Sample</a>
+        <a class="btn btn-ghost" href="#catalog">Browse 15 Proven Sources</a>
+      </div>
+      <div class="badges" aria-label="Supported delivery destinations">
+        <span class="badge">JSON / JSONL</span>
+        <span class="badge">CSV / Parquet</span>
+        <span class="badge">Webhook POST</span>
+        <span class="badge">AWS S3 / GCS</span>
+        <span class="badge">Snowflake / BigQuery</span>
+        <span class="badge">Google Sheets</span>
+      </div>
+    </header>
+
+    <section class="metrics" aria-label="Operational highlights">
+      <div class="metric"><strong>Top 15 Engines</strong><span>Our highest-volume, highest-reliability Apify &amp; RapidAPI actors</span></div>
+      <div class="metric"><strong>Only-New &amp; Diffs</strong><span>Stable deduplication keys + price-drop &amp; status-change events</span></div>
+      <div class="metric"><strong>98%–99.5% Target</strong><span>Monitored scheduled runs with parser maintenance included</span></div>
+      <div class="metric"><strong>$199–$999/mo</strong><span>Flat monthly tiers, no long-term lock-in, cancel anytime</span></div>
+    </section>
+
+    <h2 id="catalog">Feed Catalog by Vertical (Top 15 Proven Sources)</h2>
+    <p class="sub">Every source below runs in production today on Apify and RapidAPI. Pick a single source on Starter ($199/mo) or combine multiple sources into one normalized warehouse feed on Pro ($499/mo) or Dedicated ($999/mo).</p>
+
+    <section class="vertical-grid" aria-label="Vertical feed catalog">
+      <article class="card" id="real-estate">
+        <p class="eyebrow">Vertical 01 · Real Estate &amp; Rentals</p>
+        <h3>Real Estate &amp; Rent-Change Monitoring Feeds</h3>
+        <p>Built for multifamily yield desks, acquisitions teams, relocation firms, and proptech pipelines tracking asking rents, FSBO inventory, and price cuts.</p>
+        <ul class="actor-list">
+          <li><a href="https://apify.com/benthepythondev/zumper-rental-scraper" target="_blank" rel="noopener">Zumper Rental Scraper</a><span class="actor-meta">US rentals + rent-change diffs</span></li>
+          <li><a href="https://apify.com/benthepythondev/craigslist-real-estate-scraper" target="_blank" rel="noopener">Craigslist Real Estate Scraper</a><span class="actor-meta">FSBO, rentals &amp; rooms by city</span></li>
+          <li><a href="https://apify.com/benthepythondev/redfin-rental-scraper" target="_blank" rel="noopener">Redfin Rental Scraper</a><span class="actor-meta">Rentals, sqft, amenities &amp; drops</span></li>
+          <li><a href="https://apify.com/benthepythondev/padmapper-rental-scraper" target="_blank" rel="noopener">PadMapper Rental Scraper</a><span class="actor-meta">US &amp; Canada apartments/houses</span></li>
+          <li><a href="https://apify.com/benthepythondev/hotpads-rental-scraper" target="_blank" rel="noopener">HotPads Rental Scraper</a><span class="actor-meta">Filtered apartments &amp; contacts</span></li>
+        </ul>
+        <p class="note">Need multi-portal REST API access across 20+ portals including Zillow &amp; Rightmove? See <a href="https://listingrail.com/?utm_source=feeds_page&amp;utm_campaign=real-estate" target="_blank" rel="noopener">Listingrail</a> or our <a href="../sf-rental-price-drops.html">live SF rent-cut proof</a>.</p>
+        <div class="card-foot">
+          <a class="btn btn-primary btn-sm" href="#pricing" data-select-vertical="real-estate">Start Real Estate Feed</a>
+          <a class="btn btn-ghost btn-sm" data-track-pilot="card" data-vertical="real-estate" href="mailto:benthepythondev0@gmail.com?subject=%5BFEED-REAL-ESTATE%5D%20Real%20Estate%20Feed%20Sample&amp;body=Portals%20(Zumper%2C%20Craigslist%2C%20Redfin%2C%20PadMapper%2C%20HotPads)%3A%0ACities%20%2F%20ZIPs%3A%0AFilters%20(price%2C%20beds%2C%20onlyChanges)%3A%0ADelivery%20(Webhook%2C%20S3%2C%20Snowflake%2C%20CSV)%3A">Free Sample</a>
+        </div>
+      </article>
+
+      <article class="card" id="social-reddit">
+        <p class="eyebrow">Vertical 02 · Social, Reddit &amp; Threads</p>
+        <h3>Reddit &amp; Meta Threads Intelligence Feeds</h3>
+        <p>Built for brand monitoring, market research, customer-voice pipelines, and scheduled community tracking — replacing discontinued Reddit RSS feeds without login or OAuth hassles.</p>
+        <ul class="actor-list">
+          <li><a href="https://apify.com/benthepythondev/reddit-scraper" target="_blank" rel="noopener">Reddit Scraper (Posts &amp; Comments)</a><span class="actor-meta">Live subreddits, search &amp; only-new</span></li>
+          <li><a href="https://apify.com/benthepythondev/reddit-archive-scraper" target="_blank" rel="noopener">Reddit Archive Scraper</a><span class="actor-meta">Historical date-range backfills</span></li>
+          <li><a href="https://apify.com/benthepythondev/threads-user-posts-scraper" target="_blank" rel="noopener">Threads User Posts Scraper</a><span class="actor-meta">Full Meta Threads timelines &amp; replies</span></li>
+        </ul>
+        <p class="note">Need a bounded one-off historical Reddit dataset (up to 1M rows)? See our fixed-price <a href="../reddit-rag-dump.html">Reddit Archive Dump packages</a>.</p>
+        <div class="card-foot">
+          <a class="btn btn-primary btn-sm" href="#pricing" data-select-vertical="social-reddit">Start Social / Reddit Feed</a>
+          <a class="btn btn-ghost btn-sm" data-track-pilot="card" data-vertical="social-reddit" href="mailto:benthepythondev0@gmail.com?subject=%5BFEED-SOCIAL%5D%20Reddit%20%2F%20Threads%20Feed%20Sample&amp;body=Sources%20(Reddit%20Live%2C%20Reddit%20Archive%2C%20Meta%20Threads)%3A%0ASubreddits%2C%20Keywords%2C%20or%20Handles%3A%0ARefresh%20Frequency%3A%0ADelivery%20(Webhook%2C%20S3%2C%20Snowflake%2C%20JSONL)%3A">Free Sample</a>
+        </div>
+      </article>
+
+      <article class="card" id="ecommerce-reviews">
+        <p class="eyebrow">Vertical 03 · E-Commerce &amp; App Reviews</p>
+        <h3>Retail Pricing &amp; App Store Review Feeds</h3>
+        <p>Built for e-commerce repricing, deal trackers, and mobile product teams monitoring SKU prices, open-box inventory, and 1-star review spikes across countries.</p>
+        <ul class="actor-list">
+          <li><a href="https://apify.com/benthepythondev/bestbuy-scraper" target="_blank" rel="noopener">Best Buy Products &amp; Deals Scraper</a><span class="actor-meta">SKU prices, savings &amp; open-box</span></li>
+          <li><a href="https://apify.com/benthepythondev/appstore-reviews-scraper" target="_blank" rel="noopener">Apple App Store Reviews Scraper</a><span class="actor-meta">iOS &amp; macOS reviews by country</span></li>
+          <li><a href="https://apify.com/benthepythondev/google-play-reviews-scraper" target="_blank" rel="noopener">Google Play Reviews Scraper</a><span class="actor-meta">Android reviews, versions &amp; ratings</span></li>
+        </ul>
+        <p class="note">Includes SKU + condition deduplication keys for Best Buy and incremental review-ID watermarking for App Store &amp; Google Play.</p>
+        <div class="card-foot">
+          <a class="btn btn-primary btn-sm" href="#pricing" data-select-vertical="ecommerce-reviews">Start E-Commerce Feed</a>
+          <a class="btn btn-ghost btn-sm" data-track-pilot="card" data-vertical="ecommerce-reviews" href="mailto:benthepythondev0@gmail.com?subject=%5BFEED-ECOMMERCE%5D%20Pricing%20%2F%20Reviews%20Feed%20Sample&amp;body=Sources%20(Best%20Buy%2C%20App%20Store%2C%20Google%20Play)%3A%0ASKUs%2C%20Categories%2C%20or%20App%20IDs%3A%0ARefresh%20Frequency%3A%0ADelivery%20(Webhook%2C%20S3%2C%20Snowflake%2C%20CSV)%3A">Free Sample</a>
+        </div>
+      </article>
+
+      <article class="card" id="jobs-b2b">
+        <p class="eyebrow">Vertical 04 · Jobs, B2B Leads &amp; Market Data</p>
+        <h3>Technographics, Hiring Signals &amp; B2B Lead Feeds</h3>
+        <p>Built for B2B sales ops, recruiting platforms, agencies, and quant/research desks needing clean company technographics, remote job feeds, local business leads, and market fundamentals.</p>
+        <ul class="actor-list">
+          <li><a href="https://apify.com/benthepythondev/tech-stack-detector" target="_blank" rel="noopener">Tech Stack Detector</a><span class="actor-meta">CMS, frameworks, payments &amp; DNS</span></li>
+          <li><a href="https://apify.com/benthepythondev/remote-jobs-aggregator" target="_blank" rel="noopener">Remote Jobs Aggregator</a><span class="actor-meta">6 boards, eligibility filter &amp; only-new</span></li>
+          <li><a href="https://apify.com/benthepythondev/google-maps-business-scraper" target="_blank" rel="noopener">Google Maps Business Scraper</a><span class="actor-meta">City-wide leads, phone, site &amp; score</span></li>
+          <li><a href="https://apify.com/benthepythondev/yahoo-finance-scraper" target="_blank" rel="noopener">Yahoo Finance Scraper</a><span class="actor-meta">Quotes, financials &amp; news per ticker</span></li>
+        </ul>
+        <p class="note">See live <a href="../maps-berlin-contacts.html">Berlin Maps contact proof</a> and our <a href="../how-to-get-remote-job-listings-from-six-job-boards.html">Remote Jobs field guide</a>.</p>
+        <div class="card-foot">
+          <a class="btn btn-primary btn-sm" href="#pricing" data-select-vertical="jobs-b2b">Start Jobs / B2B Feed</a>
+          <a class="btn btn-ghost btn-sm" data-track-pilot="card" data-vertical="jobs-b2b" href="mailto:benthepythondev0@gmail.com?subject=%5BFEED-B2B%5D%20Jobs%20%2F%20Leads%20%2F%20Finance%20Feed%20Sample&amp;body=Sources%20(Tech%20Stack%2C%20Remote%20Jobs%2C%20Google%20Maps%2C%20Yahoo%20Finance)%3A%0ADomains%2C%20Niches%2C%20Roles%2C%20or%20Tickers%3A%0ARefresh%20Frequency%3A%0ADelivery%20(Webhook%2C%20S3%2C%20Snowflake%2C%20CSV)%3A">Free Sample</a>
+        </div>
+      </article>
+    </section>
+
+    <h2 id="schemas">Sample Normalized JSON Schemas</h2>
+    <p class="sub">Every managed feed ships with a stable deduplication key, UTC capture timestamp, and consistent field types so your warehouse or webhook consumer never breaks on unexpected nulls.</p>
+
+    <div class="tabs" role="tablist" aria-label="Sample JSON schemas by vertical">
+      <button class="tab active" role="tab" aria-selected="true" data-tab="real-estate">Real Estate</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="social-reddit">Social / Reddit / Threads</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="ecommerce-reviews">E-Commerce &amp; Reviews</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="jobs-b2b">Jobs, B2B &amp; Finance</button>
+    </div>
+
+    <div class="schema-panel active" data-panel="real-estate">
+      <div class="schema-head"><span>real-estate-feed.jsonl · Zumper / Craigslist / Redfin / PadMapper / HotPads</span><span>Dedupe key: source + listing_id</span></div>
+      <pre>{
+  "dedupe_key": "zumper:16558691",
+  "source": "zumper",
+  "listing_id": "16558691",
+  "change_type": "price_changed",
+  "title": "SoMa Square Apartments",
+  "address": "1 Saint Francis Pl, San Francisco, CA 94107",
+  "lat": 37.7819,
+  "lng": -122.3982,
+  "price_min": 3756,
+  "previous_price_min": 3912,
+  "price_change_percent": -3.99,
+  "bedrooms": 1,
+  "bathrooms": 1,
+  "sqft": 710,
+  "url": "https://www.zumper.com/apartment-buildings/p16558691/soma-square-san-francisco-ca",
+  "captured_at": "2026-11-22T14:00:00Z"
+}</pre>
+    </div>
+
+    <div class="schema-panel" data-panel="social-reddit">
+      <div class="schema-head"><span>social-feed.jsonl · Reddit Live / Reddit Archive / Meta Threads</span><span>Dedupe key: platform + post_id</span></div>
+      <pre>{
+  "dedupe_key": "reddit:t3_1g9x2ab",
+  "platform": "reddit",
+  "post_id": "t3_1g9x2ab",
+  "community": "r/SaaS",
+  "author": "founder_ops",
+  "title": "How are you automating competitor pricing alerts?",
+  "body": "We moved off manual spreadsheets to a daily webhook feed...",
+  "score": 84,
+  "num_comments": 31,
+  "url": "https://www.reddit.com/r/SaaS/comments/1g9x2ab/",
+  "published_at": "2026-11-22T11:18:42Z",
+  "captured_at": "2026-11-22T12:00:00Z"
+}</pre>
+    </div>
+
+    <div class="schema-panel" data-panel="ecommerce-reviews">
+      <div class="schema-head"><span>ecommerce-feed.jsonl · Best Buy / App Store / Google Play</span><span>Dedupe key: source + sku_or_review_id</span></div>
+      <pre>{
+  "dedupe_key": "bestbuy:6572184:open_box_excellent",
+  "source": "bestbuy",
+  "sku_id": "6572184",
+  "title": "Lenovo ThinkPad X1 Carbon 14\" Laptop",
+  "brand": "Lenovo",
+  "condition": "open_box",
+  "open_box_condition": "excellent",
+  "price": 1149.99,
+  "original_price": 1599.99,
+  "savings_percent": 28.1,
+  "on_sale": true,
+  "rating": 4.7,
+  "review_count": 142,
+  "url": "https://www.bestbuy.com/site/6572184.p",
+  "captured_at": "2026-11-22T13:30:00Z"
+}</pre>
+    </div>
+
+    <div class="schema-panel" data-panel="jobs-b2b">
+      <div class="schema-head"><span>b2b-feed.jsonl · Tech Stack / Remote Jobs / Google Maps / Yahoo Finance</span><span>Dedupe key: source + entity_id</span></div>
+      <pre>{
+  "dedupe_key": "techstack:stripe.com",
+  "source": "tech-stack-detector",
+  "domain": "stripe.com",
+  "cms": null,
+  "frameworks": ["React", "Next.js"],
+  "analytics": ["Segment"],
+  "cdn": "Cloudflare",
+  "email_provider": "Google Workspace",
+  "payments": ["Stripe"],
+  "http_status": 200,
+  "captured_at": "2026-11-22T14:05:00Z"
+}</pre>
+    </div>
+
+    <h2 id="pricing">Simple Monthly Pricing</h2>
+    <p class="sub">Start directly via Stripe Checkout (enter your target source and delivery destination at checkout) or request a free 10-row sample first. Cancel anytime with zero setup fees on standard Top 15 sources.</p>
+
+    <section class="pricing-grid" aria-label="Managed data feed pricing tiers">
+      <article class="card">
+        <span class="tier-badge">Starter Feed</span>
+        <h3>Single-Source Daily Feed</h3>
+        <div class="price-line"><strong>$199</strong><span>/ month</span></div>
+        <p>For teams replacing manual CSV exports or flaky cron scripts on one proven source.</p>
+        <ul class="tier-list">
+          <li><strong>1 proven source</strong> from our Top 15 catalog</li>
+          <li><strong>Daily scheduled delivery</strong> (JSON, CSV, Webhook, or Google Sheets)</li>
+          <li>Up to <strong>15,000 deduplicated rows / month</strong></li>
+          <li>Stable dedupe keys + only-new / change-detection events</li>
+          <li><strong>98%</strong> 30-day scheduled run-success target</li>
+          <li>1-business-day incident acknowledgement</li>
+        </ul>
+        <div class="tier-actions">
+          <a class="btn btn-primary" data-track-checkout="starter" data-price="199" href="https://buy.stripe.com/4gM5kF65udwt4yqcaI9AA0l">Start Starter Feed — $199/mo</a>
+          <a class="btn btn-ghost btn-sm" data-track-pilot="starter" data-vertical="selected" href="mailto:benthepythondev0@gmail.com?subject=%5BFEED-STARTER-199%5D%20Free%2010-Row%20Sample%20Request&amp;body=Tier%3A%20Starter%20(%24199%2Fmo)%0ASource%20from%20Top%2015%3A%0AFilters%20%2F%20Markets%3A%0ADelivery%20Destination%3A">Request Free Sample First</a>
+        </div>
+      </article>
+
+      <article class="card highlight">
+        <span class="tier-badge">Most Popular · Pro Feed</span>
+        <h3>Multi-Source Normalized Feed</h3>
+        <div class="price-line"><strong>$499</strong><span>/ month</span></div>
+        <p>For product, analytics, and ops teams feeding webhooks, S3 buckets, or BI warehouses.</p>
+        <ul class="tier-list">
+          <li><strong>Up to 3 proven sources</strong> normalized into one schema</li>
+          <li><strong>Up to 4x / day refresh</strong> (or custom cron schedule)</li>
+          <li>Up to <strong>100,000 deduplicated rows / month</strong></li>
+          <li><strong>JSON, CSV, Parquet, Webhook POST, AWS S3 / GCS</strong>, or Snowflake-ready files</li>
+          <li><strong>99%</strong> 30-day scheduled run-success target</li>
+          <li>Same-day incident response &amp; parser maintenance</li>
+        </ul>
+        <div class="tier-actions">
+          <a class="btn btn-primary" data-track-checkout="pro" data-price="499" href="https://buy.stripe.com/dRmcN7ctSakhaWO2A89AA0m">Start Pro Feed — $499/mo</a>
+          <a class="btn btn-ghost btn-sm" data-track-pilot="pro" data-vertical="selected" href="mailto:benthepythondev0@gmail.com?subject=%5BFEED-PRO-499%5D%20Free%2010-Row%20Sample%20Request&amp;body=Tier%3A%20Pro%20(%24499%2Fmo)%0ASources%20(up%20to%203)%3A%0AFilters%20%2F%20Markets%3A%0ADelivery%20Destination%20(S3%2C%20Webhook%2C%20Snowflake%2C%20CSV)%3A">Request Free Sample First</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="tier-badge">Dedicated / SLA Feed</span>
+        <h3>High-Volume Warehouse &amp; SLA</h3>
+        <div class="price-line"><strong>$999</strong><span>/ month</span></div>
+        <p>For data teams needing hourly refreshes, multi-region coverage, and direct warehouse sync.</p>
+        <ul class="tier-list">
+          <li><strong>Up to 8 sources</strong> or multi-region custom coverage</li>
+          <li><strong>Hourly / near-real-time refresh</strong> with webhook alerts</li>
+          <li>Up to <strong>500,000 deduplicated rows / month</strong></li>
+          <li><strong>Direct Snowflake / BigQuery / S3 / REST API</strong> delivery</li>
+          <li><strong>99.5%</strong> 30-day run-success SLA + health summary</li>
+          <li>Priority Slack / email channel &amp; schema change notice</li>
+        </ul>
+        <div class="tier-actions">
+          <a class="btn btn-primary" data-track-checkout="dedicated" data-price="999" href="https://buy.stripe.com/aFacN7eC0gIF0ia4Ig9AA0n">Start Dedicated Feed — $999/mo</a>
+          <a class="btn btn-ghost btn-sm" data-track-pilot="dedicated" data-vertical="selected" href="mailto:benthepythondev0@gmail.com?subject=%5BFEED-DEDICATED-999%5D%20Dedicated%20SLA%20Feed%20Scoping&amp;body=Tier%3A%20Dedicated%20SLA%20(%24999%2Fmo)%0ASources%20%2F%20Regions%3A%0ARefresh%20Frequency%3A%0ADelivery%20Destination%20(Snowflake%2C%20BigQuery%2C%20S3%2C%20Webhook)%3A%0AExpected%20Monthly%20Rows%3A">Book Scoping / Sample</a>
+        </div>
+      </article>
+    </section>
+
+    <h2 id="sla">SLA Targets &amp; Commercial Boundaries</h2>
+    <table>
+      <thead>
+        <tr><th>Commitment</th><th>Starter ($199/mo)</th><th>Pro ($499/mo)</th><th>Dedicated ($999/mo)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>30-day scheduled run-success target</td><td>98.0%</td><td>99.0%</td><td>99.5%</td></tr>
+        <tr><td>Incident acknowledgement</td><td>1 business day</td><td>Same business day</td><td>Priority (&lt; 4 business hours)</td></tr>
+        <tr><td>Parser &amp; selector maintenance</td><td>Included</td><td>Included</td><td>Included + proactive monitor</td></tr>
+        <tr><td>Onboarding turnaround</td><td>24–48 hours</td><td>24–48 hours</td><td>24–72 hours (warehouse setup)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="panel">
+      <h3>Clear boundaries (no surprises)</h3>
+      <ul>
+        <li><strong>Public or customer-authorized data only.</strong> We do not bypass personal logins, solve personal-account CAPTCHAs, or run outbound spam campaigns.</li>
+        <li><strong>Transparent upstream handling.</strong> Run-success targets exclude documented upstream site outages, source shutdowns, and customer webhook/warehouse credential errors.</li>
+        <li><strong>Live validation first.</strong> If you request a custom filter or non-standard field, we validate it on a live sample before billing starts. If a source cannot return your required fields, we refund or decline before setup.</li>
+        <li><strong>Self-serve Apify &amp; RapidAPI stay open.</strong> Prefer pay-per-run? Every engine remains available self-serve on <a href="https://apify.com/benthepythondev" target="_blank" rel="noopener">Apify</a> and <a href="https://rapidapi.com/user/benthepythondev0" target="_blank" rel="noopener">RapidAPI</a>.</li>
+      </ul>
+    </div>
+
+    <footer>
+      <span>© benthepythondev · Questions? <a href="mailto:benthepythondev0@gmail.com?subject=Managed%20Data%20Feeds%20Question">benthepythondev0@gmail.com</a></span>
+      <span><a href="../">Actor Catalog</a> · <a href="../custom.html">Custom Pilots</a> · <a href="../reddit-rag-dump.html">Reddit Archive Dumps</a> · <a href="https://apify.com/benthepythondev" target="_blank" rel="noopener">Apify Store</a></span>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const TRACK_URL = 'https://income.146-59-68-85.nip.io/feeds/event';
+      const params = new URLSearchParams(window.location.search);
+      const utm = {
+        utm_source: (params.get('utm_source') || '').slice(0, 80),
+        utm_medium: (params.get('utm_medium') || '').slice(0, 80),
+        utm_campaign: (params.get('utm_campaign') || '').slice(0, 120),
+        utm_content: (params.get('utm_content') || '').slice(0, 120),
+      };
+      let activeVertical = (window.location.hash || '').replace(/^#/, '') || 'general';
+      const validVerticals = ['real-estate', 'social-reddit', 'ecommerce-reviews', 'jobs-b2b'];
+      if (!validVerticals.includes(activeVertical)) activeVertical = 'general';
+
+      if (params.get('checkout') === 'success') {
+        const b = document.getElementById('checkout-banner');
+        if (b) b.classList.add('show');
+      }
+
+      function sendEvent(eventName, extra) {
+        const payload = JSON.stringify(Object.assign({
+          event: eventName,
+          vertical: activeVertical,
+          path: window.location.pathname,
+          referrer: (document.referrer || '').slice(0, 200),
+        }, utm, extra || {}));
+        try {
+          if (navigator.sendBeacon) {
+            const blob = new Blob([payload], { type: 'text/plain' });
+            navigator.sendBeacon(TRACK_URL, blob);
+            return;
+          }
+        } catch (_) {}
+        try {
+          fetch(TRACK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain' },
+            body: payload,
+            keepalive: true,
+            mode: 'cors',
+          }).catch(function () {});
+        } catch (_) {}
+      }
+
+      // Build clean client_reference_id for Stripe Checkout attribution
+      function buildRef(tier) {
+        const raw = [utm.utm_source || 'direct', utm.utm_campaign || activeVertical || 'feeds', tier]
+          .join('__')
+          .replace(/[^a-zA-Z0-9_-]/g, '-')
+          .slice(0, 120);
+        return raw;
+      }
+
+      function syncCheckoutLinks() {
+        document.querySelectorAll('[data-track-checkout]').forEach(function (el) {
+          const base = el.getAttribute('data-base-href') || el.getAttribute('href');
+          el.setAttribute('data-base-href', base);
+          const tier = el.getAttribute('data-track-checkout') || 'starter';
+          const sep = base.indexOf('?') === -1 ? '?' : '&';
+          el.setAttribute('href', base + sep + 'client_reference_id=' + encodeURIComponent(buildRef(tier)));
+        });
+      }
+
+      // Schema tabs
+      function activateSchemaTab(tabName, track) {
+        document.querySelectorAll('.tab').forEach(function (btn) {
+          const on = btn.getAttribute('data-tab') === tabName;
+          btn.classList.toggle('active', on);
+          btn.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        document.querySelectorAll('.schema-panel').forEach(function (panel) {
+          panel.classList.toggle('active', panel.getAttribute('data-panel') === tabName);
+        });
+        if (track) sendEvent('schema_tab', { vertical: tabName });
+      }
+
+      document.querySelectorAll('.tab').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activateSchemaTab(btn.getAttribute('data-tab'), true);
+        });
+      });
+
+      // Vertical quick-select buttons
+      document.querySelectorAll('[data-select-vertical]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activeVertical = btn.getAttribute('data-select-vertical') || 'general';
+          syncCheckoutLinks();
+        });
+      });
+
+      // Track checkout clicks
+      document.querySelectorAll('[data-track-checkout]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          sendEvent('checkout_click', {
+            tier: el.getAttribute('data-track-checkout') || '',
+            vertical: activeVertical,
+          });
+        });
+      });
+
+      // Track pilot / sample clicks
+      document.querySelectorAll('[data-track-pilot]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          const v = el.getAttribute('data-vertical');
+          sendEvent('pilot_click', {
+            tier: el.getAttribute('data-track-pilot') || '',
+            vertical: (v && v !== 'selected') ? v : activeVertical,
+          });
+        });
+      });
+
+      if (validVerticals.includes(activeVertical)) {
+        activateSchemaTab(activeVertical, false);
+      }
+      syncCheckoutLinks();
+      sendEvent('pageview', {});
+    })();
+  </script>
+</body>
+</html>
