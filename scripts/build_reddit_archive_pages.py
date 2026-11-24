@@ -22,7 +22,7 @@ SAMPLE = ROOT / "data" / "reddit-archive-sample-2026-11-21.json"
 BASE = "https://benthepythondev00.github.io"
 HUB = "/data/reddit-archive-scraper/"
 ACTOR = "https://apify.com/benthepythondev/reddit-archive-scraper"
-INDEX = False  # flipped only when the pSEO batch is approved
+INDEX = True  # pSEO batch 1 approved and live (job_5827a2e92783404b)
 CHECKED = "2026-11-24"
 # Free-tier and discounted prices per event in USD, from the actor's pricingInfos (checked CHECKED).
 PRICES = {"FREE": 0.003, "BRONZE": 0.0027, "SILVER": 0.00255, "GOLD": 0.0024, "PLATINUM": 0.00225, "DIAMOND": 0.0021}
