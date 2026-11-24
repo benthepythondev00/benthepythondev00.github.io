@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reddit archive data sample: 22 fields per post, free JSON excerpt</title>
+  <meta name="description" content="A free sample of the Reddit Archive Scraper: 10 real post rows from a 2026-11-22 run, all 22 field names with example values, and the per-row price." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/data/reddit-archive-scraper/" />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/data/reddit-archive-scraper/" />
+  <meta property="og:title" content="Reddit archive data sample: 22 fields per post, free JSON excerpt" />
+  <meta property="og:description" content="A free sample of the Reddit Archive Scraper: 10 real post rows from a 2026-11-22 run, all 22 field names with example values, and the per-row price." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:760px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    h3 { font-size:1rem; margin:18px 0 6px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.85rem; }
+    code { font-size:.9em; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+    .scroll { overflow-x:auto; border:1px solid var(--line); border-radius:12px; }
+    table { border-collapse:collapse; width:100%; font-size:.86rem; }
+    table.wide { min-width:720px; }
+    td { overflow-wrap:anywhere; }
+    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-weight:600; background:var(--card); }
+    tr:last-child td { border-bottom:0; }
+    td.n { text-align:right; font-variant-numeric:tabular-nums; }
+    .faq dt { font-weight:600; margin-top:14px; }
+    .faq dd { margin:4px 0 0; color:var(--ink); line-height:1.6; }
+  </style>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "url": "https://benthepythondev00.github.io/data/reddit-archive-scraper/",
+    "name": "Reddit archive data sample: 22 fields per post, free JSON excerpt",
+    "description": "A free sample of the Reddit Archive Scraper: 10 real post rows from a 2026-11-22 run, all 22 field names with example values, and the per-row price.",
+    "variableMeasured": [
+      "type",
+      "id",
+      "title",
+      "selftext",
+      "author",
+      "subreddit",
+      "score",
+      "upvote_ratio",
+      "num_comments",
+      "created_utc",
+      "created_iso",
+      "permalink",
+      "url",
+      "domain",
+      "link_flair_text",
+      "is_self",
+      "is_video",
+      "over_18",
+      "locked",
+      "stickied",
+      "spoiler",
+      "total_awards_received"
+    ],
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://benthepythondev00.github.io/data/reddit-archive-sample-2026-11-21.json"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "benthepythondev",
+      "url": "https://apify.com/benthepythondev"
+    },
+    "isAccessibleForFree": true,
+    "dateModified": "2026-11-24"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What fields does the Reddit Archive Scraper return for a post?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "22 fields per post row: type, id, title, selftext, author, subreddit, score, upvote_ratio, num_comments, created_utc, created_iso, permalink, url, domain, link_flair_text, is_self, is_video, over_18, locked, stickied, spoiler, total_awards_received."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does the Reddit archive data cost per row?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "$0.003 per saved post or comment on the Apify Free plan, down to $0.0021 on Diamond, plus a $0.00005 start event and $0.005 per post whose archived comments are fetched (prices checked 2026-11-24)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast was the sample run?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Run bSNIHALzfz1FZAs8A returned 10 rows in 5.8 seconds and 9,146 bytes of JSON on 2026-11-22."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the scores live Reddit values?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. score, upvote_ratio and num_comments are what the public archive captured. In the sample, scores range from 0 to 4, because the posts were archived within hours of being published."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Catalog",
+        "item": "https://benthepythondev00.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Reddit Archive Scraper data",
+        "item": "https://benthepythondev00.github.io/data/reddit-archive-scraper/"
+      }
+    ]
+  }
+]
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="/">Catalog</a> · Reddit Archive Scraper data</p>
+    <h1>Reddit archive data: free sample, fields and price</h1>
+    <p class="note">Sample run bSNIHALzfz1FZAs8A · build 1.0.67 · 2026-11-22 · page checked 2026-11-24</p>
+    <p>The <a href="https://apify.com/benthepythondev/reddit-archive-scraper">Reddit Archive Scraper</a> on Apify returns historical Reddit posts and comments from public archives, filtered by subreddit, user or post ID and an exact UTC date range. This page shows what one real run returned, so you can check the shape of the data before you pay for a larger pull. The sample below is 10 post rows from a single cloud run with the input <code>{&quot;subreddits&quot;: [&quot;webscraping&quot;], &quot;sortOrder&quot;: &quot;newest&quot;, &quot;maxPosts&quot;: 10}</code>, which finished in 5.8 seconds and wrote 9,146 bytes of JSON.</p>
+    <p><a class="btn" href="https://apify.com/benthepythondev/reddit-archive-scraper">Run it on Apify</a><a class="btn btn-ghost" href="/data/reddit-archive-sample-2026-11-21.json">Download the sample JSON</a></p>
+
+    <h2>What a buyer gets</h2>
+    <p>Each post row carries 22 fields. The <code>type</code> field says <code>post</code> or <code>comment</code>, so posts and their archived comments can share one dataset and still be split later. Time comes twice: <code>created_utc</code> as a Unix timestamp and <code>created_iso</code> as an ISO 8601 string in UTC. Engagement comes as the archived <code>score</code>, <code>upvote_ratio</code> and <code>num_comments</code>, which are the values the archive captured, not the post's live numbers today. You can download the dataset as JSON, CSV, Excel or JSONL from Apify, or read it through the Apify API.</p>
+
+    <h2>One real row</h2>
+    <p>This is the post published at 18:18 UTC on 2026-11-21 in r/webscraping, exactly as the run saved it:</p>
+    <pre><code>{
+  &quot;type&quot;: &quot;post&quot;,
+  &quot;id&quot;: &quot;1y23nvx&quot;,
+  &quot;title&quot;: &quot;These People 😪&quot;,
+  &quot;selftext&quot;: &quot;[removed]&quot;,
+  &quot;author&quot;: &quot;_dataflirt_&quot;,
+  &quot;subreddit&quot;: &quot;webscraping&quot;,
+  &quot;score&quot;: 1,
+  &quot;upvote_ratio&quot;: 1,
+  &quot;num_comments&quot;: 0,
+  &quot;created_utc&quot;: 1795285128,
+  &quot;created_iso&quot;: &quot;2026-11-21T18:18:48+00:00&quot;,
+  &quot;permalink&quot;: &quot;https://www.reddit.com/r/webscraping/comments/1y23nvx/these_people/&quot;,
+  &quot;url&quot;: &quot;https://i.redd.it/e8g5j7qec03i1.png&quot;,
+  &quot;domain&quot;: &quot;i.redd.it&quot;,
+  &quot;link_flair_text&quot;: &quot;Scaling up 🚀&quot;,
+  &quot;is_self&quot;: false,
+  &quot;is_video&quot;: false,
+  &quot;over_18&quot;: false,
+  &quot;locked&quot;: false,
+  &quot;stickied&quot;: false,
+  &quot;spoiler&quot;: false,
+  &quot;total_awards_received&quot;: 0
+}</code></pre>
+
+    <h2>Field dictionary</h2>
+    <p>Every field of the row above, its JSON type and the value it held. Nulls are kept, so a missing flair shows up as <code>null</code> rather than a dropped column.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Field</th><th>Type</th><th>Value in this row</th></tr></thead>
+      <tbody>
+        <tr><td><code>type</code></td><td>str</td><td>&quot;post&quot;</td></tr>
+        <tr><td><code>id</code></td><td>str</td><td>&quot;1y23nvx&quot;</td></tr>
+        <tr><td><code>title</code></td><td>str</td><td>&quot;These People 😪&quot;</td></tr>
+        <tr><td><code>selftext</code></td><td>str</td><td>&quot;[removed]&quot;</td></tr>
+        <tr><td><code>author</code></td><td>str</td><td>&quot;_dataflirt_&quot;</td></tr>
+        <tr><td><code>subreddit</code></td><td>str</td><td>&quot;webscraping&quot;</td></tr>
+        <tr><td><code>score</code></td><td>int</td><td>1</td></tr>
+        <tr><td><code>upvote_ratio</code></td><td>int</td><td>1</td></tr>
+        <tr><td><code>num_comments</code></td><td>int</td><td>0</td></tr>
+        <tr><td><code>created_utc</code></td><td>int</td><td>1795285128</td></tr>
+        <tr><td><code>created_iso</code></td><td>str</td><td>&quot;2026-11-21T18:18:48+00:00&quot;</td></tr>
+        <tr><td><code>permalink</code></td><td>str</td><td>&quot;https://www.reddit.com/r/webscraping/comments/1y23nvx/these_people/&quot;</td></tr>
+        <tr><td><code>url</code></td><td>str</td><td>&quot;https://i.redd.it/e8g5j7qec03i1.png&quot;</td></tr>
+        <tr><td><code>domain</code></td><td>str</td><td>&quot;i.redd.it&quot;</td></tr>
+        <tr><td><code>link_flair_text</code></td><td>str</td><td>&quot;Scaling up 🚀&quot;</td></tr>
+        <tr><td><code>is_self</code></td><td>bool</td><td>false</td></tr>
+        <tr><td><code>is_video</code></td><td>bool</td><td>false</td></tr>
+        <tr><td><code>over_18</code></td><td>bool</td><td>false</td></tr>
+        <tr><td><code>locked</code></td><td>bool</td><td>false</td></tr>
+        <tr><td><code>stickied</code></td><td>bool</td><td>false</td></tr>
+        <tr><td><code>spoiler</code></td><td>bool</td><td>false</td></tr>
+        <tr><td><code>total_awards_received</code></td><td>int</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2>Sample pages by subreddit</h2>
+    <p>The sample run covered 1 subreddit between 05:57 and 23:02 UTC. Its page lists all 10 rows with their scores, comment counts and flairs:</p>
+    <ul>
+      <li><a href="/data/reddit-archive-scraper/webscraping/">r/webscraping</a>: 10 posts from 2026-11-21, with the full table and per-post numbers</li>
+    </ul>
+
+    <h2>Price per row</h2>
+    <p>The actor charges per event. These are the prices per saved post or comment on each Apify plan, checked on 2026-11-24. A run also has a start event of $0.00005 on the Free plan, and with <code>includeComments</code> on, each post that returns at least one comment adds a thread charge of $0.005.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Apify plan</th><th>Per row</th><th>Per 1,000 rows</th></tr></thead>
+      <tbody>
+        <tr><td>Free</td><td class="n">$0.003</td><td class="n">$3</td></tr>
+        <tr><td>Bronze</td><td class="n">$0.0027</td><td class="n">$2.7</td></tr>
+        <tr><td>Silver</td><td class="n">$0.00255</td><td class="n">$2.55</td></tr>
+        <tr><td>Gold</td><td class="n">$0.0024</td><td class="n">$2.4</td></tr>
+        <tr><td>Platinum</td><td class="n">$0.00225</td><td class="n">$2.25</td></tr>
+        <tr><td>Diamond</td><td class="n">$0.0021</td><td class="n">$2.1</td></tr>
+      </tbody>
+    </table></div>
+    <p>Worked out on the Free plan: 100 posts cost $0.30005, 1,000 posts cost $3.00005, and 50 posts with comments (each post with at least one comment, before the comment rows themselves) cost $0.40005. The sample run of 10 rows was charged for 10 results, 1 start and 0 comment threads.</p>
+
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/how-to-get-historical-reddit-posts-and-comments.html">How to get historical Reddit posts and comments by subreddit and date range</a></li>
+      <li><a href="/reddit-historical-data-by-date-range.html">Reddit history by date range: options and a curl example</a></li>
+      <li><a href="/reddit-rag-dump.html">Reddit RAG dump</a></li>
+      <li><a href="/">All actors in the catalog</a></li>
+    </ul>
+    <h2>Questions</h2>
+    <dl class="faq">
+      <dt>What fields does the Reddit Archive Scraper return for a post?</dt>
+      <dd>22 fields per post row: type, id, title, selftext, author, subreddit, score, upvote_ratio, num_comments, created_utc, created_iso, permalink, url, domain, link_flair_text, is_self, is_video, over_18, locked, stickied, spoiler, total_awards_received.</dd>
+      <dt>How much does the Reddit archive data cost per row?</dt>
+      <dd>$0.003 per saved post or comment on the Apify Free plan, down to $0.0021 on Diamond, plus a $0.00005 start event and $0.005 per post whose archived comments are fetched (prices checked 2026-11-24).</dd>
+      <dt>How fast was the sample run?</dt>
+      <dd>Run bSNIHALzfz1FZAs8A returned 10 rows in 5.8 seconds and 9,146 bytes of JSON on 2026-11-22.</dd>
+      <dt>Are the scores live Reddit values?</dt>
+      <dd>No. score, upvote_ratio and num_comments are what the public archive captured. In the sample, scores range from 0 to 4, because the posts were archived within hours of being published.</dd>
+    </dl>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
