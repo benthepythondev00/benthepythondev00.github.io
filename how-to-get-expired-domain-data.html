@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get expired and deleted domain data from ExpiredDomains.net</title>
+  <meta name="description" content="Export ExpiredDomains.net listings as clean rows with backlinks, domain-pop, Archive.org age, drop time and Whois status. Real fields, two real rows and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-expired-domain-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-expired-domain-data.html" />
+  <meta property="og:title" content="How to get expired and deleted domain data from ExpiredDomains.net" />
+  <meta property="og:description" content="Fields, two real deleted .com rows, filters and honest limits of the Expired Domains Scraper Actor." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get expired and deleted domain data from ExpiredDomains.net",
+    "datePublished": "2026-11-24",
+    "dateModified": "2026-11-24",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-expired-domain-data.html",
+    "description": "Export ExpiredDomains.net listings as clean rows with backlinks, domain-pop, Archive.org age, drop time and Whois status."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/expired-domains-scraper">Actor</a></p>
+    <h1>How to get expired and deleted domain data from ExpiredDomains.net</h1>
+    <p class="note">24 Nov 2026 · benthepythondev</p>
+
+    <p>ExpiredDomains.net lists domains that have recently expired or been deleted. People use it to find aged names for SEO projects, to watch for drops, and to collect names for domain portfolios. The site shows this data in tables, and copying those tables into a spreadsheet by hand is slow. The <a href="https://apify.com/benthepythondev/expired-domains-scraper">Expired Domains Scraper</a> reads a listing page and returns one clean row per domain, which you can filter, export or pass on to other tools.</p>
+
+    <h2>What you get</h2>
+    <p>Each row covers one domain from the listing you point the actor at:</p>
+    <ul>
+      <li><strong>domain</strong> and <strong>domain_tld</strong>: the name and its extension, for example <code>com</code>.</li>
+      <li><strong>backlinks</strong>: the Majestic backlink count shown in the listing.</li>
+      <li><strong>domain_pop</strong>: the domain-pop count shown in the listing.</li>
+      <li><strong>archive_birth_year</strong> and <strong>archive_crawl_results</strong>: the year the domain first appeared on Archive.org and how many crawls it has there.</li>
+      <li><strong>dmoz</strong>: the Dmoz field from the listing.</li>
+      <li><strong>registered_tlds</strong>: how many related TLDs of the same name are registered.</li>
+      <li><strong>related_domains</strong>: the related domain count.</li>
+      <li><strong>dropped</strong>: the drop text the listing shows, such as "Yesterday 14:12".</li>
+      <li><strong>whois_status</strong>: the Whois text from the listing, such as "Register now" or "registered".</li>
+      <li><strong>tld_status</strong>: whether the same name is available or registered in .com, .net, .org and .de.</li>
+      <li><strong>source_url</strong> and <strong>domain_search_url</strong>: the listing page the row came from and the ExpiredDomains.net page for that domain.</li>
+      <li><strong>source</strong>: always <code>expireddomains.net</code>.</li>
+    </ul>
+    <p>When the listing leaves a metric empty, the field comes back as <code>null</code>.</p>
+
+    <h2>Real example output</h2>
+    <p>These rows come from a real run on the deleted .com listing (trimmed to two rows):</p>
+    <pre><code>[
+  {
+    "domain": "solicitorbinchy.com",
+    "domain_tld": "com",
+    "backlinks": 0,
+    "domain_pop": 3,
+    "archive_birth_year": null,
+    "archive_crawl_results": null,
+    "registered_tlds": 1,
+    "related_domains": 0,
+    "dropped": "Yesterday 14:12",
+    "whois_status": "registered",
+    "tld_status": {
+      ".com": ".com registered",
+      ".net": ".net available",
+      ".org": ".org available",
+      ".de": ".de available"
+    },
+    "source_url": "https://www.expireddomains.net/deleted-com-domains/",
+    "domain_search_url": "https://www.expireddomains.net/domain/solicitorbinchy.com/"
+  },
+  {
+    "domain": "m-sekabet1408.com",
+    "domain_tld": "com",
+    "backlinks": 1,
+    "domain_pop": 4,
+    "archive_birth_year": null,
+    "registered_tlds": 0,
+    "dropped": "Yesterday 14:12",
+    "whois_status": "Register now",
+    "tld_status": {
+      ".com": ".com available",
+      ".net": ".net available",
+      ".org": ".org available",
+      ".de": ".de available"
+    }
+  }
+]</code></pre>
+    <p>Note the first row: it sits on a deleted domains list, yet its Whois text says "registered" and <code>.com</code> shows as registered. The field shows what the listing says, so it is worth reading before you count a name as free.</p>
+
+    <h2>Use cases</h2>
+    <p>From the README:</p>
+    <ul>
+      <li><strong>SEO domain research</strong>: find aged domains with backlinks and archive history.</li>
+      <li><strong>Domain investing</strong>: watch deleted or expired names and export candidates.</li>
+      <li><strong>Lead generation</strong>: spot domains that may need rebuild, brokerage, hosting or SEO services.</li>
+      <li><strong>Competitive research</strong>: collect filtered domain lists and rank them in your own workflow.</li>
+    </ul>
+
+    <h2>How to run it on Apify</h2>
+    <ol>
+      <li>Open the <a href="https://apify.com/benthepythondev/expired-domains-scraper">Expired Domains Scraper on Apify</a>.</li>
+      <li>Paste one or more ExpiredDomains.net listing URLs into <code>urls</code>, for example <code>https://www.expireddomains.net/deleted-com-domains/</code>.</li>
+      <li>Set <code>maxResults</code>, the most domains you want per listing URL.</li>
+      <li>Add filters if you want them. All are optional:
+        <ul>
+          <li><code>tlds</code>: keep only certain extensions, such as <code>com</code> or <code>io</code>.</li>
+          <li><code>minBacklinks</code>: a minimum backlink count.</li>
+          <li><code>minArchiveAgeYears</code>: keep names first seen on Archive.org at least this many years ago.</li>
+          <li><code>maxLength</code>: the longest name you want, not counting the TLD.</li>
+          <li><code>excludeHyphens</code> and <code>excludeNumbers</code>: drop names with hyphens or digits.</li>
+          <li><code>maxPages</code>: how many listing pages of 25 domains to read per URL.</li>
+        </ul>
+      </li>
+      <li>Start the run and export the results as JSON, CSV or Excel.</li>
+    </ol>
+    <p>The input the Console starts with looks like this:</p>
+    <pre><code>{
+  "urls": ["https://www.expireddomains.net/deleted-com-domains/"],
+  "maxResults": 20,
+  "tlds": ["com"],
+  "maxLength": 15
+}</code></pre>
+    <p>For SEO buying, the README suggests adding <code>"minBacklinks": 10, "minArchiveAgeYears": 5, "excludeHyphens": true, "excludeNumbers": true</code>.</p>
+    <p>Filters run inside the actor before a row is saved, so only matching domains end up in your dataset. You can also run it on a schedule, call it through the Apify API, or connect it to Make, Zapier or n8n.</p>
+    <p>This actor is not listed on RapidAPI. Use the Apify API if you want to call it from your own code.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>It only sees the public listing.</strong> The actor reads the server-rendered table over plain HTTP with no login. Fields the listing leaves empty come back as <code>null</code>. In the real rows above, the Archive.org fields and <code>dmoz</code> were <code>null</code> for every domain.</li>
+      <li><strong>Status fields are listing text, not a live check.</strong> <code>dropped</code> and <code>whois_status</code> are the strings the page shows, such as "Yesterday 14:12". Check availability with a registrar before you plan around a name.</li>
+      <li><strong>Strict filters can return fewer rows.</strong> Without filters the actor reads one page per URL by default. With filters it reads up to 20 pages of 25 domains, and it stops there even if it has fewer matches than <code>maxResults</code>.</li>
+      <li><strong>Failed pages are skipped.</strong> If a listing page fails, it is logged and skipped. Rows already saved stay saved, but that run may be missing that page's domains.</li>
+      <li><strong>Metrics are a starting point.</strong> Backlink and domain-pop counts are the listing's numbers. A domain with many backlinks still needs a manual look at its history and link quality before you buy it.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
