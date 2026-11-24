@@ -26,7 +26,7 @@ SNAP_PATH = ROOT / "data" / "yield-snapshots" / "latest.json"
 OUT_DIR = ROOT / "yield"
 BASE = "https://benthepythondev00.github.io"
 HUB_PATH = "/yield/"
-INDEX = False  # flipped only when the pSEO batch is approved
+INDEX = True  # approved as benthepythondev00.github.io pSEO batch 2 (55/55 passed pseo.audit)
 
 
 def esc(s: object) -> str:

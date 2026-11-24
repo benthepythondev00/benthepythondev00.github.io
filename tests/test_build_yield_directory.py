@@ -28,7 +28,7 @@ class TestYieldDirectory(unittest.TestCase):
             self.assertTrue(csv_path.is_file(), f"missing {csv_path}")
 
             html_text = html_path.read_text()
-            self.assertIn('content="noindex,follow"', html_text)
+            self.assertIn('content="index,follow"', html_text)
             self.assertIn('"@type": "Dataset"', html_text)
             self.assertIn('"@type": "FAQPage"', html_text)
             self.assertNotIn('"@type": "Product"', html_text)
@@ -41,9 +41,10 @@ class TestYieldDirectory(unittest.TestCase):
                 self.assertNotIn("agent", r)
                 self.assertTrue(float(r["price"]) > 0)
 
-    def test_sitemap_excludes_noindex_yield_pages(self):
+    def test_sitemap_includes_approved_yield_pages(self):
         sm = (ROOT / "sitemap.xml").read_text()
-        self.assertNotIn("/yield/", sm)
+        self.assertIn("https://benthepythondev00.github.io/yield/", sm)
+        self.assertIn("https://benthepythondev00.github.io/yield/es/madrid-salamanca/", sm)
 
 
 if __name__ == "__main__":
