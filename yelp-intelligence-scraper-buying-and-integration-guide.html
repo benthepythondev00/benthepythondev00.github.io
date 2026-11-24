@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yelp Intelligence Scraper: buying and integration guide</title>
+  <meta name="description" content="Export public Yelp business data and nested review text by search query and location or direct URLs. Real fields, sample San Francisco output, pricing, FAQ and honest limits." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/yelp-intelligence-scraper-buying-and-integration-guide.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/yelp-intelligence-scraper-buying-and-integration-guide.html" />
+  <meta property="og:title" content="Yelp Intelligence Scraper: buying and integration guide" />
+  <meta property="og:description" content="Export public Yelp business data and nested review text with optional sentiment and lead score. Fields, real San Francisco output, pricing and honest limits." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    h3 { font-size:1rem; margin:18px 0 6px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Yelp Intelligence Scraper: buying and integration guide",
+    "datePublished": "2026-11-24",
+    "dateModified": "2026-11-24",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/yelp-intelligence-scraper-buying-and-integration-guide.html",
+    "description": "Export public Yelp business data and nested review text by search query and location or direct URLs, with optional rule-based sentiment and lead score."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/yelp-intelligence-scraper">Actor</a> · <a href="./how-to-get-google-maps-business-data.html">Google Maps business data</a></p>
+    <h1>Yelp Intelligence Scraper: buying and integration guide</h1>
+    <p class="note">24 Nov 2026 · benthepythondev</p>
+
+    <p><strong>Short answer:</strong> The Yelp Intelligence Scraper exports public Yelp business data and review text. You can search by query and location (for example <code>pizza</code> in <code>San Francisco, CA</code>) or give it specific <code>yelp.com/biz/</code> URLs. Each dataset row is one business, and that business's reviews are nested inside the row. It fits small business researchers, agencies comparing local competitors, and teams that track customer feedback. You don't need a Yelp account or an API key.</p>
+
+    <h2>What you get</h2>
+    <p>For each business:</p>
+    <ul>
+      <li><code>business_id</code>, <code>business_name</code>, <code>url</code></li>
+      <li><code>rating</code> (Yelp star rating) and <code>review_count</code> (Yelp's total review count for the business)</li>
+      <li><code>category</code>, <code>address</code>, <code>phone</code>, <code>price_range</code></li>
+      <li><code>website</code> and <code>hours</code> (often empty, see limits below)</li>
+      <li><code>reviews_count</code> (how many reviews this run actually extracted), <code>detail_enriched</code>, <code>scraped_at</code></li>
+      <li>an optional <code>lead_score</code>, calculated from rating, review count and the sentiment of the sampled reviews</li>
+    </ul>
+    <p>For each review inside a business row:</p>
+    <ul>
+      <li><code>review_id</code>, <code>rating</code>, full <code>text</code>, <code>date</code>, <code>reviewer_name</code>, <code>reviewer_location</code></li>
+      <li>an optional <code>sentiment</code> label (positive, neutral and so on) from transparent rules</li>
+    </ul>
+    <p>If Yelp doesn't show a value, the field stays null.</p>
+
+    <h2>Real example output</h2>
+    <p>This excerpt is trimmed from a real search run for pizza in San Francisco:</p>
+    <pre><code>{
+  "business_id": "SUdC4LIL3huirbbBkHrhfw",
+  "business_name": "The Laundromat",
+  "url": "https://www.yelp.com/biz/the-laundromat-san-francisco",
+  "rating": 4.5,
+  "review_count": 696,
+  "category": "Pizza, Bagels, Beer Bar",
+  "address": "3725 Balboa St, San Francisco, CA 94121",
+  "phone": "(415) 379-4340",
+  "website": null,
+  "hours": null,
+  "price_range": "$$",
+  "reviews": [
+    {
+      "review_id": "7Fnz5CeFqnd1WmY6-3ojDw",
+      "rating": 4,
+      "text": "My spouse and I have had The Laundromat on our list for a while...",
+      "date": "2026-11-14T20:20:03-08:00",
+      "reviewer_name": "Joyce D.",
+      "reviewer_location": "San Francisco, CA",
+      "sentiment": "positive"
+    }
+  ],
+  "reviews_count": 3,
+  "detail_enriched": false,
+  "scraped_at": "2026-11-19T16:04:35.797418+00:00",
+  "lead_score": 76
+}</code></pre>
+
+    <h2>Commercial use cases</h2>
+    <ol>
+      <li><strong>Local competitor comparison.</strong> Pull the ratings, review counts, categories and price ranges for every business that shows up for one query in one area, then compare them side by side.</li>
+      <li><strong>Customer feedback tracking.</strong> Collect full review text with dates and star ratings for your own business or a competitor's. Scheduled runs let you watch the feedback change over time.</li>
+      <li><strong>Business research lists.</strong> Build a list of local businesses with names, addresses and phone numbers, then sort it by <code>lead_score</code> or rating.</li>
+      <li><strong>Review text analysis.</strong> Export the nested reviews as JSON and feed them into your own tagging or reporting.</li>
+    </ol>
+
+    <h2>When to use this vs manual export or your own scraper</h2>
+    <p>Yelp has no built-in export for this data, so the manual option is copying it out by hand. That works for a business or two. Once you need many queries, many locations or repeat runs, it stops being practical.</p>
+    <p>Writing your own scraper means solving the access problem yourself. The README says Yelp refuses later search pages and business detail pages to visitors. This Actor runs through Apify Unblocker by default, and if a source is blocked the run fails visibly instead of returning an empty "successful" report. You also get deduplication of business and review IDs within a run, rule-based sentiment and lead scores, and per-business pricing.</p>
+    <p>If you need website and hours for every business, or more than about 10 businesses from a single search, read the limits below first.</p>
+
+    <h2>How to run it</h2>
+    <p><strong>On Apify:</strong> open <a href="https://apify.com/benthepythondev/yelp-intelligence-scraper">the Yelp Intelligence Scraper</a> and enter a small test input:</p>
+    <pre><code>{
+  "mode": "search",
+  "searchQuery": "coffee",
+  "location": "San Francisco, CA",
+  "maxBusinesses": 3,
+  "maxReviewsPerBusiness": 3,
+  "includeSentiment": true,
+  "includeLeadScore": true
+}</code></pre>
+    <p>To look up specific businesses, set <code>mode</code> to <code>direct_urls</code> and list the URLs in <code>businessUrls</code>. You can also call the Actor through the Apify API from your own code.</p>
+    <p><strong>On RapidAPI:</strong> there's no RapidAPI listing for this Actor at the moment.</p>
+    <p><strong>Pricing (from the README):</strong> $0.004 per business on the Free plan, which works out to $4 per 1,000 businesses, plus a small Actor Start fee. Up to 25 reviews per business, plus sentiment and lead score, are included in that price. Paid Apify plans get a lower rate per business. You can set a maximum total charge in Run options.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/yelp-intelligence-scraper">Open the actor</a>
+    </p>
+
+    <h2>FAQ</h2>
+    <h3>I'm new to Apify. Where do I find the results?</h3>
+    <p>When the run finishes, open the dataset. The <strong>Overview</strong> view shows one row per business. The <strong>Reviews</strong> view shows one row per review. Export JSON if you want the complete review text. Export CSV or Excel if you want a flat business table for a spreadsheet.</p>
+
+    <h3>Why did I get fewer businesses than I set in <code>maxBusinesses</code>?</h3>
+    <p>Yelp only shows visitors the first page of a search, which has up to 10 organic businesses (ads are excluded). The README's test searches returned between 3 and 10 per search. To get more, run more queries (for example <code>dentist</code> and <code>orthodontist</code>) or more locations (neighbourhoods, postal codes). Rating filters can also lower the count, because they don't trigger a search for replacements.</p>
+
+    <h3>What is the difference between <code>review_count</code> and <code>reviews_count</code>?</h3>
+    <p><code>review_count</code> is Yelp's total for the business. <code>reviews_count</code> is how many reviews this run extracted.</p>
+
+    <h3>Are reviews newest first?</h3>
+    <p>No. They come in Yelp's recommended order.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li>Each search query and location returns at most about 10 businesses.</li>
+      <li>In search mode, <code>website</code> and <code>hours</code> are usually null (<code>detail_enriched: false</code>), because Yelp refuses business pages to visitors. In the sample run, one business also had an empty <code>phone</code>.</li>
+      <li>Sentiment comes from rules, not a deep language model. In the sample, a 5 star review that says the pizza was "SO worth the wait" is labelled <code>neutral</code>. Treat the label as a rough signal.</li>
+      <li>You can request up to 100 reviews per business, but only up to 25 are covered by the per-business price.</li>
+      <li>Counts can change while Yelp updates its pages. Scheduled runs can return the same business again on purpose.</li>
+    </ul>
+
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
