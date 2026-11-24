@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get NHTSA vehicle recall data by make, model, year or VIN</title>
+  <meta name="description" content="Query NHTSA safety recalls and consumer complaints by make, model, year, VIN or campaign number and export flat records as JSON, CSV or Excel." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/how-to-get-nhtsa-vehicle-recall-data.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/how-to-get-nhtsa-vehicle-recall-data.html" />
+  <meta property="og:title" content="How to get NHTSA vehicle recall data by make, model, year or VIN" />
+  <meta property="og:description" content="Fields, real 2023 Ford F-150 recall output, inputs, use cases and honest limits of the Vehicle Recalls Intelligence Actor." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to get NHTSA vehicle recall data by make, model, year or VIN",
+    "datePublished": "2026-11-24",
+    "dateModified": "2026-11-24",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/how-to-get-nhtsa-vehicle-recall-data.html",
+    "description": "Query NHTSA safety recalls and consumer complaints by make, model, year, VIN or campaign number and export flat records as JSON, CSV or Excel."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/vehicle-recalls-intelligence">Actor</a></p>
+    <h1>How to get NHTSA vehicle recall data by make, model, year or VIN</h1>
+    <p class="note">24 Nov 2026 · benthepythondev</p>
+
+    <p>The US National Highway Traffic Safety Administration (NHTSA) publishes safety recalls and consumer complaints through free public APIs. The <a href="https://apify.com/benthepythondev/vehicle-recalls-intelligence">Vehicle Recalls Intelligence</a> actor on Apify queries those APIs and returns each recall as one flat record. You can export the records as JSON, CSV or Excel.</p>
+    <p>This page shows which fields you get, what a real result looks like, and how to run it.</p>
+
+    <h2>What you get</h2>
+    <p>The actor has five modes: <code>recalls</code>, <code>complaints</code>, <code>by_vin</code>, <code>by_campaign</code> and <code>list_makes</code>.</p>
+    <p>In <strong>recalls</strong> mode (and in the VIN and campaign lookups), each record contains:</p>
+    <ul>
+      <li><strong>campaign_number</strong>: NHTSA's recall campaign ID, for example <code>23V070000</code></li>
+      <li><strong>nhtsa_action_number</strong>: a related NHTSA action number, when one exists</li>
+      <li><strong>manufacturer</strong>, <strong>make</strong>, <strong>model</strong>, <strong>model_year</strong>: the vehicle the recall covers</li>
+      <li><strong>report_received_date</strong>: the date NHTSA received the recall report</li>
+      <li><strong>component</strong>: the affected system, such as <code>AIR BAGS:FRONTAL</code></li>
+      <li><strong>summary</strong>: what the defect is</li>
+      <li><strong>consequence</strong>: what can happen because of the defect</li>
+      <li><strong>remedy</strong>: what the dealer will do, plus owner letter dates and the manufacturer's own recall number</li>
+      <li><strong>notes</strong>: extra contact information, usually the NHTSA hotline</li>
+      <li><strong>park_it</strong>: true when NHTSA advises owners not to drive the vehicle until it is repaired</li>
+      <li><strong>park_outside</strong>: true when owners should park away from structures because of fire risk</li>
+      <li><strong>over_the_air_update</strong>: true when the fix is a software update sent to the vehicle</li>
+      <li><strong>scraped_at</strong>: when the record was fetched</li>
+    </ul>
+    <p><strong>Complaints</strong> mode returns different fields: <code>odinumber</code>, <code>crash</code>, <code>fire</code>, <code>injuries</code>, <code>deaths</code>, <code>fail_date</code>, <code>date_of_incident</code>, <code>date_complaint_filed</code>, <code>vin</code>, <code>component</code> and <code>summary</code>. <strong>List makes</strong> mode returns <code>make_id</code> and <code>make_name</code> for every make NHTSA tracks.</p>
+
+    <h2>Real example output</h2>
+    <p>These records come from a real run in <code>recalls</code> mode for the 2023 Ford F-150. The long text fields are shortened here.</p>
+    <pre><code>[
+  {
+    "campaign_number": "23V070000",
+    "manufacturer": "Ford Motor Company",
+    "make": "FORD",
+    "model": "F-150",
+    "model_year": "2023",
+    "report_received_date": "10/02/2023",
+    "component": "POWER TRAIN:AUTOMATIC TRANSMISSION",
+    "summary": "Ford Motor Company (Ford) is recalling certain 2022-2023 F-150, Mustang, Explorer, Bronco, and 2023 Lincoln Aviator vehicles equipped with automatic transmissions. The transmission may contain a loose bolt...",
+    "consequence": "The inability to secure the vehicle in the park position can result in a rollaway, increasing the risk of a crash or injury.",
+    "remedy": "Dealers will inspect and, if necessary, replace the transmissions, free of charge. ... Ford's number for this recall is 23S06.",
+    "park_it": false,
+    "park_outside": false,
+    "over_the_air_update": false,
+    "nhtsa_action_number": null,
+    "scraped_at": "2026-11-19T08:03:07.523589+00:00"
+  },
+  {
+    "campaign_number": "23V072000",
+    "make": "FORD",
+    "model": "F-150",
+    "model_year": "2023",
+    "component": "AIR BAGS:FRONTAL",
+    "consequence": "An air bag that does not deploy as intended increases the risk of injury in a crash.",
+    "remedy": "Dealers will replace the passenger instrument panel top cover, free of charge. ...",
+    "park_it": false,
+    "park_outside": false
+  }
+]</code></pre>
+    <p>The same run also returned campaign <code>23V128000</code>, a front axle pinion recall (<code>POWER TRAIN:AXLE ASSEMBLY</code>) that covers the F-150, Expedition and Lincoln Navigator.</p>
+
+    <h2>Use cases</h2>
+    <p>These come from the actor's README:</p>
+    <ul>
+      <li><strong>Dealers and used-car sellers</strong>: check inventory for open recalls by VIN before listing or selling a car, and find the urgent "park it" cases that stop a sale.</li>
+      <li><strong>Fleet and risk managers</strong>: watch for recalls across all the makes, models and years in a fleet, then send affected vehicles to the dealer for the remedy.</li>
+      <li><strong>Car shoppers</strong>: read the recall history, defect summaries and warnings for a vehicle before buying it.</li>
+      <li><strong>Researchers and legal tech</strong>: study defect trends, complaints, injuries and deaths across manufacturers, components and model years.</li>
+    </ul>
+
+    <h2>How to run it on Apify</h2>
+    <ol>
+      <li>Open the <a href="https://apify.com/benthepythondev/vehicle-recalls-intelligence">actor page on Apify</a> and click Try it.</li>
+      <li>Pick a mode and fill in the fields that go with it:
+        <ul>
+          <li><code>recalls</code> or <code>complaints</code>: <code>makes</code>, matching <code>models</code>, and optionally <code>modelYear</code></li>
+          <li><code>by_vin</code>: <code>vins</code>, a list of 17-character VINs</li>
+          <li><code>by_campaign</code>: <code>campaignNumbers</code>, such as <code>["23V704000"]</code></li>
+          <li><code>list_makes</code>: no extra fields</li>
+        </ul>
+      </li>
+      <li>Set <code>maxResults</code> (1 to 5000, default 100) to limit the size of the run.</li>
+      <li>Run it, then view the dataset as a table or download it.</li>
+    </ol>
+    <p>This input produced the example above:</p>
+    <pre><code>{
+  "mode": "recalls",
+  "makes": ["Ford"],
+  "models": ["F-150"],
+  "modelYear": 2023,
+  "maxResults": 100
+}</code></pre>
+    <p>You can also run it on a schedule, call it through the Apify API, or connect it to Make, Zapier or n8n. This actor is not listed on RapidAPI, so Apify is the only place to run it.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/vehicle-recalls-intelligence">Open the actor</a>
+    </p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>US data only.</strong> Everything comes from NHTSA, so recalls issued by other countries' regulators are not included.</li>
+      <li><strong>Text fields are copied as they are.</strong> Summaries, consequences and remedies come straight from NHTSA, typos included (one example above says "increasng").</li>
+      <li><strong>The date format needs care.</strong> In the example, <code>report_received_date</code> is a day/month/year string (<code>10/02/2023</code>), not an ISO date. Parse it explicitly before you sort or compare dates.</li>
+      <li><strong>Model year is a string.</strong> <code>model_year</code> comes back as <code>"2023"</code>, not a number.</li>
+      <li><strong>Some fields are often empty.</strong> <code>nhtsa_action_number</code> was <code>null</code> in all three example records.</li>
+      <li><strong>One recall can cover several vehicles.</strong> A record lists the model you searched for, but the summary may name other models covered by the same campaign. If you search several models, expect the same campaign number to show up more than once.</li>
+      <li><strong>Mode decides the fields.</strong> Recalls, complaints and make lists have different columns, so keep them in separate datasets.</li>
+      <li><strong>This is a lookup, not a repair status check.</strong> You get what NHTSA has published about a recall, not whether a particular dealer has fixed a particular car.</li>
+    </ul>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
