@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agency Creator Stats Data Feed ($29/mo CSV &amp; Google Sheets)</title>
+<meta name="description" content="Pull YouTube, TikTok, Twitch, and public Instagram creator growth stats into CSV or Google Sheets for $29/month flat. 500 lookups/month, no sales call, permanent exports.">
+<link rel="canonical" href="https://benthepythondev00.github.io/creator-stats-feed/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can an agency pull YouTube and TikTok creator growth into Google Sheets without $200+/mo software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Agency Creator Stats Data Feed gives social media and influencer agencies a $29/month flat subscription (500 creator lookups per month) that works directly with Google Sheets IMPORTDATA and one-click CSV export. Paste creator handles or profile URLs and get subscribers, total views, 7-day and 30-day deltas, upload cadence, and sudden spike dates with no code and no annual contract."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this compare to Modash, HypeAuditor, and Social Blade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modash starts at $199/month billed yearly ($2,388/year) and HypeAuditor is sales-gated around $299+/month with reports locking after cancellation. Social Blade lacks native bulk Google Sheets sync on lower tiers, and RapidAPI requires developer setup. This feed is $29/month flat for 500 lookups, has no split profile-view vs export credit buckets, does not count failed lookups against quota, and lets you keep every exported CSV and Sheet permanently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it detect fake followers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It does not claim a fake-follower score. Instead, it flags days where a creator's follower or subscriber change exceeded 3x their median daily change in the spike_summary column so your team can review the date manually before signing a sponsorship."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my exported data if I cancel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You keep every CSV file and Google Sheet you exported forever. When you cancel, your feed token stays active through the end of your paid billing cycle rather than cutting off mid-cycle."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  :root { color-scheme: light; }
+  body { font: 17px/1.6 system-ui, -apple-system, sans-serif; max-width: 48rem; margin: 0 auto; padding: 2rem 1rem 3rem; color: #16181d; background: #ffffff; overflow-wrap: anywhere; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .75rem; }
+  h2 { font-size: 1.25rem; margin: 2.2rem 0 .5rem; }
+  p { margin: .5rem 0 1rem; }
+  a { color: #0b57d0; }
+  .lead { font-size: 1.06rem; color: #262b33; background: #f6f8fa; border-left: 3px solid #111827; padding: .9rem 1.1rem; border-radius: 0 8px 8px 0; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.25rem 0 1.75rem; }
+  .btn { display: inline-block; padding: .7rem 1.15rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .96rem; }
+  .btn-primary { background: #111827; color: #ffffff; }
+  .btn-secondary { background: #f1f5f9; color: #111827; border: 1px solid #cbd5e1; }
+  table { width: 100%; border-collapse: collapse; margin: .75rem 0 1.25rem; font-size: .92rem; }
+  th, td { border: 1px solid #d8dee4; padding: .55rem .65rem; text-align: left; vertical-align: top; }
+  th { background: #f6f8fa; font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+  code { background: #f1f5f9; padding: .15rem .35rem; border-radius: 4px; font-size: .9rem; }
+  footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid #e2e8f0; font-size: .9rem; color: #4b5563; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Agency Creator Stats Data Feed ($29/mo CSV &amp; Google Sheets)</h1>
+  <p class="lead">The Agency Creator Stats Data Feed is a $29/month flat data subscription for boutique social media and influencer agencies vetting creators in Google Sheets. Paste YouTube, TikTok, Twitch, or Instagram handles to pull 7- and 30-day growth deltas, average views, upload cadence, and sudden spike dates into CSV or <code>IMPORTDATA</code>.</p>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" href="./sample-creator-stats.csv" download>Download 10-row sample CSV</a>
+    <a class="btn btn-secondary" href="#comparison">Compare vs Modash &amp; HypeAuditor</a>
+  </div>
+
+  <p><strong>Included in $29/month flat:</strong> 500 creator lookups per month with no split profile-view vs export credit buckets, failed lookups (<code>not_tracked</code>, <code>blocked</code>, <code>bad_link</code>) never count against your quota, and you keep every exported CSV and Google Sheet permanently even if you cancel. Billed via Contra Merchant of Record (guest checkout with card, Apple Pay, or Google Pay; access stays active through the end of your paid billing cycle if canceled).</p>
+
+  <h2>Platform field coverage</h2>
+  <p>Public stats only. Fields a platform does not expose to logged-out visitors are left blank or labeled clearly instead of invented.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Snapshot metrics</th>
+          <th>Daily growth &amp; spike flags</th>
+          <th>Explicit limitation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>YouTube</td>
+          <td>Subscribers, total views, uploads, avg views, upload cadence</td>
+          <td>Yes (7d &amp; 30d deltas + &gt;3x median spike dates)</td>
+          <td>Public channels only</td>
+        </tr>
+        <tr>
+          <td>TikTok</td>
+          <td>Followers, views, uploads, upload cadence</td>
+          <td>Yes (7d &amp; 30d deltas + &gt;3x median spike dates)</td>
+          <td>Public profiles only</td>
+        </tr>
+        <tr>
+          <td>Twitch</td>
+          <td>Followers, total views</td>
+          <td>Yes (followers history)</td>
+          <td>View history varies by channel</td>
+        </tr>
+        <tr>
+          <td>Instagram</td>
+          <td>Public follower and post snapshot</td>
+          <td>No (<code>history_unavailable_on_instagram</code>)</td>
+          <td>Daily history is not available without login</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Sample CSV output (10 anonymized rows)</h2>
+  <p>Every handle returns a row with an explicit <code>status</code> and <code>reason</code> so one missing or mistyped channel never empties your whole batch. <a href="./sample-creator-stats.csv" download>Download sample-creator-stats.csv</a>.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>handle</th>
+          <th>platform</th>
+          <th>status</th>
+          <th>subscribers</th>
+          <th>delta_30d</th>
+          <th>spike_summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>sample_tech_yt</td><td>youtube</td><td>ok</td><td>1,425,000</td><td>34,200</td><td>none</td></tr>
+        <tr><td>sample_fitness_yt</td><td>youtube</td><td>ok</td><td>312,000</td><td>19,800</td><td>review_spikes: 2026-11-19 (+3400)</td></tr>
+        <tr><td>sample_home_tt</td><td>tiktok</td><td>ok</td><td>184,000</td><td>22,400</td><td>review_spikes: 2026-11-21 (+4100)</td></tr>
+        <tr><td>sample_fps_tw</td><td>twitch</td><td>ok</td><td>415,000</td><td>8,900</td><td>none</td></tr>
+        <tr><td>sample_style_ig</td><td>instagram</td><td>ok</td><td>245,000</td><td>—</td><td>history_unavailable_on_instagram</td></tr>
+        <tr><td>unlisted_creator_01</td><td>youtube</td><td>not_tracked</td><td>—</td><td>—</td><td>(not billed against quota)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="comparison">Comparison with Modash, HypeAuditor, Social Blade, and RapidAPI</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Starting price</th>
+          <th>Google Sheets / CSV workflow</th>
+          <th>Credit &amp; cancel terms</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Agency Creator Stats Data Feed</strong></td>
+          <td>$29/mo flat (monthly)</td>
+          <td>One-click CSV + live <code>=IMPORTDATA()</code> URL</td>
+          <td>500 ok lookups/mo; failed lookups free; keep exports forever; grace period through cycle end</td>
+        </tr>
+        <tr>
+          <td>Modash</td>
+          <td>$199/mo billed yearly ($2,388/yr)</td>
+          <td>Web app discovery + CSV export</td>
+          <td>Split profile-view / export credits; monthly credits expire</td>
+        </tr>
+        <tr>
+          <td>HypeAuditor</td>
+          <td>Sales-gated (~$299+/mo annual)</td>
+          <td>Web dashboard reports</td>
+          <td>Annual contract; reports lock on cancellation</td>
+        </tr>
+        <tr>
+          <td>Social Blade</td>
+          <td>$50–$120/mo (Business API credits extra)</td>
+          <td>Manual web lookup or developer API</td>
+          <td>No native bulk Google Sheets sync on lower tiers</td>
+        </tr>
+        <tr>
+          <td>RapidAPI creator APIs</td>
+          <td>Varies + developer setup</td>
+          <td>Code / API key required</td>
+          <td>Mid-cycle quota revocation on cancel</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+
+  <h3>How can an agency pull YouTube and TikTok creator growth into Google Sheets without $200+/mo software?</h3>
+  <p>Subscribe to the $29/month Agency Creator Stats Data Feed on Contra, enter your purchase email on the claim page to get your feed key, and paste the ready <code>=IMPORTDATA(...)</code> formula into Google Sheets. You get up to 500 successful creator lookups per month with no developer setup and no annual contract.</p>
+
+  <h3>How does this compare to Modash, HypeAuditor, and Social Blade?</h3>
+  <p>Modash ($199–$499/mo billed yearly) and HypeAuditor (~$299+/mo sales-gated) are full discovery suites built for larger teams. If your team already finds creators manually and just wants clean 7- and 30-day growth numbers in Google Sheets for vetting, this feed covers that workflow at $29/mo flat without split credit buckets or locked reports.</p>
+
+  <h3>Does it detect fake followers?</h3>
+  <p>No. Rather than claiming an opaque authenticity score, the feed flags dates where a creator's daily follower or subscriber change exceeded 3x their median daily change in <code>spike_summary</code> so your strategist can inspect that date directly.</p>
+
+  <h3>What happens to my exported data if I cancel?</h3>
+  <p>Every CSV file and Google Sheet you pull stays yours permanently. If you cancel mid-month, your feed key continues working through the end of your paid billing period.</p>
+</main>
+<footer>
+  Independent data feed built by benthepythondev. Not affiliated with or endorsed by YouTube, TikTok, Twitch, Instagram, Social Blade, or Contra.
+  <a href="https://benthepythondev00.github.io/">All tools &amp; scrapers</a> ·
+  <a href="https://benthepythondev00.github.io/socialblade-mcp.html">SocialBlade MCP FAQ</a>
+</footer>
+</body>
+</html>
