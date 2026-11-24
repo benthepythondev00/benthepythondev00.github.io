@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zillow Detail Scraper: property details by URL, ZPID or address</title>
+  <meta name="description" content="Get Zillow property details by URL, ZPID or US street address: price, Zestimate, rent Zestimate, price and tax history, listing agent phone, schools, home facts and climate risk." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/zillow-detail-scraper-property-details-api-guide.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/zillow-detail-scraper-property-details-api-guide.html" />
+  <meta property="og:title" content="Zillow Detail Scraper: property details by URL, ZPID or address" />
+  <meta property="og:description" content="Get one structured row per Zillow home with price, Zestimate, price and tax history, agent phone, schools, climate risk and investor metrics on Apify or RapidAPI." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); overflow-wrap:anywhere; }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    h3 { font-size:1rem; margin:18px 0 6px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Zillow Detail Scraper: property details by URL, ZPID or address",
+    "datePublished": "2026-11-24",
+    "dateModified": "2026-11-24",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/zillow-detail-scraper-property-details-api-guide.html",
+    "description": "Zillow Detail Scraper takes Zillow home links, ZPIDs or plain US street addresses and returns price, Zestimate, rent Zestimate, price and tax history, listing agent phone, schools, home facts, climate risk and photos."
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/zillow-detail-scraper">Actor</a> · <a href="https://rapidapi.com/benthepythondev0/api/zillow-detail-scraper1">RapidAPI</a> · <a href="./how-to-get-redfin-rental-listing-data.html">Redfin rental guide</a></p>
+    <h1>Zillow Detail Scraper: property details by URL, ZPID or address</h1>
+    <p class="note">24 Nov 2026 · benthepythondev</p>
+
+    <p><strong>Short answer:</strong> Zillow Detail Scraper takes a list of Zillow home links, ZPIDs or plain US street addresses and returns one row per home. Each row has the price, Zestimate, rent Zestimate, price and tax history, listing agent with phone, schools, home facts, climate risk and photo links. It is for real estate investors, agents, analysts and developers who already know which homes they care about and need the full detail record for each one. You do not need a login, cookies or a Zillow account.</p>
+
+    <ul>
+      <li>Run it on Apify: <a href="https://apify.com/benthepythondev/zillow-detail-scraper">https://apify.com/benthepythondev/zillow-detail-scraper</a></li>
+      <li>Call it as an API on RapidAPI: <a href="https://rapidapi.com/benthepythondev0/api/zillow-detail-scraper1">https://rapidapi.com/benthepythondev0/api/zillow-detail-scraper1</a></li>
+    </ul>
+
+    <h2>What you get</h2>
+    <p>Each row covers:</p>
+    <ul>
+      <li><strong>Identity:</strong> ZPID, Zillow URL, status (FOR_SALE, PENDING, RECENTLY_SOLD, FOR_RENT, OTHER), home type, listing tags.</li>
+      <li><strong>Location:</strong> full address and its parts, neighborhood, subdivision, county, county FIPS code, parcel ID, latitude and longitude.</li>
+      <li><strong>Value:</strong> price, Zestimate, rent Zestimate, price per sqft, last sold price and date, monthly HOA fee, tax assessed value, annual tax.</li>
+      <li><strong>Size:</strong> bedrooms, bathrooms (total, as a top level field), living area, lot size (both in sqft), year built, stories.</li>
+      <li><strong>Listing agent:</strong> agent name, phone, email and license, co-agent, broker name and phone, MLS ID and MLS name. Sold homes also have the buyer agent and buyer broker.</li>
+      <li><strong>History:</strong> every price event (date, event, price, price per sqft, change, source) and the tax history by year.</li>
+      <li><strong>Schools, facts and risk:</strong> nearby schools with ratings, Zillow's "Facts &amp; features" block, and flood, fire, wind, heat and air scores from 1 to 10 plus the FEMA flood zone.</li>
+      <li><strong>Demand:</strong> days on Zillow, page views, favorites.</li>
+      <li><strong>Investor metrics:</strong> gross rental yield, price to rent ratio, a stale listing flag (90 days or more), number of price cuts, cut percent and last cut date.</li>
+      <li><strong>Media:</strong> photos, virtual tour, floor plan, description, highlights, open houses, nearby homes.</li>
+      <li><strong>Optional, no extra charge:</strong> up to 10 Zestimate comparables, ten years of monthly Zestimate history, and Walk, Transit and Bike Scores.</li>
+    </ul>
+    <p>The <code>input</code> field repeats exactly what you entered, so you can join results back to your own list.</p>
+
+    <h2>Real example output</h2>
+    <p>Trimmed from a real run:</p>
+    <pre><code>{
+  "input": "https://www.zillow.com/homedetails/5718-Highland-Hills-Dr-Austin-TX-78731/29345631_zpid/",
+  "zpid": "29345631",
+  "homeStatus": "FOR_SALE",
+  "homeType": "SINGLE_FAMILY",
+  "address": "5718 Highland Hills Dr, Austin, TX 78731",
+  "neighborhood": "Northwest Hills",
+  "county": "Travis County",
+  "parcelId": "128020",
+  "price": 1000099,
+  "pricePerSqft": 421,
+  "lastSoldDate": "2013-04-13",
+  "taxAssessedValue": 939974,
+  "taxAnnualAmount": 22189,
+  "bedrooms": 4,
+  "bathrooms": 3,
+  "livingArea": 2376,
+  "lotSize": 9931,
+  "yearBuilt": 1958,
+  "daysOnZillow": 52,
+  "pageViews": 1301,
+  "favorites": 129,
+  "agentName": "Atoosa Ponsford",
+  "agentPhone": "(512) 480-0848",
+  "brokerName": "Moreland Properties",
+  "priceHistory": [
+    {"date": "2026-11-20", "event": "Price change", "price": 1000099, "pricePerSqft": 421},
+    {"date": "2026-09-30", "event": "Listed for sale", "price": 1185000, "pricePerSqft": 499}
+  ]
+}</code></pre>
+    <p>In this real row the price history goes back past 2020 and includes rental listings as well as sales, so a single home's record also shows its time as a rental.</p>
+
+    <h2>Commercial use cases</h2>
+    <ol>
+      <li><strong>Screening rentals and flips.</strong> Gross rental yield, price to rent ratio, price cuts and the stale listing flag are already computed, so you can sort a list of homes by return or by motivated seller signs without building your own spreadsheet formulas.</li>
+      <li><strong>Agent and broker contact lists.</strong> Each listing comes with agent name, phone, email and license, broker and MLS details, which you can use to build outreach lists for a set of properties.</li>
+      <li><strong>Enriching an address list.</strong> If you have addresses from a CRM, a county list or a lead form, paste them in as they are and get value, tax, size and risk data back, matched through <code>input</code>.</li>
+      <li><strong>Valuation and tax checks.</strong> Tax history, assessed value, Zestimate history and comparables help with appraisal review, tax appeal research or portfolio tracking.</li>
+    </ol>
+
+    <h2>When to use this vs manual work or your own scraper</h2>
+    <ul>
+      <li><strong>Manual copy from Zillow</strong> works for a few homes. Price history, tax history, schools and climate risk are spread across one page, and copying them by hand for many homes is slow and prone to mistakes.</li>
+      <li><strong>Writing your own scraper</strong> means handling Zillow's page data, address matching and changes on Zillow's side yourself. This Actor uses one request per home with no browser. In the developer's tests, 100 homes took 18 seconds and 400 homes took one minute.</li>
+      <li><strong>Use this tool</strong> when you have specific homes (links, ZPIDs or addresses) and want structured JSON, CSV or Excel. You can run it on a schedule or connect it to Make, Zapier or n8n.</li>
+    </ul>
+
+    <h2>How to run it</h2>
+    <p><strong>On Apify:</strong> open <a href="https://apify.com/benthepythondev/zillow-detail-scraper">https://apify.com/benthepythondev/zillow-detail-scraper</a> and put your homes in the <code>homes</code> list, one per line, mixing links, ZPIDs and addresses as you like. You can also set <code>maxComparables</code> (0 to 10), <code>includeZestimateHistory</code> and <code>includeLocationScores</code>. Set <strong>Maximum cost per run</strong> if you want a hard spending cap.</p>
+    <p><strong>As an API on RapidAPI:</strong> subscribe at <a href="https://rapidapi.com/benthepythondev0/api/zillow-detail-scraper1">https://rapidapi.com/benthepythondev0/api/zillow-detail-scraper1</a> and call it from your own code with your RapidAPI key.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/zillow-detail-scraper">Open the actor</a>
+      <a class="btn btn-ghost" href="https://rapidapi.com/benthepythondev0/api/zillow-detail-scraper1">Call it on RapidAPI</a>
+    </p>
+
+    <h2>FAQ</h2>
+    <h3>Is there a Zillow API I can call for property details?</h3>
+    <p>Yes. This tool is available as an API on RapidAPI (link above), and through Apify's own API. Give it a link, ZPID or address and you get JSON back.</p>
+
+    <h3>What makes a good Zillow scraper API?</h3>
+    <p>Check whether it accepts addresses as well as URLs, fills in tax history and total bathrooms, and lets you confirm it matched the right home. This one returns <code>input</code> next to the <code>address</code>, <code>zpid</code> and <code>url</code> Zillow matched, so you can check every row.</p>
+
+    <h3>What does it cost on Apify?</h3>
+    <p>$5.00 per 1,000 homes on the Free plan, going down to $4.25 on Business and above. Comparables, Zestimate history and Walk Score are included at no extra cost.</p>
+
+    <h3>What if Zillow does not know an address?</h3>
+    <p>That address is skipped and you are not charged for it.</p>
+
+    <h3>Does it work for homes that are not for sale?</h3>
+    <p>Yes. It covers homes that are for sale, for rent, recently sold or off the market.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li>It does not search. You must name each home; it does not crawl a city or a search results page.</li>
+      <li>You only get what Zillow publishes. Fields such as agent email, HOA fee or Zestimate can be empty for some homes.</li>
+      <li>An address can match a different home than you meant. Compare <code>input</code> with <code>address</code> before you trust a row.</li>
+      <li>Comparables are capped at 10 per home.</li>
+      <li>RapidAPI plan prices are set on the RapidAPI page and are not covered here.</li>
+    </ul>
+
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
