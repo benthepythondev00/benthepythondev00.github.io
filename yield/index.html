@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EU &amp; US Rental Yield &amp; Price-Cut Benchmark Directory (54 Markets, 2026)</title>
+  <meta name="description" content="Data-backed rental yield, asking price/m², and price-cut benchmarks across 54 Spain, Italy, Portugal, and US markets (10,698 live listings, 2026-11-24). Free 25-row CSV per city." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/yield/" />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="author" content="Listingrail Data Benchmarks" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/yield/" />
+  <meta property="og:title" content="EU &amp; US Rental Yield &amp; Price-Cut Benchmark Directory (54 Markets, 2026)" />
+  <meta property="og:description" content="Data-backed rental yield, asking price/m², and price-cut benchmarks across 54 Spain, Italy, Portugal, and US markets (10,698 live listings, 2026-11-24). Free 25-row CSV per city." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=JetBrains+Mono:wght@400;600&family=Schibsted+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/yield/style.css" />
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Listingrail EU & US Rental Yield & Price-Cut Benchmark Directory (2026-11-24)",
+    "description": "Data-backed rental yield, asking price/m², and price-cut benchmarks across 54 Spain, Italy, Portugal, and US markets (10,698 live listings, 2026-11-24). Free 25-row CSV per city.",
+    "url": "https://benthepythondev00.github.io/yield/",
+    "dateModified": "2026-11-24",
+    "isAccessibleForFree": true,
+    "creator": {
+      "@type": "Organization",
+      "name": "Listingrail",
+      "url": "https://listingrail.com"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://benthepythondev00.github.io/yield/summary.csv"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How are the EU and US rental yield benchmarks calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every city and district page computes area-normalized gross yield as (median monthly rent per m² × 12) / (median asking sale price per m²) from live Listingrail portal snapshots captured on 2026-11-24 (5,346 sale and 5,352 rental listings across 54 markets). US square-foot areas are converted to square meters using 0.092903 m²/sq ft so EU and US markets compare cleanly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which tracked city has the highest gross rental yield as of 2026-11-24?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In the 2026-11-24 snapshot, Chicago, IL (United States) leads the directory at 15.22% area-normalized gross yield ($3,154/m² sale vs $40.0/m² monthly rent), while Chamartín, Madrid posts the lowest gross yield at 3.63%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need an account to download the 25-row city CSV samples?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Every market page in this directory includes a direct, no-login 25-row sanitized CSV sample (13 sale and 12 rent listings) plus an interactive net-yield calculator pre-loaded with local closing costs. Full city datasets ($49) and live API feeds are available through Listingrail."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do some markets show 'Baseline' for 30-day price cuts or '—' for days on market?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We never fabricate missing fields. Idealista exposes active discount percentages directly and Imovirtual/Redfin expose listing dates or days-on-market; portals that omit those fields start with a documented baseline snapshot and populate 30-day price cuts automatically as weekly snapshots accumulate."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Catalog",
+        "item": "https://benthepythondev00.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Rental Yield Directory",
+        "item": "https://benthepythondev00.github.io/yield/"
+      }
+    ]
+  }
+]
+  </script>
+</head>
+<body>
+  <header class="fascia">
+    <div class="fascia-inner">
+      <nav class="topnav" aria-label="Site navigation">
+        <a class="brand" href="/yield/">Listingrail Yield Ledger</a>
+        <div class="topnav-links">
+          <a href="#directory">Market Table</a>
+          <a href="#countries">By Country</a>
+          <a href="https://listingrail.com/pricing/?utm_source=yield_directory&amp;utm_medium=nav&amp;utm_content=hub">Pro CSV &amp; API</a>
+          <a href="/">Data Catalog</a>
+        </div>
+      </nav>
+      <div class="crumbs"><a href="/">Catalog</a> / Rental Yield Directory</div>
+      <div class="hero-row">
+        <div class="hero-copy">
+          <h1>EU &amp; US Rental Yield &amp; Price-Cut Benchmarks</h1>
+          <p class="hero-meta">54 verified cities &amp; districts across Spain, Italy, Portugal, and the US · 10,698 live listings captured 2026-11-24</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn-primary" href="/yield/summary.csv" download="listingrail-yield-summary-2026-11-24.csv">Download summary CSV</a>
+          <a class="btn-ghost" href="https://listingrail.com/#key?utm_source=yield_directory&amp;utm_medium=hero&amp;utm_content=hub">Get free API key</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <p class="summary-lead">
+        This open benchmark ledger tracks asking sale prices per square meter, asking monthly rents, area-normalized gross rental yields,
+        and active price cuts across <strong>54</strong> European and US markets using live Listingrail portal snapshots
+        (Idealista, Immobiliare.it, Imovirtual, and Redfin). Across 5,346 sale and 5,352 rental listings captured on
+        2026-11-24, the cross-market median gross yield stands at <strong>4.93%</strong>, ranging from
+        <strong>3.63%</strong> in Chamartín, Madrid up to <strong>15.22%</strong>
+        in Chicago, IL. Open any market below for quartiles, bedroom yields, an interactive net-yield calculator, and a free 25-row CSV sample.
+      </p>
+
+      <div class="ledger-grid" role="region" aria-label="Directory summary metrics">
+        <div class="ledger-cell">
+          <span class="ledger-label">Verified markets</span>
+          <span class="ledger-val">54</span>
+          <span class="ledger-sub">ES 18 · IT 12 · PT 10 · US 14</span>
+        </div>
+        <div class="ledger-cell">
+          <span class="ledger-label">Listings analyzed</span>
+          <span class="ledger-val">10,698</span>
+          <span class="ledger-sub">5,346 sale · 5,352 rent</span>
+        </div>
+        <div class="ledger-cell">
+          <span class="ledger-label">Highest gross yield</span>
+          <span class="ledger-val positive">15.22%</span>
+          <span class="ledger-sub">Chicago, IL (US)</span>
+        </div>
+        <div class="ledger-cell">
+          <span class="ledger-label">Cross-market median</span>
+          <span class="ledger-val">4.93%</span>
+          <span class="ledger-sub">Snapshot 2026-11-24</span>
+        </div>
+      </div>
+
+      <h2 id="countries">Country Medians (2026-11-24)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Country</th>
+              <th class="num">Markets</th>
+              <th class="num">Median gross yield</th>
+              <th class="num">Median sale / m²</th>
+              <th class="num">Median rent</th>
+              <th>Top-yielding market</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="country-es"><td><strong>Spain</strong></td><td class="num">18</td><td class="num">4.28%</td><td class="num">€7,214/m²</td><td class="num">€2,500/mo</td><td><a href="/yield/es/barcelona-gracia/">Gràcia, Barcelona (6.72%)</a></td></tr><tr id="country-it"><td><strong>Italy</strong></td><td class="num">12</td><td class="num">5.52%</td><td class="num">€3,756/m²</td><td class="num">€1,212/mo</td><td><a href="/yield/it/rome/">Rome (7.33%)</a></td></tr><tr id="country-pt"><td><strong>Portugal</strong></td><td class="num">10</td><td class="num">4.14%</td><td class="num">€4,680/m²</td><td class="num">€1,200/mo</td><td><a href="/yield/pt/setubal/">Setúbal (4.71%)</a></td></tr><tr id="country-us"><td><strong>United States</strong></td><td class="num">14</td><td class="num">9.41%</td><td class="num">$2,968/m²</td><td class="num">$1,313/mo</td><td><a href="/yield/us/chicago-il/">Chicago, IL (15.22%)</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="directory">All 54 City &amp; District Benchmarks</h2>
+      <div class="filter-bar" role="region" aria-label="Filter markets">
+        <button class="filter-btn active" type="button" data-filter="all">All (54)</button>
+        <button class="filter-btn" type="button" data-filter="es">Spain (18)</button>
+        <button class="filter-btn" type="button" data-filter="it">Italy (12)</button>
+        <button class="filter-btn" type="button" data-filter="pt">Portugal (10)</button>
+        <button class="filter-btn" type="button" data-filter="us">US (14)</button>
+        <input class="search-input" id="market-search" type="search" placeholder="Filter city or region..." aria-label="Filter city or region" />
+      </div>
+      <div class="table-wrap">
+        <table id="hub-table">
+          <thead>
+            <tr>
+              <th>Market</th>
+              <th>Country</th>
+              <th class="num sortable" data-col="2">Gross yield ↕</th>
+              <th class="num sortable" data-col="3">Sale / m² ↕</th>
+              <th class="num sortable" data-col="4">Median rent ↕</th>
+              <th class="num sortable" data-col="5">P/R ratio ↕</th>
+              <th class="num">Price cuts</th>
+              <th class="num">Sale DOM</th>
+              <th class="num sortable" data-col="8">Listings ↕</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-cc="us" data-name="chicago, il illinois"><td><a href="/yield/us/chicago-il/"><strong>Chicago, IL</strong></a></td><td>United States</td><td class="num" data-v="15.22"><strong>15.22%</strong></td><td class="num" data-v="3153.93">$3,154/m²</td><td class="num" data-v="1795.0">$1,795/mo</td><td class="num" data-v="20.4">20.4x</td><td class="num">Baseline</td><td class="num">32d</td><td class="num" data-v="197">197</td></tr><tr data-cc="us" data-name="houston, tx texas"><td><a href="/yield/us/houston-tx/"><strong>Houston, TX</strong></a></td><td>United States</td><td class="num" data-v="13.62"><strong>13.62%</strong></td><td class="num" data-v="1755.02">$1,755/m²</td><td class="num" data-v="1211.0">$1,211/mo</td><td class="num" data-v="24.8">24.8x</td><td class="num">Baseline</td><td class="num">30d</td><td class="num" data-v="199">199</td></tr><tr data-cc="us" data-name="charlotte, nc north carolina"><td><a href="/yield/us/charlotte-nc/"><strong>Charlotte, NC</strong></a></td><td>United States</td><td class="num" data-v="11.79"><strong>11.79%</strong></td><td class="num" data-v="2425.53">$2,426/m²</td><td class="num" data-v="1341.5">$1,342/mo</td><td class="num" data-v="26.4">26.4x</td><td class="num">Baseline</td><td class="num">2d</td><td class="num" data-v="200">200</td></tr><tr data-cc="us" data-name="dallas, tx texas"><td><a href="/yield/us/dallas-tx/"><strong>Dallas, TX</strong></a></td><td>United States</td><td class="num" data-v="11.64"><strong>11.64%</strong></td><td class="num" data-v="2366.13">$2,366/m²</td><td class="num" data-v="1227.5">$1,228/mo</td><td class="num" data-v="24.1">24.1x</td><td class="num">Baseline</td><td class="num">2d</td><td class="num" data-v="200">200</td></tr><tr data-cc="us" data-name="orlando, fl florida"><td><a href="/yield/us/orlando-fl/"><strong>Orlando, FL</strong></a></td><td>United States</td><td class="num" data-v="11.26"><strong>11.26%</strong></td><td class="num" data-v="2561.73">$2,562/m²</td><td class="num" data-v="1519.5">$1,520/mo</td><td class="num" data-v="20.4">20.4x</td><td class="num">Baseline</td><td class="num">4d</td><td class="num" data-v="198">198</td></tr><tr data-cc="us" data-name="atlanta, ga georgia"><td><a href="/yield/us/atlanta-ga/"><strong>Atlanta, GA</strong></a></td><td>United States</td><td class="num" data-v="9.96"><strong>9.96%</strong></td><td class="num" data-v="2665.84">$2,666/m²</td><td class="num" data-v="1405.5">$1,406/mo</td><td class="num" data-v="20.7">20.7x</td><td class="num">Baseline</td><td class="num">3d</td><td class="num" data-v="200">200</td></tr><tr data-cc="us" data-name="denver, co colorado"><td><a href="/yield/us/denver-co/"><strong>Denver, CO</strong></a></td><td>United States</td><td class="num" data-v="9.6"><strong>9.60%</strong></td><td class="num" data-v="3305.56">$3,306/m²</td><td class="num" data-v="1277.0">$1,277/mo</td><td class="num" data-v="31.9">31.9x</td><td class="num">Baseline</td><td class="num">4d</td><td class="num" data-v="200">200</td></tr><tr data-cc="us" data-name="raleigh, nc north carolina"><td><a href="/yield/us/raleigh-nc/"><strong>Raleigh, NC</strong></a></td><td>United States</td><td class="num" data-v="9.22"><strong>9.22%</strong></td><td class="num" data-v="2422.47">$2,422/m²</td><td class="num" data-v="1250.0">$1,250/mo</td><td class="num" data-v="29.2">29.2x</td><td class="num">Baseline</td><td class="num">4d</td><td class="num" data-v="200">200</td></tr><tr data-cc="us" data-name="tampa, fl florida"><td><a href="/yield/us/tampa-fl/"><strong>Tampa, FL</strong></a></td><td>United States</td><td class="num" data-v="8.9"><strong>8.90%</strong></td><td class="num" data-v="2942.59">$2,943/m²</td><td class="num" data-v="1495.0">$1,495/mo</td><td class="num" data-v="21.6">21.6x</td><td class="num">Baseline</td><td class="num">3d</td><td class="num" data-v="200">200</td></tr><tr data-cc="us" data-name="phoenix, az arizona"><td><a href="/yield/us/phoenix-az/"><strong>Phoenix, AZ</strong></a></td><td>United States</td><td class="num" data-v="8.58"><strong>8.58%</strong></td><td class="num" data-v="2993.33">$2,993/m²</td><td class="num" data-v="1245.5">$1,246/mo</td><td class="num" data-v="31.5">31.5x</td><td class="num">Baseline</td><td class="num">1d</td><td class="num" data-v="199">199</td></tr><tr data-cc="us" data-name="nashville, tn tennessee"><td><a href="/yield/us/nashville-tn/"><strong>Nashville, TN</strong></a></td><td>United States</td><td class="num" data-v="8.05"><strong>8.05%</strong></td><td class="num" data-v="3201.36">$3,201/m²</td><td class="num" data-v="1284.5">$1,284/mo</td><td class="num" data-v="32.8">32.8x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="it" data-name="rome lazio"><td><a href="/yield/it/rome/"><strong>Rome</strong></a></td><td>Italy</td><td class="num" data-v="7.33"><strong>7.33%</strong></td><td class="num" data-v="4182.64">€4,183/m²</td><td class="num" data-v="2600.0">€2,600/mo</td><td class="num" data-v="15.4">15.4x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="197">197</td></tr><tr data-cc="us" data-name="austin, tx texas"><td><a href="/yield/us/austin-tx/"><strong>Austin, TX</strong></a></td><td>United States</td><td class="num" data-v="7.29"><strong>7.29%</strong></td><td class="num" data-v="3145.4">$3,145/m²</td><td class="num" data-v="1045.0">$1,045/mo</td><td class="num" data-v="39.8">39.8x</td><td class="num">Baseline</td><td class="num">37d</td><td class="num" data-v="196">196</td></tr><tr data-cc="us" data-name="miami, fl florida"><td><a href="/yield/us/miami-fl/"><strong>Miami, FL</strong></a></td><td>United States</td><td class="num" data-v="7.26"><strong>7.26%</strong></td><td class="num" data-v="6089.94">$6,090/m²</td><td class="num" data-v="2225.0">$2,225/mo</td><td class="num" data-v="24.3">24.3x</td><td class="num">Baseline</td><td class="num">1d</td><td class="num" data-v="199">199</td></tr><tr data-cc="us" data-name="san diego, ca california"><td><a href="/yield/us/san-diego-ca/"><strong>San Diego, CA</strong></a></td><td>United States</td><td class="num" data-v="6.95"><strong>6.95%</strong></td><td class="num" data-v="7341.78">$7,342/m²</td><td class="num" data-v="2350.0">$2,350/mo</td><td class="num" data-v="30.1">30.1x</td><td class="num">Baseline</td><td class="num">3d</td><td class="num" data-v="200">200</td></tr><tr data-cc="it" data-name="padua veneto"><td><a href="/yield/it/padua/"><strong>Padua</strong></a></td><td>Italy</td><td class="num" data-v="6.9"><strong>6.90%</strong></td><td class="num" data-v="2692.31">€2,692/m²</td><td class="num" data-v="1250.0">€1,250/mo</td><td class="num" data-v="26.3">26.3x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="190">190</td></tr><tr data-cc="it" data-name="turin piedmont"><td><a href="/yield/it/turin/"><strong>Turin</strong></a></td><td>Italy</td><td class="num" data-v="6.87"><strong>6.87%</strong></td><td class="num" data-v="2401.11">€2,401/m²</td><td class="num" data-v="1050.0">€1,050/mo</td><td class="num" data-v="18.9">18.9x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="gràcia, barcelona barcelona"><td><a href="/yield/es/barcelona-gracia/"><strong>Gràcia, Barcelona</strong></a></td><td>Spain</td><td class="num" data-v="6.72"><strong>6.72%</strong></td><td class="num" data-v="6307.78">€6,308/m²</td><td class="num" data-v="2757.5">€2,758/mo</td><td class="num" data-v="19.1">19.1x</td><td class="num">24 (-3.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="zaragoza aragon"><td><a href="/yield/es/zaragoza/"><strong>Zaragoza</strong></a></td><td>Spain</td><td class="num" data-v="5.98"><strong>5.98%</strong></td><td class="num" data-v="2653.83">€2,654/m²</td><td class="num" data-v="1200.0">€1,200/mo</td><td class="num" data-v="19.5">19.5x</td><td class="num">18 (-4.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="it" data-name="palermo sicily"><td><a href="/yield/it/palermo/"><strong>Palermo</strong></a></td><td>Italy</td><td class="num" data-v="5.94"><strong>5.94%</strong></td><td class="num" data-v="2020.55">€2,021/m²</td><td class="num" data-v="850.0">€850/mo</td><td class="num" data-v="27.3">27.3x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="198">198</td></tr><tr data-cc="it" data-name="venice veneto"><td><a href="/yield/it/venice/"><strong>Venice</strong></a></td><td>Italy</td><td class="num" data-v="5.88"><strong>5.88%</strong></td><td class="num" data-v="4083.33">€4,083/m²</td><td class="num" data-v="1950.0">€1,950/mo</td><td class="num" data-v="22.2">22.2x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="189">189</td></tr><tr data-cc="it" data-name="naples campania"><td><a href="/yield/it/naples/"><strong>Naples</strong></a></td><td>Italy</td><td class="num" data-v="5.59"><strong>5.59%</strong></td><td class="num" data-v="3818.18">€3,818/m²</td><td class="num" data-v="1300.0">€1,300/mo</td><td class="num" data-v="31.4">31.4x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="196">196</td></tr><tr data-cc="it" data-name="genoa liguria"><td><a href="/yield/it/genoa/"><strong>Genoa</strong></a></td><td>Italy</td><td class="num" data-v="5.45"><strong>5.45%</strong></td><td class="num" data-v="2780.65">€2,781/m²</td><td class="num" data-v="1050.0">€1,050/mo</td><td class="num" data-v="22.2">22.2x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="197">197</td></tr><tr data-cc="it" data-name="bari apulia"><td><a href="/yield/it/bari/"><strong>Bari</strong></a></td><td>Italy</td><td class="num" data-v="5.27"><strong>5.27%</strong></td><td class="num" data-v="2748.21">€2,748/m²</td><td class="num" data-v="1000.0">€1,000/mo</td><td class="num" data-v="25.8">25.8x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="195">195</td></tr><tr data-cc="es" data-name="barcelona catalonia"><td><a href="/yield/es/barcelona/"><strong>Barcelona</strong></a></td><td>Spain</td><td class="num" data-v="5.08"><strong>5.08%</strong></td><td class="num" data-v="7480.77">€7,481/m²</td><td class="num" data-v="2560.0">€2,560/mo</td><td class="num" data-v="38.9">38.9x</td><td class="num">29 (-4.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="eixample, barcelona barcelona"><td><a href="/yield/es/barcelona-eixample/"><strong>Eixample, Barcelona</strong></a></td><td>Spain</td><td class="num" data-v="5.06"><strong>5.06%</strong></td><td class="num" data-v="7915.91">€7,916/m²</td><td class="num" data-v="3127.5">€3,128/mo</td><td class="num" data-v="31.7">31.7x</td><td class="num">24 (-5.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="it" data-name="florence tuscany"><td><a href="/yield/it/florence/"><strong>Florence</strong></a></td><td>Italy</td><td class="num" data-v="5.01"><strong>5.01%</strong></td><td class="num" data-v="4860.6">€4,861/m²</td><td class="num" data-v="1550.0">€1,550/mo</td><td class="num" data-v="24.6">24.6x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="bilbao basque country"><td><a href="/yield/es/bilbao/"><strong>Bilbao</strong></a></td><td>Spain</td><td class="num" data-v="4.85"><strong>4.85%</strong></td><td class="num" data-v="4715.44">€4,715/m²</td><td class="num" data-v="1325.5">€1,326/mo</td><td class="num" data-v="31.2">31.2x</td><td class="num">20 (-3.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="valencia valencian community"><td><a href="/yield/es/valencia/"><strong>Valencia</strong></a></td><td>Spain</td><td class="num" data-v="4.78"><strong>4.78%</strong></td><td class="num" data-v="4773.42">€4,773/m²</td><td class="num" data-v="1700.0">€1,700/mo</td><td class="num" data-v="32.7">32.7x</td><td class="num">25 (-5.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="it" data-name="bologna emilia-romagna"><td><a href="/yield/it/bologna/"><strong>Bologna</strong></a></td><td>Italy</td><td class="num" data-v="4.71"><strong>4.71%</strong></td><td class="num" data-v="4077.52">€4,078/m²</td><td class="num" data-v="1100.0">€1,100/mo</td><td class="num" data-v="31.8">31.8x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="199">199</td></tr><tr data-cc="pt" data-name="setúbal setúbal district"><td><a href="/yield/pt/setubal/"><strong>Setúbal</strong></a></td><td>Portugal</td><td class="num" data-v="4.71"><strong>4.71%</strong></td><td class="num" data-v="3913.64">€3,914/m²</td><td class="num" data-v="1150.0">€1,150/mo</td><td class="num" data-v="26.3">26.3x</td><td class="num">Baseline</td><td class="num">20d</td><td class="num" data-v="191">191</td></tr><tr data-cc="it" data-name="verona veneto"><td><a href="/yield/it/verona/"><strong>Verona</strong></a></td><td>Italy</td><td class="num" data-v="4.61"><strong>4.61%</strong></td><td class="num" data-v="3694.44">€3,694/m²</td><td class="num" data-v="1175.0">€1,175/mo</td><td class="num" data-v="27.0">27.0x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="199">199</td></tr><tr data-cc="es" data-name="sarrià-sant gervasi, barcelona barcelona"><td><a href="/yield/es/barcelona-sarria-sant-gervasi/"><strong>Sarrià-Sant Gervasi, Barcelona</strong></a></td><td>Spain</td><td class="num" data-v="4.6"><strong>4.60%</strong></td><td class="num" data-v="7365.79">€7,366/m²</td><td class="num" data-v="4125.0">€4,125/mo</td><td class="num" data-v="27.2">27.2x</td><td class="num">24 (-6.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="it" data-name="milan lombardy"><td><a href="/yield/it/milan/"><strong>Milan</strong></a></td><td>Italy</td><td class="num" data-v="4.53"><strong>4.53%</strong></td><td class="num" data-v="6111.11">€6,111/m²</td><td class="num" data-v="1645.0">€1,645/mo</td><td class="num" data-v="23.1">23.1x</td><td class="num">Baseline</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="pt" data-name="braga braga district"><td><a href="/yield/pt/braga/"><strong>Braga</strong></a></td><td>Portugal</td><td class="num" data-v="4.4"><strong>4.40%</strong></td><td class="num" data-v="2980.44">€2,980/m²</td><td class="num" data-v="950.0">€950/mo</td><td class="num" data-v="24.8">24.8x</td><td class="num">Baseline</td><td class="num">12d</td><td class="num" data-v="198">198</td></tr><tr data-cc="es" data-name="centro, madrid madrid"><td><a href="/yield/es/madrid-centro/"><strong>Centro, Madrid</strong></a></td><td>Spain</td><td class="num" data-v="4.33"><strong>4.33%</strong></td><td class="num" data-v="8582.5">€8,582/m²</td><td class="num" data-v="2500.0">€2,500/mo</td><td class="num" data-v="33.0">33.0x</td><td class="num">19 (-5.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="tetuán, madrid madrid"><td><a href="/yield/es/madrid-tetuan/"><strong>Tetuán, Madrid</strong></a></td><td>Spain</td><td class="num" data-v="4.29"><strong>4.29%</strong></td><td class="num" data-v="7062.7">€7,063/m²</td><td class="num" data-v="1800.0">€1,800/mo</td><td class="num" data-v="27.3">27.3x</td><td class="num">10 (-3.5%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="palma de mallorca balearic islands"><td><a href="/yield/es/palma-de-mallorca/"><strong>Palma de Mallorca</strong></a></td><td>Spain</td><td class="num" data-v="4.26"><strong>4.26%</strong></td><td class="num" data-v="5557.33">€5,557/m²</td><td class="num" data-v="1875.0">€1,875/mo</td><td class="num" data-v="34.6">34.6x</td><td class="num">11 (-4.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="pt" data-name="vila nova de gaia porto district"><td><a href="/yield/pt/vila-nova-de-gaia/"><strong>Vila Nova de Gaia</strong></a></td><td>Portugal</td><td class="num" data-v="4.2"><strong>4.20%</strong></td><td class="num" data-v="4564.16">€4,564/m²</td><td class="num" data-v="1250.0">€1,250/mo</td><td class="num" data-v="24.6">24.6x</td><td class="num">Baseline</td><td class="num">32d</td><td class="num" data-v="200">200</td></tr><tr data-cc="pt" data-name="lisbon lisbon district"><td><a href="/yield/pt/lisbon/"><strong>Lisbon</strong></a></td><td>Portugal</td><td class="num" data-v="4.17"><strong>4.17%</strong></td><td class="num" data-v="5845.99">€5,846/m²</td><td class="num" data-v="1500.0">€1,500/mo</td><td class="num" data-v="28.8">28.8x</td><td class="num">Baseline</td><td class="num">33d</td><td class="num" data-v="198">198</td></tr><tr data-cc="es" data-name="málaga andalusia"><td><a href="/yield/es/malaga/"><strong>Málaga</strong></a></td><td>Spain</td><td class="num" data-v="4.16"><strong>4.16%</strong></td><td class="num" data-v="5133.67">€5,134/m²</td><td class="num" data-v="1400.0">€1,400/mo</td><td class="num" data-v="43.8">43.8x</td><td class="num">19 (-3.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="pt" data-name="funchal madeira"><td><a href="/yield/pt/funchal/"><strong>Funchal</strong></a></td><td>Portugal</td><td class="num" data-v="4.16"><strong>4.16%</strong></td><td class="num" data-v="5633.8">€5,634/m²</td><td class="num" data-v="1700.0">€1,700/mo</td><td class="num" data-v="26.7">26.7x</td><td class="num">Baseline</td><td class="num">230d</td><td class="num" data-v="172">172</td></tr><tr data-cc="pt" data-name="coimbra coimbra district"><td><a href="/yield/pt/coimbra/"><strong>Coimbra</strong></a></td><td>Portugal</td><td class="num" data-v="4.12"><strong>4.12%</strong></td><td class="num" data-v="3376.62">€3,377/m²</td><td class="num" data-v="800.0">€800/mo</td><td class="num" data-v="32.3">32.3x</td><td class="num">Baseline</td><td class="num">11d</td><td class="num" data-v="199">199</td></tr><tr data-cc="pt" data-name="aveiro aveiro district"><td><a href="/yield/pt/aveiro/"><strong>Aveiro</strong></a></td><td>Portugal</td><td class="num" data-v="4.08"><strong>4.08%</strong></td><td class="num" data-v="3108.47">€3,108/m²</td><td class="num" data-v="900.0">€900/mo</td><td class="num" data-v="28.7">28.7x</td><td class="num">Baseline</td><td class="num">31d</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="seville andalusia"><td><a href="/yield/es/sevilla/"><strong>Seville</strong></a></td><td>Spain</td><td class="num" data-v="4.06"><strong>4.06%</strong></td><td class="num" data-v="3929.38">€3,929/m²</td><td class="num" data-v="1000.0">€1,000/mo</td><td class="num" data-v="40.0">40.0x</td><td class="num">28 (-4.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="retiro, madrid madrid"><td><a href="/yield/es/madrid-retiro/"><strong>Retiro, Madrid</strong></a></td><td>Spain</td><td class="num" data-v="4.01"><strong>4.01%</strong></td><td class="num" data-v="8748.53">€8,749/m²</td><td class="num" data-v="2550.0">€2,550/mo</td><td class="num" data-v="31.7">31.7x</td><td class="num">18 (-4.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="madrid community of madrid"><td><a href="/yield/es/madrid/"><strong>Madrid</strong></a></td><td>Spain</td><td class="num" data-v="3.99"><strong>3.99%</strong></td><td class="num" data-v="9124.97">€9,125/m²</td><td class="num" data-v="2627.5">€2,628/mo</td><td class="num" data-v="44.7">44.7x</td><td class="num">16 (-3.5%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="pt" data-name="porto porto district"><td><a href="/yield/pt/porto/"><strong>Porto</strong></a></td><td>Portugal</td><td class="num" data-v="3.96"><strong>3.96%</strong></td><td class="num" data-v="4795.84">€4,796/m²</td><td class="num" data-v="1150.0">€1,150/mo</td><td class="num" data-v="29.0">29.0x</td><td class="num">Baseline</td><td class="num">133d</td><td class="num" data-v="199">199</td></tr><tr data-cc="pt" data-name="cascais lisbon district"><td><a href="/yield/pt/cascais/"><strong>Cascais</strong></a></td><td>Portugal</td><td class="num" data-v="3.94"><strong>3.94%</strong></td><td class="num" data-v="6699.5">€6,700/m²</td><td class="num" data-v="1900.0">€1,900/mo</td><td class="num" data-v="34.2">34.2x</td><td class="num">Baseline</td><td class="num">33d</td><td class="num" data-v="199">199</td></tr><tr data-cc="es" data-name="alicante valencian community"><td><a href="/yield/es/alicante/"><strong>Alicante</strong></a></td><td>Spain</td><td class="num" data-v="3.73"><strong>3.73%</strong></td><td class="num" data-v="4478.85">€4,479/m²</td><td class="num" data-v="1200.0">€1,200/mo</td><td class="num" data-v="57.1">57.1x</td><td class="num">13 (-7.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="chamberí, madrid madrid"><td><a href="/yield/es/madrid-chamberi/"><strong>Chamberí, Madrid</strong></a></td><td>Spain</td><td class="num" data-v="3.72"><strong>3.72%</strong></td><td class="num" data-v="9666.62">€9,667/m²</td><td class="num" data-v="2890.0">€2,890/mo</td><td class="num" data-v="41.8">41.8x</td><td class="num">16 (-4.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="es" data-name="salamanca, madrid madrid"><td><a href="/yield/es/madrid-salamanca/"><strong>Salamanca, Madrid</strong></a></td><td>Spain</td><td class="num" data-v="3.71"><strong>3.71%</strong></td><td class="num" data-v="11317.45">€11,317/m²</td><td class="num" data-v="3242.5">€3,242/mo</td><td class="num" data-v="46.0">46.0x</td><td class="num">16 (-4.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr><tr data-cc="pt" data-name="faro algarve"><td><a href="/yield/pt/faro/"><strong>Faro</strong></a></td><td>Portugal</td><td class="num" data-v="3.68"><strong>3.68%</strong></td><td class="num" data-v="5612.43">€5,612/m²</td><td class="num" data-v="1250.0">€1,250/mo</td><td class="num" data-v="28.3">28.3x</td><td class="num">Baseline</td><td class="num">85d</td><td class="num" data-v="194">194</td></tr><tr data-cc="es" data-name="chamartín, madrid madrid"><td><a href="/yield/es/madrid-chamartin/"><strong>Chamartín, Madrid</strong></a></td><td>Spain</td><td class="num" data-v="3.63"><strong>3.63%</strong></td><td class="num" data-v="8867.1">€8,867/m²</td><td class="num" data-v="2500.0">€2,500/mo</td><td class="num" data-v="51.5">51.5x</td><td class="num">12 (-3.0%)</td><td class="num">—</td><td class="num" data-v="200">200</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Methodology &amp; Questions</h2>
+      <div class="faq-list">
+      <div class="faq-item"><p class="faq-q">How are the EU and US rental yield benchmarks calculated?</p><p class="faq-a">Every city and district page computes area-normalized gross yield as (median monthly rent per m² × 12) / (median asking sale price per m²) from live Listingrail portal snapshots captured on 2026-11-24 (5,346 sale and 5,352 rental listings across 54 markets). US square-foot areas are converted to square meters using 0.092903 m²/sq ft so EU and US markets compare cleanly.</p></div>
+      <div class="faq-item"><p class="faq-q">Which tracked city has the highest gross rental yield as of 2026-11-24?</p><p class="faq-a">In the 2026-11-24 snapshot, Chicago, IL (United States) leads the directory at 15.22% area-normalized gross yield ($3,154/m² sale vs $40.0/m² monthly rent), while Chamartín, Madrid posts the lowest gross yield at 3.63%.</p></div>
+      <div class="faq-item"><p class="faq-q">Do I need an account to download the 25-row city CSV samples?</p><p class="faq-a">No. Every market page in this directory includes a direct, no-login 25-row sanitized CSV sample (13 sale and 12 rent listings) plus an interactive net-yield calculator pre-loaded with local closing costs. Full city datasets ($49) and live API feeds are available through Listingrail.</p></div>
+      <div class="faq-item"><p class="faq-q">Why do some markets show &#x27;Baseline&#x27; for 30-day price cuts or &#x27;—&#x27; for days on market?</p><p class="faq-a">We never fabricate missing fields. Idealista exposes active discount percentages directly and Imovirtual/Redfin expose listing dates or days-on-market; portals that omit those fields start with a documented baseline snapshot and populate 30-day price cuts automatically as weekly snapshots accumulate.</p></div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h2>Need full weekly city CSVs or live API feeds?</h2>
+        <p>Every benchmark page in this directory is built from normalized Listingrail portal snapshots. Download the free 25-row sample CSV with no login, or pull full city datasets, weekly price-drop alerts, and live JSON feeds across 22 US and European portals through Listingrail.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://listingrail.com/pricing/?utm_source=yield_directory&amp;utm_medium=organic&amp;utm_campaign=pseo_batch1&amp;utm_content=hub">View Listingrail plans</a>
+          <a class="btn-ghost" href="https://listingrail.com/#key?utm_source=yield_directory&amp;utm_medium=organic&amp;utm_campaign=pseo_batch1&amp;utm_content=hub">Get free 250-row API key</a>
+        </div>
+      </div>
+      <div class="footer-plans">
+        <strong>Listingrail self-serve tiers</strong>
+        <ul>
+          <li><strong>Free API key:</strong> $0/mo — 250 normalized listings, no card required.</li>
+          <li><strong>Pro CSV &amp; Alerts / Starter:</strong> $49/mo — 25,000 credits, 3 daily monitors, or $49 one-off full city CSV snapshots.</li>
+          <li><strong>Data API &amp; Growth:</strong> $10/mo Lite, $79/mo Data API team tier, $149/mo Growth (90,000 credits, 10 monitors), $499/mo Feed.</li>
+        </ul>
+        <a href="https://listingrail.com/docs/?utm_source=yield_directory&amp;utm_medium=organic&amp;utm_campaign=pseo_batch1&amp;utm_content=hub" style="color:var(--brass-hi)">Read API docs &amp; OpenAPI spec</a>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>Snapshot date: 2026-11-24 · Figures reflect asking prices from live portal snapshots, not closed-sale deeds.</span>
+      <span><a href="/yield/">All yield benchmarks</a> · <a href="/">Data catalog</a> · <a href="https://listingrail.com/llms.txt">llms.txt</a></span>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    const btns = document.querySelectorAll('.filter-btn');
+    const search = document.getElementById('market-search');
+    const tbody = document.querySelector('#hub-table tbody');
+    if (!tbody) return;
+    let activeCc = 'all';
+    function apply() {
+      const q = (search.value || '').trim().toLowerCase();
+      tbody.querySelectorAll('tr').forEach(tr => {
+        const okCc = activeCc === 'all' || tr.dataset.cc === activeCc;
+        const okQ = !q || (tr.dataset.name || '').includes(q);
+        tr.style.display = (okCc && okQ) ? '' : 'none';
+      });
+    }
+    btns.forEach(b => b.addEventListener('click', () => {
+      btns.forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      activeCc = b.dataset.filter;
+      apply();
+    }));
+    search.addEventListener('input', apply);
+
+    let sortCol = 2, sortDir = -1;
+    document.querySelectorAll('#hub-table th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const c = parseInt(th.dataset.col, 10);
+        sortDir = (c === sortCol) ? -sortDir : -1;
+        sortCol = c;
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        rows.sort((a, b) => {
+          const av = parseFloat(a.children[c].dataset.v || '0');
+          const bv = parseFloat(b.children[c].dataset.v || '0');
+          return (av - bv) * sortDir;
+        });
+        rows.forEach(r => tbody.appendChild(r));
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
