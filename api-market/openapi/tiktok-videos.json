@@ -1,0 +1,231 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "TikTok Videos API: Profile Videos and Stats by Username, No Login",
+  "description": "Public TikTok videos by username or link as JSON, with captions, stats and transcripts.\n\nSold on API.market: https://api.market/store/benthepythondev/tiktok-videos (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "tiktok-videos",
+   "storePage": "https://api.market/store/benthepythondev/tiktok-videos",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/tiktok-videos"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "TikTok Scraper",
+    "description": "TikTok videos of any public profile or by video link, without login: caption, date, views, likes, comments, shares, saves, sound and the author's profile. Up to 20 videos per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "profiles": {
+          "title": "Profiles",
+          "type": "array",
+          "description": "Usernames, @handles or profile links (https://www.tiktok.com/@nasa). Each profile's videos and photo posts are read from the newest back, up to the maximum below; every row carries the account's bio, bio link and exact follower count. Hashtags and search terms cannot be read here.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "videoUrls": {
+          "title": "Video links",
+          "type": "array",
+          "description": "Links of single videos or photo posts (https://www.tiktok.com/@nasa/video/7692161454694206733), share links (vm.tiktok.com/…, tiktok.com/t/…) or bare video ids. Every link gives one row with the same columns as a profile's videos. Links of hashtag, search and music pages cannot be read here.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Maximum videos per profile",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Videos to save for each profile, newest first. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "postedAfter": {
+          "title": "Posted on or after",
+          "type": "string",
+          "description": "Only a profile's videos from this UTC day on (YYYY-MM-DD), or from a period back from now (7 days, 2 months). Not applied to video links."
+         },
+         "postedBefore": {
+          "title": "Posted on or before",
+          "type": "string",
+          "description": "Upper end of a date range (YYYY-MM-DD) for a profile's videos. Not applied to video links."
+         },
+         "includeTranscript": {
+          "title": "Add the spoken text",
+          "type": "boolean",
+          "description": "Puts the text of TikTok's own subtitle track into the column transcript, for every video that has one. A video without a track (music, no speech, or not captioned by TikTok) keeps an empty column. This is TikTok's text, not speech recognition by the API.",
+          "default": false
+         },
+         "commentsPerVideo": {
+          "title": "Comments per video",
+          "minimum": 0,
+          "maximum": 100000,
+          "type": "integer",
+          "description": "Comments to save for each video, as rows of their own after the video rows: text, author, likes, reply count, time. 0 reads no comments. The number counts comments and replies together.",
+          "default": 0
+         },
+         "maxRepliesPerComment": {
+          "title": "Replies per comment",
+          "minimum": 0,
+          "maximum": 5000,
+          "type": "integer",
+          "description": "Replies to read under each comment that has some; they follow their comment and count towards the comments per video. 0 keeps to top-level comments.",
+          "default": 0
+         }
+        }
+       },
+       "example": {
+        "profiles": [
+         "nasa"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "id": "7692161454694206733",
+          "text": "It was a big week in low Earth orbit at NASA! 🧑‍🚀 Crew-13 reaches the ISS 🛰️ Crew-14 announced 🚀 Starliner prepares to fly again 🌕 Artemis III SLS booster st...",
+          "textLanguage": "en",
+          "createTime": 1790970924,
+          "createTimeISO": "2026-10-02T19:55:24.000Z",
+          "isAd": false,
+          "locationCreated": null,
+          "authorMeta": {
+           "id": "7664638705177150477",
+           "name": "nasa",
+           "profileUrl": "https://www.tiktok.com/@nasa",
+           "nickName": "NASA",
+           "verified": true,
+           "signature": "Making the seemingly impossible, possible.✨",
+           "bioLink": null,
+           "avatar": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/e5143212a59c09a008bf50f487d54d1f~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&refresh_toke..."
+          },
+          "musicMeta": {
+           "musicName": "original sound - NASA",
+           "musicAuthor": "NASA",
+           "musicOriginal": false,
+           "coverMediumUrl": "https://p16-common.tiktokcdn-us.com/tos-useast5-avt-0068-tx/e5143212a59c09a008bf50f487d54d1f~tplv-tiktokx-cropcenter:200:200.jpeg?dr=9584&t=4d5b0474&ps=933b5...",
+           "musicId": "7692161536332253965"
+          },
+          "webVideoUrl": "https://www.tiktok.com/@nasa/video/7692161454694206733",
+          "videoMeta": {
+           "height": 1280,
+           "width": 720,
+           "duration": 136,
+           "coverUrl": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/oMP5fABYUDDBCiIR1BuVYAJCwExAB2sIAA8AiC~tplv-tiktokx-origin.image?dr=9636&x-expires=1791529200&...",
+           "originalCoverUrl": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/oYBqADbwpFfqQEABQqEDkCfmQr4Ggt39DSA79R~tplv-tiktokx-origin.image?dr=9636&x-expires=1791529200&...",
+           "definition": "720p",
+           "format": "mp4",
+           "subtitleLinks": [
+            {
+             "language": "eng-US",
+             "tiktokLink": "https://v16m-webapp.tiktokcdn-us.com/4800b43a28be3a6b52111f170903abd6/6ac89b33/video/tos/useast5/tos-useast5-v-0068-tx/9a423295d5f1475c923558197407a12f/?a=19...",
+             "source": "MT"
+            }
+           ]
+          },
+          "diggCount": 8943,
+          "shareCount": 259,
+          "playCount": 162700,
+          "collectCount": 719,
+          "commentCount": 280,
+          "repostCount": 0,
+          "mentions": [],
+          "hashtags": [],
+          "isSlideshow": false,
+          "slideshowImageLinks": [],
+          "location": null,
+          "transcript": null,
+          "transcriptLanguage": null,
+          "input": "nasa",
+          "scrapedAt": "2026-10-07T07:41:31.776163+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/tiktok-videos"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

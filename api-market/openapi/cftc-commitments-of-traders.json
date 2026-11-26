@@ -1,0 +1,137 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "CFTC Commitments of Traders API: Open Interest and Positions",
+  "description": "CFTC Commitments of Traders records with open interest and positions as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/cftc-commitments-of-traders (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "cftc-commitments-of-traders",
+   "storePage": "https://api.market/store/benthepythondev/cftc-commitments-of-traders",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/cftc-commitments-of-traders"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "CFTC Market Reports Scraper",
+    "description": "Export CFTC market and exchange names, report dates, open interest and commercial or noncommercial trader positions. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "record_id": "26092986565AF",
+          "market_name": "GULF # 6 FUEL OIL CRACK - NEW YORK MERCANTILE EXCHANGE",
+          "contract_market": "GULF # 6 FUEL OIL CRACK",
+          "commodity": "FUEL OIL/CRUDE OIL",
+          "report_date": "2026-09-29T00:00:00.000",
+          "open_interest": "10785",
+          "noncommercial_long": "2525",
+          "noncommercial_short": "766",
+          "commercial_long": "6925",
+          "commercial_short": "8684",
+          "source": "CFTC Public Reporting",
+          "scraped_at": "2026-10-07T17:37:53.783370+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/cftc-commitments-of-traders"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

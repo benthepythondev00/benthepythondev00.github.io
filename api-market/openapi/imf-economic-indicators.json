@@ -1,0 +1,160 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "IMF Economic Indicators API: GDP Growth and Inflation",
+  "description": "IMF DataMapper indicators by country and year: GDP growth, inflation, unemployment and more.\n\nSold on API.market: https://api.market/store/benthepythondev/imf-economic-indicators (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "imf-economic-indicators",
+   "storePage": "https://api.market/store/benthepythondev/imf-economic-indicators",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/imf-economic-indicators"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "IMF Economic Indicators Scraper",
+    "description": "Export IMF DataMapper country indicator time series with code, country, year, value, label and source link. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "indicator": {
+          "title": "Indicator code",
+          "type": "string",
+          "description": "IMF DataMapper indicator code.",
+          "default": "NGDP_RPCH"
+         },
+         "countryCodes": {
+          "title": "Country codes",
+          "minItems": 1,
+          "maxItems": 50,
+          "type": "array",
+          "description": "ISO3 country codes.",
+          "items": {
+           "type": "string"
+          },
+          "default": [
+           "USA",
+           "DEU",
+           "IND"
+          ]
+         },
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum normalized records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "indicator": "NGDP_RPCH",
+        "countryCodes": [
+         "USA",
+         "DEU",
+         "IND"
+        ],
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "indicator": "NGDP_RPCH",
+          "country_code": "USA",
+          "year": "2031",
+          "value": 1,
+          "indicator_label": null,
+          "source_url": "https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/USA",
+          "source": "IMF DataMapper",
+          "scraped_at": "2026-10-07T17:56:48.849823+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/imf-economic-indicators"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

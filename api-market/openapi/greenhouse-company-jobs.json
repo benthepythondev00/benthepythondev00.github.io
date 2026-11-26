@@ -1,0 +1,165 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Greenhouse Jobs API: Open Roles by Company Board",
+  "description": "All open roles on a company's Greenhouse job board as JSON, filtered by keyword, one call per company list.\n\nSold on API.market: https://api.market/store/benthepythondev/greenhouse-company-jobs (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "greenhouse-company-jobs",
+   "storePage": "https://api.market/store/benthepythondev/greenhouse-company-jobs",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/greenhouse-company-jobs"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Greenhouse Jobs Scraper",
+    "description": "Returns open jobs from any company that hires through Greenhouse: job title, company, department, location, remote flag, employment type, posted date, full description and apply link. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "companies": {
+          "title": "Companies",
+          "type": "array",
+          "description": "List of Greenhouse company tokens to scrape. Leave empty to use default list of 40+ top tech companies.",
+          "default": [
+           "stripe"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "keywords": {
+          "title": "Job Title Keywords",
+          "type": "array",
+          "description": "Filter jobs by title keywords (e.g., 'engineer', 'devops', 'product'). Leave empty for all jobs.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "location": {
+          "title": "Location Filter",
+          "type": "string",
+          "description": "Filter jobs by location (e.g., 'remote', 'San Francisco', 'New York'). Leave empty for all locations."
+         },
+         "remoteOnly": {
+          "title": "Remote Only",
+          "type": "boolean",
+          "description": "Only return remote job positions.",
+          "default": false
+         },
+         "maxResults": {
+          "title": "Max Results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of jobs to return. A request returns 20 rows at most.",
+          "default": 5
+         },
+         "includeDescription": {
+          "title": "Include Full Description",
+          "type": "boolean",
+          "description": "Include the full job description. Also adds remote_scope, is_hybrid, visa_sponsorship and timezone_requirement to every row.",
+          "default": false
+         },
+         "remoteScope": {
+          "title": "Remote scope filter",
+          "type": "string",
+          "description": "Keep only jobs whose remote eligibility matches: 'worldwide', 'unspecified', 'country' (any country restriction), 'region' (EMEA, Americas, APAC...), or one place such as 'country:US' or 'region:EMEA'. Reads the description, so it adds one field read per job. Leave empty for all."
+         }
+        }
+       },
+       "example": {
+        "companies": [
+         "stripe"
+        ],
+        "maxResults": 20
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/greenhouse-company-jobs"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

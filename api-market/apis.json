@@ -1,0 +1,2551 @@
+{
+ "aid": "benthepythondev00.github.io:api-market",
+ "name": "benthepythondev on API.market",
+ "description": "66 data APIs sold on API.market by the store benthepythondev: job boards, rental and real-estate listings, social media and community posts, app reviews, crypto market data, public registries and open data, each returned as JSON rows. Every API has a free trial and monthly plans on API.market and is called through the API.market gateway with one x-api-market-key header.",
+ "url": "https://benthepythondev00.github.io/api-market/apis.json",
+ "specificationVersion": "0.19",
+ "created": "2026-11-26",
+ "modified": "2026-11-26",
+ "tags": [
+  "Data API",
+  "Web Scraping",
+  "Jobs",
+  "Real Estate",
+  "Social Media",
+  "Open Data",
+  "API Marketplace"
+ ],
+ "apis": [
+  {
+   "aid": "benthepythondev00.github.io:ads-txt-scraper",
+   "name": "Ads.txt Checker API: Authorized Sellers and Publisher IDs",
+   "version": "1.0",
+   "description": "Read any site's ads.txt and get each authorized seller as JSON: exchange, publisher ID, DIRECT or RESELLER, TAG ID. Live on every call, no login.",
+   "humanURL": "https://api.market/store/benthepythondev/ads-txt-scraper",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/ads-txt-scraper",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "real-time-feeds",
+    "ads.txt",
+    "ads.txt checker",
+    "ads.txt parser",
+    "app-ads.txt",
+    "publisher id",
+    "ad tech",
+    "programmatic ads",
+    "authorized sellers"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/ads-txt-scraper.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/ads-txt-scraper"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/ads-txt-scraper"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:airbnb-scraper",
+   "name": "Airbnb Search Prices API",
+   "version": "1.0",
+   "description": "Search Airbnb by place, stay dates and guests. Get room IDs, total stay price with fees, rating, reviews and photos as JSON, up to 20 listings per call.",
+   "humanURL": "https://api.market/store/benthepythondev/airbnb-scraper",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/airbnb-scraper",
+   "tags": [
+    "travel",
+    "accommodation-stays",
+    "travel-search",
+    "airbnb",
+    "airbnb scraper",
+    "airbnb prices",
+    "vacation rentals",
+    "short term rentals",
+    "airbnb search"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/airbnb-scraper.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/airbnb-scraper"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/airbnb-scraper"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:aitoptools-scraper",
+   "name": "AITopTools AI Tool Directory Scraper API",
+   "version": "1.0",
+   "description": "Export AI tools from public AITopTools directory pages as JSON: tool name, record URL, card description and source page. Up to 20 tools per call.",
+   "humanURL": "https://api.market/store/benthepythondev/aitoptools-scraper",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/aitoptools-scraper",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "ai tools directory",
+    "ai tools list",
+    "aitoptools",
+    "ai tool scraper",
+    "ai directory",
+    "web scraping"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/aitoptools-scraper.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/aitoptools-scraper"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/aitoptools-scraper"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:anime-search-anilist",
+   "name": "Anime & Manga API for AniList (Unofficial): Scores, Genres, Studios",
+   "version": "1.0",
+   "description": "Search anime by title and get AniList ID, romaji and English title, year, episode count, synopsis and page link as JSON. Up to 5 matches per call.",
+   "humanURL": "https://api.market/store/benthepythondev/anime-search-anilist",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/anime-search-anilist",
+   "tags": [
+    "entertainment",
+    "movies-tv",
+    "anime",
+    "anime search",
+    "anilist",
+    "anime database",
+    "anime metadata",
+    "discord bot",
+    "anime titles"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/anime-search-anilist.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/anime-search-anilist"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/anime-search-anilist"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:apartments-com-rentals",
+   "name": "Apartments.com Rent and Availability API (US rentals)",
+   "version": "1.0",
+   "description": "US apartment rents as JSON: every open unit with rent, size and move-in date, floor plans, specials, fees and pet policy, by city, ZIP or search link.",
+   "humanURL": "https://api.market/store/benthepythondev/apartments-com-rentals",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/apartments-com-rentals",
+   "tags": [
+    "real-estate",
+    "property-listings",
+    "rent-estimates",
+    "property-data",
+    "apartments.com",
+    "rent prices",
+    "rental listings",
+    "rent comps",
+    "floor plans",
+    "move-in specials",
+    "us rental data"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/apartments-com-rentals.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/apartments-com-rentals"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/apartments-com-rentals"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:app-ads-txt-checker",
+   "name": "App-ads.txt Checker API: Mobile Ad Sellers by App or Domain",
+   "version": "1.0",
+   "description": "Check app-ads.txt from an App Store or Google Play link or a domain: authorized ad sellers, publisher IDs, DIRECT/RESELLER, and why a file is missing.",
+   "humanURL": "https://api.market/store/benthepythondev/app-ads-txt-checker",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/app-ads-txt-checker",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "parsing-extraction",
+    "public-datasets",
+    "app-ads.txt",
+    "ads.txt",
+    "mobile ads",
+    "ad sellers",
+    "publisher id",
+    "ad tech",
+    "admob",
+    "app monetization"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/app-ads-txt-checker.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/app-ads-txt-checker"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/app-ads-txt-checker"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:app-store-reviews",
+   "name": "App Store Reviews API: iPhone and iPad App Ratings",
+   "version": "1.0",
+   "description": "Apple App Store reviews of any app as JSON: stars, title, full text, author, app version, helpful votes, country and date. 48 country stores, no login.",
+   "humanURL": "https://api.market/store/benthepythondev/app-store-reviews",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/app-store-reviews",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "real-time-feeds",
+    "app store reviews api",
+    "ios app reviews",
+    "apple app store scraper",
+    "app reviews api",
+    "aso data",
+    "app ratings api",
+    "itunes reviews",
+    "review monitoring"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/app-store-reviews.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/app-store-reviews"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/app-store-reviews"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:appsumo-deals",
+   "name": "AppSumo Deals API: Prices, Ratings and Vendor Websites",
+   "version": "1.0",
+   "description": "AppSumo lifetime deals as JSON: deal price, list price, discount, rating, review count, star breakdown, vendor website, plan type and refund window.",
+   "humanURL": "https://api.market/store/benthepythondev/appsumo-deals",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/appsumo-deals",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "ecommerce",
+    "public-datasets",
+    "appsumo",
+    "appsumo deals",
+    "appsumo scraper",
+    "lifetime deals",
+    "saas deals",
+    "appsumo prices",
+    "appsumo reviews"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/appsumo-deals.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/appsumo-deals"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/appsumo-deals"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:arcgis-hub-open-data",
+   "name": "ArcGIS Hub Open Data Search API: GIS Datasets by Keyword",
+   "version": "1.0",
+   "description": "Search city, county and agency GIS open data on ArcGIS Hub: dataset IDs, owners, dates, tags, item types, licenses and links as JSON, no ArcGIS login.",
+   "humanURL": "https://api.market/store/benthepythondev/arcgis-hub-open-data",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/arcgis-hub-open-data",
+   "tags": [
+    "data-web-intelligence",
+    "public-datasets",
+    "search-apis",
+    "arcgis",
+    "arcgis hub",
+    "gis data",
+    "open data",
+    "geospatial",
+    "zoning data",
+    "flood data",
+    "public datasets"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/arcgis-hub-open-data.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/arcgis-hub-open-data"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/arcgis-hub-open-data"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:art-museum-collections",
+   "name": "Art Museum API: Met and Art Institute Artworks as JSON",
+   "version": "1.0",
+   "description": "Search Met Museum and Art Institute of Chicago artworks with images and public domain flag.",
+   "humanURL": "https://api.market/store/benthepythondev/art-museum-collections",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/art-museum-collections",
+   "tags": [
+    "data-web-intelligence",
+    "public-datasets",
+    "museum api",
+    "art api",
+    "met museum api",
+    "artwork api",
+    "art institute api",
+    "public domain art",
+    "museum collection",
+    "art search api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/art-museum-collections.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/art-museum-collections"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/art-museum-collections"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:ats-jobs-greenhouse-lever-ashby",
+   "name": "ATS Jobs API: Greenhouse, Lever, Ashby, SmartRecruiters, Recruitee",
+   "version": "1.0",
+   "description": "Open roles from five applicant tracking systems in one call: title, company, location, department, remote flag, posted date and apply link.",
+   "humanURL": "https://api.market/store/benthepythondev/ats-jobs-greenhouse-lever-ashby",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/ats-jobs-greenhouse-lever-ashby",
+   "tags": [
+    "jobs-employment",
+    "job-search",
+    "job-listings",
+    "public-datasets",
+    "ats jobs",
+    "greenhouse",
+    "lever",
+    "ashby",
+    "job listings",
+    "recruiting",
+    "hiring data",
+    "job board"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/ats-jobs-greenhouse-lever-ashby.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/ats-jobs-greenhouse-lever-ashby"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/ats-jobs-greenhouse-lever-ashby"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:aviation-weather-metar",
+   "name": "METAR API: Current Airport Weather by ICAO Code",
+   "version": "1.0",
+   "description": "Current airport weather by ICAO code from AviationWeather.gov, raw and decoded.",
+   "humanURL": "https://api.market/store/benthepythondev/aviation-weather-metar",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/aviation-weather-metar",
+   "tags": [
+    "travel",
+    "flight-aviation",
+    "metar api",
+    "airport weather api",
+    "aviation weather api",
+    "weather api",
+    "icao weather api",
+    "flight category api",
+    "noaa metar api",
+    "pilot weather api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/aviation-weather-metar.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/aviation-weather-metar"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/aviation-weather-metar"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:bank-of-canada-valet-series",
+   "name": "Bank of Canada API: USD/CAD and CAD Exchange Rates",
+   "version": "1.0",
+   "description": "Official Bank of Canada exchange rates and series as JSON, by Valet series code.",
+   "humanURL": "https://api.market/store/benthepythondev/bank-of-canada-valet-series",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/bank-of-canada-valet-series",
+   "tags": [
+    "finance",
+    "financial-data",
+    "market-feeds",
+    "bank of canada api",
+    "cad exchange rate",
+    "usd cad api",
+    "valet api",
+    "canadian dollar api",
+    "exchange rate api",
+    "eur cad api",
+    "fx rates api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/bank-of-canada-valet-series.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/bank-of-canada-valet-series"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/bank-of-canada-valet-series"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:best-buy-products",
+   "name": "Best Buy Products API: Search Results, Prices, Ratings",
+   "version": "1.0",
+   "description": "Search Best Buy by keyword or product link and get price, brand, rating and availability as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/best-buy-products",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/best-buy-products",
+   "tags": [
+    "e-commerce-retail",
+    "e-commerce-data",
+    "price-tracking",
+    "product-lookup",
+    "best buy",
+    "best buy api",
+    "product prices",
+    "price tracking",
+    "electronics prices",
+    "retail data",
+    "product search"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/best-buy-products.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/best-buy-products"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/best-buy-products"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:bitfinex-all-tickers",
+   "name": "Bitfinex API: Crypto Tickers, Bid, Ask and Last Price",
+   "version": "1.0",
+   "description": "Current Bitfinex tickers as JSON: bid, ask, sizes, daily change and last price.",
+   "humanURL": "https://api.market/store/benthepythondev/bitfinex-all-tickers",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/bitfinex-all-tickers",
+   "tags": [
+    "crypto",
+    "crypto-prices",
+    "bitfinex api",
+    "crypto ticker api",
+    "crypto price api",
+    "bitcoin price api",
+    "bid ask api",
+    "crypto exchange api",
+    "btc usd api",
+    "market data api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/bitfinex-all-tickers.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/bitfinex-all-tickers"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/bitfinex-all-tickers"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:bitstamp-trading-pairs",
+   "name": "Bitstamp Trading Pairs API: Decimals and Minimum Orders",
+   "version": "1.0",
+   "description": "Bitstamp trading pairs with decimals, minimum orders and status as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/bitstamp-trading-pairs",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/bitstamp-trading-pairs",
+   "tags": [
+    "crypto",
+    "crypto-prices",
+    "bitstamp api",
+    "crypto exchange api",
+    "crypto market api",
+    "trading pairs api",
+    "crypto trading api",
+    "minimum order size"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/bitstamp-trading-pairs.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/bitstamp-trading-pairs"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/bitstamp-trading-pairs"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:blockstream-bitcoin-blocks",
+   "name": "Bitcoin Blocks API: Latest Bitcoin Blocks as JSON",
+   "version": "1.0",
+   "description": "The latest Bitcoin blocks as JSON from Blockstream: height, size, weight, transactions and difficulty.",
+   "humanURL": "https://api.market/store/benthepythondev/blockstream-bitcoin-blocks",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/blockstream-bitcoin-blocks",
+   "tags": [
+    "crypto",
+    "blockchain-data",
+    "bitcoin api",
+    "bitcoin blocks api",
+    "blockchain api",
+    "btc block height",
+    "blockstream api",
+    "block explorer api",
+    "crypto api",
+    "bitcoin data api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/blockstream-bitcoin-blocks.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/blockstream-bitcoin-blocks"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/blockstream-bitcoin-blocks"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:breezyhr-career-site-jobs",
+   "name": "BreezyHR Jobs API: Open Roles from Any Breezy Career Site",
+   "version": "1.0",
+   "description": "Send a company's breezy.hr career page URL, get its open jobs as JSON with salary, remote flag, location and apply link.",
+   "humanURL": "https://api.market/store/benthepythondev/breezyhr-career-site-jobs",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/breezyhr-career-site-jobs",
+   "tags": [
+    "jobs-employment",
+    "job-search",
+    "job-listings",
+    "public-datasets",
+    "breezyhr jobs",
+    "breezy hr api",
+    "ats jobs",
+    "career site jobs",
+    "job listings",
+    "recruiting data",
+    "hiring signals"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/breezyhr-career-site-jobs.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/breezyhr-career-site-jobs"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/breezyhr-career-site-jobs"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:cftc-commitments-of-traders",
+   "name": "CFTC Commitments of Traders API: Open Interest and Positions",
+   "version": "1.0",
+   "description": "CFTC Commitments of Traders records with open interest and positions as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/cftc-commitments-of-traders",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/cftc-commitments-of-traders",
+   "tags": [
+    "finance",
+    "market-feeds",
+    "financial-data",
+    "cftc api",
+    "cot report api",
+    "futures data api",
+    "open interest api",
+    "commodities api",
+    "positioning data"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/cftc-commitments-of-traders.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/cftc-commitments-of-traders"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/cftc-commitments-of-traders"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:craigslist-real-estate",
+   "name": "Craigslist Real Estate API: FSBO Homes and Rentals",
+   "version": "1.0",
+   "description": "Craigslist for-sale-by-owner homes and rentals in any city as JSON, with a by-owner flag, a 0-100 lead score, price, beds, photos and reply link.",
+   "humanURL": "https://api.market/store/benthepythondev/craigslist-real-estate",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/craigslist-real-estate",
+   "tags": [
+    "real-estate",
+    "property-listings",
+    "property-data",
+    "rent-estimates",
+    "craigslist api",
+    "fsbo listings api",
+    "for sale by owner",
+    "rental listings",
+    "craigslist scraper",
+    "real estate leads",
+    "owner listings"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/craigslist-real-estate.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/craigslist-real-estate"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/craigslist-real-estate"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:crypto-fear-greed-index",
+   "name": "Crypto Fear and Greed Index API",
+   "version": "1.0",
+   "description": "Daily Crypto Fear and Greed Index from Alternative.me as clean JSON: today's 0-100 score, its label, time to the next update and up to 20 past days.",
+   "humanURL": "https://api.market/store/benthepythondev/crypto-fear-greed-index",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/crypto-fear-greed-index",
+   "tags": [
+    "crypto",
+    "trading-signals",
+    "fear and greed",
+    "fear greed index",
+    "bitcoin sentiment",
+    "crypto sentiment",
+    "market sentiment",
+    "crypto index"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/crypto-fear-greed-index.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/crypto-fear-greed-index"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/crypto-fear-greed-index"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:cryptojobslist-jobs",
+   "name": "Crypto Jobs API: CryptoJobsList Web3 Listings by Keyword",
+   "version": "1.0",
+   "description": "Web3 and crypto job listings from CryptoJobsList as JSON: title, company, location, salary, tags and full description, by keyword or category page.",
+   "humanURL": "https://api.market/store/benthepythondev/cryptojobslist-jobs",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/cryptojobslist-jobs",
+   "tags": [
+    "jobs-employment",
+    "job-listings",
+    "job-search",
+    "crypto jobs",
+    "web3 jobs",
+    "blockchain jobs",
+    "cryptojobslist",
+    "solidity jobs",
+    "defi jobs",
+    "job listings"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/cryptojobslist-jobs.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/cryptojobslist-jobs"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/cryptojobslist-jobs"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:dns-records-api",
+   "name": "DNS Records API: A, AAAA, MX, NS, TXT, SOA, CAA as JSON",
+   "version": "1.0",
+   "description": "Look up the public DNS records of up to 50 domains in one call and get one flat JSON row per record. No key for the source, no rate games.",
+   "humanURL": "https://api.market/store/benthepythondev/dns-records-api",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/dns-records-api",
+   "tags": [
+    "security",
+    "domain-ip-intel",
+    "dns lookup",
+    "dns records",
+    "mx records",
+    "txt records",
+    "caa records",
+    "domain lookup",
+    "spf check",
+    "dns checker"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/dns-records-api.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/dns-records-api"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/dns-records-api"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:finland-open-data",
+   "name": "Finland Open Data API: avoindata.fi Dataset Search",
+   "version": "1.0",
+   "description": "Search Finland's national open data catalog by keyword as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/finland-open-data",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/finland-open-data",
+   "tags": [
+    "data-web-intelligence",
+    "public-datasets",
+    "search-apis",
+    "open data api",
+    "finland open data",
+    "government data",
+    "dataset search api",
+    "avoindata api",
+    "ckan api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/finland-open-data.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/finland-open-data"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/finland-open-data"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:frankfurter-ecb-exchange-rates",
+   "name": "ECB Exchange Rates API: Daily FX Rates by Currency",
+   "version": "1.0",
+   "description": "Daily ECB reference exchange rates against USD as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/frankfurter-ecb-exchange-rates",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/frankfurter-ecb-exchange-rates",
+   "tags": [
+    "finance",
+    "financial-data",
+    "market-feeds",
+    "exchange rate api",
+    "ecb rates api",
+    "currency api",
+    "fx rates api",
+    "free exchange rates",
+    "forex api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/frankfurter-ecb-exchange-rates.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/frankfurter-ecb-exchange-rates"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/frankfurter-ecb-exchange-rates"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:germany-jobs",
+   "name": "Germany & EU Jobs API: Arbeitnow Jobs with Visa Filter",
+   "version": "1.0",
+   "description": "Live jobs from Germany and the EU as JSON: filter by keywords, city, remote, visa sponsorship, tags, job type and posting date in one call.",
+   "humanURL": "https://api.market/store/benthepythondev/germany-jobs",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/germany-jobs",
+   "tags": [
+    "jobs-employment",
+    "job-search",
+    "job-listings",
+    "public-datasets",
+    "germany jobs",
+    "jobs in germany",
+    "visa sponsorship",
+    "arbeitnow",
+    "eu jobs",
+    "berlin jobs",
+    "relocation jobs",
+    "job board"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/germany-jobs.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/germany-jobs"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/germany-jobs"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:goodreads-book-reviews",
+   "name": "Goodreads Reviews API: Book Reviews with Ratings as JSON",
+   "version": "1.0",
+   "description": "Public Goodreads book reviews with ratings, text and reviewer details as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/goodreads-book-reviews",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/goodreads-book-reviews",
+   "tags": [
+    "entertainment",
+    "books-reading",
+    "goodreads api",
+    "book reviews api",
+    "books api",
+    "book api",
+    "book ratings api",
+    "goodreads scraper"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/goodreads-book-reviews.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/goodreads-book-reviews"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/goodreads-book-reviews"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:google-maps-business",
+   "name": "Google Maps Business API: Places, Phones, Ratings and Leads",
+   "version": "1.0",
+   "description": "Google Maps businesses for any search and city as JSON: phone, website, address parts, rating, review count, hours, place id and a lead score.",
+   "humanURL": "https://api.market/store/benthepythondev/google-maps-business",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/google-maps-business",
+   "tags": [
+    "business-apis",
+    "business-intelligence",
+    "company-data",
+    "google maps api",
+    "google maps scraper",
+    "local business data",
+    "business leads api",
+    "places search api",
+    "lead generation"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/google-maps-business.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/google-maps-business"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/google-maps-business"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:google-play-reviews",
+   "name": "Google Play Reviews API: Android App Ratings and Replies",
+   "version": "1.0",
+   "description": "Google Play reviews of any Android app as JSON: stars, full text, author, date, thumbs-up count, app version and the developer's reply. 55 countries, no login.",
+   "humanURL": "https://api.market/store/benthepythondev/google-play-reviews",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/google-play-reviews",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "real-time-feeds",
+    "google play reviews",
+    "play store reviews",
+    "android app reviews",
+    "google play scraper",
+    "app reviews api",
+    "aso data",
+    "developer replies",
+    "review monitoring"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/google-play-reviews.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/google-play-reviews"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/google-play-reviews"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:greenhouse-company-jobs",
+   "name": "Greenhouse Jobs API: Open Roles by Company Board",
+   "version": "1.0",
+   "description": "All open roles on a company's Greenhouse job board as JSON, filtered by keyword, one call per company list.",
+   "humanURL": "https://api.market/store/benthepythondev/greenhouse-company-jobs",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/greenhouse-company-jobs",
+   "tags": [
+    "jobs-employment",
+    "job-listings",
+    "job-search",
+    "greenhouse jobs",
+    "greenhouse api",
+    "company jobs",
+    "job listings",
+    "ats jobs",
+    "careers page",
+    "hiring data"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/greenhouse-company-jobs.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/greenhouse-company-jobs"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/greenhouse-company-jobs"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:hotpads-rentals",
+   "name": "HotPads Rentals API: US Apartments, Houses and Rooms for Rent",
+   "version": "1.0",
+   "description": "HotPads rental listings as JSON by US city or ZIP: rent and bedroom range, address, coordinates, specials, verified badge, photos, 0-100 lead score.",
+   "humanURL": "https://api.market/store/benthepythondev/hotpads-rentals",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/hotpads-rentals",
+   "tags": [
+    "real-estate",
+    "property-listings",
+    "rent-estimates",
+    "property-data",
+    "hotpads api",
+    "hotpads scraper",
+    "rental listings api",
+    "apartments for rent api",
+    "rent comps",
+    "us rental data",
+    "houses for rent api",
+    "zip code rentals"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/hotpads-rentals.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/hotpads-rentals"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/hotpads-rentals"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:imf-economic-indicators",
+   "name": "IMF Economic Indicators API: GDP Growth and Inflation",
+   "version": "1.0",
+   "description": "IMF DataMapper indicators by country and year: GDP growth, inflation, unemployment and more.",
+   "humanURL": "https://api.market/store/benthepythondev/imf-economic-indicators",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/imf-economic-indicators",
+   "tags": [
+    "finance",
+    "financial-data",
+    "imf api",
+    "imf data api",
+    "gdp growth api",
+    "economic indicators",
+    "inflation api",
+    "imf datamapper",
+    "country data api",
+    "macro data api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/imf-economic-indicators.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/imf-economic-indicators"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/imf-economic-indicators"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:immowelt-listings",
+   "name": "Immowelt API: German Rental and Sale Listings by City",
+   "version": "1.0",
+   "description": "German property listings from Immowelt as JSON: price, size, rooms, address, agent and link for apartments, houses, land and commercial, by city or search link.",
+   "humanURL": "https://api.market/store/benthepythondev/immowelt-listings",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/immowelt-listings",
+   "tags": [
+    "real-estate",
+    "property-listings",
+    "property-data",
+    "immowelt",
+    "german real estate",
+    "germany rentals",
+    "property listings",
+    "mieten",
+    "immobilien",
+    "rental market"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/immowelt-listings.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/immowelt-listings"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/immowelt-listings"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:instagram-comments",
+   "name": "Instagram Comments API: Comments by Post or Reel Link, No Login",
+   "version": "1.0",
+   "description": "Comments under public Instagram posts and reels as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/instagram-comments",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/instagram-comments",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "real-time-feeds",
+    "instagram api",
+    "instagram comments",
+    "reel comments api",
+    "comment scraper",
+    "instagram scraper",
+    "social media api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/instagram-comments.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/instagram-comments"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/instagram-comments"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:instagram-public-posts",
+   "name": "Instagram Public Posts API: Posts by Username, No Login",
+   "version": "1.0",
+   "description": "Recent public posts of Instagram accounts by username as JSON: caption, likes, comments, date and media links. No login.",
+   "humanURL": "https://api.market/store/benthepythondev/instagram-public-posts",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/instagram-public-posts",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "instagram",
+    "instagram posts",
+    "instagram api",
+    "instagram scraper",
+    "social media data",
+    "influencer data",
+    "public posts"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/instagram-public-posts.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/instagram-public-posts"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/instagram-public-posts"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:instagram-video-downloader",
+   "name": "Instagram Video Downloader API: Reel and Post MP4 Links, No Login",
+   "version": "1.0",
+   "description": "Direct MP4 links for public Instagram reels, video posts and carousels by link: every quality up to 1080p, audio track, thumbnail, caption and likes.",
+   "humanURL": "https://api.market/store/benthepythondev/instagram-video-downloader",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/instagram-video-downloader",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "search-apis",
+    "instagram video downloader api",
+    "instagram reel downloader api",
+    "instagram mp4 link",
+    "download instagram reels",
+    "instagram reels api",
+    "instagram video url",
+    "instagram downloader json"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/instagram-video-downloader.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/instagram-video-downloader"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/instagram-video-downloader"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:kijiji-listings",
+   "name": "Kijiji Listings API: Any Search Link to JSON",
+   "version": "1.0",
+   "description": "Paste a Kijiji.ca search link and get the listings as JSON: price, address, coordinates, beds, baths, photos.",
+   "humanURL": "https://api.market/store/benthepythondev/kijiji-listings",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/kijiji-listings",
+   "tags": [
+    "real-estate",
+    "property-listings",
+    "property-data",
+    "kijiji",
+    "kijiji api",
+    "kijiji listings",
+    "canada rentals",
+    "apartment listings",
+    "rental data",
+    "real estate data"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/kijiji-listings.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/kijiji-listings"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/kijiji-listings"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:library-of-congress-collections",
+   "name": "Library of Congress Search API: Books, Photos, Maps as JSON",
+   "version": "1.0",
+   "description": "Search the Library of Congress collections and get titles, dates, contributors, subjects, formats, image and item links as flat JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/library-of-congress-collections",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/library-of-congress-collections",
+   "tags": [
+    "data-web-intelligence",
+    "public-datasets",
+    "search-apis",
+    "library of congress",
+    "loc.gov",
+    "archives",
+    "historical photos",
+    "books data",
+    "maps",
+    "digital library"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/library-of-congress-collections.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/library-of-congress-collections"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/library-of-congress-collections"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:linkedin-profile",
+   "name": "LinkedIn Profile API: All Sections and Verified Work Emails, No Login",
+   "version": "1.0",
+   "description": "Extract public LinkedIn profiles as JSON: work history, education, skills, posts, and optional MX-verified public emails. No login, zero charge on 403s.",
+   "humanURL": "https://api.market/store/benthepythondev/linkedin-profile",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/linkedin-profile",
+   "tags": [
+    "business-apis",
+    "lead-generation",
+    "company-data",
+    "linkedin scraping",
+    "linkedin profile api",
+    "linkedin api",
+    "lead enrichment api",
+    "linkedin scraper"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/linkedin-profile.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/linkedin-profile"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/linkedin-profile"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:listingrail",
+   "name": "Listingrail: Real Estate Listings API for 22 Property Portals",
+   "version": "1.0",
+   "description": "Live sale and rental listings as JSON from Zillow, Realtor.com, Rightmove, Idealista, ImmoScout24, Bayut and 16 more portals, one request shape.",
+   "humanURL": "https://api.market/store/benthepythondev/listingrail",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/listingrail",
+   "tags": [
+    "real-estate",
+    "property-listings",
+    "property-data",
+    "real estate api",
+    "property listings",
+    "rental listings api",
+    "zillow api",
+    "rightmove api",
+    "realtor api",
+    "housing data api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/listingrail.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/listingrail"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/listingrail"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:lobsters-stories",
+   "name": "Lobsters API: Developer News Stories as JSON",
+   "version": "1.0",
+   "description": "Lobsters developer stories by keyword with score, comments and tags as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/lobsters-stories",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/lobsters-stories",
+   "tags": [
+    "data-web-intelligence",
+    "news-media",
+    "lobsters api",
+    "lobste.rs api",
+    "developer news api",
+    "tech news api",
+    "programming news api",
+    "news api",
+    "news scraper api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/lobsters-stories.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/lobsters-stories"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/lobsters-stories"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:open-targets-disease-search",
+   "name": "Open Targets Disease Search API: Disease IDs, Names and Descriptions",
+   "version": "1.0",
+   "description": "Search the Open Targets Platform and get disease id (MONDO, EFO), name and description as JSON. Public research data, no key.",
+   "humanURL": "https://api.market/store/benthepythondev/open-targets-disease-search",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/open-targets-disease-search",
+   "tags": [
+    "science-research",
+    "medical-research",
+    "research-data",
+    "open targets api",
+    "disease search api",
+    "mondo id lookup",
+    "efo ontology api",
+    "disease ontology api",
+    "biomedical data api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/open-targets-disease-search.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/open-targets-disease-search"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/open-targets-disease-search"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:padmapper-rentals",
+   "name": "PadMapper Rentals API (US and Canada apartments for rent)",
+   "version": "1.0",
+   "description": "US and Canadian rental listings as JSON by city: rent range, beds, baths, address, amenities, pet policy, contact phone and a 0-100 lead score.",
+   "humanURL": "https://api.market/store/benthepythondev/padmapper-rentals",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/padmapper-rentals",
+   "tags": [
+    "real-estate",
+    "property-listings",
+    "rent-estimates",
+    "property-data",
+    "padmapper api",
+    "rental listings",
+    "apartments for rent",
+    "canada rentals api",
+    "rent comps",
+    "rental data",
+    "rental leads"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/padmapper-rentals.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/padmapper-rentals"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/padmapper-rentals"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:pinpoint-career-site-jobs",
+   "name": "Pinpoint Jobs API: Open Roles from Pinpoint Career Sites",
+   "version": "1.0",
+   "description": "Open roles from any Pinpoint career site as JSON, with department, location, pay and description.",
+   "humanURL": "https://api.market/store/benthepythondev/pinpoint-career-site-jobs",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/pinpoint-career-site-jobs",
+   "tags": [
+    "jobs-employment",
+    "job-listings",
+    "job-search",
+    "pinpoint jobs api",
+    "pinpoint ats",
+    "job listings api",
+    "career site api",
+    "jobs api",
+    "job board feed",
+    "ats jobs api",
+    "remote jobs api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/pinpoint-career-site-jobs.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/pinpoint-career-site-jobs"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/pinpoint-career-site-jobs"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:pinterest-keyword-suggestions",
+   "name": "Pinterest Keyword Suggestions API: Autocomplete Terms by Seed Word",
+   "version": "1.0",
+   "description": "Pinterest search autocomplete suggestions for your seed keywords as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/pinterest-keyword-suggestions",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/pinterest-keyword-suggestions",
+   "tags": [
+    "data-web-intelligence",
+    "search-apis",
+    "web-scraping",
+    "pinterest api",
+    "pinterest keywords",
+    "pinterest seo",
+    "keyword research",
+    "autocomplete api",
+    "keyword tool api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/pinterest-keyword-suggestions.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/pinterest-keyword-suggestions"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/pinterest-keyword-suggestions"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:pinterest-pins-boards",
+   "name": "Pinterest Pins API: Search, Boards and Profiles as JSON",
+   "version": "1.0",
+   "description": "Public Pinterest pins from boards, profiles and keyword searches as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/pinterest-pins-boards",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/pinterest-pins-boards",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "pinterest api",
+    "pinterest scraper",
+    "pinterest pins api",
+    "pinterest boards",
+    "social media api",
+    "trend research"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/pinterest-pins-boards.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/pinterest-pins-boards"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/pinterest-pins-boards"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:propertyfinder-uae-listings",
+   "name": "Property Finder UAE Listings API: Buy and Rent, Agent Data",
+   "version": "1.0",
+   "description": "Dubai and UAE property listings from Property Finder by location: price, size, beds, coordinates, agent and broker.",
+   "humanURL": "https://api.market/store/benthepythondev/propertyfinder-uae-listings",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/propertyfinder-uae-listings",
+   "tags": [
+    "real-estate",
+    "property-listings",
+    "property-data",
+    "property finder",
+    "dubai property",
+    "uae real estate",
+    "dubai listings",
+    "property listings",
+    "dubai rentals",
+    "real estate data"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/propertyfinder-uae-listings.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/propertyfinder-uae-listings"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/propertyfinder-uae-listings"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:public-api-directory",
+   "name": "Public API Directory API: OpenAPI Specs by Keyword",
+   "version": "1.0",
+   "description": "Search 2,500 public APIs from the APIs.guru directory by keyword or category: OpenAPI version, JSON and YAML spec links, logo and provider contact.",
+   "humanURL": "https://api.market/store/benthepythondev/public-api-directory",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/public-api-directory",
+   "tags": [
+    "dev-tools",
+    "developer-tools",
+    "search-apis",
+    "parsing-extraction",
+    "api directory",
+    "openapi",
+    "apis.guru",
+    "api catalog",
+    "swagger",
+    "api discovery",
+    "openapi specs"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/public-api-directory.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/public-api-directory"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/public-api-directory"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:reddit-archive",
+   "name": "Reddit Archive API: Historical Posts by Date Range, No Login",
+   "version": "1.0",
+   "description": "Historical Reddit posts and comments by subreddit, keyword and UTC date range as JSON, back to 2008 for r/Python. For RAG, research and backfills.",
+   "humanURL": "https://api.market/store/benthepythondev/reddit-archive",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/reddit-archive",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "search-apis",
+    "reddit archive api",
+    "pushshift alternative",
+    "historical reddit data",
+    "reddit posts by date",
+    "reddit comments api",
+    "reddit dataset",
+    "reddit rag data",
+    "arctic shift api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/reddit-archive.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/reddit-archive"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/reddit-archive"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:reddit-scraper",
+   "name": "Reddit API: Posts, Comments, Users and Search, No Login",
+   "version": "1.0",
+   "description": "Public Reddit posts and comments as JSON by subreddit, post link, user or search, plus only-new watches that replace subreddit RSS feeds. No Reddit API key.",
+   "humanURL": "https://api.market/store/benthepythondev/reddit-scraper",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/reddit-scraper",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "real-time-feeds",
+    "reddit api",
+    "reddit scraper",
+    "reddit rss alternative",
+    "subreddit posts api",
+    "reddit comments api",
+    "reddit search api",
+    "reddit monitoring",
+    "reddit data json"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/reddit-scraper.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/reddit-scraper"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/reddit-scraper"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:remote-jobs-six-boards",
+   "name": "Remote Jobs API: 6 Boards, Worldwide or Country-Eligible",
+   "version": "1.0",
+   "description": "Remote jobs from six boards in one call, deduplicated, each tagged worldwide, region-locked or hybrid with the employer's own sentence as proof.",
+   "humanURL": "https://api.market/store/benthepythondev/remote-jobs-six-boards",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/remote-jobs-six-boards",
+   "tags": [
+    "jobs-employment",
+    "job-search",
+    "job-listings",
+    "remote jobs",
+    "remote jobs api",
+    "job aggregator",
+    "remote job board",
+    "worldwide jobs",
+    "job search api",
+    "visa sponsorship"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/remote-jobs-six-boards.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/remote-jobs-six-boards"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/remote-jobs-six-boards"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:sec-edgar-filings-scored",
+   "name": "SEC EDGAR Filings API: 10-K, 10-Q, 8-K with Score",
+   "version": "1.0",
+   "description": "Recent SEC filings by ticker or CIK as JSON, each with a 0 to 100 score so you can sort what matters.",
+   "humanURL": "https://api.market/store/benthepythondev/sec-edgar-filings-scored",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/sec-edgar-filings-scored",
+   "tags": [
+    "finance",
+    "insider-sec-data",
+    "financial-data",
+    "stock-market",
+    "sec edgar",
+    "sec filings",
+    "edgar api",
+    "10-k filings",
+    "8-k filings",
+    "company filings",
+    "financial data"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/sec-edgar-filings-scored.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/sec-edgar-filings-scored"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/sec-edgar-filings-scored"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:snapchat-public-stories",
+   "name": "Snapchat Public Stories API: Profiles, Stories, Highlights",
+   "version": "1.0",
+   "description": "Public Snapchat profiles with their active story and curated highlights as JSON, by username.",
+   "humanURL": "https://api.market/store/benthepythondev/snapchat-public-stories",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/snapchat-public-stories",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "snapchat",
+    "snapchat stories",
+    "snapchat api",
+    "snapchat profiles",
+    "social media data",
+    "creator data",
+    "public stories"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/snapchat-public-stories.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/snapchat-public-stories"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/snapchat-public-stories"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:subito-it-ads",
+   "name": "Subito.it Ads API: Italian Classifieds by Keyword",
+   "version": "1.0",
+   "description": "Search Subito.it ads by keyword and get title, price, town, region, seller type and photos as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/subito-it-ads",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/subito-it-ads",
+   "tags": [
+    "e-commerce-retail",
+    "e-commerce-data",
+    "price-tracking",
+    "product-lookup",
+    "subito",
+    "subito.it",
+    "italian classifieds",
+    "classified ads",
+    "resale prices",
+    "italy marketplace",
+    "used items"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/subito-it-ads.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/subito-it-ads"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/subito-it-ads"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:tech-stack-email-provider",
+   "name": "Tech Stack and Email Provider API: Up to 10 Websites a Call",
+   "version": "1.0",
+   "description": "What any website is built with, plus its email provider and connected SaaS tools from DNS: CMS, frameworks, analytics, payments, CDN. 10 sites per call.",
+   "humanURL": "https://api.market/store/benthepythondev/tech-stack-email-provider",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/tech-stack-email-provider",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "developer-tools",
+    "public-datasets",
+    "tech stack api",
+    "technology detector",
+    "email provider",
+    "mx lookup",
+    "saas detection",
+    "lead enrichment"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/tech-stack-email-provider.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/tech-stack-email-provider"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/tech-stack-email-provider"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:threads-user-posts",
+   "name": "Threads User Posts API: Full Post History, No Login",
+   "version": "1.0",
+   "description": "Public posts, replies and reposts of any Threads account as JSON: text, attached long text, date, likes, replies, reposts, media and links.",
+   "humanURL": "https://api.market/store/benthepythondev/threads-user-posts",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/threads-user-posts",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "real-time-feeds",
+    "threads api",
+    "threads posts api",
+    "meta threads scraper",
+    "threads user posts",
+    "threads post history",
+    "social media api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/threads-user-posts.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/threads-user-posts"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/threads-user-posts"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:tiktok-comments",
+   "name": "TikTok Comments API: Comments and Replies by Video Link, No Login",
+   "version": "1.0",
+   "description": "Comments and replies under public TikTok videos as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/tiktok-comments",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/tiktok-comments",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "real-time-feeds",
+    "tiktok api",
+    "tiktok comments api",
+    "tiktok scraper",
+    "comment scraper",
+    "tiktok data api",
+    "social media api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/tiktok-comments.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/tiktok-comments"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/tiktok-comments"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:tiktok-keyword-suggestions",
+   "name": "TikTok Keyword Suggestions API: Search Autocomplete Terms",
+   "version": "1.0",
+   "description": "TikTok search autocomplete suggestions for your seed keywords as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/tiktok-keyword-suggestions",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/tiktok-keyword-suggestions",
+   "tags": [
+    "data-web-intelligence",
+    "search-apis",
+    "web-scraping",
+    "tiktok api",
+    "tiktok keywords",
+    "tiktok search api",
+    "tiktok seo",
+    "keyword research",
+    "autocomplete api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/tiktok-keyword-suggestions.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/tiktok-keyword-suggestions"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/tiktok-keyword-suggestions"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:tiktok-profile",
+   "name": "TikTok Profile API: Followers, Likes, Bios and Recent Videos, No Login",
+   "version": "1.0",
+   "description": "Get public TikTok profiles as JSON in bulk: exact followers, likes, bio, bio link, business category, TikTok Shop flag, recent videos and posting cadence.",
+   "humanURL": "https://api.market/store/benthepythondev/tiktok-profile",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/tiktok-profile",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "public-datasets",
+    "tiktok api",
+    "tiktok profile api",
+    "tiktok scraper",
+    "influencer data api",
+    "tiktok followers"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/tiktok-profile.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/tiktok-profile"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/tiktok-profile"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:tiktok-videos",
+   "name": "TikTok Videos API: Profile Videos and Stats by Username, No Login",
+   "version": "1.0",
+   "description": "Public TikTok videos by username or link as JSON, with captions, stats and transcripts.",
+   "humanURL": "https://api.market/store/benthepythondev/tiktok-videos",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/tiktok-videos",
+   "tags": [
+    "data-web-intelligence",
+    "web-scraping",
+    "real-time-feeds",
+    "tiktok api",
+    "tiktok videos api",
+    "tiktok scraper",
+    "tiktok video data",
+    "tiktok stats api",
+    "social media api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/tiktok-videos.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/tiktok-videos"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/tiktok-videos"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:weworkremotely-jobs",
+   "name": "We Work Remotely Jobs API: Remote Listings by Keyword",
+   "version": "1.0",
+   "description": "Remote job listings from We Work Remotely as JSON: title, company, category, region, posting date and full description, filtered by keyword or category.",
+   "humanURL": "https://api.market/store/benthepythondev/weworkremotely-jobs",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/weworkremotely-jobs",
+   "tags": [
+    "jobs-employment",
+    "job-listings",
+    "job-search",
+    "we work remotely",
+    "remote jobs",
+    "remote job listings",
+    "remote developer",
+    "job board data",
+    "jobs api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/weworkremotely-jobs.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/weworkremotely-jobs"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/weworkremotely-jobs"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:wikidata-entity-search",
+   "name": "Wikidata API: Entity Search by Name, Q-ids as JSON",
+   "version": "1.0",
+   "description": "Search Wikidata by name and get Q-ids, labels and descriptions as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/wikidata-entity-search",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/wikidata-entity-search",
+   "tags": [
+    "data-web-intelligence",
+    "public-datasets",
+    "search-apis",
+    "wikidata api",
+    "wikidata search api",
+    "entity linking api",
+    "knowledge graph api",
+    "wikidata q-id",
+    "entity search api",
+    "wikidata lookup",
+    "open data api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/wikidata-entity-search.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/wikidata-entity-search"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/wikidata-entity-search"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:workday-career-site-jobs",
+   "name": "Workday Jobs API",
+   "version": "1.0",
+   "description": "Jobs from companies' Workday career sites as JSON: title, company, location, employment type, posting date and link, with keyword and remote filters.",
+   "humanURL": "https://api.market/store/benthepythondev/workday-career-site-jobs",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/workday-career-site-jobs",
+   "tags": [
+    "jobs-employment",
+    "job-search",
+    "job-listings",
+    "workday jobs api",
+    "job listings api",
+    "company jobs api",
+    "remote jobs api",
+    "recruiting api",
+    "job search api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/workday-career-site-jobs.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/workday-career-site-jobs"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/workday-career-site-jobs"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:yahoo-finance-quotes",
+   "name": "Yahoo Finance Quotes API: Stocks, Fundamentals, News",
+   "version": "1.0",
+   "description": "Stock quotes, company info and news from Yahoo Finance by ticker symbol, up to 20 tickers per request.",
+   "humanURL": "https://api.market/store/benthepythondev/yahoo-finance-quotes",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/yahoo-finance-quotes",
+   "tags": [
+    "finance",
+    "stock-market",
+    "financial-data",
+    "market-feeds",
+    "yahoo finance",
+    "stock quotes",
+    "stock api",
+    "stock fundamentals",
+    "ticker data",
+    "stock news",
+    "market data"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/yahoo-finance-quotes.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/yahoo-finance-quotes"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/yahoo-finance-quotes"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:yc-startup-jobs",
+   "name": "YC Startup Jobs API: Work at a Startup Roles with Salary and Equity",
+   "version": "1.0",
+   "description": "Y Combinator startup jobs with salary, equity and YC batch as JSON.",
+   "humanURL": "https://api.market/store/benthepythondev/yc-startup-jobs",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/yc-startup-jobs",
+   "tags": [
+    "jobs-employment",
+    "job-listings",
+    "job-search",
+    "salary-data",
+    "job search api",
+    "jobs api",
+    "job listing api",
+    "startup jobs api",
+    "yc jobs api",
+    "salary data api"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/yc-startup-jobs.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/yc-startup-jobs"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/yc-startup-jobs"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  },
+  {
+   "aid": "benthepythondev00.github.io:zumper-rentals",
+   "name": "Zumper Rentals API: US Apartment Rentals + Rent Change Monitor",
+   "version": "1.0",
+   "description": "Zumper listings JSON by US city: rent, beds, address, pet policy, lead score. Rent change monitor returns only new listings and rent drops.",
+   "humanURL": "https://api.market/store/benthepythondev/zumper-rentals",
+   "baseURL": "https://prod.api.market/api/v1/benthepythondev/zumper-rentals",
+   "tags": [
+    "real-estate",
+    "property-listings",
+    "rent-estimates",
+    "property-data",
+    "us apartment rentals api",
+    "rent change monitor",
+    "zumper listings json",
+    "zumper api",
+    "rental listings api",
+    "apartments for rent api",
+    "rent comps",
+    "us rental data"
+   ],
+   "properties": [
+    {
+     "type": "OpenAPI",
+     "url": "https://benthepythondev00.github.io/api-market/openapi/zumper-rentals.json"
+    },
+    {
+     "type": "Documentation",
+     "url": "https://api.market/store/benthepythondev/zumper-rentals"
+    },
+    {
+     "type": "Pricing",
+     "url": "https://api.market/store/benthepythondev/zumper-rentals"
+    },
+    {
+     "type": "SignUp",
+     "url": "https://api.market/signup"
+    }
+   ]
+  }
+ ],
+ "common": [
+  {
+   "type": "Portal",
+   "url": "https://api.market/store/benthepythondev"
+  },
+  {
+   "type": "Marketplace",
+   "url": "https://api.market"
+  }
+ ],
+ "maintainers": [
+  {
+   "FN": "benthepythondev",
+   "url": "https://api.market/store/benthepythondev"
+  }
+ ]
+}

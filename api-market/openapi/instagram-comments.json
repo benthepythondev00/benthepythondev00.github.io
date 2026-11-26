@@ -1,0 +1,134 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Instagram Comments API: Comments by Post or Reel Link, No Login",
+  "description": "Comments under public Instagram posts and reels as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/instagram-comments (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "instagram-comments",
+   "storePage": "https://api.market/store/benthepythondev/instagram-comments",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/instagram-comments"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Instagram Comments Scraper",
+    "description": "Returns the comments under Instagram posts and reels: comment text, author, time, likes, whether the author is verified and the post it belongs to. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "postUrls": {
+          "title": "Post or reel links",
+          "type": "array",
+          "description": "Links such as https://www.instagram.com/p/DeAZ0uAgNuA/ or https://www.instagram.com/reel/DdG4RIxIPyf/. A bare shortcode works too.",
+          "default": [
+           "https://www.instagram.com/reel/DdG4RIxIPyf/"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Maximum comments per post",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Comments to save for each link. A request returns 20 rows at most.",
+          "default": 20
+         }
+        }
+       },
+       "example": {
+        "postUrls": [
+         "https://www.instagram.com/reel/DdG4RIxIPyf/"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/instagram-comments"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

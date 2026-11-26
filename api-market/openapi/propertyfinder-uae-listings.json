@@ -1,0 +1,203 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Property Finder UAE Listings API: Buy and Rent, Agent Data",
+  "description": "Dubai and UAE property listings from Property Finder by location: price, size, beds, coordinates, agent and broker.\n\nSold on API.market: https://api.market/store/benthepythondev/propertyfinder-uae-listings (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "propertyfinder-uae-listings",
+   "storePage": "https://api.market/store/benthepythondev/propertyfinder-uae-listings",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/propertyfinder-uae-listings"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Property Finder Scraper",
+    "description": "Property Finder listings in the UAE, for sale or to rent, by location: price, size, bedrooms, bathrooms, location with coordinates, agent and broker, photos and link. Up to 20 listings per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "locations": {
+          "title": "Locations",
+          "type": "array",
+          "description": "UAE emirate, community or building names to search, e.g. 'Dubai Marina', 'Downtown Dubai', 'Abu Dhabi'. Each name is resolved automatically to the matching Property Finder area.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "purpose": {
+          "title": "Buy or rent",
+          "enum": [
+           "buy",
+           "rent"
+          ],
+          "type": "string",
+          "description": "Whether to scrape properties for sale (buy) or to rent.",
+          "default": "buy"
+         },
+         "searchUrls": {
+          "title": "Search URLs (optional)",
+          "type": "array",
+          "description": "Optional: paste full Property Finder search-results URLs (e.g. from your browser after applying filters). Used in addition to any locations above.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Max results per location",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of listings to return per location or search URL. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "useResidentialProxy": {
+          "title": "Use residential proxy (AE)",
+          "type": "boolean",
+          "description": "Route requests through Apify residential UAE IPs.",
+          "default": false
+         }
+        }
+       },
+       "example": {
+        "locations": [
+         "Dubai Marina"
+        ],
+        "purpose": "buy",
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "id": "145074240",
+          "reference": "YHUPr-S-136545",
+          "url": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-elite-residence-145074240.html",
+          "title": "Elegant Home | High Floor | Full Palm View",
+          "purpose": "buy",
+          "offering_type": "Residential for Sale",
+          "property_type": "Apartment",
+          "price": 5950000,
+          "currency": "AED",
+          "price_period": "sell",
+          "price_per_sqft": 1852,
+          "bedrooms": "4",
+          "bathrooms": "5",
+          "area_sqft": 3212,
+          "area_sqm": 298.4,
+          "furnished": "NO",
+          "completion_status": "completed",
+          "is_verified": true,
+          "location_name": "Elite Residence",
+          "address": "Elite Residence, Dubai Marina, Dubai",
+          "community": "Dubai, Dubai Marina",
+          "latitude": 25.089393615722656,
+          "longitude": 55.147796630859375,
+          "agent_name": "Amar Ali",
+          "agent_email": "",
+          "agent_languages": [
+           "English",
+           "Arabic",
+           "Hindi"
+          ],
+          "broker_name": "YHU Properties",
+          "broker_phone": "+971554355467",
+          "broker_email": "info@yhuproperties.com",
+          "broker_address": "Office Office 114, Building Detroit House, Business Bay, Al Hebiah First, Dubai, ",
+          "contact_phone": "+971554355467",
+          "contact_email": "",
+          "contact_whatsapp": "+97145560345",
+          "image": "https://static.shared.propertyfinder.ae/media/images/listing/N9DQ7VXS9865QJG3T3GF6FBZQ0/3b3df8f3-2e50-4fdd-b0a2-b26078e50270/668x452.jpg?v=791c8ef3876f5c290c...",
+          "images_count": 18,
+          "listed_date": "2026-09-15T12:24:37Z",
+          "rera": "",
+          "query": "Dubai Marina"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/propertyfinder-uae-listings"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

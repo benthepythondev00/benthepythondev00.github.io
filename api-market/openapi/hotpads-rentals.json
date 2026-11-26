@@ -1,0 +1,249 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "HotPads Rentals API: US Apartments, Houses and Rooms for Rent",
+  "description": "HotPads rental listings as JSON by US city or ZIP: rent and bedroom range, address, coordinates, specials, verified badge, photos, 0-100 lead score.\n\nSold on API.market: https://api.market/store/benthepythondev/hotpads-rentals (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "hotpads-rentals",
+   "storePage": "https://api.market/store/benthepythondev/hotpads-rentals",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/hotpads-rentals"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Hotpads Rental Scraper",
+    "description": "Extract rental listings from Hotpads.com. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "mode": {
+          "title": "Scraping Mode",
+          "enum": [
+           "search",
+           "direct_urls"
+          ],
+          "type": "string",
+          "description": "Choose whether to search listings or scrape specific URLs",
+          "default": "search"
+         },
+         "location": {
+          "title": "Location",
+          "type": "string",
+          "description": "City and state to search (e.g., 'san-francisco-ca', 'new-york-ny')",
+          "default": "san-francisco-ca"
+         },
+         "propertyType": {
+          "title": "Property Type",
+          "enum": [
+           "apartments-for-rent",
+           "houses-for-rent",
+           "condos-for-rent",
+           "townhomes-for-rent",
+           "rooms-for-rent"
+          ],
+          "type": "string",
+          "description": "Type of property to search",
+          "default": "apartments-for-rent"
+         },
+         "minPrice": {
+          "title": "Minimum Price",
+          "minimum": 0,
+          "type": "integer",
+          "description": "Minimum monthly rent"
+         },
+         "maxPrice": {
+          "title": "Maximum Price",
+          "minimum": 0,
+          "type": "integer",
+          "description": "Maximum monthly rent A request returns 20 rows at most.",
+          "maximum": 20
+         },
+         "minBeds": {
+          "title": "Minimum Bedrooms",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Minimum number of bedrooms (0 for studio)"
+         },
+         "maxBeds": {
+          "title": "Maximum Bedrooms",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Maximum number of bedrooms"
+         },
+         "petsAllowed": {
+          "title": "Pets Allowed",
+          "enum": [
+           "",
+           "dogs",
+           "cats",
+           "dogs,cats"
+          ],
+          "type": "string",
+          "description": "Filter for pet-friendly rentals",
+          "default": ""
+         },
+         "listingUrls": {
+          "title": "Listing URLs",
+          "type": "array",
+          "description": "Direct Hotpads listing URLs to scrape (for direct_urls mode)",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxListings": {
+          "title": "Maximum Listings",
+          "minimum": 1,
+          "maximum": 1000,
+          "type": "integer",
+          "description": "Maximum number of listings to scrape. Keep small for tests.",
+          "default": 5
+         },
+         "includePhotos": {
+          "title": "Include Photos",
+          "type": "boolean",
+          "description": "Extract photo URLs from listings",
+          "default": true
+         }
+        }
+       },
+       "example": {
+        "location": "san-francisco-ca",
+        "maxListings": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "source": "hotpads.com",
+          "scraped_at": "2026-10-07T17:55:46.492529+00:00",
+          "listing_id": "skfe0k",
+          "url": "https://hotpads.com/1188-mission-at-trinity-place-san-francisco-ca-94103-skfe0k/pad",
+          "name": "1188 Mission at Trinity Place",
+          "address": "1188 Mission St, San Francisco, CA 94103",
+          "street": "1188 Mission St",
+          "city": "San Francisco",
+          "state": "CA",
+          "zipcode": "94103",
+          "neighborhood": null,
+          "latitude": 37.77836614755246,
+          "longitude": -122.41283565759659,
+          "price_min": 3842,
+          "price_max": 4248,
+          "beds_min": 1,
+          "beds_max": 1,
+          "baths_min": 1,
+          "baths_max": 1,
+          "sqft_min": 450,
+          "sqft_max": 688,
+          "property_type": "large",
+          "building_type": "large",
+          "listing_type": "rental",
+          "is_verified": true,
+          "has_3d_tour": false,
+          "has_special_offer": true,
+          "special_offer": null,
+          "units_available": 1,
+          "photo_count": 12,
+          "amenities": [],
+          "agent_name": null,
+          "brokerage_name": null,
+          "phone": "1-707-314-5678",
+          "description": null,
+          "lead_score": 73,
+          "photos": [
+           "https://photos.zillowstatic.com/fp/fae254707230472a08c5e16cfb90757b-rentals_medium_500_500.webp",
+           "https://photos.zillowstatic.com/fp/b6d66262f926fc4629dc9d898e9119f1-rentals_medium_500_500.webp",
+           "https://photos.zillowstatic.com/fp/e3aeaffbe7062696cd40f325ae49c4d1-rentals_medium_500_500.webp"
+          ]
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/hotpads-rentals"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "YC Startup Jobs API: Work at a Startup Roles with Salary and Equity",
+  "description": "Y Combinator startup jobs with salary, equity and YC batch as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/yc-startup-jobs (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "yc-startup-jobs",
+   "storePage": "https://api.market/store/benthepythondev/yc-startup-jobs",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/yc-startup-jobs"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "YC Jobs Scraper",
+    "description": "Returns Y Combinator startup jobs from Work at a Startup: title, company, YC batch, one-liner, role, employment type, location, salary range, equity range, skills, minimum experience, visa support, posting date and apply link. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "searchUrls": {
+          "title": "YC Jobs search URLs",
+          "type": "array",
+          "description": "Paste Y Combinator Jobs / Work at a Startup search URLs to scrape exactly.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "query": {
+          "title": "Search query",
+          "type": "string",
+          "description": "Keyword or role to search when no search URL is supplied.",
+          "default": "python"
+         },
+         "role": {
+          "title": "Role filter",
+          "type": "string",
+          "description": "Optional YC role slug, such as software-engineer, product-manager, sales or designer."
+         },
+         "location": {
+          "title": "Location filter",
+          "type": "string",
+          "description": "Optional YC location slug or location query."
+         },
+         "maxResults": {
+          "title": "Max results per search",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of jobs to return per URL or query. A request returns 20 rows at most.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "searchUrls": [
+         "https://www.ycombinator.com/jobs?query=python"
+        ],
+        "query": "python",
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/yc-startup-jobs"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Bitstamp Trading Pairs API: Decimals and Minimum Orders",
+  "description": "Bitstamp trading pairs with decimals, minimum orders and status as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/bitstamp-trading-pairs (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "bitstamp-trading-pairs",
+   "storePage": "https://api.market/store/benthepythondev/bitstamp-trading-pairs",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/bitstamp-trading-pairs"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Bitstamp Pairs Scraper",
+    "description": "Collect Bitstamp pairs records and export name, description, trading, url symbol, base decimals, minimum order as structured JSON, CSV or Excel data. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "name": "EUR/USD",
+          "description": "Euro / U.S. dollar",
+          "trading": "Enabled",
+          "url_symbol": "eurusd",
+          "base_decimals": 5,
+          "minimum_order": "10.00000 USD",
+          "counter_decimals": 5,
+          "instant_and_market_orders": "Enabled",
+          "instant_order_counter_decimals": 5,
+          "source": "Bitstamp pairs",
+          "scraped_at": "2026-10-07T17:35:23.848253+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/bitstamp-trading-pairs"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

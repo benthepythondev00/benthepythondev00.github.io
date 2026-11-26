@@ -1,0 +1,207 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Google Play Reviews API: Android App Ratings and Replies",
+  "description": "Google Play reviews of any Android app as JSON: stars, full text, author, date, thumbs-up count, app version and the developer's reply. 55 countries, no login.\n\nSold on API.market: https://api.market/store/benthepythondev/google-play-reviews (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "google-play-reviews",
+   "storePage": "https://api.market/store/benthepythondev/google-play-reviews",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/google-play-reviews"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Google Play Reviews Scraper",
+    "description": "Customer reviews of any Android app on Google Play: rating, text, date and the developer's reply. Up to 20 reviews per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "appIds": {
+          "title": "App Package IDs",
+          "maxItems": 100,
+          "type": "array",
+          "description": "List of Google Play app package IDs (e.g., com.twitter.android). Up to 100 apps per request.",
+          "items": {
+           "type": "string"
+          },
+          "default": [
+           "com.twitter.android"
+          ]
+         },
+         "appUrls": {
+          "title": "Google Play URLs",
+          "maxItems": 100,
+          "type": "array",
+          "description": "Up to 100 per request.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "countries": {
+          "title": "Countries",
+          "maxItems": 55,
+          "type": "array",
+          "description": "Country codes to scrape reviews from (e.g., us, gb, de, fr, jp). Up to 55 countries.",
+          "items": {
+           "type": "string"
+          },
+          "default": [
+           "us"
+          ]
+         },
+         "language": {
+          "title": "Language",
+          "type": "string",
+          "description": "Language code for reviews (e.g., en, es, de, fr, ja)",
+          "default": "en"
+         },
+         "maxReviews": {
+          "title": "Maximum Reviews per App/Country",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Reviews per app and country, 1 to 20. A request returns 20 reviews at most.",
+          "default": 5
+         },
+         "sortBy": {
+          "title": "Sort Reviews By",
+          "enum": [
+           "newest",
+           "most_relevant"
+          ],
+          "type": "string",
+          "description": "How to sort the reviews",
+          "default": "newest"
+         },
+         "filterRating": {
+          "title": "Filter by Rating",
+          "minimum": 1,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Only get reviews with this star rating (1-5). Leave empty for all ratings."
+         },
+         "delaySeconds": {
+          "title": "Delay Between Requests (seconds)",
+          "minimum": 0.3,
+          "maximum": 5,
+          "type": "number",
+          "description": "Delay between API requests to avoid rate limiting",
+          "default": 0.5
+         }
+        }
+       },
+       "example": {
+        "appIds": [
+         "com.twitter.android"
+        ],
+        "countries": [
+         "us"
+        ],
+        "maxReviews": 20
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "review_id": "4720374e-6ed1-452e-a6e7-9a23c6ee11ea",
+          "app_id": "com.twitter.android",
+          "app_name": "X",
+          "author_name": "Pooja Jena",
+          "author_image": "https://play-lh.googleusercontent.com/a-/ALV-UjV8iIu7OuDyFWB4sY05lfDgatiWUQLUPVO3E_VLQfAxp8PnHb0T",
+          "rating": 5,
+          "content": "this app is amazing 👏 🤩",
+          "thumbs_up_count": 0,
+          "review_date": "2026-10-06T07:44:43",
+          "app_version": "12.31.0-prod.01",
+          "country": "US",
+          "app_url": "https://play.google.com/store/apps/details?id=com.twitter.android"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/google-play-reviews"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

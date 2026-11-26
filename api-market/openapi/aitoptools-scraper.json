@@ -1,0 +1,147 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "AITopTools AI Tool Directory Scraper API",
+  "description": "Export AI tools from public AITopTools directory pages as JSON: tool name, record URL, card description and source page. Up to 20 tools per call.\n\nSold on API.market: https://api.market/store/benthepythondev/aitoptools-scraper (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "aitoptools-scraper",
+   "storePage": "https://api.market/store/benthepythondev/aitoptools-scraper",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 2
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 2
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 2
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 2
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/aitoptools-scraper"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "AITopTools Scraper",
+    "summary": "AITopTools Scraper",
+    "description": "Extract individual AI tool names, directory URLs and card descriptions from public AITopTools pages, with source-page provenance. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "searchUrls": {
+          "title": "Search URLs",
+          "type": "array",
+          "description": "Directory, search or category URLs to scrape.",
+          "default": [
+           "https://aitoptools.com/"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Max results per URL",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum rows to return for each input URL. A request returns 20 rows at most.",
+          "default": 20
+         }
+        }
+       },
+       "example": {
+        "searchUrls": [
+         "https://aitoptools.com/"
+        ],
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "source": "aitoptools-ai-tools-scraper",
+          "kind": "AI tools",
+          "index": 1,
+          "title": "Atoms",
+          "url": "https://aitoptools.com/tool/atoms/",
+          "description": "AI vibe business team that turns your ideas into business.",
+          "input_url": "https://aitoptools.com/",
+          "source_url": "https://aitoptools.com/"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/aitoptools-scraper"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

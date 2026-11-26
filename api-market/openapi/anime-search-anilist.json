@@ -1,0 +1,177 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Anime & Manga API for AniList (Unofficial): Scores, Genres, Studios",
+  "description": "Search anime by title and get AniList ID, romaji and English title, year, episode count, synopsis and page link as JSON. Up to 5 matches per call.\n\nSold on API.market: https://api.market/store/benthepythondev/anime-search-anilist (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "anime-search-anilist",
+   "storePage": "https://api.market/store/benthepythondev/anime-search-anilist",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Ultra",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/anime-search-anilist"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "searchAnime",
+    "summary": "Search anime by title",
+    "description": "Search anime on AniList by title and get each match as JSON: AniList ID, romaji and English title, season year, episode count, synopsis and the AniList page link. Up to 5 matches per request.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "query": {
+          "title": "Anime query",
+          "type": "string",
+          "description": "Title keywords. Leave empty to browse by season, year or genre, most popular first."
+         },
+         "mediaType": {
+          "title": "Media type",
+          "enum": [
+           "ANIME",
+           "MANGA"
+          ],
+          "type": "string",
+          "description": "ANIME (default) or MANGA.",
+          "default": "ANIME"
+         },
+         "season": {
+          "title": "Season (anime)",
+          "enum": [
+           "WINTER",
+           "SPRING",
+           "SUMMER",
+           "FALL"
+          ],
+          "type": "string",
+          "description": "Only anime that aired in this season. Combine with Season year."
+         },
+         "seasonYear": {
+          "title": "Season year",
+          "minimum": 1940,
+          "maximum": 2100,
+          "type": "integer",
+          "description": "Year of the season, for example 2024."
+         },
+         "genres": {
+          "title": "Genres",
+          "type": "array",
+          "description": "Return only titles that have every one of these genres, for example [\"Action\", \"Comedy\"].",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "query": "Berserk",
+        "mediaType": "MANGA",
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "id": 20,
+          "description": "Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the...",
+          "siteurl": "https://anilist.co/anime/20",
+          "episodes": 220,
+          "seasonyear": 2002,
+          "romaji": "NARUTO",
+          "english": "Naruto",
+          "source": "AniList GraphQL",
+          "scraped_at": "2026-10-25T14:20:30.094507+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/anime-search-anilist"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

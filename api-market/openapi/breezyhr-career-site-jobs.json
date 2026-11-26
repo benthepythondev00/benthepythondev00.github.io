@@ -1,0 +1,200 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "BreezyHR Jobs API: Open Roles from Any Breezy Career Site",
+  "description": "Send a company's breezy.hr career page URL, get its open jobs as JSON with salary, remote flag, location and apply link.\n\nSold on API.market: https://api.market/store/benthepythondev/breezyhr-career-site-jobs (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "breezyhr-career-site-jobs",
+   "storePage": "https://api.market/store/benthepythondev/breezyhr-career-site-jobs",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/breezyhr-career-site-jobs"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "BreezyHR Jobs Scraper",
+    "description": "Current jobs from public BreezyHR career portals: title, company, location, remote flag, employment type, description and apply link. Up to 10 jobs per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "required": [
+         "careerUrls"
+        ],
+        "properties": {
+         "careerUrls": {
+          "title": "BreezyHR career portal URLs",
+          "type": "array",
+          "description": "Public BreezyHR career portal roots, such as https://there-is-talent.breezy.hr/. You can include more than one company.",
+          "default": [
+           "https://there-is-talent.breezy.hr/"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "query": {
+          "title": "Keywords",
+          "type": "string",
+          "description": "Optional words that must all appear in the title, company, description, employment type or location.",
+          "default": ""
+         },
+         "location": {
+          "title": "Location contains",
+          "type": "string",
+          "description": "Optional city, region or country filter.",
+          "default": ""
+         },
+         "remoteOnly": {
+          "title": "Remote jobs only",
+          "type": "boolean",
+          "description": "Return only jobs marked as telecommute or remote by the employer.",
+          "default": false
+         },
+         "includeDescription": {
+          "title": "Include descriptions",
+          "type": "boolean",
+          "description": "Convert each public job description from HTML into clean text.",
+          "default": true
+         },
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 10,
+          "type": "integer",
+          "description": "Maximum number of jobs to save across all career portals. A request returns 10 rows at most.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "careerUrls": [
+         "https://there-is-talent.breezy.hr/"
+        ],
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "job_id": "ecf4d53b6ba8",
+          "title": "Reclutador bilingue COLOMBIA ONLY (TT26FT)",
+          "company": "There is Talent",
+          "company_url": "https://there-is-talent.breezy.hr",
+          "company_logo": null,
+          "description": "Salary: 3'500.000 COP Schedule: Monday to Friday, 8:30 AM – 5:30 PM (COL) Contract Type: Independent Contractor Agreement *EXCLUSIVE FOR COLOMBIA* Job Descri...",
+          "employment_types": [
+           "FULL_TIME"
+          ],
+          "date_posted": "2025-09-24",
+          "valid_through": null,
+          "locations": [
+           {
+            "name": null,
+            "street": null,
+            "city": null,
+            "region": null,
+            "postal_code": null,
+            "country": "CO"
+           }
+          ],
+          "applicant_locations": [],
+          "location_text": "CO",
+          "remote": false,
+          "salary": {
+           "currency": "COP",
+           "min": null,
+           "max": null,
+           "value": 3.5
+          },
+          "url": "https://there-is-talent.breezy.hr/p/ecf4d53b6ba8-reclutador-bilingue-colombia-only-tt26ft",
+          "source": "breezyhr",
+          "career_site_url": "https://there-is-talent.breezy.hr/",
+          "scraped_at": "2026-10-30T08:02:26.277137+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/breezyhr-career-site-jobs"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

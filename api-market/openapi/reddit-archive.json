@@ -1,0 +1,278 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Reddit Archive API: Historical Posts by Date Range, No Login",
+  "description": "Historical Reddit posts and comments by subreddit, keyword and UTC date range as JSON, back to 2008 for r/Python. For RAG, research and backfills.\n\nSold on API.market: https://api.market/store/benthepythondev/reddit-archive (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "reddit-archive",
+   "storePage": "https://api.market/store/benthepythondev/reddit-archive",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 250,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "PAYG",
+     "type": "PAYG",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": null,
+     "pricePerCallUSD": 0.01,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Starter",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 7.5,
+     "callsPerMonth": 500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/reddit-archive"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Reddit Archive Scraper",
+    "description": "Pushshift alternative: historical Reddit posts and comments by subreddit, keyword and exact UTC date range from public archives: text, score, author, flair, links. Up to 10 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "subreddits": {
+          "title": "Subreddits",
+          "type": "array",
+          "description": "One or more subreddits to archive (without r/). Needed: the public archives no longer search all of Reddit by keyword.",
+          "default": [
+           "FragranceClones"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "searchQuery": {
+          "title": "Keyword (optional)",
+          "type": "string",
+          "description": "Only return posts containing this keyword, inside the subreddits above.",
+          "default": ""
+         },
+         "sortOrder": {
+          "title": "Post order",
+          "enum": [
+           "newest",
+           "oldest"
+          ],
+          "type": "string",
+          "description": "Return newest posts first (default) or page forward from the oldest archive records in the requested window.",
+          "default": "newest"
+         },
+         "minScore": {
+          "title": "Minimum score (optional)",
+          "minimum": -1000000,
+          "maximum": 1000000,
+          "type": "integer",
+          "description": "Only keep posts and comments with this Reddit score or higher. Leave blank to keep everything, including downvoted rows."
+         },
+         "afterDate": {
+          "title": "After Date (YYYY-MM-DD)",
+          "type": "string",
+          "description": "Only include posts created on or after this date. Leave empty for no lower bound.",
+          "default": ""
+         },
+         "beforeDate": {
+          "title": "Before Date (YYYY-MM-DD)",
+          "type": "string",
+          "description": "Only include posts created on or before this date. Leave empty to start from the most recent archived posts.",
+          "default": ""
+         },
+         "maxPosts": {
+          "title": "Max Posts",
+          "minimum": 1,
+          "maximum": 10,
+          "type": "integer",
+          "description": "Maximum number of posts to return (across all subreddits). A request returns 10 rows at most.",
+          "default": 10
+         },
+         "includeComments": {
+          "title": "Include Comments",
+          "type": "boolean",
+          "description": "Also scrape archived comments for each post. Increases result count (and cost) significantly.",
+          "default": false
+         },
+         "maxCommentsPerPost": {
+          "title": "Max Comments per Post",
+          "minimum": 1,
+          "maximum": 10000,
+          "type": "integer",
+          "description": "Cap comments fetched per post (only used when Include Comments is on). Leave empty for all."
+         }
+        }
+       },
+       "example": {
+        "subreddits": [
+         "Python"
+        ],
+        "afterDate": "2024-03-01",
+        "beforeDate": "2024-03-02",
+        "sortOrder": "newest",
+        "maxPosts": 1,
+        "includeComments": true,
+        "maxCommentsPerPost": 80
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "type": "post",
+          "id": "1b49p6d",
+          "title": "Valid uses of eval()?",
+          "selftext": "I’m wondering if anyone has ever seen a case of code using `eval()` and thought to themselves “yeah actually that’s probably the right way to do it”?  My understanding has always b...",
+          "author": "not_dmr",
+          "subreddit": "Python",
+          "score": 125,
+          "upvote_ratio": 1,
+          "num_comments": 66,
+          "created_utc": 1709337208,
+          "created_iso": "2024-03-01T23:53:28+00:00",
+          "permalink": "https://www.reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/",
+          "url": "https://www.reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/",
+          "domain": "self.Python",
+          "link_flair_text": "Discussion",
+          "is_self": true,
+          "is_video": false,
+          "over_18": false,
+          "locked": false,
+          "stickied": false,
+          "spoiler": false,
+          "total_awards_received": 0
+         },
+         {
+          "type": "comment",
+          "id": "ksxo2bt",
+          "post_id": "1b49p6d",
+          "parent_id": "t3_1b49p6d",
+          "link_id": "t3_1b49p6d",
+          "body": "I have exactly one valid use of eval that I've personally run into, and it's super niche. It also just happens to be something I ran into somewhat recently.  I wrote a library call...",
+          "author": "tedivm",
+          "subreddit": "Python",
+          "score": 18,
+          "created_utc": 1709339728,
+          "created_iso": "2024-03-02T00:35:28+00:00",
+          "permalink": "https://www.reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/ksxo2bt/",
+          "is_submitter": false,
+          "total_awards_received": 0
+         },
+         {
+          "type": "comment",
+          "id": "ksy3u3w",
+          "post_id": "1b49p6d",
+          "parent_id": "t1_ksxo2bt",
+          "link_id": "t3_1b49p6d",
+          "body": "Huh and here I was beginning to write a package to convert sqlalchemy to mermaid diagrams to help with a migration project... well you just saved me some effort maybe!",
+          "author": "ianitic",
+          "subreddit": "Python",
+          "score": 9,
+          "created_utc": 1709346183,
+          "created_iso": "2024-03-02T02:23:03+00:00",
+          "permalink": "https://www.reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/ksy3u3w/",
+          "is_submitter": false,
+          "total_awards_received": 0
+         },
+         {
+          "type": "comment",
+          "id": "ksy43wt",
+          "post_id": "1b49p6d",
+          "parent_id": "t1_ksy3u3w",
+          "link_id": "t3_1b49p6d",
+          "body": "Happy to help! If you run into any issues let me know, but I've been using it without problem for awhile now. It's even integrated into my [super modern python template](https://gi...",
+          "author": "tedivm",
+          "subreddit": "Python",
+          "score": 5,
+          "created_utc": 1709346299,
+          "created_iso": "2024-03-02T02:24:59+00:00",
+          "permalink": "https://www.reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/ksy43wt/",
+          "is_submitter": false,
+          "total_awards_received": 0
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/reddit-archive"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

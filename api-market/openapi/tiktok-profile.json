@@ -1,0 +1,231 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "TikTok Profile API: Followers, Likes, Bios and Recent Videos, No Login",
+  "description": "Get public TikTok profiles as JSON in bulk: exact followers, likes, bio, bio link, business category, TikTok Shop flag, recent videos and posting cadence.\n\nSold on API.market: https://api.market/store/benthepythondev/tiktok-profile (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "tiktok-profile",
+   "storePage": "https://api.market/store/benthepythondev/tiktok-profile",
+   "plans": [
+    {
+     "name": "Free trial",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 2234,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 6709,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 22369,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/tiktok-profile"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "TikTok Profile Scraper",
+    "description": "Returns one row per TikTok profile: exact followers, following, likes and video count, bio, bio link, verified badge, business category, region and the latest videos with play counts, posting rate and last post date. Up to 5 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "profiles": {
+          "title": "TikTok Profiles",
+          "maxItems": 50,
+          "type": "array",
+          "description": "Required. 1 to 50 TikTok usernames, @handles, or canonical HTTPS profile URLs (e.g. 'nasa', '@nasa', 'https://www.tiktok.com/@nasa'). Duplicates are looked up once.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxProfiles": {
+          "title": "Maximum Profiles",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Maximum unique profiles to look up after duplicate removal. A request returns 5 rows at most.",
+          "default": 3
+         },
+         "delayBetweenRequests": {
+          "title": "Delay Between Requests (ms)",
+          "minimum": 0,
+          "maximum": 10000,
+          "type": "integer",
+          "description": "Delay in milliseconds between requests to avoid rate limiting. Recommended: 500-1000ms",
+          "default": 500
+         },
+         "includeRecentVideos": {
+          "title": "Include recent videos",
+          "type": "boolean",
+          "description": "Add the videos TikTok lists for the profile (pinned ones and the latest ten, with play counts, posting times and links), their average and median plays, the posting rate and the time of the last post. Costs nothing extra.",
+          "default": true
+         },
+         "includeVideoStats": {
+          "title": "Add likes, comments and shares per video",
+          "type": "boolean",
+          "description": "Read the latest videos from TikTok's creator list instead of the embed list: each video then also has likes, comments, shares, music title and its engagement rate ((likes + comments + shares) / plays), and the row gets recent_avg_engagement_rate. Pinned videos stay first. One extra request per 15 videos; costs nothing extra per profile.",
+          "default": false
+         },
+         "maxVideosPerProfile": {
+          "title": "Latest videos with statistics",
+          "minimum": 1,
+          "maximum": 50,
+          "type": "integer",
+          "description": "How many of the latest videos get likes, comments and shares when the option above is on. 1 to 50.",
+          "default": 10
+         }
+        },
+        "required": [
+         "profiles"
+        ]
+       },
+       "example": {
+        "profiles": [
+         "nasa"
+        ],
+        "maxProfiles": 3,
+        "includeRecentVideos": true
+       }
+      }
+     }
+    },
+    "responses": {
+     "400": {
+      "description": "Missing or invalid 'profiles' field or request body (not billed)."
+     },
+     "200": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "username": "nasa",
+          "user_id": "7664638705177150477",
+          "nickname": "NASA",
+          "bio": "Making the seemingly impossible, possible.✨",
+          "verified": true,
+          "followers": 2141107,
+          "following": 23,
+          "likes": 11392862,
+          "video_count": 60,
+          "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/e5143212a59c09a008bf50f487d54d1f~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&refresh_toke...",
+          "bio_link": "science.nasa.gov/feature/artemis-ii-preliminary-lunar-science-report",
+          "region": null,
+          "language": "en",
+          "private_account": false,
+          "sec_uid": "MS4wLjABAAAAU9BRVzC8oCaegVnia8IbqWhPb_-dbU7s00Y3wS1_Nx8g5RUaYvyXrpejgjdxTwd6",
+          "business_account": false,
+          "business_category": null,
+          "tiktok_shop_seller": false,
+          "created_at": "2026-07-20T15:55:49",
+          "scraped_at": "2026-10-27T08:36:56.844768",
+          "input_url": "nasa",
+          "recent_videos": [
+           {
+            "id": "7665075736742530317",
+            "url": "https://www.tiktok.com/@nasa/video/7665075736742530317",
+            "description": "Something big just landed on TikTok.",
+            "plays": 1700000,
+            "posted_at": "2026-07-21T20:08:37",
+            "pinned": true,
+            "cover_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/o0HdfAsh9SB9VEQqqXFfDBgq90rHH8QBRvD7EM~tplv-tiktokx-origin.image?dr=9636&x-expires=1793260800&...",
+            "video_url": "https://v45.tiktokcdn-us.com/19f878fc2087d32b493ba58b5a875b6d/6ae305c2/video/tos/useast5/tos-useast5-ve-0068c001-tx/okRjOkUA6WdCIZ4fGHgZ7vLlpMACrAe2IoIzOf/?a..."
+           },
+           {
+            "id": "7700397098994273549",
+            "url": "https://www.tiktok.com/@nasa/video/7700397098994273549",
+            "description": "NASA 🤝 college football. We heard y’all like a good air show. Roll Tide!",
+            "plays": 69800,
+            "posted_at": "2026-10-25T00:33:32",
+            "pinned": false,
+            "cover_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/ooUB4OadAgn4m17rgviBbtVOIuC3T1UIEPicX~tplv-tiktokx-origin.image?dr=9636&x-expires=1793260800&x...",
+            "video_url": "https://v16m.tiktokcdn-us.com/85164b9f1941fb862ba07416061d5a5d/6ae305b9/video/tos/useast5/tos-useast5-ve-0068c003-tx/o0TUqDI35gDcgpAcQNfEB7OdASFoR3rElLJXf9/?..."
+           },
+           {
+            "id": "7699974130153590029",
+            "url": "https://www.tiktok.com/@nasa/video/7699974130153590029",
+            "description": "NASA shared a major update today on the road ahead for Artemis 🚀   2027: Artemis III tests Orion and two lunar landers in low Earth orbit. 2028: Artemis IV r...",
+            "plays": 188900,
+            "posted_at": "2026-10-23T21:12:12",
+            "pinned": false,
+            "cover_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/o4zIgi2BR0VIqAzfbAd2L8c6W2lBEBifSBRD1V~tplv-tiktokx-origin.image?dr=9636&x-expires=1793260800&...",
+            "video_url": "https://v16m.tiktokcdn-us.com/e607956a888fbf19cbb31ef91f582396/6ae30653/video/tos/useast5/tos-useast5-ve-0068c003-tx/oQ8BRVff3biqiDA2I0hdRz2BgiFESiQWBV2DEa/?..."
+           }
+          ],
+          "recent_avg_plays": 541260,
+          "recent_median_plays": 379950,
+          "posts_per_week": 2.7,
+          "last_post_at": "2026-10-25T00:33:32",
+          "success": true,
+          "error": null
+         }
+        ]
+       }
+      }
+     },
+     "404": {
+      "description": "No requested TikTok profile was found (not billed)."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/tiktok-profile"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

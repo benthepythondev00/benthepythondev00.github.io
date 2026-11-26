@@ -1,0 +1,148 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "ArcGIS Hub Open Data Search API: GIS Datasets by Keyword",
+  "description": "Search city, county and agency GIS open data on ArcGIS Hub: dataset IDs, owners, dates, tags, item types, licenses and links as JSON, no ArcGIS login.\n\nSold on API.market: https://api.market/store/benthepythondev/arcgis-hub-open-data (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "arcgis-hub-open-data",
+   "storePage": "https://api.market/store/benthepythondev/arcgis-hub-open-data",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/arcgis-hub-open-data"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "ArcGIS Hub Datasets Scraper",
+    "description": "Search ArcGIS Hub datasets and export IDs, names, descriptions, owners, organizations, dates, tags, type, access, license and links. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "query": {
+          "title": "Dataset query",
+          "type": "string",
+          "description": "ArcGIS Hub open-data search.",
+          "default": "climate"
+         },
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum normalized records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "query": "climate",
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "dataset_id": "c8fc0ea485144cb881b44db8786e2251",
+          "name": "Climate.zip",
+          "description": null,
+          "owner": "EnvAtlasOman",
+          "source_org": "EnvAtlasOman",
+          "created_at": 1636111481000,
+          "modified_at": 1636111484000,
+          "tags": [
+           "SQU"
+          ],
+          "item_type": "File Geodatabase",
+          "access": "public",
+          "license": "none",
+          "dataset_url": "https://www.arcgis.com/home/item.html?id=c8fc0ea485144cb881b44db8786e2251",
+          "source": "ArcGIS Hub",
+          "scraped_at": "2026-10-07T17:33:08.004087+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/arcgis-hub-open-data"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

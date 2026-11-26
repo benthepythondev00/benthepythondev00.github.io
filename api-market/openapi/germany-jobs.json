@@ -1,0 +1,198 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Germany & EU Jobs API: Arbeitnow Jobs with Visa Filter",
+  "description": "Live jobs from Germany and the EU as JSON: filter by keywords, city, remote, visa sponsorship, tags, job type and posting date in one call.\n\nSold on API.market: https://api.market/store/benthepythondev/germany-jobs (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "germany-jobs",
+   "storePage": "https://api.market/store/benthepythondev/germany-jobs",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/germany-jobs"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Arbeitnow Job Board Scraper",
+    "description": "Collect Arbeitnow job board records and export title, url, description, created at, slug, tags as structured JSON, CSV or Excel data. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "keywords": {
+          "title": "Keywords",
+          "maxItems": 20,
+          "type": "array",
+          "description": "Keep jobs whose title, company, description or tags contain any of these words (case-insensitive), e.g. python, data engineer, Pflege. Empty keeps every job.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "locations": {
+          "title": "Locations",
+          "maxItems": 20,
+          "type": "array",
+          "description": "Keep jobs whose location contains any of these texts, e.g. Berlin, München, Germany. Empty keeps every location.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "remoteOnly": {
+          "title": "Remote only",
+          "type": "boolean",
+          "description": "Keep only jobs Arbeitnow marks as remote.",
+          "default": false
+         },
+         "visaSponsorship": {
+          "title": "Visa sponsorship only",
+          "type": "boolean",
+          "description": "Ask Arbeitnow for jobs that offer visa sponsorship or relocation help (its own visa_sponsorship filter). Rows then carry visa_sponsorship: true.",
+          "default": false
+         },
+         "tags": {
+          "title": "Tags",
+          "maxItems": 20,
+          "type": "array",
+          "description": "Keep jobs that have a tag containing any of these texts, e.g. Software Development, Marketing. Up to 20.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "jobTypes": {
+          "title": "Job types",
+          "maxItems": 20,
+          "type": "array",
+          "description": "Keep jobs with a job type containing any of these texts, e.g. full time, Vollzeit, Praktikum, berufserfahren. Arbeitnow labels many German jobs in German.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "postedWithinDays": {
+          "title": "Posted within days",
+          "minimum": 0,
+          "maximum": 365,
+          "type": "integer",
+          "description": "Keep jobs posted in the last N days. 0 means any date.",
+          "default": 0
+         },
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Jobs to return, newest first. A request returns 20 jobs at most.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "keywords": [
+         "python"
+        ],
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "title": "Sensor Integration Engineer (m/f/d)",
+          "url": "https://www.arbeitnow.com/jobs/companies/motor-ai/sensor-integration-engineer-berlin-99756",
+          "description": "We are MOTOR Ai. Our mission is to make Level 4 autonomous driving a reality in Germany and beyond. By combining state-of-the-art AI with the expertise of ou...",
+          "created_at": 1791387089,
+          "slug": "sensor-integration-engineer-berlin-99756",
+          "tags": [
+           "Engineering"
+          ],
+          "remote": false,
+          "location": "Berlin",
+          "job_types": null,
+          "company_name": "MOTOR Ai",
+          "source": "Arbeitnow job board",
+          "scraped_at": "2026-10-07T17:33:01.706062+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/germany-jobs"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

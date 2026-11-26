@@ -1,0 +1,164 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Library of Congress Search API: Books, Photos, Maps as JSON",
+  "description": "Search the Library of Congress collections and get titles, dates, contributors, subjects, formats, image and item links as flat JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/library-of-congress-collections (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "library-of-congress-collections",
+   "storePage": "https://api.market/store/benthepythondev/library-of-congress-collections",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/library-of-congress-collections"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Library of Congress Scraper",
+    "description": "Search Library of Congress collections and export titles, dates, contributors, descriptions, subjects, formats, images and links. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "query": {
+          "title": "Collection query",
+          "type": "string",
+          "description": "Library of Congress search keywords.",
+          "default": "python"
+         },
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum normalized records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "query": "python",
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "item_id": "http://www.loc.gov/item/2019770598/",
+          "title": "Programming for Computations - Python : A Gentle Introduction to Numerical Simulations with Python",
+          "date": "2016-01-01",
+          "contributors": [
+           "linge, svein",
+           "langtangen, hans petter"
+          ],
+          "description": [
+           "This book presents computer programming as a key method for solving mathematical problems. There are two versions of the book, one for MATLAB and one for Pyt..."
+          ],
+          "subjects": [
+           "numerical analysis",
+           "computational science and engineering",
+           "numeric computing"
+          ],
+          "languages": [
+           "english"
+          ],
+          "original_formats": [
+           "book"
+          ],
+          "online_formats": [
+           "image",
+           "epub"
+          ],
+          "image_url": [
+           "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/19/77/05/98/2019770598/2019770598.gif",
+           "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/19/77/05/98/2019770598/2019770598.gif#h=1175&w=827"
+          ],
+          "item_url": "http://www.loc.gov/item/2019770598/",
+          "source": "Library of Congress",
+          "scraped_at": "2026-10-07T18:02:10.520356+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/library-of-congress-collections"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

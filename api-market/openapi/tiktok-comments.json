@@ -1,0 +1,150 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "TikTok Comments API: Comments and Replies by Video Link, No Login",
+  "description": "Comments and replies under public TikTok videos as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/tiktok-comments (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "tiktok-comments",
+   "storePage": "https://api.market/store/benthepythondev/tiktok-comments",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/tiktok-comments"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "TikTok Comments Scraper",
+    "description": "Returns the comments under TikTok videos and photo posts: text, author handle, likes, reply count, the replies themselves, language and TikTok's own flags (liked by the creator, pinned, purchase intent). Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "videoUrls": {
+          "title": "Video links",
+          "type": "array",
+          "description": "Links to TikTok videos or photo posts. Share links (vm.tiktok.com, tiktok.com/t/…) and bare video ids work too.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "videoUrl": {
+          "title": "Single video link",
+          "type": "string",
+          "description": "One more link, read together with the list above. Kept for integrations that send a single link."
+         },
+         "maxComments": {
+          "title": "Maximum comments per video",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Rows to save for each video. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "includeReplies": {
+          "title": "Include replies",
+          "type": "boolean",
+          "description": "Also save the replies under each comment, right after the comment they answer.",
+          "default": false
+         },
+         "maxRepliesPerComment": {
+          "title": "Maximum replies per comment",
+          "minimum": 1,
+          "maximum": 5000,
+          "type": "integer",
+          "description": "Used when replies are included, so that one long discussion does not use up the whole limit.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "videoUrls": [
+         "https://www.tiktok.com/@aigeneratedbulgaria/video/7580840854445706518"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/tiktok-comments"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

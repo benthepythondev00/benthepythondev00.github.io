@@ -1,0 +1,192 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Instagram Public Posts API: Posts by Username, No Login",
+  "description": "Recent public posts of Instagram accounts by username as JSON: caption, likes, comments, date and media links. No login.\n\nSold on API.market: https://api.market/store/benthepythondev/instagram-public-posts (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "instagram-public-posts",
+   "storePage": "https://api.market/store/benthepythondev/instagram-public-posts",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/instagram-public-posts"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Instagram Posts Scraper",
+    "description": "Returns the posts of any public Instagram account, newest first: caption, date, likes, comment count, hashtags, mentions, tagged users, collaborators, location, pictures, carousel slides, video links, pinned and paid-partnership flags. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "usernames": {
+          "title": "Instagram usernames",
+          "type": "array",
+          "description": "Usernames, @handles or profile links, for example natgeo, @nasa or https://www.instagram.com/nike/.",
+          "default": [
+           "natgeo"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Maximum posts per username",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Posts to save for each account, newest first. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "postedAfter": {
+          "title": "Posted on or after",
+          "type": "string",
+          "description": "Only rows from this UTC date on (YYYY-MM-DD). Reading stops once older posts are reached."
+         },
+         "postedBefore": {
+          "title": "Posted on or before",
+          "type": "string",
+          "description": "Only rows up to this UTC date (YYYY-MM-DD)."
+         }
+        }
+       },
+       "example": {
+        "usernames": [
+         "natgeo"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "record_type": "reel",
+          "id": "4008597565992995700",
+          "code": "DehZj9wggt0",
+          "url": "https://www.instagram.com/reel/DehZj9wggt0/",
+          "username": "natgeo",
+          "full_name": "National Geographic",
+          "author_id": "787132",
+          "is_verified": true,
+          "caption": "Keeping up with a pack of hunting wolves is just another day at the office for @bertiegregory and his team.\n\n#WolvesUpClose with Bertie Gregory premieres Fri...",
+          "posted_at": "2026-10-15T19:00:02+00:00",
+          "likes": 55294,
+          "comments": 434,
+          "plays": 1494466,
+          "media_type": "video",
+          "image_url": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/849098148_18708313780019133_730867734770692515_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=111&ccb=7-5...",
+          "video_url": "https://scontent-iad3-1.cdninstagram.com/o1/v/t2/f2/m86/AQPmzWFyFbdQEUSTj3bdWcEdgJrx_FjybCJC5cI7WvE3uOZ2rh-VGb63KeYgGbUc5ovqd29n4IW7ZzvvAKPIhr9epNJVMFjcrAsy4...",
+          "slide_urls": [],
+          "hashtags": [
+           "WolvesUpClose"
+          ],
+          "mentions": [
+           "bertiegregory",
+           "DisneyPlus",
+           "hulu"
+          ],
+          "tagged_users": [
+           "natgeoanimals",
+           "bertiegregory"
+          ],
+          "coauthors": [
+           "bertiegregory",
+           "natgeoanimals"
+          ],
+          "location_name": null,
+          "location_id": null,
+          "music_title": "Original audio",
+          "music_artist": "natgeo",
+          "alt_text": "Video by National Geographic on October 15, 2026. May be an image of wolf, screen, poster and text.",
+          "is_edited": false,
+          "likes_hidden": false,
+          "is_pinned": null,
+          "is_paid_partnership": null,
+          "from_profile": "natgeo",
+          "scraped_at": "2026-10-25T23:26:51.800102+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/instagram-public-posts"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

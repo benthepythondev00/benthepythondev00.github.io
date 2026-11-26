@@ -1,0 +1,324 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Reddit API: Posts, Comments, Users and Search, No Login",
+  "description": "Public Reddit posts and comments as JSON by subreddit, post link, user or search, plus only-new watches that replace subreddit RSS feeds. No Reddit API key.\n\nSold on API.market: https://api.market/store/benthepythondev/reddit-scraper (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "reddit-scraper",
+   "storePage": "https://api.market/store/benthepythondev/reddit-scraper",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 367,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 1102,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 3676,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/reddit-scraper"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Reddit Scraper",
+    "description": "Replaces subreddit RSS feeds (Reddit turns them off Nov 13, 2026): call it on a schedule with onlyNew to get only the new posts. Reddit posts and comments by subreddit, post link, user or search: title, text, score, comment count, author, flair and links. Up to 10 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "mode": {
+          "title": "Scraping Mode",
+          "enum": [
+           "subreddit",
+           "post",
+           "user",
+           "search"
+          ],
+          "type": "string",
+          "description": "What to scrape from Reddit",
+          "default": "subreddit"
+         },
+         "subreddit": {
+          "title": "Subreddit Name",
+          "type": "string",
+          "description": "Subreddit to scrape (e.g., 'python' or 'r/python'). A subreddit link or an old RSS feed link such as https://www.reddit.com/r/python/.rss also works. Required for subreddit mode.",
+          "default": "AskReddit"
+         },
+         "postUrl": {
+          "title": "Post URL",
+          "type": "string",
+          "description": "Full URL of Reddit post to scrape (for post mode)"
+         },
+         "username": {
+          "title": "Username",
+          "type": "string",
+          "description": "Reddit username to scrape posts from (for user mode)"
+         },
+         "searchQuery": {
+          "title": "Search Query",
+          "type": "string",
+          "description": "Search query to find posts (for search mode)"
+         },
+         "searchSubreddit": {
+          "title": "Limit Search to Subreddit",
+          "type": "string",
+          "description": "Limit search to specific subreddit (optional for search mode)"
+         },
+         "sort": {
+          "title": "Sort Order",
+          "enum": [
+           "hot",
+           "new",
+           "top",
+           "rising",
+           "controversial",
+           "relevance"
+          ],
+          "type": "string",
+          "description": "How to sort posts",
+          "default": "hot"
+         },
+         "timeFilter": {
+          "title": "Time Filter",
+          "enum": [
+           "hour",
+           "day",
+           "week",
+           "month",
+           "year",
+           "all"
+          ],
+          "type": "string",
+          "description": "Time range for top/controversial sort",
+          "default": "all"
+         },
+         "maxPosts": {
+          "title": "Maximum Posts",
+          "minimum": 0,
+          "maximum": 10,
+          "type": "integer",
+          "description": "Maximum number of posts to scrape (0 = unlimited) A request returns 10 rows at most.",
+          "default": 10
+         },
+         "strictMatch": {
+          "title": "Every word must be in the post (search)",
+          "type": "boolean",
+          "description": "Search mode only. Reddit's search also returns posts that only relate to your words (in New order, 15 of the 30 newest results for \"home assistant\" lacked one of the words on October 26, 2026). With this on, a post is kept only when its title or text contains every word of the query, so a keyword or brand watch returns real mentions.",
+          "default": false
+         },
+         "deepScrape": {
+          "title": "Read past Reddit's list limit",
+          "type": "boolean",
+          "description": "Reddit ends a subreddit list after about 950 posts and a search after about 240. When on, the API also reads the other orders and time ranges of the same subreddit or search and adds the posts it has not saved yet, until Maximum Posts: about 2,400 posts of a large subreddit and about 1,100 of a broad search in our tests. Subreddit and search mode.",
+          "default": false
+         },
+         "onlyNew": {
+          "title": "Only new posts since the last run (monitoring)",
+          "type": "boolean",
+          "description": "Monitoring for subreddit, search and user mode: each request returns only the posts your earlier requests for the same target and watchName have not returned, oldest first. Call it on a schedule to replace a subreddit's RSS feed. The first request returns the newest posts and marks where the watch begins. Watches belong to your subscription; nobody else's requests affect them.",
+          "default": false
+         },
+         "watchName": {
+          "title": "Watch name",
+          "type": "string",
+          "description": "Optional. Runs with the same target and the same name share one memory of delivered posts. Give two schedules on the same subreddit or search different names to keep them apart."
+         },
+         "maxComments": {
+          "title": "Maximum Comments Per Post",
+          "minimum": 0,
+          "maximum": 10000,
+          "type": "integer",
+          "description": "Maximum comments to scrape per post (applies to both post mode and subreddit mode with includeComments, 0 = unlimited)",
+          "default": 50
+         },
+         "includeComments": {
+          "title": "Include Comments in Subreddit Mode",
+          "type": "boolean",
+          "description": "Scrape comments for each post in subreddit mode (slower but more data)",
+          "default": false
+         },
+         "commentRows": {
+          "title": "One row per comment (Excel-ready)",
+          "type": "boolean",
+          "description": "Return every comment and reply as its own row, in thread order right after its post: type, post_id, post_title, comment_id, parent_id, depth (0 = top level), path (like 1.3.2), author, score, created_utc, body and indented_body. A CSV or XLSX export then shows the whole reply tree under its post. Off by default: comments come back nested in `replies`.",
+          "default": false
+         },
+         "expandMoreComments": {
+          "title": "Expand 'Load More' / 'Continue Thread' Stubs",
+          "type": "boolean",
+          "description": "When ON (default), resolves Reddit's 'load more comments' stubs via /api/morechildren and follows 'continue this thread' links so the scraped count matches num_comments. Turn OFF for faster runs that only return the first ~50 comments per post.",
+          "default": true
+         },
+         "sinceDate": {
+          "title": "Posts Since Date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string",
+          "description": "Subreddit mode only: keep posts on or after this UTC date (YYYY-MM-DD). Invalid dates and other modes with this field are rejected."
+         },
+         "outputFormat": {
+          "title": "Content Output Format",
+          "enum": [
+           "markdown",
+           "html",
+           "text"
+          ],
+          "type": "string",
+          "description": "Format returned in content on posts, comments and nested replies. Original text/Markdown/HTML fields remain available. Plain text is extracted from source HTML; original text is retained when HTML is absent.",
+          "default": "markdown"
+         },
+         "includeImages": {
+          "title": "Include Images",
+          "type": "boolean",
+          "description": "Include extracted image URLs and thumbnails. False returns an empty images array and a null thumbnail; post URLs and links within the original text remain unchanged.",
+          "default": true
+         },
+         "delaySeconds": {
+          "title": "Delay Between Requests (seconds)",
+          "minimum": 0.5,
+          "maximum": 10,
+          "type": "number",
+          "description": "Delay between Reddit API requests to respect rate limits",
+          "default": 1
+         }
+        }
+       },
+       "example": {
+        "subreddit": "AskReddit",
+        "maxPosts": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "id": "1b49p6d",
+          "title": "Valid uses of eval()?",
+          "url": "https://www.reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/",
+          "selftext": "I’m wondering if anyone has ever seen a case of code using `eval()` and thought to themselves “yeah actually that’s probably the right way to do it”? My understanding has always be...",
+          "author": "not_dmr",
+          "subreddit": "Python",
+          "score": 125,
+          "upvote_ratio": 1,
+          "num_comments": 66,
+          "created_utc": "2024-03-01T23:53:28",
+          "link_flair_text": "Discussion"
+         },
+         {
+          "id": "ksxo2bt",
+          "post_id": "1b49p6d",
+          "parent_id": "t3_1b49p6d",
+          "permalink": "https://reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/ksxo2bt/",
+          "body": "I have exactly one valid use of eval that I've personally run into, and it's super niche. It also just happens to be something I ran into somewhat recently. I wrote a library calle...",
+          "author": "tedivm",
+          "score": 18,
+          "created_utc": "2024-03-02T00:35:28",
+          "is_submitter": false,
+          "depth": 0,
+          "replies": [
+           {
+            "id": "ksy3u3w",
+            "post_id": "1b49p6d",
+            "parent_id": "t1_ksxo2bt",
+            "permalink": "https://reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/ksy3u3w/",
+            "body": "Huh and here I was beginning to write a package to convert sqlalchemy to mermaid diagrams to help with a migration project... well you just saved me some effort maybe!",
+            "author": "ianitic",
+            "score": 9,
+            "created_utc": "2024-03-02T02:23:03",
+            "is_submitter": false,
+            "depth": 1,
+            "replies": [
+             {
+              "id": "ksy43wt",
+              "post_id": "1b49p6d",
+              "parent_id": "t1_ksy3u3w",
+              "permalink": "https://reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/ksy43wt/",
+              "body": "Happy to help! If you run into any issues let me know, but I've been using it without problem for awhile now. It's even integrated into my [super modern python template](https://gi...",
+              "author": "tedivm",
+              "score": 5,
+              "created_utc": "2024-03-02T02:24:59",
+              "is_submitter": false,
+              "depth": 2,
+              "replies": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/reddit-scraper"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

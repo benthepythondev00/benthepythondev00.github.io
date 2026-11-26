@@ -1,0 +1,144 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Finland Open Data API: avoindata.fi Dataset Search",
+  "description": "Search Finland's national open data catalog by keyword as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/finland-open-data (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "finland-open-data",
+   "storePage": "https://api.market/store/benthepythondev/finland-open-data",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/finland-open-data"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Finland Open Data Scraper",
+    "description": "Search Finland's national open-data catalog and export dataset metadata, publishers, licenses, tags and resource counts. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "query": {
+          "title": "Dataset query",
+          "type": "string",
+          "description": "Dataset or topic keywords.",
+          "default": "transport"
+         },
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "query": "transport",
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "dataset_id": "dfdba589-f91f-404b-88c4-b612df4ef77b",
+          "name": "FTIA INSPIRE Transport Networks Theme Dataset",
+          "description": "FTIA INSPIRE Transport Networks Theme Dataset is a dataset depicting the Transport Networks covering the whole of Finland. It contains the following INSPIRE ...",
+          "organization": "Ulkoinen lähde: Paikkatietohakemisto",
+          "updated_at": "2025-04-16T10:47:22.449264",
+          "created_at": "2016-12-21T00:00:00",
+          "license": "Creative Commons Attribution 4.0",
+          "tags": null,
+          "resource_count": 1,
+          "catalog_source": "avoindata.fi",
+          "source": "avoindata.fi",
+          "scraped_at": "2026-10-07T17:49:05.609584+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/finland-open-data"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

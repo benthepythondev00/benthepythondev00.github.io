@@ -1,0 +1,159 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Snapchat Public Stories API: Profiles, Stories, Highlights",
+  "description": "Public Snapchat profiles with their active story and curated highlights as JSON, by username.\n\nSold on API.market: https://api.market/store/benthepythondev/snapchat-public-stories (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "snapchat-public-stories",
+   "storePage": "https://api.market/store/benthepythondev/snapchat-public-stories",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/snapchat-public-stories"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Snapchat Stories Scraper",
+    "description": "Returns the active public stories and saved highlights of Snapchat creators: each snap's direct media link, preview image, type, title, publish time and location where shared, plus the creator's username and name. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "usernames": {
+          "title": "Snapchat usernames or profile URLs",
+          "type": "array",
+          "description": "Public Snapchat usernames, @handles, or full snapchat.com profile URLs.",
+          "default": [
+           "nasa"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "includeActiveStory": {
+          "title": "Include active story",
+          "type": "boolean",
+          "description": "Return currently active public story snaps when the profile exposes them.",
+          "default": true
+         },
+         "includeCuratedHighlights": {
+          "title": "Include curated highlights",
+          "type": "boolean",
+          "description": "Return durable curated public profile highlight snaps.",
+          "default": true
+         },
+         "maxProfiles": {
+          "title": "Maximum profiles",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of supplied profiles processed in one run. A request returns 20 rows at most.",
+          "default": 10
+         },
+         "maxSnapsPerProfile": {
+          "title": "Maximum snaps per profile",
+          "minimum": 1,
+          "maximum": 100,
+          "type": "integer",
+          "description": "Maximum active-story and curated-highlight snap rows saved for each profile.",
+          "default": 15
+         }
+        }
+       },
+       "example": {
+        "usernames": [
+         "nasa",
+         "jeremy-lynch"
+        ],
+        "includeActiveStory": true,
+        "includeCuratedHighlights": true,
+        "maxProfiles": 10,
+        "maxSnapsPerProfile": 15
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/snapchat-public-stories"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

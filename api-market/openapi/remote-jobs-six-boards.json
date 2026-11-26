@@ -1,0 +1,317 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Remote Jobs API: 6 Boards, Worldwide or Country-Eligible",
+  "description": "Remote jobs from six boards in one call, deduplicated, each tagged worldwide, region-locked or hybrid with the employer's own sentence as proof.\n\nSold on API.market: https://api.market/store/benthepythondev/remote-jobs-six-boards (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "remote-jobs-six-boards",
+   "storePage": "https://api.market/store/benthepythondev/remote-jobs-six-boards",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 200,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/remote-jobs-six-boards"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Search remote jobs",
+    "description": "Search six remote job boards (Arbeitnow, Jobicy, Himalayas, RemoteOK, Remotive, Working Nomads) in one call and get one deduplicated list. A job posted on several boards comes back once, with every source link in a sources field. Pass eligibleFrom with your countries or regions and it reads the employer's own text to drop jobs you cannot take; each row says remote_scope, eligible_locations, the evidence sentence and work_arrangement. Rows also carry a visa_sponsorship flag with the employer's sentence (filter with visaSponsorshipOnly) and salary_usd_yearly_min/max. Up to 20 jobs per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "searchQueries": {
+          "title": "Searches",
+          "type": "array",
+          "description": "One or more searches, e.g. 'python developer', 'react', 'marketing'. A job is kept when it matches any of them; inside one search all terms must appear somewhere in the job record.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "searchKeywords": {
+          "title": "Search keywords (single, older field)",
+          "type": "string",
+          "description": "One search, e.g. 'python developer'. Kept so saved inputs keep working; it is searched together with Searches.",
+          "default": ""
+         },
+         "platforms": {
+          "title": "Job boards",
+          "uniqueItems": true,
+          "type": "array",
+          "description": "Choose the keyless sources to combine.",
+          "items": {
+           "type": "string",
+           "enum": [
+            "arbeitnow",
+            "jobicy",
+            "himalayas",
+            "remoteok",
+            "remotive",
+            "workingnomads"
+           ]
+          },
+          "default": [
+           "arbeitnow",
+           "jobicy",
+           "himalayas",
+           "remoteok",
+           "remotive",
+           "workingnomads"
+          ]
+         },
+         "maxJobsPerPlatform": {
+          "title": "Maximum jobs per board",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum records collected from each selected source before cross-board deduplication. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "maxTotalJobs": {
+          "title": "Maximum output jobs",
+          "minimum": 0,
+          "maximum": 2000,
+          "type": "integer",
+          "description": "Use 0 for no total limit.",
+          "default": 20
+         },
+         "excludeKeywords": {
+          "title": "Exclude keywords",
+          "type": "array",
+          "description": "Drop jobs containing any of these terms in the title, company, location, description, or tags.",
+          "default": [],
+          "items": {
+           "type": "string"
+          }
+         },
+         "companyKeywords": {
+          "title": "Company keywords",
+          "type": "array",
+          "description": "Keep jobs whose company contains at least one supplied term.",
+          "default": [],
+          "items": {
+           "type": "string"
+          }
+         },
+         "locationKeywords": {
+          "title": "Location keywords",
+          "type": "array",
+          "description": "Keep jobs whose location contains at least one term, such as Europe, Germany, or Worldwide.",
+          "default": [],
+          "items": {
+           "type": "string"
+          }
+         },
+         "eligibleFrom": {
+          "title": "Where you can work from",
+          "type": "array",
+          "description": "Keep jobs you can apply to from these countries or regions, read from the employer's own text (\"must be based in\", \"authorized to work in\", \"CET +/- 3 hours\"). Worldwide jobs always pass. Examples: Germany, India, Brazil, Europe, EMEA, LATAM.",
+          "default": [],
+          "items": {
+           "type": "string"
+          }
+         },
+         "includeUnclearEligibility": {
+          "title": "Keep jobs with unclear eligibility",
+          "type": "boolean",
+          "description": "With 'Where you can work from' set, also keep jobs whose listing names no country, region or worldwide hiring. Off by default.",
+          "default": false
+         },
+         "excludeHybrid": {
+          "title": "Exclude hybrid jobs",
+          "type": "boolean",
+          "description": "Drop jobs whose text asks for office days (\"hybrid work model\", \"3 days a week in the office\").",
+          "default": false
+         },
+         "visaSponsorshipOnly": {
+          "title": "Only jobs that offer visa sponsorship",
+          "type": "boolean",
+          "description": "Keep only jobs whose text says the employer sponsors a visa (\"visa sponsorship available\", \"we will sponsor\"). Jobs that say nothing are dropped.",
+          "default": false
+         },
+         "jobTypes": {
+          "title": "Job types",
+          "uniqueItems": true,
+          "type": "array",
+          "description": "Keep selected normalized employment types. Jobs without a matching type are excluded when this filter is active.",
+          "items": {
+           "type": "string",
+           "enum": [
+            "full-time",
+            "part-time",
+            "contract",
+            "freelance",
+            "internship"
+           ]
+          },
+          "default": []
+         },
+         "seniorityLevels": {
+          "title": "Seniority levels",
+          "uniqueItems": true,
+          "type": "array",
+          "description": "Keep inferred levels based on title and tags. Unspecified roles are excluded when this filter is active.",
+          "items": {
+           "type": "string",
+           "enum": [
+            "entry",
+            "senior",
+            "lead",
+            "manager",
+            "executive",
+            "unspecified"
+           ]
+          },
+          "default": []
+         },
+         "salaryOnly": {
+          "title": "Salary present only",
+          "type": "boolean",
+          "description": "Return only jobs where the source provides salary data.",
+          "default": false
+         },
+         "postedWithinDays": {
+          "title": "Posted within days",
+          "minimum": 0,
+          "maximum": 365,
+          "type": "integer",
+          "description": "Keep jobs posted within this many days. Use 0 to disable. Records without a parseable date are excluded when enabled.",
+          "default": 0
+         }
+        }
+       },
+       "example": {
+        "searchQueries": [
+         "python developer"
+        ],
+        "eligibleFrom": [
+         "Germany"
+        ],
+        "maxTotalJobs": 5
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "title": "Senior Software Engineer, Product",
+          "company": "RevenueCat",
+          "location": "EMEA,  LATAM,  Canada,  USA",
+          "salary": null,
+          "description": "RevenueCat gives app businesses the infrastructure and tools to build, run, and improve their monetization. Since graduating from YC's S18 batch, we've grown...",
+          "work_type": "Remote",
+          "job_type": "Full-time",
+          "tags": [
+           [
+            "Software Engineering"
+           ]
+          ],
+          "url": "https://jobicy.com/jobs/157109-senior-software-engineer-product",
+          "posted_date": "2026-10-26T10:35:55+00:00",
+          "platform": "jobicy",
+          "scraped_at": "2026-10-27T14:59:24.309617",
+          "sources": [
+           {
+            "platform": "jobicy",
+            "url": "https://jobicy.com/jobs/157109-senior-software-engineer-product"
+           }
+          ],
+          "job_id": "2beb34ecb5dcc7780666a485",
+          "seniority": "senior",
+          "remote_scope": "restricted",
+          "eligible_locations": [
+           "EMEA",
+           "Latin America",
+           "Canada"
+          ],
+          "eligibility_evidence": "Location: EMEA, LATAM, Canada, USA",
+          "work_arrangement": "remote",
+          "is_new": false,
+          "monitor_id": null,
+          "first_seen_at": null,
+          "index": 1
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/remote-jobs-six-boards"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

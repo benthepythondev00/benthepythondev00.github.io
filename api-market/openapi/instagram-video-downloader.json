@@ -1,0 +1,159 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Instagram Video Downloader API: Reel and Post MP4 Links, No Login",
+  "description": "Direct MP4 links for public Instagram reels, video posts and carousels by link: every quality up to 1080p, audio track, thumbnail, caption and likes.\n\nSold on API.market: https://api.market/store/benthepythondev/instagram-video-downloader (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "instagram-video-downloader",
+   "storePage": "https://api.market/store/benthepythondev/instagram-video-downloader",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 4.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 10000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 34000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/instagram-video-downloader"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Instagram Video Downloader",
+    "description": "Direct MP4 links for public Instagram reels, video posts and carousels by link, without login: the file with sound, every quality up to 1080p, the audio track, thumbnail, caption, author and likes. Up to 5 posts per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "postUrls": {
+          "title": "Reel, post or video links",
+          "type": "array",
+          "description": "Links to Instagram reels, posts or /tv/ videos (instagram.com/reel/…, /p/…, /tv/…) or bare shortcodes. Profiles, stories and hashtag pages are not read.",
+          "items": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "example": {
+        "postUrls": [
+         "https://www.instagram.com/reel/DeC12b5uha9/"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "status": "ok",
+          "statusReason": null,
+          "input": "https://www.instagram.com/reel/DeC12b5uha9/",
+          "shortCode": "DeC12b5uha9",
+          "postUrl": "https://www.instagram.com/reel/DeC12b5uha9/",
+          "postType": "reel",
+          "ownerUsername": "ted",
+          "ownerFullName": "TED Talks",
+          "isVerified": true,
+          "caption": "Life doesn’t work in straight lines — and according to Grammy-winning musician @JacobCollier, neither does music. In his TED Talk, he explores the many impor...",
+          "takenAt": "2026-10-03T19:45:06+00:00",
+          "likes": 23001,
+          "comments": 187,
+          "videoCount": 1,
+          "videoUrl": "https://scontent-iad3-2.cdninstagram.com/o1/v/t16/f2/m84/AQM4v_KN7C-HVfLyya1nJK3jRREVC2Xdggnj9CQR2zxWByUzjQVy9wg0Z0zVUIfltnmCrZWU3yWBWe1YvndG6RLsURzkjddMnsgY...",
+          "audioUrl": "https://scontent-iad3-1.cdninstagram.com/o1/v/t2/f2/m78/AQPM3_jUUaRmB6pfucvyUCAvsP_JBFu503AzvFB2Dhu3dEkToTEfKLhol00s09Eazm6177TWY9WttuX9zDR7nIGdisOn37ZjVXrrI...",
+          "thumbnailUrl": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/832926317_18636358729054100_6367553467660648171_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=Mz...",
+          "durationSeconds": 45.21,
+          "expiresAt": "2026-10-08T17:36:31+00:00",
+          "videos": [
+           {
+            "slide": 1,
+            "videoUrl": "https://scontent-iad3-2.cdninstagram.com/o1/v/t16/f2/m84/AQM4v_KN7C-HVfLyya1nJK3jRREVC2Xdggnj9CQR2zxWByUzjQVy9wg0Z0zVUIfltnmCrZWU3yWBWe1YvndG6RLsURzkjddMnsgY...",
+            "audioUrl": "https://scontent-iad3-1.cdninstagram.com/o1/v/t2/f2/m78/AQPM3_jUUaRmB6pfucvyUCAvsP_JBFu503AzvFB2Dhu3dEkToTEfKLhol00s09Eazm6177TWY9WttuX9zDR7nIGdisOn37ZjVXrrI...",
+            "thumbnailUrl": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/832926317_18636358729054100_6367553467660648171_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=Mz...",
+            "durationSeconds": 45.21,
+            "originalWidth": 1080,
+            "originalHeight": 1920,
+            "hasAudio": true
+           }
+          ],
+          "scrapedAt": "2026-10-07T07:41:31.490928+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/instagram-video-downloader"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

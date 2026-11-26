@@ -1,0 +1,184 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Crypto Jobs API: CryptoJobsList Web3 Listings by Keyword",
+  "description": "Web3 and crypto job listings from CryptoJobsList as JSON: title, company, location, salary, tags and full description, by keyword or category page.\n\nSold on API.market: https://api.market/store/benthepythondev/cryptojobslist-jobs (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "cryptojobslist-jobs",
+   "storePage": "https://api.market/store/benthepythondev/cryptojobslist-jobs",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/cryptojobslist-jobs"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "CryptoJobsList Scraper",
+    "description": "Scrape CryptoJobsList jobs: title, company, location, remote flag, tags, salary, dates, recruiter name, discussion links and job URL. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "searchUrls": {
+          "title": "Search URLs",
+          "maxItems": 50,
+          "type": "array",
+          "description": "CryptoJobsList category or search URLs to scrape. Leave empty for blockchain developer jobs.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "keyword": {
+          "title": "Keyword",
+          "type": "string",
+          "description": "Optional keyword used to build a CryptoJobsList jobs URL, for example solidity, defi, rust or marketing."
+         },
+         "includeDescriptions": {
+          "title": "Include descriptions",
+          "type": "boolean",
+          "description": "Include cleaned job descriptions when available.",
+          "default": true
+         },
+         "maxResults": {
+          "title": "Max results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of jobs to return. A request returns 20 rows at most.",
+          "default": 20
+         }
+        }
+       },
+       "example": {
+        "searchUrls": [
+         "https://cryptojobslist.com/blockchain-developer-jobs"
+        ],
+        "keyword": "solidity",
+        "includeDescriptions": true,
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "id": "6a58d994d31e3a5608960d4e",
+          "title": "Quantitative Developer - Options Pricing",
+          "company": "Paradex",
+          "company_slug": null,
+          "company_verified": false,
+          "company_twitter": "paradex",
+          "company_logo": "https://img.cryptojobslist.com/job/ec129b21-6865-46ef-92db-b16ec851dcbe.jpg?w=84&h=84&q=75&f=auto",
+          "location": "Singapore",
+          "country": null,
+          "latitude": null,
+          "longitude": null,
+          "is_remote": false,
+          "category": null,
+          "tags": [
+           "full-time",
+           "developer",
+           "research"
+          ],
+          "employment_type": null,
+          "salary": null,
+          "published_at": "2026-10-05T06:52:23.843Z",
+          "valid_through": null,
+          "is_featured": true,
+          "filled": false,
+          "direct_applications": 0,
+          "application_clicks": 250,
+          "recruiter_name": "Jake",
+          "job_url": "https://cryptojobslist.com/jobs/quantitative-developer-options-pricing-singapore-at-paradex",
+          "telegram_discussion": "https://t.me/cryptojobslist/11561",
+          "twitter_discussion": "https://x.com/CryptoJobsList/status/2077745257169527068",
+          "description_short": null,
+          "source_url": "https://cryptojobslist.com/blockchain-developer-jobs",
+          "source": "cryptojobslist",
+          "description": null
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/cryptojobslist-jobs"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

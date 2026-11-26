@@ -1,0 +1,212 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Best Buy Products API: Search Results, Prices, Ratings",
+  "description": "Search Best Buy by keyword or product link and get price, brand, rating and availability as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/best-buy-products (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "best-buy-products",
+   "storePage": "https://api.market/store/benthepythondev/best-buy-products",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/best-buy-products"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Best Buy Products Scraper",
+    "description": "Returns Best Buy products by keyword, category link or product link: SKU, current price, title, brand, model number, rating and review count, with specifications, features, description and image links on request. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "mode": {
+          "title": "Scraping Mode",
+          "enum": [
+           "search",
+           "category",
+           "direct_urls"
+          ],
+          "type": "string",
+          "description": "Choose how to scrape products",
+          "default": "search"
+         },
+         "searchQuery": {
+          "title": "Search Query",
+          "type": "string",
+          "description": "Search keywords (e.g., 'laptop', 'gaming laptop', 'macbook pro')"
+         },
+         "categoryUrl": {
+          "title": "Category URL",
+          "type": "string",
+          "description": "Best Buy category page URL (for category mode)"
+         },
+         "productUrls": {
+          "title": "Product URLs",
+          "type": "array",
+          "description": "Direct URLs to specific Best Buy products (for direct_urls mode)",
+          "items": {
+           "type": "string"
+          }
+         },
+         "minPrice": {
+          "title": "Minimum Price ($)",
+          "minimum": 0,
+          "type": "integer",
+          "description": "Minimum price filter"
+         },
+         "maxPrice": {
+          "title": "Maximum Price ($)",
+          "minimum": 0,
+          "type": "integer",
+          "description": "Maximum price filter A request returns 20 rows at most.",
+          "maximum": 20
+         },
+         "brands": {
+          "title": "Brands",
+          "type": "array",
+          "description": "Filter by brand names (e.g., HP, Dell, Apple, Lenovo, ASUS)",
+          "items": {
+           "type": "string"
+          }
+         },
+         "minRating": {
+          "title": "Minimum Rating",
+          "minimum": 1,
+          "maximum": 5,
+          "type": "number",
+          "description": "Minimum customer rating (1-5)"
+         },
+         "onSaleOnly": {
+          "title": "On Sale Only",
+          "type": "boolean",
+          "description": "Only show products that are on sale",
+          "default": false
+         },
+         "openBoxOnly": {
+          "title": "Open Box Only",
+          "type": "boolean",
+          "description": "Only show open box deals",
+          "default": false
+         },
+         "sortBy": {
+          "title": "Sort Results By",
+          "enum": [
+           "bestMatch",
+           "priceLow",
+           "priceHigh",
+           "rating",
+           "bestSelling",
+           "newest"
+          ],
+          "type": "string",
+          "description": "Sort order for search results",
+          "default": "bestMatch"
+         },
+         "maxProducts": {
+          "title": "Maximum Products",
+          "minimum": 1,
+          "maximum": 1000,
+          "type": "integer",
+          "description": "Maximum number of products to scrape",
+          "default": 5
+         },
+         "includeSpecifications": {
+          "title": "Include Specifications",
+          "type": "boolean",
+          "description": "Include source specifications, features, description and image URLs. These fields can be empty when Best Buy does not supply them.",
+          "default": false
+         }
+        }
+       },
+       "example": {
+        "mode": "search",
+        "searchQuery": "laptop",
+        "maxProducts": 20
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/best-buy-products"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

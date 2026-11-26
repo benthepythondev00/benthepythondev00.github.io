@@ -1,0 +1,217 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Pinterest Pins API: Search, Boards and Profiles as JSON",
+  "description": "Public Pinterest pins from boards, profiles and keyword searches as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/pinterest-pins-boards (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "pinterest-pins-boards",
+   "storePage": "https://api.market/store/benthepythondev/pinterest-pins-boards",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/pinterest-pins-boards"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Pinterest Scraper",
+    "description": "Returns Pinterest pins by keyword, from boards, from whole profiles or by pin link: title, description, image and video file, destination link, saves, creator and board. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "boardUrls": {
+          "title": "Board, profile or pin links",
+          "type": "array",
+          "description": "Pinterest links: a board (pinterest.com/user/board/) returns the board's pins, a profile (pinterest.com/user/) every pin of that profile, a pin link that one pin with its counts, a search link the pins of that search.",
+          "items": {
+           "type": "object",
+           "required": [
+            "url"
+           ],
+           "properties": {
+            "url": {
+             "type": "string",
+             "title": "URL of a web page",
+             "format": "uri"
+            }
+           }
+          }
+         },
+         "queries": {
+          "title": "Search queries",
+          "type": "array",
+          "description": "Keywords to search Pinterest for, for example \"home office ideas\". Each query returns pins up to the limit below; Pinterest ends a search after about 900 pins.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "urls": {
+          "title": "More links or usernames",
+          "type": "array",
+          "description": "Further board, profile, pin or search links as plain text, or bare usernames such as \"nasa\" for a profile's pins.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResultsPerBoard": {
+          "title": "Maximum pins per board, profile or search",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Pins to save for each board, profile and search, up to 10,000. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "includeDetails": {
+          "title": "Comments, shares and repins",
+          "type": "boolean",
+          "description": "Reads each pin's own record as well: number of saves, comments, shares and repins, the full description and the pin's first creator. One more request per pin. Board pins already carry saves and repins without it.",
+          "default": false
+         }
+        }
+       },
+       "example": {
+        "boardUrls": [
+         {
+          "url": "https://www.pinterest.com/suma5048/python/"
+         }
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "id": "803400021073472045",
+          "url": "https://www.pinterest.com/pin/803400021073472045/",
+          "title": "a poster with words and pictures on it that say keywordss, python programming",
+          "description": null,
+          "destination_url": null,
+          "domain": "Uploaded by user",
+          "image_url": "https://i.pinimg.com/originals/f6/b4/da/f6b4da56cfa3996ec25f047ff3850db7.png",
+          "image_width": 1024,
+          "image_height": 1536,
+          "is_video": false,
+          "video_url": null,
+          "created_at": null,
+          "save_count": 257,
+          "reaction_counts": {
+           "1": 18
+          },
+          "creator_id": "1078119735704562608",
+          "creator_username": "aw_junaid",
+          "creator_name": "Abdul Wahab Junaid",
+          "creator_profile_url": "https://www.pinterest.com/aw_junaid/",
+          "board_id": "803400089716751612",
+          "board_name": "PYTHON",
+          "board_url": "https://www.pinterest.com/suma5048/python/",
+          "board_description": "Aug 30, 2026 - Explore Suma's board \"PYTHON\" on Pinterest. See more ideas about python, data science, data science learning.",
+          "board_privacy": "public",
+          "board_pin_count": 937,
+          "board_follower_count": 49,
+          "board_collaborator_count": 0,
+          "board_section_count": 0,
+          "board_created_at": null,
+          "board_modified_at": "Sun, 30 Aug 2026 06:54:43 +0000",
+          "board_cover_image_url": "https://i.pinimg.com/200x150/d6/84/b6/d684b64623b4f0dee69fcc123a28457b.jpg",
+          "owner_id": "803400158434829297",
+          "owner_username": "suma5048",
+          "owner_name": "Suma",
+          "owner_followers": null,
+          "owner_profile_url": "https://www.pinterest.com/suma5048/",
+          "created_at_iso": null,
+          "repin_count": 0,
+          "comment_count": null,
+          "share_count": null,
+          "alt_text": "a poster with words and pictures on it that say keywordss, python programming",
+          "dominant_color": "#fdfdfd",
+          "creator_followers": null,
+          "pinner_username": "suma5048",
+          "source": "board:suma5048/python",
+          "rank": 1,
+          "scraped_at": "2026-10-05T12:31:34.704779+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/pinterest-pins-boards"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

@@ -1,0 +1,157 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Ads.txt Checker API: Authorized Sellers and Publisher IDs",
+  "description": "Read any site's ads.txt and get each authorized seller as JSON: exchange, publisher ID, DIRECT or RESELLER, TAG ID. Live on every call, no login.\n\nSold on API.market: https://api.market/store/benthepythondev/ads-txt-scraper (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "ads-txt-scraper",
+   "storePage": "https://api.market/store/benthepythondev/ads-txt-scraper",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 2
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 2
+    },
+    {
+     "name": "Ultra",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 2
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 2
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/ads-txt-scraper"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "scrapeAdsTxt",
+    "summary": "Scrape ads.txt and app-ads.txt files",
+    "description": "Scrape ads.txt files and extract authorized ad sellers, publisher IDs, relationship types and certification authority IDs. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "targets": {
+          "title": "Targets",
+          "type": "array",
+          "description": "Domains or direct file URLs to check.",
+          "default": [
+           "https://www.cnn.com/ads.txt"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Max results per target",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum rows to return per target. A request returns 20 rows at most.",
+          "default": 10
+         },
+         "resolveSellers": {
+          "title": "Resolve sellers.json",
+          "type": "boolean",
+          "description": "Look up each seller in the ad system's sellers.json and add sellerName, sellerDomain, sellerType and sellerMatch to every row. One fetch per ad system.",
+          "default": false
+         }
+        }
+       },
+       "example": {
+        "targets": [
+         "https://www.cnn.com/ads.txt"
+        ],
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "source_url": "https://adstxt.dsc-ato.com/www.cnn.com/ads.txt",
+          "input_url": "https://www.cnn.com/ads.txt",
+          "domain": "adstxt.dsc-ato.com",
+          "status_code": 200,
+          "content_type": "text/plain",
+          "source": "ads",
+          "line_number": 6,
+          "exchange_domain": "themediagrid.com",
+          "publisher_id": "9UX1JV",
+          "relationship": "DIRECT",
+          "certification_authority_id": "35d5010d7789b49d",
+          "raw_line": "themediagrid.com, 9UX1JV, DIRECT, 35d5010d7789b49d"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/ads-txt-scraper"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

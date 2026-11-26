@@ -1,0 +1,232 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "TikTok Keyword Suggestions API: Search Autocomplete Terms",
+  "description": "TikTok search autocomplete suggestions for your seed keywords as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/tiktok-keyword-suggestions (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "tiktok-keyword-suggestions",
+   "storePage": "https://api.market/store/benthepythondev/tiktok-keyword-suggestions",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/tiktok-keyword-suggestions"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "TikTok Keyword Suggestions Scraper",
+    "description": "Collect ranked TikTok autocomplete suggestions from seed keywords with bounded alphabet, number and recursive expansion plus transparent frequency signals. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "required": [
+         "keywords"
+        ],
+        "properties": {
+         "keywords": {
+          "title": "Seed keywords",
+          "type": "array",
+          "description": "Seed terms to send to TikTok autocomplete.",
+          "default": [
+           "home decor"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "expandAlphabet": {
+          "title": "A-Z expansion",
+          "type": "boolean",
+          "description": "Append a through z to each seed before querying.",
+          "default": false
+         },
+         "expandNumbers": {
+          "title": "0-9 expansion",
+          "type": "boolean",
+          "description": "Append zero through nine to each seed before querying.",
+          "default": false
+         },
+         "expansionDepth": {
+          "title": "Recursive expansion depth",
+          "minimum": 0,
+          "maximum": 2,
+          "type": "integer",
+          "description": "Feed returned suggestions back into autocomplete. Zero uses only the initial query set; one is usually enough for broader research.",
+          "default": 0
+         },
+         "language": {
+          "title": "Request language",
+          "type": "string",
+          "description": "Accept-Language value used for the public TikTok request. Results can still reflect TikTok's own localization logic.",
+          "default": "en-US"
+         },
+         "maxQueries": {
+          "title": "Maximum query requests",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Hard request budget across seeds and all expansions. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "maxSuggestionsPerQuery": {
+          "title": "Maximum suggestions per query",
+          "minimum": 1,
+          "maximum": 50,
+          "type": "integer",
+          "description": "Maximum TikTok suggestions retained from each request.",
+          "default": 10
+         },
+         "maxResults": {
+          "title": "Maximum total results",
+          "minimum": 1,
+          "maximum": 5000,
+          "type": "integer",
+          "description": "Maximum suggestion rows saved to the dataset.",
+          "default": 10
+         },
+         "deduplicateSuggestions": {
+          "title": "Deduplicate suggestions",
+          "type": "boolean",
+          "description": "Merge the same suggestion across queries and report how often it appeared as volume_proxy.",
+          "default": true
+         }
+        }
+       },
+       "example": {
+        "keywords": [
+         "home decor"
+        ],
+        "expandAlphabet": false,
+        "expandNumbers": false,
+        "expansionDepth": 0,
+        "language": "en-US",
+        "maxQueries": 10,
+        "maxSuggestionsPerQuery": 10,
+        "maxResults": 10,
+        "deduplicateSuggestions": true
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "seed_keyword": "home decor",
+          "request_query": "home decor",
+          "source_queries": [
+           "home decor"
+          ],
+          "query_count": 1,
+          "suggestion": "home decor ideas",
+          "normalized_suggestion": "home decor ideas",
+          "group_id": "8580072324737445736",
+          "rank": 1,
+          "best_tiktok_rank": 1,
+          "query_rank": 1,
+          "expansion_depth": 0,
+          "volume_proxy": 1,
+          "language": "en",
+          "words_source": "sug",
+          "is_personalized": true,
+          "recall_reasons": [
+           "query_xlmr_viking_proxy_recall",
+           "tiktok_orion_ecom",
+           "orion_qse_recall"
+          ],
+          "cut_query_tokens": [
+           "home",
+           "decor",
+           "ideas"
+          ],
+          "matched_ranges": [
+           {
+            "begin": 0,
+            "end": 9
+           }
+          ],
+          "url": "https://www.tiktok.com/search?q=home+decor+ideas",
+          "scraped_at": "2026-10-07T18:21:57.478674+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/tiktok-keyword-suggestions"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

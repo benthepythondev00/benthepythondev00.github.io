@@ -1,0 +1,202 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "We Work Remotely Jobs API: Remote Listings by Keyword",
+  "description": "Remote job listings from We Work Remotely as JSON: title, company, category, region, posting date and full description, filtered by keyword or category.\n\nSold on API.market: https://api.market/store/benthepythondev/weworkremotely-jobs (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "weworkremotely-jobs",
+   "storePage": "https://api.market/store/benthepythondev/weworkremotely-jobs",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/weworkremotely-jobs"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "We Work Remotely Jobs Scraper",
+    "description": "Scrape We Work Remotely jobs by keyword across every category: title, company, region, job type, salary, apply-before date, allowed countries, skills, description and URL. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "keywords": {
+          "title": "Keywords",
+          "maxItems": 50,
+          "type": "array",
+          "description": "Keep only jobs whose title, company or description contains at least one of these words (case-insensitive), e.g. python, react, account executive. Empty keeps every job.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "categoryUrls": {
+          "title": "Category URLs",
+          "maxItems": 50,
+          "type": "array",
+          "description": "We Work Remotely category feed URLs to scrape exactly.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "categories": {
+          "title": "Categories",
+          "maxItems": 50,
+          "type": "array",
+          "description": "Category shortcuts. `all` reads every WWR category (about 500 jobs, duplicates removed). Others: programming, back-end, front-end, full-stack, devops, design, customer-support, sales, marketing (same feed as sales), management-and-finance, product, all-other.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Max results per category",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum jobs to return per category feed (after the keyword filter). A request returns 20 rows at most.",
+          "default": 10
+         },
+         "includeDetails": {
+          "title": "Include job details",
+          "type": "boolean",
+          "description": "Read each job's page for job type, salary (when the employer shows it), apply-before date, allowed countries for geo-locked jobs and skills.",
+          "default": true
+         },
+         "includeCompany": {
+          "title": "Include company profile",
+          "type": "boolean",
+          "description": "Also read the hiring company's WWR profile once per company: logo, website, location and About text.",
+          "default": false
+         }
+        }
+       },
+       "example": {
+        "categories": [
+         "programming"
+        ],
+        "keywords": [
+         "python"
+        ],
+        "maxResults": 5,
+        "includeDetails": true,
+        "includeCompany": true
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "title": "Senior .NET Full-stack Developer",
+          "company": "Lemon.io",
+          "company_url": "https://lemon.io",
+          "headquarters": "New York, NY",
+          "location": "New York, NY",
+          "region": "Anywhere in the World",
+          "category": "Full-Stack Programming",
+          "is_remote": true,
+          "published_at": "2026-10-08T11:41:36+00:00",
+          "url": "https://weworkremotely.com/remote-jobs/lemon-io-senior-net-full-stack-developer-2",
+          "description": "Headquarters: New York, NY URL: https://lemon.io Are you a talented Senior Developer looking for a remote job that lets you show your skills and get decent c...",
+          "source_url": "https://weworkremotely.com/categories/remote-programming-jobs",
+          "job_type": "Full-Time",
+          "salary": null,
+          "apply_before": "2026-11-07 11:41:36 UTC",
+          "countries": [
+           "Andorra",
+           "Albania",
+           "Argentina"
+          ],
+          "skills": [
+           "AngularJS",
+           "React",
+           "Vue.js"
+          ],
+          "company_profile_url": "https://weworkremotely.com/company/lemon-io",
+          "company_logo": "https://we-work-remotely.imgix.net/logos/0171/6623/logo.gif?ixlib=rails-4.0.0&w=50&h=50&dpr=2&fit=fill&auto=compress",
+          "company_website": "https://lemon.io",
+          "company_about": "lemon.io is an autopilot for recruiting engineers. We've replaced the slow, expensive recruiting agency with a platform that delivers vetted, responsive cand...",
+          "company_location": "New York, NY"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/weworkremotely-jobs"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

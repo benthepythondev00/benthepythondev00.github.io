@@ -1,0 +1,136 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "LinkedIn Profile API: All Sections and Verified Work Emails, No Login",
+  "description": "Extract public LinkedIn profiles as JSON: work history, education, skills, posts, and optional MX-verified public emails. No login, zero charge on 403s.\n\nSold on API.market: https://api.market/store/benthepythondev/linkedin-profile (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "linkedin-profile",
+   "storePage": "https://api.market/store/benthepythondev/linkedin-profile",
+   "plans": [
+    {
+     "name": "Free trial",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 5000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 18000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/linkedin-profile"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Profiles",
+    "description": "Scrape public LinkedIn profiles without login, cookies or API key: name, headline, location, followers, connections, current company, jobs with dates, education, skills, about, articles, recent posts and similar profiles. Up to 5 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "profileUrls": {
+          "title": "Profile links or usernames",
+          "type": "array",
+          "description": "Profile links (https://www.linkedin.com/in/<name>, any country subdomain) or bare identifiers such as satyanadella. A request returns 5 profiles at most.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxProfiles": {
+          "title": "Maximum profiles",
+          "minimum": 1,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Stops after this many profiles have been read. A request returns 5 rows at most.",
+          "default": 5
+         },
+         "includeEmail": {
+          "title": "Extract & MX-verify public emails",
+          "type": "boolean",
+          "default": false,
+          "description": "Scan each profile public text and linked websites for published email addresses and verify their domain MX records via DNS-over-HTTPS. Never guesses unverified patterns; adds email, emails, and emailVerification fields."
+         }
+        },
+        "required": [
+         "profileUrls"
+        ]
+       },
+       "example": {
+        "profileUrls": [
+         "https://www.linkedin.com/in/williamhgates",
+         "satyanadella"
+        ],
+        "maxProfiles": 2,
+        "includeEmail": true
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "JSON array of public LinkedIn profile objects"
+     },
+     "400": {
+      "description": "Missing or invalid profileUrls in request body (not billed)"
+     },
+     "404": {
+      "description": "No requested LinkedIn profile was found or public (not billed)"
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/linkedin-profile"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}
