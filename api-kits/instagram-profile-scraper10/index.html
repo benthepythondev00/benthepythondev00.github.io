@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instagram Profile Scraper API — OpenAPI 3.1, n8n &amp; MCP Docs</title>
+  <meta name="description" content="Instagram profile API without login: send up to 5 usernames, @handles or profile links per request and get followers, following, full name, bio, the real destin">
+  <link rel="canonical" href="https://benthepythondev00.github.io/api-kits/instagram-profile-scraper10/">
+  <meta name="robots" content="index,follow">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebAPI", "name": "Instagram Profile Scraper API", "description": "Instagram profile API without login: send up to 5 usernames, @handles or profile links per request and get followers, following, full name, bio, the real destinations of the bio links, verified and private flags, pronouns, profile picture and the linked Threads account, as JSON.", "url": "https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10", "documentation": "https://benthepythondev00.github.io/api-kits/instagram-profile-scraper10/", "provider": {"@type": "Organization", "name": "benthepythondev", "url": "https://rapidapi.com/user/benthepythondev0"}}, {"@type": "TechArticle", "headline": "Instagram Profile Scraper API — OpenAPI 3.1, n8n Template & MCP Integration Kit", "description": "Instagram profile API without login: send up to 5 usernames, @handles or profile links per request and get followers, following, full name, bio, the real destinations of the bio links, verified and private flags, pronouns, profile picture and the linked Threads account, as JSON.", "datePublished": "2026-11-26", "dateModified": "2026-11-26", "author": {"@type": "Person", "name": "Ben (benthepythondev)"}, "mainEntityOfPage": "https://benthepythondev00.github.io/api-kits/instagram-profile-scraper10/"}]}</script>
+  <style>
+    :root { --bg:#0d1117; --fg:#e6edf3; --muted:#9198a1; --card:#161b22; --border:#30363d; --accent:#58a6ff; --btn:#238636; }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#ffffff; --fg:#1f2328; --muted:#59636e; --card:#f6f8fa; --border:#d0d7de; --accent:#0969da; --btn:#1f883d; }
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+    main { max-width:920px; margin:0 auto; padding:28px 18px 64px; }
+    header { border-bottom:1px solid var(--border); padding-bottom:20px; margin-bottom:24px; }
+    h1 { margin:0 0 10px; font-size:clamp(1.6rem,3vw,2.2rem); line-height:1.25; }
+    h2 { margin:32px 0 12px; font-size:1.35rem; border-bottom:1px solid var(--border); padding-bottom:6px; }
+    h3 { margin:20px 0 8px; font-size:1.08rem; }
+    p { margin:0 0 14px; }
+    a { color:var(--accent); }
+    .meta { color:var(--muted); font-size:0.92rem; display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .btn { display:inline-block; padding:9px 14px; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.92rem; cursor:pointer; border:1px solid var(--border); background:var(--card); color:var(--fg); }
+    .btn-primary { background:var(--btn); border-color:var(--btn); color:#ffffff; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px; margin:16px 0; }
+    .code-head { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; font-size:0.9rem; color:var(--muted); }
+    pre { margin:0; padding:14px; border-radius:6px; border:1px solid var(--border); background:var(--bg); overflow-x:auto; font-size:0.84rem; line-height:1.45; }
+    code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.92rem; }
+    th, td { text-align:left; padding:9px 10px; border:1px solid var(--border); vertical-align:top; }
+    th { background:var(--card); }
+    .qa-item { margin:14px 0; padding:12px 14px; background:var(--card); border:1px solid var(--border); border-radius:8px; }
+    .qa-item h3 { margin:0 0 6px; }
+    .qa-item p { margin:0; }
+    footer { margin-top:40px; padding-top:18px; border-top:1px solid var(--border); color:var(--muted); font-size:0.9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="meta">
+      <span><a href="../">All API Integration Kits</a></span>
+      <span>Category: Social Media Data</span>
+      <span>Updated: 2026-11-26</span>
+    </p>
+    <h1>Instagram Profile Scraper API</h1>
+    <p><strong>What is the Instagram Profile Scraper API on RapidAPI?</strong> Instagram Profile Scraper API turns Instagram usernames, @handles, or profile URLs into structured JSON without an Instagram login, cookies, or Graph API OAuth flow. Each profile row returns exact follower and following counts, full name, biography, resolved bio_links destination URLs (not l.instagram.com redirects), verified and private flags, pronouns, profile picture URL, and linked threads_username. Paid plans process up to 5 profiles per request in 2 to 5 seconds (free Basic returns 2 profiles per request across 10 monthly calls). Paid plans are Pro ($25/mo, 7,812 requests), Ultra ($75/mo, 23,437 requests), and Mega ($150/mo, 46,875 requests).</p>
+    <p>Unlike Instagram scrapers that return wrapped l.instagram.com redirect URLs or fail the entire batch when one handle is missing, this API resolves every bio_links destination URL cleanly and skips missing handles without spoiling the rest of the batch.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10" rel="noopener">Start Free on RapidAPI</a>
+      <button class="btn" type="button" data-copy-target="llm-docs-block">Copy docs for LLM</button>
+      <a class="btn" href="openapi-3.1.json" download>Download OpenAPI 3.1</a>
+      <a class="btn" href="n8n-workflow.json" download>Download n8n JSON</a>
+      <a class="btn" href="mcp-tool.json" download>Download MCP JSON</a>
+    </div>
+  </header>
+
+  <section id="copy-docs-for-llm" class="card">
+    <div class="code-head">
+      <strong>Copy docs for LLM (Claude, Cursor, ChatGPT)</strong>
+      <button class="btn" type="button" data-copy-target="llm-docs-block">Copy Markdown</button>
+    </div>
+    <p>Paste this single block into Cursor, Claude, or ChatGPT to generate a working client without guessing headers or schema fields.</p>
+    <pre id="llm-docs-block"><code># Instagram Profile Scraper API — LLM Integration Reference
+
+- **RapidAPI Listing**: https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10
+- **Base URL**: `https://instagram-profile-scraper10.p.rapidapi.com`
+- **Primary Endpoint**: `POST /`
+- **Auth Headers**: `x-rapidapi-host: instagram-profile-scraper10.p.rapidapi.com` and `x-rapidapi-key: &lt;RAPIDAPI_KEY&gt;`
+- **Plans**: BASIC $0/mo (10 reqs), PRO $25/mo (7,812 reqs), ULTRA $75/mo (23,437 reqs), MEGA $150/mo (46,875 reqs)
+- **Updated**: 2026-11-26
+
+## Summary
+Instagram Profile Scraper API turns Instagram usernames, @handles, or profile URLs into structured JSON without an Instagram login, cookies, or Graph API OAuth flow. Each profile row returns exact follower and following counts, full name, biography, resolved bio_links destination URLs (not l.instagram.com redirects), verified and private flags, pronouns, profile picture URL, and linked threads_username. Paid plans process up to 5 profiles per request in 2 to 5 seconds (free Basic returns 2 profiles per request across 10 monthly calls). Paid plans are Pro ($25/mo, 7,812 requests), Ultra ($75/mo, 23,437 requests), and Mega ($150/mo, 46,875 requests).
+
+## Request Body Fields (`POST /`)
+- `usernames` (array): Usernames, @handles or profile links, for example natgeo, @nasa or https://www.instagram.com/nike/. A request returns 5 profiles at most.
+
+## Example Request (cURL)
+```bash
+curl --request POST \
+  --url &#x27;https://instagram-profile-scraper10.p.rapidapi.com/&#x27; \
+  --header &#x27;Content-Type: application/json&#x27; \
+  --header &#x27;x-rapidapi-host: instagram-profile-scraper10.p.rapidapi.com&#x27; \
+  --header &#x27;x-rapidapi-key: YOUR_RAPIDAPI_KEY&#x27; \
+  --data &#x27;{&quot;usernames&quot;: [&quot;natgeo&quot;, &quot;nasa&quot;]}&#x27;
+```
+
+## Example Response Item (Real Output)
+```json
+{
+  &quot;record_type&quot;: &quot;profile&quot;,
+  &quot;id&quot;: &quot;787132&quot;,
+  &quot;username&quot;: &quot;natgeo&quot;,
+  &quot;url&quot;: &quot;https://www.instagram.com/natgeo/&quot;,
+  &quot;full_name&quot;: &quot;National Geographic&quot;,
+  &quot;biography&quot;: &quot;Step into wonder and find your inner explorer with National Geographic 🌎&quot;,
+  &quot;bio_links&quot;: [
+    &quot;http://visitstore.bio/natgeo&quot;,
+    &quot;https://ngmdomsubs.nationalgeographic.com/servlet/OrdersGateway?cds_mag_code=NGM&amp;cds_page_id=283562&amp;cds_response_key=I5FX10002&quot;
+  ],
+  &quot;followers&quot;: 268446642,
+  &quot;following&quot;: 194,
+  &quot;is_verified&quot;: true,
+  &quot;is_private&quot;: false,
+  &quot;has_reels&quot;: true,
+  &quot;pronouns&quot;: [],
+  &quot;threads_username&quot;: &quot;natgeo&quot;,
+  &quot;profile_pic_url&quot;: &quot;https://scontent-iad6-1.cdninstagram.com/v/t51.82787-19/683576066_18653628823019133_9051036240972105113_n.jpg?stp=dst-jpg_s150x150_tt6&amp;_nc_cat=1&amp;ccb=7-5&amp;_nc_...&quot;,
+  &quot;scraped_at&quot;: &quot;2026-10-05T11:17:45.457752+00:00&quot;
+}
+```
+</code></pre>
+  </section>
+
+  <section id="quickstart">
+    <h2>Quickstart: cURL, Python &amp; Node.js</h2>
+    <p>Endpoint: <code>POST https://instagram-profile-scraper10.p.rapidapi.com/</code></p>
+
+    <div class="card">
+      <div class="code-head"><strong>cURL</strong><button class="btn" type="button" data-copy-target="code-curl">Copy</button></div>
+      <pre id="code-curl"><code>curl --request POST \
+  --url &#x27;https://instagram-profile-scraper10.p.rapidapi.com/&#x27; \
+  --header &#x27;Content-Type: application/json&#x27; \
+  --header &#x27;x-rapidapi-host: instagram-profile-scraper10.p.rapidapi.com&#x27; \
+  --header &#x27;x-rapidapi-key: YOUR_RAPIDAPI_KEY&#x27; \
+  --data &#x27;{&quot;usernames&quot;: [&quot;natgeo&quot;, &quot;nasa&quot;]}&#x27;</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="code-head"><strong>Python (requests)</strong><button class="btn" type="button" data-copy-target="code-python">Copy</button></div>
+      <pre id="code-python"><code>import os
+import requests
+
+url = &quot;https://instagram-profile-scraper10.p.rapidapi.com/&quot;
+payload = {
+  &quot;usernames&quot;: [
+    &quot;natgeo&quot;,
+    &quot;nasa&quot;
+  ]
+}
+headers = {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;x-rapidapi-host&quot;: &quot;instagram-profile-scraper10.p.rapidapi.com&quot;,
+    &quot;x-rapidapi-key&quot;: os.environ[&quot;RAPIDAPI_KEY&quot;],
+}
+response = requests.post(url, json=payload, headers=headers, timeout=120)
+response.raise_for_status()
+rows = response.json()
+print(f&#x27;Returned {len(rows)} rows&#x27;, rows[0] if rows else None)</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="code-head"><strong>Node.js (fetch)</strong><button class="btn" type="button" data-copy-target="code-node">Copy</button></div>
+      <pre id="code-node"><code>const url = &quot;https://instagram-profile-scraper10.p.rapidapi.com/&quot;;
+const response = await fetch(url, {
+  method: &quot;POST&quot;,
+  headers: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;x-rapidapi-host&quot;: &quot;instagram-profile-scraper10.p.rapidapi.com&quot;,
+    &quot;x-rapidapi-key&quot;: process.env.RAPIDAPI_KEY,
+  },
+  body: JSON.stringify({&quot;usernames&quot;: [&quot;natgeo&quot;, &quot;nasa&quot;]}),
+});
+if (!response.ok) throw new Error(`HTTP ${response.status}: ${await response.text()}`);
+const rows = await response.json();
+console.log(rows.length, rows[0]);</code></pre>
+    </div>
+  </section>
+
+  <section id="n8n">
+    <h2>1-Click n8n HTTP Request Template</h2>
+    <p>Copy this workflow JSON and paste it directly into an n8n canvas, or <a href="n8n-workflow.json" download>download n8n-workflow.json</a>.</p>
+    <div class="card">
+      <div class="code-head"><strong>n8n Workflow JSON</strong><button class="btn" type="button" data-copy-target="code-n8n">Copy n8n JSON</button></div>
+      <pre id="code-n8n"><code>{
+  &quot;name&quot;: &quot;Instagram Profile Scraper API (RapidAPI)&quot;,
+  &quot;nodes&quot;: [
+    {
+      &quot;parameters&quot;: {},
+      &quot;id&quot;: &quot;manual-trigger-1&quot;,
+      &quot;name&quot;: &quot;When clicking Execute workflow&quot;,
+      &quot;type&quot;: &quot;n8n-nodes-base.manualTrigger&quot;,
+      &quot;typeVersion&quot;: 1,
+      &quot;position&quot;: [
+        240,
+        300
+      ]
+    },
+    {
+      &quot;parameters&quot;: {
+        &quot;method&quot;: &quot;POST&quot;,
+        &quot;url&quot;: &quot;https://instagram-profile-scraper10.p.rapidapi.com/&quot;,
+        &quot;sendHeaders&quot;: true,
+        &quot;headerParameters&quot;: {
+          &quot;parameters&quot;: [
+            {
+              &quot;name&quot;: &quot;Content-Type&quot;,
+              &quot;value&quot;: &quot;application/json&quot;
+            },
+            {
+              &quot;name&quot;: &quot;x-rapidapi-host&quot;,
+              &quot;value&quot;: &quot;instagram-profile-scraper10.p.rapidapi.com&quot;
+            },
+            {
+              &quot;name&quot;: &quot;x-rapidapi-key&quot;,
+              &quot;value&quot;: &quot;={{ $env.RAPIDAPI_KEY || &#x27;YOUR_RAPIDAPI_KEY&#x27; }}&quot;
+            }
+          ]
+        },
+        &quot;sendBody&quot;: true,
+        &quot;specifyBody&quot;: &quot;json&quot;,
+        &quot;jsonBody&quot;: &quot;{\n  \&quot;usernames\&quot;: [\n    \&quot;natgeo\&quot;,\n    \&quot;nasa\&quot;\n  ]\n}&quot;,
+        &quot;options&quot;: {
+          &quot;timeout&quot;: 120000
+        }
+      },
+      &quot;id&quot;: &quot;rapidapi-http-1&quot;,
+      &quot;name&quot;: &quot;Call Instagram Profile Scraper API&quot;,
+      &quot;type&quot;: &quot;n8n-nodes-base.httpRequest&quot;,
+      &quot;typeVersion&quot;: 4.2,
+      &quot;position&quot;: [
+        500,
+        300
+      ]
+    }
+  ],
+  &quot;connections&quot;: {
+    &quot;When clicking Execute workflow&quot;: {
+      &quot;main&quot;: [
+        [
+          {
+            &quot;node&quot;: &quot;Call Instagram Profile Scraper API&quot;,
+            &quot;type&quot;: &quot;main&quot;,
+            &quot;index&quot;: 0
+          }
+        ]
+      ]
+    }
+  },
+  &quot;active&quot;: false,
+  &quot;settings&quot;: {
+    &quot;executionOrder&quot;: &quot;v1&quot;
+  },
+  &quot;meta&quot;: {
+    &quot;templateCredsSetupCompleted&quot;: false,
+    &quot;rapidapiListing&quot;: &quot;https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10&quot;
+  }
+}</code></pre>
+    </div>
+  </section>
+
+  <section id="mcp">
+    <h2>MCP Tool Definition for Claude &amp; Cursor</h2>
+    <p>Register this tool schema in your custom MCP server or connect via the hosted Apify MCP URL (<a href="mcp-tool.json" download>download mcp-tool.json</a>).</p>
+    <div class="card">
+      <div class="code-head"><strong>MCP Tool &amp; Server Config</strong><button class="btn" type="button" data-copy-target="code-mcp">Copy MCP JSON</button></div>
+      <pre id="code-mcp"><code>{
+  &quot;tool&quot;: {
+    &quot;name&quot;: &quot;scrape_instagram_profiles&quot;,
+    &quot;description&quot;: &quot;Instagram profile API without login: send up to 5 usernames, @handles or profile links per request and get followers, following, full name, bio, the real destinations of the bio links, verified and private flags, pronouns, profile picture and the linked Threads account, as JSON.&quot;,
+    &quot;inputSchema&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;usernames&quot;: {
+          &quot;title&quot;: &quot;Instagram usernames&quot;,
+          &quot;maxItems&quot;: 50,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;description&quot;: &quot;Usernames, @handles or profile links, for example natgeo, @nasa or https://www.instagram.com/nike/. A request returns 5 profiles at most.&quot;,
+          &quot;default&quot;: [
+            &quot;natgeo&quot;,
+            &quot;nasa&quot;
+          ],
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        }
+      }
+    },
+    &quot;x-rapidapi&quot;: {
+      &quot;method&quot;: &quot;POST&quot;,
+      &quot;url&quot;: &quot;https://instagram-profile-scraper10.p.rapidapi.com/&quot;,
+      &quot;headers&quot;: {
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+        &quot;x-rapidapi-host&quot;: &quot;instagram-profile-scraper10.p.rapidapi.com&quot;,
+        &quot;x-rapidapi-key&quot;: &quot;${RAPIDAPI_KEY}&quot;
+      },
+      &quot;exampleInput&quot;: {
+        &quot;usernames&quot;: [
+          &quot;natgeo&quot;,
+          &quot;nasa&quot;
+        ]
+      }
+    }
+  },
+  &quot;claudeDesktopAndCursorHostedMcp&quot;: {
+    &quot;mcpServers&quot;: {
+      &quot;instagram-profile-scraper&quot;: {
+        &quot;url&quot;: &quot;https://mcp.apify.com/?tools=benthepythondev/instagram-profile-scraper&quot;,
+        &quot;headers&quot;: {
+          &quot;Authorization&quot;: &quot;Bearer YOUR_APIFY_TOKEN&quot;
+        }
+      }
+    }
+  }
+}</code></pre>
+    </div>
+  </section>
+  
+
+  <section id="schema">
+    <h2>Request Parameters &amp; Real JSON Response</h2>
+    <p>Full machine-readable specification: <a href="openapi-3.1.json">openapi-3.1.json (OpenAPI 3.1.0)</a>.</p>
+    <table>
+      <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+      <tbody><tr><td><code>usernames</code></td><td>array</td><td>Usernames, @handles or profile links, for example natgeo, @nasa or https://www.instagram.com/nike/. A request returns 5 profiles at most.</td></tr></tbody>
+    </table>
+    <h3>Real JSON Response Sample</h3>
+    <div class="card">
+      <div class="code-head"><strong>201 Created (1 item of array)</strong><button class="btn" type="button" data-copy-target="code-sample">Copy JSON</button></div>
+      <pre id="code-sample"><code>{
+  &quot;record_type&quot;: &quot;profile&quot;,
+  &quot;id&quot;: &quot;787132&quot;,
+  &quot;username&quot;: &quot;natgeo&quot;,
+  &quot;url&quot;: &quot;https://www.instagram.com/natgeo/&quot;,
+  &quot;full_name&quot;: &quot;National Geographic&quot;,
+  &quot;biography&quot;: &quot;Step into wonder and find your inner explorer with National Geographic 🌎&quot;,
+  &quot;bio_links&quot;: [
+    &quot;http://visitstore.bio/natgeo&quot;,
+    &quot;https://ngmdomsubs.nationalgeographic.com/servlet/OrdersGateway?cds_mag_code=NGM&amp;cds_page_id=283562&amp;cds_response_key=I5FX10002&quot;
+  ],
+  &quot;followers&quot;: 268446642,
+  &quot;following&quot;: 194,
+  &quot;is_verified&quot;: true,
+  &quot;is_private&quot;: false,
+  &quot;has_reels&quot;: true,
+  &quot;pronouns&quot;: [],
+  &quot;threads_username&quot;: &quot;natgeo&quot;,
+  &quot;profile_pic_url&quot;: &quot;https://scontent-iad6-1.cdninstagram.com/v/t51.82787-19/683576066_18653628823019133_9051036240972105113_n.jpg?stp=dst-jpg_s150x150_tt6&amp;_nc_cat=1&amp;ccb=7-5&amp;_nc_...&quot;,
+  &quot;scraped_at&quot;: &quot;2026-10-05T11:17:45.457752+00:00&quot;
+}</code></pre>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>RapidAPI Pricing Plans</h2>
+    <table>
+      <thead><tr><th>Tier</th><th>Price</th><th>Requests / Month</th><th>Limit Type</th></tr></thead>
+      <tbody><tr><td><strong>BASIC</strong></td><td>$0/mo</td><td>10</td><td>Hard limit</td></tr>
+<tr><td><strong>PRO</strong></td><td>$25/mo</td><td>7,812</td><td>Soft limit</td></tr>
+<tr><td><strong>ULTRA</strong></td><td>$75/mo</td><td>23,437</td><td>Soft limit</td></tr>
+<tr><td><strong>MEGA</strong></td><td>$150/mo</td><td>46,875</td><td>Soft limit</td></tr></tbody>
+    </table>
+  </section>
+
+  <section id="faq">
+    <h2>Questions &amp; Answers</h2>
+    <article class="qa-item"><h3>Do I need Instagram cookies or a Meta developer app?</h3><p>No. Requests run with no Instagram login or cookies. Authenticate only with your RapidAPI x-rapidapi-key header.</p></article>
+<article class="qa-item"><h3>Does bio_links return real URLs instead of l.instagram.com redirects?</h3><p>Yes. Every link in bio_links is unwrapped to its real destination URL (company websites, Linktree pages, etc.).</p></article>
+<article class="qa-item"><h3>What happens if one username in my batch does not exist or is private?</h3><p>Missing or hidden accounts are skipped without failing the request; the other valid handles still return. Private accounts return their public metadata with is_private: true.</p></article>
+<article class="qa-item"><h3>How fast is a typical request?</h3><p>Measured across 91 live subscriber requests, responses completed in 2 to 5 seconds with a 100% row return rate.</p></article>
+<article class="qa-item"><h3>Does it return email addresses or post counts?</h3><p>No. Instagram hides emails, phone numbers, and exact post counts from logged-out visitors, so those fields are omitted rather than guessed.</p></article>
+  </section>
+
+  <footer>
+    <p><strong>More RapidAPI Integration Kits:</strong></p>
+    <ul><li><a href="../facebook-posts-scraper2/">Facebook Posts Scraper API</a></li>
+<li><a href="../tiktok-profile-scraper2/">TikTok Profile Scraper API</a></li>
+<li><a href="../job-search-api-indeed-linkedin-reed-seek-and-ats-boards/">Job Search API (Indeed, LinkedIn, Reed, ATS Boards)</a></li></ul>
+    <p>Maintained by benthepythondev. <a href="https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10" rel="noopener">Open Instagram Profile Scraper API on RapidAPI</a>.</p>
+  </footer>
+</main>
+<script>
+document.querySelectorAll('[data-copy-target]').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    try {
+      await navigator.clipboard.writeText(el.innerText);
+      const orig = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(() => { btn.textContent = orig; }, 1600);
+    } catch (e) {}
+  });
+});
+</script>
+</body>
+</html>

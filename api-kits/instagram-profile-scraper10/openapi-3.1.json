@@ -1,0 +1,124 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Instagram Profile Scraper API",
+    "version": "1.0.0",
+    "description": "Instagram profile API without login: send up to 5 usernames, @handles or profile links per request and get followers, following, full name, bio, the real destinations of the bio links, verified and private flags, pronouns, profile picture and the linked Threads account, as JSON.",
+    "contact": {
+      "name": "benthepythondev",
+      "url": "https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://instagram-profile-scraper10.p.rapidapi.com",
+      "description": "RapidAPI Production Gateway"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "RapidAPIKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-rapidapi-key",
+        "description": "Your RapidAPI subscription key from rapidapi.com"
+      },
+      "RapidAPIHost": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-rapidapi-host",
+        "description": "Must be set to instagram-profile-scraper10.p.rapidapi.com"
+      }
+    }
+  },
+  "paths": {
+    "/": {
+      "post": {
+        "operationId": "profiles",
+        "summary": "Profiles",
+        "description": "Instagram profile API without login: send up to 5 usernames, @handles or profile links per request and get followers, following, full name, bio, the real destinations of the bio links, verified and private flags, pronouns, profile picture and the linked Threads account, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "usernames": {
+                    "title": "Instagram usernames",
+                    "maxItems": 50,
+                    "type": "array",
+                    "description": "Usernames, @handles or profile links, for example natgeo, @nasa or https://www.instagram.com/nike/. A request returns 5 profiles at most.",
+                    "default": [
+                      "natgeo",
+                      "nasa"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": {
+                "usernames": [
+                  "natgeo",
+                  "nasa"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 5 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "record_type": "profile",
+                    "id": "787132",
+                    "username": "natgeo",
+                    "url": "https://www.instagram.com/natgeo/",
+                    "full_name": "National Geographic",
+                    "biography": "Step into wonder and find your inner explorer with National Geographic 🌎",
+                    "bio_links": [
+                      "http://visitstore.bio/natgeo",
+                      "https://ngmdomsubs.nationalgeographic.com/servlet/OrdersGateway?cds_mag_code=NGM&cds_page_id=283562&cds_response_key=I5FX10002"
+                    ],
+                    "followers": 268446642,
+                    "following": 194,
+                    "is_verified": true,
+                    "is_private": false,
+                    "has_reels": true,
+                    "pronouns": [],
+                    "threads_username": "natgeo",
+                    "profile_pic_url": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-19/683576066_18653628823019133_9051036240972105113_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=1&ccb=7-5&_nc_...",
+                    "scraped_at": "2026-10-05T11:17:45.457752+00:00"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    }
+  }
+}

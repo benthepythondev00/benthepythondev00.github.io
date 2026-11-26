@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TikTok Profile Scraper API — OpenAPI 3.1, n8n &amp; MCP Docs</title>
+  <meta name="description" content="Returns one row per TikTok profile: exact followers, following, likes and video count, bio, bio link, verified badge, business category, region and the latest v">
+  <link rel="canonical" href="https://benthepythondev00.github.io/api-kits/tiktok-profile-scraper2/">
+  <meta name="robots" content="index,follow">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebAPI", "name": "TikTok Profile Scraper API", "description": "Returns one row per TikTok profile: exact followers, following, likes and video count, bio, bio link, verified badge, business category, region and the latest videos with play counts, posting rate and last post date. Up to 5 results per request, as JSON.", "url": "https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2", "documentation": "https://benthepythondev00.github.io/api-kits/tiktok-profile-scraper2/", "provider": {"@type": "Organization", "name": "benthepythondev", "url": "https://rapidapi.com/user/benthepythondev0"}}, {"@type": "TechArticle", "headline": "TikTok Profile Scraper API — OpenAPI 3.1, n8n Template & MCP Integration Kit", "description": "Returns one row per TikTok profile: exact followers, following, likes and video count, bio, bio link, verified badge, business category, region and the latest videos with play counts, posting rate and last post date. Up to 5 results per request, as JSON.", "datePublished": "2026-11-26", "dateModified": "2026-11-26", "author": {"@type": "Person", "name": "Ben (benthepythondev)"}, "mainEntityOfPage": "https://benthepythondev00.github.io/api-kits/tiktok-profile-scraper2/"}]}</script>
+  <style>
+    :root { --bg:#0d1117; --fg:#e6edf3; --muted:#9198a1; --card:#161b22; --border:#30363d; --accent:#58a6ff; --btn:#238636; }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#ffffff; --fg:#1f2328; --muted:#59636e; --card:#f6f8fa; --border:#d0d7de; --accent:#0969da; --btn:#1f883d; }
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+    main { max-width:920px; margin:0 auto; padding:28px 18px 64px; }
+    header { border-bottom:1px solid var(--border); padding-bottom:20px; margin-bottom:24px; }
+    h1 { margin:0 0 10px; font-size:clamp(1.6rem,3vw,2.2rem); line-height:1.25; }
+    h2 { margin:32px 0 12px; font-size:1.35rem; border-bottom:1px solid var(--border); padding-bottom:6px; }
+    h3 { margin:20px 0 8px; font-size:1.08rem; }
+    p { margin:0 0 14px; }
+    a { color:var(--accent); }
+    .meta { color:var(--muted); font-size:0.92rem; display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .btn { display:inline-block; padding:9px 14px; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.92rem; cursor:pointer; border:1px solid var(--border); background:var(--card); color:var(--fg); }
+    .btn-primary { background:var(--btn); border-color:var(--btn); color:#ffffff; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px; margin:16px 0; }
+    .code-head { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; font-size:0.9rem; color:var(--muted); }
+    pre { margin:0; padding:14px; border-radius:6px; border:1px solid var(--border); background:var(--bg); overflow-x:auto; font-size:0.84rem; line-height:1.45; }
+    code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.92rem; }
+    th, td { text-align:left; padding:9px 10px; border:1px solid var(--border); vertical-align:top; }
+    th { background:var(--card); }
+    .qa-item { margin:14px 0; padding:12px 14px; background:var(--card); border:1px solid var(--border); border-radius:8px; }
+    .qa-item h3 { margin:0 0 6px; }
+    .qa-item p { margin:0; }
+    footer { margin-top:40px; padding-top:18px; border-top:1px solid var(--border); color:var(--muted); font-size:0.9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="meta">
+      <span><a href="../">All API Integration Kits</a></span>
+      <span>Category: Social Media Data</span>
+      <span>Updated: 2026-11-26</span>
+    </p>
+    <h1>TikTok Profile Scraper API</h1>
+    <p><strong>What is the TikTok Profile Scraper API on RapidAPI?</strong> TikTok Profile Scraper API enriches public TikTok usernames and profile URLs with exact follower counts, following counts, total likes, video totals, verification flags, bio links, business category, TikTok Shop seller status, and recent video play statistics in a single JSON array response. No TikTok login, cookies, or developer app approval is required. Paid plans return up to 5 profiles per request (free Basic returns up to 2 profiles per request across 10 free monthly calls). Paid tiers start at Pro ($25/mo, 4,340 requests), Ultra ($75/mo, 13,020 requests), and Mega ($150/mo, 26,041 requests).</p>
+    <p>Unlike generic TikTok downloader APIs that return rounded follower counts (such as 1.9M) and omit creator vetting metrics, this API returns exact integer counts plus recent_avg_plays, recent_median_plays, posts_per_week, tiktok_shop_seller, and optional per-video engagement rates via includeVideoStats.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2" rel="noopener">Start Free on RapidAPI</a>
+      <button class="btn" type="button" data-copy-target="llm-docs-block">Copy docs for LLM</button>
+      <a class="btn" href="openapi-3.1.json" download>Download OpenAPI 3.1</a>
+      <a class="btn" href="n8n-workflow.json" download>Download n8n JSON</a>
+      <a class="btn" href="mcp-tool.json" download>Download MCP JSON</a>
+    </div>
+  </header>
+
+  <section id="copy-docs-for-llm" class="card">
+    <div class="code-head">
+      <strong>Copy docs for LLM (Claude, Cursor, ChatGPT)</strong>
+      <button class="btn" type="button" data-copy-target="llm-docs-block">Copy Markdown</button>
+    </div>
+    <p>Paste this single block into Cursor, Claude, or ChatGPT to generate a working client without guessing headers or schema fields.</p>
+    <pre id="llm-docs-block"><code># TikTok Profile Scraper API — LLM Integration Reference
+
+- **RapidAPI Listing**: https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2
+- **Base URL**: `https://tiktok-profile-scraper2.p.rapidapi.com`
+- **Primary Endpoint**: `POST /`
+- **Auth Headers**: `x-rapidapi-host: tiktok-profile-scraper2.p.rapidapi.com` and `x-rapidapi-key: &lt;RAPIDAPI_KEY&gt;`
+- **Plans**: BASIC $0/mo (10 reqs), PRO $25/mo (4,340 reqs), ULTRA $75/mo (13,020 reqs), MEGA $150/mo (26,041 reqs)
+- **Updated**: 2026-11-26
+
+## Summary
+TikTok Profile Scraper API enriches public TikTok usernames and profile URLs with exact follower counts, following counts, total likes, video totals, verification flags, bio links, business category, TikTok Shop seller status, and recent video play statistics in a single JSON array response. No TikTok login, cookies, or developer app approval is required. Paid plans return up to 5 profiles per request (free Basic returns up to 2 profiles per request across 10 free monthly calls). Paid tiers start at Pro ($25/mo, 4,340 requests), Ultra ($75/mo, 13,020 requests), and Mega ($150/mo, 26,041 requests).
+
+## Request Body Fields (`POST /`)
+- `profiles` (array): One to 10,000 usernames, @handles or canonical HTTPS profile URLs. Duplicate handles are looked up once. Video URLs and shortened share links are not accepted.
+- `maxProfiles` (integer): Maximum unique profiles to look up after duplicate removal. A request returns 5 rows at most.
+- `delayBetweenRequests` (integer): Delay in milliseconds between requests to avoid rate limiting. Recommended: 500-1000ms
+- `includeRecentVideos` (boolean): Add the videos TikTok lists for the profile (pinned ones and the latest ten, with play counts, posting times and links), their average and median plays, the posting rate and the time of the last post. Costs nothing extra.
+- `includeVideoStats` (boolean): Read the latest videos from TikTok&#x27;s creator list instead of the embed list: each video then also has likes, comments, shares, music title and its engagement rate ((likes + comments + shares) / plays), and the row gets recent_avg_engagement_rate. Pinned videos stay first. One extra request per 15 videos; costs nothing extra per profile.
+- `maxVideosPerProfile` (integer): How many of the latest videos get likes, comments and shares when the option above is on. 1 to 50.
+
+## Example Request (cURL)
+```bash
+curl --request POST \
+  --url &#x27;https://tiktok-profile-scraper2.p.rapidapi.com/&#x27; \
+  --header &#x27;Content-Type: application/json&#x27; \
+  --header &#x27;x-rapidapi-host: tiktok-profile-scraper2.p.rapidapi.com&#x27; \
+  --header &#x27;x-rapidapi-key: YOUR_RAPIDAPI_KEY&#x27; \
+  --data &#x27;{&quot;profiles&quot;: [&quot;nasa&quot;], &quot;maxProfiles&quot;: 3}&#x27;
+```
+
+## Example Response Item (Real Output)
+```json
+{
+  &quot;username&quot;: &quot;nasa&quot;,
+  &quot;user_id&quot;: &quot;7664638705177150477&quot;,
+  &quot;nickname&quot;: &quot;NASA&quot;,
+  &quot;bio&quot;: &quot;Making the seemingly impossible, possible.✨&quot;,
+  &quot;verified&quot;: true,
+  &quot;followers&quot;: 2141107,
+  &quot;following&quot;: 23,
+  &quot;likes&quot;: 11392862,
+  &quot;video_count&quot;: 60,
+  &quot;avatar_url&quot;: &quot;https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/e5143212a59c09a008bf50f487d54d1f~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&amp;refresh_toke...&quot;,
+  &quot;bio_link&quot;: &quot;science.nasa.gov/feature/artemis-ii-preliminary-lunar-science-report&quot;,
+  &quot;region&quot;: null,
+  &quot;language&quot;: &quot;en&quot;,
+  &quot;private_account&quot;: false,
+  &quot;sec_uid&quot;: &quot;MS4wLjABAAAAU9BRVzC8oCaegVnia8IbqWhPb_-dbU7s00Y3wS1_Nx8g5RUaYvyXrpejgjdxTwd6&quot;,
+  &quot;business_account&quot;: false,
+  &quot;business_category&quot;: null,
+  &quot;tiktok_shop_seller&quot;: false,
+  &quot;created_at&quot;: &quot;2026-07-20T15:55:49&quot;,
+  &quot;scraped_at&quot;: &quot;2026-10-27T08:36:56.844768&quot;,
+  &quot;input_url&quot;: &quot;nasa&quot;,
+  &quot;recent_videos&quot;: [
+    {
+      &quot;id&quot;: &quot;7665075736742530317&quot;,
+      &quot;url&quot;: &quot;https://www.tiktok.com/@nasa/video/7665075736742530317&quot;,
+      &quot;description&quot;: &quot;Something big just landed on TikTok.&quot;,
+      &quot;plays&quot;: 1700000,
+      &quot;posted_at&quot;: &quot;2026-07-21T20:08:37&quot;,
+      &quot;pinned&quot;: true,
+      &quot;cover_url&quot;: &quot;https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/o0HdfAsh9SB9VEQqqXFfDBgq90rHH8QBRvD7EM~tplv-tiktokx-origin.image?dr=9636&amp;x-expires=1793260800&amp;...&quot;,
+      &quot;video_url&quot;: &quot;https://v45.tiktokcdn-us.com/19f878fc2087d32b493ba58b5a875b6d/6ae305c2/video/tos/useast5/tos-useast5-ve-0068c001-tx/okRjOkUA6WdCIZ4fGHgZ7vLlpMACrAe2IoIzOf/?a...&quot;
+    },
+    {
+      &quot;id&quot;: &quot;7700397098994273549&quot;,
+      &quot;url&quot;: &quot;https://www.tiktok.com/@nasa/video/7700397098994273549&quot;,
+      &quot;description&quot;: &quot;NASA 🤝 college football. We heard y’all like a good air show. Roll Tide!&quot;,
+      &quot;plays&quot;: 69800,
+      &quot;posted_at&quot;: &quot;2026-10-25T00:33:32&quot;,
+      &quot;pinned&quot;: false,
+      &quot;cover_url&quot;: &quot;https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/ooUB4OadAgn4m17rgviBbtVOIuC3T1UIEPicX~tplv-tiktokx-origin.image?dr=9636&amp;x-expires=1793260800&amp;x...&quot;,
+      &quot;video_url&quot;: &quot;https://v16m.tiktokcdn-us.com/85164b9f1941fb862ba07416061d5a5d/6ae305b9/video/tos/useast5/tos-useast5-ve-0068c003-tx/o0TUqDI35gDcgpAcQNfEB7OdASFoR3rElLJXf9/?...&quot;
+    },
+    {
+      &quot;id&quot;: &quot;7699974130153590029&quot;,
+      &quot;url&quot;: &quot;https://www.tiktok.com/@nasa/video/7699974130153590029&quot;,
+      &quot;description&quot;: &quot;NASA shared a major update today on the road ahead for Artemis 🚀   2027: Artemis III tests Orion and two lunar landers in low Earth orbit. 2028: Artemis IV r...&quot;,
+      &quot;plays&quot;: 188900,
+      &quot;posted_at&quot;: &quot;2026-10-23T21:12:12&quot;,
+      &quot;pinned&quot;: false,
+      &quot;cover_url&quot;: &quot;https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/o4zIgi2BR0VIqAzfbAd2L8c6W2lBEBifSBRD1V~tplv-tiktokx-origin.image?dr=9636&amp;x-expires=1793260800&amp;...&quot;,
+      &quot;video_url&quot;: &quot;https://v16m.tiktokcdn-us.com/e607956a888fbf19cbb31ef91f582396/6ae30653/video/tos/useast5/tos-useast5-ve-0068c003-tx/oQ8BRVff3biqiDA2I0hdRz2BgiFESiQWBV2DEa/?...&quot;
+    }
+  ],
+  &quot;recent_avg_plays&quot;: 541260,
+  &quot;recent_median_plays&quot;: 379950,
+  &quot;posts_per_week&quot;: 2.7,
+  &quot;last_post_at&quot;: &quot;2026-10-25T00:33:32&quot;,
+  &quot;success&quot;: true,
+  &quot;error&quot;: null
+}
+```
+</code></pre>
+  </section>
+
+  <section id="quickstart">
+    <h2>Quickstart: cURL, Python &amp; Node.js</h2>
+    <p>Endpoint: <code>POST https://tiktok-profile-scraper2.p.rapidapi.com/</code></p>
+
+    <div class="card">
+      <div class="code-head"><strong>cURL</strong><button class="btn" type="button" data-copy-target="code-curl">Copy</button></div>
+      <pre id="code-curl"><code>curl --request POST \
+  --url &#x27;https://tiktok-profile-scraper2.p.rapidapi.com/&#x27; \
+  --header &#x27;Content-Type: application/json&#x27; \
+  --header &#x27;x-rapidapi-host: tiktok-profile-scraper2.p.rapidapi.com&#x27; \
+  --header &#x27;x-rapidapi-key: YOUR_RAPIDAPI_KEY&#x27; \
+  --data &#x27;{&quot;profiles&quot;: [&quot;nasa&quot;], &quot;maxProfiles&quot;: 3}&#x27;</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="code-head"><strong>Python (requests)</strong><button class="btn" type="button" data-copy-target="code-python">Copy</button></div>
+      <pre id="code-python"><code>import os
+import requests
+
+url = &quot;https://tiktok-profile-scraper2.p.rapidapi.com/&quot;
+payload = {
+  &quot;profiles&quot;: [
+    &quot;nasa&quot;
+  ],
+  &quot;maxProfiles&quot;: 3
+}
+headers = {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;x-rapidapi-host&quot;: &quot;tiktok-profile-scraper2.p.rapidapi.com&quot;,
+    &quot;x-rapidapi-key&quot;: os.environ[&quot;RAPIDAPI_KEY&quot;],
+}
+response = requests.post(url, json=payload, headers=headers, timeout=120)
+response.raise_for_status()
+rows = response.json()
+print(f&#x27;Returned {len(rows)} rows&#x27;, rows[0] if rows else None)</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="code-head"><strong>Node.js (fetch)</strong><button class="btn" type="button" data-copy-target="code-node">Copy</button></div>
+      <pre id="code-node"><code>const url = &quot;https://tiktok-profile-scraper2.p.rapidapi.com/&quot;;
+const response = await fetch(url, {
+  method: &quot;POST&quot;,
+  headers: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;x-rapidapi-host&quot;: &quot;tiktok-profile-scraper2.p.rapidapi.com&quot;,
+    &quot;x-rapidapi-key&quot;: process.env.RAPIDAPI_KEY,
+  },
+  body: JSON.stringify({&quot;profiles&quot;: [&quot;nasa&quot;], &quot;maxProfiles&quot;: 3}),
+});
+if (!response.ok) throw new Error(`HTTP ${response.status}: ${await response.text()}`);
+const rows = await response.json();
+console.log(rows.length, rows[0]);</code></pre>
+    </div>
+  </section>
+
+  <section id="n8n">
+    <h2>1-Click n8n HTTP Request Template</h2>
+    <p>Copy this workflow JSON and paste it directly into an n8n canvas, or <a href="n8n-workflow.json" download>download n8n-workflow.json</a>.</p>
+    <div class="card">
+      <div class="code-head"><strong>n8n Workflow JSON</strong><button class="btn" type="button" data-copy-target="code-n8n">Copy n8n JSON</button></div>
+      <pre id="code-n8n"><code>{
+  &quot;name&quot;: &quot;TikTok Profile Scraper API (RapidAPI)&quot;,
+  &quot;nodes&quot;: [
+    {
+      &quot;parameters&quot;: {},
+      &quot;id&quot;: &quot;manual-trigger-1&quot;,
+      &quot;name&quot;: &quot;When clicking Execute workflow&quot;,
+      &quot;type&quot;: &quot;n8n-nodes-base.manualTrigger&quot;,
+      &quot;typeVersion&quot;: 1,
+      &quot;position&quot;: [
+        240,
+        300
+      ]
+    },
+    {
+      &quot;parameters&quot;: {
+        &quot;method&quot;: &quot;POST&quot;,
+        &quot;url&quot;: &quot;https://tiktok-profile-scraper2.p.rapidapi.com/&quot;,
+        &quot;sendHeaders&quot;: true,
+        &quot;headerParameters&quot;: {
+          &quot;parameters&quot;: [
+            {
+              &quot;name&quot;: &quot;Content-Type&quot;,
+              &quot;value&quot;: &quot;application/json&quot;
+            },
+            {
+              &quot;name&quot;: &quot;x-rapidapi-host&quot;,
+              &quot;value&quot;: &quot;tiktok-profile-scraper2.p.rapidapi.com&quot;
+            },
+            {
+              &quot;name&quot;: &quot;x-rapidapi-key&quot;,
+              &quot;value&quot;: &quot;={{ $env.RAPIDAPI_KEY || &#x27;YOUR_RAPIDAPI_KEY&#x27; }}&quot;
+            }
+          ]
+        },
+        &quot;sendBody&quot;: true,
+        &quot;specifyBody&quot;: &quot;json&quot;,
+        &quot;jsonBody&quot;: &quot;{\n  \&quot;profiles\&quot;: [\n    \&quot;nasa\&quot;\n  ],\n  \&quot;maxProfiles\&quot;: 3\n}&quot;,
+        &quot;options&quot;: {
+          &quot;timeout&quot;: 120000
+        }
+      },
+      &quot;id&quot;: &quot;rapidapi-http-1&quot;,
+      &quot;name&quot;: &quot;Call TikTok Profile Scraper API&quot;,
+      &quot;type&quot;: &quot;n8n-nodes-base.httpRequest&quot;,
+      &quot;typeVersion&quot;: 4.2,
+      &quot;position&quot;: [
+        500,
+        300
+      ]
+    }
+  ],
+  &quot;connections&quot;: {
+    &quot;When clicking Execute workflow&quot;: {
+      &quot;main&quot;: [
+        [
+          {
+            &quot;node&quot;: &quot;Call TikTok Profile Scraper API&quot;,
+            &quot;type&quot;: &quot;main&quot;,
+            &quot;index&quot;: 0
+          }
+        ]
+      ]
+    }
+  },
+  &quot;active&quot;: false,
+  &quot;settings&quot;: {
+    &quot;executionOrder&quot;: &quot;v1&quot;
+  },
+  &quot;meta&quot;: {
+    &quot;templateCredsSetupCompleted&quot;: false,
+    &quot;rapidapiListing&quot;: &quot;https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2&quot;
+  }
+}</code></pre>
+    </div>
+  </section>
+
+  <section id="mcp">
+    <h2>MCP Tool Definition for Claude &amp; Cursor</h2>
+    <p>Register this tool schema in your custom MCP server or connect via the hosted Apify MCP URL (<a href="mcp-tool.json" download>download mcp-tool.json</a>).</p>
+    <div class="card">
+      <div class="code-head"><strong>MCP Tool &amp; Server Config</strong><button class="btn" type="button" data-copy-target="code-mcp">Copy MCP JSON</button></div>
+      <pre id="code-mcp"><code>{
+  &quot;tool&quot;: {
+    &quot;name&quot;: &quot;scrape_tiktok_profiles&quot;,
+    &quot;description&quot;: &quot;Returns one row per TikTok profile: exact followers, following, likes and video count, bio, bio link, verified badge, business category, region and the latest videos with play counts, posting rate and last post date. Up to 5 results per request, as JSON.&quot;,
+    &quot;inputSchema&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;profiles&quot;: {
+          &quot;title&quot;: &quot;TikTok Profiles&quot;,
+          &quot;maxItems&quot;: 50,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;description&quot;: &quot;One to 10,000 usernames, @handles or canonical HTTPS profile URLs. Duplicate handles are looked up once. Video URLs and shortened share links are not accepted.&quot;,
+          &quot;default&quot;: [
+            &quot;nasa&quot;
+          ],
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        },
+        &quot;maxProfiles&quot;: {
+          &quot;title&quot;: &quot;Maximum Profiles&quot;,
+          &quot;minimum&quot;: 0,
+          &quot;maximum&quot;: 5,
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;description&quot;: &quot;Maximum unique profiles to look up after duplicate removal. A request returns 5 rows at most.&quot;,
+          &quot;default&quot;: 3
+        },
+        &quot;delayBetweenRequests&quot;: {
+          &quot;title&quot;: &quot;Delay Between Requests (ms)&quot;,
+          &quot;minimum&quot;: 0,
+          &quot;maximum&quot;: 10000,
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;description&quot;: &quot;Delay in milliseconds between requests to avoid rate limiting. Recommended: 500-1000ms&quot;,
+          &quot;default&quot;: 500
+        },
+        &quot;includeRecentVideos&quot;: {
+          &quot;title&quot;: &quot;Include recent videos&quot;,
+          &quot;type&quot;: &quot;boolean&quot;,
+          &quot;description&quot;: &quot;Add the videos TikTok lists for the profile (pinned ones and the latest ten, with play counts, posting times and links), their average and median plays, the posting rate and the time of the last post. Costs nothing extra.&quot;,
+          &quot;default&quot;: true
+        },
+        &quot;includeVideoStats&quot;: {
+          &quot;title&quot;: &quot;Add likes, comments and shares per video&quot;,
+          &quot;type&quot;: &quot;boolean&quot;,
+          &quot;description&quot;: &quot;Read the latest videos from TikTok&#x27;s creator list instead of the embed list: each video then also has likes, comments, shares, music title and its engagement rate ((likes + comments + shares) / plays), and the row gets recent_avg_engagement_rate. Pinned videos stay first. One extra request per 15 videos; costs nothing extra per profile.&quot;,
+          &quot;default&quot;: false
+        },
+        &quot;maxVideosPerProfile&quot;: {
+          &quot;title&quot;: &quot;Latest videos with statistics&quot;,
+          &quot;minimum&quot;: 1,
+          &quot;maximum&quot;: 50,
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;description&quot;: &quot;How many of the latest videos get likes, comments and shares when the option above is on. 1 to 50.&quot;,
+          &quot;default&quot;: 10
+        }
+      }
+    },
+    &quot;x-rapidapi&quot;: {
+      &quot;method&quot;: &quot;POST&quot;,
+      &quot;url&quot;: &quot;https://tiktok-profile-scraper2.p.rapidapi.com/&quot;,
+      &quot;headers&quot;: {
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+        &quot;x-rapidapi-host&quot;: &quot;tiktok-profile-scraper2.p.rapidapi.com&quot;,
+        &quot;x-rapidapi-key&quot;: &quot;${RAPIDAPI_KEY}&quot;
+      },
+      &quot;exampleInput&quot;: {
+        &quot;profiles&quot;: [
+          &quot;nasa&quot;
+        ],
+        &quot;maxProfiles&quot;: 3
+      }
+    }
+  },
+  &quot;claudeDesktopAndCursorHostedMcp&quot;: {
+    &quot;mcpServers&quot;: {
+      &quot;tiktok-profile-scraper&quot;: {
+        &quot;url&quot;: &quot;https://mcp.apify.com/?tools=benthepythondev/tiktok-profile-scraper&quot;,
+        &quot;headers&quot;: {
+          &quot;Authorization&quot;: &quot;Bearer YOUR_APIFY_TOKEN&quot;
+        }
+      }
+    }
+  }
+}</code></pre>
+    </div>
+  </section>
+  
+
+  <section id="schema">
+    <h2>Request Parameters &amp; Real JSON Response</h2>
+    <p>Full machine-readable specification: <a href="openapi-3.1.json">openapi-3.1.json (OpenAPI 3.1.0)</a>.</p>
+    <table>
+      <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+      <tbody><tr><td><code>profiles</code></td><td>array</td><td>One to 10,000 usernames, @handles or canonical HTTPS profile URLs. Duplicate handles are looked up once. Video URLs and shortened share links are not accepted.</td></tr>
+<tr><td><code>maxProfiles</code></td><td>integer</td><td>Maximum unique profiles to look up after duplicate removal. A request returns 5 rows at most.</td></tr>
+<tr><td><code>delayBetweenRequests</code></td><td>integer</td><td>Delay in milliseconds between requests to avoid rate limiting. Recommended: 500-1000ms</td></tr>
+<tr><td><code>includeRecentVideos</code></td><td>boolean</td><td>Add the videos TikTok lists for the profile (pinned ones and the latest ten, with play counts, posting times and links), their average and median plays, the posting rate and the time of the last post. Costs nothing extra.</td></tr>
+<tr><td><code>includeVideoStats</code></td><td>boolean</td><td>Read the latest videos from TikTok&#x27;s creator list instead of the embed list: each video then also has likes, comments, shares, music title and its engagement rate ((likes + comments + shares) / plays), and the row gets recent_avg_engagement_rate. Pinned videos stay first. One extra request per 15 videos; costs nothing extra per profile.</td></tr>
+<tr><td><code>maxVideosPerProfile</code></td><td>integer</td><td>How many of the latest videos get likes, comments and shares when the option above is on. 1 to 50.</td></tr></tbody>
+    </table>
+    <h3>Real JSON Response Sample</h3>
+    <div class="card">
+      <div class="code-head"><strong>201 Created (1 item of array)</strong><button class="btn" type="button" data-copy-target="code-sample">Copy JSON</button></div>
+      <pre id="code-sample"><code>{
+  &quot;username&quot;: &quot;nasa&quot;,
+  &quot;user_id&quot;: &quot;7664638705177150477&quot;,
+  &quot;nickname&quot;: &quot;NASA&quot;,
+  &quot;bio&quot;: &quot;Making the seemingly impossible, possible.✨&quot;,
+  &quot;verified&quot;: true,
+  &quot;followers&quot;: 2141107,
+  &quot;following&quot;: 23,
+  &quot;likes&quot;: 11392862,
+  &quot;video_count&quot;: 60,
+  &quot;avatar_url&quot;: &quot;https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/e5143212a59c09a008bf50f487d54d1f~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&amp;refresh_toke...&quot;,
+  &quot;bio_link&quot;: &quot;science.nasa.gov/feature/artemis-ii-preliminary-lunar-science-report&quot;,
+  &quot;region&quot;: null,
+  &quot;language&quot;: &quot;en&quot;,
+  &quot;private_account&quot;: false,
+  &quot;sec_uid&quot;: &quot;MS4wLjABAAAAU9BRVzC8oCaegVnia8IbqWhPb_-dbU7s00Y3wS1_Nx8g5RUaYvyXrpejgjdxTwd6&quot;,
+  &quot;business_account&quot;: false,
+  &quot;business_category&quot;: null,
+  &quot;tiktok_shop_seller&quot;: false,
+  &quot;created_at&quot;: &quot;2026-07-20T15:55:49&quot;,
+  &quot;scraped_at&quot;: &quot;2026-10-27T08:36:56.844768&quot;,
+  &quot;input_url&quot;: &quot;nasa&quot;,
+  &quot;recent_videos&quot;: [
+    {
+      &quot;id&quot;: &quot;7665075736742530317&quot;,
+      &quot;url&quot;: &quot;https://www.tiktok.com/@nasa/video/7665075736742530317&quot;,
+      &quot;description&quot;: &quot;Something big just landed on TikTok.&quot;,
+      &quot;plays&quot;: 1700000,
+      &quot;posted_at&quot;: &quot;2026-07-21T20:08:37&quot;,
+      &quot;pinned&quot;: true,
+      &quot;cover_url&quot;: &quot;https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/o0HdfAsh9SB9VEQqqXFfDBgq90rHH8QBRvD7EM~tplv-tiktokx-origin.image?dr=9636&amp;x-expires=1793260800&amp;...&quot;,
+      &quot;video_url&quot;: &quot;https://v45.tiktokcdn-us.com/19f878fc2087d32b493ba58b5a875b6d/6ae305c2/video/tos/useast5/tos-useast5-ve-0068c001-tx/okRjOkUA6WdCIZ4fGHgZ7vLlpMACrAe2IoIzOf/?a...&quot;
+    },
+    {
+      &quot;id&quot;: &quot;7700397098994273549&quot;,
+      &quot;url&quot;: &quot;https://www.tiktok.com/@nasa/video/7700397098994273549&quot;,
+      &quot;description&quot;: &quot;NASA 🤝 college football. We heard y’all like a good air show. Roll Tide!&quot;,
+      &quot;plays&quot;: 69800,
+      &quot;posted_at&quot;: &quot;2026-10-25T00:33:32&quot;,
+      &quot;pinned&quot;: false,
+      &quot;cover_url&quot;: &quot;https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/ooUB4OadAgn4m17rgviBbtVOIuC3T1UIEPicX~tplv-tiktokx-origin.image?dr=9636&amp;x-expires=1793260800&amp;x...&quot;,
+      &quot;video_url&quot;: &quot;https://v16m.tiktokcdn-us.com/85164b9f1941fb862ba07416061d5a5d/6ae305b9/video/tos/useast5/tos-useast5-ve-0068c003-tx/o0TUqDI35gDcgpAcQNfEB7OdASFoR3rElLJXf9/?...&quot;
+    },
+    {
+      &quot;id&quot;: &quot;7699974130153590029&quot;,
+      &quot;url&quot;: &quot;https://www.tiktok.com/@nasa/video/7699974130153590029&quot;,
+      &quot;description&quot;: &quot;NASA shared a major update today on the road ahead for Artemis 🚀   2027: Artemis III tests Orion and two lunar landers in low Earth orbit. 2028: Artemis IV r...&quot;,
+      &quot;plays&quot;: 188900,
+      &quot;posted_at&quot;: &quot;2026-10-23T21:12:12&quot;,
+      &quot;pinned&quot;: false,
+      &quot;cover_url&quot;: &quot;https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/o4zIgi2BR0VIqAzfbAd2L8c6W2lBEBifSBRD1V~tplv-tiktokx-origin.image?dr=9636&amp;x-expires=1793260800&amp;...&quot;,
+      &quot;video_url&quot;: &quot;https://v16m.tiktokcdn-us.com/e607956a888fbf19cbb31ef91f582396/6ae30653/video/tos/useast5/tos-useast5-ve-0068c003-tx/oQ8BRVff3biqiDA2I0hdRz2BgiFESiQWBV2DEa/?...&quot;
+    }
+  ],
+  &quot;recent_avg_plays&quot;: 541260,
+  &quot;recent_median_plays&quot;: 379950,
+  &quot;posts_per_week&quot;: 2.7,
+  &quot;last_post_at&quot;: &quot;2026-10-25T00:33:32&quot;,
+  &quot;success&quot;: true,
+  &quot;error&quot;: null
+}</code></pre>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>RapidAPI Pricing Plans</h2>
+    <table>
+      <thead><tr><th>Tier</th><th>Price</th><th>Requests / Month</th><th>Limit Type</th></tr></thead>
+      <tbody><tr><td><strong>BASIC</strong></td><td>$0/mo</td><td>10</td><td>Hard limit</td></tr>
+<tr><td><strong>PRO</strong></td><td>$25/mo</td><td>4,340</td><td>Soft limit</td></tr>
+<tr><td><strong>ULTRA</strong></td><td>$75/mo</td><td>13,020</td><td>Soft limit</td></tr>
+<tr><td><strong>MEGA</strong></td><td>$150/mo</td><td>26,041</td><td>Soft limit</td></tr></tbody>
+    </table>
+  </section>
+
+  <section id="faq">
+    <h2>Questions &amp; Answers</h2>
+    <article class="qa-item"><h3>Can I look up multiple TikTok profiles in one request?</h3><p>Yes. Pass an array of handles or profile URLs in profiles (for example [&quot;nasa&quot;, &quot;@mrbeast&quot;]). Paid plans return up to 5 profiles per request; the free Basic plan returns up to 2 profiles per request.</p></article>
+<article class="qa-item"><h3>Does it return exact follower counts or rounded numbers?</h3><p>Exact integer totals for followers, following, likes, and video_count at the time of the lookup.</p></article>
+<article class="qa-item"><h3>How do I get engagement rate and likes per video?</h3><p>Set includeVideoStats to true in the JSON request body. The API returns recent_avg_engagement_rate plus per-video likes, comments, shares, and music_title at no extra cost.</p></article>
+<article class="qa-item"><h3>Does it detect TikTok Shop sellers and business accounts?</h3><p>Yes. Each profile row includes business_account, business_category, and tiktok_shop_seller booleans.</p></article>
+<article class="qa-item"><h3>How do I integrate TikTok Profile Scraper with n8n, Claude, or Cursor?</h3><p>Paste the n8n HTTP Request template below into n8n with your x-rapidapi-key, or add the MCP tool snippet to Claude Desktop or Cursor.</p></article>
+  </section>
+
+  <footer>
+    <p><strong>More RapidAPI Integration Kits:</strong></p>
+    <ul><li><a href="../facebook-posts-scraper2/">Facebook Posts Scraper API</a></li>
+<li><a href="../instagram-profile-scraper10/">Instagram Profile Scraper API</a></li>
+<li><a href="../job-search-api-indeed-linkedin-reed-seek-and-ats-boards/">Job Search API (Indeed, LinkedIn, Reed, ATS Boards)</a></li></ul>
+    <p>Maintained by benthepythondev. <a href="https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2" rel="noopener">Open TikTok Profile Scraper API on RapidAPI</a>.</p>
+  </footer>
+</main>
+<script>
+document.querySelectorAll('[data-copy-target]').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    try {
+      await navigator.clipboard.writeText(el.innerText);
+      const orig = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(() => { btn.textContent = orig; }, 1600);
+    } catch (e) {}
+  });
+});
+</script>
+</body>
+</html>

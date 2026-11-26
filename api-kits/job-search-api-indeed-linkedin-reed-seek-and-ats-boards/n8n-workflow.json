@@ -1,0 +1,74 @@
+{
+  "name": "Job Search API (Indeed, LinkedIn, Reed, ATS Boards) (RapidAPI)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger-1",
+      "name": "When clicking Execute workflow",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "x-rapidapi-host",
+              "value": "job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com"
+            },
+            {
+              "name": "x-rapidapi-key",
+              "value": "={{ $env.RAPIDAPI_KEY || 'YOUR_RAPIDAPI_KEY' }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"queries\": [\n    \"software engineer\"\n  ],\n  \"locations\": [\n    \"Austin, TX\"\n  ]\n}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "rapidapi-http-1",
+      "name": "Call Job Search API (Indeed, LinkedIn, Reed, ATS Boards)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "When clicking Execute workflow": {
+      "main": [
+        [
+          {
+            "node": "Call Job Search API (Indeed, LinkedIn, Reed, ATS Boards)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "rapidapiListing": "https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards"
+  }
+}

@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Search API (Indeed, LinkedIn, Reed, ATS Boards) — OpenAPI 3.1, n8n &amp; MCP Docs</title>
+  <meta name="description" content="Job postings from Indeed, LinkedIn, Reed, Seek, Wellfound, Welcome to the Jungle and the career pages of companies on Greenhouse, Workday and other applicant tr">
+  <link rel="canonical" href="https://benthepythondev00.github.io/api-kits/job-search-api-indeed-linkedin-reed-seek-and-ats-boards/">
+  <meta name="robots" content="index,follow">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebAPI", "name": "Job Search API (Indeed, LinkedIn, Reed, ATS Boards)", "description": "Job postings from Indeed, LinkedIn, Reed, Seek, Wellfound, Welcome to the Jungle and the career pages of companies on Greenhouse, Workday and other applicant tracking systems, in one API.", "url": "https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards", "documentation": "https://benthepythondev00.github.io/api-kits/job-search-api-indeed-linkedin-reed-seek-and-ats-boards/", "provider": {"@type": "Organization", "name": "benthepythondev", "url": "https://rapidapi.com/user/benthepythondev0"}}, {"@type": "TechArticle", "headline": "Job Search API (Indeed, LinkedIn, Reed, ATS Boards) — OpenAPI 3.1, n8n Template & MCP Integration Kit", "description": "Job postings from Indeed, LinkedIn, Reed, Seek, Wellfound, Welcome to the Jungle and the career pages of companies on Greenhouse, Workday and other applicant tracking systems, in one API.", "datePublished": "2026-11-26", "dateModified": "2026-11-26", "author": {"@type": "Person", "name": "Ben (benthepythondev)"}, "mainEntityOfPage": "https://benthepythondev00.github.io/api-kits/job-search-api-indeed-linkedin-reed-seek-and-ats-boards/"}]}</script>
+  <style>
+    :root { --bg:#0d1117; --fg:#e6edf3; --muted:#9198a1; --card:#161b22; --border:#30363d; --accent:#58a6ff; --btn:#238636; }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#ffffff; --fg:#1f2328; --muted:#59636e; --card:#f6f8fa; --border:#d0d7de; --accent:#0969da; --btn:#1f883d; }
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+    main { max-width:920px; margin:0 auto; padding:28px 18px 64px; }
+    header { border-bottom:1px solid var(--border); padding-bottom:20px; margin-bottom:24px; }
+    h1 { margin:0 0 10px; font-size:clamp(1.6rem,3vw,2.2rem); line-height:1.25; }
+    h2 { margin:32px 0 12px; font-size:1.35rem; border-bottom:1px solid var(--border); padding-bottom:6px; }
+    h3 { margin:20px 0 8px; font-size:1.08rem; }
+    p { margin:0 0 14px; }
+    a { color:var(--accent); }
+    .meta { color:var(--muted); font-size:0.92rem; display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .btn { display:inline-block; padding:9px 14px; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.92rem; cursor:pointer; border:1px solid var(--border); background:var(--card); color:var(--fg); }
+    .btn-primary { background:var(--btn); border-color:var(--btn); color:#ffffff; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px; margin:16px 0; }
+    .code-head { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; font-size:0.9rem; color:var(--muted); }
+    pre { margin:0; padding:14px; border-radius:6px; border:1px solid var(--border); background:var(--bg); overflow-x:auto; font-size:0.84rem; line-height:1.45; }
+    code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.92rem; }
+    th, td { text-align:left; padding:9px 10px; border:1px solid var(--border); vertical-align:top; }
+    th { background:var(--card); }
+    .qa-item { margin:14px 0; padding:12px 14px; background:var(--card); border:1px solid var(--border); border-radius:8px; }
+    .qa-item h3 { margin:0 0 6px; }
+    .qa-item p { margin:0; }
+    footer { margin-top:40px; padding-top:18px; border-top:1px solid var(--border); color:var(--muted); font-size:0.9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="meta">
+      <span><a href="../">All API Integration Kits</a></span>
+      <span>Category: Jobs &amp; Recruiting Data</span>
+      <span>Updated: 2026-11-26</span>
+    </p>
+    <h1>Job Search API (Indeed, LinkedIn, Reed, ATS Boards)</h1>
+    <p><strong>What is the Job Search API (Indeed, LinkedIn, Reed, ATS Boards) on RapidAPI?</strong> Job Search API unifies job postings from Indeed, LinkedIn, Reed, Wellfound, Welcome to the Jungle, Greenhouse, Workday, and multi-ATS company career pages under a single RapidAPI subscription and key. Each source is a dedicated POST endpoint accepting a clean JSON search body and returning a JSON array of live job postings with title, company, location, salary when published, posting date, description, and direct apply URL. Plans start with a free Basic tier (50 requests/month, hard limit) and scale to Pro ($4.99/mo, 1,500 requests), Ultra ($29.99/mo, 10,471 requests), and Mega ($99.99/mo, 34,912 requests).</p>
+    <p>Unlike single-aggregator job APIs that only mirror Google for Jobs, this multi-endpoint API queries Indeed, LinkedIn, Reed, Wellfound, Greenhouse, and Workday directly under one RapidAPI key, starting at $4.99/month for 1,500 requests.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards" rel="noopener">Start Free on RapidAPI</a>
+      <button class="btn" type="button" data-copy-target="llm-docs-block">Copy docs for LLM</button>
+      <a class="btn" href="openapi-3.1.json" download>Download OpenAPI 3.1</a>
+      <a class="btn" href="n8n-workflow.json" download>Download n8n JSON</a>
+      <a class="btn" href="mcp-tool.json" download>Download MCP JSON</a>
+    </div>
+  </header>
+
+  <section id="copy-docs-for-llm" class="card">
+    <div class="code-head">
+      <strong>Copy docs for LLM (Claude, Cursor, ChatGPT)</strong>
+      <button class="btn" type="button" data-copy-target="llm-docs-block">Copy Markdown</button>
+    </div>
+    <p>Paste this single block into Cursor, Claude, or ChatGPT to generate a working client without guessing headers or schema fields.</p>
+    <pre id="llm-docs-block"><code># Job Search API (Indeed, LinkedIn, Reed, ATS Boards) — LLM Integration Reference
+
+- **RapidAPI Listing**: https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards
+- **Base URL**: `https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com`
+- **Primary Endpoint**: `POST /h520E7cikakFSzjAg/run-sync-get-dataset-items`
+- **Auth Headers**: `x-rapidapi-host: job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com` and `x-rapidapi-key: &lt;RAPIDAPI_KEY&gt;`
+- **Plans**: BASIC $0/mo (50 reqs), PRO $4.99/mo (1,500 reqs), ULTRA $29.99/mo (10,471 reqs), MEGA $99.99/mo (34,912 reqs)
+- **Updated**: 2026-11-26
+
+## Summary
+Job Search API unifies job postings from Indeed, LinkedIn, Reed, Wellfound, Welcome to the Jungle, Greenhouse, Workday, and multi-ATS company career pages under a single RapidAPI subscription and key. Each source is a dedicated POST endpoint accepting a clean JSON search body and returning a JSON array of live job postings with title, company, location, salary when published, posting date, description, and direct apply URL. Plans start with a free Basic tier (50 requests/month, hard limit) and scale to Pro ($4.99/mo, 1,500 requests), Ultra ($29.99/mo, 10,471 requests), and Mega ($99.99/mo, 34,912 requests).
+
+## Endpoints
+- `Indeed`: `POST https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items` (up to 20 rows/req)
+- `LinkedIn`: `POST https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/oLJEZ10sRuoKiZInX/run-sync-get-dataset-items` (up to 3 rows/req)
+- `Reed`: `POST https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/YA0WGAepN2yYgkrh7/run-sync-get-dataset-items` (up to 20 rows/req)
+- `Wellfound`: `POST https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/heL4RmXSn9zaDxfi9/run-sync-get-dataset-items` (up to 20 rows/req)
+- `Welcome to the Jungle`: `POST https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/EGum7vKm83KHI20OL/run-sync-get-dataset-items` (up to 13 rows/req)
+- `Greenhouse`: `POST https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/HN8pSRqEKoUIcWVcS/run-sync-get-dataset-items` (up to 20 rows/req)
+- `Workday`: `POST https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/8n8fds1drG4LB7eV0/run-sync-get-dataset-items` (up to 20 rows/req)
+- `ATS Career Pages`: `POST https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/KfqhxywavGHLbeltk/run-sync-get-dataset-items` (up to 20 rows/req)
+
+## Request Body Fields (`POST /h520E7cikakFSzjAg/run-sync-get-dataset-items`)
+- `queries` (array): What to search for: job titles, skills or company names. Each entry is searched in each location. Indeed&#x27;s operators work: title:(data analyst) matches the job title only, company:Siemens one employer, quotes an exact phrase.
+- `locations` (array): Cities, regions or postcodes in the chosen country, for example Austin, TX or Manchester or 10115 Berlin. Leave empty to search the whole country.
+- `countryCode` (string): The Indeed country site to search. Pay is read in each country&#x27;s own currency. Links bring their own country.
+- `maxResults` (integer): Rows to save for each search (each combination of keyword, location and job type) and each search link. A request returns 20 rows at most.
+- `postedWithinDays` (integer): Keeps jobs Indeed listed within this many days. Any number works, and it works together with the job type and remote filters.
+- `jobTypes` (array): Keeps jobs Indeed marks with this type. Several types are searched one after the other, and a job that carries two of them is saved once.
+- `remote` (string): Keeps jobs Indeed marks as remote or as hybrid work.
+- `titleOnly` (boolean): Indeed also matches words in the description, which brings jobs with unrelated titles. With this on, every search word must be in the job title.
+- `distance` (integer): Miles in the United States and the United Kingdom, kilometres elsewhere. Without a value the distance is 25.
+- `sort` (string): Newest first is the order for date limits and monitoring. Most relevant first is Indeed&#x27;s own ranking for the first 1,000 jobs of a search.
+- `links` (array): Search links from any Indeed country site (the words, place, age, distance, job type and remote filter of the link are used) and links of single jobs, which are looked up directly.
+
+## Example Request (cURL)
+```bash
+curl --request POST \
+  --url &#x27;https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items&#x27; \
+  --header &#x27;Content-Type: application/json&#x27; \
+  --header &#x27;x-rapidapi-host: job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com&#x27; \
+  --header &#x27;x-rapidapi-key: YOUR_RAPIDAPI_KEY&#x27; \
+  --data &#x27;{&quot;queries&quot;: [&quot;software engineer&quot;], &quot;locations&quot;: [&quot;Austin, TX&quot;]}&#x27;
+```
+
+## Example Response Item (Real Output)
+```json
+{
+  &quot;jobId&quot;: &quot;ab8f88071c726371&quot;,
+  &quot;url&quot;: &quot;https://www.indeed.com/viewjob?jk=ab8f88071c726371&quot;,
+  &quot;applyUrl&quot;: &quot;https://careers.newscorp.com/austin-tx/fullstack-senior-engineer/22CCB6E35D844C29BEE2E1E6E3AA550B/job/&quot;,
+  &quot;indeedApply&quot;: false,
+  &quot;title&quot;: &quot;Fullstack Senior Engineer&quot;,
+  &quot;normalizedTitle&quot;: &quot;full stack developer&quot;,
+  &quot;company&quot;: &quot;News Corp&quot;,
+  &quot;companyUrl&quot;: &quot;https://www.indeed.com/cmp/News-Corp-1&quot;,
+  &quot;location&quot;: &quot;Austin, TX 78702&quot;,
+  &quot;city&quot;: &quot;Austin&quot;,
+  &quot;state&quot;: &quot;TX&quot;,
+  &quot;postalCode&quot;: &quot;78702&quot;,
+  &quot;streetAddress&quot;: null,
+  &quot;country&quot;: &quot;US&quot;,
+  &quot;latitude&quot;: 30.279993,
+  &quot;longitude&quot;: -97.718864,
+  &quot;remote&quot;: false,
+  &quot;hybrid&quot;: false,
+  &quot;jobTypes&quot;: [],
+  &quot;salaryText&quot;: null,
+  &quot;salaryMin&quot;: null,
+  &quot;salaryMax&quot;: null,
+  &quot;salaryUnit&quot;: null,
+  &quot;salaryCurrency&quot;: null,
+  &quot;description&quot;: &quot;Fullstack Senior Engineer\n\nLocation: Austin, TX, United States\n\nCategory: Technology\n\nJob ID: 3313\n\nApply Now\n\nDescription\n\nRecognized as the No. 1 site trus...&quot;,
+  &quot;descriptionHtml&quot;: &quot;&lt;div&gt;&lt;div&gt;&lt;p&gt;Fullstack Senior Engineer&lt;/p&gt;\n&lt;p&gt;Location: Austin, TX, United States&lt;/p&gt;\n&lt;p&gt;Category: Technology&lt;/p&gt;\n&lt;p&gt;Job ID: 3313&lt;/p&gt;\n&lt;p&gt;Apply Now&lt;/p&gt;\n&lt;p&gt;Des...&quot;,
+  &quot;emails&quot;: [],
+  &quot;postedAt&quot;: &quot;2026-10-07T05:00:00+00:00&quot;,
+  &quot;listedAt&quot;: &quot;2026-10-07T06:46:28.909000+00:00&quot;,
+  &quot;expired&quot;: false,
+  &quot;language&quot;: &quot;en&quot;,
+  &quot;attributes&quot;: [
+    &quot;Containerization systems&quot;,
+    &quot;Performance monitoring&quot;,
+    &quot;Data model design&quot;
+  ],
+  &quot;occupations&quot;: [
+    &quot;Software Development Occupations&quot;,
+    &quot;Technology Occupations&quot;,
+    &quot;Software Development &amp; Architecture Occupations&quot;
+  ],
+  &quot;urgentHire&quot;: false,
+  &quot;highVolumeHiring&quot;: false,
+  &quot;companyRating&quot;: 3.5,
+  &quot;companyReviews&quot;: 70,
+  &quot;companyIndustry&quot;: null,
+  &quot;companySize&quot;: &quot;10,000+&quot;,
+  &quot;companyRevenue&quot;: &quot;$5B to $10B (USD)&quot;,
+  &quot;companyWebsite&quot;: &quot;http://www.newscorp.com&quot;,
+  &quot;companyLogo&quot;: &quot;https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/7a026f2b631039bbff6d065bdb4ee9e6&quot;,
+  &quot;companyDescription&quot;: null,
+  &quot;companyCeo&quot;: null,
+  &quot;searchQuery&quot;: &quot;software engineer&quot;,
+  &quot;searchLocation&quot;: &quot;Austin, TX&quot;,
+  &quot;position&quot;: 1,
+  &quot;scrapedAt&quot;: &quot;2026-10-07T07:48:41.766781+00:00&quot;
+}
+```
+</code></pre>
+  </section>
+
+  <section id="quickstart">
+    <h2>Quickstart: cURL, Python &amp; Node.js</h2>
+    <p>Endpoint: <code>POST https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items</code></p>
+
+    <div class="card">
+      <div class="code-head"><strong>cURL</strong><button class="btn" type="button" data-copy-target="code-curl">Copy</button></div>
+      <pre id="code-curl"><code>curl --request POST \
+  --url &#x27;https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items&#x27; \
+  --header &#x27;Content-Type: application/json&#x27; \
+  --header &#x27;x-rapidapi-host: job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com&#x27; \
+  --header &#x27;x-rapidapi-key: YOUR_RAPIDAPI_KEY&#x27; \
+  --data &#x27;{&quot;queries&quot;: [&quot;software engineer&quot;], &quot;locations&quot;: [&quot;Austin, TX&quot;]}&#x27;</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="code-head"><strong>Python (requests)</strong><button class="btn" type="button" data-copy-target="code-python">Copy</button></div>
+      <pre id="code-python"><code>import os
+import requests
+
+url = &quot;https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items&quot;
+payload = {
+  &quot;queries&quot;: [
+    &quot;software engineer&quot;
+  ],
+  &quot;locations&quot;: [
+    &quot;Austin, TX&quot;
+  ]
+}
+headers = {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;x-rapidapi-host&quot;: &quot;job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com&quot;,
+    &quot;x-rapidapi-key&quot;: os.environ[&quot;RAPIDAPI_KEY&quot;],
+}
+response = requests.post(url, json=payload, headers=headers, timeout=120)
+response.raise_for_status()
+rows = response.json()
+print(f&#x27;Returned {len(rows)} rows&#x27;, rows[0] if rows else None)</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="code-head"><strong>Node.js (fetch)</strong><button class="btn" type="button" data-copy-target="code-node">Copy</button></div>
+      <pre id="code-node"><code>const url = &quot;https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items&quot;;
+const response = await fetch(url, {
+  method: &quot;POST&quot;,
+  headers: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;x-rapidapi-host&quot;: &quot;job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com&quot;,
+    &quot;x-rapidapi-key&quot;: process.env.RAPIDAPI_KEY,
+  },
+  body: JSON.stringify({&quot;queries&quot;: [&quot;software engineer&quot;], &quot;locations&quot;: [&quot;Austin, TX&quot;]}),
+});
+if (!response.ok) throw new Error(`HTTP ${response.status}: ${await response.text()}`);
+const rows = await response.json();
+console.log(rows.length, rows[0]);</code></pre>
+    </div>
+  </section>
+
+  <section id="n8n">
+    <h2>1-Click n8n HTTP Request Template</h2>
+    <p>Copy this workflow JSON and paste it directly into an n8n canvas, or <a href="n8n-workflow.json" download>download n8n-workflow.json</a>.</p>
+    <div class="card">
+      <div class="code-head"><strong>n8n Workflow JSON</strong><button class="btn" type="button" data-copy-target="code-n8n">Copy n8n JSON</button></div>
+      <pre id="code-n8n"><code>{
+  &quot;name&quot;: &quot;Job Search API (Indeed, LinkedIn, Reed, ATS Boards) (RapidAPI)&quot;,
+  &quot;nodes&quot;: [
+    {
+      &quot;parameters&quot;: {},
+      &quot;id&quot;: &quot;manual-trigger-1&quot;,
+      &quot;name&quot;: &quot;When clicking Execute workflow&quot;,
+      &quot;type&quot;: &quot;n8n-nodes-base.manualTrigger&quot;,
+      &quot;typeVersion&quot;: 1,
+      &quot;position&quot;: [
+        240,
+        300
+      ]
+    },
+    {
+      &quot;parameters&quot;: {
+        &quot;method&quot;: &quot;POST&quot;,
+        &quot;url&quot;: &quot;https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items&quot;,
+        &quot;sendHeaders&quot;: true,
+        &quot;headerParameters&quot;: {
+          &quot;parameters&quot;: [
+            {
+              &quot;name&quot;: &quot;Content-Type&quot;,
+              &quot;value&quot;: &quot;application/json&quot;
+            },
+            {
+              &quot;name&quot;: &quot;x-rapidapi-host&quot;,
+              &quot;value&quot;: &quot;job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com&quot;
+            },
+            {
+              &quot;name&quot;: &quot;x-rapidapi-key&quot;,
+              &quot;value&quot;: &quot;={{ $env.RAPIDAPI_KEY || &#x27;YOUR_RAPIDAPI_KEY&#x27; }}&quot;
+            }
+          ]
+        },
+        &quot;sendBody&quot;: true,
+        &quot;specifyBody&quot;: &quot;json&quot;,
+        &quot;jsonBody&quot;: &quot;{\n  \&quot;queries\&quot;: [\n    \&quot;software engineer\&quot;\n  ],\n  \&quot;locations\&quot;: [\n    \&quot;Austin, TX\&quot;\n  ]\n}&quot;,
+        &quot;options&quot;: {
+          &quot;timeout&quot;: 120000
+        }
+      },
+      &quot;id&quot;: &quot;rapidapi-http-1&quot;,
+      &quot;name&quot;: &quot;Call Job Search API (Indeed, LinkedIn, Reed, ATS Boards)&quot;,
+      &quot;type&quot;: &quot;n8n-nodes-base.httpRequest&quot;,
+      &quot;typeVersion&quot;: 4.2,
+      &quot;position&quot;: [
+        500,
+        300
+      ]
+    }
+  ],
+  &quot;connections&quot;: {
+    &quot;When clicking Execute workflow&quot;: {
+      &quot;main&quot;: [
+        [
+          {
+            &quot;node&quot;: &quot;Call Job Search API (Indeed, LinkedIn, Reed, ATS Boards)&quot;,
+            &quot;type&quot;: &quot;main&quot;,
+            &quot;index&quot;: 0
+          }
+        ]
+      ]
+    }
+  },
+  &quot;active&quot;: false,
+  &quot;settings&quot;: {
+    &quot;executionOrder&quot;: &quot;v1&quot;
+  },
+  &quot;meta&quot;: {
+    &quot;templateCredsSetupCompleted&quot;: false,
+    &quot;rapidapiListing&quot;: &quot;https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards&quot;
+  }
+}</code></pre>
+    </div>
+  </section>
+
+  <section id="mcp">
+    <h2>MCP Tool Definition for Claude &amp; Cursor</h2>
+    <p>Register this tool schema in your custom MCP server or connect via the hosted Apify MCP URL (<a href="mcp-tool.json" download>download mcp-tool.json</a>).</p>
+    <div class="card">
+      <div class="code-head"><strong>MCP Tool &amp; Server Config</strong><button class="btn" type="button" data-copy-target="code-mcp">Copy MCP JSON</button></div>
+      <pre id="code-mcp"><code>{
+  &quot;tool&quot;: {
+    &quot;name&quot;: &quot;search_jobs_multi_board&quot;,
+    &quot;description&quot;: &quot;Indeed job postings by keyword and location in 62 countries: title, employer, location, pay, full description, job type, remote flag and apply link. Up to 20 jobs per request, as JSON.&quot;,
+    &quot;inputSchema&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;queries&quot;: {
+          &quot;title&quot;: &quot;Job titles or keywords&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;description&quot;: &quot;What to search for: job titles, skills or company names. Each entry is searched in each location. Indeed&#x27;s operators work: title:(data analyst) matches the job title only, company:Siemens one employer, quotes an exact phrase.&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        },
+        &quot;locations&quot;: {
+          &quot;title&quot;: &quot;Locations&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;description&quot;: &quot;Cities, regions or postcodes in the chosen country, for example Austin, TX or Manchester or 10115 Berlin. Leave empty to search the whole country.&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        },
+        &quot;countryCode&quot;: {
+          &quot;title&quot;: &quot;Country&quot;,
+          &quot;enum&quot;: [
+            &quot;AR&quot;,
+            &quot;AU&quot;,
+            &quot;AT&quot;,
+            &quot;BH&quot;,
+            &quot;BE&quot;,
+            &quot;BR&quot;,
+            &quot;CA&quot;,
+            &quot;CL&quot;,
+            &quot;CN&quot;,
+            &quot;CO&quot;,
+            &quot;CR&quot;,
+            &quot;CZ&quot;,
+            &quot;DK&quot;,
+            &quot;EC&quot;,
+            &quot;EG&quot;,
+            &quot;FI&quot;,
+            &quot;FR&quot;,
+            &quot;DE&quot;,
+            &quot;GR&quot;,
+            &quot;HK&quot;,
+            &quot;HU&quot;,
+            &quot;IN&quot;,
+            &quot;ID&quot;,
+            &quot;IE&quot;,
+            &quot;IL&quot;,
+            &quot;IT&quot;,
+            &quot;JP&quot;,
+            &quot;KW&quot;,
+            &quot;LU&quot;,
+            &quot;MY&quot;,
+            &quot;MX&quot;,
+            &quot;MA&quot;,
+            &quot;NL&quot;,
+            &quot;NZ&quot;,
+            &quot;NG&quot;,
+            &quot;NO&quot;,
+            &quot;OM&quot;,
+            &quot;PK&quot;,
+            &quot;PA&quot;,
+            &quot;PE&quot;,
+            &quot;PH&quot;,
+            &quot;PL&quot;,
+            &quot;PT&quot;,
+            &quot;QA&quot;,
+            &quot;RO&quot;,
+            &quot;SA&quot;,
+            &quot;SG&quot;,
+            &quot;ZA&quot;,
+            &quot;KR&quot;,
+            &quot;ES&quot;,
+            &quot;SE&quot;,
+            &quot;CH&quot;,
+            &quot;TW&quot;,
+            &quot;TH&quot;,
+            &quot;TR&quot;,
+            &quot;UA&quot;,
+            &quot;AE&quot;,
+            &quot;GB&quot;,
+            &quot;US&quot;,
+            &quot;UY&quot;,
+            &quot;VE&quot;,
+            &quot;VN&quot;
+          ],
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;The Indeed country site to search. Pay is read in each country&#x27;s own currency. Links bring their own country.&quot;,
+          &quot;default&quot;: &quot;US&quot;
+        },
+        &quot;maxResults&quot;: {
+          &quot;title&quot;: &quot;Maximum jobs per search&quot;,
+          &quot;minimum&quot;: 1,
+          &quot;maximum&quot;: 20,
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;description&quot;: &quot;Rows to save for each search (each combination of keyword, location and job type) and each search link. A request returns 20 rows at most.&quot;,
+          &quot;default&quot;: 20
+        },
+        &quot;postedWithinDays&quot;: {
+          &quot;title&quot;: &quot;Only jobs listed in the last … days&quot;,
+          &quot;minimum&quot;: 1,
+          &quot;maximum&quot;: 365,
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;description&quot;: &quot;Keeps jobs Indeed listed within this many days. Any number works, and it works together with the job type and remote filters.&quot;
+        },
+        &quot;jobTypes&quot;: {
+          &quot;title&quot;: &quot;Job types&quot;,
+          &quot;uniqueItems&quot;: true,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;description&quot;: &quot;Keeps jobs Indeed marks with this type. Several types are searched one after the other, and a job that carries two of them is saved once.&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [
+              &quot;fulltime&quot;,
+              &quot;parttime&quot;,
+              &quot;contract&quot;,
+              &quot;internship&quot;,
+              &quot;temporary&quot;,
+              &quot;permanent&quot;,
+              &quot;perdiem&quot;,
+              &quot;seasonal&quot;,
+              &quot;prn&quot;
+            ],
+            &quot;enumTitles&quot;: [
+              &quot;Full-time&quot;,
+              &quot;Part-time&quot;,
+              &quot;Contract&quot;,
+              &quot;Internship&quot;,
+              &quot;Temporary&quot;,
+              &quot;Permanent&quot;,
+              &quot;Per diem&quot;,
+              &quot;Seasonal&quot;,
+              &quot;PRN&quot;
+            ]
+          }
+        },
+        &quot;remote&quot;: {
+          &quot;title&quot;: &quot;Workplace&quot;,
+          &quot;enum&quot;: [
+            &quot;&quot;,
+            &quot;remote&quot;,
+            &quot;hybrid&quot;
+          ],
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;Keeps jobs Indeed marks as remote or as hybrid work.&quot;,
+          &quot;default&quot;: &quot;&quot;
+        },
+        &quot;titleOnly&quot;: {
+          &quot;title&quot;: &quot;Match the job title only&quot;,
+          &quot;type&quot;: &quot;boolean&quot;,
+          &quot;description&quot;: &quot;Indeed also matches words in the description, which brings jobs with unrelated titles. With this on, every search word must be in the job title.&quot;,
+          &quot;default&quot;: false
+        },
+        &quot;distance&quot;: {
+          &quot;title&quot;: &quot;Distance around the location&quot;,
+          &quot;minimum&quot;: 0,
+          &quot;maximum&quot;: 100,
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;description&quot;: &quot;Miles in the United States and the United Kingdom, kilometres elsewhere. Without a value the distance is 25.&quot;
+        },
+        &quot;sort&quot;: {
+          &quot;title&quot;: &quot;Order&quot;,
+          &quot;enum&quot;: [
+            &quot;date&quot;,
+            &quot;relevance&quot;
+          ],
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;Newest first is the order for date limits and monitoring. Most relevant first is Indeed&#x27;s own ranking for the first 1,000 jobs of a search.&quot;,
+          &quot;default&quot;: &quot;date&quot;
+        },
+        &quot;links&quot;: {
+          &quot;title&quot;: &quot;Indeed links&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;description&quot;: &quot;Search links from any Indeed country site (the words, place, age, distance, job type and remote filter of the link are used) and links of single jobs, which are looked up directly.&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        }
+      }
+    },
+    &quot;x-rapidapi&quot;: {
+      &quot;method&quot;: &quot;POST&quot;,
+      &quot;url&quot;: &quot;https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items&quot;,
+      &quot;headers&quot;: {
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+        &quot;x-rapidapi-host&quot;: &quot;job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com&quot;,
+        &quot;x-rapidapi-key&quot;: &quot;${RAPIDAPI_KEY}&quot;
+      },
+      &quot;exampleInput&quot;: {
+        &quot;queries&quot;: [
+          &quot;software engineer&quot;
+        ],
+        &quot;locations&quot;: [
+          &quot;Austin, TX&quot;
+        ]
+      }
+    }
+  },
+  &quot;claudeDesktopAndCursorHostedMcp&quot;: {
+    &quot;mcpServers&quot;: {
+      &quot;jobs-api&quot;: {
+        &quot;url&quot;: &quot;https://mcp.apify.com/?tools=benthepythondev/indeed-jobs-scraper&quot;,
+        &quot;headers&quot;: {
+          &quot;Authorization&quot;: &quot;Bearer YOUR_APIFY_TOKEN&quot;
+        }
+      }
+    }
+  }
+}</code></pre>
+    </div>
+  </section>
+  
+  <section id="endpoints">
+    <h2>All Endpoints (8 Sources, One Key)</h2>
+    <table>
+      <thead><tr><th>Board / Source</th><th>Route</th><th>Max Rows / Call</th></tr></thead>
+      <tbody><tr><td><strong>Indeed</strong></td><td><code>POST /h520E7cikakFSzjAg/run-sync-get-dataset-items</code></td><td>Up to 20</td></tr>
+<tr><td><strong>LinkedIn</strong></td><td><code>POST /oLJEZ10sRuoKiZInX/run-sync-get-dataset-items</code></td><td>Up to 3</td></tr>
+<tr><td><strong>Reed</strong></td><td><code>POST /YA0WGAepN2yYgkrh7/run-sync-get-dataset-items</code></td><td>Up to 20</td></tr>
+<tr><td><strong>Wellfound</strong></td><td><code>POST /heL4RmXSn9zaDxfi9/run-sync-get-dataset-items</code></td><td>Up to 20</td></tr>
+<tr><td><strong>Welcome to the Jungle</strong></td><td><code>POST /EGum7vKm83KHI20OL/run-sync-get-dataset-items</code></td><td>Up to 13</td></tr>
+<tr><td><strong>Greenhouse</strong></td><td><code>POST /HN8pSRqEKoUIcWVcS/run-sync-get-dataset-items</code></td><td>Up to 20</td></tr>
+<tr><td><strong>Workday</strong></td><td><code>POST /8n8fds1drG4LB7eV0/run-sync-get-dataset-items</code></td><td>Up to 20</td></tr>
+<tr><td><strong>ATS Career Pages</strong></td><td><code>POST /KfqhxywavGHLbeltk/run-sync-get-dataset-items</code></td><td>Up to 20</td></tr></tbody>
+    </table>
+  </section>
+
+  <section id="schema">
+    <h2>Request Parameters &amp; Real JSON Response</h2>
+    <p>Full machine-readable specification: <a href="openapi-3.1.json">openapi-3.1.json (OpenAPI 3.1.0)</a>.</p>
+    <table>
+      <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+      <tbody><tr><td><code>queries</code></td><td>array</td><td>What to search for: job titles, skills or company names. Each entry is searched in each location. Indeed&#x27;s operators work: title:(data analyst) matches the job title only, company:Siemens one employer, quotes an exact phrase.</td></tr>
+<tr><td><code>locations</code></td><td>array</td><td>Cities, regions or postcodes in the chosen country, for example Austin, TX or Manchester or 10115 Berlin. Leave empty to search the whole country.</td></tr>
+<tr><td><code>countryCode</code></td><td>string</td><td>The Indeed country site to search. Pay is read in each country&#x27;s own currency. Links bring their own country.</td></tr>
+<tr><td><code>maxResults</code></td><td>integer</td><td>Rows to save for each search (each combination of keyword, location and job type) and each search link. A request returns 20 rows at most.</td></tr>
+<tr><td><code>postedWithinDays</code></td><td>integer</td><td>Keeps jobs Indeed listed within this many days. Any number works, and it works together with the job type and remote filters.</td></tr>
+<tr><td><code>jobTypes</code></td><td>array</td><td>Keeps jobs Indeed marks with this type. Several types are searched one after the other, and a job that carries two of them is saved once.</td></tr>
+<tr><td><code>remote</code></td><td>string</td><td>Keeps jobs Indeed marks as remote or as hybrid work.</td></tr>
+<tr><td><code>titleOnly</code></td><td>boolean</td><td>Indeed also matches words in the description, which brings jobs with unrelated titles. With this on, every search word must be in the job title.</td></tr>
+<tr><td><code>distance</code></td><td>integer</td><td>Miles in the United States and the United Kingdom, kilometres elsewhere. Without a value the distance is 25.</td></tr>
+<tr><td><code>sort</code></td><td>string</td><td>Newest first is the order for date limits and monitoring. Most relevant first is Indeed&#x27;s own ranking for the first 1,000 jobs of a search.</td></tr>
+<tr><td><code>links</code></td><td>array</td><td>Search links from any Indeed country site (the words, place, age, distance, job type and remote filter of the link are used) and links of single jobs, which are looked up directly.</td></tr></tbody>
+    </table>
+    <h3>Real JSON Response Sample</h3>
+    <div class="card">
+      <div class="code-head"><strong>201 Created (1 item of array)</strong><button class="btn" type="button" data-copy-target="code-sample">Copy JSON</button></div>
+      <pre id="code-sample"><code>{
+  &quot;jobId&quot;: &quot;ab8f88071c726371&quot;,
+  &quot;url&quot;: &quot;https://www.indeed.com/viewjob?jk=ab8f88071c726371&quot;,
+  &quot;applyUrl&quot;: &quot;https://careers.newscorp.com/austin-tx/fullstack-senior-engineer/22CCB6E35D844C29BEE2E1E6E3AA550B/job/&quot;,
+  &quot;indeedApply&quot;: false,
+  &quot;title&quot;: &quot;Fullstack Senior Engineer&quot;,
+  &quot;normalizedTitle&quot;: &quot;full stack developer&quot;,
+  &quot;company&quot;: &quot;News Corp&quot;,
+  &quot;companyUrl&quot;: &quot;https://www.indeed.com/cmp/News-Corp-1&quot;,
+  &quot;location&quot;: &quot;Austin, TX 78702&quot;,
+  &quot;city&quot;: &quot;Austin&quot;,
+  &quot;state&quot;: &quot;TX&quot;,
+  &quot;postalCode&quot;: &quot;78702&quot;,
+  &quot;streetAddress&quot;: null,
+  &quot;country&quot;: &quot;US&quot;,
+  &quot;latitude&quot;: 30.279993,
+  &quot;longitude&quot;: -97.718864,
+  &quot;remote&quot;: false,
+  &quot;hybrid&quot;: false,
+  &quot;jobTypes&quot;: [],
+  &quot;salaryText&quot;: null,
+  &quot;salaryMin&quot;: null,
+  &quot;salaryMax&quot;: null,
+  &quot;salaryUnit&quot;: null,
+  &quot;salaryCurrency&quot;: null,
+  &quot;description&quot;: &quot;Fullstack Senior Engineer\n\nLocation: Austin, TX, United States\n\nCategory: Technology\n\nJob ID: 3313\n\nApply Now\n\nDescription\n\nRecognized as the No. 1 site trus...&quot;,
+  &quot;descriptionHtml&quot;: &quot;&lt;div&gt;&lt;div&gt;&lt;p&gt;Fullstack Senior Engineer&lt;/p&gt;\n&lt;p&gt;Location: Austin, TX, United States&lt;/p&gt;\n&lt;p&gt;Category: Technology&lt;/p&gt;\n&lt;p&gt;Job ID: 3313&lt;/p&gt;\n&lt;p&gt;Apply Now&lt;/p&gt;\n&lt;p&gt;Des...&quot;,
+  &quot;emails&quot;: [],
+  &quot;postedAt&quot;: &quot;2026-10-07T05:00:00+00:00&quot;,
+  &quot;listedAt&quot;: &quot;2026-10-07T06:46:28.909000+00:00&quot;,
+  &quot;expired&quot;: false,
+  &quot;language&quot;: &quot;en&quot;,
+  &quot;attributes&quot;: [
+    &quot;Containerization systems&quot;,
+    &quot;Performance monitoring&quot;,
+    &quot;Data model design&quot;
+  ],
+  &quot;occupations&quot;: [
+    &quot;Software Development Occupations&quot;,
+    &quot;Technology Occupations&quot;,
+    &quot;Software Development &amp; Architecture Occupations&quot;
+  ],
+  &quot;urgentHire&quot;: false,
+  &quot;highVolumeHiring&quot;: false,
+  &quot;companyRating&quot;: 3.5,
+  &quot;companyReviews&quot;: 70,
+  &quot;companyIndustry&quot;: null,
+  &quot;companySize&quot;: &quot;10,000+&quot;,
+  &quot;companyRevenue&quot;: &quot;$5B to $10B (USD)&quot;,
+  &quot;companyWebsite&quot;: &quot;http://www.newscorp.com&quot;,
+  &quot;companyLogo&quot;: &quot;https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/7a026f2b631039bbff6d065bdb4ee9e6&quot;,
+  &quot;companyDescription&quot;: null,
+  &quot;companyCeo&quot;: null,
+  &quot;searchQuery&quot;: &quot;software engineer&quot;,
+  &quot;searchLocation&quot;: &quot;Austin, TX&quot;,
+  &quot;position&quot;: 1,
+  &quot;scrapedAt&quot;: &quot;2026-10-07T07:48:41.766781+00:00&quot;
+}</code></pre>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>RapidAPI Pricing Plans</h2>
+    <table>
+      <thead><tr><th>Tier</th><th>Price</th><th>Requests / Month</th><th>Limit Type</th></tr></thead>
+      <tbody><tr><td><strong>BASIC</strong></td><td>$0/mo</td><td>50</td><td>Hard limit</td></tr>
+<tr><td><strong>PRO</strong></td><td>$4.99/mo</td><td>1,500</td><td>Soft limit</td></tr>
+<tr><td><strong>ULTRA</strong></td><td>$29.99/mo</td><td>10,471</td><td>Soft limit</td></tr>
+<tr><td><strong>MEGA</strong></td><td>$99.99/mo</td><td>34,912</td><td>Soft limit</td></tr></tbody>
+    </table>
+  </section>
+
+  <section id="faq">
+    <h2>Questions &amp; Answers</h2>
+    <article class="qa-item"><h3>Which job boards are included under one subscription?</h3><p>One RapidAPI subscription covers Indeed, LinkedIn, Reed, Wellfound, Welcome to the Jungle, Greenhouse, Workday, and ATS Career Pages.</p></article>
+<article class="qa-item"><h3>How many job postings does one request return?</h3><p>Up to 20 postings per request on Indeed, Reed, Wellfound, Greenhouse, Workday, and ATS Career Pages; up to 13 on Welcome to the Jungle; and up to 3 on LinkedIn.</p></article>
+<article class="qa-item"><h3>Do I need separate API keys for each job board?</h3><p>No. Every endpoint uses the same x-rapidapi-key and x-rapidapi-host (job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com).</p></article>
+<article class="qa-item"><h3>How do I use this Job Search API inside n8n or an AI agent?</h3><p>Import the n8n HTTP Request workflow JSON below to query Indeed or any board on a schedule, or register the MCP tool snippet in Claude Desktop or Cursor.</p></article>
+<article class="qa-item"><h3>What does the Job Search API cost on RapidAPI?</h3><p>Basic is $0/month (50 requests, hard-capped). Pro is $4.99/month (1,500 requests), Ultra is $29.99/month (10,471 requests), and Mega is $99.99/month (34,912 requests).</p></article>
+  </section>
+
+  <footer>
+    <p><strong>More RapidAPI Integration Kits:</strong></p>
+    <ul><li><a href="../facebook-posts-scraper2/">Facebook Posts Scraper API</a></li>
+<li><a href="../tiktok-profile-scraper2/">TikTok Profile Scraper API</a></li>
+<li><a href="../instagram-profile-scraper10/">Instagram Profile Scraper API</a></li></ul>
+    <p>Maintained by benthepythondev. <a href="https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards" rel="noopener">Open Job Search API (Indeed, LinkedIn, Reed, ATS Boards) on RapidAPI</a>.</p>
+  </footer>
+</main>
+<script>
+document.querySelectorAll('[data-copy-target]').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    try {
+      await navigator.clipboard.writeText(el.innerText);
+      const orig = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(() => { btn.textContent = orig; }, 1600);
+    } catch (e) {}
+  });
+});
+</script>
+</body>
+</html>

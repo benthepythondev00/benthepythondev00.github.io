@@ -1,0 +1,212 @@
+{
+  "tool": {
+    "name": "search_jobs_multi_board",
+    "description": "Indeed job postings by keyword and location in 62 countries: title, employer, location, pay, full description, job type, remote flag and apply link. Up to 20 jobs per request, as JSON.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "queries": {
+          "title": "Job titles or keywords",
+          "type": "array",
+          "description": "What to search for: job titles, skills or company names. Each entry is searched in each location. Indeed's operators work: title:(data analyst) matches the job title only, company:Siemens one employer, quotes an exact phrase.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "locations": {
+          "title": "Locations",
+          "type": "array",
+          "description": "Cities, regions or postcodes in the chosen country, for example Austin, TX or Manchester or 10115 Berlin. Leave empty to search the whole country.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "countryCode": {
+          "title": "Country",
+          "enum": [
+            "AR",
+            "AU",
+            "AT",
+            "BH",
+            "BE",
+            "BR",
+            "CA",
+            "CL",
+            "CN",
+            "CO",
+            "CR",
+            "CZ",
+            "DK",
+            "EC",
+            "EG",
+            "FI",
+            "FR",
+            "DE",
+            "GR",
+            "HK",
+            "HU",
+            "IN",
+            "ID",
+            "IE",
+            "IL",
+            "IT",
+            "JP",
+            "KW",
+            "LU",
+            "MY",
+            "MX",
+            "MA",
+            "NL",
+            "NZ",
+            "NG",
+            "NO",
+            "OM",
+            "PK",
+            "PA",
+            "PE",
+            "PH",
+            "PL",
+            "PT",
+            "QA",
+            "RO",
+            "SA",
+            "SG",
+            "ZA",
+            "KR",
+            "ES",
+            "SE",
+            "CH",
+            "TW",
+            "TH",
+            "TR",
+            "UA",
+            "AE",
+            "GB",
+            "US",
+            "UY",
+            "VE",
+            "VN"
+          ],
+          "type": "string",
+          "description": "The Indeed country site to search. Pay is read in each country's own currency. Links bring their own country.",
+          "default": "US"
+        },
+        "maxResults": {
+          "title": "Maximum jobs per search",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Rows to save for each search (each combination of keyword, location and job type) and each search link. A request returns 20 rows at most.",
+          "default": 20
+        },
+        "postedWithinDays": {
+          "title": "Only jobs listed in the last … days",
+          "minimum": 1,
+          "maximum": 365,
+          "type": "integer",
+          "description": "Keeps jobs Indeed listed within this many days. Any number works, and it works together with the job type and remote filters."
+        },
+        "jobTypes": {
+          "title": "Job types",
+          "uniqueItems": true,
+          "type": "array",
+          "description": "Keeps jobs Indeed marks with this type. Several types are searched one after the other, and a job that carries two of them is saved once.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "fulltime",
+              "parttime",
+              "contract",
+              "internship",
+              "temporary",
+              "permanent",
+              "perdiem",
+              "seasonal",
+              "prn"
+            ],
+            "enumTitles": [
+              "Full-time",
+              "Part-time",
+              "Contract",
+              "Internship",
+              "Temporary",
+              "Permanent",
+              "Per diem",
+              "Seasonal",
+              "PRN"
+            ]
+          }
+        },
+        "remote": {
+          "title": "Workplace",
+          "enum": [
+            "",
+            "remote",
+            "hybrid"
+          ],
+          "type": "string",
+          "description": "Keeps jobs Indeed marks as remote or as hybrid work.",
+          "default": ""
+        },
+        "titleOnly": {
+          "title": "Match the job title only",
+          "type": "boolean",
+          "description": "Indeed also matches words in the description, which brings jobs with unrelated titles. With this on, every search word must be in the job title.",
+          "default": false
+        },
+        "distance": {
+          "title": "Distance around the location",
+          "minimum": 0,
+          "maximum": 100,
+          "type": "integer",
+          "description": "Miles in the United States and the United Kingdom, kilometres elsewhere. Without a value the distance is 25."
+        },
+        "sort": {
+          "title": "Order",
+          "enum": [
+            "date",
+            "relevance"
+          ],
+          "type": "string",
+          "description": "Newest first is the order for date limits and monitoring. Most relevant first is Indeed's own ranking for the first 1,000 jobs of a search.",
+          "default": "date"
+        },
+        "links": {
+          "title": "Indeed links",
+          "type": "array",
+          "description": "Search links from any Indeed country site (the words, place, age, distance, job type and remote filter of the link are used) and links of single jobs, which are looked up directly.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "x-rapidapi": {
+      "method": "POST",
+      "url": "https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com/h520E7cikakFSzjAg/run-sync-get-dataset-items",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-rapidapi-host": "job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com",
+        "x-rapidapi-key": "${RAPIDAPI_KEY}"
+      },
+      "exampleInput": {
+        "queries": [
+          "software engineer"
+        ],
+        "locations": [
+          "Austin, TX"
+        ]
+      }
+    }
+  },
+  "claudeDesktopAndCursorHostedMcp": {
+    "mcpServers": {
+      "jobs-api": {
+        "url": "https://mcp.apify.com/?tools=benthepythondev/indeed-jobs-scraper",
+        "headers": {
+          "Authorization": "Bearer YOUR_APIFY_TOKEN"
+        }
+      }
+    }
+  }
+}

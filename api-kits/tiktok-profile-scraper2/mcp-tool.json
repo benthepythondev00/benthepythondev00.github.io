@@ -1,0 +1,84 @@
+{
+  "tool": {
+    "name": "scrape_tiktok_profiles",
+    "description": "Returns one row per TikTok profile: exact followers, following, likes and video count, bio, bio link, verified badge, business category, region and the latest videos with play counts, posting rate and last post date. Up to 5 results per request, as JSON.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "profiles": {
+          "title": "TikTok Profiles",
+          "maxItems": 50,
+          "type": "array",
+          "description": "One to 10,000 usernames, @handles or canonical HTTPS profile URLs. Duplicate handles are looked up once. Video URLs and shortened share links are not accepted.",
+          "default": [
+            "nasa"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "maxProfiles": {
+          "title": "Maximum Profiles",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Maximum unique profiles to look up after duplicate removal. A request returns 5 rows at most.",
+          "default": 3
+        },
+        "delayBetweenRequests": {
+          "title": "Delay Between Requests (ms)",
+          "minimum": 0,
+          "maximum": 10000,
+          "type": "integer",
+          "description": "Delay in milliseconds between requests to avoid rate limiting. Recommended: 500-1000ms",
+          "default": 500
+        },
+        "includeRecentVideos": {
+          "title": "Include recent videos",
+          "type": "boolean",
+          "description": "Add the videos TikTok lists for the profile (pinned ones and the latest ten, with play counts, posting times and links), their average and median plays, the posting rate and the time of the last post. Costs nothing extra.",
+          "default": true
+        },
+        "includeVideoStats": {
+          "title": "Add likes, comments and shares per video",
+          "type": "boolean",
+          "description": "Read the latest videos from TikTok's creator list instead of the embed list: each video then also has likes, comments, shares, music title and its engagement rate ((likes + comments + shares) / plays), and the row gets recent_avg_engagement_rate. Pinned videos stay first. One extra request per 15 videos; costs nothing extra per profile.",
+          "default": false
+        },
+        "maxVideosPerProfile": {
+          "title": "Latest videos with statistics",
+          "minimum": 1,
+          "maximum": 50,
+          "type": "integer",
+          "description": "How many of the latest videos get likes, comments and shares when the option above is on. 1 to 50.",
+          "default": 10
+        }
+      }
+    },
+    "x-rapidapi": {
+      "method": "POST",
+      "url": "https://tiktok-profile-scraper2.p.rapidapi.com/",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-rapidapi-host": "tiktok-profile-scraper2.p.rapidapi.com",
+        "x-rapidapi-key": "${RAPIDAPI_KEY}"
+      },
+      "exampleInput": {
+        "profiles": [
+          "nasa"
+        ],
+        "maxProfiles": 3
+      }
+    }
+  },
+  "claudeDesktopAndCursorHostedMcp": {
+    "mcpServers": {
+      "tiktok-profile-scraper": {
+        "url": "https://mcp.apify.com/?tools=benthepythondev/tiktok-profile-scraper",
+        "headers": {
+          "Authorization": "Bearer YOUR_APIFY_TOKEN"
+        }
+      }
+    }
+  }
+}

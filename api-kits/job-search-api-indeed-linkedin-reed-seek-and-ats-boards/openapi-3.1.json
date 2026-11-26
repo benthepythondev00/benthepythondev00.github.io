@@ -1,0 +1,1558 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Job Search API (Indeed, LinkedIn, Reed, ATS Boards)",
+    "version": "1.0.0",
+    "description": "Job postings from Indeed, LinkedIn, Reed, Seek, Wellfound, Welcome to the Jungle and the career pages of companies on Greenhouse, Workday and other applicant tracking systems, in one API.",
+    "contact": {
+      "name": "benthepythondev",
+      "url": "https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com",
+      "description": "RapidAPI Production Gateway"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "RapidAPIKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-rapidapi-key",
+        "description": "Your RapidAPI subscription key from rapidapi.com"
+      },
+      "RapidAPIHost": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-rapidapi-host",
+        "description": "Must be set to job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com"
+      }
+    }
+  },
+  "paths": {
+    "/h520E7cikakFSzjAg/run-sync-get-dataset-items": {
+      "post": {
+        "operationId": "indeed",
+        "summary": "Indeed",
+        "description": "Indeed job postings by keyword and location in 62 countries: title, employer, location, pay, full description, job type, remote flag and apply link. Up to 20 jobs per request, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "queries": {
+                    "title": "Job titles or keywords",
+                    "type": "array",
+                    "description": "What to search for: job titles, skills or company names. Each entry is searched in each location. Indeed's operators work: title:(data analyst) matches the job title only, company:Siemens one employer, quotes an exact phrase.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "locations": {
+                    "title": "Locations",
+                    "type": "array",
+                    "description": "Cities, regions or postcodes in the chosen country, for example Austin, TX or Manchester or 10115 Berlin. Leave empty to search the whole country.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "countryCode": {
+                    "title": "Country",
+                    "enum": [
+                      "AR",
+                      "AU",
+                      "AT",
+                      "BH",
+                      "BE",
+                      "BR",
+                      "CA",
+                      "CL",
+                      "CN",
+                      "CO",
+                      "CR",
+                      "CZ",
+                      "DK",
+                      "EC",
+                      "EG",
+                      "FI",
+                      "FR",
+                      "DE",
+                      "GR",
+                      "HK",
+                      "HU",
+                      "IN",
+                      "ID",
+                      "IE",
+                      "IL",
+                      "IT",
+                      "JP",
+                      "KW",
+                      "LU",
+                      "MY",
+                      "MX",
+                      "MA",
+                      "NL",
+                      "NZ",
+                      "NG",
+                      "NO",
+                      "OM",
+                      "PK",
+                      "PA",
+                      "PE",
+                      "PH",
+                      "PL",
+                      "PT",
+                      "QA",
+                      "RO",
+                      "SA",
+                      "SG",
+                      "ZA",
+                      "KR",
+                      "ES",
+                      "SE",
+                      "CH",
+                      "TW",
+                      "TH",
+                      "TR",
+                      "UA",
+                      "AE",
+                      "GB",
+                      "US",
+                      "UY",
+                      "VE",
+                      "VN"
+                    ],
+                    "type": "string",
+                    "description": "The Indeed country site to search. Pay is read in each country's own currency. Links bring their own country.",
+                    "default": "US"
+                  },
+                  "maxResults": {
+                    "title": "Maximum jobs per search",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Rows to save for each search (each combination of keyword, location and job type) and each search link. A request returns 20 rows at most.",
+                    "default": 20
+                  },
+                  "postedWithinDays": {
+                    "title": "Only jobs listed in the last … days",
+                    "minimum": 1,
+                    "maximum": 365,
+                    "type": "integer",
+                    "description": "Keeps jobs Indeed listed within this many days. Any number works, and it works together with the job type and remote filters."
+                  },
+                  "jobTypes": {
+                    "title": "Job types",
+                    "uniqueItems": true,
+                    "type": "array",
+                    "description": "Keeps jobs Indeed marks with this type. Several types are searched one after the other, and a job that carries two of them is saved once.",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "fulltime",
+                        "parttime",
+                        "contract",
+                        "internship",
+                        "temporary",
+                        "permanent",
+                        "perdiem",
+                        "seasonal",
+                        "prn"
+                      ],
+                      "enumTitles": [
+                        "Full-time",
+                        "Part-time",
+                        "Contract",
+                        "Internship",
+                        "Temporary",
+                        "Permanent",
+                        "Per diem",
+                        "Seasonal",
+                        "PRN"
+                      ]
+                    }
+                  },
+                  "remote": {
+                    "title": "Workplace",
+                    "enum": [
+                      "",
+                      "remote",
+                      "hybrid"
+                    ],
+                    "type": "string",
+                    "description": "Keeps jobs Indeed marks as remote or as hybrid work.",
+                    "default": ""
+                  },
+                  "titleOnly": {
+                    "title": "Match the job title only",
+                    "type": "boolean",
+                    "description": "Indeed also matches words in the description, which brings jobs with unrelated titles. With this on, every search word must be in the job title.",
+                    "default": false
+                  },
+                  "distance": {
+                    "title": "Distance around the location",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "type": "integer",
+                    "description": "Miles in the United States and the United Kingdom, kilometres elsewhere. Without a value the distance is 25."
+                  },
+                  "sort": {
+                    "title": "Order",
+                    "enum": [
+                      "date",
+                      "relevance"
+                    ],
+                    "type": "string",
+                    "description": "Newest first is the order for date limits and monitoring. Most relevant first is Indeed's own ranking for the first 1,000 jobs of a search.",
+                    "default": "date"
+                  },
+                  "links": {
+                    "title": "Indeed links",
+                    "type": "array",
+                    "description": "Search links from any Indeed country site (the words, place, age, distance, job type and remote filter of the link are used) and links of single jobs, which are looked up directly.",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": {
+                "queries": [
+                  "software engineer"
+                ],
+                "locations": [
+                  "Austin, TX"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 20 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "jobId": "ab8f88071c726371",
+                    "url": "https://www.indeed.com/viewjob?jk=ab8f88071c726371",
+                    "applyUrl": "https://careers.newscorp.com/austin-tx/fullstack-senior-engineer/22CCB6E35D844C29BEE2E1E6E3AA550B/job/",
+                    "indeedApply": false,
+                    "title": "Fullstack Senior Engineer",
+                    "normalizedTitle": "full stack developer",
+                    "company": "News Corp",
+                    "companyUrl": "https://www.indeed.com/cmp/News-Corp-1",
+                    "location": "Austin, TX 78702",
+                    "city": "Austin",
+                    "state": "TX",
+                    "postalCode": "78702",
+                    "streetAddress": null,
+                    "country": "US",
+                    "latitude": 30.279993,
+                    "longitude": -97.718864,
+                    "remote": false,
+                    "hybrid": false,
+                    "jobTypes": [],
+                    "salaryText": null,
+                    "salaryMin": null,
+                    "salaryMax": null,
+                    "salaryUnit": null,
+                    "salaryCurrency": null,
+                    "description": "Fullstack Senior Engineer\n\nLocation: Austin, TX, United States\n\nCategory: Technology\n\nJob ID: 3313\n\nApply Now\n\nDescription\n\nRecognized as the No. 1 site trus...",
+                    "descriptionHtml": "<div><div><p>Fullstack Senior Engineer</p>\n<p>Location: Austin, TX, United States</p>\n<p>Category: Technology</p>\n<p>Job ID: 3313</p>\n<p>Apply Now</p>\n<p>Des...",
+                    "emails": [],
+                    "postedAt": "2026-10-07T05:00:00+00:00",
+                    "listedAt": "2026-10-07T06:46:28.909000+00:00",
+                    "expired": false,
+                    "language": "en",
+                    "attributes": [
+                      "Containerization systems",
+                      "Performance monitoring",
+                      "Data model design"
+                    ],
+                    "occupations": [
+                      "Software Development Occupations",
+                      "Technology Occupations",
+                      "Software Development & Architecture Occupations"
+                    ],
+                    "urgentHire": false,
+                    "highVolumeHiring": false,
+                    "companyRating": 3.5,
+                    "companyReviews": 70,
+                    "companyIndustry": null,
+                    "companySize": "10,000+",
+                    "companyRevenue": "$5B to $10B (USD)",
+                    "companyWebsite": "http://www.newscorp.com",
+                    "companyLogo": "https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/7a026f2b631039bbff6d065bdb4ee9e6",
+                    "companyDescription": null,
+                    "companyCeo": null,
+                    "searchQuery": "software engineer",
+                    "searchLocation": "Austin, TX",
+                    "position": 1,
+                    "scrapedAt": "2026-10-07T07:48:41.766781+00:00"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    },
+    "/oLJEZ10sRuoKiZInX/run-sync-get-dataset-items": {
+      "post": {
+        "operationId": "linkedin",
+        "summary": "LinkedIn",
+        "description": "Public LinkedIn job postings by keyword and location, with full descriptions and company data. Up to 3 jobs per request, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keywords": {
+                    "title": "Job keywords",
+                    "type": "string",
+                    "description": "Plain-text source search. Strict matching requires every word in the title or full description; disable it for source-defined query syntax.",
+                    "default": "python"
+                  },
+                  "location": {
+                    "title": "Location",
+                    "type": "string",
+                    "description": "Location passed to LinkedIn.",
+                    "default": "Berlin, Germany"
+                  },
+                  "jobUrls": {
+                    "title": "Direct job URLs or IDs",
+                    "type": "array",
+                    "description": "Public /jobs/view/ URLs or numeric IDs. Overrides search; keyword and recency filters do not apply.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "maxResults": {
+                    "title": "Maximum matching jobs",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Maximum jobs collected in this snapshot, before only-new filtering. A request returns 20 rows at most.",
+                    "default": 10
+                  },
+                  "maxPages": {
+                    "title": "Maximum search pages",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "type": "integer",
+                    "description": "Scan at most this many result pages even when fewer jobs match. A page has ten jobs, so 100 pages reach LinkedIn's 1,000-result limit.",
+                    "default": 5
+                  },
+                  "timeRange": {
+                    "title": "Posted within",
+                    "enum": [
+                      "all",
+                      "day",
+                      "week",
+                      "month"
+                    ],
+                    "type": "string",
+                    "description": "Source recency filter, also checked against available calendar dates. Not an exact-hour timestamp guarantee.",
+                    "default": "week"
+                  },
+                  "sortBy": {
+                    "title": "Source ordering",
+                    "enum": [
+                      "date",
+                      "relevance"
+                    ],
+                    "type": "string",
+                    "description": "Ordering requested from LinkedIn; the source may rank or recommend results.",
+                    "default": "date"
+                  },
+                  "strictKeywords": {
+                    "title": "Require all keyword words",
+                    "type": "boolean",
+                    "description": "Reject unrelated source recommendations: every keyword word must occur in the title or description, ignoring case.",
+                    "default": true
+                  },
+                  "workTypes": {
+                    "title": "Workplace filters",
+                    "type": "array",
+                    "description": "Pass these filters to LinkedIn. Leave empty for any.",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "1",
+                        "2",
+                        "3"
+                      ],
+                      "enumTitles": [
+                        "Onsite",
+                        "Remote",
+                        "Hybrid"
+                      ]
+                    }
+                  },
+                  "jobTypes": {
+                    "title": "Employment filters",
+                    "type": "array",
+                    "description": "Pass these filters to LinkedIn. Leave empty for any.",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "F",
+                        "P",
+                        "C",
+                        "T",
+                        "I",
+                        "V",
+                        "O"
+                      ],
+                      "enumTitles": [
+                        "Full time",
+                        "Part time",
+                        "Contract",
+                        "Temporary",
+                        "Internship",
+                        "Volunteer",
+                        "Other"
+                      ]
+                    }
+                  },
+                  "experienceLevels": {
+                    "title": "Experience filters",
+                    "type": "array",
+                    "description": "Pass these filters to LinkedIn. Leave empty for any.",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                      ],
+                      "enumTitles": [
+                        "Internship",
+                        "Entry level",
+                        "Associate",
+                        "Mid senior",
+                        "Director",
+                        "Executive"
+                      ]
+                    }
+                  }
+                }
+              },
+              "example": {
+                "keywords": "python",
+                "location": "Berlin, Germany",
+                "maxResults": 10
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 3 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "job_id": "4473069637",
+                    "title": "Senior Backend Engineer",
+                    "company": "Holvi",
+                    "company_url": "https://fi.linkedin.com/company/holvi",
+                    "location": "Berlin, Germany",
+                    "posted_date": "2026-09-29",
+                    "posted_text": "6 days ago",
+                    "salary": "€63,600.00/yr - €78,000.00/yr",
+                    "url": "https://www.linkedin.com/jobs/view/4473069637",
+                    "description": "We 💛 small business\nWe founded Holvi in 2011 in Helsinki. As self-employed people wading through oceans of paperwork, we noticed something funny going on: tr...",
+                    "applicants_text": "159 applicants",
+                    "apply_url": null,
+                    "seniority": "Mid-Senior level",
+                    "employment_type": "Full-time",
+                    "job_function": null,
+                    "industries": "Financial Services",
+                    "scraped_at": "2026-10-05T12:28:11.901565+00:00",
+                    "is_new": false,
+                    "monitor_id": null
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    },
+    "/YA0WGAepN2yYgkrh7/run-sync-get-dataset-items": {
+      "post": {
+        "operationId": "reed",
+        "summary": "Reed",
+        "description": "Job postings from Reed.co.uk by keyword: title, company, location, salary, work type, posting date, badges and link. Up to 20 jobs per request, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keyword": {
+                    "title": "Keyword / job title",
+                    "type": "string",
+                    "description": "Job title, skill or keyword to search on Reed.co.uk, e.g. 'python developer'.",
+                    "default": "python"
+                  },
+                  "location": {
+                    "title": "Location",
+                    "type": "string",
+                    "description": "Optional UK city, county or region, e.g. 'London', 'Manchester' or 'Surrey'."
+                  },
+                  "maxResults": {
+                    "title": "Max results",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Maximum number of Reed jobs to return. A request returns 20 rows at most.",
+                    "default": 20
+                  }
+                }
+              },
+              "example": {
+                "keyword": "python",
+                "maxResults": 10
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 20 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "job_id": "57278693",
+                    "title": "Python Engineer",
+                    "company": "Adecco",
+                    "company_profile_url": "https://www.reed.co.uk/jobs/adecco-uk-limited-45420/p45420?sid=CxuAeyJrIjoiTTN1SU5raTJ6ajAiLCJmIjoiSndUMnpjRmN6aU0iLCJxIjoiMjJ2b1NFVzhNYk0ifQM",
+                    "location": "South East London, London",
+                    "salary": "£600 - £630 per day",
+                    "work_type": "Contract, full-time",
+                    "posted_date": "26 August",
+                    "badges": [
+                      "Ending soon",
+                      "Easy Apply"
+                    ],
+                    "company_logo_url": "https://resources.reed.co.uk/profileimages/logos/thumbs/Logo_45420.png?w=256&q=75",
+                    "url": "https://www.reed.co.uk/jobs/python-engineer/57278693?source=searchResults&sid=CxuAeyJrIjoiTTN1SU5raTJ6ajAiLCJmIjoiSndUMnpjRmN6aU0iLCJxIjoiMjJ2b1NFVzhNYk0ifQM...",
+                    "search": "https://www.reed.co.uk/jobs/python-jobs"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    },
+    "/heL4RmXSn9zaDxfi9/run-sync-get-dataset-items": {
+      "post": {
+        "operationId": "wellfound",
+        "summary": "Wellfound",
+        "description": "Job postings from Wellfound, the startup job board. Up to 20 jobs per request, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "locations"
+                ],
+                "properties": {
+                  "locations": {
+                    "title": "Wellfound locations",
+                    "type": "array",
+                    "description": "Cities, countries or regions represented by Wellfound location pages, for example Berlin, London or United States.",
+                    "default": [
+                      "Berlin"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "keywords": {
+                    "title": "Job keywords",
+                    "type": "array",
+                    "description": "Match roles, skills, startup names or text in the public job description. Leave empty to include all jobs in each location.",
+                    "default": [
+                      "software engineer"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "remoteOnly": {
+                    "title": "Remote-capable jobs only",
+                    "type": "boolean",
+                    "description": "Return only listings Wellfound marks as remote or remote-capable.",
+                    "default": false
+                  },
+                  "jobTypes": {
+                    "title": "Job types",
+                    "type": "array",
+                    "description": "Optional Wellfound job-type filters.",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "full-time",
+                        "part-time",
+                        "contract",
+                        "internship"
+                      ]
+                    },
+                    "default": []
+                  },
+                  "minimumSalary": {
+                    "title": "Minimum published salary",
+                    "minimum": 0,
+                    "type": "integer",
+                    "description": "Minimum lower bound of the published salary range. Currency is reported separately per job.",
+                    "default": 0
+                  },
+                  "includeJobsWithoutSalary": {
+                    "title": "Include jobs without salary",
+                    "type": "boolean",
+                    "description": "Keep listings where the employer did not publish a compensation range.",
+                    "default": true
+                  },
+                  "maxResultsPerLocation": {
+                    "title": "Maximum jobs per location",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Maximum unique matching jobs saved for each Wellfound location. A request returns 20 rows at most.",
+                    "default": 10
+                  },
+                  "maxPagesPerLocation": {
+                    "title": "Maximum pages per location",
+                    "minimum": 1,
+                    "maximum": 50,
+                    "type": "integer",
+                    "description": "Safety cap for Wellfound location-page pagination.",
+                    "default": 10
+                  }
+                }
+              },
+              "example": {
+                "locations": [
+                  "Berlin",
+                  "United States"
+                ],
+                "keywords": [
+                  "software engineer",
+                  "python"
+                ],
+                "remoteOnly": false,
+                "minimumSalary": 0,
+                "includeJobsWithoutSalary": true,
+                "maxResultsPerLocation": 10,
+                "maxPagesPerLocation": 10
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 20 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "job_id": "3165360",
+                    "url": "https://wellfound.com/jobs/3165360-ai-software-engineer",
+                    "title": "Software Architect (L3/L4/L5)",
+                    "description": "### About Us\n\nOpenigloo is on a mission to make renting fair, accessible, and transparent for all. We envision a world where renting is as easy as booking a ...",
+                    "job_type": "full-time",
+                    "primary_role": "Software Architect",
+                    "locations": [
+                      "Berlin",
+                      "Hyderabad"
+                    ],
+                    "accepted_remote_locations": [],
+                    "is_remote": false,
+                    "remote_kind": "ONSITE",
+                    "work_from_home_flexible": true,
+                    "years_experience_minimum": 4,
+                    "years_experience_maximum": null,
+                    "compensation": "$50k – $80k • 0.01% – 0.1%",
+                    "salary_minimum": 50000,
+                    "salary_maximum": 80000,
+                    "salary_currency": "USD",
+                    "equity_minimum_percent": 0.01,
+                    "equity_maximum_percent": 0.1,
+                    "published_at": "2026-09-26T20:53:04+00:00",
+                    "is_auto_posted": false,
+                    "ats_source": null,
+                    "company_id": "8129403",
+                    "company_name": "openigloo",
+                    "company_slug": "openigloo",
+                    "company_url": "https://wellfound.com/company/openigloo",
+                    "company_logo": "https://photos.wellfound.com/startups/i/8129403-79e5a480323882a0ab23c0a9d4aa2df2-medium_jpg.jpg?buster=1609404743",
+                    "company_size": "SIZE_11_50",
+                    "company_high_concept": "NYC Building and Owner Reviews",
+                    "company_badges": [
+                      "Actively Hiring",
+                      "B2C",
+                      "B2B"
+                    ],
+                    "lead_score": 100,
+                    "source_location": "berlin",
+                    "search_keywords": [
+                      "software engineer",
+                      "python"
+                    ],
+                    "search_rank": 1,
+                    "source_url": "https://wellfound.com/location/berlin",
+                    "scraped_at": "2026-10-07T07:55:59.452018+00:00"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    },
+    "/EGum7vKm83KHI20OL/run-sync-get-dataset-items": {
+      "post": {
+        "operationId": "welcome_to_the_jungle",
+        "summary": "Welcome to the Jungle",
+        "description": "Welcome to the Jungle job postings by keyword, country and city: title, company, location, remote policy, salary, contract, description and apply link. Up to 13 jobs per request, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "queries"
+                ],
+                "properties": {
+                  "queries": {
+                    "title": "Job search queries",
+                    "type": "array",
+                    "description": "Roles, skills, employers or keywords to search in public WTTJ jobs.",
+                    "default": [
+                      "python"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "locale": {
+                    "title": "Output market",
+                    "enum": [
+                      "en",
+                      "fr",
+                      "es",
+                      "cs",
+                      "sk"
+                    ],
+                    "type": "string",
+                    "description": "Language used for WTTJ URLs and localized company, sector and contract labels.",
+                    "default": "en"
+                  },
+                  "countryCodes": {
+                    "title": "Countries",
+                    "type": "array",
+                    "description": "Optional two-letter country codes, for example FR, GB, US, DE or ES.",
+                    "default": [],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "cities": {
+                    "title": "Cities",
+                    "type": "array",
+                    "description": "Optional exact city names, for example Paris, London, Berlin or Prague.",
+                    "default": [],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "contractTypes": {
+                    "title": "Contract types",
+                    "type": "array",
+                    "description": "Optional source-side contract filters.",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "FULL_TIME",
+                        "TEMPORARY",
+                        "INTERNSHIP",
+                        "APPRENTICESHIP",
+                        "FREELANCE",
+                        "PART_TIME",
+                        "VIE",
+                        "OTHER"
+                      ]
+                    },
+                    "default": []
+                  },
+                  "remotePolicies": {
+                    "title": "Remote policies",
+                    "type": "array",
+                    "description": "Optional source-side remote-work filters.",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "fulltime",
+                        "partial",
+                        "punctual",
+                        "no",
+                        "unknown"
+                      ],
+                      "enumTitles": [
+                        "Fully remote",
+                        "Hybrid",
+                        "Occasional remote",
+                        "On-site",
+                        "Unknown"
+                      ]
+                    },
+                    "default": []
+                  },
+                  "languages": {
+                    "title": "Job languages",
+                    "type": "array",
+                    "description": "Optional language codes for the job posting content, for example en or fr.",
+                    "default": [],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "searchTitleOnly": {
+                    "title": "Search titles only",
+                    "type": "boolean",
+                    "description": "Match each query only against job titles instead of all searchable job fields.",
+                    "default": false
+                  },
+                  "postedWithinDays": {
+                    "title": "Maximum posting age",
+                    "minimum": 0,
+                    "maximum": 365,
+                    "type": "integer",
+                    "description": "Keep jobs published within this many days. Use 0 for any posting age.",
+                    "default": 0
+                  },
+                  "includeDetails": {
+                    "title": "Fetch job-page details",
+                    "type": "boolean",
+                    "description": "Fetch each public job page for the full description, application URL, validity date and street-level location fields.",
+                    "default": true
+                  },
+                  "maxResultsPerQuery": {
+                    "title": "Maximum jobs per query",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Maximum unique job rows saved for each search query. A request returns 20 rows at most.",
+                    "default": 10
+                  },
+                  "maxPagesPerQuery": {
+                    "title": "Maximum search pages per query",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "type": "integer",
+                    "description": "Safety cap for source pagination, especially when using posting-age filters.",
+                    "default": 20
+                  }
+                }
+              },
+              "example": {
+                "queries": [
+                  "python",
+                  "data engineer"
+                ],
+                "locale": "en",
+                "countryCodes": [
+                  "FR"
+                ],
+                "cities": [
+                  "Paris"
+                ],
+                "searchTitleOnly": false,
+                "postedWithinDays": 0,
+                "includeDetails": true,
+                "maxResultsPerQuery": 10,
+                "maxPagesPerQuery": 20
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 13 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "reference": "DOCTO_dr0l7xa",
+                    "object_id": "4316306",
+                    "url": "https://www.welcometothejungle.com/en/companies/doctolib/jobs/senior-software-engineer-python-x-f-m_paris",
+                    "apply_url": "https://job-boards.greenhouse.io/doctolib/jobs/8014254003?gh_src=6a70e43a3",
+                    "title": "Senior Software Engineer - Python (x/f/m)",
+                    "profile": null,
+                    "language": "en",
+                    "market": "kerala-ventures",
+                    "published_at": "2026-10-07T00:00:00.000+02:00",
+                    "date_posted": "2026-10-06T22:00:51Z",
+                    "valid_through": "2027-01-04T22:00:51.000Z",
+                    "contract_type": "FULL_TIME",
+                    "contract_label": "Full-Time",
+                    "contract_duration_minimum": null,
+                    "contract_duration_maximum": null,
+                    "remote_policy": "partial",
+                    "department": null,
+                    "experience_level_minimum": null,
+                    "education_level": null,
+                    "profession": null,
+                    "profession_category": null,
+                    "salary_minimum": null,
+                    "salary_maximum": null,
+                    "salary_yearly_minimum": null,
+                    "salary_currency": null,
+                    "salary_period": "none",
+                    "city": "Paris",
+                    "district": "Paris",
+                    "region": "Ile-de-France",
+                    "country": "France",
+                    "country_code": "FR",
+                    "offices": [
+                      {
+                        "city": "Paris",
+                        "district": "Paris",
+                        "state": "Ile-de-France",
+                        "country": "France",
+                        "country_code": "FR"
+                      }
+                    ],
+                    "latitude": 48.85717,
+                    "longitude": 2.3414,
+                    "company_name": "Doctolib",
+                    "company_reference": "8GNWxLL",
+                    "company_url": "https://www.welcometothejungle.com/en/companies/doctolib",
+                    "company_website": "https://about.doctolib.com/",
+                    "company_description": null,
+                    "company_size": "> 2,000 employees",
+                    "company_employee_count": 3000,
+                    "company_logo": "https://cdn-images.welcometothejungle.com/lUv2omfU-8UP5hpYdG3_sW4PCKOhimDKW5eitV8ReiE/w:200/q:85/czM6Ly93dHRqLXBy/b2R1Y3Rpb24vdXBs/b2Fkcy9vcmdhbml6/YXRpb24vb...",
+                    "company_cover_image": null,
+                    "company_labels": [
+                      "bcorp"
+                    ],
+                    "company_postal_code": "92300",
+                    "company_street_address": null,
+                    "sectors": [
+                      {
+                        "id": 96,
+                        "name": "Mobile Apps",
+                        "category": "Tech"
+                      },
+                      {
+                        "id": 97,
+                        "name": "Software",
+                        "category": "Tech"
+                      },
+                      {
+                        "id": 98,
+                        "name": "SaaS / Cloud Services",
+                        "category": "Tech"
+                      }
+                    ],
+                    "is_promoted": false,
+                    "description_html": "<p>  We are looking for a Python Senior Software Engineer to join the ATP team in Application Platform Domain.</p><p>  As a Senior Software Engineer, your mi...",
+                    "description_text": "We are looking for a Python Senior Software Engineer to join the ATP team in Application Platform Domain. As a Senior Software Engineer, your mission will be...",
+                    "qualifications": null,
+                    "detail_locations": [
+                      {
+                        "city": "Paris",
+                        "region": "Paris",
+                        "country_code": "FR",
+                        "postal_code": "75001",
+                        "street_address": "Paris, Ile-de-France, France"
+                      }
+                    ],
+                    "source_query": "python",
+                    "source_search_url": "https://www.welcometothejungle.com/en/jobs?query=python",
+                    "search_rank": 1,
+                    "scraped_at": "2026-10-07T07:55:11.271905+00:00"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    },
+    "/HN8pSRqEKoUIcWVcS/run-sync-get-dataset-items": {
+      "post": {
+        "operationId": "greenhouse",
+        "summary": "Greenhouse",
+        "description": "Scrape job listings from any company using Greenhouse ATS. Up to 20 results per request, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companies": {
+                    "title": "Companies",
+                    "type": "array",
+                    "description": "List of Greenhouse company tokens to scrape. Leave empty to use default list of 40+ top tech companies.",
+                    "default": [
+                      "stripe"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "keywords": {
+                    "title": "Job Title Keywords",
+                    "type": "array",
+                    "description": "Filter jobs by title keywords (e.g., 'engineer', 'devops', 'product'). Leave empty for all jobs.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "location": {
+                    "title": "Location Filter",
+                    "type": "string",
+                    "description": "Filter jobs by location (e.g., 'remote', 'San Francisco', 'New York'). Leave empty for all locations."
+                  },
+                  "remoteOnly": {
+                    "title": "Remote Only",
+                    "type": "boolean",
+                    "description": "Only return remote job positions.",
+                    "default": false
+                  },
+                  "maxResults": {
+                    "title": "Max Results",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Maximum number of jobs to return. A request returns 20 rows at most.",
+                    "default": 5
+                  },
+                  "includeDescription": {
+                    "title": "Include Full Description",
+                    "type": "boolean",
+                    "description": "Fetch and include full job descriptions (slower but more data).",
+                    "default": false
+                  }
+                }
+              },
+              "example": {
+                "companies": [
+                  "stripe"
+                ],
+                "maxResults": 20
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 20 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "job_id": "8172510",
+                    "job_title": "Abuse Investigator",
+                    "company_name": "Stripe",
+                    "company_token": "stripe",
+                    "job_description": "",
+                    "location": "Seattle, San Francisco, New York City",
+                    "remote_flag": false,
+                    "employment_type": "Unknown",
+                    "departments": [
+                      "8611 Security Analytics"
+                    ],
+                    "posted_date": "2026-09-25T16:45:00-04:00",
+                    "job_url": "https://stripe.com/jobs/search?gh_jid=8172510",
+                    "source": "Greenhouse",
+                    "scraped_at": "2026-10-07T07:48:02.463363"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    },
+    "/8n8fds1drG4LB7eV0/run-sync-get-dataset-items": {
+      "post": {
+        "operationId": "workday",
+        "summary": "Workday",
+        "description": "Job postings from companies' Workday career sites such as Adobe, Intel, Disney and PayPal: title, company, location, posting date and link. Up to 20 jobs per request, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companies": {
+                    "title": "Companies",
+                    "type": "array",
+                    "description": "Workday company configs with subdomain, career_site and name. Leave empty to use the built-in employer list."
+                  },
+                  "searchText": {
+                    "title": "Search Text",
+                    "type": "string",
+                    "description": "Search keywords (e.g., 'devops', 'engineer', 'software')."
+                  },
+                  "keywords": {
+                    "title": "Job Title Keywords",
+                    "type": "array",
+                    "description": "Filter jobs by title keywords. Leave empty for all jobs.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "remoteOnly": {
+                    "title": "Remote Only",
+                    "type": "boolean",
+                    "description": "Only return remote job positions.",
+                    "default": false
+                  },
+                  "maxResults": {
+                    "title": "Max Results",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Maximum number of jobs to return. A request returns 20 rows at most.",
+                    "default": 10
+                  },
+                  "includeDescriptions": {
+                    "title": "Include job descriptions",
+                    "type": "boolean",
+                    "description": "Fetch the full description, source posting date, employment type and additional locations for each matching job. Adds one request per job.",
+                    "default": false
+                  }
+                }
+              },
+              "example": {
+                "maxResults": 10
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 20 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "job_id": "R171924",
+                    "job_title": "Sr. Technical Account Manager",
+                    "company_name": "Adobe",
+                    "job_description": "",
+                    "location": "Mexico City",
+                    "remote_flag": false,
+                    "employment_type": "Unknown",
+                    "bullet_fields": [
+                      "R171924"
+                    ],
+                    "posted_date": "2026-10-06",
+                    "posted_date_text": "Posted Yesterday",
+                    "job_url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/Mexico-City/Sr-Technical-Account-Manager_R171924",
+                    "source": "Workday",
+                    "scraped_at": "2026-10-07T07:43:57.498634"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    },
+    "/KfqhxywavGHLbeltk/run-sync-get-dataset-items": {
+      "post": {
+        "operationId": "ats_career_pages",
+        "summary": "ATS Career Pages",
+        "description": "Returns live job postings from company career pages on five applicant tracking systems (Greenhouse, Lever, Ashby, SmartRecruiters, Recruitee) in one dataset: title, company, department, location, employment type, remote flag, posting date and job link. Up to 20 results per request, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sources": {
+                    "title": "ATS sources",
+                    "type": "array",
+                    "description": "Which Applicant Tracking Systems to pull jobs from.",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greenhouse",
+                        "lever",
+                        "ashby",
+                        "smartrecruiters",
+                        "recruitee"
+                      ],
+                      "enumTitles": [
+                        "Greenhouse",
+                        "Lever",
+                        "Ashby",
+                        "SmartRecruiters",
+                        "Recruitee"
+                      ]
+                    },
+                    "default": [
+                      "greenhouse"
+                    ]
+                  },
+                  "greenhouseCompanies": {
+                    "title": "Greenhouse companies",
+                    "type": "array",
+                    "description": "Greenhouse board tokens (company slugs). Leave as-is to use a curated default list.",
+                    "default": [
+                      "stripe"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "leverCompanies": {
+                    "title": "Lever companies",
+                    "type": "array",
+                    "description": "Lever company slugs. Leave as-is to use a curated default list.",
+                    "default": [
+                      "openai",
+                      "anthropic",
+                      "anduril",
+                      "scale",
+                      "verkada",
+                      "rippling",
+                      "mistral",
+                      "includedhealth",
+                      "gohighlevel"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ashbyCompanies": {
+                    "title": "Ashby companies",
+                    "type": "array",
+                    "description": "Ashby job-board names. Leave as-is to use a curated default list.",
+                    "default": [
+                      "notion",
+                      "vanta",
+                      "linear",
+                      "posthog",
+                      "ramp"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "smartrecruitersCompanies": {
+                    "title": "SmartRecruiters companies",
+                    "type": "array",
+                    "description": "SmartRecruiters company identifiers (case-sensitive). Leave as-is to use a curated default list.",
+                    "default": [
+                      "Visa",
+                      "WesternDigital",
+                      "PublicStorage"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "recruiteeCompanies": {
+                    "title": "Recruitee companies",
+                    "type": "array",
+                    "description": "Recruitee company subdomains. Leave as-is to use a curated default list.",
+                    "default": [
+                      "bunq",
+                      "channable"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "keywords": {
+                    "title": "Keyword filter",
+                    "type": "array",
+                    "description": "Only keep jobs whose title contains any of these keywords (case-insensitive). Leave empty for all.",
+                    "default": [],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "location": {
+                    "title": "Location filter",
+                    "type": "string",
+                    "description": "Only keep jobs whose location contains this text (e.g. 'Berlin', 'New York', 'United States').",
+                    "default": ""
+                  },
+                  "remoteOnly": {
+                    "title": "Remote only",
+                    "type": "boolean",
+                    "description": "Only keep jobs flagged remote.",
+                    "default": false
+                  },
+                  "includeDescription": {
+                    "title": "Include full description",
+                    "type": "boolean",
+                    "description": "Include the full job description text (larger output).",
+                    "default": false
+                  },
+                  "maxResults": {
+                    "title": "Max results",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Maximum number of jobs to return. A request returns 20 rows at most.",
+                    "default": 10
+                  }
+                }
+              },
+              "example": {
+                "sources": [
+                  "greenhouse",
+                  "lever",
+                  "ashby",
+                  "smartrecruiters",
+                  "recruitee"
+                ],
+                "greenhouseCompanies": [
+                  "airbnb",
+                  "stripe",
+                  "figma",
+                  "cloudflare",
+                  "coinbase",
+                  "databricks",
+                  "discord",
+                  "dropbox",
+                  "gitlab",
+                  "robinhood",
+                  "doordash",
+                  "instacart"
+                ],
+                "leverCompanies": [
+                  "openai",
+                  "anthropic",
+                  "anduril",
+                  "scale",
+                  "verkada",
+                  "rippling",
+                  "mistral",
+                  "includedhealth",
+                  "gohighlevel"
+                ],
+                "ashbyCompanies": [
+                  "notion",
+                  "vanta",
+                  "linear",
+                  "posthog",
+                  "ramp"
+                ],
+                "smartrecruitersCompanies": [
+                  "Visa",
+                  "WesternDigital",
+                  "PublicStorage"
+                ],
+                "recruiteeCompanies": [
+                  "bunq",
+                  "channable"
+                ],
+                "maxResults": 10
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 20 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "source": "greenhouse",
+                    "company": "airbnb",
+                    "job_title": "Account Manager ",
+                    "company_name": "airbnb",
+                    "location": "London, United Kingdom",
+                    "department": "",
+                    "team": "",
+                    "employment_type": "",
+                    "remote": false,
+                    "job_url": "https://careers.airbnb.com/positions/8184174?gh_jid=8184174",
+                    "posted_at": "2026-09-29T20:00:54-04:00",
+                    "scraped_at": "2026-10-07T17:33:54.205858+00:00"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    }
+  }
+}

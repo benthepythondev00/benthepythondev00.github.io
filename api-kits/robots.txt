@@ -1,0 +1,21 @@
+# Search and AI search-citability crawlers (allowed)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /previews/
+
+Sitemap: https://benthepythondev00.github.io/sitemap.xml

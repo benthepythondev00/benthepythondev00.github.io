@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Facebook Posts Scraper API — OpenAPI 3.1, n8n &amp; MCP Docs</title>
+  <meta name="description" content="Facebook posts scraper for public pages and profiles: text, date, reactions by type, comments, shares, video views, pictures, video and link of every post, newe">
+  <link rel="canonical" href="https://benthepythondev00.github.io/api-kits/facebook-posts-scraper2/">
+  <meta name="robots" content="index,follow">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebAPI", "name": "Facebook Posts Scraper API", "description": "Facebook posts scraper for public pages and profiles: text, date, reactions by type, comments, shares, video views, pictures, video and link of every post, newest first. Up to 20 results per request, as JSON.", "url": "https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2", "documentation": "https://benthepythondev00.github.io/api-kits/facebook-posts-scraper2/", "provider": {"@type": "Organization", "name": "benthepythondev", "url": "https://rapidapi.com/user/benthepythondev0"}}, {"@type": "TechArticle", "headline": "Facebook Posts Scraper API — OpenAPI 3.1, n8n Template & MCP Integration Kit", "description": "Facebook posts scraper for public pages and profiles: text, date, reactions by type, comments, shares, video views, pictures, video and link of every post, newest first. Up to 20 results per request, as JSON.", "datePublished": "2026-11-26", "dateModified": "2026-11-26", "author": {"@type": "Person", "name": "Ben (benthepythondev)"}, "mainEntityOfPage": "https://benthepythondev00.github.io/api-kits/facebook-posts-scraper2/"}]}</script>
+  <style>
+    :root { --bg:#0d1117; --fg:#e6edf3; --muted:#9198a1; --card:#161b22; --border:#30363d; --accent:#58a6ff; --btn:#238636; }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#ffffff; --fg:#1f2328; --muted:#59636e; --card:#f6f8fa; --border:#d0d7de; --accent:#0969da; --btn:#1f883d; }
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+    main { max-width:920px; margin:0 auto; padding:28px 18px 64px; }
+    header { border-bottom:1px solid var(--border); padding-bottom:20px; margin-bottom:24px; }
+    h1 { margin:0 0 10px; font-size:clamp(1.6rem,3vw,2.2rem); line-height:1.25; }
+    h2 { margin:32px 0 12px; font-size:1.35rem; border-bottom:1px solid var(--border); padding-bottom:6px; }
+    h3 { margin:20px 0 8px; font-size:1.08rem; }
+    p { margin:0 0 14px; }
+    a { color:var(--accent); }
+    .meta { color:var(--muted); font-size:0.92rem; display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .btn { display:inline-block; padding:9px 14px; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.92rem; cursor:pointer; border:1px solid var(--border); background:var(--card); color:var(--fg); }
+    .btn-primary { background:var(--btn); border-color:var(--btn); color:#ffffff; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px; margin:16px 0; }
+    .code-head { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; font-size:0.9rem; color:var(--muted); }
+    pre { margin:0; padding:14px; border-radius:6px; border:1px solid var(--border); background:var(--bg); overflow-x:auto; font-size:0.84rem; line-height:1.45; }
+    code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    table { width:100%; border-collapse:collapse; margin:12px 0; font-size:0.92rem; }
+    th, td { text-align:left; padding:9px 10px; border:1px solid var(--border); vertical-align:top; }
+    th { background:var(--card); }
+    .qa-item { margin:14px 0; padding:12px 14px; background:var(--card); border:1px solid var(--border); border-radius:8px; }
+    .qa-item h3 { margin:0 0 6px; }
+    .qa-item p { margin:0; }
+    footer { margin-top:40px; padding-top:18px; border-top:1px solid var(--border); color:var(--muted); font-size:0.9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="meta">
+      <span><a href="../">All API Integration Kits</a></span>
+      <span>Category: Social Media Data</span>
+      <span>Updated: 2026-11-26</span>
+    </p>
+    <h1>Facebook Posts Scraper API</h1>
+    <p><strong>What is the Facebook Posts Scraper API on RapidAPI?</strong> Facebook Posts Scraper API returns structured JSON posts from public Facebook pages and profiles without a Facebook account, session cookies, or browser setup. Send a single POST request with one or more page URLs, handles, or numeric IDs and receive up to 20 posts per request, including post text, publication timestamp, total reactions and breakdown by type (like, love, care, haha, wow, sad, angry), comment count, share count, video views, image URLs, video URLs, and shared post metadata. Plans start with a free Basic tier (4 requests/month, hard-capped) and scale to Pro ($25/mo, 449 requests), Ultra ($75/mo, 1,348 requests), and Mega ($150/mo, 2,696 requests).</p>
+    <p>Unlike multi-endpoint Facebook suites such as Facebook Pages Scraper ($49/mo Pro) or Facebook Scraper API that split posts, reactions, and media across separate calls, this endpoint returns full post text, reaction breakdowns, video views, and media URLs in one POST call with built-in postedAfter and postedBefore date filters at no extra charge.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2" rel="noopener">Start Free on RapidAPI</a>
+      <button class="btn" type="button" data-copy-target="llm-docs-block">Copy docs for LLM</button>
+      <a class="btn" href="openapi-3.1.json" download>Download OpenAPI 3.1</a>
+      <a class="btn" href="n8n-workflow.json" download>Download n8n JSON</a>
+      <a class="btn" href="mcp-tool.json" download>Download MCP JSON</a>
+    </div>
+  </header>
+
+  <section id="copy-docs-for-llm" class="card">
+    <div class="code-head">
+      <strong>Copy docs for LLM (Claude, Cursor, ChatGPT)</strong>
+      <button class="btn" type="button" data-copy-target="llm-docs-block">Copy Markdown</button>
+    </div>
+    <p>Paste this single block into Cursor, Claude, or ChatGPT to generate a working client without guessing headers or schema fields.</p>
+    <pre id="llm-docs-block"><code># Facebook Posts Scraper API — LLM Integration Reference
+
+- **RapidAPI Listing**: https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2
+- **Base URL**: `https://facebook-posts-scraper2.p.rapidapi.com`
+- **Primary Endpoint**: `POST /`
+- **Auth Headers**: `x-rapidapi-host: facebook-posts-scraper2.p.rapidapi.com` and `x-rapidapi-key: &lt;RAPIDAPI_KEY&gt;`
+- **Plans**: BASIC $0/mo (4 reqs), PRO $25/mo (449 reqs), ULTRA $75/mo (1,348 reqs), MEGA $150/mo (2,696 reqs)
+- **Updated**: 2026-11-26
+
+## Summary
+Facebook Posts Scraper API returns structured JSON posts from public Facebook pages and profiles without a Facebook account, session cookies, or browser setup. Send a single POST request with one or more page URLs, handles, or numeric IDs and receive up to 20 posts per request, including post text, publication timestamp, total reactions and breakdown by type (like, love, care, haha, wow, sad, angry), comment count, share count, video views, image URLs, video URLs, and shared post metadata. Plans start with a free Basic tier (4 requests/month, hard-capped) and scale to Pro ($25/mo, 449 requests), Ultra ($75/mo, 1,348 requests), and Mega ($150/mo, 2,696 requests).
+
+## Request Body Fields (`POST /`)
+- `pages` (array): Links of public pages or profiles (https://www.facebook.com/NASA), their names (NASA) or numeric ids. Several pages are read side by side. A page that Facebook shows only to logged-in users (age or country limits) is reported and costs nothing.
+- `maxResults` (integer): Posts to save for each page, newest first. A request returns 20 rows at most.
+- `postedAfter` (string): Lower date limit: a day (YYYY-MM-DD) or a period back from now such as 3 days, 2 weeks or 6 months.
+- `postedBefore` (string): Upper date limit: a day (YYYY-MM-DD, included) or a period back from now. The read starts at that day instead of paging down to it, so a month from two years ago costs only that month.
+
+## Example Request (cURL)
+```bash
+curl --request POST \
+  --url &#x27;https://facebook-posts-scraper2.p.rapidapi.com/&#x27; \
+  --header &#x27;Content-Type: application/json&#x27; \
+  --header &#x27;x-rapidapi-host: facebook-posts-scraper2.p.rapidapi.com&#x27; \
+  --header &#x27;x-rapidapi-key: YOUR_RAPIDAPI_KEY&#x27; \
+  --data &#x27;{&quot;pages&quot;: [&quot;https://www.facebook.com/NASA&quot;]}&#x27;
+```
+
+## Example Response Item (Real Output)
+```json
+{
+  &quot;postId&quot;: &quot;1685704526258250&quot;,
+  &quot;url&quot;: &quot;https://www.facebook.com/NASA/posts/pfbid02w3sbVBJsxz81chAKkJ1PpQGmzd5VcKJv8qT7s8A4x12pHgsPtFRYN18MQHQ4pUNyl&quot;,
+  &quot;pageId&quot;: &quot;100044561550831&quot;,
+  &quot;pageName&quot;: &quot;NASA - National Aeronautics and Space Administration&quot;,
+  &quot;pageUrl&quot;: &quot;https://www.facebook.com/NASA&quot;,
+  &quot;type&quot;: &quot;photo&quot;,
+  &quot;text&quot;: &quot;Tethys and Dione showed up for the group photo!\n \nIn addition to the two moons shown here, Saturn has a whole entourage of natural satellites—more than any o...&quot;,
+  &quot;title&quot;: null,
+  &quot;createdAt&quot;: &quot;2026-11-12T20:16:47+00:00&quot;,
+  &quot;authorName&quot;: &quot;NASA - National Aeronautics and Space Administration&quot;,
+  &quot;authorId&quot;: &quot;100044561550831&quot;,
+  &quot;authorUrl&quot;: &quot;https://www.facebook.com/NASA&quot;,
+  &quot;reactions&quot;: 3787,
+  &quot;reactionCounts&quot;: {
+    &quot;like&quot;: 2739,
+    &quot;love&quot;: 906,
+    &quot;care&quot;: 67,
+    &quot;wow&quot;: 53,
+    &quot;haha&quot;: 15,
+    &quot;sad&quot;: 4,
+    &quot;angry&quot;: 3
+  },
+  &quot;comments&quot;: 145,
+  &quot;shares&quot;: 366,
+  &quot;videoViews&quot;: null,
+  &quot;imageUrls&quot;: [
+    &quot;https://scontent-bos5-1.xx.fbcdn.net/v/t39.99422-6/903234689_961209693445682_3475448322653156004_n.png?stp=dst-jpg_tt6&amp;cstp=mx971x855&amp;ctp=s590x590&amp;_nc_cat=10...&quot;
+  ],
+  &quot;videoUrl&quot;: null,
+  &quot;videoSeconds&quot;: null,
+  &quot;thumbnailUrl&quot;: null,
+  &quot;linkUrl&quot;: null,
+  &quot;isShare&quot;: false,
+  &quot;sharedPost&quot;: null,
+  &quot;position&quot;: 1,
+  &quot;scrapedAt&quot;: &quot;2026-11-16T00:31:20.801421+00:00&quot;
+}
+```
+</code></pre>
+  </section>
+
+  <section id="quickstart">
+    <h2>Quickstart: cURL, Python &amp; Node.js</h2>
+    <p>Endpoint: <code>POST https://facebook-posts-scraper2.p.rapidapi.com/</code></p>
+
+    <div class="card">
+      <div class="code-head"><strong>cURL</strong><button class="btn" type="button" data-copy-target="code-curl">Copy</button></div>
+      <pre id="code-curl"><code>curl --request POST \
+  --url &#x27;https://facebook-posts-scraper2.p.rapidapi.com/&#x27; \
+  --header &#x27;Content-Type: application/json&#x27; \
+  --header &#x27;x-rapidapi-host: facebook-posts-scraper2.p.rapidapi.com&#x27; \
+  --header &#x27;x-rapidapi-key: YOUR_RAPIDAPI_KEY&#x27; \
+  --data &#x27;{&quot;pages&quot;: [&quot;https://www.facebook.com/NASA&quot;]}&#x27;</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="code-head"><strong>Python (requests)</strong><button class="btn" type="button" data-copy-target="code-python">Copy</button></div>
+      <pre id="code-python"><code>import os
+import requests
+
+url = &quot;https://facebook-posts-scraper2.p.rapidapi.com/&quot;
+payload = {
+  &quot;pages&quot;: [
+    &quot;https://www.facebook.com/NASA&quot;
+  ]
+}
+headers = {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;x-rapidapi-host&quot;: &quot;facebook-posts-scraper2.p.rapidapi.com&quot;,
+    &quot;x-rapidapi-key&quot;: os.environ[&quot;RAPIDAPI_KEY&quot;],
+}
+response = requests.post(url, json=payload, headers=headers, timeout=120)
+response.raise_for_status()
+rows = response.json()
+print(f&#x27;Returned {len(rows)} rows&#x27;, rows[0] if rows else None)</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="code-head"><strong>Node.js (fetch)</strong><button class="btn" type="button" data-copy-target="code-node">Copy</button></div>
+      <pre id="code-node"><code>const url = &quot;https://facebook-posts-scraper2.p.rapidapi.com/&quot;;
+const response = await fetch(url, {
+  method: &quot;POST&quot;,
+  headers: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;x-rapidapi-host&quot;: &quot;facebook-posts-scraper2.p.rapidapi.com&quot;,
+    &quot;x-rapidapi-key&quot;: process.env.RAPIDAPI_KEY,
+  },
+  body: JSON.stringify({&quot;pages&quot;: [&quot;https://www.facebook.com/NASA&quot;]}),
+});
+if (!response.ok) throw new Error(`HTTP ${response.status}: ${await response.text()}`);
+const rows = await response.json();
+console.log(rows.length, rows[0]);</code></pre>
+    </div>
+  </section>
+
+  <section id="n8n">
+    <h2>1-Click n8n HTTP Request Template</h2>
+    <p>Copy this workflow JSON and paste it directly into an n8n canvas, or <a href="n8n-workflow.json" download>download n8n-workflow.json</a>.</p>
+    <div class="card">
+      <div class="code-head"><strong>n8n Workflow JSON</strong><button class="btn" type="button" data-copy-target="code-n8n">Copy n8n JSON</button></div>
+      <pre id="code-n8n"><code>{
+  &quot;name&quot;: &quot;Facebook Posts Scraper API (RapidAPI)&quot;,
+  &quot;nodes&quot;: [
+    {
+      &quot;parameters&quot;: {},
+      &quot;id&quot;: &quot;manual-trigger-1&quot;,
+      &quot;name&quot;: &quot;When clicking Execute workflow&quot;,
+      &quot;type&quot;: &quot;n8n-nodes-base.manualTrigger&quot;,
+      &quot;typeVersion&quot;: 1,
+      &quot;position&quot;: [
+        240,
+        300
+      ]
+    },
+    {
+      &quot;parameters&quot;: {
+        &quot;method&quot;: &quot;POST&quot;,
+        &quot;url&quot;: &quot;https://facebook-posts-scraper2.p.rapidapi.com/&quot;,
+        &quot;sendHeaders&quot;: true,
+        &quot;headerParameters&quot;: {
+          &quot;parameters&quot;: [
+            {
+              &quot;name&quot;: &quot;Content-Type&quot;,
+              &quot;value&quot;: &quot;application/json&quot;
+            },
+            {
+              &quot;name&quot;: &quot;x-rapidapi-host&quot;,
+              &quot;value&quot;: &quot;facebook-posts-scraper2.p.rapidapi.com&quot;
+            },
+            {
+              &quot;name&quot;: &quot;x-rapidapi-key&quot;,
+              &quot;value&quot;: &quot;={{ $env.RAPIDAPI_KEY || &#x27;YOUR_RAPIDAPI_KEY&#x27; }}&quot;
+            }
+          ]
+        },
+        &quot;sendBody&quot;: true,
+        &quot;specifyBody&quot;: &quot;json&quot;,
+        &quot;jsonBody&quot;: &quot;{\n  \&quot;pages\&quot;: [\n    \&quot;https://www.facebook.com/NASA\&quot;\n  ]\n}&quot;,
+        &quot;options&quot;: {
+          &quot;timeout&quot;: 120000
+        }
+      },
+      &quot;id&quot;: &quot;rapidapi-http-1&quot;,
+      &quot;name&quot;: &quot;Call Facebook Posts Scraper API&quot;,
+      &quot;type&quot;: &quot;n8n-nodes-base.httpRequest&quot;,
+      &quot;typeVersion&quot;: 4.2,
+      &quot;position&quot;: [
+        500,
+        300
+      ]
+    }
+  ],
+  &quot;connections&quot;: {
+    &quot;When clicking Execute workflow&quot;: {
+      &quot;main&quot;: [
+        [
+          {
+            &quot;node&quot;: &quot;Call Facebook Posts Scraper API&quot;,
+            &quot;type&quot;: &quot;main&quot;,
+            &quot;index&quot;: 0
+          }
+        ]
+      ]
+    }
+  },
+  &quot;active&quot;: false,
+  &quot;settings&quot;: {
+    &quot;executionOrder&quot;: &quot;v1&quot;
+  },
+  &quot;meta&quot;: {
+    &quot;templateCredsSetupCompleted&quot;: false,
+    &quot;rapidapiListing&quot;: &quot;https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2&quot;
+  }
+}</code></pre>
+    </div>
+  </section>
+
+  <section id="mcp">
+    <h2>MCP Tool Definition for Claude &amp; Cursor</h2>
+    <p>Register this tool schema in your custom MCP server or connect via the hosted Apify MCP URL (<a href="mcp-tool.json" download>download mcp-tool.json</a>).</p>
+    <div class="card">
+      <div class="code-head"><strong>MCP Tool &amp; Server Config</strong><button class="btn" type="button" data-copy-target="code-mcp">Copy MCP JSON</button></div>
+      <pre id="code-mcp"><code>{
+  &quot;tool&quot;: {
+    &quot;name&quot;: &quot;scrape_facebook_posts&quot;,
+    &quot;description&quot;: &quot;Facebook posts scraper for public pages and profiles: text, date, reactions by type, comments, shares, video views, pictures, video and link of every post, newest first. Up to 20 results per request, as JSON.&quot;,
+    &quot;inputSchema&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;pages&quot;: {
+          &quot;title&quot;: &quot;Facebook pages&quot;,
+          &quot;maxItems&quot;: 20,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;description&quot;: &quot;Links of public pages or profiles (https://www.facebook.com/NASA), their names (NASA) or numeric ids. Several pages are read side by side. A page that Facebook shows only to logged-in users (age or country limits) is reported and costs nothing.&quot;,
+          &quot;default&quot;: [
+            &quot;https://www.facebook.com/NASA&quot;
+          ],
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        },
+        &quot;maxResults&quot;: {
+          &quot;title&quot;: &quot;Maximum posts per page&quot;,
+          &quot;minimum&quot;: 1,
+          &quot;maximum&quot;: 20,
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;description&quot;: &quot;Posts to save for each page, newest first. A request returns 20 rows at most.&quot;,
+          &quot;default&quot;: 15
+        },
+        &quot;postedAfter&quot;: {
+          &quot;title&quot;: &quot;Only posts since&quot;,
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;Lower date limit: a day (YYYY-MM-DD) or a period back from now such as 3 days, 2 weeks or 6 months.&quot;,
+          &quot;default&quot;: &quot;&quot;
+        },
+        &quot;postedBefore&quot;: {
+          &quot;title&quot;: &quot;Only posts until&quot;,
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;Upper date limit: a day (YYYY-MM-DD, included) or a period back from now. The read starts at that day instead of paging down to it, so a month from two years ago costs only that month.&quot;,
+          &quot;default&quot;: &quot;&quot;
+        }
+      }
+    },
+    &quot;x-rapidapi&quot;: {
+      &quot;method&quot;: &quot;POST&quot;,
+      &quot;url&quot;: &quot;https://facebook-posts-scraper2.p.rapidapi.com/&quot;,
+      &quot;headers&quot;: {
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+        &quot;x-rapidapi-host&quot;: &quot;facebook-posts-scraper2.p.rapidapi.com&quot;,
+        &quot;x-rapidapi-key&quot;: &quot;${RAPIDAPI_KEY}&quot;
+      },
+      &quot;exampleInput&quot;: {
+        &quot;pages&quot;: [
+          &quot;https://www.facebook.com/NASA&quot;
+        ]
+      }
+    }
+  },
+  &quot;claudeDesktopAndCursorHostedMcp&quot;: {
+    &quot;mcpServers&quot;: {
+      &quot;facebook-posts-scraper&quot;: {
+        &quot;url&quot;: &quot;https://mcp.apify.com/?tools=benthepythondev/facebook-posts-scraper&quot;,
+        &quot;headers&quot;: {
+          &quot;Authorization&quot;: &quot;Bearer YOUR_APIFY_TOKEN&quot;
+        }
+      }
+    }
+  }
+}</code></pre>
+    </div>
+  </section>
+  
+
+  <section id="schema">
+    <h2>Request Parameters &amp; Real JSON Response</h2>
+    <p>Full machine-readable specification: <a href="openapi-3.1.json">openapi-3.1.json (OpenAPI 3.1.0)</a>.</p>
+    <table>
+      <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+      <tbody><tr><td><code>pages</code></td><td>array</td><td>Links of public pages or profiles (https://www.facebook.com/NASA), their names (NASA) or numeric ids. Several pages are read side by side. A page that Facebook shows only to logged-in users (age or country limits) is reported and costs nothing.</td></tr>
+<tr><td><code>maxResults</code></td><td>integer</td><td>Posts to save for each page, newest first. A request returns 20 rows at most.</td></tr>
+<tr><td><code>postedAfter</code></td><td>string</td><td>Lower date limit: a day (YYYY-MM-DD) or a period back from now such as 3 days, 2 weeks or 6 months.</td></tr>
+<tr><td><code>postedBefore</code></td><td>string</td><td>Upper date limit: a day (YYYY-MM-DD, included) or a period back from now. The read starts at that day instead of paging down to it, so a month from two years ago costs only that month.</td></tr></tbody>
+    </table>
+    <h3>Real JSON Response Sample</h3>
+    <div class="card">
+      <div class="code-head"><strong>201 Created (1 item of array)</strong><button class="btn" type="button" data-copy-target="code-sample">Copy JSON</button></div>
+      <pre id="code-sample"><code>{
+  &quot;postId&quot;: &quot;1685704526258250&quot;,
+  &quot;url&quot;: &quot;https://www.facebook.com/NASA/posts/pfbid02w3sbVBJsxz81chAKkJ1PpQGmzd5VcKJv8qT7s8A4x12pHgsPtFRYN18MQHQ4pUNyl&quot;,
+  &quot;pageId&quot;: &quot;100044561550831&quot;,
+  &quot;pageName&quot;: &quot;NASA - National Aeronautics and Space Administration&quot;,
+  &quot;pageUrl&quot;: &quot;https://www.facebook.com/NASA&quot;,
+  &quot;type&quot;: &quot;photo&quot;,
+  &quot;text&quot;: &quot;Tethys and Dione showed up for the group photo!\n \nIn addition to the two moons shown here, Saturn has a whole entourage of natural satellites—more than any o...&quot;,
+  &quot;title&quot;: null,
+  &quot;createdAt&quot;: &quot;2026-11-12T20:16:47+00:00&quot;,
+  &quot;authorName&quot;: &quot;NASA - National Aeronautics and Space Administration&quot;,
+  &quot;authorId&quot;: &quot;100044561550831&quot;,
+  &quot;authorUrl&quot;: &quot;https://www.facebook.com/NASA&quot;,
+  &quot;reactions&quot;: 3787,
+  &quot;reactionCounts&quot;: {
+    &quot;like&quot;: 2739,
+    &quot;love&quot;: 906,
+    &quot;care&quot;: 67,
+    &quot;wow&quot;: 53,
+    &quot;haha&quot;: 15,
+    &quot;sad&quot;: 4,
+    &quot;angry&quot;: 3
+  },
+  &quot;comments&quot;: 145,
+  &quot;shares&quot;: 366,
+  &quot;videoViews&quot;: null,
+  &quot;imageUrls&quot;: [
+    &quot;https://scontent-bos5-1.xx.fbcdn.net/v/t39.99422-6/903234689_961209693445682_3475448322653156004_n.png?stp=dst-jpg_tt6&amp;cstp=mx971x855&amp;ctp=s590x590&amp;_nc_cat=10...&quot;
+  ],
+  &quot;videoUrl&quot;: null,
+  &quot;videoSeconds&quot;: null,
+  &quot;thumbnailUrl&quot;: null,
+  &quot;linkUrl&quot;: null,
+  &quot;isShare&quot;: false,
+  &quot;sharedPost&quot;: null,
+  &quot;position&quot;: 1,
+  &quot;scrapedAt&quot;: &quot;2026-11-16T00:31:20.801421+00:00&quot;
+}</code></pre>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>RapidAPI Pricing Plans</h2>
+    <table>
+      <thead><tr><th>Tier</th><th>Price</th><th>Requests / Month</th><th>Limit Type</th></tr></thead>
+      <tbody><tr><td><strong>BASIC</strong></td><td>$0/mo</td><td>4</td><td>Hard limit</td></tr>
+<tr><td><strong>PRO</strong></td><td>$25/mo</td><td>449</td><td>Soft limit</td></tr>
+<tr><td><strong>ULTRA</strong></td><td>$75/mo</td><td>1,348</td><td>Soft limit</td></tr>
+<tr><td><strong>MEGA</strong></td><td>$150/mo</td><td>2,696</td><td>Soft limit</td></tr></tbody>
+    </table>
+  </section>
+
+  <section id="faq">
+    <h2>Questions &amp; Answers</h2>
+    <article class="qa-item"><h3>Do I need a Facebook login, cookies, or OAuth app review?</h3><p>No. The API reads public Facebook pages and profiles as a logged-out visitor. You only send your RapidAPI key in the x-rapidapi-key header.</p></article>
+<article class="qa-item"><h3>How many Facebook posts does one API request return?</h3><p>Up to 20 posts per request, newest first. Use postedAfter and postedBefore (YYYY-MM-DD or relative periods like &#x27;7 days&#x27;) to slice a specific date window.</p></article>
+<article class="qa-item"><h3>Does it return reactions by type and video views?</h3><p>Yes. Every post object includes total reactions, reactionCounts (like, love, care, haha, wow, sad, angry), comments, shares, videoViews, imageUrls, and videoUrl.</p></article>
+<article class="qa-item"><h3>How do I connect Facebook Posts Scraper to n8n or Claude/Cursor?</h3><p>Import the 1-click n8n HTTP Request workflow JSON below into n8n and paste your RapidAPI key, or register the MCP tool definition / Apify MCP server URL in Claude Desktop or Cursor.</p></article>
+<article class="qa-item"><h3>What does Facebook Posts Scraper cost on RapidAPI?</h3><p>Basic is $0/month (4 requests, hard limit so you never get surprise overages). Paid tiers are Pro at $25/month (449 requests), Ultra at $75/month (1,348 requests), and Mega at $150/month (2,696 requests).</p></article>
+  </section>
+
+  <footer>
+    <p><strong>More RapidAPI Integration Kits:</strong></p>
+    <ul><li><a href="../tiktok-profile-scraper2/">TikTok Profile Scraper API</a></li>
+<li><a href="../instagram-profile-scraper10/">Instagram Profile Scraper API</a></li>
+<li><a href="../job-search-api-indeed-linkedin-reed-seek-and-ats-boards/">Job Search API (Indeed, LinkedIn, Reed, ATS Boards)</a></li></ul>
+    <p>Maintained by benthepythondev. <a href="https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2" rel="noopener">Open Facebook Posts Scraper API on RapidAPI</a>.</p>
+  </footer>
+</main>
+<script>
+document.querySelectorAll('[data-copy-target]').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    try {
+      await navigator.clipboard.writeText(el.innerText);
+      const orig = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(() => { btn.textContent = orig; }, 1600);
+    } catch (e) {}
+  });
+});
+</script>
+</body>
+</html>

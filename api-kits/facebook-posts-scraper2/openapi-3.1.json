@@ -1,0 +1,159 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Facebook Posts Scraper API",
+    "version": "1.0.0",
+    "description": "Facebook posts scraper for public pages and profiles: text, date, reactions by type, comments, shares, video views, pictures, video and link of every post, newest first. Up to 20 results per request, as JSON.",
+    "contact": {
+      "name": "benthepythondev",
+      "url": "https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://facebook-posts-scraper2.p.rapidapi.com",
+      "description": "RapidAPI Production Gateway"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "RapidAPIKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-rapidapi-key",
+        "description": "Your RapidAPI subscription key from rapidapi.com"
+      },
+      "RapidAPIHost": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-rapidapi-host",
+        "description": "Must be set to facebook-posts-scraper2.p.rapidapi.com"
+      }
+    }
+  },
+  "paths": {
+    "/": {
+      "post": {
+        "operationId": "facebook_posts_scraper",
+        "summary": "Facebook Posts Scraper",
+        "description": "Facebook posts scraper for public pages and profiles: text, date, reactions by type, comments, shares, video views, pictures, video and link of every post, newest first. Up to 20 results per request, as JSON.",
+        "security": [
+          {
+            "RapidAPIKey": [],
+            "RapidAPIHost": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pages": {
+                    "title": "Facebook pages",
+                    "maxItems": 20,
+                    "type": "array",
+                    "description": "Links of public pages or profiles (https://www.facebook.com/NASA), their names (NASA) or numeric ids. Several pages are read side by side. A page that Facebook shows only to logged-in users (age or country limits) is reported and costs nothing.",
+                    "default": [
+                      "https://www.facebook.com/NASA"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "maxResults": {
+                    "title": "Maximum posts per page",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Posts to save for each page, newest first. A request returns 20 rows at most.",
+                    "default": 15
+                  },
+                  "postedAfter": {
+                    "title": "Only posts since",
+                    "type": "string",
+                    "description": "Lower date limit: a day (YYYY-MM-DD) or a period back from now such as 3 days, 2 weeks or 6 months.",
+                    "default": ""
+                  },
+                  "postedBefore": {
+                    "title": "Only posts until",
+                    "type": "string",
+                    "description": "Upper date limit: a day (YYYY-MM-DD, included) or a period back from now. The read starts at that day instead of paging down to it, so a month from two years ago costs only that month.",
+                    "default": ""
+                  }
+                }
+              },
+              "example": {
+                "pages": [
+                  "https://www.facebook.com/NASA"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 20 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "postId": "1685704526258250",
+                    "url": "https://www.facebook.com/NASA/posts/pfbid02w3sbVBJsxz81chAKkJ1PpQGmzd5VcKJv8qT7s8A4x12pHgsPtFRYN18MQHQ4pUNyl",
+                    "pageId": "100044561550831",
+                    "pageName": "NASA - National Aeronautics and Space Administration",
+                    "pageUrl": "https://www.facebook.com/NASA",
+                    "type": "photo",
+                    "text": "Tethys and Dione showed up for the group photo!\n \nIn addition to the two moons shown here, Saturn has a whole entourage of natural satellites—more than any o...",
+                    "title": null,
+                    "createdAt": "2026-11-12T20:16:47+00:00",
+                    "authorName": "NASA - National Aeronautics and Space Administration",
+                    "authorId": "100044561550831",
+                    "authorUrl": "https://www.facebook.com/NASA",
+                    "reactions": 3787,
+                    "reactionCounts": {
+                      "like": 2739,
+                      "love": 906,
+                      "care": 67,
+                      "wow": 53,
+                      "haha": 15,
+                      "sad": 4,
+                      "angry": 3
+                    },
+                    "comments": 145,
+                    "shares": 366,
+                    "videoViews": null,
+                    "imageUrls": [
+                      "https://scontent-bos5-1.xx.fbcdn.net/v/t39.99422-6/903234689_961209693445682_3475448322653156004_n.png?stp=dst-jpg_tt6&cstp=mx971x855&ctp=s590x590&_nc_cat=10..."
+                    ],
+                    "videoUrl": null,
+                    "videoSeconds": null,
+                    "thumbnailUrl": null,
+                    "linkUrl": null,
+                    "isShare": false,
+                    "sharedPost": null,
+                    "position": 1,
+                    "scrapedAt": "2026-11-16T00:31:20.801421+00:00"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body. Response message names the field."
+          },
+          "429": {
+            "description": "Monthly plan quota or per-second rate limit exceeded."
+          }
+        }
+      }
+    }
+  }
+}

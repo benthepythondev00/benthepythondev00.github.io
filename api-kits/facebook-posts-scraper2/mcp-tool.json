@@ -1,0 +1,67 @@
+{
+  "tool": {
+    "name": "scrape_facebook_posts",
+    "description": "Facebook posts scraper for public pages and profiles: text, date, reactions by type, comments, shares, video views, pictures, video and link of every post, newest first. Up to 20 results per request, as JSON.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "pages": {
+          "title": "Facebook pages",
+          "maxItems": 20,
+          "type": "array",
+          "description": "Links of public pages or profiles (https://www.facebook.com/NASA), their names (NASA) or numeric ids. Several pages are read side by side. A page that Facebook shows only to logged-in users (age or country limits) is reported and costs nothing.",
+          "default": [
+            "https://www.facebook.com/NASA"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "maxResults": {
+          "title": "Maximum posts per page",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Posts to save for each page, newest first. A request returns 20 rows at most.",
+          "default": 15
+        },
+        "postedAfter": {
+          "title": "Only posts since",
+          "type": "string",
+          "description": "Lower date limit: a day (YYYY-MM-DD) or a period back from now such as 3 days, 2 weeks or 6 months.",
+          "default": ""
+        },
+        "postedBefore": {
+          "title": "Only posts until",
+          "type": "string",
+          "description": "Upper date limit: a day (YYYY-MM-DD, included) or a period back from now. The read starts at that day instead of paging down to it, so a month from two years ago costs only that month.",
+          "default": ""
+        }
+      }
+    },
+    "x-rapidapi": {
+      "method": "POST",
+      "url": "https://facebook-posts-scraper2.p.rapidapi.com/",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-rapidapi-host": "facebook-posts-scraper2.p.rapidapi.com",
+        "x-rapidapi-key": "${RAPIDAPI_KEY}"
+      },
+      "exampleInput": {
+        "pages": [
+          "https://www.facebook.com/NASA"
+        ]
+      }
+    }
+  },
+  "claudeDesktopAndCursorHostedMcp": {
+    "mcpServers": {
+      "facebook-posts-scraper": {
+        "url": "https://mcp.apify.com/?tools=benthepythondev/facebook-posts-scraper",
+        "headers": {
+          "Authorization": "Bearer YOUR_APIFY_TOKEN"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "tool": {
+    "name": "scrape_instagram_profiles",
+    "description": "Instagram profile API without login: send up to 5 usernames, @handles or profile links per request and get followers, following, full name, bio, the real destinations of the bio links, verified and private flags, pronouns, profile picture and the linked Threads account, as JSON.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "usernames": {
+          "title": "Instagram usernames",
+          "maxItems": 50,
+          "type": "array",
+          "description": "Usernames, @handles or profile links, for example natgeo, @nasa or https://www.instagram.com/nike/. A request returns 5 profiles at most.",
+          "default": [
+            "natgeo",
+            "nasa"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "x-rapidapi": {
+      "method": "POST",
+      "url": "https://instagram-profile-scraper10.p.rapidapi.com/",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-rapidapi-host": "instagram-profile-scraper10.p.rapidapi.com",
+        "x-rapidapi-key": "${RAPIDAPI_KEY}"
+      },
+      "exampleInput": {
+        "usernames": [
+          "natgeo",
+          "nasa"
+        ]
+      }
+    }
+  },
+  "claudeDesktopAndCursorHostedMcp": {
+    "mcpServers": {
+      "instagram-profile-scraper": {
+        "url": "https://mcp.apify.com/?tools=benthepythondev/instagram-profile-scraper",
+        "headers": {
+          "Authorization": "Bearer YOUR_APIFY_TOKEN"
+        }
+      }
+    }
+  }
+}
