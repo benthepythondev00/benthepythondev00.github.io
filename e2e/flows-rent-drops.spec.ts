@@ -47,7 +47,7 @@ test('@live hub lists every metro with its concession share and one snapshot dat
   await expect(rows).toHaveCount(data.metros.length)
   const top = [...data.metros].sort((a: any, b: any) => (b.concessions.share_pct ?? -1) - (a.concessions.share_pct ?? -1))[0]
   await expect(rows.first().locator('th')).toHaveText(top.label)
-  await expect(rows.first().locator('td').first()).toHaveText(`${top.concessions.share_pct.toFixed(0)}%`)
+  await expect(rows.first().locator('td').first()).toHaveText(`${Math.round(top.concessions.share_pct)}%`)
   const dates = await page.locator('time').evaluateAll((els) => [...new Set(els.map((e) => e.getAttribute('datetime')))])
   expect(dates).toEqual([data.snapshot_date])
   await snap(page, 'hub', 1)
@@ -75,7 +75,7 @@ test('@live metro page numbers match the snapshot and held buckets show no media
         await expect(row).not.toContainText('$')
       }
     }
-    if (m.concessions.share_pct !== null) await expect(page.locator('.share-num')).toHaveText(`${m.concessions.share_pct.toFixed(0)}%`)
+    if (m.concessions.share_pct !== null) await expect(page.locator('.share-num')).toHaveText(`${Math.round(m.concessions.share_pct)}%`)
     if (!m.rent_cuts_30d.unlocked) {
       await expect(page.locator('#rent-cuts')).toContainText(`${m.rent_cuts_30d.weeks_collected} of 4 weekly snapshots collected`)
       await expect(page.locator('#rent-cuts .cuts-num')).toHaveCount(0)

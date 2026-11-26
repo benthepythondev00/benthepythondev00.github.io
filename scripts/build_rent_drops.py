@@ -18,6 +18,7 @@ import os
 import re
 import sys
 from datetime import date, timedelta
+from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -62,12 +63,17 @@ def esc(v) -> str:
     return html.escape("" if v is None else str(v), quote=True)
 
 
+def half_up(x, d=0) -> Decimal:
+    """Round half away from zero, like the page JS (Math.round), so printed numbers match the browser."""
+    return Decimal(str(x)).quantize(Decimal(1).scaleb(-d), rounding=ROUND_HALF_UP)
+
+
 def usd(x) -> str:
-    return f"${round(float(x)):,}"
+    return f"${int(half_up(x)):,}"
 
 
 def pct(x, d=0) -> str:
-    return f"{float(x):.{d}f}%"
+    return f"{half_up(x, d)}%"
 
 
 def fmt_date(d: str) -> str:

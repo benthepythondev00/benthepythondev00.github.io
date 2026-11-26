@@ -124,6 +124,15 @@ class Validation(unittest.TestCase):
             B.validate(s)
 
 
+class Rounding(unittest.TestCase):
+    def test_half_up_matches_browser_math_round(self):
+        self.assertEqual(B.usd(1378.5), "$1,379")
+        self.assertEqual(B.usd(1377.5), "$1,378")
+        self.assertEqual(B.pct(62.5), "63%")
+        self.assertEqual(B.pct(10.25, 1), "10.3%")
+        self.assertEqual(B.pct(0.0), "0%")
+
+
 class Summary(unittest.TestCase):
     def test_summary_word_range_full_and_sparse(self):
         for m in snap()["metros"]:
