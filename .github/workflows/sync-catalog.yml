@@ -7,6 +7,7 @@ on:
     branches: [main]
     paths:
       - "scripts/sync_catalog.py"
+      - "scripts/build_home_hubs.py"
       - ".github/workflows/sync-catalog.yml"
 jobs:
   sync:
@@ -24,10 +25,12 @@ jobs:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
           APIFY_USER: benthepythondev
         run: python scripts/sync_catalog.py
+      - name: Render static homepage hubs
+        run: python scripts/build_home_hubs.py
       - name: Commit feed
         run: |
           git config user.name "catalog-bot"
           git config user.email "catalog-bot@users.noreply.github.com"
-          git add data/actors.json
+          git add data/actors.json index.html
           git diff --staged --quiet || git commit -m "chore: sync public Apify catalog"
           git push
