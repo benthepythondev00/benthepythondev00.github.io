@@ -3,111 +3,439 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apify Actors, managed data feeds and Reddit RAG dumps</title>
-  <meta name="description" content="Browse production Apify scrapers or request a live-tested managed feed for San Francisco rent-cut monitoring, local business research, or Reddit RAG data." />
+  <title>Managed data feeds, rental yield benchmarks and Apify scrapers | benthepythondev</title>
+  <meta name="description" content="Managed B2B data feeds, free EU and US rental yield benchmarks with CSV samples, Reddit archive data samples, paid Telegram memberships, and the full catalog of benthepythondev Apify and RapidAPI scrapers." />
   <link rel="canonical" href="https://benthepythondev00.github.io/" />
   <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/" />
+  <meta property="og:title" content="Managed data feeds, rental yield benchmarks and Apify scrapers" />
+  <meta property="og:description" content="Scheduled data feeds, free rental yield benchmarks for Spain, Italy, Portugal and the US, Reddit archive samples and a catalog of production scrapers." />
   <style>
-    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
-    .wrap { max-width:1100px; margin:0 auto; padding:28px 18px 64px; }
-    header { margin-bottom:22px; }
-    h1 { font-size:1.7rem; margin:0 0 8px; }
-    .sub { color:var(--muted); max-width:60ch; line-height:1.45; }
-    .hero-cta { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
-    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.95rem; }
-    .btn-primary { background:var(--accent); color:#061018; }
-    .btn-ghost { border:1px solid var(--line); color:var(--ink); }
-    .toolbar { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 14px; align-items:center; position:sticky; top:0; z-index:5; padding:10px 0; background:linear-gradient(var(--bg) 70%, transparent); }
-    input[type=search] { flex:1; min-width:220px; padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#0e1626; color:var(--ink); }
-    select { padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#0e1626; color:var(--ink); }
-    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-    .chip { border:1px solid var(--line); background:#0e1626; color:var(--muted); padding:6px 10px; border-radius:999px; cursor:pointer; font-size:.85rem; }
-    .chip.active { background:var(--accent); color:#061018; border-color:transparent; font-weight:600; }
+    :root {
+      --bg:#0c1320; --bg-2:#101a2b; --card:#121c2e; --ink:#e9eef8; --muted:#9fb0cb; --faint:#6f819f;
+      --accent:#86aef5; --line:#22304a; --line-2:#2c3c5a;
+      --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Source Serif Pro",Georgia,serif;
+      --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink); line-height:1.5; -webkit-font-smoothing:antialiased; }
+    a { color:var(--accent); text-underline-offset:3px; text-decoration-thickness:1px; }
+    a:hover { color:#b3cdfb; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    .skip { position:absolute; left:-999px; top:8px; background:var(--ink); color:var(--bg); padding:8px 12px; border-radius:4px; }
+    .skip:focus { left:12px; z-index:20; }
+    .wrap { max-width:1160px; margin:0 auto; padding:0 20px; }
+    .topbar { border-bottom:1px solid var(--line); }
+    .topbar .wrap { display:flex; flex-wrap:wrap; gap:6px 22px; align-items:baseline; padding-top:14px; padding-bottom:14px; }
+    .brand { font-family:var(--mono); font-size:.9rem; color:var(--ink); text-decoration:none; margin-right:auto; }
+    .topbar nav a { color:var(--muted); text-decoration:none; font-size:.9rem; }
+    .topbar nav a:hover { color:var(--ink); }
+    .topbar nav { display:flex; flex-wrap:wrap; gap:4px 18px; }
+    header.hero { padding:56px 0 34px; }
+    h1, h2, h3 { font-family:var(--serif); font-weight:600; text-wrap:balance; }
+    h1 { font-size:clamp(2rem, 4.2vw, 3.1rem); line-height:1.08; letter-spacing:-.015em; margin:0 0 18px; max-width:24ch; }
+    .lede { font-size:1.12rem; color:var(--muted); max-width:62ch; margin:0 0 12px; text-wrap:pretty; }
+    .hero-cta { display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; margin-top:24px; }
+    .btn { display:inline-block; padding:11px 16px; border-radius:6px; text-decoration:none; font-weight:600; font-size:.95rem; white-space:nowrap; transition:background .2s, transform .15s; }
+    .btn:active { transform:translateY(1px); }
+    .btn-primary { background:var(--accent); color:#0a1222; }
+    .btn-primary:hover { background:#a6c3f8; color:#0a1222; }
+    .btn-ghost { border:1px solid var(--line-2); color:var(--ink); background:transparent; }
+    .btn-ghost:hover { background:var(--bg-2); color:var(--ink); }
+    .textlink { font-size:.95rem; }
+    .index { border-top:1px solid var(--line); margin:8px 0 0; padding:0; list-style:none; counter-reset:hub; }
+    .index li { display:grid; grid-template-columns:3ch minmax(0,15rem) 1fr; gap:4px 18px; padding:14px 0; border-bottom:1px solid var(--line); counter-increment:hub; }
+    .index li::before { content:counter(hub, decimal-leading-zero); font-family:var(--mono); color:var(--faint); font-size:.85rem; padding-top:2px; }
+    .index a { font-weight:600; text-decoration:none; }
+    .index a:hover { text-decoration:underline; }
+    .index span { color:var(--muted); font-size:.95rem; }
+    section.hub { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.9fr); gap:18px 48px; padding:52px 0; border-top:1px solid var(--line); }
+    .hub-head h2 { font-size:1.75rem; line-height:1.15; margin:0 0 12px; letter-spacing:-.01em; }
+    .hub-head p { color:var(--muted); margin:0 0 14px; max-width:46ch; }
+    .hub-head .go { font-weight:600; }
+    .hub-body p { margin:0 0 14px; max-width:68ch; }
+    .hub-body h3 { font-size:1.1rem; margin:26px 0 8px; color:var(--ink); }
+    .hub-body h3:first-child { margin-top:0; }
+    .links { list-style:none; margin:0; padding:0; }
+    .links li { padding:9px 0; border-bottom:1px dashed var(--line); color:var(--muted); font-size:.95rem; }
+    .links li:last-child { border-bottom:0; }
+    .facts { font-family:var(--mono); font-size:.82rem; color:var(--faint); margin:0 0 14px; }
+    .markets { display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:4px 28px; }
+    .markets h3 { grid-column:1 / -1; }
+    .markets ul { list-style:none; margin:0; padding:0; }
+    .mk { display:flex; justify-content:space-between; gap:12px; padding:5px 0; border-bottom:1px solid var(--line); font-size:.92rem; }
+    .mk a { text-decoration:none; color:var(--ink); }
+    .mk a:hover { color:var(--accent); text-decoration:underline; }
+    .mk b { font-family:var(--mono); font-weight:500; color:var(--muted); font-variant-numeric:tabular-nums; }
+    .country { margin-bottom:18px; }
+    .country h4 { font-family:var(--sans); font-size:.8rem; letter-spacing:.04em; color:var(--faint); font-weight:600; margin:0 0 4px; }
+    .catalog { padding:52px 0 24px; border-top:1px solid var(--line); }
+    .catalog h2 { font-size:1.75rem; margin:0 0 10px; }
+    .catalog > p { color:var(--muted); max-width:70ch; margin:0 0 6px; }
+    .toolbar { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 14px; align-items:center; position:sticky; top:0; z-index:5; padding:10px 0; background:linear-gradient(var(--bg) 75%, transparent); }
+    input[type=search] { flex:1; min-width:220px; padding:10px 12px; border-radius:6px; border:1px solid var(--line-2); background:var(--bg-2); color:var(--ink); font:inherit; }
+    select { padding:10px 12px; border-radius:6px; border:1px solid var(--line-2); background:var(--bg-2); color:var(--ink); font:inherit; }
+    .chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+    .chip { border:1px solid var(--line-2); background:transparent; color:var(--muted); padding:6px 11px; border-radius:4px; cursor:pointer; font-size:.85rem; font-family:inherit; transition:background .2s, color .2s; }
+    .chip:hover { color:var(--ink); background:var(--bg-2); }
+    .chip.active { background:var(--ink); color:var(--bg); border-color:transparent; font-weight:600; }
     .meta { color:var(--muted); font-size:.9rem; margin-bottom:12px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:8px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+    .card { background:var(--bg); padding:16px; display:flex; flex-direction:column; gap:8px; transition:background .2s; }
+    .card:hover { background:var(--bg-2); }
     .card-top { display:flex; gap:10px; align-items:flex-start; }
-    .card img { width:40px; height:40px; border-radius:10px; object-fit:cover; background:#0e1626; }
-    .card h3 { margin:0; font-size:1.02rem; line-height:1.25; }
-    .card p { margin:0; color:var(--muted); font-size:.9rem; line-height:1.4; flex:1; }
-    .stats { display:flex; gap:10px; flex-wrap:wrap; font-size:.8rem; color:var(--muted); }
-    .stats span { border:1px solid var(--line); border-radius:999px; padding:3px 8px; }
-    .card a.cta { margin-top:4px; color:var(--accent); font-weight:600; text-decoration:none; font-size:.92rem; }
+    .card img { width:36px; height:36px; border-radius:8px; object-fit:cover; background:var(--bg-2); flex:none; }
+    .card h3 { margin:0; font-family:var(--sans); font-size:1rem; font-weight:600; line-height:1.3; }
+    .card p { margin:0; color:var(--muted); font-size:.9rem; line-height:1.45; flex:1; }
+    .stats { display:flex; gap:12px; flex-wrap:wrap; font-size:.78rem; color:var(--faint); font-family:var(--mono); }
+    .card a.cta { margin-top:2px; color:var(--accent); font-weight:600; text-decoration:none; font-size:.9rem; }
+    .card a.cta:hover { text-decoration:underline; }
+    footer { border-top:1px solid var(--line); padding:28px 0 56px; color:var(--faint); font-size:.88rem; }
+    footer p { margin:0 0 8px; max-width:80ch; }
+    @media (max-width: 820px) {
+      section.hub { grid-template-columns:1fr; padding:40px 0; gap:20px; }
+      .index li { grid-template-columns:3ch 1fr; }
+      .index span { grid-column:2; }
+      header.hero { padding:36px 0 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none !important; } }
   </style>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://benthepythondev00.github.io/#site", "url": "https://benthepythondev00.github.io/", "name": "benthepythondev", "description": "Apify Actors, managed data feeds and Reddit RAG dumps, with how-to guides for each data source."}, {"@type": "Person", "@id": "https://benthepythondev00.github.io/#owner", "name": "benthepythondev", "url": "https://benthepythondev00.github.io/", "sameAs": ["https://apify.com/benthepythondev", "https://github.com/benthepythondev00"]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://benthepythondev00.github.io/#site", "url": "https://benthepythondev00.github.io/", "name": "benthepythondev", "description": "Apify Actors, managed data feeds and Reddit RAG dumps, with how-to guides for each data source."}, {"@type": "Person", "@id": "https://benthepythondev00.github.io/#owner", "name": "benthepythondev", "url": "https://benthepythondev00.github.io/", "sameAs": ["https://apify.com/benthepythondev", "https://github.com/benthepythondev00"]}, {"@type": "ItemList", "@id": "https://benthepythondev00.github.io/#hubs", "name": "benthepythondev data products", "itemListOrder": "https://schema.org/ItemListOrderAscending", "numberOfItems": 6, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Managed B2B Data Feeds", "url": "https://benthepythondev00.github.io/feeds/"}, {"@type": "ListItem", "position": 2, "name": "EU & US Rental Yield & Price-Cut Benchmarks", "url": "https://benthepythondev00.github.io/yield/"}, {"@type": "ListItem", "position": 3, "name": "Reddit Archive Data Samples", "url": "https://benthepythondev00.github.io/data/reddit-archive-scraper/"}, {"@type": "ListItem", "position": 4, "name": "Memberwall: paid Telegram memberships", "url": "https://benthepythondev00.github.io/memberwall/"}, {"@type": "ListItem", "position": 5, "name": "RapidAPI Developer Integration Kits", "url": "https://benthepythondev00.github.io/api-kits/"}, {"@type": "ListItem", "position": 6, "name": "Custom Apify Actor development", "url": "https://benthepythondev00.github.io/custom-apify-actor.html"}]}]}</script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>Apify scrapers and managed data feeds</h1>
-      <p class="sub" id="heroBlurb">No-code, pay-per-result scrapers on Apify — jobs, rentals, Reddit/RAG, leads, finance. Auto-synced catalog; every new public Actor lands here.</p>
-      <p class="sub"><strong>Need scheduled JSON, Webhook, S3 or Snowflake delivery?</strong> Productized <a href="./feeds/">Managed B2B Data Feeds ($199–$999/mo)</a> cover our Top 15 production sources across Real Estate, Social/Reddit/Threads, E-Commerce/Reviews, and Jobs/B2B Leads — with deduplication, SLAs, and self-serve Stripe checkout.</p>
-      <p class="sub">Need more than a self-serve run? Start with a live-tested <a href="./custom.html">property or local-business feed pilot</a> — fresh proof: the <a href="./sf-rental-price-drops.html?utm_source=owned_site&amp;utm_medium=internal_link&amp;utm_campaign=sf_price_drop_pilot&amp;utm_content=catalog">SF rent-watch caught SoMa Square listing 16558691 cutting its observed asking-rent floor from $3,912 to $3,756 (−3.99%), still held six hours later</a>. Historical Reddit delivery has its own <a href="./reddit-rag-dump.html">fixed-price RAG dump</a>.</p>
-      <p class="sub">Local-business proof: a live Maps run pulled <a href="./maps-berlin-contacts.html">8 Berlin tax advisors — one contact row per unique place_id, leftover-email 0 — for about $0.24</a>.</p>
-      <p class="sub">Want property listings as a plain REST API instead of Actor runs? <a href="https://listingrail.com/">Listingrail</a> reads Zillow, Rightmove, Idealista, ImmoScout24, Bayut and 12 more portals with one key and returns one JSON format; the <a href="https://listingrail.com/sources/">portal comparison</a> shows which of them have an official API.</p>
-      <p class="sub">Need an Apify actor for a site nobody covers yet? <a href="./custom-apify-actor.html">Get a custom actor in 1 to 3 days from $150, and check first whether one of ours already reads your site</a>.</p>
-      <p class="sub">Moving to Germany for work? <a href="./jobs-in-germany/">Fresh German job ads in English, with what each employer says about applicants from abroad</a>. Denmark? <a href="./jobs-in-denmark/">English openings at the companies SIRI certified for the Fast-Track work permit</a>.</p>
-      <p class="sub">Want remote jobs you can actually apply to from your country? <a href="./how-to-get-remote-job-listings-from-six-job-boards.html">See the fields, a real row and the eligibility filter across six job boards</a>, or read the <a href="./remote-jobs-aggregator-api-worldwide-eligibility-proof.html">Remote Jobs Aggregator API docs &amp; API.market comparison (200 free calls + MCP)</a>.</p>
-      <p class="sub">Want open roles from Stripe, Cloudflare, Figma and 40+ other tech employers as rows? <a href="./how-to-get-greenhouse-job-listings-data.html">See the fields, two real Stripe rows and the Greenhouse company input</a>.</p>
-      <p class="sub">Want Remotive remote jobs with salary numbers and a 0 to 100 opportunity score as rows? <a href="./how-to-get-remote-job-listings-from-remotive.html">See the fields, a real row and the filters</a>.</p>
-      <p class="sub">Want startup jobs with salary, equity and accepted remote regions as rows? <a href="./how-to-get-wellfound-startup-job-data.html">See the fields, a real Berlin row and the Wellfound location input</a>.</p>
-      <p class="sub">Want expired and deleted domains from ExpiredDomains.net with backlinks, Archive.org age and Whois status as rows? <a href="./how-to-get-expired-domain-data.html">See the fields, two real deleted .com rows and the filters</a>.</p>
-      <p class="sub">Want Pinterest search results as rows, with pin titles, creators, boards, destination links and rank? <a href="./how-to-get-pinterest-search-data.html">See the fields, a real example row and the limits</a>.</p>
-      <p class="sub">Want NHTSA vehicle safety recalls and complaints by make, model, year, VIN or campaign number? <a href="./how-to-get-nhtsa-vehicle-recall-data.html">See the fields, real 2023 Ford F-150 output and the five lookup modes</a>.</p>
-      <p class="sub">Have a list of TikTok accounts and want followers, likes, bios and recent video plays as rows? <a href="./how-to-get-tiktok-profile-data.html">See the fields, a real @nasa row and the batch input</a>.</p>
-      <p class="sub">Want the snaps from public Snapchat stories and curated highlights as rows? <a href="./how-to-get-public-snapchat-stories-and-highlights-data.html">See the fields, two real @nasa highlight rows and the username input</a>.</p>
-      <p class="sub">Have a list of Zillow links, ZPIDs or US street addresses and want prices, Zestimates, price and tax history, agent phones and climate risk as rows? <a href="./zillow-detail-scraper-property-details-api-guide.html">See the fields, a real Austin row, Apify and RapidAPI setup, and honest limits</a>.</p>
-      <p class="sub">Need Redfin rentals with rent, beds, square feet, amenities and photos? <a href="./how-to-get-redfin-rental-listing-data.html">See the fields, a real San Francisco row and the search inputs</a>.</p>
-      <p class="sub">Need PadMapper rentals for US and Canadian cities with prices, amenities and contacts? <a href="./how-to-get-padmapper-rental-listing-data.html">See the fields, two real San Francisco rows and the search inputs</a>.</p>
-      <p class="sub">Need Zumper rental listings or rent-change alerts? <a href="./how-to-get-zumper-rental-listing-data.html">See the fields, a real sample row and the monitor inputs</a>.</p>
-      <p class="sub">Need Mexico property listings from Inmuebles24 with prices, areas, room counts and agency contacts? <a href="./inmuebles24-scraper-mexico-real-estate-api-guide.html">See the fields, the search URL input, use cases and honest limits</a>.</p>
-      <p class="sub">Need Dubai or UAE property listings with prices, sizes and broker contacts? <a href="./how-to-get-property-finder-uae-listing-data.html">See the fields, a real Dubai Marina row and the buy or rent inputs</a>.</p>
-      <p class="sub">Want Best Buy prices, deals and open-box offers as rows? <a href="./how-to-get-best-buy-product-prices-and-deals-data.html">See the fields, two real laptop rows and the price-filter inputs</a>.</p>
-      <p class="sub">Want eBay listings with price, shipping, condition and seller feedback as rows? <a href="./how-to-get-ebay-listing-data.html">See the fields, two real Nike Air Max rows and the keyword input</a>.</p>
-      <p class="sub">Want Craigslist homes for sale by owner, rentals or rooms as rows? <a href="./how-to-get-craigslist-real-estate-listings-data.html">See the fields, a real sample row and the FSBO search input</a>.</p>
-      <p class="sub">Need live Reddit posts, comments or search results as rows? <a href="./how-to-get-reddit-posts-and-comments-data.html">See the fields, a real r/AskReddit row and the RSS replacement setup</a>, or read the <a href="./reddit-scraper-api-without-login-oauth-mcp.html">Reddit Scraper API without login/OAuth docs &amp; API.market comparison (Free tier + MCP)</a>.</p>
-      <p class="sub">Have a list of company domains and want each site's CMS, frameworks, payment tools and email provider? <a href="./how-to-get-website-tech-stack-data.html">See the fields, a real stripe.com row and the DNS email layer</a>.</p>
-      <p class="sub">Have a list of URLs and want to know which still load, where they redirect and how fast they respond? <a href="./how-to-check-website-status-codes-for-a-list-of-urls.html">See the fields, a real two-row run and the post-migration check</a>.</p>
-      <p class="sub">Need every dentist or restaurant in a city with phone, website, rating and a lead score? <a href="./how-to-get-google-maps-business-data.html">See the fields, a real San Francisco row and the city-wide search</a>.</p>
-      <p class="sub">Want public Yelp business data and nested review text with optional sentiment and lead score? <a href="./yelp-intelligence-scraper-buying-and-integration-guide.html">See the fields, a real San Francisco pizza row, pricing and honest limits</a>.</p>
-      <p class="sub">Want what Android users say about an app as rows you can sort and filter? <a href="./how-to-get-google-play-reviews-data.html">See the fields, two real review rows and the 1-star complaints input</a>.</p>
-      <p class="sub">Want what iPhone and Mac users say about an app, by country, as rows? <a href="./how-to-get-apple-app-store-reviews-data.html">See the fields, two real X review rows and the new 1-star review alert setup</a>.</p>
-      <p class="sub">Want a public Threads account's full post history, replies or reposts as rows? <a href="./how-to-get-threads-user-posts-data.html">See the fields, two real @natgeo rows and the date-window input</a>.</p>
-      <p class="sub">Want a public Instagram account's posts and reels with captions, likes, comments and media links as rows? <a href="./how-to-get-instagram-posts-data.html">See the fields, a real @natgeo reel record and the date-window input</a>.</p>
-      <p class="sub">Want the spoken words of public Instagram reels as text with timestamps, from reel links or usernames? <a href="./how-to-get-instagram-reel-transcripts.html">See the fields, a real TED row and the username input</a>.</p>
-      <p class="sub">Need quotes, P/E and financials for a list of tickers in a spreadsheet? <a href="./yfinance-alternative-watchlist-fundamentals-to-spreadsheet.html">See the yfinance alternative with a real watchlist CSV and the Google Sheets setup</a>.</p>
-      <p class="sub">Want Yahoo Finance quotes, fundamentals, financials, history and news as one record per ticker? <a href="./how-to-get-yahoo-finance-stock-data.html">See the fields, a real AAPL record and the pricing per ticker</a>.</p>
-      <p class="sub">Building a Reddit retrieval corpus? <a href="./historical-reddit-rag-pack.html#workflow">Start with real sample rows and the n8n import guide</a>, then choose a self-serve run or a scoped delivery. Need a subreddit's history for a fixed date window? Read <a href="./how-to-get-historical-reddit-posts-and-comments.html">how to get historical Reddit posts and comments by subreddit and date range</a>.</p>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="./">benthepythondev</a>
+      <nav aria-label="Sections">
+        <a href="#feeds">Data feeds</a>
+        <a href="#yield">Rental yields</a>
+        <a href="#reddit">Reddit archive</a>
+        <a href="#memberwall">Telegram memberships</a>
+        <a href="#scrapers">Scrapers</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="main" class="wrap">
+    <header class="hero">
+      <h1>Data feeds, rental benchmarks and scrapers you can check before you pay</h1>
+      <p class="lede" id="heroBlurb">benthepythondev builds and runs web data products: scheduled B2B data feeds, free rental yield benchmarks for Spain, Italy, Portugal and the US, Reddit archive data samples, a paid Telegram membership bot, and a catalog of production scrapers on Apify and RapidAPI. Every product below links to a free sample, real output rows or a live page you can inspect first.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="./feeds/">Managed Data Feeds ($199–$999/mo)</a>
-        <a class="btn btn-ghost" href="./reddit-rag-dump.html">Reddit RAG dump</a>
-        <a class="btn btn-ghost" href="mailto:benthepythondev0@gmail.com?subject=Data%20dump%20or%20feed%20quote&amp;body=Source%20or%20Actor%3A%0ADate%20window%20or%20refresh%20frequency%3A%0ARequired%20fields%3A%0AEstimated%20row%20count%3A%0ADelivery%20(JSON%2FCSV%2FSheet%2Fwebhook)%3A">Request a quote</a>
-        <a class="btn btn-ghost" href="https://apify.com/benthepythondev?utm_source=catalog&amp;utm_medium=site">Browse on Apify</a>
-        <a class="btn btn-ghost" href="./custom.html">Custom feed pilots</a>
+        <a class="btn btn-ghost" href="./yield/">Rental yield benchmarks</a>
+        <a class="textlink" href="./reddit-rag-dump.html">Reddit RAG dump</a>
+        <a class="textlink" href="./custom.html">Custom feed pilots</a>
+        <a class="textlink" href="mailto:benthepythondev0@gmail.com?subject=Data%20dump%20or%20feed%20quote&amp;body=Source%20or%20Actor%3A%0ADate%20window%20or%20refresh%20frequency%3A%0ARequired%20fields%3A%0AEstimated%20row%20count%3A%0ADelivery%20(JSON%2FCSV%2FSheet%2Fwebhook)%3A">Request a quote</a>
+        <a class="textlink" href="https://apify.com/benthepythondev?utm_source=catalog&amp;utm_medium=site">Browse on Apify</a>
       </div>
     </header>
 
-    <div class="toolbar">
-      <input id="q" type="search" aria-label="Search Actors" placeholder="Search Actors, sites, use cases…" />
-      <select id="sort" aria-label="Sort Actors">
-        <option value="users">Sort: Most users</option>
-        <option value="az">Sort: A→Z</option>
-        <option value="newest">Sort: Newest (feed order)</option>
-      </select>
+    <ol class="index" aria-label="Product hubs">
+      <li><a href="./feeds/">Managed B2B Data Feeds</a><span>Scheduled JSON, CSV, webhook, S3 or Snowflake delivery from production scrapers, with a free 10-row sample.</span></li>
+      <li><a href="./yield/">EU &amp; US Rental Yield Benchmarks</a><span>Gross yield, asking price per m² and price-cut share per city, each with a free 25-row CSV.</span></li>
+      <li><a href="./data/reddit-archive-scraper/">Reddit Archive Data Samples</a><span>Real archived Reddit rows with every field listed, plus fixed-price historical dumps.</span></li>
+      <li><a href="https://benthepythondev00.github.io/memberwall/">Paid Telegram Memberships</a><span>Memberwall sells access to a Telegram channel or group for a flat fee, no revenue share.</span></li>
+      <li><a href="./api-kits/">Apify &amp; RapidAPI Scrapers</a><span>Integration kits, step-by-step data guides and the full public Actor catalog.</span></li>
+    </ol>
+
+    <section class="hub" id="feeds" aria-labelledby="h-feeds">
+      <div class="hub-head">
+        <h2 id="h-feeds">Managed B2B Data Feeds</h2>
+        <p>Scheduled data delivery for teams that need rows on a timetable and do not want to babysit scrapers.</p>
+        <a class="go" href="./feeds/">See feed plans and the 15 sources</a>
+      </div>
+      <div class="hub-body">
+        <p><strong>What is a managed data feed?</strong> It is a recurring export from one or more of our production scrapers, deduplicated and normalized, delivered as JSON, CSV, webhook POST, S3 or Snowflake on a schedule you choose. Plans run $199 to $999 a month across real estate, social and Reddit, e-commerce and reviews, and jobs and B2B leads, with self-serve Stripe checkout or a free 10-row sample on your exact filters first.</p>
+        <ul class="links">
+          <li>Need more than a self-serve run? Start with a live-tested <a href="./custom.html">property or local-business feed pilot</a>.</li>
+          <li>Fresh proof: the <a href="./sf-rental-price-drops.html?utm_source=owned_site&amp;utm_medium=internal_link&amp;utm_campaign=sf_price_drop_pilot&amp;utm_content=catalog">SF rent-watch caught SoMa Square listing 16558691 cutting its observed asking-rent floor from $3,912 to $3,756 (−3.99%), still held six hours later</a>.</li>
+          <li>Rent monitoring in practice: the <a href="./austin-rental-monitoring.html">Austin rental-monitoring case study</a> with exact input, real rows and a downloadable sample.</li>
+          <li>Local-business proof: a live Maps run pulled <a href="./maps-berlin-contacts.html">8 Berlin tax advisors — one contact row per unique place_id, leftover-email 0 — for about $0.24</a>.</li>
+          <li>Agencies tracking creators: the <a href="./creator-stats-feed/">creator stats data feed for YouTube, TikTok, Twitch and Instagram in CSV or Google Sheets</a>.</li>
+          <li>Need an Apify actor for a site nobody covers yet? <a href="./custom-apify-actor.html">Get a custom actor in 1 to 3 days from $150, and check first whether one of ours already reads your site</a>.</li>
+          <li>Want property listings as a plain REST API instead of Actor runs? <a href="https://listingrail.com/">Listingrail</a> reads Zillow, Rightmove, Idealista, ImmoScout24, Bayut and 12 more portals with one key and returns one JSON format; the <a href="https://listingrail.com/sources/">portal comparison</a> shows which of them have an official API.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="hub" id="yield" aria-labelledby="h-yield">
+      <div class="hub-head">
+        <h2 id="h-yield">EU &amp; US Rental Yield Benchmarks</h2>
+        <p>Free city and district benchmarks built from live sale and rental listings, refreshed from Listingrail snapshots.</p>
+        <a class="go" href="./yield/">Open the full yield directory</a>
+      </div>
+      <div class="hub-body">
+        <p><strong>How is gross rental yield calculated here?</strong> For each market we take the median monthly asking rent per m² and the median asking sale price per m² from the same snapshot of live portal listings, multiply the rent by 12 and divide it by the sale price. Each market page also shows the median price per m², the price-to-rent ratio in years, how many listings already carry a price cut and the median size of that cut, plus a free 25-row CSV sample you can download without signing up.</p>
+        <!-- gen:yield:start -->
+<p class="facts">54 markets · 10,698 listings · snapshot 2026-11-24 · <a href="./yield/summary.csv">summary.csv</a></p>
+<div class="markets">
+  <div class="country"><h4>Spain · 18 markets</h4><ul>
+    <li class="mk"><a href="./yield/es/barcelona-gracia/">Gràcia, Barcelona rental yield</a><b>6.72%</b></li>
+    <li class="mk"><a href="./yield/es/zaragoza/">Zaragoza rental yield</a><b>5.98%</b></li>
+    <li class="mk"><a href="./yield/es/barcelona/">Barcelona rental yield</a><b>5.08%</b></li>
+    <li class="mk"><a href="./yield/es/barcelona-eixample/">Eixample, Barcelona rental yield</a><b>5.06%</b></li>
+    <li class="mk"><a href="./yield/es/bilbao/">Bilbao rental yield</a><b>4.85%</b></li>
+    <li class="mk"><a href="./yield/es/valencia/">Valencia rental yield</a><b>4.78%</b></li>
+    <li class="mk"><a href="./yield/es/barcelona-sarria-sant-gervasi/">Sarrià-Sant Gervasi, Barcelona rental yield</a><b>4.60%</b></li>
+    <li class="mk"><a href="./yield/es/madrid-centro/">Centro, Madrid rental yield</a><b>4.33%</b></li>
+    <li class="mk"><a href="./yield/es/madrid-tetuan/">Tetuán, Madrid rental yield</a><b>4.29%</b></li>
+    <li class="mk"><a href="./yield/es/palma-de-mallorca/">Palma de Mallorca rental yield</a><b>4.26%</b></li>
+    <li class="mk"><a href="./yield/es/malaga/">Málaga rental yield</a><b>4.16%</b></li>
+    <li class="mk"><a href="./yield/es/sevilla/">Seville rental yield</a><b>4.06%</b></li>
+    <li class="mk"><a href="./yield/es/madrid-retiro/">Retiro, Madrid rental yield</a><b>4.01%</b></li>
+    <li class="mk"><a href="./yield/es/madrid/">Madrid rental yield</a><b>3.99%</b></li>
+    <li class="mk"><a href="./yield/es/alicante/">Alicante rental yield</a><b>3.73%</b></li>
+    <li class="mk"><a href="./yield/es/madrid-chamberi/">Chamberí, Madrid rental yield</a><b>3.72%</b></li>
+    <li class="mk"><a href="./yield/es/madrid-salamanca/">Salamanca, Madrid rental yield</a><b>3.71%</b></li>
+    <li class="mk"><a href="./yield/es/madrid-chamartin/">Chamartín, Madrid rental yield</a><b>3.63%</b></li>
+  </ul></div>
+  <div class="country"><h4>Italy · 12 markets</h4><ul>
+    <li class="mk"><a href="./yield/it/rome/">Rome rental yield</a><b>7.33%</b></li>
+    <li class="mk"><a href="./yield/it/padua/">Padua rental yield</a><b>6.90%</b></li>
+    <li class="mk"><a href="./yield/it/turin/">Turin rental yield</a><b>6.87%</b></li>
+    <li class="mk"><a href="./yield/it/palermo/">Palermo rental yield</a><b>5.94%</b></li>
+    <li class="mk"><a href="./yield/it/venice/">Venice rental yield</a><b>5.88%</b></li>
+    <li class="mk"><a href="./yield/it/naples/">Naples rental yield</a><b>5.59%</b></li>
+    <li class="mk"><a href="./yield/it/genoa/">Genoa rental yield</a><b>5.45%</b></li>
+    <li class="mk"><a href="./yield/it/bari/">Bari rental yield</a><b>5.27%</b></li>
+    <li class="mk"><a href="./yield/it/florence/">Florence rental yield</a><b>5.01%</b></li>
+    <li class="mk"><a href="./yield/it/bologna/">Bologna rental yield</a><b>4.71%</b></li>
+    <li class="mk"><a href="./yield/it/verona/">Verona rental yield</a><b>4.61%</b></li>
+    <li class="mk"><a href="./yield/it/milan/">Milan rental yield</a><b>4.53%</b></li>
+  </ul></div>
+  <div class="country"><h4>Portugal · 10 markets</h4><ul>
+    <li class="mk"><a href="./yield/pt/setubal/">Setúbal rental yield</a><b>4.71%</b></li>
+    <li class="mk"><a href="./yield/pt/braga/">Braga rental yield</a><b>4.40%</b></li>
+    <li class="mk"><a href="./yield/pt/vila-nova-de-gaia/">Vila Nova de Gaia rental yield</a><b>4.20%</b></li>
+    <li class="mk"><a href="./yield/pt/lisbon/">Lisbon rental yield</a><b>4.17%</b></li>
+    <li class="mk"><a href="./yield/pt/funchal/">Funchal rental yield</a><b>4.16%</b></li>
+    <li class="mk"><a href="./yield/pt/coimbra/">Coimbra rental yield</a><b>4.12%</b></li>
+    <li class="mk"><a href="./yield/pt/aveiro/">Aveiro rental yield</a><b>4.08%</b></li>
+    <li class="mk"><a href="./yield/pt/porto/">Porto rental yield</a><b>3.96%</b></li>
+    <li class="mk"><a href="./yield/pt/cascais/">Cascais rental yield</a><b>3.94%</b></li>
+    <li class="mk"><a href="./yield/pt/faro/">Faro rental yield</a><b>3.68%</b></li>
+  </ul></div>
+  <div class="country"><h4>United States · 14 markets</h4><ul>
+    <li class="mk"><a href="./yield/us/chicago-il/">Chicago, IL rental yield</a><b>15.22%</b></li>
+    <li class="mk"><a href="./yield/us/houston-tx/">Houston, TX rental yield</a><b>13.62%</b></li>
+    <li class="mk"><a href="./yield/us/charlotte-nc/">Charlotte, NC rental yield</a><b>11.79%</b></li>
+    <li class="mk"><a href="./yield/us/dallas-tx/">Dallas, TX rental yield</a><b>11.64%</b></li>
+    <li class="mk"><a href="./yield/us/orlando-fl/">Orlando, FL rental yield</a><b>11.26%</b></li>
+    <li class="mk"><a href="./yield/us/atlanta-ga/">Atlanta, GA rental yield</a><b>9.96%</b></li>
+    <li class="mk"><a href="./yield/us/denver-co/">Denver, CO rental yield</a><b>9.60%</b></li>
+    <li class="mk"><a href="./yield/us/raleigh-nc/">Raleigh, NC rental yield</a><b>9.22%</b></li>
+    <li class="mk"><a href="./yield/us/tampa-fl/">Tampa, FL rental yield</a><b>8.90%</b></li>
+    <li class="mk"><a href="./yield/us/phoenix-az/">Phoenix, AZ rental yield</a><b>8.58%</b></li>
+    <li class="mk"><a href="./yield/us/nashville-tn/">Nashville, TN rental yield</a><b>8.05%</b></li>
+    <li class="mk"><a href="./yield/us/austin-tx/">Austin, TX rental yield</a><b>7.29%</b></li>
+    <li class="mk"><a href="./yield/us/miami-fl/">Miami, FL rental yield</a><b>7.26%</b></li>
+    <li class="mk"><a href="./yield/us/san-diego-ca/">San Diego, CA rental yield</a><b>6.95%</b></li>
+  </ul></div>
+</div>
+        <!-- gen:yield:end -->
+      </div>
+    </section>
+
+    <section class="hub" id="reddit" aria-labelledby="h-reddit">
+      <div class="hub-head">
+        <h2 id="h-reddit">Reddit Archive Data Samples</h2>
+        <p>Historical Reddit posts and comments as rows, for research corpora, RAG pipelines and brand monitoring.</p>
+        <a class="go" href="./data/reddit-archive-scraper/">See the free Reddit archive sample</a>
+      </div>
+      <div class="hub-body">
+        <p><strong>Can I still get historical Reddit data after Pushshift closed?</strong> Yes. Reddit's own API caps listings at about 1,000 items and has no date search, so we run an archive scraper that pulls posts and comments for a subreddit and date window. The sample pages below show real rows from those runs, every field name with an example value, and the per-row price, so you can judge the output before you run it or order a scoped dump.</p>
+        <h3>Free sample pages</h3>
+        <!-- gen:reddit:start -->
+<ul class="links">
+  <li><a href="./data/reddit-archive-scraper/">Reddit archive data sample: 22 fields per post, free JSON excerpt</a></li>
+  <li><a href="./data/reddit-archive-scraper/webscraping/">r/webscraping archived posts sample: 10 rows from 2026-11-21 (JSON)</a></li>
+</ul>
+        <!-- gen:reddit:end -->
+        <h3>Guides and fixed-price delivery</h3>
+        <ul class="links">
+          <li>Historical Reddit delivery has its own <a href="./reddit-rag-dump.html">fixed-price RAG dump</a>.</li>
+          <li>Building a Reddit retrieval corpus? <a href="./historical-reddit-rag-pack.html#workflow">Start with real sample rows and the n8n import guide</a>, then choose a self-serve run or a scoped delivery.</li>
+          <li>Need a subreddit's history for a fixed date window? Read <a href="./how-to-get-historical-reddit-posts-and-comments.html">how to get historical Reddit posts and comments by subreddit and date range</a>.</li>
+          <li>Comparing options? <a href="./reddit-historical-data-by-date-range.html">Historical Reddit data by date range now that Pushshift is closed: official API, archive dumps and a hosted archive API compared</a>.</li>
+          <li>Need live Reddit posts, comments or search results as rows? <a href="./how-to-get-reddit-posts-and-comments-data.html">See the fields, a real r/AskReddit row and the RSS replacement setup</a>, or read the <a href="./reddit-scraper-api-without-login-oauth-mcp.html">Reddit Scraper API without login/OAuth docs &amp; API.market comparison (Free tier + MCP)</a>.</li>
+          <li>Creator analytics in your AI assistant: <a href="./socialblade-mcp.html">SocialBlade data in Claude and other MCP clients</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="hub" id="memberwall" aria-labelledby="h-memberwall">
+      <div class="hub-head">
+        <h2 id="h-memberwall">Paid Telegram Memberships</h2>
+        <p>Memberwall turns a Telegram channel or group into a paid membership, run entirely from a bot.</p>
+        <a class="go" href="https://benthepythondev00.github.io/memberwall/">Open Memberwall</a>
+      </div>
+      <div class="hub-body">
+        <p><strong>How do I charge for access to a Telegram channel?</strong> Add @MemberwallBot to the channel as an admin and set a price in Telegram Stars, or tell members where to pay you directly and approve each receipt with one tap. Paying members get a single-use invite link, receive renewal reminders three days and one day before their period ends, and are removed automatically when it lapses.</p>
+        <p>Memberwall charges a flat fee instead of a share of your sales, and it never holds member money: Stars land in your own channel or bot and direct payments land in your own account. It suits trading education, paid newsletters, courses, coaching and other paid communities that already live on Telegram.</p>
+        <ul class="links">
+          <li><a href="https://benthepythondev00.github.io/memberwall/">Memberwall: paid Telegram memberships with no revenue share, how it works and flat pricing</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="hub" id="scrapers" aria-labelledby="h-scrapers">
+      <div class="hub-head">
+        <h2 id="h-scrapers">Apify &amp; RapidAPI Scrapers</h2>
+        <p>Pay-per-result scrapers for jobs, rentals, Reddit, leads, reviews and finance, each with a guide that shows a real output row.</p>
+        <a class="go" href="./api-kits/">RapidAPI integration kits</a>
+      </div>
+      <div class="hub-body">
+        <h3>RapidAPI integration kits</h3>
+        <ul class="links">
+          <li><a href="./api-kits/">RapidAPI developer integration kits</a>: OpenAPI 3.1 specs, cURL, Python and Node snippets, n8n workflows and MCP tool definitions.</li>
+          <li><a href="./api-kits/job-search-api-indeed-linkedin-reed-seek-and-ats-boards/">Job Search API for Indeed, LinkedIn, Reed, Seek and ATS boards</a></li>
+          <li><a href="./api-kits/instagram-profile-scraper10/">Instagram Profile Scraper API without login</a></li>
+          <li><a href="./api-kits/tiktok-profile-scraper2/">TikTok Profile Scraper API with followers, likes and latest videos</a></li>
+          <li><a href="./api-kits/facebook-posts-scraper2/">Facebook Posts Scraper API for public pages and profiles</a></li>
+        </ul>
+
+        <h3>Jobs and hiring</h3>
+        <ul class="links">
+          <li>Moving to Germany for work? <a href="./jobs-in-germany/">Fresh German job ads in English, with what each employer says about applicants from abroad</a>. Denmark? <a href="./jobs-in-denmark/">English openings at the companies SIRI certified for the Fast-Track work permit</a>.</li>
+          <li>Want remote jobs you can actually apply to from your country? <a href="./how-to-get-remote-job-listings-from-six-job-boards.html">See the fields, a real row and the eligibility filter across six job boards</a>, or read the <a href="./remote-jobs-aggregator-api-worldwide-eligibility-proof.html">Remote Jobs Aggregator API docs &amp; API.market comparison (200 free calls + MCP)</a>.</li>
+          <li>Want open roles from Stripe, Cloudflare, Figma and 40+ other tech employers as rows? <a href="./how-to-get-greenhouse-job-listings-data.html">See the fields, two real Stripe rows and the Greenhouse company input</a>.</li>
+          <li>Want Remotive remote jobs with salary numbers and a 0 to 100 opportunity score as rows? <a href="./how-to-get-remote-job-listings-from-remotive.html">See the fields, a real row and the filters</a>.</li>
+          <li>Want startup jobs with salary, equity and accepted remote regions as rows? <a href="./how-to-get-wellfound-startup-job-data.html">See the fields, a real Berlin row and the Wellfound location input</a>.</li>
+        </ul>
+
+        <h3>Real estate and rentals</h3>
+        <ul class="links">
+          <li>Have a list of Zillow links, ZPIDs or US street addresses and want prices, Zestimates, price and tax history, agent phones and climate risk as rows? <a href="./zillow-detail-scraper-property-details-api-guide.html">See the fields, a real Austin row, Apify and RapidAPI setup, and honest limits</a>.</li>
+          <li>Need Redfin rentals with rent, beds, square feet, amenities and photos? <a href="./how-to-get-redfin-rental-listing-data.html">See the fields, a real San Francisco row and the search inputs</a>.</li>
+          <li>Need PadMapper rentals for US and Canadian cities with prices, amenities and contacts? <a href="./how-to-get-padmapper-rental-listing-data.html">See the fields, two real San Francisco rows and the search inputs</a>.</li>
+          <li>Need Zumper rental listings or rent-change alerts? <a href="./how-to-get-zumper-rental-listing-data.html">See the fields, a real sample row and the monitor inputs</a>.</li>
+          <li>Want Craigslist homes for sale by owner, rentals or rooms as rows? <a href="./how-to-get-craigslist-real-estate-listings-data.html">See the fields, a real sample row and the FSBO search input</a>.</li>
+          <li>Need Mexico property listings from Inmuebles24 with prices, areas, room counts and agency contacts? <a href="./inmuebles24-scraper-mexico-real-estate-api-guide.html">See the fields, the search URL input, use cases and honest limits</a>.</li>
+          <li>Need Dubai or UAE property listings with prices, sizes and broker contacts? <a href="./how-to-get-property-finder-uae-listing-data.html">See the fields, a real Dubai Marina row and the buy or rent inputs</a>.</li>
+        </ul>
+
+        <h3>Social media and creators</h3>
+        <ul class="links">
+          <li>Have a list of TikTok accounts and want followers, likes, bios and recent video plays as rows? <a href="./how-to-get-tiktok-profile-data.html">See the fields, a real @nasa row and the batch input</a>.</li>
+          <li>Want the snaps from public Snapchat stories and curated highlights as rows? <a href="./how-to-get-public-snapchat-stories-and-highlights-data.html">See the fields, two real @nasa highlight rows and the username input</a>.</li>
+          <li>Want a public Threads account's full post history, replies or reposts as rows? <a href="./how-to-get-threads-user-posts-data.html">See the fields, two real @natgeo rows and the date-window input</a>.</li>
+          <li>Want a public Instagram account's posts and reels with captions, likes, comments and media links as rows? <a href="./how-to-get-instagram-posts-data.html">See the fields, a real @natgeo reel record and the date-window input</a>.</li>
+          <li>Want the spoken words of public Instagram reels as text with timestamps, from reel links or usernames? <a href="./how-to-get-instagram-reel-transcripts.html">See the fields, a real TED row and the username input</a>.</li>
+          <li>Want Pinterest search results as rows, with pin titles, creators, boards, destination links and rank? <a href="./how-to-get-pinterest-search-data.html">See the fields, a real example row and the limits</a>.</li>
+        </ul>
+
+        <h3>E-commerce, reviews and apps</h3>
+        <ul class="links">
+          <li>Want Best Buy prices, deals and open-box offers as rows? <a href="./how-to-get-best-buy-product-prices-and-deals-data.html">See the fields, two real laptop rows and the price-filter inputs</a>.</li>
+          <li>Want eBay listings with price, shipping, condition and seller feedback as rows? <a href="./how-to-get-ebay-listing-data.html">See the fields, two real Nike Air Max rows and the keyword input</a>.</li>
+          <li>Want public Yelp business data and nested review text with optional sentiment and lead score? <a href="./yelp-intelligence-scraper-buying-and-integration-guide.html">See the fields, a real San Francisco pizza row, pricing and honest limits</a>.</li>
+          <li>Want what Android users say about an app as rows you can sort and filter? <a href="./how-to-get-google-play-reviews-data.html">See the fields, two real review rows and the 1-star complaints input</a>.</li>
+          <li>Want what iPhone and Mac users say about an app, by country, as rows? <a href="./how-to-get-apple-app-store-reviews-data.html">See the fields, two real X review rows and the new 1-star review alert setup</a>.</li>
+        </ul>
+
+        <h3>Leads, websites and domains</h3>
+        <ul class="links">
+          <li>Need every dentist or restaurant in a city with phone, website, rating and a lead score? <a href="./how-to-get-google-maps-business-data.html">See the fields, a real San Francisco row and the city-wide search</a>.</li>
+          <li>Have a list of company domains and want each site's CMS, frameworks, payment tools and email provider? <a href="./how-to-get-website-tech-stack-data.html">See the fields, a real stripe.com row and the DNS email layer</a>.</li>
+          <li>Have a list of URLs and want to know which still load, where they redirect and how fast they respond? <a href="./how-to-check-website-status-codes-for-a-list-of-urls.html">See the fields, a real two-row run and the post-migration check</a>.</li>
+          <li>Want expired and deleted domains from ExpiredDomains.net with backlinks, Archive.org age and Whois status as rows? <a href="./how-to-get-expired-domain-data.html">See the fields, two real deleted .com rows and the filters</a>.</li>
+        </ul>
+
+        <h3>Finance and public records</h3>
+        <ul class="links">
+          <li>Need quotes, P/E and financials for a list of tickers in a spreadsheet? <a href="./yfinance-alternative-watchlist-fundamentals-to-spreadsheet.html">See the yfinance alternative with a real watchlist CSV and the Google Sheets setup</a>.</li>
+          <li>Want Yahoo Finance quotes, fundamentals, financials, history and news as one record per ticker? <a href="./how-to-get-yahoo-finance-stock-data.html">See the fields, a real AAPL record and the pricing per ticker</a>.</li>
+          <li>Want NHTSA vehicle safety recalls and complaints by make, model, year, VIN or campaign number? <a href="./how-to-get-nhtsa-vehicle-recall-data.html">See the fields, real 2023 Ford F-150 output and the five lookup modes</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog" aria-labelledby="h-catalog">
+      <h2 id="h-catalog">All public Apify Actors</h2>
+      <!-- gen:catalog-intro:start -->
+<p>987 public scrapers on the Apify Store, grouped into Jobs &amp; hiring, Real estate &amp; rentals, Lead gen, E‑commerce, Social &amp; Reddit, Finance, Research &amp; open data and Other. The 48 most used are listed below as plain links (catalog synced 2026-11-11); search, filters and the rest load with JavaScript.</p>
+      <!-- gen:catalog-intro:end -->
+      <div class="toolbar">
+        <input id="q" type="search" aria-label="Search Actors" placeholder="Search Actors, sites, use cases…" />
+        <select id="sort" aria-label="Sort Actors">
+          <option value="users">Sort: Most users</option>
+          <option value="az">Sort: A→Z</option>
+          <option value="newest">Sort: Newest (feed order)</option>
+        </select>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="meta" id="count"></div>
+      <div class="grid" id="grid">
+        <!-- gen:catalog:start -->
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/H3F-D265YeTfn5VdwzpUEEZ3sPtSGtPeRTgW590ks1k/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNjNTMUZBcWlZM1VEcVZFdmItbzlRWklITktCYi1yZW1vdGUtam9icy1hZ2dyZWdhdG9yLnBuZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Remote Jobs Scraper: Worldwide vs US-only Filter, 6 Boards</h3></div><p>Remote jobs from six boards, each tagged worldwide, region-restricted or hybrid, with the employer&#x27;s sentence as proo…</p><a class="cta" href="https://apify.com/benthepythondev/remote-jobs-aggregator?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/h1LWkT96HyibdYjB2INMqOXPaauf7i9HyjkQpc23UpY/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItaHFsRURrYkgya2JoVjkxUGUtMVN6T0RCNGhoZS1hcmJlaXRzYWdlbnR1ci1qb2JzLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Arbeitsagentur Jobs Scraper: Stellenangebote &amp; Jobbörse</h3></div><p>Jobs from the Jobbörse of the Bundesagentur für Arbeit: title, employer, place with coordinates, dates, full text, ho…</p><a class="cta" href="https://apify.com/benthepythondev/arbeitsagentur-jobs-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/r3ZjUJ6OU1vU-Y5j-OLx4osWW6PehxmuzJX20vA3gt0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYTVWRmU4OGpMdzN0bjRHMkMtQmsySVRiZE00TS15YWhvby1maW5hbmNlLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Yahoo Finance Scraper: yfinance Alternative, Financials &amp; News</h3></div><p>One record and one charge per ticker from Yahoo Finance: live quote, valuation and fundamentals, financial statements…</p><a class="cta" href="https://apify.com/benthepythondev/yahoo-finance-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Favicon Extractor</h3></div><p>Returns every icon a website declares, one row per site: favicon, apple-touch-icon and mask-icon URLs with their size…</p><a class="cta" href="https://apify.com/benthepythondev/favicon-extractor?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/fZi3C7sTHRZ9hpvzBc8GRkp358jQJLJ7PGJu2d_X9_g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbHFPY20yQmdzZzRMR05BVGQtT01kNjNVMmJOVS1yZWRkaXQtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>Reddit Scraper: Posts &amp; Full Comment Threads, Excel Rows, MCP</h3></div><p>Public Reddit posts with full comment threads, as nested JSON or one Excel row per comment with depth and path. Subre…</p><a class="cta" href="https://apify.com/benthepythondev/reddit-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/EUU9VRtixYOqqYI-lkapDQt2-y1BL2Eds-k95ANqEbg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcGJVWjR6Mk9Sc3lLaFpzaEwtc0pUZWFZSjdPZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzhpdGtoZDhpdGtoZDhpdGsuanBlZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Best Buy Scraper: Prices, Deals, Open-Box, SKUs</h3></div><p>Best Buy prices, SKUs, ratings and model numbers by keyword or link, with on-sale and open-box filters for price trac…</p><a class="cta" href="https://apify.com/benthepythondev/bestbuy-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/n33tr7PmgGOuCfZXJLegl7oYSi7_Dsg0t0lOrIuF-58/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNmN0bmJSRDhTUE9vMzlvYU4tRUlKVWJQbGZsVC1pbnN0YWdyYW0tdmlkZW8tZG93bmxvYWRlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>Instagram Video Downloader - Reels &amp; Posts, No Login</h3></div><p>Instagram reel and video downloader with stored files: saveFiles keeps each MP4 in the run&#x27;s storage after Instagram&#x27;…</p><a class="cta" href="https://apify.com/benthepythondev/instagram-video-downloader?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/XJYNnvhVfQDQoYMZCWNKMBVNqyQsKasFyj9KwdWt1hg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItajFMbDdtbHlCYkNLSXF5Q1ItT0hYVXpidzNaRC1jYXNhLWl0LXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Casa.it Scraper - Italy Real Estate</h3></div><p>Returns property listings from Casa.it, for sale or to rent: price, surface, rooms, bathrooms, floor, full address, c…</p><a class="cta" href="https://apify.com/benthepythondev/casa-it-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/ToNT2t9KKx6l3SJBgycKeuDT__oMJYO_If8VKQ84HZU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRmtrTHIxZmxCdEpPekxMNUUtZFZXM3poeGo2ay1mZWMtY2FuZGlkYXRlcy1zY3JhcGVyLnBuZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Facebook Profile Scraper - Public Profiles &amp; Pages, No Login</h3></div><p>Returns the public record of Facebook profiles and Pages as a logged-out visitor sees it: name, id, username, verifie…</p><a class="cta" href="https://apify.com/benthepythondev/facebook-profile-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/EdboaSP9D2P5_G9FYnWs46Ig-MOPWyi-ARm2P7G4t0g/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMjJIaERHSFJUVERyWFk1SEgteU9LSEtBaUsyZS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzU1b3EzbDU1b3EzbDU1b3EuanBlZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Tech Stack Detector - Wappalyzer &amp; BuiltWith Alternative</h3></div><p>Returns each website&#x27;s email provider (Google Workspace, Microsoft 365, Zoho) and the SaaS tools connected to its dom…</p><a class="cta" href="https://apify.com/benthepythondev/tech-stack-detector?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/WXXHHiMm8UOAT89P4vR6oZcZgz0Iq9ut4Qy-1FLxW9s/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdGN3Z3A0RHAzT3lFMWh6WjAtVnd3UlZnaDF2Zi1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX21kZnVocG1kZnVocG1kZnUuanBn.webp" alt="" loading="lazy" width="36" height="36" /><h3>🚗 Cars.com Scraper - Deals, Specs &amp; Flip Scores</h3></div><p>Returns Cars.com used and new car listings: price, mileage, year, make, model, VIN, colors, drivetrain, fuel type, de…</p><a class="cta" href="https://apify.com/benthepythondev/cars-com-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/LVkUOa5sZqMrq9bFB2hD78i-0LBylQdYGGzJFYwG82Y/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdVU4eWJoMGRndkk2OFEzbzItY2djUzdjZmtrcy1nb29nbGUtbWFwcy1idXNpbmVzcy1zY3JhcGVyLnBuZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Google Maps Scraper - Business Contacts &amp; Ratings</h3></div><p>Returns Google Maps places for any search and location: name, phone, website, address parts, coordinates, rating, rev…</p><a class="cta" href="https://apify.com/benthepythondev/google-maps-business-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/Y8-qCWkg_WfViP_3zelYNEdS-vr8CbljApfj-XkPmVM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSGdxNUFYYXZRQjVINm1nMlktRUVxaUxrejFmNC1yZWRkaXQtYXJjaGl2ZS5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>Reddit Archive Scraper — Historical Posts and Comments by Date</h3></div><p>Pushshift alternative: historical Reddit posts and comments by subreddit, user or post ID and exact UTC date range fr…</p><a class="cta" href="https://apify.com/benthepythondev/reddit-archive-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/eGaadTTPcgXoMZdt3Kpxi8OdramsE3v91l93pyw1qgQ/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Ita0NjUWdSNXViV3htaXF3YkctbzY3Y2lqWTBUZC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2Z4bXVhMmZ4bXVhMmZ4bXUuanBn.webp" alt="" loading="lazy" width="36" height="36" /><h3>🪙 Crypto Intelligence - CoinGecko Market Data</h3></div><p>Returns CoinGecko market data for 10,000+ coins: price, market cap and rank, 24h volume, 24h high and low, 24h/7d/30d…</p><a class="cta" href="https://apify.com/benthepythondev/crypto-intelligence?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/AekjCG05rJgANE57jioCXRCOhReDmiL4LTLnUQzuFYI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSFZidEdCbXVzSFBwNW9VbWEtNmFoRFBxemE1ay1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlXzI2bTYwcjI2bTYwcjI2bTYuanBlZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Zumper Scraper: Apartments for Rent + Rent Change Monitor</h3></div><p>Zumper API alternative: export apartment and house rentals for any US city, then schedule it to get new listings and…</p><a class="cta" href="https://apify.com/benthepythondev/zumper-rental-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/d7QuhOYTvUFRC_pNvDzpyYs5fttureoEUzM8kjmarz0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZXF4bEVGMEduWTBqa2VsaXotVFFHTUNUMzJNZi1pbnN0YWdyYW0taW50ZWxsaWdlbmNlLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Instagram Scraper - Profiles, Posts &amp; Reels</h3></div><p>Returns public Instagram profiles, posts, reels and the comments under posts, without a login: full captions, UTC dat…</p><a class="cta" href="https://apify.com/benthepythondev/instagram-intelligence-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/789dq9V9V4EA0_XmMEFLO-kXJMhRLtjsPW6hziGzhPM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdldyRTY3V3ppMjF1RlROWEItYTEwbjQ1aEFrbi1hcGVjLWpvYnMtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>APEC Jobs Scraper - French Executive Jobs</h3></div><p>Returns executive and manager jobs from APEC, France&#x27;s job board for cadres: title, company, location, contract type,…</p><a class="cta" href="https://apify.com/benthepythondev/apec-jobs-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/HR354yeOcTlPJ2-ba2JvzGBX7wbaTS9AuXwLWph6Ass/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYWJhOVhDWHNaSUZlemVZTEwtY2doU1hYNkJ1Wi1zbmFwY2hhdC1zdG9yaWVzLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Snapchat Stories Scraper - Active Stories and Highlights</h3></div><p>Returns the active public stories and saved highlights of Snapchat creators: each snap&#x27;s direct media link, preview i…</p><a class="cta" href="https://apify.com/benthepythondev/snapchat-stories-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/KDfDBbL-R25Ef9EpQ82j37cAOX2MG93vRO6TvEON-t4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItS3pIVlRoZ2tUUVA0NmZBU1MtVGN6YVhwU0lmUS1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX21reDR0OG1reDR0OG1reDQuanBn.webp" alt="" loading="lazy" width="36" height="36" /><h3>📈 Stock Sentiment Intelligence - Reddit Buzz Tracker</h3></div><p>Returns the stock and crypto tickers Reddit is talking about: mentions and upvotes in 24 hours, rank and its change,…</p><a class="cta" href="https://apify.com/benthepythondev/stock-sentiment-intelligence?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/yTl6IZSKguGQiyoe8PXTka3FgiBsrF7RlZ0e0GKuIMg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItbXBiNnFka21QbnFXckdvaE8tYkxxSkhpYmM4ei10aWt0b2stcHJvZmlsZS1zY3JhcGVyLnBuZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>TikTok Profile Scraper - Followers, Likes &amp; Bios</h3></div><p>Returns one row per TikTok profile: exact followers, following, likes and video count, bio, bio link, verified badge,…</p><a class="cta" href="https://apify.com/benthepythondev/tiktok-profile-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Website Status Checker - Uptime URL Monitor</h3></div><p>Returns the status of every URL in a list: HTTP status code, response time, final URL after redirects, redirect count…</p><a class="cta" href="https://apify.com/benthepythondev/website-status-checker?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/e9sTppHyjj3MvlNUayfd2L-P3iIQeNqcBTeN0JTqoJg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItSE44cFNScUVLb1VJY1dWY1Mta2R6cU51S3Y5dS1ncmVlbmhvdXNlLWpvYnMtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>💼 Greenhouse Jobs Scraper - Tech Hiring Data</h3></div><p>Returns open jobs from any company that hires through Greenhouse: job title, company, department, location, remote fl…</p><a class="cta" href="https://apify.com/benthepythondev/greenhouse-jobs-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/lZ1Vs_ydtcJecpAyfZaiIAfu6PzXYaTotPATnIbv318/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItMGVhaUtlb0tSNFV6MkhrVzktTkJuY3Z0dWxOMC1zb2NpYWxibGFkZS1zY3JhcGVyLnBuZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>SocialBlade Scraper - Creator Stats and History</h3></div><p>Returns SocialBlade statistics for YouTube, TikTok, Instagram and Twitch creators: audience size, platform statistics…</p><a class="cta" href="https://apify.com/benthepythondev/socialblade-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/wgkZKDgKcu6t34G3VDpW5OtZ6Y9u75s_HRS0JqxgdYo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItNFNjR3J5dnh0cUptcnVjbmYtSXNyUmE0SWFPai1yZWFsLWVzdGF0ZS1hZ2VudC1sZWFkLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Real Estate Agent &amp; Agency Lead Scraper - Realtor Emails</h3></div><p>Returns real estate agents, brokers and agencies for any city with the emails and phone numbers their websites publis…</p><a class="cta" href="https://apify.com/benthepythondev/real-estate-agent-lead-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/5OF5dVzNAoRFrV3TjNHeOgFxO4PwpT4mOiXVypDe8Ns/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItRFJKaHhjZXZrRm5jc21SS3otZ2FpNnBzbkRsOS1yZWxvY2F0ZS1tZS1qb2JzLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Relocate.me Jobs Scraper - Visa Tech Jobs</h3></div><p>Returns international tech jobs from Relocate.me, the job board for roles with relocation support and visa sponsorshi…</p><a class="cta" href="https://apify.com/benthepythondev/relocate-me-jobs-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/7yngk-GslWL_EM3QfmV33VdUWOS8ZyX0xHILmQr8LKo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItN2RBQUh0NXFTaGhlQ1hjenotZ2ljVmtxb2RSWi1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX2g2N2U0dmg2N2U0dmg2N2UuanBlZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>📧 Smart Email Finder &amp; Verifier - SMTP Validated</h3></div><p>Returns the likeliest work email for a name and company domain: 14 common patterns (first.last@, flast@ and more) che…</p><a class="cta" href="https://apify.com/benthepythondev/smart-email-finder-verifier?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/dl0D9Oi6QmJlX43n8_M6ckLanHJafXifDBhwsEijPgI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZGF1YXdpY29JQjRoMko1dW0tTGdGUGkyVXVYSC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX21obmM2MG1obmM2MG1obmMuanBlZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Expired Domains Scraper - SEO Domain Data</h3></div><p>Returns expired and deleted domains from ExpiredDomains.net: domain, TLD, backlinks, domain pop, archive.org age, dro…</p><a class="cta" href="https://apify.com/benthepythondev/expired-domains-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/aWlgeycEX1runMR7X3XTqcArlcLbe2evbOcgtCdxHJI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUkxVdDdNNmJrRjdHWVhTMVAtdzFFelBDaHkxbC1pbnN0YWdyYW0tY29tbWVudHMtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>Instagram Comments Scraper - Posts &amp; Reels, No Login</h3></div><p>Returns the comments under Instagram posts and reels: comment text, author, time, likes, whether the author is verifi…</p><a class="cta" href="https://apify.com/benthepythondev/instagram-comments-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/WKj30Q1MYRquAzt-UKvYyFYfcS6o4QhAB5QXPyCJGeI/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItUm5qQmtmaFVyTnJERDhJZzUtWVI4MUowWUVjcy1pbnN0YWdyYW0tcG9zdHMtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>Instagram Posts Scraper - Captions, Likes, Media, No Login</h3></div><p>Returns the posts of any public Instagram account, newest first: caption, date, likes, comment count, hashtags, menti…</p><a class="cta" href="https://apify.com/benthepythondev/instagram-posts-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/vqJdIECe2PPiXKIb89IXoLjdvCZnjOpayymW7fVx-xc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcWlSU2dGQVJKUGdQbWpucjAtc0pWUzJzb3A4US1pbnN0YWdyYW0tcmVlbC10cmFuc2NyaXB0LXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Instagram Reel Transcript Scraper - Speech to Text, No Login</h3></div><p>Returns the spoken text of public Instagram reels with timed segments, detected language and length, plus caption, da…</p><a class="cta" href="https://apify.com/benthepythondev/instagram-reel-transcript-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/FLUGeVsEs2cvJjGuaq-J46NhM1LIuerNUHtHuNRSpWk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYUxvOGpvSGk0bllGcHR5Zk4tVTBOdVl3UmdiWi10aHJlYWRzLXVzZXItcG9zdHMtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>Threads User Posts Scraper - Full Post History</h3></div><p>Returns every public post of a Meta Threads account, back to its first: text, date, likes, replies, reposts, quotes,…</p><a class="cta" href="https://apify.com/benthepythondev/threads-user-posts-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/nalIqnvn66j5XPMJ4JI9xK3dEmcQ5l5v9aVOgXfUpbc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItQWh2MFpQdHdLQ0FRamE0d3UtSEF3N3BWWERaeS15Yy1qb2JzLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>YC Jobs Scraper - Startup Hiring Data</h3></div><p>Returns Y Combinator startup jobs from Work at a Startup: title, company, YC batch, one-liner, role, employment type,…</p><a class="cta" href="https://apify.com/benthepythondev/yc-jobs-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/3WZFyFj8Tfal-0ZYPS4-iETXsOVaKrpRg_ablb7Lnos/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItampONGFnVk5BN3lhT2ozUDAtWVJHQjNPaVRJSC10aHJlYWRzLXByb2ZpbGUtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>X (Twitter) Profile Scraper - No Login, With Latest Posts</h3></div><p>Scrape X (Twitter) profiles without login, cookies or API key: name, bio, location, website, followers, following, po…</p><a class="cta" href="https://apify.com/benthepythondev/x-profile-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/TcCwhGXeONTdGMd-085hcOjQxm5kYR7XaftPVY7iA_A/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZWtMMWtlV05PMGdQd0NudjktZzQ4TXBWRE0zZy15b3V0dWJlLXRyYW5zY3JpcHQtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>YouTube Transcript Scraper - Text, SRT &amp; VTT</h3></div><p>Returns the captions of YouTube videos as plain text, timestamped segments, SRT, VTT or JSON, with the language, whet…</p><a class="cta" href="https://apify.com/benthepythondev/youtube-transcript-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/GEdto0DkpUmVbr0WImK5dvWWY6umO2J4qQU6NsOJuBk/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3Itc1JCVnhzcnRJSWZPME5pZWUtdHRiSXRGNU9yWC1HZW1pbmlfR2VuZXJhdGVkX0ltYWdlX3IybWxvMHIybWxvMHIybWwuanBlZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>⭐ App Store Reviews Scraper - iOS &amp; macOS Reviews</h3></div><p>Returns customer reviews of any iOS or macOS app on the Apple App Store: star rating, title, full text, author, count…</p><a class="cta" href="https://apify.com/benthepythondev/appstore-reviews-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/lecFzUpuLa9b7oWD09WeDR8PL-YaWja7gzBR7ZtxTTg/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3IteGllWlhndWczNXN3ekNmS0QtWW4xOXFnQWZIdC13ZWJzaXRlLWNvbnRhY3QtZXh0cmFjdG9yLnBuZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>BetaList Startups Scraper - Startup Launch Data</h3></div><p>Extract individual BetaList startup names, directory URLs and card descriptions from public pages, preserving each in…</p><a class="cta" href="https://apify.com/benthepythondev/betalist-startups-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/63KPkcgPKiUVxvwKut5hIuVnSyCf0e6XFyIYSuazuYM/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWjV4YzhDdGttOWlrUk9lZlItWmRIZWRjOWlETC1jcmFpZ3NsaXN0LXJlYWwtZXN0YXRlLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Craigslist Real Estate Scraper - FSBO Listings &amp; Rentals</h3></div><p>Craigslist FSBO homes and rentals for any city, with a by-owner flag and a 0-100 lead score on every listing, plus pr…</p><a class="cta" href="https://apify.com/benthepythondev/craigslist-real-estate-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/_4j7Bzr7psDiBajFKwvp2fuHmIbJAUX_nDt7sZX95eE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWGpkVGRoTm1QaFJEV2ZUOFctaVdkUXVyQWd1OS10aWt0b2stcHJvZmlsZS12aWRlb3Mtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>Douyin 抖音 Video Scraper &amp; Downloader - No Login</h3></div><p>Returns Douyin (抖音) videos by link, share link or id: a no-watermark MP4 link up to 1080p that does not expire, capti…</p><a class="cta" href="https://apify.com/benthepythondev/douyin-video-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/YJ4fVU0JgWRY0fylbJQrqPXO-f1RHEQuCNY8b3uIOe0/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcnNLVTJMa2FWU2Q3TVF5MWYtS0czQ1RpRmNyUC1ldXJlcy1qb2JzLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>EURES Jobs Scraper - European Employment Data</h3></div><p>Returns jobs from EURES, the European Union&#x27;s official job portal: title, employer, locations, description, contract…</p><a class="cta" href="https://apify.com/benthepythondev/eures-jobs-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/8IeUe8t9Yqz7Zf_yFSiTvSgJPcNWgeThUijDml3lL0U/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcXVLS2VSbGdvNUJGZGJBS3AtYmQzYlBKWUFaNy1mYWNlYm9vay1ncm91cHMtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>Facebook Groups Scraper - Public Group Posts, No Login</h3></div><p>Facebook group posts scraper for public groups, no login and no cookies. Scrape a Facebook group by link, id or name:…</p><a class="cta" href="https://apify.com/benthepythondev/facebook-groups-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/-_EvJ61xvJOAwPmgsqEyOIpX_9w5XoSeIq-Hh_VF_Js/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTGJhcldKWWJlTjhwY2hPV2ctUHNOUzhHM1hLSy1pYWFpLXZlaGljbGUtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>IAAI Vehicle Scraper - Salvage Auction Data</h3></div><p>Returns IAAI salvage auction vehicles from search results and lot pages: VIN, year, make, model, primary and secondar…</p><a class="cta" href="https://apify.com/benthepythondev/iaai-vehicle-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/8-QEpRTTf7axSCOsIyBO51y1K-fJgSjTDU5LXCFPvQU/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItY3U0RXlEaGk3RjZ4R2FJVnctNEFaSVRIZGJhcS1pbnN0YWdyYW0tcG9zdC1kZXRhaWxzLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Instagram Post Scraper - Details by Post or Reel URL, No Login</h3></div><p>Returns one row per Instagram post or reel link: caption, date, likes, comment count, author, hashtags, mentions, tag…</p><a class="cta" href="https://apify.com/benthepythondev/instagram-post-details-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/vg-dEstUfpkXySU2M0H9xmFwVSb3cumfO7DppQ-f6Tw/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItdVJxRDN6MFNSTWhqbmtQaDUtVWh5bUpxRFNVai1uYXVrcmktam9icy1zY3JhcGVyLnBuZw.webp" alt="" loading="lazy" width="36" height="36" /><h3>Naukri Jobs Scraper - India Job Postings</h3></div><p>Returns job postings from Naukri.com, India&#x27;s largest job board: title, company, location, required experience, salar…</p><a class="cta" href="https://apify.com/benthepythondev/naukri-jobs-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/wN8sw4M-hgKg6Gk68qMvBKnifxQYZz_xZ25nwpg_KHo/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItYTZMZFdrMGJxcGg5NFR0cTUtVFg1SzFuelZ6RS1wYWRtYXBwZXItcmVudGFsLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>PadMapper Rental Scraper - Apartments &amp; Houses</h3></div><p>Returns PadMapper rental listings in any US or Canadian city: rent range, beds and baths, address, neighbourhood, coo…</p><a class="cta" href="https://apify.com/benthepythondev/padmapper-rental-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/u7NLWFMssSBNP0cC--NY8cLnlTgtRyqfJEAnq49pXg4/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItZ3FGZnllM3ZnQkM3WU1iV1ktMVdMMGN4b1Nnay1DaGF0R1BUX0ltYWdlX05vdl8xN19fMjAyNV9hdF8wMV80NV8wNV9QTS5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>💼 Remotive Remote Jobs Intelligence - AI-Scored</h3></div><p>Returns remote jobs from Remotive with an opportunity score from 0 to 100 on every job: title, company, salary range,…</p><a class="cta" href="https://apify.com/benthepythondev/remotive-jobs-intelligence?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/VPsm76Y6wl0iX53uiweoNrdEWkJrhFnkdGO462Kkbsc/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItTWFZeHRTZHlZOXNuM3RuOGkteWJGWTRWQW9QOS1zbmFwY2hhdC1wcm9maWxlLXNjcmFwZXIucG5n.webp" alt="" loading="lazy" width="36" height="36" /><h3>Snapchat Profile Scraper - Creator Analytics</h3></div><p>Scrape public Snapchat creator profiles with subscriber counts, bios, websites, categories, profile pictures, Snapcod…</p><a class="cta" href="https://apify.com/benthepythondev/snapchat-profile-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/Y273r9wR-PB8rJmYwMCKVh5rdDZyUENb-O4xLsuQu8c/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItcnE3U0VjRjdMZGh1cEl0Z2ktZEY0UmsxRDBIUi10aHJlYWRzLXJlcGxpZXMtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>Threads Replies Scraper - Comments Under Any Post</h3></div><p>Returns the replies under Meta Threads posts, one row per reply: text, author, time, likes, reply count and media, pl…</p><a class="cta" href="https://apify.com/benthepythondev/threads-replies-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+<article class="card"><div class="card-top"><img src="https://images.apifyusercontent.com/_4j7Bzr7psDiBajFKwvp2fuHmIbJAUX_nDt7sZX95eE/rs:fill:76:76/cb:1/aHR0cHM6Ly9hcGlmeS1pbWFnZS11cGxvYWRzLXByb2QuczMudXMtZWFzdC0xLmFtYXpvbmF3cy5jb20vT3JOQ0NWNm8xajU1THlPVFotYWN0b3ItWGpkVGRoTm1QaFJEV2ZUOFctaVdkUXVyQWd1OS10aWt0b2stcHJvZmlsZS12aWRlb3Mtc2NyYXBlci5wbmc.webp" alt="" loading="lazy" width="36" height="36" /><h3>TikTok Profile &amp; User Videos Scraper - All Videos, No Login</h3></div><p>Exports all videos of any TikTok user or profile, the full video history from newest back to the first post: views, l…</p><a class="cta" href="https://apify.com/benthepythondev/tiktok-profile-videos-scraper?utm_source=catalog&amp;utm_medium=site" target="_blank" rel="noopener">View on Apify →</a></article>
+        <!-- gen:catalog:end -->
+      </div>
+      <div style="text-align:center;margin-top:18px">
+        <button id="more" class="btn btn-ghost" style="cursor:pointer">Load more</button>
+      </div>
+      <noscript>
+        <p class="meta">JavaScript is off, so search, filters and Load more are unavailable; the most used Actors above are plain links. The full list is on <a href="https://apify.com/benthepythondev">apify.com/benthepythondev</a>, and the packaged dump needs no script: <a href="./reddit-rag-dump.html">Reddit RAG dump</a> · <a href="./custom.html">quote hub</a> · <a href="https://apify.com/benthepythondev/reddit-archive-scraper">reddit-archive-scraper</a>.</p>
+      </noscript>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>New to Apify? Sign up at <a href="https://apify.com/?fpr=qolupv" target="_blank" rel="sponsored noopener">apify.com/?fpr=qolupv</a> (affiliate link: I may earn a commission; the price you pay does not change).</p>
+      <p>benthepythondev · <a href="https://apify.com/benthepythondev">Apify</a> · <a href="https://github.com/benthepythondev00">GitHub</a> · <a href="./sitemap.xml">Sitemap</a> · <a href="./llms.txt">llms.txt</a> · <a href="mailto:benthepythondev0@gmail.com">benthepythondev0@gmail.com</a></p>
     </div>
-    <div class="chips" id="chips"></div>
-    <div class="meta" id="count"></div>
-    <div class="grid" id="grid"></div>
-    <div style="text-align:center;margin-top:18px">
-      <button id="more" class="btn btn-ghost" style="cursor:pointer;background:transparent">Load more</button>
-    </div>
-    <p class="meta" style="margin-top:16px;text-align:center">New to Apify? Sign up at <a href="https://apify.com/?fpr=qolupv" target="_blank" rel="sponsored noopener">apify.com/?fpr=qolupv</a> (affiliate link: I may earn a commission; the price you pay does not change).</p>
-    <noscript>
-      <p class="sub">JavaScript is off, so the Actor grid will not load. The packaged dump does not need it: <a href="./reddit-rag-dump.html">Reddit RAG dump</a> · <a href="./custom.html">quote hub</a> · <a href="https://apify.com/benthepythondev/reddit-archive-scraper">reddit-archive-scraper</a>.</p>
-    </noscript>
-  </div>
+  </footer>
   <script>
     const PAGE = 48;
     let DATA = { actors: [], chips: [], count: 0 };
@@ -120,6 +448,7 @@
     const qEl = document.getElementById('q');
     const sortEl = document.getElementById('sort');
     const moreBtn = document.getElementById('more');
+    moreBtn.style.display = 'none';
 
     function renderChips() {
       chipsEl.innerHTML = '';
@@ -154,7 +483,7 @@
       grid.innerHTML = slice.map(a => `
         <article class="card">
           <div class="card-top">
-            ${a.iconUrl ? `<img src="${a.iconUrl}" alt="" loading="lazy" />` : `<div style="width:40px;height:40px;border-radius:10px;background:#0e1626"></div>`}
+            ${a.iconUrl ? `<img src="${a.iconUrl}" alt="" loading="lazy" width="36" height="36" />` : `<div style="width:36px;height:36px;border-radius:8px;background:#101a2b;flex:none"></div>`}
             <h3>${escapeHtml(a.title || a.name)}</h3>
           </div>
           <p>${escapeHtml(a.oneLiner || '')}</p>
@@ -180,7 +509,7 @@
     fetch('data/actors.json')
       .then(r => r.json())
       .then(d => { DATA = d; renderChips(); render(); })
-      .catch(() => { countEl.textContent = 'Catalog feed missing — run scripts/sync_catalog.py'; });
+      .catch(() => { countEl.textContent = 'Live catalog could not load; the most used Actors are listed above.'; });
   </script>
 </body>
 </html>
