@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reddit Scraper API Without Login or OAuth (Nested Comment Trees + MCP)</title>
+  <meta name="description" content="Call a public Reddit Scraper API without a Reddit login, OAuth app, or API key. Returns nested comment trees, Markdown/HTML/plain text, stateful onlyNew RSS-replacement watches, and built-in MCP support on API.market." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/reddit-scraper-api-without-login-oauth-mcp.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/reddit-scraper-api-without-login-oauth-mcp.html" />
+  <meta property="og:title" content="Reddit Scraper API Without Login or OAuth (Nested Comment Trees + MCP)" />
+  <meta property="og:description" content="Public Reddit posts, nested comment trees, user history, and strict keyword search as JSON without Reddit OAuth. Includes API.market free tier, MCP endpoint, real JSON output, and rival pricing comparison." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; --good:#7ee787; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:780px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); overflow-wrap:anywhere; }
+    h1 { font-size:1.75rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.2rem; margin:30px 0 10px; }
+    h3 { font-size:1.02rem; margin:18px 0 6px; }
+    p, li { line-height:1.62; }
+    .note { color:var(--muted); font-size:.9rem; }
+    .callout { background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; padding:14px 16px; margin:16px 0; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.86rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    table { width:100%; border-collapse:collapse; margin:14px 0; font-size:.9rem; display:block; overflow-x:auto; }
+    th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+    th { background:var(--card); color:var(--ink); font-weight:600; }
+    .btn { display:inline-block; padding:10px 15px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.25rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Reddit Scraper API Without Login or OAuth (Nested Comment Trees + MCP)",
+        "datePublished": "2026-11-26",
+        "dateModified": "2026-11-26",
+        "author": {
+          "@type": "Person",
+          "name": "benthepythondev",
+          "url": "https://benthepythondev00.github.io/",
+          "sameAs": [
+            "https://apify.com/benthepythondev",
+            "https://api.market/store/benthepythondev",
+            "https://github.com/benthepythondev00"
+          ]
+        },
+        "mainEntityOfPage": "https://benthepythondev00.github.io/reddit-scraper-api-without-login-oauth-mcp.html",
+        "description": "Developer documentation and pricing comparison for calling a public Reddit Scraper API without Reddit OAuth or login, returning nested comment trees, stateful onlyNew RSS-replacement watches, and MCP tool access."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Reddit API: Posts, Comments, Users and Search, No Login",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web, HTTP REST API, MCP",
+        "url": "https://api.market/store/benthepythondev/reddit-scraper",
+        "softwareVersion": "2026-11",
+        "author": {
+          "@type": "Person",
+          "name": "benthepythondev",
+          "url": "https://api.market/store/benthepythondev"
+        },
+        "offers": [
+          { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Basic (367 calls/mo)", "price": "9.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pro (1,102 calls/mo)", "price": "29.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Mega (3,676 calls/mo)", "price": "99.99", "priceCurrency": "USD" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://api.market/store/benthepythondev/reddit-scraper">API.market Listing</a> · <a href="https://apify.com/benthepythondev/reddit-scraper">Apify Actor</a> · <a href="./how-to-get-reddit-posts-and-comments-data.html">Apify tutorial</a> · <a href="./remote-jobs-aggregator-api-worldwide-eligibility-proof.html">Remote Jobs API docs</a></p>
+
+    <h1>Reddit Scraper API Without Login or OAuth (Nested Comment Trees + MCP)</h1>
+    <p class="note">Published 26 Nov 2026 · Updated 26 Nov 2026 · By <a href="https://api.market/store/benthepythondev">benthepythondev</a></p>
+
+    <div class="callout">
+      <p><strong>Direct answer:</strong> You can read public Reddit posts, full nested comment trees, user post history, and strict keyword searches as JSON without a Reddit account, OAuth app, or Reddit developer key by calling <a href="https://api.market/store/benthepythondev/reddit-scraper">benthepythondev/reddit-scraper on API.market</a>. It includes a 50-call free tier, automatic MCP support for Claude and Cursor, and stateful <code>onlyNew</code> watches that replace Reddit's retired RSS feeds.</p>
+    </div>
+
+    <p>
+      <a class="btn" href="https://api.market/store/benthepythondev/reddit-scraper">Try on API.market (Free Tier + MCP)</a>
+      <a class="btn btn-ghost" href="https://apify.com/benthepythondev/reddit-scraper">Run bulk exports on Apify</a>
+    </p>
+
+    <h2>Why developers look for a no-OAuth Reddit API in late 2026</h2>
+    <p>Reddit tightened access to its official public endpoints in the second half of 2026. According to Reddit's September 30, 2026 announcements in r/modnews and r/redditdev, new public API access requests closed on October 31, 2026, subreddit RSS feeds ended on November 13, 2026, and unregistered public API access is scheduled to close between January 12, 2027 and March 2027.</p>
+    <p>For teams building RAG pipelines, brand monitors, or AI agents that need public thread context, managing Reddit OAuth tokens or rolling proxies is extra maintenance. One <code>POST</code> endpoint on API.market accepts a subreddit name, post URL, username, or search query and returns structured JSON with selectable Markdown, HTML, or plain-text <code>content</code>, word counts, token counts, and nested comment hierarchies.</p>
+
+    <h2>Quick start: one POST request (and MCP setup)</h2>
+    <p>Every request goes to <code>https://prod.api.market/api/v1/benthepythondev/reddit-scraper/</code> with your API.market key in the <code>x-api-market-key</code> header. A 10-post subreddit request completed in about 5 to 8 seconds in our live tests.</p>
+
+    <pre><code>curl --request POST \
+  --url https://prod.api.market/api/v1/benthepythondev/reddit-scraper/ \
+  --header 'Content-Type: application/json' \
+  --header 'x-api-market-key: YOUR_API_MARKET_KEY' \
+  --data '{
+    "mode": "post",
+    "postUrl": "https://www.reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/",
+    "maxComments": 25,
+    "outputFormat": "markdown"
+  }'</code></pre>
+
+    <h3>Four supported modes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th><code>mode</code></th>
+          <th>Required input</th>
+          <th>What it returns</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>subreddit</code> (default)</td>
+          <td><code>subreddit</code> (e.g. <code>Python</code>, <code>r/Python</code>, or a retired <code>.rss</code> link)</td>
+          <td>Posts ordered by <code>hot</code>, <code>new</code>, <code>top</code>, <code>rising</code>, or <code>controversial</code>; optional comments via <code>includeComments</code></td>
+        </tr>
+        <tr>
+          <td><code>post</code></td>
+          <td><code>postUrl</code></td>
+          <td>The post object followed by top-level comments with nested <code>replies</code>, <code>depth</code>, and <code>parent_id</code></td>
+        </tr>
+        <tr>
+          <td><code>search</code></td>
+          <td><code>searchQuery</code> (optional <code>searchSubreddit</code>)</td>
+          <td>Matching posts; set <code>strictMatch: true</code> to keep only posts containing every word of your query</td>
+        </tr>
+        <tr>
+          <td><code>user</code></td>
+          <td><code>username</code></td>
+          <td>The user's public post history</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Using it from Claude, Cursor, or ChatGPT via MCP</h3>
+    <p>Every API.market listing exposes an automatic MCP endpoint from its store page once you subscribe to the Free tier. You can also connect the same underlying Actor through Apify MCP or the standalone MCPize server (100 free calls/month):</p>
+    <pre><code>{
+  "mcpServers": {
+    "reddit": {
+      "type": "http",
+      "url": "https://reddit-posts-search-comments.mcpize.run/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_MCPIZE_API_KEY"
+      }
+    }
+  }
+}</code></pre>
+
+    <h2>Real JSON response: nested comment tree (depth 0, 1, 2)</h2>
+    <p>Below is trimmed output from a live call against <code>r/Python/comments/1b49p6d/valid_uses_of_eval/</code>. Notice how each reply carries <code>parent_id</code> (<code>t3_</code> for the post, <code>t1_</code> for a parent comment), integer <code>depth</code>, and nested <code>replies</code> so an LLM or parser never loses who answered whom:</p>
+
+    <pre><code>[
+  {
+    "id": "1b49p6d",
+    "title": "Valid uses of eval()?",
+    "url": "https://www.reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/",
+    "author": "not_dmr",
+    "subreddit": "Python",
+    "score": 125,
+    "upvote_ratio": 1,
+    "num_comments": 66,
+    "created_utc": "2024-03-01T23:53:28",
+    "link_flair_text": "Discussion"
+  },
+  {
+    "id": "ksxo2bt",
+    "post_id": "1b49p6d",
+    "parent_id": "t3_1b49p6d",
+    "permalink": "https://reddit.com/r/Python/comments/1b49p6d/valid_uses_of_eval/ksxo2bt/",
+    "body": "I have exactly one valid use of eval that I've personally run into, and it's super niche...",
+    "author": "tedivm",
+    "score": 18,
+    "created_utc": "2024-03-02T00:35:28",
+    "is_submitter": false,
+    "depth": 0,
+    "replies": [
+      {
+        "id": "ksy3u3w",
+        "post_id": "1b49p6d",
+        "parent_id": "t1_ksxo2bt",
+        "body": "Huh and here I was beginning to write a package to convert sqlalchemy to mermaid diagrams...",
+        "author": "ianitic",
+        "score": 9,
+        "depth": 1,
+        "replies": [
+          {
+            "id": "ksy43wt",
+            "post_id": "1b49p6d",
+            "parent_id": "t1_ksy3u3w",
+            "body": "Happy to help! If you run into any issues let me know...",
+            "author": "tedivm",
+            "score": 5,
+            "depth": 2,
+            "replies": []
+          }
+        ]
+      }
+    ]
+  }
+]</code></pre>
+
+    <h2>Replacing retired Reddit RSS feeds with stateful watches</h2>
+    <p>Pass <code>onlyNew: true</code> and a private random <code>watchName</code> on a schedule. The first call returns the newest posts and records the watermark; later calls return only posts not seen by earlier runs of that watch, oldest first:</p>
+    <pre><code>{
+  "mode": "search",
+  "searchQuery": "home assistant",
+  "strictMatch": true,
+  "onlyNew": true,
+  "watchName": "replace-with-a-long-random-string"
+}</code></pre>
+
+    <h2>Pricing and feature comparison (checked 26 Nov 2026)</h2>
+    <p>All API.market plans below were read directly from their public API.market store pages on November 26, 2026. Official Reddit API timelines come from Reddit's r/modnews and r/redditdev announcements.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Provider / Listing</th>
+          <th>Auth needed</th>
+          <th>Free tier</th>
+          <th>Entry paid plan</th>
+          <th>Nested comment trees</th>
+          <th>Stateful <code>onlyNew</code> RSS watch &amp; <code>strictMatch</code></th>
+          <th>Built-in MCP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong><a href="https://api.market/store/benthepythondev/reddit-scraper">benthepythondev/reddit-scraper</a> (API.market)</strong></td>
+          <td>API.market key only (no Reddit OAuth)</td>
+          <td>50 calls ($0)</td>
+          <td>Basic $9.99/mo (367 calls); Pro $29.99 (1,102); Mega $99.99 (3,676)</td>
+          <td>Yes (<code>depth</code>, <code>parent_id</code>, <code>replies</code>)</td>
+          <td>Yes (both)</td>
+          <td>Yes (API.market + MCPize)</td>
+        </tr>
+        <tr>
+          <td>Official Reddit Data API</td>
+          <td>Reddit OAuth app approval</td>
+          <td>New public requests closed Oct 31, 2026</td>
+          <td>Commercial contract / enterprise tiers</td>
+          <td>Yes (raw Listing JSON)</td>
+          <td>No (RSS ended Nov 13, 2026)</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><a href="https://api.market/store/s-r/reddit-scraper">s-r/reddit-scraper</a> (API.market)</td>
+          <td>API.market key only</td>
+          <td>100 calls ($0)</td>
+          <td>Basic $24.99/mo (25,000 calls)</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>Yes (API.market)</td>
+        </tr>
+        <tr>
+          <td><a href="https://api.market/store/martindata/reddit-posts-api">martindata/reddit-posts-api</a> (API.market)</td>
+          <td>API.market key only</td>
+          <td>100 calls ($0)</td>
+          <td>PAYG $0.002/call; Pro $19/mo (10,000 calls)</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>Yes (API.market)</td>
+        </tr>
+        <tr>
+          <td><a href="https://api.market/store/self-1/reddit-data">self-1/reddit-data</a> (API.market)</td>
+          <td>API.market key only</td>
+          <td>5,000 calls ($0)</td>
+          <td>Pro $75/mo (720,000 calls)</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>Yes (API.market)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">Need bulk runs of thousands of rows or historical date-range backfills? Use <a href="https://apify.com/benthepythondev/reddit-scraper">Apify ($0.003/row)</a> for large live exports, or <a href="https://api.market/store/benthepythondev/reddit-archive">Reddit Archive API</a> for historical posts by UTC date range.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>Public data only:</strong> Private, banned, or quarantined subreddits return an empty JSON array.</li>
+      <li><strong>Row cap per API.market call:</strong> Each synchronous API.market call returns up to 10 top-level rows (posts and top-level comments combined, with nested replies inside their parent comment). For larger bulk exports, use the Apify Actor directly or chain <code>onlyNew</code> / <code>sinceDate</code> calls.</li>
+      <li><strong>Reddit's native list ceiling:</strong> Reddit truncates standard subreddit feeds around 950 posts and searches around 240 posts. Setting <code>deepScrape: true</code> combines multiple sort orders and time windows to recover more posts, while date-range history belongs on the <a href="https://api.market/store/benthepythondev/reddit-archive">Reddit Archive API</a>.</li>
+      <li><strong>Watch isolation:</strong> On API.market, <code>onlyNew</code> watches are keyed by target plus <code>watchName</code>, so choose a long random <code>watchName</code> you do not share.</li>
+      <li><strong>Compliance:</strong> Posts are public but contain usernames and user-generated text. Your storage and processing must still respect applicable privacy laws (GDPR, CCPA) and Reddit's terms.</li>
+    </ul>
+
+    <h2>FAQ</h2>
+    <h3>What is the best Reddit scraper API in 2026 if I do not have Reddit OAuth approval?</h3>
+    <p>If you need public posts, nested comment trees, strict keyword search, or an RSS replacement without waiting on Reddit developer approval, <a href="https://api.market/store/benthepythondev/reddit-scraper">benthepythondev/reddit-scraper on API.market</a> works with a single <code>x-api-market-key</code> header and starts at $0 for 50 calls. If you need 10,000+ raw calls per month without stateful watches, lower-cost high-volume listings on API.market such as <code>martindata/reddit-posts-api</code> ($19/mo) or <code>self-1/reddit-data</code> ($75/mo) may fit better.</p>
+
+    <h3>Does the API return nested replies with parent IDs for LLM and RAG pipelines?</h3>
+    <p>Yes. Every comment object includes <code>id</code>, <code>post_id</code>, <code>parent_id</code>, <code>depth</code>, <code>permalink</code>, <code>content</code> (in your chosen <code>markdown</code>, <code>html</code>, or <code>text</code> format), <code>word_count</code>, <code>token_count</code>, and a recursive <code>replies</code> array.</p>
+
+    <h3>Can I connect this Reddit API directly to Claude Desktop or Cursor?</h3>
+    <p>Yes. API.market provides an auto-generated MCP endpoint for every subscribed listing, and the same backend is available via Apify MCP and <a href="https://mcpize.com/mcp/reddit-posts-search-comments">MCPize</a>.</p>
+
+    <p>
+      <a class="btn" href="https://api.market/store/benthepythondev/reddit-scraper">Try on API.market (Free Tier + MCP)</a>
+      <a class="btn btn-ghost" href="./remote-jobs-aggregator-api-worldwide-eligibility-proof.html">Read Remote Jobs API docs</a>
+    </p>
+  </article>
+</body>
+</html>
