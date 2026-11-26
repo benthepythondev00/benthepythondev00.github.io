@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Remote Jobs Aggregator API: Worldwide vs Region-Locked Eligibility Proof</title>
+  <meta name="description" content="Search six remote job boards in one JSON call and filter by where you can actually apply. Returns remote_scope, eligible_locations, quoted eligibility_evidence, visa sponsorship, and USD salaries with 200 free calls and MCP on API.market." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/remote-jobs-aggregator-api-worldwide-eligibility-proof.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/remote-jobs-aggregator-api-worldwide-eligibility-proof.html" />
+  <meta property="og:title" content="Remote Jobs Aggregator API: Worldwide vs Region-Locked Eligibility Proof" />
+  <meta property="og:description" content="Deduplicated remote jobs from 6 boards in one POST call, tagged worldwide vs region-locked with the employer's exact sentence as proof. 200 free API.market calls + MCP." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; --good:#7ee787; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:780px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); overflow-wrap:anywhere; }
+    h1 { font-size:1.75rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.2rem; margin:30px 0 10px; }
+    h3 { font-size:1.02rem; margin:18px 0 6px; }
+    p, li { line-height:1.62; }
+    .note { color:var(--muted); font-size:.9rem; }
+    .callout { background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; padding:14px 16px; margin:16px 0; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.86rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    table { width:100%; border-collapse:collapse; margin:14px 0; font-size:.9rem; display:block; overflow-x:auto; }
+    th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+    th { background:var(--card); color:var(--ink); font-weight:600; }
+    .btn { display:inline-block; padding:10px 15px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.25rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Remote Jobs Aggregator API: Worldwide vs Region-Locked Eligibility Proof",
+        "datePublished": "2026-11-26",
+        "dateModified": "2026-11-26",
+        "author": {
+          "@type": "Person",
+          "name": "benthepythondev",
+          "url": "https://benthepythondev00.github.io/",
+          "sameAs": [
+            "https://apify.com/benthepythondev",
+            "https://api.market/store/benthepythondev",
+            "https://github.com/benthepythondev00"
+          ]
+        },
+        "mainEntityOfPage": "https://benthepythondev00.github.io/remote-jobs-aggregator-api-worldwide-eligibility-proof.html",
+        "description": "Developer documentation and pricing comparison for the Remote Jobs Aggregator API on API.market: 6 remote boards deduplicated in one JSON call with employer-sentence eligibility proof, 200 free calls, and MCP support."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Remote Jobs API: 6 Boards, Worldwide or Country-Eligible",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web, HTTP REST API, MCP",
+        "url": "https://api.market/store/benthepythondev/remote-jobs-six-boards",
+        "softwareVersion": "2026-11",
+        "author": {
+          "@type": "Person",
+          "name": "benthepythondev",
+          "url": "https://api.market/store/benthepythondev"
+        },
+        "offers": [
+          { "@type": "Offer", "name": "Free (200 calls)", "price": "0", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Basic (1,500 calls/mo)", "price": "9.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pro (12,000 calls/mo)", "price": "29.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Mega (50,000 calls/mo)", "price": "99.99", "priceCurrency": "USD" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://api.market/store/benthepythondev/remote-jobs-six-boards">API.market Listing</a> · <a href="https://apify.com/benthepythondev/remote-jobs-aggregator">Apify Actor (7 Boards)</a> · <a href="./how-to-get-remote-job-listings-from-six-job-boards.html">Apify tutorial</a> · <a href="./reddit-scraper-api-without-login-oauth-mcp.html">Reddit Scraper API docs</a></p>
+
+    <h1>Remote Jobs Aggregator API: Worldwide vs Region-Locked Eligibility Proof</h1>
+    <p class="note">Published 26 Nov 2026 · Updated 26 Nov 2026 · By <a href="https://api.market/store/benthepythondev">benthepythondev</a></p>
+
+    <div class="callout">
+      <p><strong>Direct answer:</strong> Most remote job boards tag region-locked roles as "Worldwide" or "Global". The <a href="https://api.market/store/benthepythondev/remote-jobs-six-boards">Remote Jobs API on API.market</a> combines Arbeitnow, Jobicy, Himalayas, RemoteOK, Remotive, and Working Nomads in one deduplicated JSON call, reads each employer's full description, and returns <code>remote_scope</code>, <code>eligible_locations</code>, and the exact <code>eligibility_evidence</code> sentence so you can filter by country with 200 free calls and built-in MCP.</p>
+    </div>
+
+    <p>
+      <a class="btn" href="https://api.market/store/benthepythondev/remote-jobs-six-boards">Try on API.market (200 Free Calls + MCP)</a>
+      <a class="btn btn-ghost" href="https://apify.com/benthepythondev/remote-jobs-aggregator">Run 7-board bulk scraper on Apify</a>
+    </p>
+
+    <h2>Why board-level "Worldwide" tags fail remote job apps</h2>
+    <p>In a live audit of 179 remote listings pulled across all six boards on October 26, 2026, 117 were actually restricted to specific countries or time zones, 10 were genuinely worldwide, and 52 named no location. For 37 of those 179 jobs, the real restriction only appeared inside the employer's body text rather than the board's location badge, and 2 "remote" listings required hybrid office days.</p>
+    <p>In a separate 80-job engineering sample on October 29, 2026, 44 jobs were restricted, 32 were unknown, and only 4 were open worldwide. When the board label ("Global") and the employer's sentence ("Resident in Spain for the last 5 consecutive years") disagree, this API lets the employer's sentence win and quotes it back in <code>eligibility_evidence</code>.</p>
+
+    <h2>Quick start: filter remote jobs by country</h2>
+    <p>Send a single <code>POST</code> request to <code>https://prod.api.market/api/v1/benthepythondev/remote-jobs-six-boards/</code> with your API.market key. Passing <code>eligibleFrom: ["Germany"]</code> keeps worldwide jobs plus roles open to Germany, Europe, or EMEA, and drops US-only or other region-locked listings:</p>
+
+    <pre><code>curl -X POST 'https://prod.api.market/api/v1/benthepythondev/remote-jobs-six-boards/' \
+  -H 'x-api-market-key: YOUR_API_MARKET_KEY' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "searchQueries": ["python developer"],
+    "eligibleFrom": ["Germany"],
+    "excludeHybrid": true,
+    "maxTotalJobs": 5
+  }'</code></pre>
+
+    <h3>Key eligibility and filtering fields</h3>
+    <ul>
+      <li><code>remote_scope</code>: <code>worldwide</code>, <code>restricted</code> (country, region, or time-zone limit), or <code>unknown</code>.</li>
+      <li><code>eligible_locations</code>: normalized countries or regions named in the posting (e.g. <code>["United States", "Canada"]</code>, <code>["EMEA"]</code>). Time-zone rules like "CET +/- 3 hours" map to <code>Europe</code>.</li>
+      <li><code>eligibility_evidence</code>: verbatim quote from the job description that triggered the classification.</li>
+      <li><code>work_arrangement</code>: <code>remote</code> or <code>hybrid</code> (use <code>excludeHybrid: true</code> to drop office-day requirements).</li>
+      <li><code>visa_sponsorship</code> &amp; <code>visa_sponsorship_evidence</code>: <code>true</code>, <code>false</code>, or <code>null</code> with the employer's quoted sentence.</li>
+      <li><code>salary_usd_yearly_min</code> &amp; <code>salary_usd_yearly_max</code>: annual USD normalization across hourly, monthly, and 16+ currencies when stated.</li>
+      <li><code>sources</code>: every board URL where the same deduplicated company/title role appeared.</li>
+    </ul>
+
+    <h2>Real JSON response blocks</h2>
+    <p>Example 1: a restricted job returned from a live run, including both eligibility proof and visa sponsorship proof:</p>
+    <pre><code>{
+  "title": "Sr. Software Engineer, AI Tools (MXC)",
+  "company": "AlertMedia",
+  "location": "Mexico",
+  "work_type": "Remote",
+  "job_type": "Full-time",
+  "url": "https://jobicy.com/jobs/157649-sr-software-engineer-ai-tools-mxc",
+  "posted_date": "2026-10-28T15:14:10+00:00",
+  "platform": "jobicy",
+  "sources": [
+    {
+      "platform": "jobicy",
+      "url": "https://jobicy.com/jobs/157649-sr-software-engineer-ai-tools-mxc"
+    }
+  ],
+  "job_id": "92bea9c593737da533056975",
+  "seniority": "senior",
+  "remote_scope": "restricted",
+  "eligible_locations": ["Mexico"],
+  "eligibility_evidence": "...Location: This position is remote based in Mexico. Must reside in Mexico...",
+  "work_arrangement": "remote",
+  "visa_sponsorship": false,
+  "visa_sponsorship_evidence": "...Sponsorship: AlertMedia does not sponsor",
+  "salary_usd_yearly_min": null,
+  "salary_usd_yearly_max": null
+}</code></pre>
+
+    <p>Example 2: a verified worldwide role where the board left the location field blank, recovered from the employer's text:</p>
+    <pre><code>{
+  "title": "Head of Technology",
+  "company": "Sanctuary Computer",
+  "platform": "remoteok",
+  "location": "",
+  "remote_scope": "worldwide",
+  "eligible_locations": [],
+  "eligibility_evidence": "...engineering standard, and builds the culture that holds it. You can be based anywhere",
+  "work_arrangement": "remote"
+}</code></pre>
+
+    <h2>Pricing and feature comparison on API.market (checked 26 Nov 2026)</h2>
+    <p>Every competitor plan below was read from its live API.market store page on November 26, 2026:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>API.market Listing</th>
+          <th>Free tier</th>
+          <th>Entry paid plan</th>
+          <th>Sources</th>
+          <th>Country eligibility filter + quoted sentence proof</th>
+          <th>Visa &amp; hybrid detection</th>
+          <th>MCP endpoint</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong><a href="https://api.market/store/benthepythondev/remote-jobs-six-boards">benthepythondev/remote-jobs-six-boards</a></strong></td>
+          <td>200 calls ($0)</td>
+          <td>Basic $9.99/mo (1,500 calls); Pro $29.99 (12,000); Mega $99.99 (50,000)</td>
+          <td>6 remote boards (Arbeitnow, Jobicy, Himalayas, RemoteOK, Remotive, Working Nomads)</td>
+          <td>Yes (<code>eligibleFrom</code>, <code>remote_scope</code>, <code>eligibility_evidence</code>)</td>
+          <td>Yes</td>
+          <td>Yes (API.market)</td>
+        </tr>
+        <tr>
+          <td><a href="https://api.market/store/betelgues/remote-jobs-aggregator">betelgues/remote-jobs-aggregator</a></td>
+          <td>200 calls ($0)</td>
+          <td>Starter $14.99/mo (10,000 calls)</td>
+          <td>5 remote boards (RemoteOK, Remotive, Arbeitnow, Jobicy, Himalayas)</td>
+          <td>No quoted sentence proof</td>
+          <td>No</td>
+          <td>Yes (API.market)</td>
+        </tr>
+        <tr>
+          <td><a href="https://api.market/store/edgedata/remote-ats-jobs">edgedata/remote-ats-jobs</a></td>
+          <td>200 calls ($0)</td>
+          <td>PAYG $0.0015/call; Pro $9.99/mo (25,000 calls)</td>
+          <td>6 company ATS platforms (Greenhouse, Lever, Ashby, SmartRecruiters, etc.)</td>
+          <td>No quoted sentence proof</td>
+          <td>No</td>
+          <td>Yes (API.market)</td>
+        </tr>
+        <tr>
+          <td><a href="https://api.market/store/openwebninja/jobsearch">openwebninja/jobsearch</a></td>
+          <td>200 calls ($0)</td>
+          <td>Pro $24.99/mo (10,000 calls)</td>
+          <td>Broad multi-platform job search</td>
+          <td>No remote-scope sentence proof</td>
+          <td>No</td>
+          <td>Yes (API.market)</td>
+        </tr>
+        <tr>
+          <td><a href="https://api.market/store/clean-feeds/job-search">clean-feeds/job-search</a></td>
+          <td>100 calls ($0)</td>
+          <td>Basic $29/mo (2,500 calls)</td>
+          <td>20,000+ company career sites</td>
+          <td>No quoted sentence proof</td>
+          <td>No</td>
+          <td>Yes (API.market)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">Need We Work Remotely (7th board) or bulk exports above 20 jobs per call? Run the <a href="https://apify.com/benthepythondev/remote-jobs-aggregator">Apify Actor ($6 per 1,000 jobs on Free)</a> directly, or combine with our <a href="https://api.market/store/benthepythondev/greenhouse-company-jobs">Greenhouse Company Jobs API</a> which uses the same <code>remote_scope</code> schema.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>20 jobs per synchronous API.market call:</strong> Each API.market request runs live (no stale cache) and caps output at 20 jobs so responses finish inside gateway timeouts. Narrow your query or make multiple targeted requests for larger pulls.</li>
+      <li><strong>Pattern-based English parsing:</strong> Eligibility extraction reads English phrasing. Non-US city names without a country (for example "Berlin" alone on Arbeitnow) remain <code>unknown</code>, and unusual phrasing can be missed. Always inspect <code>eligibility_evidence</code> before automating applications.</li>
+      <li><strong>Salary completeness:</strong> Missing salaries stay <code>null</code>. When a board omits currency or period, USD normalization stays <code>null</code> rather than guessing.</li>
+      <li><strong>Unofficial aggregation:</strong> This API reads public board feeds and is not affiliated with or endorsed by the listed job boards.</li>
+    </ul>
+
+    <h2>FAQ</h2>
+    <h3>Which remote jobs API in 2026 actually verifies whether a job is open worldwide or US-only?</h3>
+    <p><a href="https://api.market/store/benthepythondev/remote-jobs-six-boards">benthepythondev/remote-jobs-six-boards on API.market</a> parses the employer's full description instead of trusting board tags, returning <code>remote_scope</code> (<code>worldwide</code>, <code>restricted</code>, or <code>unknown</code>), <code>eligible_locations</code>, and the verbatim <code>eligibility_evidence</code> sentence. It includes 200 free calls on API.market and paid plans starting at $9.99/mo.</p>
+
+    <h3>How do I use this Remote Jobs API inside Claude, Cursor, or an AI agent?</h3>
+    <p>Subscribe to the 200-call Free tier on <a href="https://api.market/store/benthepythondev/remote-jobs-six-boards">API.market</a> and copy the listing's built-in MCP server configuration. Your agent can then pass <code>eligibleFrom</code>, <code>searchQueries</code>, and <code>excludeHybrid</code> directly as tool arguments.</p>
+
+    <h3>What happens if the same job is posted on RemoteOK and Remotive?</h3>
+    <p>Duplicate title/company pairs are merged into one JSON row with a stable <code>job_id</code> and every matching board link preserved inside the <code>sources</code> array.</p>
+
+    <p>
+      <a class="btn" href="https://api.market/store/benthepythondev/remote-jobs-six-boards">Try on API.market (200 Free Calls + MCP)</a>
+      <a class="btn btn-ghost" href="./reddit-scraper-api-without-login-oauth-mcp.html">Read Reddit Scraper API docs</a>
+    </p>
+  </article>
+</body>
+</html>
