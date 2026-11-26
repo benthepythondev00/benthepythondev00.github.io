@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inmuebles24 Scraper: a buyer and integration guide for Mexico real estate data</title>
+  <meta name="description" content="Inmuebles24 has no public listings API. The Inmuebles24 Scraper turns public search URLs into structured Mexico property listings with price, area, rooms, location, photos and agency contacts, on Apify or RapidAPI." />
+  <link rel="canonical" href="https://benthepythondev00.github.io/inmuebles24-scraper-mexico-real-estate-api-guide.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="benthepythondev" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://benthepythondev00.github.io/inmuebles24-scraper-mexico-real-estate-api-guide.html" />
+  <meta property="og:title" content="Inmuebles24 Scraper: a buyer and integration guide for Mexico real estate data" />
+  <meta property="og:description" content="Send an Inmuebles24 search URL, get JSON rows back: price, area, room counts, location, photos and the publishing agency's public contact data." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --ink:#e8eefc; --muted:#9db0d0; --accent:#6ea8ff; --line:#243149; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 72px; }
+    a { color:var(--accent); overflow-wrap:anywhere; }
+    h1 { font-size:1.7rem; margin:0 0 10px; line-height:1.25; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; }
+    h3 { font-size:1rem; margin:18px 0 6px; }
+    p, li { line-height:1.6; }
+    .sub, .note { color:var(--muted); }
+    .note { font-size:.9rem; }
+    pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; overflow:auto; font-size:.88rem; }
+    code { font-size:.9em; overflow-wrap:anywhere; }
+    pre code { overflow-wrap:normal; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:var(--accent); color:#061018; margin:8px 8px 0 0; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+    ol, ul { padding-left:1.2rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Inmuebles24 Scraper: a buyer and integration guide for Mexico real estate data",
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "author": { "@type": "Person", "name": "benthepythondev", "url": "https://apify.com/benthepythondev" },
+    "mainEntityOfPage": "https://benthepythondev00.github.io/inmuebles24-scraper-mexico-real-estate-api-guide.html",
+    "description": "The Inmuebles24 Scraper takes public search result URLs from Inmuebles24, a major Mexican real estate marketplace, and returns structured property listings with price, area, room counts, location, photos and the publishing agency's public contact data."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is there an Inmuebles24 API?", "acceptedAnswer": { "@type": "Answer", "text": "Inmuebles24 does not offer a public listings API. This Actor works as one: you send search URLs and get structured JSON rows back, on Apify or RapidAPI." } },
+      { "@type": "Question", "name": "Can I filter by city, price or bedrooms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Apply the filters on the Inmuebles24 website and paste the resulting URL. Whatever the URL represents is what gets collected." } },
+      { "@type": "Question", "name": "Can I run several searches at once?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Put several URLs in searchUrls. Duplicate postings across them are removed." } },
+      { "@type": "Question", "name": "What does lead_score mean?", "acceptedAnswer": { "@type": "Answer", "text": "It scores how complete the public data on a listing is. It does not predict whether someone will buy." } },
+      { "@type": "Question", "name": "Why did I get a no_results row?", "acceptedAnswer": { "@type": "Answer", "text": "Your search URL matched no listings when the run happened. Check the URL in a browser and loosen the filters." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <article class="wrap">
+    <p class="note"><a href="./">← Catalog</a> · <a href="https://apify.com/benthepythondev/inmuebles24-scraper">Actor</a> · <a href="https://rapidapi.com/benthepythondev0/api/inmuebles24-scraper">RapidAPI</a> · <a href="./how-to-get-property-finder-uae-listing-data.html">Property Finder UAE guide</a></p>
+    <h1>Inmuebles24 Scraper: a buyer and integration guide for Mexico real estate data</h1>
+    <p class="note">26 Nov 2026 · benthepythondev</p>
+
+    <h2>The short answer</h2>
+    <p>The Inmuebles24 Scraper takes public search result URLs from Inmuebles24, a major Mexican real estate marketplace, and returns structured property listings. Each listing comes with price, area, room counts, location, photos, and the publishing agency's public contact data. It suits analysts, brokerages, relocation and acquisition teams, and developers who need Mexican listing data in a spreadsheet, database or app. You can run it on Apify or call it as an API on RapidAPI.</p>
+    <p>If you searched for an "inmuebles API": Inmuebles24 has no public listings API, and this Actor fills that gap. You send it a search URL and get JSON back.</p>
+
+    <h2>What you get</h2>
+    <p>Each row is one unique public Inmuebles24 posting. In plain words:</p>
+    <ul>
+      <li><strong>Identity:</strong> stable posting <code>id</code> and <code>code</code>, the canonical <code>url</code>, <code>title</code> and <code>generated_title</code>, plus a clean <code>description</code>.</li>
+      <li><strong>Type and deal:</strong> <code>property_type</code>, <code>posting_type</code>, and <code>operation</code> (sale, rent or another advertised operation).</li>
+      <li><strong>Price:</strong> <code>price</code>, <code>currency</code>, <code>formatted_price</code>, every price and currency combination in <code>prices</code>, and maintenance <code>expenses</code> when listed.</li>
+      <li><strong>Size and layout:</strong> <code>total_area_m2</code>, <code>covered_area_m2</code>, <code>land_area_m2</code>, <code>rooms</code>, <code>bedrooms</code>, <code>bathrooms</code>, <code>parking_spaces</code>, <code>age</code>.</li>
+      <li><strong>Location:</strong> <code>address</code>, <code>neighborhood</code>, <code>city</code>, <code>province</code>, and <code>latitude</code> / <code>longitude</code> when the source provides them.</li>
+      <li><strong>Publisher:</strong> <code>agency_id</code>, <code>agency</code>, <code>agency_url</code>, <code>agency_phones</code>, <code>whatsapp</code>, <code>agency_logo</code>, <code>agency_license</code>, <code>agency_type</code>.</li>
+      <li><strong>Media:</strong> <code>image</code>, <code>images</code>, and the flags <code>has_video</code>, <code>has_tour</code>, <code>has_plans</code>.</li>
+      <li><strong>Context:</strong> <code>lead_score</code> (a public data completeness score), <code>source_page</code>, <code>search_rank</code>, <code>source_total_results</code>, <code>modified_at</code>, <code>scraped_at</code>.</li>
+    </ul>
+    <p>If a field is missing on the source, it stays empty. The Actor does not guess prices, contacts, coordinates or room counts.</p>
+
+    <h2>Real example output</h2>
+    <p>Here is the row from the most recent real call we have:</p>
+    <pre><code>[
+  {
+    "status": "no_results",
+    "message": "The run finished and found no results for this input."
+  }
+]</code></pre>
+    <p>When a search URL matches no listings, the run ends cleanly and returns one status row, not an error. You can catch this case in code by checking <code>status</code>. A run that finds listings returns one row per posting, with the fields listed above.</p>
+
+    <h2>Commercial use cases</h2>
+    <ol>
+      <li><strong>Price comparison and market research.</strong> Compare asking prices by municipality, neighborhood, operation and property type, for example apartments for sale in Ciudad de México against houses for rent in Querétaro.</li>
+      <li><strong>New listing and price change alerts.</strong> Run saved searches on a schedule and diff them on <code>id</code> and <code>price</code> to catch new inventory and price moves in the markets you care about.</li>
+      <li><strong>Brokerage intelligence and agency lead lists.</strong> Track which agencies are active and compare their visible portfolios, using the public phone and WhatsApp values shown on the listing.</li>
+      <li><strong>Feeds for apps and workflows.</strong> Send listings to a spreadsheet, database, dashboard, CRM, Make, Zapier or n8n. You can also map listings that have coordinates, or keep snapshots before inventory changes or is removed.</li>
+    </ol>
+
+    <h2>When to use this vs manual export or your own scraper</h2>
+    <ul>
+      <li><strong>Manual copying</strong> works for a handful of listings. It does not scale across pages, and it gives you no stable IDs to track changes over time.</li>
+      <li><strong>Writing your own scraper</strong> means you handle pagination, parsing Mexican feature labels into room counts, deduplication and ongoing maintenance yourself.</li>
+      <li><strong>This Actor</strong> keeps the site's own filter model, because you paste the URL you already set up on Inmuebles24. It follows pagination, deduplicates by posting ID across all URLs in a run (so an overlapping property is saved and billed once), and exports to JSON, CSV, Excel or XML.</li>
+    </ul>
+
+    <h2>How to run it</h2>
+    <p><strong>On Apify:</strong> open <a href="https://apify.com/benthepythondev/inmuebles24-scraper">the Inmuebles24 Scraper on Apify</a>, set your filters on Inmuebles24, copy the results URL, and paste it in:</p>
+    <pre><code>{
+  "searchUrls": [
+    { "url": "https://www.inmuebles24.com/departamentos-en-venta-en-ciudad-de-mexico.html" }
+  ],
+  "maxResultsPerSearch": 50,
+  "maxPagesPerSearch": 5
+}</code></pre>
+    <p>The default run stops at 10 rows to keep first runs fast. Raise <code>maxResultsPerSearch</code> and <code>maxPagesPerSearch</code> for larger exports. You can schedule recurring runs or read the dataset through the Apify API.</p>
+    <p><strong>As an API on RapidAPI:</strong> call it through <a href="https://rapidapi.com/benthepythondev0/api/inmuebles24-scraper">the Inmuebles24 Scraper API on RapidAPI</a> using your RapidAPI key. The input fields are the same.</p>
+    <p>
+      <a class="btn" href="https://apify.com/benthepythondev/inmuebles24-scraper">Open the actor</a>
+      <a class="btn btn-ghost" href="https://rapidapi.com/benthepythondev0/api/inmuebles24-scraper">Call it on RapidAPI</a>
+    </p>
+
+    <h2>FAQ</h2>
+    <h3>Is there an Inmuebles24 API?</h3>
+    <p>Inmuebles24 does not offer a public listings API. This Actor works as one: you send search URLs and get structured JSON rows back, on Apify or RapidAPI.</p>
+
+    <h3>Can I filter by city, price or bedrooms?</h3>
+    <p>Yes. Apply the filters on the Inmuebles24 website and paste the resulting URL. Whatever the URL represents is what gets collected.</p>
+
+    <h3>Can I run several searches at once?</h3>
+    <p>Yes. Put several URLs in <code>searchUrls</code>. Duplicate postings across them are removed.</p>
+
+    <h3>What does <code>lead_score</code> mean?</h3>
+    <p>It scores how complete the public data on a listing is. It does not predict whether someone will buy.</p>
+
+    <h3>Why did I get a <code>no_results</code> row?</h3>
+    <p>Your search URL matched no listings when the run happened. Check the URL in a browser and loosen the filters.</p>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li>It only covers public Inmuebles24 Mexico search results. It does not log in or reach private data.</li>
+      <li>Fields depend on what each publisher filled in. Coordinates, area, expenses and contacts are often empty.</li>
+      <li>A narrow or outdated search URL can return no results, as in the example above.</li>
+      <li>The default limit is 10 rows per search, so raise it for real exports.</li>
+      <li>Output can include personal data such as agent names and phone numbers. You are the controller of that data: you need a lawful basis under the GDPR and similar laws, you should collect only what you need, and you should not use it for unsolicited marketing.</li>
+    </ul>
+
+    <p class="note">Other markets: for Dubai and the UAE see the <a href="./how-to-get-property-finder-uae-listing-data.html">Property Finder listing data guide</a>; for US homes by link or address see the <a href="./zillow-detail-scraper-property-details-api-guide.html">Zillow Detail Scraper guide</a>.</p>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+  </article>
+</body>
+</html>
