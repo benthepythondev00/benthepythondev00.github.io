@@ -50,7 +50,6 @@ REQUIRED_METRO = ("slug", "label", "city", "state", "snapshot_date", "n_apartmen
 SAMPLE_FIELDS = ("listing_id", "source", "property_name", "city", "zip", "beds", "sqft", "asking_rent",
                  "rent_per_sqft", "concession_verified", "concession_type", "free_weeks", "net_effective_rent",
                  "snapshot_date", "listing_url")
-SAFE_URL = re.compile(r"^https://(www\.)?(apartments\.com|zumper\.com)/", re.I)
 CONTACT_RE = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+|\(?\b\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\b")
 
 
@@ -369,7 +368,7 @@ def masthead(crumbs: list[tuple[str, str | None]], snap_date: str) -> str:
     trail = " <span aria-hidden=\"true\">/</span> ".join(
         f'<a href="{esc(h)}">{esc(t)}</a>' if h else f'<span aria-current="page">{esc(t)}</span>' for t, h in crumbs)
     return f"""<body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main" data-qa-skip>Skip to content</a>
 <header class="mast">
   <div class="wrap mast-row">
     <a class="brand" href="{BASE}"><span class="brand-mark" aria-hidden="true"></span>Rent Drops</a>
@@ -562,7 +561,8 @@ def sample_section(m: dict) -> str:
     for r in m["sample_rows"]:
         url = r.get("listing_url") or ""
         name = esc(r.get("property_name") or "")
-        cell = f'<a href="{esc(url)}" rel="nofollow noopener" target="_blank">{name}</a>' if SAFE_URL.match(url) else name
+        # Plain text: the public listing URL stays in the CSV; the page does not send readers to the portals.
+        cell = name
         beds = {0: "Studio", "0": "Studio"}.get(r.get("beds"), f"{r.get('beds')}BR" if r.get("beds") != "" else "")
         rows.append(
             f"<tr><td>{cell}</td><td>{esc(r.get('source'))}</td><td>{esc(r.get('zip'))}</td><td>{esc(beds)}</td>"
@@ -578,7 +578,7 @@ def sample_section(m: dict) -> str:
                     'advertised rate already includes the special, so it is not discounted twice.</p>') if already else ""
     return f"""<section id="sample" aria-labelledby="sample-h">
   <h2 id="sample-h">Free 25-row sample</h2>
-  <p>{len(m['sample_rows'])} rows from this snapshot: Apartments.com floor plans first, then Zumper listings. Ids, prices and public listing pages only; no agent names, phone numbers or emails. <a class="dl" href="{esc(csv)}" download>Download {esc(m['slug'])}.csv</a></p>
+  <p>{len(m['sample_rows'])} rows from this snapshot: Apartments.com floor plans first, then Zumper listings. Ids, prices and public listing page URLs (in the CSV) only; no agent names, phone numbers or emails. <a class="dl" href="{esc(csv)}">Download {esc(m['slug'])}.csv</a></p>
   <div class="scroll" tabindex="0" role="region" aria-label="Sample rows">
   <table class="sample">
     <thead><tr><th scope="col">Property</th><th scope="col">Source</th><th scope="col">ZIP</th><th scope="col">Size</th><th scope="col" class="num">Asking</th><th scope="col" class="num">Net-effective</th><th scope="col">Special</th><th scope="col" class="num">Weeks free</th><th scope="col" class="num">Sq ft</th></tr></thead>
@@ -600,10 +600,10 @@ def reproduce_section(m: dict | None) -> str:
         f"  -d '{{\"source\":\"apartments-com\",\"location\":\"{loc}\",\"type\":\"rent\",\"limit\":100}}'"
     )
     actors = " and ".join(
-        f'<a href="{esc(utm(u, "apify", slug))}" rel="noopener" target="_blank">{esc(n)}</a>' for n, u in APIFY_ACTORS.values())
+        f'<a href="{esc(utm(u, "apify", slug))}" rel="noopener">{esc(n)}</a>' for n, u in APIFY_ACTORS.values())
     return f"""<section id="reproduce" aria-labelledby="rep-h">
   <h2 id="rep-h">Reproduce this snapshot</h2>
-  <p>The same pull, from the Listingrail API (repeat with <code>"source":"zumper"</code>). The free tier covers 250 listings a month; see the <a href="{esc(utm(LISTINGRAIL_DOCS, 'docs', slug))}" rel="noopener" target="_blank">API docs</a>.</p>
+  <p>The same pull, from the Listingrail API (repeat with <code>"source":"zumper"</code>). The free tier covers 250 listings a month; see the <a href="{esc(utm(LISTINGRAIL_DOCS, 'docs', slug))}" rel="noopener">API docs</a>.</p>
   <pre class="code"><code>{esc(snippet)}</code></pre>
   <p>Or run the self-serve Apify actors: {actors}.</p>
 </section>
@@ -623,11 +623,11 @@ def cta_section(slug: str) -> str:
     </div>
     <div class="cta-row">
       <div><h3>Listingrail API</h3><p>Query Apartments.com, Zumper and other portals yourself. Free 250 listings a month; $10, $49 or $149 a month after that.</p></div>
-      <a class="btn ghost" href="{esc(lr)}" rel="noopener" target="_blank">Listingrail pricing</a>
+      <a class="btn ghost" href="{esc(lr)}" rel="noopener">Listingrail pricing</a>
     </div>
     <div class="cta-row">
       <div><h3>Apify actors</h3><p>Pay per run on Apify, no subscription.</p></div>
-      <a class="btn ghost" href="{esc(zum)}" rel="noopener" target="_blank">Open on Apify</a>
+      <a class="btn ghost" href="{esc(zum)}" rel="noopener">Open on Apify</a>
     </div>
   </div>
 </section>

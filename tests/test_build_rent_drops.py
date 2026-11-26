@@ -260,7 +260,7 @@ class Ctas(unittest.TestCase):
     def test_csv_link_and_snippet(self):
         s = snap()
         page = B.metro_page(s["metros"][0], s)
-        self.assertIn('href="/data/rent-drops/samples/testville-tx.csv" download', page)
+        self.assertIn('href="/data/rent-drops/samples/testville-tx.csv"', page)
         self.assertIn("&quot;location&quot;:&quot;Testville, TX&quot;", page)
 
 
