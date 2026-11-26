@@ -14,6 +14,7 @@
   --rule-strong: #1b1d22;
   --mark: #b5381c;        /* net-effective / the saving */
   --mark-soft: #f1d9cf;
+  --on-mark: #ffffff;
   --head: #9aa0a8;        /* headline asking rent marks */
   --link: #1f4a7a;
   --focus: #1f4a7a;
@@ -36,6 +37,7 @@
     --rule-strong: #ebe8e1;
     --mark: #f08a6c;
     --mark-soft: #3a2620;
+    --on-mark: #15171b;
     --head: #6c7079;
     --link: #9cc0ea;
     --focus: #9cc0ea;
@@ -53,7 +55,7 @@ body {
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
 }
-::selection { background: var(--mark); color: #fff; }
+::selection { background: var(--mark); color: var(--on-mark); }
 a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
@@ -189,7 +191,7 @@ form[data-state="error"] .out-big, form[data-state="error"] .out-list { opacity:
 .cta-row p { margin: 0; color: var(--ink-2); }
 .cta-row h3 { margin-bottom: 4px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 600; white-space: nowrap; }
-.btn:hover { background: var(--mark); color: #fff; }
+.btn:hover { background: var(--mark); color: var(--on-mark); }
 .btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .btn.ghost:hover { background: var(--ink); color: var(--paper); }
 .dl { font-weight: 600; white-space: nowrap; }
