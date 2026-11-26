@@ -1,0 +1,190 @@
+{
+  "provider": "benthepythondev",
+  "marketplace": "RapidAPI",
+  "currency": "USD",
+  "billing": "monthly subscription",
+  "read": "2026-11-26",
+  "source": "the live RapidAPI hub listings",
+  "apis": {
+    "padmapper-rental-scraper": {
+      "name": "PadMapper Rental Scraper API",
+      "pricing": "https://rapidapi.com/benthepythondev0/api/padmapper-rental-scraper/pricing",
+      "plans": [
+        {
+          "name": "BASIC",
+          "priceUsd": 0.0,
+          "requestsPerMonth": 10,
+          "overQuota": "blocked until next month"
+        },
+        {
+          "name": "PRO",
+          "priceUsd": 19.0,
+          "requestsPerMonth": 5000,
+          "overQuota": "blocked until next month"
+        },
+        {
+          "name": "ULTRA",
+          "priceUsd": 29.99,
+          "requestsPerMonth": 11394,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "MEGA",
+          "priceUsd": 99.0,
+          "requestsPerMonth": 28000,
+          "overQuota": "paid per extra request"
+        }
+      ]
+    },
+    "canada-open-data-packages-scraper": {
+      "name": "Canada Open Data Packages Scraper API",
+      "pricing": "https://rapidapi.com/benthepythondev0/api/canada-open-data-packages-scraper/pricing",
+      "plans": [
+        {
+          "name": "BASIC",
+          "priceUsd": 0.0,
+          "requestsPerMonth": 10,
+          "overQuota": "blocked until next month"
+        },
+        {
+          "name": "PRO",
+          "priceUsd": 4.99,
+          "requestsPerMonth": 1500,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "ULTRA",
+          "priceUsd": 29.99,
+          "requestsPerMonth": 12000,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "MEGA",
+          "priceUsd": 99.99,
+          "requestsPerMonth": 43855,
+          "overQuota": "paid per extra request"
+        }
+      ]
+    },
+    "facebook-posts-scraper2": {
+      "name": "Facebook Posts Scraper API",
+      "pricing": "https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2/pricing",
+      "plans": [
+        {
+          "name": "BASIC",
+          "priceUsd": 0.0,
+          "requestsPerMonth": 4,
+          "overQuota": "blocked until next month"
+        },
+        {
+          "name": "PRO",
+          "priceUsd": 25.0,
+          "requestsPerMonth": 449,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "ULTRA",
+          "priceUsd": 75.0,
+          "requestsPerMonth": 1348,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "MEGA",
+          "priceUsd": 150.0,
+          "requestsPerMonth": 2696,
+          "overQuota": "paid per extra request"
+        }
+      ]
+    },
+    "tiktok-profile-scraper2": {
+      "name": "TikTok Profile Scraper API",
+      "pricing": "https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2/pricing",
+      "plans": [
+        {
+          "name": "BASIC",
+          "priceUsd": 0.0,
+          "requestsPerMonth": 10,
+          "overQuota": "blocked until next month"
+        },
+        {
+          "name": "PRO",
+          "priceUsd": 25.0,
+          "requestsPerMonth": 5243,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "ULTRA",
+          "priceUsd": 75.0,
+          "requestsPerMonth": 15729,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "MEGA",
+          "priceUsd": 150.0,
+          "requestsPerMonth": 31459,
+          "overQuota": "paid per extra request"
+        }
+      ]
+    },
+    "instagram-profile-scraper10": {
+      "name": "Instagram Profile Scraper API",
+      "pricing": "https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10/pricing",
+      "plans": [
+        {
+          "name": "BASIC",
+          "priceUsd": 0.0,
+          "requestsPerMonth": 10,
+          "overQuota": "blocked until next month"
+        },
+        {
+          "name": "PRO",
+          "priceUsd": 25.0,
+          "requestsPerMonth": 7812,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "ULTRA",
+          "priceUsd": 75.0,
+          "requestsPerMonth": 23437,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "MEGA",
+          "priceUsd": 150.0,
+          "requestsPerMonth": 46875,
+          "overQuota": "paid per extra request"
+        }
+      ]
+    },
+    "job-search-api-indeed-linkedin-reed-seek-and-ats-boards": {
+      "name": "Job Search API: Indeed, LinkedIn, Reed, Seek and ATS Boards",
+      "pricing": "https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards/pricing",
+      "plans": [
+        {
+          "name": "BASIC",
+          "priceUsd": 0.0,
+          "requestsPerMonth": 10,
+          "overQuota": "blocked until next month"
+        },
+        {
+          "name": "PRO",
+          "priceUsd": 25.0,
+          "requestsPerMonth": 6546,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "ULTRA",
+          "priceUsd": 75.0,
+          "requestsPerMonth": 19640,
+          "overQuota": "paid per extra request"
+        },
+        {
+          "name": "MEGA",
+          "priceUsd": 150.0,
+          "requestsPerMonth": 39280,
+          "overQuota": "paid per extra request"
+        }
+      ]
+    }
+  }
+}

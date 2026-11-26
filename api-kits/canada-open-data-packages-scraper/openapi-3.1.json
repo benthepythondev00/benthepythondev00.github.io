@@ -1,0 +1,129 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Canada Open Data Packages Scraper API",
+    "version": "1.0.0",
+    "description": "Collect open.canada.ca records and export id, name, url, hash, size, state as structured JSON, CSV or Excel data. Up to 20 results per request, as JSON.",
+    "contact": {
+      "name": "benthepythondev",
+      "url": "https://rapidapi.com/benthepythondev0/api/canada-open-data-packages-scraper"
+    },
+    "termsOfService": "https://rapidapi.com/terms"
+  },
+  "servers": [
+    {
+      "url": "https://canada-open-data-packages-scraper.p.rapidapi.com",
+      "description": "RapidAPI gateway"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "RapidAPIKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-rapidapi-key",
+        "description": "Your RapidAPI application key."
+      },
+      "RapidAPIHost": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-rapidapi-host",
+        "description": "Must be canada-open-data-packages-scraper.p.rapidapi.com."
+      }
+    }
+  },
+  "security": [
+    {
+      "RapidAPIKey": [],
+      "RapidAPIHost": []
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "operationId": "canada_open_data_packages_scraper",
+        "summary": "Canada Open Data Packages Scraper",
+        "description": "Collect open.canada.ca records and export id, name, url, hash, size, state as structured JSON, CSV or Excel data. Up to 20 results per request, as JSON.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "title": "Optional filter",
+                    "type": "string",
+                    "description": "Optional case-insensitive filter applied to returned titles/names.",
+                    "default": ""
+                  },
+                  "maxResults": {
+                    "title": "Maximum results",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "type": "integer",
+                    "description": "Maximum records saved to the default dataset. A request returns 20 rows at most.",
+                    "default": 3
+                  }
+                }
+              },
+              "example": {
+                "maxResults": 2
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "JSON array of results (up to 20 items per request).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "92bec4b7-6feb-4215-a5f7-61da342b2354",
+                    "name": "Consultations - All",
+                    "url": "/data/dataset/7c03f039-3753-4093-af60-74b0f7b2385d/resource/92bec4b7-6feb-4215-a5f7-61da342b2354/download/consultations.csv",
+                    "hash": "7f5ee6e7d97d7be8540a04c43258d65d",
+                    "size": 6802835,
+                    "state": "active",
+                    "format": "CSV",
+                    "created": "2019-02-05T15:21:04.591199",
+                    "ckan_url": null,
+                    "language": [
+                      "en",
+                      "fr"
+                    ],
+                    "position": 0,
+                    "url_type": "upload",
+                    "package_id": "7c03f039-3753-4093-af60-74b0f7b2385d",
+                    "ignore_hash": false,
+                    "source": "open.canada.ca",
+                    "scraped_at": "2026-11-26T23:16:31.184885+00:00"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "The request body was refused, or the run found nothing for these filters; the message says which."
+          },
+          "401": {
+            "description": "Missing or unknown x-rapidapi-key."
+          },
+          "403": {
+            "description": "The key has no subscription to this API (subscribe to a plan, Basic is free)."
+          },
+          "429": {
+            "description": "The plan's monthly quota or the gateway rate limit was reached."
+          }
+        }
+      }
+    }
+  }
+}

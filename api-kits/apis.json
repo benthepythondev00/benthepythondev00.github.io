@@ -1,0 +1,260 @@
+{
+  "aid": "benthepythondev",
+  "name": "benthepythondev",
+  "description": "benthepythondev is an independent developer who sells data APIs on RapidAPI. Each API reads public web pages or open-government catalogues and returns JSON: rental listings from PadMapper for US and Canadian cities, dataset resources from open.canada.ca, public Facebook posts, TikTok and Instagram profiles, and job postings from Indeed, LinkedIn, Reed and applicant tracking systems. Calls go through the RapidAPI gateway with an x-rapidapi-key header; every API has a free Basic plan. These are unofficial third-party APIs, not affiliated with the sites they read.",
+  "url": "https://benthepythondev00.github.io/api-kits/apis.json",
+  "created": "2026-11-26",
+  "modified": "2026-11-26",
+  "specificationVersion": "0.19",
+  "tags": [
+    "Web Data",
+    "Real Estate",
+    "Open Data",
+    "Social Media",
+    "Jobs",
+    "JSON",
+    "RapidAPI"
+  ],
+  "apis": [
+    {
+      "aid": "benthepythondev:padmapper-rental-scraper",
+      "name": "PadMapper Rental Scraper API",
+      "description": "Returns PadMapper rental listings in any US or Canadian city: rent range, beds and baths, address, neighbourhood, coordinates, property type, amenities, pet policy, availability date, contact phone and a lead score. Up to 20 results per request, as JSON.",
+      "humanURL": "https://rapidapi.com/benthepythondev0/api/padmapper-rental-scraper",
+      "baseURL": "https://padmapper-rental-scraper.p.rapidapi.com",
+      "tags": [
+        "Real Estate",
+        "Rental Listings",
+        "Apartments",
+        "United States",
+        "Canada"
+      ],
+      "properties": [
+        {
+          "type": "OpenAPI",
+          "url": "https://benthepythondev00.github.io/api-kits/padmapper-rental-scraper/openapi-3.1.json"
+        },
+        {
+          "type": "Documentation",
+          "url": "https://rapidapi.com/benthepythondev0/api/padmapper-rental-scraper"
+        },
+        {
+          "type": "Plans",
+          "url": "https://benthepythondev00.github.io/api-kits/plans.json#padmapper-rental-scraper"
+        },
+        {
+          "type": "Pricing",
+          "url": "https://rapidapi.com/benthepythondev0/api/padmapper-rental-scraper/pricing"
+        },
+        {
+          "type": "SignUp",
+          "url": "https://rapidapi.com/benthepythondev0/api/padmapper-rental-scraper/pricing"
+        }
+      ]
+    },
+    {
+      "aid": "benthepythondev:canada-open-data-packages-scraper",
+      "name": "Canada Open Data Packages Scraper API",
+      "description": "Collect open.canada.ca records and export id, name, url, hash, size, state as structured JSON, CSV or Excel data. Up to 20 results per request, as JSON.",
+      "humanURL": "https://rapidapi.com/benthepythondev0/api/canada-open-data-packages-scraper",
+      "baseURL": "https://canada-open-data-packages-scraper.p.rapidapi.com",
+      "tags": [
+        "Open Data",
+        "Government",
+        "Canada",
+        "CKAN",
+        "Datasets"
+      ],
+      "properties": [
+        {
+          "type": "OpenAPI",
+          "url": "https://benthepythondev00.github.io/api-kits/canada-open-data-packages-scraper/openapi-3.1.json"
+        },
+        {
+          "type": "Documentation",
+          "url": "https://rapidapi.com/benthepythondev0/api/canada-open-data-packages-scraper"
+        },
+        {
+          "type": "Plans",
+          "url": "https://benthepythondev00.github.io/api-kits/plans.json#canada-open-data-packages-scraper"
+        },
+        {
+          "type": "Pricing",
+          "url": "https://rapidapi.com/benthepythondev0/api/canada-open-data-packages-scraper/pricing"
+        },
+        {
+          "type": "SignUp",
+          "url": "https://rapidapi.com/benthepythondev0/api/canada-open-data-packages-scraper/pricing"
+        }
+      ]
+    },
+    {
+      "aid": "benthepythondev:facebook-posts-scraper2",
+      "name": "Facebook Posts Scraper API",
+      "description": "Facebook posts scraper for public pages and profiles: text, date, reactions by type, comments, shares, video views, pictures, video and link of every post, newest first. Up to 20 results per request, as JSON.",
+      "humanURL": "https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2",
+      "baseURL": "https://facebook-posts-scraper2.p.rapidapi.com",
+      "tags": [
+        "Social Media",
+        "Facebook",
+        "Posts"
+      ],
+      "properties": [
+        {
+          "type": "OpenAPI",
+          "url": "https://benthepythondev00.github.io/api-kits/facebook-posts-scraper2/openapi-3.1.json"
+        },
+        {
+          "type": "Documentation",
+          "url": "https://benthepythondev00.github.io/api-kits/facebook-posts-scraper2/"
+        },
+        {
+          "type": "Plans",
+          "url": "https://benthepythondev00.github.io/api-kits/plans.json#facebook-posts-scraper2"
+        },
+        {
+          "type": "Pricing",
+          "url": "https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2/pricing"
+        },
+        {
+          "type": "SignUp",
+          "url": "https://rapidapi.com/benthepythondev0/api/facebook-posts-scraper2/pricing"
+        }
+      ]
+    },
+    {
+      "aid": "benthepythondev:tiktok-profile-scraper2",
+      "name": "TikTok Profile Scraper API",
+      "description": "Single-call TikTok profile API: canonical sec_uid, exact followers, likes, bio link, optional recent-video engagement rate, and strict 404/502 error codes. Up to 5 profiles/call.",
+      "humanURL": "https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2",
+      "baseURL": "https://tiktok-profile-scraper2.p.rapidapi.com",
+      "tags": [
+        "Social Media",
+        "TikTok",
+        "Profiles"
+      ],
+      "properties": [
+        {
+          "type": "OpenAPI",
+          "url": "https://benthepythondev00.github.io/api-kits/tiktok-profile-scraper2/openapi-3.1.json"
+        },
+        {
+          "type": "Documentation",
+          "url": "https://benthepythondev00.github.io/api-kits/tiktok-profile-scraper2/"
+        },
+        {
+          "type": "Plans",
+          "url": "https://benthepythondev00.github.io/api-kits/plans.json#tiktok-profile-scraper2"
+        },
+        {
+          "type": "Pricing",
+          "url": "https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2/pricing"
+        },
+        {
+          "type": "SignUp",
+          "url": "https://rapidapi.com/benthepythondev0/api/tiktok-profile-scraper2/pricing"
+        }
+      ]
+    },
+    {
+      "aid": "benthepythondev:instagram-profile-scraper10",
+      "name": "Instagram Profile Scraper API",
+      "description": "Instagram profile API without login: send up to 5 usernames, @handles or profile links per request and get followers, following, full name, bio, the real destinations of the bio links, verified and private flags, pronouns, profile picture and the linked Threads account, as JSON.",
+      "humanURL": "https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10",
+      "baseURL": "https://instagram-profile-scraper10.p.rapidapi.com",
+      "tags": [
+        "Social Media",
+        "Instagram",
+        "Profiles"
+      ],
+      "properties": [
+        {
+          "type": "OpenAPI",
+          "url": "https://benthepythondev00.github.io/api-kits/instagram-profile-scraper10/openapi-3.1.json"
+        },
+        {
+          "type": "Documentation",
+          "url": "https://benthepythondev00.github.io/api-kits/instagram-profile-scraper10/"
+        },
+        {
+          "type": "Plans",
+          "url": "https://benthepythondev00.github.io/api-kits/plans.json#instagram-profile-scraper10"
+        },
+        {
+          "type": "Pricing",
+          "url": "https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10/pricing"
+        },
+        {
+          "type": "SignUp",
+          "url": "https://rapidapi.com/benthepythondev0/api/instagram-profile-scraper10/pricing"
+        }
+      ]
+    },
+    {
+      "aid": "benthepythondev:job-search-api-indeed-linkedin-reed-seek-and-ats-boards",
+      "name": "Job Search API: Indeed, LinkedIn, Reed, Seek and ATS Boards",
+      "description": "Job postings from Indeed, LinkedIn, Reed, Seek, Wellfound, Welcome to the Jungle and the career pages of companies on Greenhouse, Workday and other applicant tracking systems, in one API.",
+      "humanURL": "https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards",
+      "baseURL": "https://job-search-api-indeed-linkedin-reed-seek-and-ats-boards.p.rapidapi.com",
+      "tags": [
+        "Jobs",
+        "Job Search",
+        "Recruiting"
+      ],
+      "properties": [
+        {
+          "type": "OpenAPI",
+          "url": "https://benthepythondev00.github.io/api-kits/job-search-api-indeed-linkedin-reed-seek-and-ats-boards/openapi-3.1.json"
+        },
+        {
+          "type": "Documentation",
+          "url": "https://benthepythondev00.github.io/api-kits/job-search-api-indeed-linkedin-reed-seek-and-ats-boards/"
+        },
+        {
+          "type": "Plans",
+          "url": "https://benthepythondev00.github.io/api-kits/plans.json#job-search-api-indeed-linkedin-reed-seek-and-ats-boards"
+        },
+        {
+          "type": "Pricing",
+          "url": "https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards/pricing"
+        },
+        {
+          "type": "SignUp",
+          "url": "https://rapidapi.com/benthepythondev0/api/job-search-api-indeed-linkedin-reed-seek-and-ats-boards/pricing"
+        }
+      ]
+    }
+  ],
+  "common": [
+    {
+      "type": "Plans",
+      "url": "https://benthepythondev00.github.io/api-kits/plans.json"
+    },
+    {
+      "type": "LLMsTxt",
+      "url": "https://benthepythondev00.github.io/api-kits/llms.txt"
+    },
+    {
+      "type": "Portal",
+      "url": "https://rapidapi.com/user/benthepythondev0"
+    },
+    {
+      "type": "Authentication",
+      "url": "https://docs.rapidapi.com/docs/keys-and-key-rotation"
+    },
+    {
+      "type": "TermsOfService",
+      "url": "https://rapidapi.com/terms"
+    },
+    {
+      "type": "PrivacyPolicy",
+      "url": "https://rapidapi.com/privacy"
+    }
+  ],
+  "maintainers": [
+    {
+      "FN": "benthepythondev",
+      "url": "https://rapidapi.com/user/benthepythondev0"
+    }
+  ]
+}
