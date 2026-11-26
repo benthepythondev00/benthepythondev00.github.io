@@ -1,0 +1,284 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "ATS Jobs API: Greenhouse, Lever, Ashby, SmartRecruiters, Recruitee",
+  "description": "Open roles from five applicant tracking systems in one call: title, company, location, department, remote flag, posted date and apply link.\n\nSold on API.market: https://api.market/store/benthepythondev/ats-jobs-greenhouse-lever-ashby (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "ats-jobs-greenhouse-lever-ashby",
+   "storePage": "https://api.market/store/benthepythondev/ats-jobs-greenhouse-lever-ashby",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/ats-jobs-greenhouse-lever-ashby"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "ATS Jobs Aggregator",
+    "description": "Returns live job postings from company career pages on five applicant tracking systems (Greenhouse, Lever, Ashby, SmartRecruiters, Recruitee) in one dataset: title, company, department, location, employment type, remote flag, posting date and job link. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "sources": {
+          "title": "ATS sources",
+          "type": "array",
+          "description": "Which Applicant Tracking Systems to pull jobs from.",
+          "items": {
+           "type": "string",
+           "enum": [
+            "greenhouse",
+            "lever",
+            "ashby",
+            "smartrecruiters",
+            "recruitee"
+           ]
+          },
+          "default": [
+           "greenhouse"
+          ]
+         },
+         "greenhouseCompanies": {
+          "title": "Greenhouse companies",
+          "type": "array",
+          "description": "Greenhouse board tokens (company slugs). Leave as-is to use a curated default list.",
+          "default": [
+           "stripe"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "leverCompanies": {
+          "title": "Lever companies",
+          "type": "array",
+          "description": "Lever company slugs. Leave as-is to use a curated default list.",
+          "default": [
+           "openai",
+           "anthropic",
+           "anduril",
+           "scale",
+           "verkada",
+           "rippling",
+           "mistral",
+           "includedhealth",
+           "gohighlevel"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "ashbyCompanies": {
+          "title": "Ashby companies",
+          "type": "array",
+          "description": "Ashby job-board names. Leave as-is to use a curated default list.",
+          "default": [
+           "notion",
+           "vanta",
+           "linear",
+           "posthog",
+           "ramp"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "smartrecruitersCompanies": {
+          "title": "SmartRecruiters companies",
+          "type": "array",
+          "description": "SmartRecruiters company identifiers (case-sensitive). Leave as-is to use a curated default list.",
+          "default": [
+           "Visa",
+           "WesternDigital",
+           "PublicStorage"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "recruiteeCompanies": {
+          "title": "Recruitee companies",
+          "type": "array",
+          "description": "Recruitee company subdomains. Leave as-is to use a curated default list.",
+          "default": [
+           "bunq",
+           "channable"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "keywords": {
+          "title": "Keyword filter",
+          "type": "array",
+          "description": "Only keep jobs whose title contains any of these keywords (case-insensitive). Leave empty for all.",
+          "default": [],
+          "items": {
+           "type": "string"
+          }
+         },
+         "location": {
+          "title": "Location filter",
+          "type": "string",
+          "description": "Only keep jobs whose location contains this text (e.g. 'Berlin', 'New York', 'United States').",
+          "default": ""
+         },
+         "remoteOnly": {
+          "title": "Remote only",
+          "type": "boolean",
+          "description": "Only keep jobs flagged remote.",
+          "default": false
+         },
+         "includeDescription": {
+          "title": "Include full description",
+          "type": "boolean",
+          "description": "Include the full job description text (larger output).",
+          "default": false
+         },
+         "maxResults": {
+          "title": "Max results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of jobs to return. A request returns 20 rows at most.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "sources": [
+         "greenhouse",
+         "lever",
+         "ashby",
+         "smartrecruiters",
+         "recruitee"
+        ],
+        "greenhouseCompanies": [
+         "airbnb",
+         "stripe",
+         "figma",
+         "cloudflare",
+         "coinbase",
+         "databricks",
+         "discord",
+         "dropbox",
+         "gitlab",
+         "robinhood",
+         "doordash",
+         "instacart"
+        ],
+        "leverCompanies": [
+         "openai",
+         "anthropic",
+         "anduril",
+         "scale",
+         "verkada",
+         "rippling",
+         "mistral",
+         "includedhealth",
+         "gohighlevel"
+        ],
+        "ashbyCompanies": [
+         "notion",
+         "vanta",
+         "linear",
+         "posthog",
+         "ramp"
+        ],
+        "smartrecruitersCompanies": [
+         "Visa",
+         "WesternDigital",
+         "PublicStorage"
+        ],
+        "recruiteeCompanies": [
+         "bunq",
+         "channable"
+        ],
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/ats-jobs-greenhouse-lever-ashby"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

@@ -1,0 +1,346 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Apartments.com Rent and Availability API (US rentals)",
+  "description": "US apartment rents as JSON: every open unit with rent, size and move-in date, floor plans, specials, fees and pet policy, by city, ZIP or search link.\n\nSold on API.market: https://api.market/store/benthepythondev/apartments-com-rentals (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "apartments-com-rentals",
+   "storePage": "https://api.market/store/benthepythondev/apartments-com-rentals",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/apartments-com-rentals"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Apartments.com Rent & Availability Monitor",
+    "description": "Apartments.com scraper for rent prices, availability and floor plans. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "locations": {
+          "title": "Locations",
+          "maxItems": 50,
+          "type": "array",
+          "description": "City and state (\"Austin, TX\"), 5-digit ZIP codes (\"78704\"), or full Apartments.com search URLs. Filters below apply to city and ZIP entries; a pasted URL keeps its own filters.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "minRent": {
+          "title": "Minimum rent ($/month)",
+          "minimum": 0,
+          "maximum": 100000,
+          "type": "integer",
+          "description": "Only properties with a unit at or above this rent."
+         },
+         "maxRent": {
+          "title": "Maximum rent ($/month)",
+          "minimum": 0,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Only properties with a unit at or below this rent. A request returns 20 rows at most."
+         },
+         "minBeds": {
+          "title": "Minimum bedrooms",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Only properties with units that have at least this many bedrooms. Leave empty for any, including studios."
+         },
+         "minBaths": {
+          "title": "Minimum bathrooms",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Only properties with units that have at least this many bathrooms."
+         },
+         "pets": {
+          "title": "Pets",
+          "enum": [
+           "none",
+           "any",
+           "dogs",
+           "cats"
+          ],
+          "type": "string",
+          "description": "Limit to pet-friendly properties.",
+          "default": "none"
+         },
+         "propertyType": {
+          "title": "Property type",
+          "enum": [
+           "any",
+           "apartments",
+           "houses",
+           "condos",
+           "townhomes"
+          ],
+          "type": "string",
+          "description": "Apartments.com rental category.",
+          "default": "any"
+         },
+         "maxResults": {
+          "title": "Max properties",
+          "minimum": 1,
+          "maximum": 1000,
+          "type": "integer",
+          "description": "Maximum number of properties to scrape across all locations."
+         },
+         "includeFloorPlans": {
+          "title": "Include floor plans",
+          "type": "boolean",
+          "description": "Add floorPlans[] with rent range, beds, baths, sqft and availability per plan.",
+          "default": true
+         },
+         "includeUnits": {
+          "title": "Include units",
+          "type": "boolean",
+          "description": "Add units[] with unit number, rent, sqft and available date for every listed unit.",
+          "default": true
+         },
+         "stateKey": {
+          "title": "State key",
+          "type": "string",
+          "description": "Name for this monitor's saved snapshot (for example \"austin-2br-under-2500\"). Use the same key every week. Left empty, a key is derived from the locations and filters."
+         }
+        }
+       },
+       "example": {
+        "locations": [
+         "Austin, TX"
+        ],
+        "maxResults": 20
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "listingId": "40n18nj",
+          "name": "Edison Austin",
+          "url": "https://www.apartments.com/edison-austin-austin-tx/40n18nj/",
+          "propertyType": "Apartment Community",
+          "address": "4711 E Riverside Dr",
+          "city": "Austin",
+          "state": "TX",
+          "zip": "78741",
+          "fullAddress": "4711 E Riverside Dr, Austin, TX 78741",
+          "neighborhood": "East Riverside-Oltorf",
+          "latitude": 30.231046,
+          "longitude": -97.7187605,
+          "rentMin": 1295,
+          "rentMax": 2895,
+          "bedsMin": 0,
+          "bedsMax": 2,
+          "bathsMin": 1,
+          "bathsMax": 2,
+          "sqftMin": 509,
+          "sqftMax": 1429,
+          "unitsAvailable": 13,
+          "floorPlans": [
+           {
+            "name": "E2",
+            "beds": 0,
+            "baths": 1,
+            "rentMin": 1295,
+            "rentMax": 1295,
+            "sqftMin": 509,
+            "sqftMax": 509,
+            "unitsAvailable": 1
+           },
+           {
+            "name": "E1",
+            "beds": 0,
+            "baths": 1,
+            "rentMin": 1395,
+            "rentMax": 1395,
+            "sqftMin": 517,
+            "sqftMax": 517,
+            "unitsAvailable": 1
+           },
+           {
+            "name": "E3",
+            "beds": 0,
+            "baths": 1,
+            "rentMin": 1395,
+            "rentMax": 1395,
+            "sqftMin": 584,
+            "sqftMax": 584,
+            "unitsAvailable": 1
+           }
+          ],
+          "units": [
+           {
+            "unitNumber": "2315",
+            "floorPlan": "E2",
+            "beds": 0,
+            "baths": 1,
+            "rent": 1295,
+            "sqft": 509,
+            "availableDate": "2026-05-01",
+            "availability": "Available Now"
+           },
+           {
+            "unitNumber": "2141",
+            "floorPlan": "E1",
+            "beds": 0,
+            "baths": 1,
+            "rent": 1395,
+            "sqft": 517,
+            "availableDate": "2025-08-30",
+            "availability": "Available Now"
+           },
+           {
+            "unitNumber": "1242",
+            "floorPlan": "E3",
+            "beds": 0,
+            "baths": 1,
+            "rent": 1395,
+            "sqft": 584,
+            "availableDate": "2025-08-14",
+            "availability": "Available Now"
+           }
+          ],
+          "moveInSpecials": [
+           "Austin’s Largest Award-Winning Floor Plans - Luxury Living with Breathtaking Skyline Views!"
+          ],
+          "amenities": [
+           "Property Manager on Site",
+           "Package Service",
+           "Maintenance on site"
+          ],
+          "petPolicy": [
+           {
+            "pet": "Cats Allowed",
+            "fees": [],
+            "notes": []
+           },
+           {
+            "pet": "Dogs Allowed",
+            "fees": [],
+            "notes": []
+           }
+          ],
+          "fees": [
+           {
+            "category": "Property fees",
+            "name": "Security Deposit - Refundable",
+            "value": "$500",
+            "note": "Refundable"
+           },
+           {
+            "category": "Property fees",
+            "name": "Pet Fee",
+            "value": "$500",
+            "note": null
+           },
+           {
+            "category": "Property fees",
+            "name": "Monthly Pet Fee",
+            "value": "$50",
+            "note": "Monthly"
+           }
+          ],
+          "phone": "(737) 377-3852",
+          "managementCompany": "The Connor Group",
+          "managementCompanyUrl": "https://www.apartments.com/pmc/the-connor-group/x0kznmn/",
+          "photos": [
+           "https://images1.apartments.com/i2/z5H0yQFpjlAgKT3GJVDk1HmGsaf-mFVw0KNZfqRx8AU/102/image.jpg",
+           "https://images1.apartments.com/i2/4XM2DEF6CjHmvuEZ0dfP6IKbocRTDTwPHDOri1hyfag/102/image.jpg",
+           "https://images1.apartments.com/i2/oWr3cuWH7Onlxxi_bxtx7CngslaKm3o4rTSisw61Dbs/102/image.jpg"
+          ],
+          "description": "Edison Austin Apartments offers upscale living with modern studio, one-, and two-bedroom floor plans featuring wood-style plank flooring, sleek kitchens, and...",
+          "yearBuilt": 2019,
+          "totalUnits": 354,
+          "rating": 4,
+          "website": "https://edisonaustin.com/?utm_source=apartments",
+          "lastUpdated": "2026-10-14T17:24:53.423-04:00",
+          "scrapedAt": "2026-10-15T11:19:35+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/apartments-com-rentals"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

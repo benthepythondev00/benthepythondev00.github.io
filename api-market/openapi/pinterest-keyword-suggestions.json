@@ -1,0 +1,193 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Pinterest Keyword Suggestions API: Autocomplete Terms by Seed Word",
+  "description": "Pinterest search autocomplete suggestions for your seed keywords as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/pinterest-keyword-suggestions (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "pinterest-keyword-suggestions",
+   "storePage": "https://api.market/store/benthepythondev/pinterest-keyword-suggestions",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/pinterest-keyword-suggestions"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Pinterest Keyword Suggestions Scraper",
+    "description": "Collect Pinterest autocomplete keywords and optional creator suggestions from seed terms, with alphabet expansion, ranks, URLs and profile metadata. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "seedKeywords": {
+          "title": "Seed keywords",
+          "type": "array",
+          "description": "Pinterest search phrases used as autocomplete seeds.",
+          "default": [
+           "home decor"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "expansionMode": {
+          "title": "Expansion mode",
+          "enum": [
+           "seed_only",
+           "alphabet"
+          ],
+          "type": "string",
+          "description": "Use each seed once, or append letters to discover additional long-tail suggestions.",
+          "default": "seed_only"
+         },
+         "includeCreators": {
+          "title": "Include creator suggestions",
+          "type": "boolean",
+          "description": "Also save public creator/profile suggestions returned beside keyword suggestions.",
+          "default": false
+         },
+         "maxQueries": {
+          "title": "Maximum expanded queries per seed",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Safety limit for each seed in alphabet mode. A request returns 20 rows at most.",
+          "default": 10
+         },
+         "maxSuggestionsPerQuery": {
+          "title": "Maximum suggestions per query",
+          "minimum": 1,
+          "maximum": 50,
+          "type": "integer",
+          "description": "Maximum unique Pinterest suggestions saved from one autocomplete query.",
+          "default": 12
+         },
+         "maxResults": {
+          "title": "Maximum total results",
+          "minimum": 1,
+          "maximum": 1000,
+          "type": "integer",
+          "description": "Maximum unique keyword and creator suggestions saved across the full run.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "seedKeywords": [
+         "home decor",
+         "wedding ideas",
+         "healthy recipes"
+        ],
+        "expansionMode": "seed_only",
+        "includeCreators": false,
+        "maxQueries": 10,
+        "maxSuggestionsPerQuery": 12,
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "seed_keyword": "home decor",
+          "request_query": "home decor",
+          "suggestion": "home decor ideas",
+          "label": "home decor ideas",
+          "suggestion_type": "query",
+          "suggestion_id": "ac_DrB6YuTF",
+          "url": "https://www.pinterest.com/search/pins/?q=home+decor+ideas&rs=ac&len=10&source_id=ac_DrB6YuTF",
+          "username": null,
+          "full_name": null,
+          "verified": false,
+          "profile_image_url": null,
+          "native_pin_count": null,
+          "query_rank": 1,
+          "rank": 1,
+          "source_result_index": 0,
+          "scraped_at": "2026-10-07T18:13:17.474237+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/pinterest-keyword-suggestions"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

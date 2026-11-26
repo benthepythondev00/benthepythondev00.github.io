@@ -1,0 +1,185 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Threads User Posts API: Full Post History, No Login",
+  "description": "Public posts, replies and reposts of any Threads account as JSON: text, attached long text, date, likes, replies, reposts, media and links.\n\nSold on API.market: https://api.market/store/benthepythondev/threads-user-posts (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "threads-user-posts",
+   "storePage": "https://api.market/store/benthepythondev/threads-user-posts",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/threads-user-posts"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Threads User Posts Scraper",
+    "description": "Public posts, replies or reposts of any Meta Threads account without login: text, attached long text, date, likes, replies, reposts, quotes, media and links. Page back through the full history with postedBefore. Up to 20 posts per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "mode": {
+          "title": "What to collect",
+          "enum": [
+           "posts",
+           "replies",
+           "reposts"
+          ],
+          "type": "string",
+          "description": "Each tab is read newest first, back to the account's first post.",
+          "default": "posts"
+         },
+         "usernames": {
+          "title": "Threads usernames",
+          "type": "array",
+          "description": "Usernames, @handles or profile links, for example zuck, @natgeo or https://www.threads.com/@nasa.",
+          "default": [
+           "natgeo"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Maximum posts per username",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Rows to save for each account. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "postedAfter": {
+          "title": "Posted on or after",
+          "type": "string",
+          "description": "Only rows from this UTC date on (YYYY-MM-DD). Reading stops once older posts are reached."
+         },
+         "postedBefore": {
+          "title": "Posted on or before",
+          "type": "string",
+          "description": "Only rows up to this UTC date (YYYY-MM-DD)."
+         }
+        }
+       },
+       "example": {
+        "usernames": [
+         "natgeo"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "record_type": "post",
+          "id": "4001153096084173246",
+          "code": "DeG84q4DTG-",
+          "url": "https://www.threads.com/@natgeo/post/DeG84q4DTG-",
+          "username": "natgeo",
+          "author_id": "63269174602",
+          "full_name": "National Geographic",
+          "is_verified": true,
+          "text": "Again. We weren’t ready 👀",
+          "posted_at": "2026-10-05T10:03:59+00:00",
+          "likes": 74,
+          "replies": 1,
+          "reposts": 1,
+          "quotes": 0,
+          "shares": null,
+          "is_reply": false,
+          "reply_to_author": null,
+          "is_pinned": false,
+          "is_edited": false,
+          "mentions": [],
+          "links": [],
+          "link_title": null,
+          "quoted_post_url": "https://www.threads.com/@natgeoanimals/post/Dd7JH1Oo8Ga",
+          "image_urls": [],
+          "video_urls": [],
+          "scraped_at": "2026-10-07T07:40:14.701156+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/threads-user-posts"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

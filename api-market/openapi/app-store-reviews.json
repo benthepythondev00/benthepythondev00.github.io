@@ -1,0 +1,193 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "App Store Reviews API: iPhone and iPad App Ratings",
+  "description": "Apple App Store reviews of any app as JSON: stars, title, full text, author, app version, helpful votes, country and date. 48 country stores, no login.\n\nSold on API.market: https://api.market/store/benthepythondev/app-store-reviews (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "app-store-reviews",
+   "storePage": "https://api.market/store/benthepythondev/app-store-reviews",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/app-store-reviews"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "App Store Reviews Scraper",
+    "description": "Customer reviews of any iPhone or iPad app on the Apple App Store by app id and country: rating, title, text, author, app version and date. Up to 20 reviews per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "appIds": {
+          "title": "App IDs",
+          "type": "array",
+          "description": "List of App Store app IDs to scrape reviews from (e.g., 333903271 for Twitter/X)",
+          "items": {
+           "type": "string"
+          },
+          "default": [
+           "333903271"
+          ]
+         },
+         "appUrls": {
+          "title": "App Store URLs",
+          "type": "array",
+          "description": "List of App Store URLs to scrape reviews from (alternative to app IDs)",
+          "items": {
+           "type": "string"
+          }
+         },
+         "countries": {
+          "title": "Countries",
+          "type": "array",
+          "description": "Country codes to scrape reviews from (e.g., us, gb, de, fr, jp)",
+          "items": {
+           "type": "string"
+          },
+          "default": [
+           "us"
+          ]
+         },
+         "maxReviews": {
+          "title": "Maximum Reviews per App/Country",
+          "minimum": 0,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of reviews to scrape per app per country (0 = unlimited, max ~500 due to API limits). A request returns 20 rows at most.",
+          "default": 5
+         },
+         "sortBy": {
+          "title": "Sort Reviews By",
+          "enum": [
+           "mostRecent",
+           "mostHelpful"
+          ],
+          "type": "string",
+          "description": "How to sort the reviews",
+          "default": "mostRecent"
+         },
+         "delaySeconds": {
+          "title": "Delay Between Requests (seconds)",
+          "minimum": 0.3,
+          "maximum": 5,
+          "type": "number",
+          "description": "Delay between API requests",
+          "default": 0.5
+         }
+        }
+       },
+       "example": {
+        "appIds": [
+         "333903271"
+        ],
+        "countries": [
+         "us"
+        ],
+        "maxReviews": 20
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "review_id": "9349148738",
+          "app_id": "333903271",
+          "app_name": "X",
+          "author_name": "team Elon for free speech",
+          "author_uri": "https://itunes.apple.com/us/reviews/id1224578955",
+          "rating": 5,
+          "title": "Elon asked for a review",
+          "content": "I was on Twitter years and I left Twitter way before the insanity started because I felt like it was angry people running a company with who knows how many b...",
+          "version": "9.34.6",
+          "vote_count": 0,
+          "vote_sum": 0,
+          "country": "US",
+          "updated_date": "2022-12-01T07:16:27-07:00",
+          "app_url": "https://apps.apple.com/us/app/x/id333903271?uo=4"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/app-store-reviews"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

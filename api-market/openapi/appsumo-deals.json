@@ -1,0 +1,153 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "AppSumo Deals API: Prices, Ratings and Vendor Websites",
+  "description": "AppSumo lifetime deals as JSON: deal price, list price, discount, rating, review count, star breakdown, vendor website, plan type and refund window.\n\nSold on API.market: https://api.market/store/benthepythondev/appsumo-deals (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "appsumo-deals",
+   "storePage": "https://api.market/store/benthepythondev/appsumo-deals",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/appsumo-deals"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "AppSumo Software Scraper",
+    "description": "Export individual AppSumo product cards with names, product URLs and their own summaries. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "searchUrls": {
+          "title": "Browse URLs (optional)",
+          "maxItems": 20,
+          "type": "array",
+          "description": "Leave out to read AppSumo's deal catalog. Or AppSumo browse pages such as https://appsumo.com/browse/?sort=rating: each returns the first 20 deals in that page's order, with card summary and category. Up to 20 URLs.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "dealStatus": {
+          "title": "Deal status",
+          "enum": [
+           "current",
+           "expired",
+           "all"
+          ],
+          "type": "string",
+          "description": "current: deals on sale now. expired: past deals. all: both.",
+          "default": "current"
+         },
+         "maxResults": {
+          "title": "Max results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Deals for the catalog, or per browse URL. A request returns 20 rows at most.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "source": "appsumo-software-scraper",
+          "kind": "software",
+          "index": 1,
+          "title": "TidyCal",
+          "url": "https://appsumo.com/products/tidycal/",
+          "description": "Book clients, sell packages, collect payments, and build your brand with one scheduling tool",
+          "input_url": "https://appsumo.com/software/",
+          "source_url": "https://appsumo.com/browse/"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/appsumo-deals"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

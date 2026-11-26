@@ -1,0 +1,153 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Public API Directory API: OpenAPI Specs by Keyword",
+  "description": "Search 2,500 public APIs from the APIs.guru directory by keyword or category: OpenAPI version, JSON and YAML spec links, logo and provider contact.\n\nSold on API.market: https://api.market/store/benthepythondev/public-api-directory (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "public-api-directory",
+   "storePage": "https://api.market/store/benthepythondev/public-api-directory",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/public-api-directory"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "APIs.guru Scraper",
+    "description": "Scrape APIs.guru public API directory metadata: API names, descriptions, versions, OpenAPI URLs and provider links. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "query": {
+          "title": "Search query",
+          "type": "string",
+          "description": "Word or phrase matched in the API's name, title and description (case-insensitive), for example payments, weather or stripe.com. Leave empty with categories set to list a whole category."
+         },
+         "categories": {
+          "title": "Categories",
+          "maxItems": 30,
+          "type": "array",
+          "description": "Keep only APIs in one of these APIs.guru categories: cloud, media, open_data, analytics, developer_tools, ecommerce, financial, messaging, entertainment, telecom, text, location, collaboration, payment, transport, hosting, security, iot, social, tools, marketing, email, enterprise, machine_learning, search.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Max results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of rows to return. A request returns 20 rows at most.",
+          "default": 20
+         }
+        }
+       },
+       "example": {
+        "query": "payments",
+        "categories": [
+         "financial"
+        ],
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "api_name": "adyen.com:BinLookupService",
+          "title": "Adyen BinLookup API",
+          "description": "The BIN Lookup API provides endpoints for retrieving information, such as cost estimates, and 3D Secure supported version based on a given BIN. ## Authentica...",
+          "version": "54",
+          "added": "2023-02-17T11:02:20.620Z",
+          "updated": null,
+          "swagger_url": "https://api.apis.guru/v2/specs/adyen.com/BinLookupService/54/openapi.json",
+          "provider_name": "adyen.com",
+          "source": "APIs.guru",
+          "search": "payments"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/public-api-directory"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

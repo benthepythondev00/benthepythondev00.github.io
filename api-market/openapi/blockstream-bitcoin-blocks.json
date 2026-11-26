@@ -1,0 +1,140 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Bitcoin Blocks API: Latest Bitcoin Blocks as JSON",
+  "description": "The latest Bitcoin blocks as JSON from Blockstream: height, size, weight, transactions and difficulty.\n\nSold on API.market: https://api.market/store/benthepythondev/blockstream-bitcoin-blocks (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "blockstream-bitcoin-blocks",
+   "storePage": "https://api.market/store/benthepythondev/blockstream-bitcoin-blocks",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/blockstream-bitcoin-blocks"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Blockstream Blocks Scraper",
+    "description": "Collect Blockstream blocks records and export id, bits, size, nonce, height, weight as structured JSON, CSV or Excel data. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "id": "00000000000000000000dc716898e0fe716ca4c516a416b0ea3cb757d3cd0a7f",
+          "bits": 386014960,
+          "size": 1579534,
+          "nonce": 799903884,
+          "height": 970370,
+          "weight": 3993628,
+          "version": 537436160,
+          "tx_count": 6970,
+          "timestamp": 1791393157,
+          "difficulty": 132716002350731.27,
+          "mediantime": 1791391799,
+          "merkle_root": "d6f376df3c141b621df1dd48c91e09c7892ac6df677c00f2d801e63940f1ff77",
+          "previousblockhash": "00000000000000000000415537d1d8422cf9140319a91aed80d4060e3d083077",
+          "source": "Blockstream blocks",
+          "scraped_at": "2026-10-07T17:35:41.758522+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/blockstream-bitcoin-blocks"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

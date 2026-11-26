@@ -1,0 +1,193 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "PadMapper Rentals API (US and Canada apartments for rent)",
+  "description": "US and Canadian rental listings as JSON by city: rent range, beds, baths, address, amenities, pet policy, contact phone and a 0-100 lead score.\n\nSold on API.market: https://api.market/store/benthepythondev/padmapper-rentals (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "padmapper-rentals",
+   "storePage": "https://api.market/store/benthepythondev/padmapper-rentals",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/padmapper-rentals"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "PadMapper Rental Scraper",
+    "description": "Returns PadMapper rental listings in any US or Canadian city: rent range, beds and baths, address, neighbourhood, coordinates, property type, amenities, pet policy, availability date, contact phone and a lead score. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "locations": {
+          "title": "Locations",
+          "type": "array",
+          "description": "One or more PadMapper city slugs, city then state or province (e.g. 'san-francisco-ca', 'new-york-ny', 'toronto-on'). Each is searched on its own with the filters below, and Max listings applies per location.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "location": {
+          "title": "Location (single, older field)",
+          "type": "string",
+          "description": "One city slug, e.g. 'san-francisco-ca'. Kept so saved inputs keep working; it is searched together with Locations."
+         },
+         "propertyType": {
+          "title": "Property type",
+          "enum": [
+           "apartments",
+           "houses",
+           "condos",
+           "townhouses",
+           "rooms"
+          ],
+          "type": "string",
+          "description": "Type of rental to search for.",
+          "default": "apartments"
+         },
+         "minPrice": {
+          "title": "Min price ($/mo)",
+          "type": "integer",
+          "description": "Minimum monthly rent."
+         },
+         "maxPrice": {
+          "title": "Max price ($/mo)",
+          "type": "integer",
+          "description": "Maximum monthly rent. A request returns 20 rows at most.",
+          "maximum": 20
+         },
+         "minBeds": {
+          "title": "Min bedrooms",
+          "type": "integer",
+          "description": "Minimum number of bedrooms (0 = studio)."
+         },
+         "maxBeds": {
+          "title": "Max bedrooms",
+          "type": "integer",
+          "description": "Maximum number of bedrooms."
+         },
+         "maxListings": {
+          "title": "Max listings",
+          "minimum": 1,
+          "maximum": 10000,
+          "type": "integer",
+          "description": "Maximum listings to return per location (with listing URLs: for the whole run).",
+          "default": 50
+         },
+         "maxPages": {
+          "title": "Result pages per search",
+          "minimum": 1,
+          "maximum": 1000,
+          "type": "integer",
+          "description": "PadMapper serves 10 listings per result page. The default reads 20 pages, about 200 listings per search. Raise it together with Max listings to export a whole city, for example 1,000 pages for up to 10,000 listings.",
+          "default": 20
+         },
+         "includePhotos": {
+          "title": "Include photos",
+          "type": "boolean",
+          "description": "Include listing image IDs and count.",
+          "default": true
+         },
+         "listingUrls": {
+          "title": "Listing/search URLs (advanced)",
+          "type": "array",
+          "description": "Optional: specific PadMapper search URLs to scrape instead of building from location.",
+          "items": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "example": {
+        "locations": [
+         "san-francisco-ca"
+        ],
+        "propertyType": "apartments"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/padmapper-rentals"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

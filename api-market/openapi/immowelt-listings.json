@@ -1,0 +1,231 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Immowelt API: German Rental and Sale Listings by City",
+  "description": "German property listings from Immowelt as JSON: price, size, rooms, address, agent and link for apartments, houses, land and commercial, by city or search link.\n\nSold on API.market: https://api.market/store/benthepythondev/immowelt-listings (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "immowelt-listings",
+   "storePage": "https://api.market/store/benthepythondev/immowelt-listings",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/immowelt-listings"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Immowelt Scraper",
+    "description": "Scrape rental and sale real estate listings from immowelt.de. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "cities": {
+          "title": "Cities",
+          "maxItems": 50,
+          "type": "array",
+          "description": "German cities to search (case-sensitive city slugs as on immowelt.de).",
+          "items": {
+           "type": "string"
+          },
+          "default": [
+           "berlin"
+          ]
+         },
+         "transactionType": {
+          "title": "Transaction",
+          "enum": [
+           "mieten",
+           "kaufen"
+          ],
+          "type": "string",
+          "description": "Mieten (rent) or Kaufen (buy).",
+          "default": "mieten"
+         },
+         "propertyType": {
+          "title": "Property Type",
+          "enum": [
+           "wohnungen",
+           "haeuser",
+           "grundstuecke",
+           "gewerbe"
+          ],
+          "type": "string",
+          "description": "What kind of real estate.",
+          "default": "wohnungen"
+         },
+         "startUrls": {
+          "title": "Start URLs (alternative)",
+          "maxItems": 50,
+          "type": "array",
+          "description": "Direct immowelt URLs. Overrides cities + transactionType + propertyType.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "minPrice": {
+          "title": "Min Price (€)",
+          "minimum": 0,
+          "maximum": 100000000,
+          "type": "integer",
+          "description": "Filter by minimum rent / purchase price."
+         },
+         "maxPrice": {
+          "title": "Max Price (€)",
+          "minimum": 0,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Filter by maximum rent / purchase price. A request returns 20 rows at most."
+         },
+         "minSize": {
+          "title": "Min Size (m²)",
+          "minimum": 0,
+          "maximum": 100000,
+          "type": "integer",
+          "description": "Filter by minimum living space."
+         },
+         "minRooms": {
+          "title": "Min Rooms",
+          "minimum": 0,
+          "type": "number",
+          "description": "Filter by minimum number of rooms."
+         },
+         "fetchDetails": {
+          "title": "Fetch Detail Pages",
+          "type": "boolean",
+          "description": "Visit each expose page for full description, all images, agent contact, energy class. Slower but richer.",
+          "default": false
+         },
+         "maxResults": {
+          "title": "Max Results per City",
+          "minimum": 0,
+          "maximum": 10000,
+          "type": "integer",
+          "description": "Per city / URL (0 = unlimited).",
+          "default": 3
+         },
+         "delaySeconds": {
+          "title": "Delay Between Requests (s)",
+          "minimum": 0.5,
+          "maximum": 10,
+          "type": "number",
+          "description": "Polite delay between requests.",
+          "default": 1
+         }
+        }
+       },
+       "example": {
+        "cities": [
+         "berlin"
+        ],
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "expose_id": "a68f6159-14f9-468d-8579-54a8e3bda664",
+          "url": "https://www.immowelt.de/expose/a68f6159-14f9-468d-8579-54a8e3bda664",
+          "title": "",
+          "price_eur": 869,
+          "price_label": "Kaltmiete",
+          "size_sqm": 29.4,
+          "rooms": 1,
+          "floor": "4",
+          "address": "Friedenauer Höhe 8",
+          "district": "Friedenau",
+          "city": "Berlin",
+          "plz": "12159",
+          "image_url": "https://mms.immowelt.de/b/f/2/1/bf213538-3e94-4549-9aef-a9063d983f6f.jpg?h=50",
+          "agent_name": null,
+          "tags": [],
+          "scraped_at": "2026-10-07T17:56:56.083188+00:00",
+          "search_city": "berlin",
+          "transaction_type": "mieten",
+          "property_type": "wohnungen"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/immowelt-listings"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

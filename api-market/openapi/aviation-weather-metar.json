@@ -1,0 +1,156 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "METAR API: Current Airport Weather by ICAO Code",
+  "description": "Current airport weather by ICAO code from AviationWeather.gov, raw and decoded.\n\nSold on API.market: https://api.market/store/benthepythondev/aviation-weather-metar (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "aviation-weather-metar",
+   "storePage": "https://api.market/store/benthepythondev/aviation-weather-metar",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/aviation-weather-metar"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Aviation Weather METAR Scraper",
+    "description": "Fetch current METAR observations with raw reports, temperature, wind, visibility, altimeter, clouds and coordinates. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "stationIds": {
+          "title": "Station IDs",
+          "type": "string",
+          "description": "Comma-separated ICAO station IDs.",
+          "default": "KJFK,EGLL"
+         },
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "stationIds": "KJFK,EGLL",
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "station_id": "EGLL",
+          "observed_at": "2026-10-07T17:20:00.000Z",
+          "raw_metar": "METAR EGLL 071720Z AUTO 35007KT 310V030 9999 FEW020 OVC048 12/09 Q1013",
+          "temperature_c": 12,
+          "dewpoint_c": 9,
+          "wind_direction": 350,
+          "wind_speed_kt": 7,
+          "visibility_sm": "6+",
+          "altimeter_hpa": 1013,
+          "flight_category": "VFR",
+          "clouds": [
+           {
+            "cover": "FEW",
+            "base": 2000
+           },
+           {
+            "cover": "OVC",
+            "base": 4800
+           }
+          ],
+          "latitude": 51.477,
+          "longitude": -0.461,
+          "source": "AviationWeather.gov",
+          "scraped_at": "2026-10-07T17:34:12.832160+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/aviation-weather-metar"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

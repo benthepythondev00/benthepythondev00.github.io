@@ -1,0 +1,161 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Subito.it Ads API: Italian Classifieds by Keyword",
+  "description": "Search Subito.it ads by keyword and get title, price, town, region, seller type and photos as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/subito-it-ads (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "subito-it-ads",
+   "storePage": "https://api.market/store/benthepythondev/subito-it-ads",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/subito-it-ads"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Subito Scraper",
+    "description": "Subito.it ads in Italy by keyword: title, description, category, price, size, town, region, private or company seller, photo and link. Up to 20 ads per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "query": {
+          "title": "Search query",
+          "type": "string",
+          "description": "Keyword to search Subito for, e.g. 'appartamento', 'auto', 'iphone'.",
+          "default": "appartamento"
+         },
+         "type": {
+          "title": "Listing type",
+          "enum": [
+           "s",
+           "k"
+          ],
+          "type": "string",
+          "description": "Which listings to fetch.",
+          "default": "s"
+         },
+         "maxResults": {
+          "title": "Max results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum listings to return. A request returns 20 rows at most.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "query": "appartamento",
+        "type": "s",
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "item_id": "id:ad:612832635:list:663604624",
+          "title": "Appartamento di 138 m² con 4 locali e box auto a R",
+          "description": "Rif: (133291382) - Appartamento in Vendita a Riposto \n\nScopri questo appartamento situato nel cuore di Riposto, a pochi passi da Piazza San Pietro e dal sugg...",
+          "category": "Appartamenti",
+          "price_eur": 133000,
+          "price_raw": "133000 €",
+          "size": "138 mq",
+          "rooms": "4",
+          "town": "Riposto",
+          "province": "Catania",
+          "region": "Sicilia",
+          "advertiser_name": "Leotta Immobiliare di Leotta Alessandro",
+          "advertiser_phone": null,
+          "is_company": true,
+          "image_url": null,
+          "url": "https://www.subito.it/appartamenti/appartamento-di-138-m²-con-4-locali-e-box-auto-a-r-catania-663604624.htm",
+          "date": "2026-10-07 10:54:05",
+          "query": "appartamento"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/subito-it-ads"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

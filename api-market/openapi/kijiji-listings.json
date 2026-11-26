@@ -1,0 +1,204 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Kijiji Listings API: Any Search Link to JSON",
+  "description": "Paste a Kijiji.ca search link and get the listings as JSON: price, address, coordinates, beds, baths, photos.\n\nSold on API.market: https://api.market/store/benthepythondev/kijiji-listings (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "kijiji-listings",
+   "storePage": "https://api.market/store/benthepythondev/kijiji-listings",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/kijiji-listings"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Kijiji Scraper",
+    "description": "Kijiji.ca listings from any search link: title, price, address, coordinates, bedrooms, bathrooms, unit type, photos and link. Up to 20 listings per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "searchUrls": {
+          "title": "Kijiji search URLs",
+          "type": "array",
+          "description": "Paste Kijiji.ca search-results URLs. Real-estate category URLs return the richest structured fields.",
+          "default": [
+           "https://www.kijiji.ca/b-apartments-condos/city-of-toronto/c37l1700273"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Max results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum listings to return across all search URLs. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "maxPages": {
+          "title": "Max pages per URL",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "How many Kijiji result pages to fetch per search URL.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "searchUrls": [
+         "https://www.kijiji.ca/b-apartments-condos/city-of-toronto/c37l1700273"
+        ],
+        "maxResults": 20,
+        "maxPages": 1
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "id": "1685201413",
+          "title": "1 BEDROOM APARTMENT FOR RENT",
+          "description": "SUITE FEATURES: Large & bright 1 & 2 bedroom apartments Renovated suites Spacious kitchen Balconies Hardwood floors New or modern fridges and stoves BUILDING...",
+          "url": "https://www.kijiji.ca/v-apartments-condos/city-of-toronto/1-bedroom-apartment-for-rent/1685201413",
+          "category_id": 37,
+          "price": 1825,
+          "price_type": "FIXED",
+          "currency": "CAD",
+          "location_name": "City of Toronto",
+          "address": "1920 Weston Road, Toronto, ON, M9N 1W4",
+          "nearest_intersections": [
+           "Weston Road",
+           "John Street"
+          ],
+          "latitude": 43.70026,
+          "longitude": -79.5174,
+          "bedrooms": "1",
+          "bathrooms": 1,
+          "unit_type": "apartment",
+          "for_rent_by": "reprofessional",
+          "furnished": false,
+          "parking_spots": "0",
+          "pets_allowed": "0",
+          "smoking_permitted": "2",
+          "agreement_type": "one-year",
+          "utilities": {
+           "heat": false,
+           "hydro": false,
+           "water": true,
+           "internet": false,
+           "cable_tv": false
+          },
+          "amenities": {
+           "balcony": true,
+           "yard": false,
+           "elevator": true,
+           "laundry_in_building": true,
+           "wheelchair_accessible": true
+          },
+          "poster_id": "1043302034",
+          "poster_verified": false,
+          "poster_rating": null,
+          "ad_source": "ORGANIC",
+          "is_top_ad": true,
+          "is_showcase": false,
+          "has_virtual_tour": false,
+          "image_count": 10,
+          "image": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/b0/b0f39d85-6c2c-4c24-818c-4bf2912c861c?rule=kijijica-200-jpg",
+          "images": [
+           "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/b0/b0f39d85-6c2c-4c24-818c-4bf2912c861c?rule=kijijica-200-jpg",
+           "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/e4/e4b7ad18-246c-4181-bba9-460f48075382?rule=kijijica-200-jpg",
+           "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/b3/b3ee016c-dcba-4242-bc26-870ab44c4c3f?rule=kijijica-200-jpg"
+          ],
+          "activation_date": "2024-02-13T18:18:44.000Z",
+          "sorting_date": "2026-10-07T15:19:22.000Z",
+          "search_url": "https://www.kijiji.ca/b-apartments-condos/city-of-toronto/c37l1700273"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/kijiji-listings"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

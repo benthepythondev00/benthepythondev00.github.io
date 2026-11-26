@@ -1,0 +1,207 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Art Museum API: Met and Art Institute Artworks as JSON",
+  "description": "Search Met Museum and Art Institute of Chicago artworks with images and public domain flag.\n\nSold on API.market: https://api.market/store/benthepythondev/art-museum-collections (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "art-museum-collections",
+   "storePage": "https://api.market/store/benthepythondev/art-museum-collections",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/art-museum-collections"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Art Museum Intelligence",
+    "description": "Access world-class art collections from the Metropolitan Museum of Art and Art Institute of Chicago. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "required": [
+         "searchQuery"
+        ],
+        "properties": {
+         "museum": {
+          "title": "Museum",
+          "enum": [
+           "met",
+           "artic",
+           "both"
+          ],
+          "type": "string",
+          "description": "Select museum collection to search",
+          "default": "artic"
+         },
+         "searchQuery": {
+          "title": "Search Query",
+          "type": "string",
+          "description": "Search term (e.g., 'sunflowers', 'Monet', 'impressionism')",
+          "default": "impressionism"
+         },
+         "department": {
+          "title": "Department Filter (Met only)",
+          "enum": [
+           "",
+           "American Decorative Arts",
+           "Asian Art",
+           "Egyptian Art",
+           "European Paintings",
+           "Greek and Roman Art",
+           "Modern and Contemporary Art",
+           "Photographs",
+           "The Robert Lehman Collection"
+          ],
+          "type": "string",
+          "description": "Filter by department (Met Museum)"
+         },
+         "artistFilter": {
+          "title": "Artist Filter",
+          "type": "string",
+          "description": "Filter by artist name"
+         },
+         "onDisplay": {
+          "title": "Currently on Display",
+          "type": "boolean",
+          "description": "Only return works currently on display (Met only)",
+          "default": false
+         },
+         "hasImages": {
+          "title": "Has Images Only",
+          "type": "boolean",
+          "description": "Only return artworks with available images",
+          "default": true
+         },
+         "maxResults": {
+          "title": "Max Results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of artworks to return A request returns 20 rows at most.",
+          "default": 20
+         }
+        }
+       },
+       "example": {}
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "id": 64729,
+          "museum": "Art Institute of Chicago",
+          "title": "Early Morning, Tarpon Springs",
+          "artist": "George Inness (American, 1825–1894)",
+          "artist_bio": null,
+          "artist_nationality": null,
+          "date": "1892",
+          "begin_date": null,
+          "end_date": null,
+          "medium": "Oil on canvas",
+          "dimensions": "107.2 × 82.2 cm (42 3/16 × 32 3/8 in.)",
+          "department": "Arts of the Americas",
+          "classification": "painting",
+          "culture": "United States",
+          "period": "Impressionism",
+          "dynasty": null,
+          "credit_line": "Edward B. Butler Collection",
+          "accession_number": null,
+          "is_public_domain": true,
+          "primary_image": "https://www.artic.edu/iiif/2/ef96e79b-f481-8114-0804-4bd39c101983/full/843,/0/default.jpg",
+          "primary_image_small": "https://www.artic.edu/iiif/2/ef96e79b-f481-8114-0804-4bd39c101983/full/843,/0/default.jpg",
+          "additional_images": [],
+          "gallery_number": null,
+          "is_on_view": null,
+          "object_url": "https://www.artic.edu/artworks/64729",
+          "subjects": [
+           "landscapes",
+           "weather/seasons"
+          ],
+          "artwork_type": "Painting",
+          "extracted_at": "2026-11-11T00:21:36.866571"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/art-museum-collections"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

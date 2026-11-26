@@ -1,0 +1,335 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "Listingrail: Real Estate Listings API for 22 Property Portals",
+  "description": "Live sale and rental listings as JSON from Zillow, Realtor.com, Rightmove, Idealista, ImmoScout24, Bayut and 16 more portals, one request shape.\n\nSold on API.market: https://api.market/store/benthepythondev/listingrail (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "contact": {
+   "name": "Listingrail",
+   "url": "https://listingrail.com/"
+  },
+  "version": "1.0.0",
+  "x-logo": {
+   "url": "https://listingrail.com/favicon.svg"
+  },
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "listingrail",
+   "storePage": "https://api.market/store/benthepythondev/listingrail",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 10,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29,
+     "callsPerMonth": 1000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/listingrail"
+  }
+ ],
+ "paths": {
+  "/v1/sources": {
+   "get": {
+    "tags": [
+     "listings"
+    ],
+    "summary": "Sources",
+    "operationId": "sources_v1_sources_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": true,
+         "type": "object",
+         "title": "Response Sources V1 Sources Get"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/listings/search": {
+   "post": {
+    "tags": [
+     "listings"
+    ],
+    "summary": "Listings Search",
+    "operationId": "listings_search_v1_listings_search_post",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SearchRequest"
+       },
+       "example": {
+        "source": "zumper",
+        "location": "Austin, TX",
+        "type": "rent",
+        "maxPrice": 2500,
+        "minBeds": 2,
+        "limit": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Listings. A `limit` above the balance is cut to the balance and the search still runs; `count` then is below `limit`. `upgrade_url` (the fares table) is added when `credits_remaining` is below 20.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Listings Search V1 Listings Search Post"
+        },
+        "example": {
+         "source": "zumper",
+         "location": "Austin, TX",
+         "type": "rent",
+         "count": 12,
+         "credits_used": 12,
+         "credits_remaining": 0,
+         "upgrade_url": "https://listingrail.com/#fares",
+         "listings": []
+        }
+       }
+      }
+     },
+     "402": {
+      "description": "No credits left. The body names the plans and where to buy them; nothing is charged.",
+      "content": {
+       "application/json": {
+        "example": {
+         "detail": {
+          "error": "insufficient_credits",
+          "credits_remaining": 0,
+          "upgrade_url": "https://listingrail.com/#fares",
+          "plans": [
+           {
+            "name": "Pack",
+            "credits": 2500,
+            "usd": 9,
+            "billing": "once"
+           },
+           {
+            "name": "Starter",
+            "credits": 10000,
+            "usd": 29,
+            "billing": "monthly"
+           }
+          ],
+          "message": "No credits left. Buy a pack or a plan with the email of this key; credits land on it within a minute."
+         }
+        }
+       }
+      }
+     },
+     "502": {
+      "description": "The portal could not be read. Nothing is charged."
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/v1/listings/details": {
+   "post": {
+    "tags": [
+     "listings"
+    ],
+    "summary": "Listings Details",
+    "operationId": "listings_details_v1_listings_details_post",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/DetailsRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "additionalProperties": true,
+         "title": "Response Listings Details V1 Listings Details Post"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "DetailsRequest": {
+    "properties": {
+     "source": {
+      "type": "string",
+      "title": "Source"
+     },
+     "url": {
+      "type": "string",
+      "maxLength": 2000,
+      "pattern": "^https?://",
+      "title": "Url"
+     }
+    },
+    "type": "object",
+    "required": [
+     "source",
+     "url"
+    ],
+    "title": "DetailsRequest"
+   },
+   "SearchRequest": {
+    "properties": {
+     "source": {
+      "type": "string",
+      "title": "Source"
+     },
+     "location": {
+      "type": "string",
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Location"
+     },
+     "type": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "rent",
+         "sale"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Type"
+     },
+     "minPrice": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Minprice"
+     },
+     "maxPrice": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Maxprice"
+     },
+     "minBeds": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Minbeds"
+     },
+     "limit": {
+      "type": "integer",
+      "maximum": 10,
+      "minimum": 1.0,
+      "title": "Limit",
+      "default": 10,
+      "description": "Listings to return, 1 to 10. API.market counts calls, so ask for 10."
+     }
+    },
+    "type": "object",
+    "required": [
+     "source",
+     "location"
+    ],
+    "title": "SearchRequest"
+   },
+   "HTTPValidationError": {
+    "type": "object",
+    "properties": {
+     "detail": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    }
+   }
+  },
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ],
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/listingrail"
+ }
+}

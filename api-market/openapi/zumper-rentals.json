@@ -1,0 +1,293 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Zumper Rentals API: US Apartment Rentals + Rent Change Monitor",
+  "description": "Zumper listings JSON by US city: rent, beds, address, pet policy, lead score. Rent change monitor returns only new listings and rent drops.\n\nSold on API.market: https://api.market/store/benthepythondev/zumper-rentals (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "zumper-rentals",
+   "storePage": "https://api.market/store/benthepythondev/zumper-rentals",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/zumper-rentals"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Search rentals",
+    "description": "Zumper API for apartments and houses for rent by US city: address, rent range, beds, baths, amenities, pet policy, phone, agent and brokerage, coordinates and a 0-100 lead score. Up to 10 listings per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "mode": {
+          "title": "Scraping Mode",
+          "enum": [
+           "search",
+           "direct_urls"
+          ],
+          "type": "string",
+          "description": "Choose whether to search listings or scrape specific URLs",
+          "default": "search"
+         },
+         "locations": {
+          "title": "Locations",
+          "maxItems": 50,
+          "type": "array",
+          "description": "One or more Zumper city slugs to search, city then state (e.g. 'san-francisco-ca', 'new-york-ny', 'austin-tx'). Each is searched on its own with the filters below, and Maximum Listings applies per location.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "location": {
+          "title": "Location (single, older field)",
+          "type": "string",
+          "description": "One city slug, e.g. 'san-francisco-ca'. Kept so saved inputs keep working; it is searched together with Locations."
+         },
+         "propertyType": {
+          "title": "Property Type",
+          "enum": [
+           "apartments-for-rent",
+           "houses-for-rent",
+           "condos-for-rent",
+           "townhomes-for-rent",
+           "rooms-for-rent"
+          ],
+          "type": "string",
+          "description": "Type of property to search",
+          "default": "apartments-for-rent"
+         },
+         "minPrice": {
+          "title": "Minimum Price",
+          "minimum": 0,
+          "maximum": 100000,
+          "type": "integer",
+          "description": "Include properties with an available unit at or above this monthly rent"
+         },
+         "maxPrice": {
+          "title": "Maximum Price",
+          "minimum": 0,
+          "maximum": 100000,
+          "type": "integer",
+          "description": "Include properties with an available unit at or below this monthly rent in USD."
+         },
+         "minBeds": {
+          "title": "Minimum Bedrooms",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Lowest accepted bedroom count (0 includes studios)"
+         },
+         "maxBeds": {
+          "title": "Maximum Bedrooms",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Highest accepted bedroom count"
+         },
+         "airbnbFriendly": {
+          "title": "Airbnb-Friendly Only",
+          "type": "boolean",
+          "description": "Use Zumper's verified Airbnb-friendly feature filter",
+          "default": false
+         },
+         "listingUrls": {
+          "title": "Listing URLs",
+          "maxItems": 1000,
+          "type": "array",
+          "description": "Direct Zumper listing URLs to scrape (for direct_urls mode)",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxListings": {
+          "title": "Maximum Listings",
+          "minimum": 1,
+          "maximum": 10,
+          "type": "integer",
+          "description": "Listings to return. A request returns 10 listings at most.",
+          "default": 10
+         },
+         "maxPages": {
+          "title": "Result pages per search",
+          "minimum": 1,
+          "maximum": 1000,
+          "type": "integer",
+          "description": "Result pages to read. Zumper serves 10 listings per result page.",
+          "default": 20
+         },
+         "includePhotos": {
+          "title": "Include Photo IDs",
+          "type": "boolean",
+          "description": "Include Zumper photo IDs and photo count for each listing",
+          "default": true
+         },
+         "onlyChanges": {
+          "title": "Only New and Changed Listings",
+          "type": "boolean",
+          "description": "Rent-change watch: return only listings that are new or whose rent or details changed since the last request with the same monitorId. Unchanged listings are left out.",
+          "default": false
+         },
+         "monitorId": {
+          "title": "Monitor ID",
+          "maxLength": 80,
+          "type": "string",
+          "description": "Name of your watch, up to 80 characters. Watches are kept by this name across all callers of this API, so use a long random name only you know, and one name per search."
+         },
+         "firstRunMode": {
+          "title": "First Run",
+          "enum": [
+           "emitAll",
+           "seedOnly"
+          ],
+          "type": "string",
+          "description": "First request of a new watch: emitAll returns the current listings as new, seedOnly only stores them as the starting point and returns an empty list.",
+          "default": "emitAll"
+         },
+         "resetState": {
+          "title": "Reset Selected Monitor",
+          "type": "boolean",
+          "description": "Start this watch again from the current listings. Send it once, then leave it out.",
+          "default": false
+         }
+        }
+       },
+       "example": {
+        "locations": [
+         "austin-tx"
+        ],
+        "maxListings": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "source": "zumper.com",
+          "scraped_at": "2026-10-05T11:17:58.272569+00:00",
+          "listing_id": 58574872,
+          "url": "https://www.zumper.com/apartment-buildings/1717500/blueground-san-francisco-soma-san-francisco-ca",
+          "name": "Blueground San Francisco",
+          "address": "149 San Francisco New Montgomery St #1161, San Francisco, CA 94105",
+          "street": "149 San Francisco New Montgomery St #1161",
+          "city": "San Francisco",
+          "state": "CA",
+          "zipcode": "94105",
+          "neighborhood": "SOMA",
+          "latitude": 37.78714246632131,
+          "longitude": -122.39963719035394,
+          "price_min": 2950,
+          "price_max": 13310,
+          "beds_min": 0,
+          "beds_max": 3,
+          "baths_min": 1,
+          "baths_max": 2,
+          "rating": 9.9,
+          "property_type": "Apartment",
+          "amenities": [
+           "Shower",
+           "Shared Garden",
+           "Refrigerator"
+          ],
+          "pets_allowed": [
+           "Cats",
+           "Dogs"
+          ],
+          "phone": "(415) 964-3025",
+          "agent_name": "Blueground Us",
+          "brokerage_name": "BLUEGROUND",
+          "feed_name": "blueground_cities",
+          "date_available": null,
+          "has_fees": false,
+          "image_ids": [
+           761884337,
+           761884338,
+           761884336
+          ],
+          "image_count": 10,
+          "lead_score": 81
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/zumper-rentals"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

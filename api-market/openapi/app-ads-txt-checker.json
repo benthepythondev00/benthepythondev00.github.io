@@ -1,0 +1,152 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "App-ads.txt Checker API: Mobile Ad Sellers by App or Domain",
+  "description": "Check app-ads.txt from an App Store or Google Play link or a domain: authorized ad sellers, publisher IDs, DIRECT/RESELLER, and why a file is missing.\n\nSold on API.market: https://api.market/store/benthepythondev/app-ads-txt-checker (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "app-ads-txt-checker",
+   "storePage": "https://api.market/store/benthepythondev/app-ads-txt-checker",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/app-ads-txt-checker"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "App-ads.txt Scraper",
+    "description": "Scrape app-ads.txt files and extract authorized mobile app ad sellers, publisher IDs and relationship metadata. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "targets": {
+          "title": "Targets",
+          "maxItems": 100,
+          "type": "array",
+          "description": "Domains (cnn.com), direct app-ads.txt URLs, App Store links (apps.apple.com/.../id123) or Google Play links (play.google.com/store/apps/details?id=...). An app link is resolved to the developer website its listing names, where ad crawlers look for app-ads.txt. Up to 100 targets; a request returns 20 rows at most.",
+          "default": [
+           "https://www.cnn.com/app-ads.txt"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Max results per target",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum seller rows per target. A request returns 20 rows at most.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "targets": [
+         "https://www.cnn.com/app-ads.txt"
+        ],
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "source_url": "https://adstxt.dsc-ato.com/www.cnn.com/app-ads.txt",
+          "input_url": "https://www.cnn.com/app-ads.txt",
+          "domain": "adstxt.dsc-ato.com",
+          "status_code": 200,
+          "content_type": "text/plain",
+          "source": "ads",
+          "line_number": 5,
+          "exchange_domain": "tremorhub.com",
+          "publisher_id": "oyz9g-19rao",
+          "relationship": "DIRECT",
+          "certification_authority_id": null,
+          "raw_line": "tremorhub.com, oyz9g-19rao, DIRECT # TTD PB"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/app-ads-txt-checker"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

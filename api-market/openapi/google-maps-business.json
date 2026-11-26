@@ -1,0 +1,325 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Google Maps Business API: Places, Phones, Ratings and Leads",
+  "description": "Google Maps businesses for any search and city as JSON: phone, website, address parts, rating, review count, hours, place id and a lead score.\n\nSold on API.market: https://api.market/store/benthepythondev/google-maps-business (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "google-maps-business",
+   "storePage": "https://api.market/store/benthepythondev/google-maps-business",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/google-maps-business"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Search places",
+    "description": "Returns Google Maps places for any search and location: name, phone, website, address parts, coordinates, rating, review count, opening hours, categories, place id and a lead score. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "query": {
+          "title": "Search query",
+          "type": "string",
+          "description": "What to search for on Google Maps, as you would type it there: a kind of business (\"dentist\", \"coffee shop\"), a brand or a business name. Searched in the location below."
+         },
+         "location": {
+          "title": "Location",
+          "type": "string",
+          "description": "City, district, state or country to search in, for example \"San Francisco, CA\", \"Mitte, Berlin\" or \"Texas\"."
+         },
+         "queries": {
+          "title": "More search queries",
+          "type": "array",
+          "description": "Several search queries for one request. Each query is searched in each location, and a place found by two searches is saved once.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "locations": {
+          "title": "More locations",
+          "type": "array",
+          "description": "Several locations for one request, for example a list of cities. Each query is searched in each of them.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxResults": {
+          "title": "Maximum places per search",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Places to return for each search (each query in each location). A request returns 20 places at most.",
+          "default": 10
+         },
+         "startUrls": {
+          "title": "Place links, place ids or search links",
+          "type": "array",
+          "description": "Google Maps place links, place ids (ChIJ…), feature ids (0x…:0x…) or Google Maps search links. Each place is read from its own page, every link is read regardless of the limit above. A search link is run as a search; a link with a map position (…/@37.76,-122.41,15z) searches that part of the map.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "mode": {
+          "title": "Mode",
+          "enum": [
+           "search",
+           "direct_urls"
+          ],
+          "type": "string",
+          "description": "\"search\" runs the queries and reads the links. \"direct_urls\" reads only the links and ignores the query fields.",
+          "default": "search"
+         },
+         "minRating": {
+          "title": "Minimum rating",
+          "minimum": 1,
+          "maximum": 5,
+          "type": "number",
+          "description": "Save only places with at least this star rating (1.0 to 5.0). Places without a rating are left out."
+         },
+         "minReviews": {
+          "title": "Minimum number of reviews",
+          "minimum": 0,
+          "type": "integer",
+          "description": "Save only places with at least this many reviews."
+         },
+         "websiteFilter": {
+          "title": "Website filter",
+          "enum": [
+           "any",
+           "has_website",
+           "no_website"
+          ],
+          "type": "string",
+          "description": "\"has_website\" saves only places with a website, \"no_website\" only places without one (prospects for web design and local marketing).",
+          "default": "any"
+         },
+         "skipClosedPlaces": {
+          "title": "Skip permanently closed places",
+          "type": "boolean",
+          "description": "Leave out places Google marks as permanently closed. `skipClosed` is read as well.",
+          "default": false
+         },
+         "requireWebsite": {
+          "title": "Only places with a website",
+          "type": "boolean",
+          "description": "Save only places that list a website, the same as websiteFilter \"has_website\".",
+          "default": false
+         },
+         "includeReviews": {
+          "title": "Full details and reviews",
+          "type": "boolean",
+          "description": "Reads each place's own page as well: price range, every group of Google's \"About\" tab, the number of 1 to 5 star reviews and the reviews Google shows a visitor on the overview (eight at most, with author, rating, text and date). One more request per place, about four places a second. Without it a row has what Google's result list carried.",
+          "default": false
+         },
+         "maxReviews": {
+          "title": "Maximum reviews per place",
+          "minimum": 1,
+          "maximum": 100,
+          "type": "integer",
+          "description": "Reviews to keep per place when reviews are included. Google shows a visitor eight at most.",
+          "default": 10
+         },
+         "includePhotos": {
+          "title": "Include photo links",
+          "type": "boolean",
+          "description": "Adds `photos`: the photo links in Google's record of the place, between 1 and about 20. The main photo is always in `image_url`.",
+          "default": false
+         },
+         "includeLeadScore": {
+          "title": "Include lead score",
+          "type": "boolean",
+          "description": "Adds a score from 0 to 100 computed from the row itself: website and phone present, rating, number of reviews, opening hours, photos.",
+          "default": true
+         },
+         "scrapeContacts": {
+          "title": "Emails, social links and contact form from the website",
+          "type": "boolean",
+          "description": "Reads each place's website (home, contact, Kontakt, Impressum and about pages) and adds primary_email, emails, socials and has_contact_form to the row. Included in the place price, no extra event. Adds a few seconds per place; places without a website get empty fields.",
+          "default": false
+         },
+         "language": {
+          "title": "Language",
+          "type": "string",
+          "description": "Language of categories, opening hours and descriptions, as a language code: en, de, fr, es, it, pt-BR, ja.",
+          "default": "en"
+         },
+         "countryCode": {
+          "title": "Country of the visitor",
+          "type": "string",
+          "description": "Two-letter country code Google is told the visitor is in. It decides the format of addresses and phone numbers: with \"us\" a US phone is \"(415) 772-9060\", a German one \"+49 30 81455310\"; with \"de\" the German one is \"030 81455310\".",
+          "default": "us"
+         },
+         "excludePlaceUrls": {
+          "title": "Exclude place links",
+          "type": "array",
+          "description": "Skip these places, given as long Google Maps place links.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "excludePlaceIds": {
+          "title": "Exclude place ids",
+          "type": "array",
+          "description": "Skip these places, given as place ids (ChIJ…), numeric CIDs or feature ids (0x…:0x…).",
+          "items": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "example": {
+        "query": "restaurants",
+        "location": "San Francisco, CA",
+        "maxResults": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "name": "Piccolo Forno",
+          "rating": 4.7,
+          "review_count": 2435,
+          "address": "725 Columbus Ave, San Francisco, CA 94133",
+          "phone": "(415) 757-0087",
+          "website": "https://piccolo-forno-sf.com/",
+          "categories": [
+           "Italian restaurant"
+          ],
+          "has_hours": true,
+          "plus_code": "RH2Q+G5 San Francisco, CA",
+          "url": "https://www.google.com/maps/place/Piccolo+Forno/data=!4m7!3m6!1s0x808580f03b32e62d:0x62dc2642b0573fea!8m2!3d37.801362999999995!4d-122.412033!16s%2Fg%2F11bwny...",
+          "lead_score": 90,
+          "place_id": "ChIJLeYyO_CAhYAR6j9XsEIm3GI",
+          "cid": "7123610778461487082",
+          "feature_id": "0x808580f03b32e62d:0x62dc2642b0573fea",
+          "kgmid": "/g/11bwny13gr",
+          "category": "Italian restaurant",
+          "description": "Casual neighborhood trattoria with Italian classics & espresso in colorful, contemporary quarters.",
+          "price": null,
+          "latitude": 37.801362999999995,
+          "longitude": -122.412033,
+          "neighborhood": "Russian Hill",
+          "street": "725 Columbus Ave",
+          "city": "San Francisco",
+          "state": "California",
+          "postal_code": "94133",
+          "country_code": "US",
+          "phone_international": "+1 415-757-0087",
+          "domain": "piccolo-forno-sf.com",
+          "opening_hours": [
+           {
+            "day": "Monday",
+            "hours": "11:45 AM–10 PM"
+           },
+           {
+            "day": "Tuesday",
+            "hours": "Closed"
+           },
+           {
+            "day": "Wednesday",
+            "hours": "11:45 AM–10 PM"
+           }
+          ],
+          "timezone": "America/Los_Angeles",
+          "permanently_closed": false,
+          "image_url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnjptZ1Wa9mVVvbdetc97e68x5k_bBg0a3g0nRGZh6c7N_WO9UGZtqPz2Q9MrFUuHlp06gHQ1uq-z21bJjfda7vT4wwAbsPT8HbpDZt-HlXAk...",
+          "photo_count": 1877,
+          "attributes": {
+           "Accessibility": [
+            "Wheelchair accessible entrance",
+            "Wheelchair accessible restroom",
+            "Wheelchair accessible seating"
+           ]
+          },
+          "query": "restaurants San Francisco, CA",
+          "rank": 1,
+          "scraped_at": "2026-10-05T11:18:59.713800+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/google-maps-business"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

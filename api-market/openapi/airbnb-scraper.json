@@ -1,0 +1,253 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Airbnb Search Prices API",
+  "description": "Search Airbnb by place, stay dates and guests. Get room IDs, total stay price with fees, rating, reviews and photos as JSON, up to 20 listings per call.\n\nSold on API.market: https://api.market/store/benthepythondev/airbnb-scraper (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "airbnb-scraper",
+   "storePage": "https://api.market/store/benthepythondev/airbnb-scraper",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Ultra",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 1
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/airbnb-scraper"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "Airbnb Scraper",
+    "summary": "Airbnb Scraper",
+    "description": "Export Airbnb listings for exact stay dates and guest counts with room IDs, property IDs, total prices, fees, ratings and public page cursors. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "location": {
+          "title": "Destination",
+          "type": "string",
+          "description": "Place name passed to Airbnb search; source may include nearby areas.",
+          "default": "Berlin, Germany"
+         },
+         "checkIn": {
+          "title": "Check-in date",
+          "type": "string",
+          "description": "Exact YYYY-MM-DD arrival date. Supply with checkOut; omitting both selects a two-night stay starting seven days from now."
+         },
+         "checkOut": {
+          "title": "Check-out date",
+          "type": "string",
+          "description": "Exact YYYY-MM-DD departure date; supply with checkIn for a stay of 1..365 nights."
+         },
+         "adults": {
+          "title": "Adults",
+          "minimum": 1,
+          "maximum": 16,
+          "type": "integer",
+          "description": "Requested adults; alternative guest-count suggestions are excluded.",
+          "default": 2
+         },
+         "children": {
+          "title": "Children",
+          "minimum": 0,
+          "maximum": 10,
+          "type": "integer",
+          "description": "Requested children.",
+          "default": 0
+         },
+         "infants": {
+          "title": "Infants",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Requested infants.",
+          "default": 0
+         },
+         "pets": {
+          "title": "Pets",
+          "minimum": 0,
+          "maximum": 5,
+          "type": "integer",
+          "description": "Requested pets.",
+          "default": 0
+         },
+         "currency": {
+          "title": "Requested currency",
+          "enum": [
+           "EUR",
+           "USD",
+           "GBP"
+          ],
+          "type": "string",
+          "description": "Display currency requested from Airbnb. Original display strings and total qualifiers are preserved.",
+          "default": "EUR"
+         },
+         "maxPages": {
+          "title": "Maximum search pages",
+          "minimum": 1,
+          "maximum": 15,
+          "type": "integer",
+          "description": "Follow public source cursors, up to 15 pages. A request returns 20 rows at most.",
+          "default": 2
+         },
+         "maxResults": {
+          "title": "Maximum listings",
+          "minimum": 1,
+          "maximum": 300,
+          "type": "integer",
+          "description": "Upper bound on unique listing IDs for the requested stay.",
+          "default": 30
+         }
+        }
+       },
+       "example": {}
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "listing_id": "1079125385143422920",
+          "property_id": null,
+          "source_location": "Berlin, Germany",
+          "url": "https://www.airbnb.com/rooms/1079125385143422920?check_in=2026-11-01&check_out=2026-11-03&adults=2&children=0&infants=0&pets=0&currency=EUR",
+          "title": "Loft in Mitte",
+          "subtitle": "Huge loft near Rosenthaler Platz",
+          "name": "Apt \"dancing queens\" in the middle of everything",
+          "price_display": "€170",
+          "price_qualifier": "for 2 nights",
+          "total_price": 170,
+          "price_accessibility_label": "€170 for 2 nights, originally €195",
+          "price_breakdown": {
+           "__typename": "DisplayPriceExplanationData",
+           "title": "Price details",
+           "subtitle": null,
+           "priceDetails": [
+            {
+             "__typename": "DisplayPriceExplanationLineGroup",
+             "items": [
+              {
+               "__typename": "DiscountedExplanationLineItem",
+               "description": "2 nights x €85.00",
+               "priceString": "€170.00",
+               "originalPriceString": "€194.12",
+               "explanationData": null
+              }
+             ],
+             "renderBorderTop": false,
+             "collapsable": null
+            },
+            {
+             "__typename": "DisplayPriceExplanationDisclaimer",
+             "content": "Tamara recently lowered the price for these dates (from the average rate for the past 60 nights)."
+            }
+           ]
+          },
+          "currency": "EUR",
+          "check_in": "2026-11-01",
+          "check_out": "2026-11-03",
+          "adults": 2,
+          "children": 0,
+          "infants": 0,
+          "pets": 0,
+          "rating": 4.89,
+          "review_count": 209,
+          "coordinates": {
+           "__typename": "Coordinate",
+           "latitude": 52.53071,
+           "longitude": 13.39852
+          },
+          "image_urls": [
+           "https://a0.muscache.com/im/pictures/hosting/Hosting-1079125385143422920/original/34cf16b6-fd18-47bb-b33f-56ad195d18d8.jpeg",
+           "https://a0.muscache.com/im/pictures/hosting/Hosting-1079125385143422920/original/b53627c4-612d-418f-a8e3-c6e9e5c5fd6b.jpeg",
+           "https://a0.muscache.com/im/pictures/hosting/Hosting-1079125385143422920/original/1100317b-cee8-4c17-97e8-9d0b2a06fa05.jpeg"
+          ],
+          "badges": [
+           "Guest favorite"
+          ],
+          "matches_requested_stay": true,
+          "search_url": "https://www.airbnb.com/s/Berlin--Germany/homes?checkin=2026-11-01&checkout=2026-11-03&adults=2&children=0&infants=0&pets=0&currency=EUR&query=Berlin%2C+Germany",
+          "location_query": "Berlin, Germany",
+          "source_page": 1,
+          "scraped_at": "2026-10-25T13:56:58.717694+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/airbnb-scraper"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

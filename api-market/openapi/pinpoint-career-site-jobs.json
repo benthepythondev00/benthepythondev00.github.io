@@ -1,0 +1,176 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Pinpoint Jobs API: Open Roles from Pinpoint Career Sites",
+  "description": "Open roles from any Pinpoint career site as JSON, with department, location, pay and description.\n\nSold on API.market: https://api.market/store/benthepythondev/pinpoint-career-site-jobs (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "pinpoint-career-site-jobs",
+   "storePage": "https://api.market/store/benthepythondev/pinpoint-career-site-jobs",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/pinpoint-career-site-jobs"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Pinpoint Jobs Scraper",
+    "description": "Read public Pinpoint job feeds with department, employment type, location, workplace type, compensation, description and job URL. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "careerUrls": {
+          "title": "Pinpoint career URLs",
+          "minItems": 1,
+          "maxItems": 20,
+          "type": "array",
+          "description": "Public Pinpoint career roots or jobs.rss feed URLs.",
+          "items": {
+           "type": "string"
+          },
+          "default": [
+           "https://workwithus.pinpointhq.com"
+          ]
+         },
+         "query": {
+          "title": "Keyword filter",
+          "type": "string",
+          "description": "Optional words that must all appear in normalized public job data.",
+          "default": ""
+         },
+         "remoteOnly": {
+          "title": "Remote jobs only",
+          "type": "boolean",
+          "description": "Keep roles whose public location or workplace field says remote.",
+          "default": false
+         },
+         "includeDescription": {
+          "title": "Include descriptions",
+          "type": "boolean",
+          "description": "Include the clean public RSS description.",
+          "default": true
+         },
+         "maxResults": {
+          "title": "Maximum results",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of normalized records saved to the default dataset. A request returns 20 rows at most.",
+          "default": 3
+         }
+        }
+       },
+       "example": {
+        "careerUrls": [
+         "https://workwithus.pinpointhq.com"
+        ],
+        "remoteOnly": false,
+        "includeDescription": true,
+        "maxResults": 3
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "job_id": "https://workwithus.pinpointhq.com/jobs/592098",
+          "title": "Staff Product Designer",
+          "company": "Careers at Pinpoint",
+          "department": "Design",
+          "employment_type": "Full Time",
+          "location": "Remote",
+          "workplace_type": null,
+          "compensation": null,
+          "reporting_to": "Head of Design",
+          "published_at": "2026-10-05T17:22:50+00:00",
+          "description": "Staff Product DesignerDepartment: DesignEmployment Type: Full TimeLocation: RemoteReporting To: Head of DesignDescriptionHi 👋 I'm Elvin, Head of Design at Pi...",
+          "job_url": "https://workwithus.pinpointhq.com/jobs/592098",
+          "source_feed": "https://workwithus.pinpointhq.com/jobs.rss",
+          "source": "pinpoint",
+          "scraped_at": "2026-11-14T00:11:15.708707+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/pinpoint-career-site-jobs"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

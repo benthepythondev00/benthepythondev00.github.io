@@ -1,0 +1,219 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Tech Stack and Email Provider API: Up to 10 Websites a Call",
+  "description": "What any website is built with, plus its email provider and connected SaaS tools from DNS: CMS, frameworks, analytics, payments, CDN. 10 sites per call.\n\nSold on API.market: https://api.market/store/benthepythondev/tech-stack-email-provider (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "tech-stack-email-provider",
+   "storePage": "https://api.market/store/benthepythondev/tech-stack-email-provider",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/tech-stack-email-provider"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Tech Stack Detector",
+    "description": "Detects the technologies behind any website: CMS, frameworks, analytics and hosting, one row per site. Up to 10 websites per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "required": [
+         "urls"
+        ],
+        "properties": {
+         "urls": {
+          "title": "Website URLs",
+          "type": "array",
+          "description": "List of website URLs to analyze. Can include or omit https://",
+          "default": [
+           "https://stripe.com"
+          ],
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxUrls": {
+          "title": "Max URLs to Process",
+          "minimum": 0,
+          "maximum": 10,
+          "type": "integer",
+          "description": "Maximum number of URLs to analyze (0 = unlimited) A request returns 10 rows at most.",
+          "default": 1
+         },
+         "includeDns": {
+          "title": "Detect email and SaaS tools from DNS",
+          "type": "boolean",
+          "description": "Also read each domain's MX and TXT records (SPF and domain verification tokens) to find the email provider (Google Workspace, Microsoft 365, Zoho...), email senders (SendGrid, Mailgun, HubSpot...) and SaaS tools that verified the domain (Atlassian, Stripe, Facebook, Apple...). Adds about one DNS round trip per site, run in parallel with the page fetch.",
+          "default": true
+         }
+        }
+       },
+       "example": {
+        "urls": [
+         "https://stripe.com",
+         "https://vercel.com",
+         "https://shopify.com"
+        ],
+        "maxUrls": 1
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "url": "https://stripe.com",
+          "domain": "stripe.com",
+          "success": true,
+          "technologies": [
+           {
+            "name": "React",
+            "category": "Frontend Framework",
+            "confidence": "high",
+            "version": null,
+            "detectedBy": "html"
+           },
+           {
+            "name": "Next.js",
+            "category": "Frontend Framework",
+            "confidence": "high",
+            "version": null,
+            "detectedBy": "html"
+           },
+           {
+            "name": "Nginx",
+            "category": "Web Server",
+            "confidence": "high",
+            "version": null,
+            "detectedBy": "header"
+           }
+          ],
+          "technology_count": 17,
+          "categories": {
+           "Frontend Framework": [
+            "React",
+            "Next.js"
+           ],
+           "Web Server": [
+            "Nginx"
+           ],
+           "Customer Support": [
+            "Intercom"
+           ],
+           "E-commerce": [
+            "WooCommerce"
+           ],
+           "Payment": [
+            "Stripe",
+            "PayPal"
+           ],
+           "Fonts": [
+            "Font Awesome"
+           ],
+           "Email": [
+            "Google Workspace"
+           ],
+           "SaaS verification": [
+            "Google Search Console",
+            "Microsoft 365",
+            "Atlassian"
+           ]
+          },
+          "server": "nginx",
+          "powered_by": null,
+          "meta_generator": null,
+          "title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+          "description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models, and manage money movement.",
+          "status_code": 200,
+          "redirect_url": null,
+          "ssl": true,
+          "error": null,
+          "error_type": null,
+          "analyzed_at": "2026-10-25T11:58:49.368470",
+          "analysis_time_ms": 213
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/tech-stack-email-provider"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

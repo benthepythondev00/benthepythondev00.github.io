@@ -1,0 +1,191 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Yahoo Finance Quotes API: Stocks, Fundamentals, News",
+  "description": "Stock quotes, company info and news from Yahoo Finance by ticker symbol, up to 20 tickers per request.\n\nSold on API.market: https://api.market/store/benthepythondev/yahoo-finance-quotes (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "yahoo-finance-quotes",
+   "storePage": "https://api.market/store/benthepythondev/yahoo-finance-quotes",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 100,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "PAYG",
+     "type": "PAYG",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": null,
+     "pricePerCallUSD": 0.01,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/yahoo-finance-quotes"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Yahoo Finance Scraper",
+    "description": "Stock quotes, fundamentals and news from Yahoo Finance by ticker symbol. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "tickers": {
+          "title": "Stock Tickers",
+          "type": "string",
+          "description": "List of stock symbols to scrape (e.g., AAPL, MSFT, GOOGL). Comma-separated or one per line.",
+          "default": "AAPL, MSFT, GOOGL, AMZN, META"
+         },
+         "dataTypes": {
+          "title": "Data Types to Fetch",
+          "type": "array",
+          "description": "Select which data to retrieve for each ticker",
+          "items": {
+           "type": "string",
+           "enum": [
+            "quote",
+            "info",
+            "history",
+            "financials",
+            "holders",
+            "recommendations",
+            "earnings",
+            "dividends",
+            "splits",
+            "news"
+           ]
+          },
+          "default": [
+           "quote",
+           "info"
+          ]
+         },
+         "historyPeriod": {
+          "title": "History Period",
+          "enum": [
+           "1d",
+           "5d",
+           "1mo",
+           "3mo",
+           "6mo",
+           "1y",
+           "2y",
+           "5y",
+           "10y",
+           "ytd",
+           "max"
+          ],
+          "type": "string",
+          "description": "Time period for historical data (only used if 'history' is selected)",
+          "default": "1mo"
+         },
+         "historyInterval": {
+          "title": "History Interval",
+          "enum": [
+           "1m",
+           "2m",
+           "5m",
+           "15m",
+           "30m",
+           "60m",
+           "90m",
+           "1h",
+           "1d",
+           "5d",
+           "1wk",
+           "1mo",
+           "3mo"
+          ],
+          "type": "string",
+          "description": "Data interval for historical prices",
+          "default": "1d"
+         }
+        }
+       },
+       "example": {
+        "tickers": "AAPL, MSFT, GOOGL, AMZN, META, NVDA, TSLA, JPM, V, WMT, XOM, UNH, MA, PG, HD, KO, PEP, DIS, NFLX, INTC"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/yahoo-finance-quotes"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

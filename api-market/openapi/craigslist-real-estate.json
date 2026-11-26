@@ -1,0 +1,256 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Craigslist Real Estate API: FSBO Homes and Rentals",
+  "description": "Craigslist for-sale-by-owner homes and rentals in any city as JSON, with a by-owner flag, a 0-100 lead score, price, beds, photos and reply link.\n\nSold on API.market: https://api.market/store/benthepythondev/craigslist-real-estate (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "craigslist-real-estate",
+   "storePage": "https://api.market/store/benthepythondev/craigslist-real-estate",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/craigslist-real-estate"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Craigslist Real Estate Scraper",
+    "description": "Craigslist FSBO homes and rentals for any city, with a by-owner flag and a 0-100 lead score on every listing, plus price, beds, baths, size, coordinates, photos, posting text and contact availability. Up to 10 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "mode": {
+          "title": "Scraping Mode",
+          "enum": [
+           "search",
+           "direct_urls"
+          ],
+          "type": "string",
+          "description": "Choose how to scrape listings",
+          "default": "search"
+         },
+         "city": {
+          "title": "Craigslist City Code",
+          "type": "string",
+          "description": "City code (e.g., 'sfbay', 'newyork', 'losangeles', 'chicago', 'seattle')",
+          "default": "sfbay"
+         },
+         "category": {
+          "title": "Category",
+          "enum": [
+           "apa",
+           "roo",
+           "rea",
+           "sub",
+           "vac"
+          ],
+          "type": "string",
+          "description": "Type of real estate listing",
+          "default": "apa"
+         },
+         "listingType": {
+          "title": "Listing Type",
+          "enum": [
+           "all",
+           "owner",
+           "dealer"
+          ],
+          "type": "string",
+          "description": "Filter by listing source. Craigslist supports this only for Real Estate for Sale; for rentals, rooms, sublets and vacation rentals it returns all listings.",
+          "default": "all"
+         },
+         "minPrice": {
+          "title": "Minimum Price",
+          "type": "integer",
+          "description": "Minimum price in USD"
+         },
+         "maxPrice": {
+          "title": "Maximum Price",
+          "type": "integer",
+          "description": "Maximum price in USD A request returns 10 rows at most.",
+          "maximum": 10
+         },
+         "minBedrooms": {
+          "title": "Minimum Bedrooms",
+          "minimum": 0,
+          "maximum": 10,
+          "type": "integer",
+          "description": "Minimum number of bedrooms"
+         },
+         "searchQuery": {
+          "title": "Search Query",
+          "type": "string",
+          "description": "Optional search keywords (e.g., 'furnished', 'parking', 'pet friendly')"
+         },
+         "postalCode": {
+          "title": "Postal Code",
+          "type": "string",
+          "description": "Search near a specific postal code"
+         },
+         "searchDistance": {
+          "title": "Search Distance (miles)",
+          "minimum": 0,
+          "maximum": 100,
+          "type": "integer",
+          "description": "Search radius from postal code in miles",
+          "default": 0
+         },
+         "listingUrls": {
+          "title": "Listing URLs",
+          "type": "array",
+          "description": "Direct URLs to specific Craigslist listings (for direct_urls mode)",
+          "items": {
+           "type": "string"
+          }
+         },
+         "maxListings": {
+          "title": "Maximum Listings",
+          "minimum": 1,
+          "maximum": 500,
+          "type": "integer",
+          "description": "Maximum number of listings to scrape",
+          "default": 5
+         },
+         "includePhotos": {
+          "title": "Include Photos",
+          "type": "boolean",
+          "description": "Extract listing photos",
+          "default": true
+         },
+         "includeContactInfo": {
+          "title": "Include Contact Info",
+          "type": "boolean",
+          "description": "Extract contact/reply information",
+          "default": true
+         },
+         "includeLeadScore": {
+          "title": "Include Lead Score",
+          "type": "boolean",
+          "description": "Add a rule-based lead score (0-100) from FSBO status, photos, contact availability, price, size and completeness. See the README for the exact points.",
+          "default": true
+         }
+        }
+       },
+       "example": {
+        "maxListings": 5
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "url": "https://www.craigslist.org/view/d/san-pablo-on-site-laundry-24/13EKMT1Zj4cGiguwU4HGEG",
+          "source": "craigslist",
+          "scraped_at": "2026-10-25T08:19:55.286711",
+          "post_id": "7980662619",
+          "title": "On-Site Laundry, 24/7 Maintenance, Pet-Friendly",
+          "price": 2195,
+          "body": "5005 Montoya Avenue, San Pablo, CA 94805\nAt Montoya Garden, your furry companions are just as welcome as you are! Our open-concept floor plans provide plenty...",
+          "bedrooms": 1,
+          "bathrooms": 1,
+          "sqft": 700,
+          "location": "5005 Montoya Avenue",
+          "latitude": 37.9724,
+          "longitude": -122.3369,
+          "posting_date": "2026-10-09T09:12:10-0700",
+          "photos": [
+           "https://images.craigslist.org/00M0M_iiY8m1mMGhu_0CI0pO_600x450.jpg",
+           "https://images.craigslist.org/00f0f_cLHRxymcWf3_0CI0pO_600x450.jpg",
+           "https://images.craigslist.org/00j0j_4971CiRRb5Z_0CI0pO_600x450.jpg"
+          ],
+          "attributes": [
+           "1BR / 1Ba",
+           "700ft2",
+           "available now"
+          ],
+          "reply_link": "https://sfbay.craigslist.org/reply/sfo/apa/7980662619",
+          "by_owner": false,
+          "housing_type": "/ 1br - 700ft2 -",
+          "contact_available": true,
+          "lead_score": 58
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/craigslist-real-estate"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

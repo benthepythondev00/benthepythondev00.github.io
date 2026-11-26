@@ -1,0 +1,207 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "SEC EDGAR Filings API: 10-K, 10-Q, 8-K with Score",
+  "description": "Recent SEC filings by ticker or CIK as JSON, each with a 0 to 100 score so you can sort what matters.\n\nSold on API.market: https://api.market/store/benthepythondev/sec-edgar-filings-scored (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "sec-edgar-filings-scored",
+   "storePage": "https://api.market/store/benthepythondev/sec-edgar-filings-scored",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/sec-edgar-filings-scored"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "SEC EDGAR Filings",
+    "description": "SEC EDGAR filings (10-K, 10-Q, 8-K, insider trading, proxy statements) with a score from 0 to 100 per filing. Up to 20 filings per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "tickers": {
+          "title": "Stock Ticker Symbols",
+          "type": "array",
+          "description": "List of stock ticker symbols (e.g., AAPL, TSLA, MSFT, GOOGL). Leave empty if using CIKs.",
+          "items": {
+           "type": "string"
+          },
+          "default": [
+           "AAPL"
+          ]
+         },
+         "ciks": {
+          "title": "CIK Numbers",
+          "type": "array",
+          "description": "Central Index Key numbers (10-digit SEC identifiers). Alternative to ticker symbols.",
+          "items": {
+           "type": "string"
+          }
+         },
+         "filingTypes": {
+          "title": "Filing Types",
+          "type": "array",
+          "description": "Select specific SEC filing types to extract. Leave empty for all types.",
+          "items": {
+           "type": "string"
+          },
+          "default": [
+           "10-K",
+           "10-Q",
+           "8-K"
+          ]
+         },
+         "dateFrom": {
+          "title": "Filed From Date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string",
+          "description": "Start date for filings (YYYY-MM-DD format). Default: 90 days ago."
+         },
+         "dateTo": {
+          "title": "Filed To Date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string",
+          "description": "End date for filings (YYYY-MM-DD format). Default: today."
+         },
+         "maxFilingsPerCompany": {
+          "title": "Max Filings Per Company",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum number of filings to extract per company (1-500) A request returns 20 rows at most.",
+          "default": 20
+         },
+         "includeIntelligenceScore": {
+          "title": "Include Intelligence Score",
+          "type": "boolean",
+          "description": "Calculate AI-powered intelligence score (0-100) for each filing based on importance, recency, and size",
+          "default": true
+         }
+        }
+       },
+       "example": {
+        "tickers": [
+         "AAPL",
+         "MSFT",
+         "GOOGL",
+         "AMZN",
+         "NVDA"
+        ],
+        "filingTypes": [
+         "10-K",
+         "10-Q",
+         "8-K"
+        ],
+        "maxFilingsPerCompany": 4
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "cik": "0000320193",
+          "company_name": "Apple Inc.",
+          "ticker": "AAPL",
+          "exchange": "Nasdaq",
+          "sic_code": "3571",
+          "industry": "Electronic Computers",
+          "accession_number": "0001140361-26-035325",
+          "filing_type": "8-K/A",
+          "filing_category": "Current Report",
+          "is_amendment": true,
+          "filing_date": "2026-09-01",
+          "report_date": "2026-04-17",
+          "file_number": "001-36743",
+          "film_number": "261351260",
+          "primary_document": "ef20081427_8ka.htm",
+          "primary_document_description": "8-K/A",
+          "primary_document_url": "https://www.sec.gov/Archives/edgar/data/0000320193/000114036126035325/ef20081427_8ka.htm",
+          "filing_url": "https://www.sec.gov/cgi-bin/viewer?action=view&cik=0000320193&accession_number=000114036126035325&xbrl_type=v",
+          "filing_detail_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193&type=8-K/A&dateb=&owner=exclude&count=100",
+          "intelligence_score": 82
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/sec-edgar-filings-scored"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}

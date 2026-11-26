@@ -1,0 +1,203 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Goodreads Reviews API: Book Reviews with Ratings as JSON",
+  "description": "Public Goodreads book reviews with ratings, text and reviewer details as JSON.\n\nSold on API.market: https://api.market/store/benthepythondev/goodreads-book-reviews (plans, free trial and API key). Call it through the API.market gateway with your API.market key in the x-api-market-key header.",
+  "version": "1.0",
+  "x-api-market": {
+   "store": "benthepythondev",
+   "product": "goodreads-book-reviews",
+   "storePage": "https://api.market/store/benthepythondev/goodreads-book-reviews",
+   "plans": [
+    {
+     "name": "Free",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 0,
+     "callsPerMonth": 50,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Basic",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 9.99,
+     "callsPerMonth": 1500,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Pro",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 29.99,
+     "callsPerMonth": 12000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    },
+    {
+     "name": "Mega",
+     "type": "SUBSCRIPTION",
+     "pricePerMonthUSD": 99.99,
+     "callsPerMonth": 50000,
+     "pricePerCallUSD": null,
+     "requestsPerSecond": 10
+    }
+   ]
+  }
+ },
+ "servers": [
+  {
+   "url": "https://prod.api.market/api/v1/benthepythondev/goodreads-book-reviews"
+  }
+ ],
+ "paths": {
+  "/": {
+   "post": {
+    "operationId": "run",
+    "summary": "Goodreads Reviews Scraper",
+    "description": "Scrape public Goodreads book reviews with ratings, text, reviewer profiles, shelves, reactions and book metadata through a fast paginated no-login HTTP engine. Up to 20 results per request, as JSON.",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "required": [
+         "bookUrls"
+        ],
+        "properties": {
+         "bookUrls": {
+          "title": "Goodreads book URLs",
+          "type": "array",
+          "description": "Public Goodreads book URLs or numeric book IDs. Reviews are collected separately for each book.",
+          "default": [
+           {
+            "url": "https://www.goodreads.com/book/show/2767052-the-hunger-games"
+           }
+          ],
+          "items": {
+           "type": "object",
+           "required": [
+            "url"
+           ],
+           "properties": {
+            "url": {
+             "type": "string",
+             "title": "URL of a web page",
+             "format": "uri"
+            }
+           }
+          }
+         },
+         "maxReviewsPerBook": {
+          "title": "Maximum reviews per book",
+          "minimum": 1,
+          "maximum": 20,
+          "type": "integer",
+          "description": "Maximum unique review rows saved for each book. A request returns 20 rows at most.",
+          "default": 20
+         },
+         "maxPagesPerBook": {
+          "title": "Maximum pages per book",
+          "minimum": 1,
+          "maximum": 50,
+          "type": "integer",
+          "description": "Pagination safety limit for each book. Goodreads currently returns up to 30 reviews per page.",
+          "default": 10
+         }
+        }
+       },
+       "example": {
+        "bookUrls": [
+         {
+          "url": "https://www.goodreads.com/book/show/2767052-the-hunger-games"
+         }
+        ],
+        "maxReviewsPerBook": 30,
+        "maxPagesPerBook": 10
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "The results, one object per row.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object"
+         }
+        },
+        "example": [
+         {
+          "review_id": "kca://review:goodreads/amzn1.gr.review:goodreads.v1.-GjjHy9iBCConbkcwszIsw",
+          "review_url": "https://www.goodreads.com/review/show/3524249755",
+          "rating": 4,
+          "review_text": "(A-) 83% | Very Good Notes: A Pax Romana parallel, where odds are ever mostly misses, and games of guise, of glossy lies, mean existential kisses. *Check out...",
+          "review_text_html": "<b>(A-) 83%</b> | Very Good<br><i>Notes:</i> A <i>Pax Romana</i> parallel, where odds are ever mostly misses, and games of guise, of glossy lies, mean existe...",
+          "is_spoiler": false,
+          "created_at": "2020-09-18T02:33:35.413000+00:00",
+          "updated_at": "2026-05-22T05:01:55.615000+00:00",
+          "like_count": 721,
+          "comment_count": 78,
+          "recommended_for": null,
+          "shelf_name": "Read",
+          "shelf_url": "https://www.goodreads.com/review/list/22106879?shelf=read",
+          "tags": [
+           "audiobook",
+           "author-american",
+           "genre-dystopian"
+          ],
+          "reviewer_id": "22106879",
+          "reviewer_name": "Jayson",
+          "reviewer_url": "https://www.goodreads.com/user/show/22106879-jayson",
+          "reviewer_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1484794485i/22106879._UX200_CR0,33,200,200_.jpg",
+          "reviewer_is_author": false,
+          "reviewer_followers": 4420,
+          "reviewer_text_reviews": 4028,
+          "book_id": "2767052",
+          "book_kca_id": "kca://book/amzn1.gr.book.v1.YaoKZD8xVx72w5T1ZgR1YQ",
+          "book_title": "The Hunger Games",
+          "book_title_complete": "The Hunger Games (The Hunger Games, #1)",
+          "book_url": "https://www.goodreads.com/book/show/2767052-the-hunger-games",
+          "book_image_url": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1586722975i/2767052.jpg",
+          "book_author": "Suzanne Collins",
+          "book_author_url": "https://www.goodreads.com/author/show/153394.Suzanne_Collins",
+          "work_id": "kca://work/amzn1.gr.work.v1.qDM8aVuWTQKRymQBUS02og",
+          "total_book_reviews": 278095,
+          "rank": 1,
+          "source_url": "https://www.goodreads.com/book/show/2767052",
+          "scraped_at": "2026-10-07T17:53:01.407325+00:00"
+         }
+        ]
+       }
+      }
+     },
+     "400": {
+      "description": "The request body does not fit the input fields. The message says which field."
+     }
+    }
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "API.market listing",
+  "url": "https://api.market/store/benthepythondev/goodreads-book-reviews"
+ },
+ "components": {
+  "securitySchemes": {
+   "apiMarketKey": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-api-market-key",
+    "description": "Your API.market API key (https://api.market/account/apiKeys)."
+   }
+  }
+ },
+ "security": [
+  {
+   "apiMarketKey": []
+  }
+ ]
+}
