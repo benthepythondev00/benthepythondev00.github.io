@@ -315,7 +315,7 @@ def card(j: dict) -> str:
         f'<h3>{e(j["title"])}</h3>'
         f'<p class="where">{e(j["employer"])}<span class="dot">·</span>{e(j["place"] or "Denmark")}{when}</p>'
         f'<p class="sum">{e(salary) + ". " if salary else ""}Fast-Track certified employer (CVR {e(j["cvr"])}).</p>{pay}'
-        f'<a class="orig" href="{e(j["url"])}" target="_blank" rel="noopener">Apply on the employer\'s {BOARD_NAME[j["board"]]} page</a></li>'
+        f'<a class="orig" href="{e(j["url"])}" target="_blank" rel="noopener" data-qa-skip>Apply on the employer\'s {BOARD_NAME[j["board"]]} page</a></li>'
     )
 
 
