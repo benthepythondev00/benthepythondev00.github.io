@@ -24,6 +24,7 @@ New to Apify? Sign up at [apify.com/?fpr=qolupv](https://apify.com/?fpr=qolupv) 
 - Germany jobs for foreign skilled workers: `jobs-in-germany/` (built daily by `scripts/build_germany_jobs.py` from `jobs-in-germany/template.html`; tests: `python -m unittest discover -s tests`, `npx playwright test`)
 - Denmark Fast-Track jobs: `jobs-in-denmark/` (built daily by `scripts/build_denmark_jobs.py` from `jobs-in-denmark/template.html`; SIRI certified companies mapped to public job boards in `data/denmark-ats.json`)
 - Listingrail Rental Yield & Weekly Price-Cut Benchmark Directory: `yield/` (built from live Listingrail ES/IT/PT/US snapshots via `scripts/fetch_yield_snapshots.py` and `scripts/build_yield_directory.py`, gated under income-engine `pseo.py`)
+- US metro apartment concession & rent-drop snapshot (data for `/rent-drops/`): `data/rent-drops/` (weekly via `scripts/fetch_rent_drops.py`, see `docs/rent-drops-pipeline.md`)
 - Reddit Archive Scraper free-sample pages: `data/reddit-archive-scraper/` (built by `scripts/build_reddit_archive_pages.py` from `data/reddit-archive-sample-2026-11-21.json`; pSEO batch 1 live)
 - `sitemap.xml` + `robots.txt`
 - CI: hourly GitHub Action + manual dispatch

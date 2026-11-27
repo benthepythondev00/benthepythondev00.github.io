@@ -274,7 +274,7 @@ def card(j: dict) -> str:
         f'<div class="job-head"><h3>{e(title)}</h3><span class="who who-{cls}">{label}</span></div>{sub}'
         f'<p class="where">{e(where)}<span class="dot">·</span><time datetime="{e(j["published"] or "")}">{e(j["published"] or "")}</time></p>'
         f'<p class="sum">{e(summary(j))}</p>{tags}{quote_html}'
-        f'<a class="orig" href="{e(j["url"])}" target="_blank" rel="noopener">Original listing on arbeitsagentur.de</a></li>'
+        f'<a class="orig" href="{e(j["url"])}" target="_blank" rel="noopener" data-qa-skip>Original listing on arbeitsagentur.de</a></li>'
     )
 
 

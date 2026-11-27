@@ -45,11 +45,11 @@
 </head>
 <body>
   <article class="wrap">
-    <p class="note"><a href="./">← Catalog</a> · <a href="./how-to-get-historical-reddit-posts-and-comments.html">Historical Reddit by date range</a> · <a href="./historical-reddit-rag-pack.html">Reddit RAG pack guide</a> · <a href="https://apify.com/benthepythondev/reddit-scraper">Actor</a></p>
+    <p class="note"><a href="./">← Catalog</a> · <a href="./how-to-get-historical-reddit-posts-and-comments.html">Historical Reddit by date range</a> · <a href="./historical-reddit-rag-pack.html">Reddit RAG pack guide</a> · <a href="https://apify.com/benthepythondev/reddit-scraper" target="_blank" rel="noopener" data-qa-skip>Actor</a></p>
     <h1>How to get Reddit posts, comments and search results as structured data</h1>
     <p class="note">27 Oct 2026 · benthepythondev</p>
 
-    <p>If you need Reddit content in a spreadsheet, a database or a script, the <a href="https://apify.com/benthepythondev/reddit-scraper">Reddit Scraper on Apify</a> returns it as clean rows. You give it a subreddit, a post URL, a username or a search query. It returns the available posts and comments with scores, images and nested comment threads. You don't need a Reddit login or your own API key.</p>
+    <p>If you need Reddit content in a spreadsheet, a database or a script, the <a href="https://apify.com/benthepythondev/reddit-scraper" target="_blank" rel="noopener" data-qa-skip>Reddit Scraper on Apify</a> returns it as clean rows. You give it a subreddit, a post URL, a username or a search query. It returns the available posts and comments with scores, images and nested comment threads. You don't need a Reddit login or your own API key.</p>
 
     <h2>What you get</h2>
     <p>Each post comes back as one row with these fields:</p>
@@ -101,7 +101,7 @@
     <p><strong>Feeding text into other tools.</strong> The <code>content</code> field gives you one consistent representation per post and comment, and <code>word_count</code> and <code>token_count</code> help you estimate size before passing text on. Runs can also connect to Make, Zapier or n8n.</p>
 
     <h2>How to run it on Apify</h2>
-    <p>Open the <a href="https://apify.com/benthepythondev/reddit-scraper">Reddit Scraper on Apify</a>. A small first run is a good way to see the output before committing to anything bigger:</p>
+    <p>Open the <a href="https://apify.com/benthepythondev/reddit-scraper" target="_blank" rel="noopener" data-qa-skip>Reddit Scraper on Apify</a>. A small first run is a good way to see the output before committing to anything bigger:</p>
     <pre><code>{
   "mode": "subreddit",
   "subreddit": "Python",
@@ -112,15 +112,15 @@
   "outputFormat": "text",
   "includeImages": false
 }</code></pre>
-    <p>There's also a <a href="https://apify.com/benthepythondev/reddit-scraper/examples/reddit-top-python-posts-week">tested Python-posts example</a> you can open directly. You can run the Actor by hand, put it on a schedule or call it through the Apify API.</p>
+    <p>There's also a <a href="https://apify.com/benthepythondev/reddit-scraper/examples/reddit-top-python-posts-week" target="_blank" rel="noopener" data-qa-skip>tested Python-posts example</a> you can open directly. You can run the Actor by hand, put it on a schedule or call it through the Apify API.</p>
     <p><strong>Pricing</strong> is $0.003 per dataset row, plus a $0.00005 run-start event per GB of allocated memory (minimum one). The README's example: a 10-post run at 1 GB costs $0.03005 before account discounts. Turning on comments adds a row (and a charge) for every top-level comment, so start with <code>includeComments: false</code> if you only need a list of posts.</p>
     <p>
-      <a class="btn" href="https://apify.com/benthepythondev/reddit-scraper">Open the actor</a>
-      <a class="btn btn-ghost" href="https://apify.com/benthepythondev/reddit-scraper/examples/reddit-top-python-posts-week">See the Python example</a>
+      <a class="btn" href="https://apify.com/benthepythondev/reddit-scraper" target="_blank" rel="noopener" data-qa-skip>Open the actor</a>
+      <a class="btn btn-ghost" href="https://apify.com/benthepythondev/reddit-scraper/examples/reddit-top-python-posts-week" target="_blank" rel="noopener" data-qa-skip>See the Python example</a>
     </p>
 
     <h2>How to call it as an API on RapidAPI</h2>
-    <p>If you'd rather call it like a normal REST API with a RapidAPI key, it's listed at <a href="https://rapidapi.com/benthepythondev0/api/reddit-scraper14">Reddit Scraper on RapidAPI</a>.</p>
+    <p>If you'd rather call it like a normal REST API with a RapidAPI key, it's listed at <a href="https://rapidapi.com/benthepythondev0/api/reddit-scraper14" target="_blank" rel="noopener" data-qa-skip>Reddit Scraper on RapidAPI</a>.</p>
 
     <h2>Honest limits</h2>
     <ul>
@@ -132,7 +132,7 @@
       <li><strong>Comments cost more rows.</strong> Every top-level comment is billed as a row, so large threads add up. Nested replies don't add rows, because they stay inside their parent comment.</li>
     </ul>
     <p class="note">Need a subreddit's posts from years ago or inside a fixed date window? See <a href="./how-to-get-historical-reddit-posts-and-comments.html">how to get historical Reddit posts and comments by subreddit and date range</a>.</p>
-    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv">apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
+    <p class="note">Affiliate if you still need an Apify account: <a href="https://apify.com/?fpr=qolupv" target="_blank" rel="noopener" data-qa-skip>apify.com/?fpr=qolupv</a>. I may earn a commission; the price you pay does not change.</p>
   </article>
 </body>
 </html>
