@@ -36,7 +36,7 @@ def row(i, src="apartments-com", fw=8.0, asking=1500, net=1300, name="Test Place
     return {"listing_id": f"id{i}", "source": src, "property_name": name, "city": "Testville", "zip": "78701",
             "beds": 1, "sqft": 700, "asking_rent": asking, "rent_per_sqft": 2.14,
             "concession_verified": "yes" if fw else "no", "concession_type": "free_time" if fw else "",
-            "free_weeks": fw if fw else "", "net_effective_rent": net, "snapshot_date": D,
+            "free_weeks": fw if fw else "", "already_net": "no" if fw else "", "net_effective_rent": net, "snapshot_date": D,
             "listing_url": url or f"https://www.apartments.com/test-{i}/abc{i}/"}
 
 
@@ -187,6 +187,17 @@ class RedLines(unittest.TestCase):
         for page in (self.full, self.sparse, B.hub_page(self.s)):
             self.assertIn(METHOD["label"], page)
             self.assertIn("not signed lease", visible_text(page).lower())
+
+    def test_already_net_row_accepted_and_noted(self):
+        s = snap()
+        r = s["metros"][0]["sample_rows"][0]
+        r["already_net"], r["net_effective_rent"] = "yes", r["asking_rent"]
+        B.validate(s)
+        page = B.metro_page(s["metros"][0], s)
+        self.assertIn("already includes the special", page)
+
+    def test_no_already_net_note_without_such_rows(self):
+        self.assertNotIn("already includes the special", self.full)
 
     def test_portal_text_is_escaped(self):
         s = snap()

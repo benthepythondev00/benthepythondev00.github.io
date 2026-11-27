@@ -49,8 +49,8 @@ REQUIRED_TOP = ("snapshot_date", "method", "metros")
 REQUIRED_METRO = ("slug", "label", "city", "state", "snapshot_date", "n_apartments_com", "n_zumper", "n_priced",
                   "concessions", "bedrooms", "zumper_spread", "rent_cuts_30d", "sample_rows")
 SAMPLE_FIELDS = ("listing_id", "source", "property_name", "city", "zip", "beds", "sqft", "asking_rent",
-                 "rent_per_sqft", "concession_verified", "concession_type", "free_weeks", "net_effective_rent",
-                 "snapshot_date", "listing_url")
+                 "rent_per_sqft", "concession_verified", "concession_type", "free_weeks", "already_net",
+                 "net_effective_rent", "snapshot_date", "listing_url")
 CONTACT_RE = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+|\(?\b\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\b")
 
 
@@ -578,7 +578,8 @@ def sample_section(m: dict) -> str:
             f"<td class=\"num\">{esc(wk(r['free_weeks'])) if r.get('free_weeks') not in ('', None) else ''}</td>"
             f"<td class=\"num\">{esc(r.get('sqft'))}</td></tr>")
     csv = f"{CSV_BASE}{m['slug']}.csv"
-    already = any(r.get("free_weeks") not in ("", None) and r.get("net_effective_rent") == r.get("asking_rent")
+    already = any(r.get("already_net") == "yes"
+                  or (r.get("free_weeks") not in ("", None) and r.get("net_effective_rent") == r.get("asking_rent"))
                   for r in m["sample_rows"])
     already_note = ('<p class="note">Where weeks free are listed but net-effective equals asking, the property says its '
                     'advertised rate already includes the special, so it is not discounted twice.</p>') if already else ""
