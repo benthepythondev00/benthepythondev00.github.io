@@ -87,6 +87,17 @@ class TestConcessionParser(unittest.TestCase):
         self.assertTrue(all(len(x) <= 60 for x in c["matched"]))
         self.assertLessEqual(len(c["matched"]), 4)
 
+    def test_amenity_specials_are_not_rent_concessions(self):
+        for t in ["Free month of parking", "1 month free storage", "2 months free parking!", "$50 off pet rent",
+                  "4 weeks free internet", "First month free valet trash"]:
+            with self.subTest(text=t):
+                c = R.parse_concession([t])
+                self.assertFalse(c["verified"])
+                self.assertEqual(R.net_effective(1200, c), 1200.0)
+        # a rent concession next to an amenity perk still counts
+        self.assertEqual(R.parse_concession(["Up to 8 weeks free + free parking"])["free_weeks"], 8.0)
+        self.assertEqual(R.parse_concession(["1 month free rent and free storage"])["free_weeks"], 4.33)
+
     def test_first_month_forms(self):
         self.assertEqual(R.parse_concession(["50% off first month"])["pct_off_months"], 0.5)
         self.assertEqual(R.parse_concession(["Half off first month's rent"])["pct_off_months"], 0.5)
@@ -250,7 +261,17 @@ class TestRentCuts(unittest.TestCase):
         self.assertEqual(r["plan_cuts"], 1)
         self.assertEqual(r["baseline_date"], "2026-11-26")
         self.assertEqual(r["span_days"], 21)
+        self.assertEqual(r["window_label"], "3-week change (2026-11-26 to 2026-12-17)")
         self.assertEqual(r["median_cut_pct"], round(((100 / 1100 * 100) + (50 / 950 * 100)) / 2, 1))
+
+    def test_thirty_day_label_from_28_days(self):
+        prior = {"2026-11-26": self.old, "2026-12-03": self.old, "2026-12-10": self.old, "2026-12-17": self.old}
+        r = R.rent_cuts("2026-12-24", self.cur, prior)
+        self.assertEqual(r["span_days"], 28)
+        self.assertTrue(r["window_label"].startswith("30-day change"))
+
+    def test_locked_has_no_window_label(self):
+        self.assertIsNone(R.rent_cuts("2026-11-26", self.cur, {})["window_label"])
 
     def test_older_than_30_days_ignored(self):
         prior = {"2026-10-01": self.old, "2026-12-03": self.old, "2026-12-10": self.old}

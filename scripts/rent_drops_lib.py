@@ -54,7 +54,8 @@ METHOD = {
                       "metro 1BR median, below the same property's cheapest 1BR, or named as student / "
                       "co-living are excluded.",
     "rent_cuts": f"A rent cut is the same listing id advertising a lower asking rent than its highest rent in "
-                 f"the last 30 days. Shown only once {WEEKS_NEEDED} distinct ISO weeks of snapshots exist.",
+                 f"the last 30 days. Shown only once {WEEKS_NEEDED} distinct ISO weeks of snapshots exist; "
+                 "window_label names the real span (4 weekly snapshots = a 3-week change, '30-day' from 28 days on).",
 }
 
 # ---------------------------------------------------------------- concession parser
@@ -109,6 +110,25 @@ ALREADY_NET_RE = re.compile(
 )
 
 
+# Specials whose object is not the rent ("free month of parking", "1 month free storage", "$50 off pet rent")
+NON_RENT_RE = re.compile(
+    r"\b(parking|garage|carport|storage|locker|amenit(?:y|ies)|internet|wi-?fi|cable|tv|streaming|valet|trash|"
+    r"pet\s+rent|pet\s+fees?|gym|fitness|membership|utilit(?:y|ies)|electric|water|cleaning|laundry|washer|dryer|"
+    r"furniture|rental\s+furniture|bike|ev\s+charging|cabana|guest\s+suite)\b",
+    re.I,
+)
+
+
+def _non_rent(text: str, m: re.Match) -> bool:
+    """True when the matched free/off phrase is about an amenity, not the rent."""
+    inner = m.group(0)
+    if NON_RENT_RE.search(inner):
+        return True
+    tail = re.split(r"[.;!|,+&]|\band\b|\bplus\b|\bon\b|\bwhen\b|\bwith\b", text[m.end(): m.end() + 40], maxsplit=1, flags=re.I)[0]
+    tail_words = tail.split()[:3]
+    return bool(tail_words) and bool(NON_RENT_RE.search(" ".join(tail_words)))
+
+
 def _num(token: str) -> float | None:
     t = token.strip().lower()
     if t in _NUM_WORDS:
@@ -157,6 +177,8 @@ def parse_concession(specials) -> dict:
 
     weeks: list[float] = []
     for m in FREE_TIME_RE.finditer(text):
+        if _non_rent(text, m):
+            continue
         n = _num(m.group(1))
         if n is None or n <= 0:
             continue
@@ -166,9 +188,13 @@ def parse_concession(specials) -> dict:
             weeks.append(round(w, 2))
             out["matched"].append(m.group(0).strip())
     for m in FREE_MONTH_RE.finditer(text):
+        if _non_rent(text, m):
+            continue
         weeks.append(round(WEEKS_PER_MONTH, 2))
         out["matched"].append(m.group(0).strip())
     for m in FIRST_MONTH_RE.finditer(text):
+        if _non_rent(text, m):
+            continue
         weeks.append(round(WEEKS_PER_MONTH, 2))
         out["matched"].append(m.group(0).strip())
     if weeks:
@@ -177,6 +203,8 @@ def parse_concession(specials) -> dict:
 
     pct = []
     for m in PCT_OFF_RE.finditer(text):
+        if _non_rent(text, m):
+            continue
         p = float(m.group(1)) if m.group(1) else 50.0
         n = _num(m.group(3))
         if n and 0 < p <= 100:
@@ -185,6 +213,8 @@ def parse_concession(specials) -> dict:
                 pct.append(round(p / 100 * months, 3))
                 out["matched"].append(m.group(0).strip())
     for m in FIRST_MONTH_PCT_RE.finditer(text):
+        if _non_rent(text, m):
+            continue
         p = float(m.group(1)) if m.group(1) else 50.0
         if 0 < p <= 100:
             pct.append(round(p / 100, 3))
@@ -195,6 +225,8 @@ def parse_concession(specials) -> dict:
 
     dollars = []
     for m in DOLLAR_OFF_RE.finditer(text):
+        if _non_rent(text, m):
+            continue
         if re.match(r"\s*(?:\w+\s+){0,2}(app|application|admin|administration|fees?|deposit)\b", text[m.end(): m.end() + 30], re.I):
             continue  # "$50 off application fee" is a fee discount, not rent off
         v = _money(m.group(1))
@@ -450,11 +482,16 @@ def rent_cuts(today: str, current: dict, prior: dict[str, dict]) -> dict:
         "unlocked": len(weeks) >= WEEKS_NEEDED,
         "baseline_date": min(window) if window else None,
         "span_days": (t - date.fromisoformat(min(window))).days if window else 0,
+        "window_label": None,
         "count": None, "n_matched": None, "share_pct": None, "median_cut_pct": None,
         "plan_cuts": None, "n_plans_matched": None,
     }
     if not base["unlocked"]:
         return base
+    # Honest window name: 4 weekly snapshots span 21 days ("3-week change"); "30-day" only once span_days >= 28.
+    span = base["span_days"]
+    base["window_label"] = "30-day change" if span >= 28 else f"{round(span / 7)}-week change"
+    base["window_label"] += f" ({base['baseline_date']} to {today})"
     high: dict[str, float] = {}
     plan_high: dict[str, float] = {}
     for rec in window.values():
