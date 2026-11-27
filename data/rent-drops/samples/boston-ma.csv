@@ -1,26 +1,26 @@
-listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,net_effective_rent,snapshot_date,listing_url
-0ppwrh0,apartments-com,Harper,Allston,02134,0,500,2885,5.77,yes,free_time,10.0,2330,2026-11-26,https://www.apartments.com/harper-allston-ma/0ppwrh0/
-1d7fd95,apartments-com,The Batch Yard,Everett,02149,0,510,2218,4.35,yes,free_time+look_and_lease,6.5,1941,2026-11-26,https://www.apartments.com/the-batch-yard-everett-ma/1d7fd95/
-28rx7d9,apartments-com,Velo Forest Hills Apartments,Boston,02130,0,494,2380,4.82,yes,free_time,6.5,2082,2026-11-26,https://www.apartments.com/velo-forest-hills-apartments-boston-ma/28rx7d9/
-3ew3tge,apartments-com,Van Ness,Boston,02215,0,488,4322,8.86,yes,dollar_off+look_and_lease,,4155,2026-11-26,https://www.apartments.com/van-ness-boston-ma/3ew3tge/
-3ml00pf,apartments-com,The Franklin at Hancock Village,Brookline,02467,1,765,2910,3.8,yes,free_time,8.67,2425,2026-11-26,https://www.apartments.com/the-franklin-at-hancock-village-brookline-ma/3ml00pf/
-3yp6x6d,apartments-com,Flats on First,Cambridge,02141,0,439,3307,7.53,yes,free_time,4.33,3032,2026-11-26,https://www.apartments.com/flats-on-first-cambridge-ma/3yp6x6d/
-4mpy24k,apartments-com,Truslow Residences,Milton,02186,3,1330,3950,2.97,yes,free_time,4.33,3621,2026-11-26,https://www.apartments.com/truslow-residences-milton-ma/4mpy24k/
-5q5zpcm,apartments-com,One Beachmont,Revere,02151,0,482,2413,5.01,yes,free_time+dollar_off,8.67,2011,2026-11-26,https://www.apartments.com/one-beachmont-revere-ma/5q5zpcm/
-63tbeds,apartments-com,The Charley,Boston,02135,0,615,2899,4.71,yes,free_time,8.67,2416,2026-11-26,https://www.apartments.com/the-charley-boston-ma/63tbeds/
-6gd5hvv,apartments-com,Imprint,Boston,02122,0,465,1959,4.21,yes,free_time+waived_fees,8.0,1658,2026-11-26,https://www.apartments.com/imprint-boston-ma/6gd5hvv/
-7t2jwhz,apartments-com,The Harlo,Boston,02215,0,508,3577,7.04,yes,free_time,4.33,3279,2026-11-26,https://www.apartments.com/the-harlo-boston-ma/7t2jwhz/
-7xwdg7z,apartments-com,Ryder Revere Beach,Revere,02151,0,482,2460,5.1,yes,free_time,8.67,2050,2026-11-26,https://www.apartments.com/ryder-revere-beach-revere-ma/7xwdg7z/
-8ryr7g1,apartments-com,One North of Boston,Chelsea,02150,0,587,2332,3.97,yes,free_time,8.67,1943,2026-11-26,https://www.apartments.com/one-north-of-boston-chelsea-ma/8ryr7g1/
-8zsfj32,apartments-com,The Proof,Hyde Park,02136,0,550,2441,4.44,yes,free_time,8.67,2034,2026-11-26,https://www.apartments.com/the-proof-hyde-park-ma/8zsfj32/
-byd2s59,apartments-com,3200 Washington,Boston,02130,0,544,2550,4.69,yes,free_time,4.33,2338,2026-11-26,https://www.apartments.com/3200-washington-boston-ma/byd2s59/
-cmdc3xf,apartments-com,1943 DOT Ave,Dorchester,02124,0,456,1995,4.38,yes,free_time,6.5,1746,2026-11-26,https://www.apartments.com/1943-dot-ave-dorchester-ma/cmdc3xf/
-ctq40ye,apartments-com,Chroma,Cambridge,02139,0,519,3451,6.65,yes,free_time,4.33,3164,2026-11-26,https://www.apartments.com/chroma-cambridge-ma/ctq40ye/
-d3h6d4l,apartments-com,AVA Somerville,Somerville,02145,0,478,2779,5.81,yes,free_time,8.67,2316,2026-11-26,https://www.apartments.com/ava-somerville-somerville-ma/d3h6d4l/
-16555755,zumper,315 on A,Boston,02210,0,,3214,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p13156/315-on-a-d-street-west-broadway-boston-ma
-16557465,zumper,660 Washington,Boston,02111,0,,3318,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p13005/660-washington-chinatown-leather-district-boston-ma
-16557596,zumper,Avenir,Boston,02114,1,,3915,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p13108/avenir-downtown-boston-boston-ma
-17810853,zumper,Emerson Place,Boston,02114,0,,2650,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p283077/emerson-place-west-end-boston-ma
-22915102,zumper,AVA Back Bay,Boston,02199,0,,2590,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p74239/ava-back-bay-back-bay-boston-ma
-22916233,zumper,Avalon at Prudential Center,Boston,02199,0,,3115,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p136213/avalon-at-prudential-center-back-bay-boston-ma
-22917430,zumper,Avalon Exeter,Boston,02116,0,,3355,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p62786/avalon-exeter-back-bay-boston-ma
+listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,already_net,net_effective_rent,snapshot_date,listing_url
+0ppwrh0,apartments-com,Harper,Allston,02134,0,500,2885,5.77,yes,free_time,10.0,no,2330,2026-11-26,https://www.apartments.com/harper-allston-ma/0ppwrh0/
+1d7fd95,apartments-com,The Batch Yard,Everett,02149,0,510,2218,4.35,yes,free_time+look_and_lease,6.5,no,1941,2026-11-26,https://www.apartments.com/the-batch-yard-everett-ma/1d7fd95/
+28rx7d9,apartments-com,Velo Forest Hills Apartments,Boston,02130,0,494,2380,4.82,yes,free_time,6.5,no,2082,2026-11-26,https://www.apartments.com/velo-forest-hills-apartments-boston-ma/28rx7d9/
+3ew3tge,apartments-com,Van Ness,Boston,02215,0,488,4322,8.86,yes,dollar_off+look_and_lease,,no,4155,2026-11-26,https://www.apartments.com/van-ness-boston-ma/3ew3tge/
+3ml00pf,apartments-com,The Franklin at Hancock Village,Brookline,02467,1,765,2910,3.8,yes,free_time,8.67,no,2425,2026-11-26,https://www.apartments.com/the-franklin-at-hancock-village-brookline-ma/3ml00pf/
+3yp6x6d,apartments-com,Flats on First,Cambridge,02141,0,439,3307,7.53,yes,free_time,4.33,no,3032,2026-11-26,https://www.apartments.com/flats-on-first-cambridge-ma/3yp6x6d/
+4mpy24k,apartments-com,Truslow Residences,Milton,02186,3,1330,3950,2.97,yes,free_time,4.33,no,3621,2026-11-26,https://www.apartments.com/truslow-residences-milton-ma/4mpy24k/
+5q5zpcm,apartments-com,One Beachmont,Revere,02151,0,482,2413,5.01,yes,free_time+dollar_off,8.67,no,2011,2026-11-26,https://www.apartments.com/one-beachmont-revere-ma/5q5zpcm/
+63tbeds,apartments-com,The Charley,Boston,02135,0,615,2899,4.71,yes,free_time,8.67,no,2416,2026-11-26,https://www.apartments.com/the-charley-boston-ma/63tbeds/
+6gd5hvv,apartments-com,Imprint,Boston,02122,0,465,1959,4.21,yes,free_time+waived_fees,8.0,no,1658,2026-11-26,https://www.apartments.com/imprint-boston-ma/6gd5hvv/
+7t2jwhz,apartments-com,The Harlo,Boston,02215,0,508,3577,7.04,yes,free_time,4.33,no,3279,2026-11-26,https://www.apartments.com/the-harlo-boston-ma/7t2jwhz/
+7xwdg7z,apartments-com,Ryder Revere Beach,Revere,02151,0,482,2460,5.1,yes,free_time,8.67,no,2050,2026-11-26,https://www.apartments.com/ryder-revere-beach-revere-ma/7xwdg7z/
+8ryr7g1,apartments-com,One North of Boston,Chelsea,02150,0,587,2332,3.97,yes,free_time,8.67,no,1943,2026-11-26,https://www.apartments.com/one-north-of-boston-chelsea-ma/8ryr7g1/
+8zsfj32,apartments-com,The Proof,Hyde Park,02136,0,550,2441,4.44,yes,free_time,8.67,no,2034,2026-11-26,https://www.apartments.com/the-proof-hyde-park-ma/8zsfj32/
+byd2s59,apartments-com,3200 Washington,Boston,02130,0,544,2550,4.69,yes,free_time,4.33,no,2338,2026-11-26,https://www.apartments.com/3200-washington-boston-ma/byd2s59/
+cmdc3xf,apartments-com,1943 DOT Ave,Dorchester,02124,0,456,1995,4.38,yes,free_time,6.5,no,1746,2026-11-26,https://www.apartments.com/1943-dot-ave-dorchester-ma/cmdc3xf/
+ctq40ye,apartments-com,Chroma,Cambridge,02139,0,519,3451,6.65,yes,free_time,4.33,no,3164,2026-11-26,https://www.apartments.com/chroma-cambridge-ma/ctq40ye/
+d3h6d4l,apartments-com,AVA Somerville,Somerville,02145,0,478,2779,5.81,yes,free_time,8.67,no,2316,2026-11-26,https://www.apartments.com/ava-somerville-somerville-ma/d3h6d4l/
+16555755,zumper,315 on A,Boston,02210,0,,3214,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p13156/315-on-a-d-street-west-broadway-boston-ma
+16557465,zumper,660 Washington,Boston,02111,0,,3318,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p13005/660-washington-chinatown-leather-district-boston-ma
+16557596,zumper,Avenir,Boston,02114,1,,3915,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p13108/avenir-downtown-boston-boston-ma
+17810853,zumper,Emerson Place,Boston,02114,0,,2650,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p283077/emerson-place-west-end-boston-ma
+22915102,zumper,AVA Back Bay,Boston,02199,0,,2590,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p74239/ava-back-bay-back-bay-boston-ma
+22916233,zumper,Avalon at Prudential Center,Boston,02199,0,,3115,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p136213/avalon-at-prudential-center-back-bay-boston-ma
+22917430,zumper,Avalon Exeter,Boston,02116,0,,3355,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p62786/avalon-exeter-back-bay-boston-ma

@@ -87,6 +87,13 @@ class TestConcessionParser(unittest.TestCase):
         self.assertTrue(all(len(x) <= 60 for x in c["matched"]))
         self.assertLessEqual(len(c["matched"]), 4)
 
+    def test_first_month_forms(self):
+        self.assertEqual(R.parse_concession(["50% off first month"])["pct_off_months"], 0.5)
+        self.assertEqual(R.parse_concession(["Half off first month's rent"])["pct_off_months"], 0.5)
+        self.assertEqual(R.parse_concession(["Free month of rent on 13-month leases"])["free_weeks"], 4.33)
+        self.assertFalse(R.parse_concession(["Free month-to-month leases available"])["verified"])
+        self.assertAlmostEqual(R.net_effective(1200, R.parse_concession(["50% off first month"])), 1150.0)
+
     def test_empty(self):
         self.assertFalse(R.parse_concession(None)["verified"])
         self.assertFalse(R.parse_concession([])["verified"])
@@ -206,6 +213,15 @@ class TestCleaningAndAggregates(unittest.TestCase):
         for r in rows:
             self.assertEqual(set(r), set(R.CSV_FIELDS))
             self.assertNotIn("555", json.dumps(r))
+        apts = [r for r in rows if r["source"] == "apartments-com"]
+        self.assertTrue(all(r["already_net"] == ("no" if r["concession_verified"] == "yes" else "") for r in apts))
+
+    def test_already_net_row_is_labelled(self):
+        p = R.clean_apartments_property(apt(7, 1343, [(1, 1343, 855)], ["Advertised rates reflect 10 weeks free."]), "TX")
+        row = R.sample_rows([p], [], "2026-11-26")[0]
+        self.assertEqual(row["already_net"], "yes")
+        self.assertEqual(row["free_weeks"], 10.0)
+        self.assertEqual(row["net_effective_rent"], 1343)
 
 
 class TestRentCuts(unittest.TestCase):
@@ -314,6 +330,9 @@ class TestCommittedSnapshot(unittest.TestCase):
             rows = list(csv.DictReader(io.StringIO(path.read_text())))
             self.assertEqual(len(rows), 25, path.name)
             self.assertEqual(list(rows[0].keys()), R.CSV_FIELDS)
+            for r in rows:  # a verified row whose net equals asking must be marked already-net (or carry no rent saving)
+                if r["concession_verified"] == "yes" and r["free_weeks"] and r["net_effective_rent"] == r["asking_rent"]:
+                    self.assertEqual(r["already_net"], "yes", (path.name, r["listing_id"]))
 
     def test_label_present(self):
         self.assertIn("Publicly advertised asking rents", self.data["method"]["label"])

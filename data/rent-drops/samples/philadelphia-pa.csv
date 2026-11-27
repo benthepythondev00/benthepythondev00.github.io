@@ -1,26 +1,26 @@
-listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,net_effective_rent,snapshot_date,listing_url
-0gcxd92,apartments-com,The Hannah,Philadelphia,19123,0,428,1470,3.43,yes,free_time,4.33,1348,2026-11-26,https://www.apartments.com/the-hannah-philadelphia-pa/0gcxd92/
-4b69qsl,apartments-com,The Broderick,Philadelphia,19106,1,685,1950,2.85,yes,free_time,6.0,1725,2026-11-26,https://www.apartments.com/the-broderick-philadelphia-pa/4b69qsl/
-4sbjxeh,apartments-com,Chestnut Hill Village Apartments,Philadelphia,19118,1,440,1379,3.13,yes,free_time,4.33,1264,2026-11-26,https://www.apartments.com/chestnut-hill-village-apartments-philadelphia-pa/4sbjxeh/
-674pmfr,apartments-com,The Ledger Residences,Philadelphia,19106,1,485,2195,4.53,yes,free_time,26.0,1098,2026-11-26,https://www.apartments.com/the-ledger-residences-philadelphia-pa/674pmfr/
-6pv4stt,apartments-com,Vantage,Philadelphia,19122,0,422,2049,4.86,yes,waived_fees,,2049,2026-11-26,https://www.apartments.com/vantage-philadelphia-pa/6pv4stt/
-6vkxsev,apartments-com,Poth Brewery Lofts,Philadelphia,19121,0,450,1325,2.94,yes,free_time,4.33,1215,2026-11-26,https://www.apartments.com/poth-brewery-lofts-philadelphia-pa/6vkxsev/
-74j58fw,apartments-com,AVE Constitution,Philadelphia,19112,1,652,1893,2.9,yes,free_time,13.0,1420,2026-11-26,https://www.apartments.com/ave-constitution-philadelphia-pa/74j58fw/
-7bjgd3y,apartments-com,Lynnewood Gardens,Elkins Park,19027,1,622,1330,2.14,yes,free_time,4.33,1219,2026-11-26,https://www.apartments.com/lynnewood-gardens-elkins-park-pa/7bjgd3y/
-7d7rbbx,apartments-com,THE GRIFFIN CENTER CITY,Philadelphia,19107,0,495,1655,3.34,yes,free_time,8.67,1379,2026-11-26,https://www.apartments.com/the-griffin-center-city-philadelphia-pa/7d7rbbx/
-82edfb1,apartments-com,The Driftway,Philadelphia,19129,0,484,1500,3.1,yes,free_time+look_and_lease,6.0,1327,2026-11-26,https://www.apartments.com/the-driftway-philadelphia-pa/82edfb1/
-851yr90,apartments-com,1213 Walnut,Philadelphia,19107,0,442,1905,4.31,yes,free_time,6.5,1667,2026-11-26,https://www.apartments.com/1213-walnut-philadelphia-pa/851yr90/
-8fjme23,apartments-com,Henry on the Park Apartments,Philadelphia,19128,0,600,1387,2.31,yes,free_time,4.33,1272,2026-11-26,https://www.apartments.com/henry-on-the-park-apartments-philadelphia-pa/8fjme23/
-8ws64l2,apartments-com,Garden Court Towers,Philadelphia,19143,0,362,1435,3.96,yes,free_time,8.67,1196,2026-11-26,https://www.apartments.com/garden-court-towers-philadelphia-pa/8ws64l2/
-97l8y57,apartments-com,Via Callowhill,Philadelphia,19123,1,538,1850,3.44,yes,free_time,8.67,1542,2026-11-26,https://www.apartments.com/via-callowhill-philadelphia-pa/97l8y57/
-b9wg3qc,apartments-com,The Residences at The Bellevue,Philadelphia,19102,0,584,2575,4.41,yes,free_time+look_and_lease,4.33,2361,2026-11-26,https://www.apartments.com/the-residences-at-the-bellevue-philadelphia-pa/b9wg3qc/
-bwg3mxc,apartments-com,Lofts 640,Philadelphia,19130,0,676,1495,2.21,yes,free_time,8.67,1246,2026-11-26,https://www.apartments.com/lofts-640-philadelphia-pa/bwg3mxc/
-bwm4rj9,apartments-com,International City,Philadelphia,19153,0,520,995,1.91,yes,free_time,8.67,829,2026-11-26,https://www.apartments.com/international-city-philadelphia-pa/bwm4rj9/
-c32p08d,apartments-com,The Battery,Philadelphia,19125,2,1199,7824,6.53,yes,free_time,8.67,6520,2026-11-26,https://www.apartments.com/the-battery-philadelphia-pa/c32p08d/
-33571330,zumper,Alden Park Luxury Apartments,Philadelphia,19144,0,,1180,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p29804/alden-park-east-falls-philadelphia-pa
-36963162,zumper,3221 Spring Garden Street #202,Philadelphia,19104,3,,2000,,,,,,2026-11-26,https://www.zumper.com/listings/15910739p/3-bedroom-mantua-philadelphia-pa
-40225131,zumper,1241 South 47th Street #1,Philadelphia,19143,4,,3100,,,,,,2026-11-26,https://www.zumper.com/listings/226244p/4-bedroom-kingsessing-philadelphia-pa
-40874857,zumper,West Village Apartments,Philadelphia,19139,3,,1980,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p17922/800-n-48th-st-mill-creek-philadelphia-pa
-41147524,zumper,1221 Mount Vernon Street #119,Philadelphia,19123,3,,2495,,,,,,2026-11-26,https://www.zumper.com/listings/15857341p/3-bedroom-north-philadelphia-east-philadelphia-pa
-42521073,zumper,532 Rodman Street,Philadelphia,19147,1,,1400,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p493920/532-rodman-street-center-city-east-philadelphia-pa
-43112506,zumper,4323 Spruce Street,Philadelphia,19104,1,,1595,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p368441/4323-spruce-street-spruce-hill-philadelphia-pa
+listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,already_net,net_effective_rent,snapshot_date,listing_url
+0gcxd92,apartments-com,The Hannah,Philadelphia,19123,0,428,1470,3.43,yes,free_time,4.33,no,1348,2026-11-26,https://www.apartments.com/the-hannah-philadelphia-pa/0gcxd92/
+4b69qsl,apartments-com,The Broderick,Philadelphia,19106,1,685,1950,2.85,yes,free_time,6.0,no,1725,2026-11-26,https://www.apartments.com/the-broderick-philadelphia-pa/4b69qsl/
+4sbjxeh,apartments-com,Chestnut Hill Village Apartments,Philadelphia,19118,1,440,1379,3.13,yes,free_time,4.33,no,1264,2026-11-26,https://www.apartments.com/chestnut-hill-village-apartments-philadelphia-pa/4sbjxeh/
+674pmfr,apartments-com,The Ledger Residences,Philadelphia,19106,1,485,2195,4.53,yes,free_time,26.0,no,1098,2026-11-26,https://www.apartments.com/the-ledger-residences-philadelphia-pa/674pmfr/
+67kxyjr,apartments-com,100 York Apartments,Jenkintown,19046,0,580,1375,2.37,yes,free_time,4.33,no,1260,2026-11-26,https://www.apartments.com/100-york-apartments-jenkintown-pa/67kxyjr/
+6pv4stt,apartments-com,Vantage,Philadelphia,19122,0,422,2049,4.86,yes,waived_fees,,no,2049,2026-11-26,https://www.apartments.com/vantage-philadelphia-pa/6pv4stt/
+6vkxsev,apartments-com,Poth Brewery Lofts,Philadelphia,19121,0,450,1325,2.94,yes,free_time,4.33,no,1215,2026-11-26,https://www.apartments.com/poth-brewery-lofts-philadelphia-pa/6vkxsev/
+74j58fw,apartments-com,AVE Constitution,Philadelphia,19112,1,652,1893,2.9,yes,free_time,13.0,no,1420,2026-11-26,https://www.apartments.com/ave-constitution-philadelphia-pa/74j58fw/
+7bjgd3y,apartments-com,Lynnewood Gardens,Elkins Park,19027,1,622,1330,2.14,yes,free_time,4.33,no,1219,2026-11-26,https://www.apartments.com/lynnewood-gardens-elkins-park-pa/7bjgd3y/
+7d7rbbx,apartments-com,THE GRIFFIN CENTER CITY,Philadelphia,19107,0,495,1655,3.34,yes,free_time,8.67,no,1379,2026-11-26,https://www.apartments.com/the-griffin-center-city-philadelphia-pa/7d7rbbx/
+82edfb1,apartments-com,The Driftway,Philadelphia,19129,0,484,1500,3.1,yes,free_time+look_and_lease,6.0,no,1327,2026-11-26,https://www.apartments.com/the-driftway-philadelphia-pa/82edfb1/
+851yr90,apartments-com,1213 Walnut,Philadelphia,19107,0,442,1905,4.31,yes,free_time,6.5,no,1667,2026-11-26,https://www.apartments.com/1213-walnut-philadelphia-pa/851yr90/
+8fjme23,apartments-com,Henry on the Park Apartments,Philadelphia,19128,0,600,1387,2.31,yes,free_time,4.33,no,1272,2026-11-26,https://www.apartments.com/henry-on-the-park-apartments-philadelphia-pa/8fjme23/
+8ws64l2,apartments-com,Garden Court Towers,Philadelphia,19143,0,362,1435,3.96,yes,free_time,8.67,no,1196,2026-11-26,https://www.apartments.com/garden-court-towers-philadelphia-pa/8ws64l2/
+97l8y57,apartments-com,Via Callowhill,Philadelphia,19123,1,538,1850,3.44,yes,free_time,8.67,no,1542,2026-11-26,https://www.apartments.com/via-callowhill-philadelphia-pa/97l8y57/
+b9wg3qc,apartments-com,The Residences at The Bellevue,Philadelphia,19102,0,584,2575,4.41,yes,free_time+look_and_lease,4.33,no,2361,2026-11-26,https://www.apartments.com/the-residences-at-the-bellevue-philadelphia-pa/b9wg3qc/
+bwg3mxc,apartments-com,Lofts 640,Philadelphia,19130,0,676,1495,2.21,yes,free_time,8.67,no,1246,2026-11-26,https://www.apartments.com/lofts-640-philadelphia-pa/bwg3mxc/
+bwm4rj9,apartments-com,International City,Philadelphia,19153,0,520,995,1.91,yes,free_time,8.67,no,829,2026-11-26,https://www.apartments.com/international-city-philadelphia-pa/bwm4rj9/
+33571330,zumper,Alden Park Luxury Apartments,Philadelphia,19144,0,,1180,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p29804/alden-park-east-falls-philadelphia-pa
+36963162,zumper,3221 Spring Garden Street #202,Philadelphia,19104,3,,2000,,,,,,,2026-11-26,https://www.zumper.com/listings/15910739p/3-bedroom-mantua-philadelphia-pa
+40225131,zumper,1241 South 47th Street #1,Philadelphia,19143,4,,3100,,,,,,,2026-11-26,https://www.zumper.com/listings/226244p/4-bedroom-kingsessing-philadelphia-pa
+40874857,zumper,West Village Apartments,Philadelphia,19139,3,,1980,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p17922/800-n-48th-st-mill-creek-philadelphia-pa
+41147524,zumper,1221 Mount Vernon Street #119,Philadelphia,19123,3,,2495,,,,,,,2026-11-26,https://www.zumper.com/listings/15857341p/3-bedroom-north-philadelphia-east-philadelphia-pa
+42521073,zumper,532 Rodman Street,Philadelphia,19147,1,,1400,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p493920/532-rodman-street-center-city-east-philadelphia-pa
+43112506,zumper,4323 Spruce Street,Philadelphia,19104,1,,1595,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p368441/4323-spruce-street-spruce-hill-philadelphia-pa

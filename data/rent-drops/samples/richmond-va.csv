@@ -1,26 +1,26 @@
-listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,net_effective_rent,snapshot_date,listing_url
-0d4elm2,apartments-com,Main2525,Richmond,23223,0,408,1195,2.93,yes,waived_fees,,1195,2026-11-26,https://www.apartments.com/main2525-richmond-va/0d4elm2/
-14hs167,apartments-com,The Bakery,Richmond,23219,1,560,1525,2.72,yes,free_time,8.67,1271,2026-11-26,https://www.apartments.com/the-bakery-richmond-va/14hs167/
-274qlzc,apartments-com,The Watkins at Shockoe,Richmond,23219,0,649,1320,2.03,yes,free_time,4.33,1210,2026-11-26,https://www.apartments.com/the-watkins-at-shockoe-richmond-va/274qlzc/
-2k530y9,apartments-com,The Alder on Dabney,Richmond,23230,0,542,1635,3.02,yes,free_time,8.67,1362,2026-11-26,https://www.apartments.com/the-alder-on-dabney-richmond-va/2k530y9/
-2sczzjb,apartments-com,Deco at CNB,Richmond,23219,0,464,1392,3.0,yes,dollar_off,,1309,2026-11-26,https://www.apartments.com/deco-at-cnb-richmond-va/2sczzjb/
-4bpqs4h,apartments-com,Treehouse,Richmond,23227,1,586,1175,2.01,yes,dollar_off,,1092,2026-11-26,https://www.apartments.com/treehouse-richmond-va/4bpqs4h/
-4crt54h,apartments-com,Colonial Apartments,Richmond,23227,1,586,1135,1.94,yes,free_time,4.33,1040,2026-11-26,https://www.apartments.com/colonial-apartments-richmond-va/4crt54h/
-5kzgqzp,apartments-com,Ashley Park Apartments,Richmond,23225,1,510,1165,2.28,yes,free_time,4.33,1068,2026-11-26,https://www.apartments.com/ashley-park-apartments-richmond-va/5kzgqzp/
-68s8yhv,apartments-com,The Hub Apartments,Richmond,23224,0,439,1229,2.8,yes,free_time,6.0,1087,2026-11-26,https://www.apartments.com/the-hub-apartments-richmond-va/68s8yhv/
-6nww35r,apartments-com,The Ace,Richmond,23230,0,496,1560,3.15,yes,free_time,10.0,1260,2026-11-26,https://www.apartments.com/the-ace-richmond-va/6nww35r/
-7cqd5pw,apartments-com,Residences at Richmond Trust,Richmond,23219,0,384,1306,3.4,yes,dollar_off,,1223,2026-11-26,https://www.apartments.com/residences-at-richmond-trust-richmond-va/7cqd5pw/
-883b740,apartments-com,Cardinal Forest,Richmond,23228,1,900,1445,1.61,yes,free_time,4.33,1325,2026-11-26,https://www.apartments.com/cardinal-forest-richmond-va/883b740/
-b5xsmx8,apartments-com,The Russell,Richmond,23230,0,702,1860,2.65,yes,free_time,8.67,1550,2026-11-26,https://www.apartments.com/the-russell-richmond-va/b5xsmx8/
-bq6q8hb,apartments-com,MAA Rove,Richmond,23220,0,597,1483,2.48,yes,free_time,8.0,1255,2026-11-26,https://www.apartments.com/maa-rove-richmond-va/bq6q8hb/
-ccz56pd,apartments-com,The River Lofts at Tobacco Row,Richmond,23223,1,690,1090,1.58,yes,dollar_off,,1007,2026-11-26,https://www.apartments.com/the-river-lofts-at-tobacco-row-richmond-va/ccz56pd/
-dhx5kcl,apartments-com,James River at Stony Point,Richmond,23235,1,782,1566,2.0,yes,free_time,4.33,1436,2026-11-26,https://www.apartments.com/james-river-at-stony-point-richmond-va/dhx5kcl/
-e0jnv9m,apartments-com,Otis,Richmond,23230,0,599,1536,2.56,yes,free_time,8.67,1280,2026-11-26,https://www.apartments.com/otis-richmond-va/e0jnv9m/
-f8fcp9s,apartments-com,Foxchase Brandywine,Richmond,23238,1,735,1280,1.74,yes,free_time,4.33,1173,2026-11-26,https://www.apartments.com/foxchase-brandywine-richmond-va/f8fcp9s/
-40179814,zumper,Link Apartments® Manchester,Richmond,23224,1,,1358,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p12687/link-apartments-r-manchester-manchester-richmond-va
-45103039,zumper,The Commons at Plant Zero,Richmond,23224,1,,948,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p533198/the-commons-at-plant-zero-old-town-manchester-richmond-va
-45107775,zumper,New Manchester Flats,Richmond,23224,1,,762,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p533268/new-manchester-flats-old-town-manchester-richmond-va
-46731967,zumper,Wellsmith Apartments,Richmond,23230,0,,1603,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p438471/wellsmith-apartments-richmond-va
-48331498,zumper,105 S Meadow St #A,Richmond,23220,2,,1825,,,,,,2026-11-26,https://www.zumper.com/listings/15705586p/2-bedroom-the-fan-richmond-va
-51424999,zumper,"Kensington, Patterson Place and Grove Ave",Richmond,23221,1,,1031,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p464418/kensington-patterson-place-and-grove-ave-the-museum-district-richmond-va
-51430299,zumper,Circ Apartments,Richmond,23220,1,,1470,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p413232/circ-apartments-the-fan-richmond-va
+listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,already_net,net_effective_rent,snapshot_date,listing_url
+0d4elm2,apartments-com,Main2525,Richmond,23223,0,408,1195,2.93,yes,waived_fees,,no,1195,2026-11-26,https://www.apartments.com/main2525-richmond-va/0d4elm2/
+14hs167,apartments-com,The Bakery,Richmond,23219,1,560,1525,2.72,yes,free_time,8.67,no,1271,2026-11-26,https://www.apartments.com/the-bakery-richmond-va/14hs167/
+274qlzc,apartments-com,The Watkins at Shockoe,Richmond,23219,0,649,1320,2.03,yes,free_time,4.33,no,1210,2026-11-26,https://www.apartments.com/the-watkins-at-shockoe-richmond-va/274qlzc/
+2k530y9,apartments-com,The Alder on Dabney,Richmond,23230,0,542,1635,3.02,yes,free_time,8.67,no,1362,2026-11-26,https://www.apartments.com/the-alder-on-dabney-richmond-va/2k530y9/
+2sczzjb,apartments-com,Deco at CNB,Richmond,23219,0,464,1392,3.0,yes,dollar_off,,no,1309,2026-11-26,https://www.apartments.com/deco-at-cnb-richmond-va/2sczzjb/
+4bpqs4h,apartments-com,Treehouse,Richmond,23227,1,586,1175,2.01,yes,dollar_off,,no,1092,2026-11-26,https://www.apartments.com/treehouse-richmond-va/4bpqs4h/
+4crt54h,apartments-com,Colonial Apartments,Richmond,23227,1,586,1135,1.94,yes,free_time,4.33,no,1040,2026-11-26,https://www.apartments.com/colonial-apartments-richmond-va/4crt54h/
+5kzgqzp,apartments-com,Ashley Park Apartments,Richmond,23225,1,510,1165,2.28,yes,free_time,4.33,no,1068,2026-11-26,https://www.apartments.com/ashley-park-apartments-richmond-va/5kzgqzp/
+68s8yhv,apartments-com,The Hub Apartments,Richmond,23224,0,439,1229,2.8,yes,free_time,6.0,no,1087,2026-11-26,https://www.apartments.com/the-hub-apartments-richmond-va/68s8yhv/
+6nww35r,apartments-com,The Ace,Richmond,23230,0,496,1560,3.15,yes,free_time,10.0,no,1260,2026-11-26,https://www.apartments.com/the-ace-richmond-va/6nww35r/
+7cqd5pw,apartments-com,Residences at Richmond Trust,Richmond,23219,0,384,1306,3.4,yes,dollar_off,,no,1223,2026-11-26,https://www.apartments.com/residences-at-richmond-trust-richmond-va/7cqd5pw/
+883b740,apartments-com,Cardinal Forest,Richmond,23228,1,900,1445,1.61,yes,free_time,4.33,no,1325,2026-11-26,https://www.apartments.com/cardinal-forest-richmond-va/883b740/
+b5xsmx8,apartments-com,The Russell,Richmond,23230,0,702,1860,2.65,yes,free_time,8.67,no,1550,2026-11-26,https://www.apartments.com/the-russell-richmond-va/b5xsmx8/
+bq6q8hb,apartments-com,MAA Rove,Richmond,23220,0,597,1483,2.48,yes,free_time,8.0,no,1255,2026-11-26,https://www.apartments.com/maa-rove-richmond-va/bq6q8hb/
+ccz56pd,apartments-com,The River Lofts at Tobacco Row,Richmond,23223,1,690,1090,1.58,yes,dollar_off,,no,1007,2026-11-26,https://www.apartments.com/the-river-lofts-at-tobacco-row-richmond-va/ccz56pd/
+dhx5kcl,apartments-com,James River at Stony Point,Richmond,23235,1,782,1566,2.0,yes,free_time,4.33,no,1436,2026-11-26,https://www.apartments.com/james-river-at-stony-point-richmond-va/dhx5kcl/
+e0jnv9m,apartments-com,Otis,Richmond,23230,0,599,1536,2.56,yes,free_time,8.67,no,1280,2026-11-26,https://www.apartments.com/otis-richmond-va/e0jnv9m/
+f8fcp9s,apartments-com,Foxchase Brandywine,Richmond,23238,1,735,1280,1.74,yes,free_time,4.33,no,1173,2026-11-26,https://www.apartments.com/foxchase-brandywine-richmond-va/f8fcp9s/
+40179814,zumper,Link Apartments® Manchester,Richmond,23224,1,,1358,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p12687/link-apartments-r-manchester-manchester-richmond-va
+45103039,zumper,The Commons at Plant Zero,Richmond,23224,1,,948,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p533198/the-commons-at-plant-zero-old-town-manchester-richmond-va
+45107775,zumper,New Manchester Flats,Richmond,23224,1,,762,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p533268/new-manchester-flats-old-town-manchester-richmond-va
+46731967,zumper,Wellsmith Apartments,Richmond,23230,0,,1603,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p438471/wellsmith-apartments-richmond-va
+48331498,zumper,105 S Meadow St #A,Richmond,23220,2,,1825,,,,,,,2026-11-26,https://www.zumper.com/listings/15705586p/2-bedroom-the-fan-richmond-va
+51424999,zumper,"Kensington, Patterson Place and Grove Ave",Richmond,23221,1,,1031,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p464418/kensington-patterson-place-and-grove-ave-the-museum-district-richmond-va
+51430299,zumper,Circ Apartments,Richmond,23220,1,,1470,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p413232/circ-apartments-the-fan-richmond-va

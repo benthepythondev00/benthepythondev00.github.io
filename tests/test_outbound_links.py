@@ -15,14 +15,19 @@ OWN = ("https://benthepythondev00.github.io",)
 class Collect(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.skipped, self.blank_unskipped = [], []
+        self.skipped, self.blank_unskipped, self.mail_unskipped, self.same_tab_external = [], [], [], []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        href = a.get("href") or ""
         if "data-qa-skip" in a:
             self.skipped.append((tag, a))
         elif tag == "a" and a.get("target") == "_blank":
             self.blank_unskipped.append(a)
+        elif tag == "a" and href.startswith("mailto:"):
+            self.mail_unskipped.append(href)
+        elif tag == "a" and href.startswith("http") and not href.startswith(OWN):
+            self.same_tab_external.append(href)
 
 
 class TestOutboundLinks(unittest.TestCase):
@@ -36,12 +41,16 @@ class TestOutboundLinks(unittest.TestCase):
                 with self.subTest(page=rel, href=a.get("href")):
                     self.assertEqual(tag, "a")
                     href = a.get("href") or ""
+                    if href.startswith("mailto:"):
+                        continue  # mail links stall the crawler's next click (no animation frames after reopen)
                     self.assertTrue(href.startswith("https://") or href.startswith("__"), href)
                     self.assertFalse(href.startswith(OWN), href)
                     self.assertEqual(a.get("target"), "_blank")
                     self.assertIn("noopener", a.get("rel") or "")
             with self.subTest(page=rel):
                 self.assertEqual(p.blank_unskipped, [], "new-tab link without data-qa-skip")
+                self.assertEqual(p.mail_unskipped, [], "mailto link without data-qa-skip")
+                self.assertEqual(p.same_tab_external, [], "off-site link that does not open a new tab")
         self.assertGreater(total, 400)
 
     def test_builders_emit_the_skip_marker(self):
@@ -50,5 +59,7 @@ class TestOutboundLinks(unittest.TestCase):
             self.assertRegex(src, r'class="orig" href="\{e\(j\["url"\]\)\}" target="_blank" rel="noopener" data-qa-skip')
 
 
-if __name__ == "__main__":
-    unittest.main()
+class TestDynamicStoreLinks(unittest.TestCase):
+    def test_js_store_links_are_skipped(self):
+        src = (ROOT / "custom-apify-actor.html").read_text()
+        self.assertIn('link.target = "_blank"; link.rel = "noopener"; link.setAttribute("data-qa-skip", "")', src)

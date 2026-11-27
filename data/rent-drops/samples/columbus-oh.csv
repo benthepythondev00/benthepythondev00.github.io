@@ -1,26 +1,26 @@
-listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,net_effective_rent,snapshot_date,listing_url
-0c086x1,apartments-com,Lakeside Village,Groveport,43125,1,681,1290,1.89,yes,free_time,8.67,1075,2026-11-26,https://www.apartments.com/lakeside-village-groveport-oh/0c086x1/
-16nre54,apartments-com,Hayden Reserve,Columbus,43235,1,652,1235,1.89,yes,waived_fees,,1235,2026-11-26,https://www.apartments.com/hayden-reserve-columbus-oh/16nre54/
-1e909j5,apartments-com,Brynwood Reserve,Canal Winchester,43110,1,681,1250,1.84,yes,free_time,8.67,1042,2026-11-26,https://www.apartments.com/brynwood-reserve-canal-winchester-oh/1e909j5/
-237j9mb,apartments-com,Buckstone Flats,Lockbourne,43137,1,777,1300,1.67,yes,free_time,4.33,1192,2026-11-26,https://www.apartments.com/buckstone-flats-lockbourne-oh/237j9mb/
-2neldeb,apartments-com,Trace Quarter,Columbus,43222,1,553,1260,2.28,yes,free_time,4.33,1155,2026-11-26,https://www.apartments.com/trace-quarter-columbus-oh/2neldeb/
-2wcd1y9,apartments-com,Hague Ravines,Columbus,43204,1,681,1250,1.84,yes,free_time,8.67,1042,2026-11-26,https://www.apartments.com/hague-ravines-columbus-oh/2wcd1y9/
-3dcb5kf,apartments-com,Primrose Place,Canal Winchester,43110,1,681,1250,1.84,yes,free_time,8.67,1042,2026-11-26,https://www.apartments.com/primrose-place-canal-winchester-oh/3dcb5kf/
-3q9nrge,apartments-com,Liberty House,Columbus,43235,1,652,1235,1.89,yes,waived_fees,,1235,2026-11-26,https://www.apartments.com/liberty-house-columbus-oh/3q9nrge/
-6dvnh8s,apartments-com,Austin Place Apartments,Columbus,43228,1,685,1159,1.69,yes,free_time,8.67,966,2026-11-26,https://www.apartments.com/austin-place-apartments-columbus-oh/6dvnh8s/
-7c06zjy,apartments-com,Triumph Apartments,Columbus,43205,1,598,1199,2.01,yes,waived_fees,,1199,2026-11-26,https://www.apartments.com/triumph-apartments-columbus-oh/7c06zjy/
-9hdpj94,apartments-com,Andrew Reserve,Columbus,43081,1,826,1400,1.69,yes,waived_fees,,1400,2026-11-26,https://www.apartments.com/andrew-reserve-columbus-oh/9hdpj94/
-ddgf5fk,apartments-com,Central Park Apartment Homes,Columbus,43235,1,580,1150,1.98,yes,free_time,4.33,1054,2026-11-26,https://www.apartments.com/central-park-apartment-homes-columbus-oh/ddgf5fk/
-dg6x8rk,apartments-com,Braxton on Bethel,Columbus,43235,1,673,1195,1.78,yes,dollar_off,,1137,2026-11-26,https://www.apartments.com/braxton-on-bethel-columbus-oh/dg6x8rk/
-dxlvwdl,apartments-com,TGM Meadow View,Columbus,43235,1,598,1123,1.88,yes,dollar_off,,1081,2026-11-26,https://www.apartments.com/tgm-meadow-view-columbus-oh/dxlvwdl/
-ey3zn7n,apartments-com,Lakeside Villas,Columbus,43229,1,497,885,1.78,yes,free_time,8.67,737,2026-11-26,https://www.apartments.com/lakeside-villas-columbus-oh/ey3zn7n/
-fgrcbjs,apartments-com,Lincoln Pointe,Columbus,43235,1,710,1425,2.01,yes,dollar_off,,1367,2026-11-26,https://www.apartments.com/lincoln-pointe-columbus-oh/fgrcbjs/
-fgx3vbv,apartments-com,Stonecrest,Columbus,43213,1,665,839,1.26,yes,dollar_off+waived_fees,,797,2026-11-26,https://www.apartments.com/stonecrest-columbus-oh/fgx3vbv/
-gdq8lry,apartments-com,Parkview Apartments,Columbus,43228,2,948,1099,1.16,yes,dollar_off,,1016,2026-11-26,https://www.apartments.com/parkview-apartments-columbus-oh/gdq8lry/
-46068432,zumper,810 Sumter St,Columbus,43119,3,,2265,,,,,,2026-11-26,https://www.zumper.com/listings/10229433p/3-bedroom-westchester-green-countrie-columbus-oh
-46540660,zumper,5451 Ruby Fork Dr,Columbus,43016,3,,2385,,,,,,2026-11-26,https://www.zumper.com/listings/10690497p/3-bedroom-tuttle-west-columbus-oh
-46743908,zumper,4004 Sweet Shadow Ave,Columbus,43230,3,,2320,,,,,,2026-11-26,https://www.zumper.com/listings/11011707p/3-bedroom-preserve-south-columbus-oh
-46745793,zumper,1044 Snohomish Ave,Columbus,43085,3,,2590,,,,,,2026-11-26,https://www.zumper.com/listings/30176579p/3-bedroom-westworth-village-columbus-oh
-47167342,zumper,5449 Longworth Dr,Columbus,43119,3,,2210,,,,,,2026-11-26,https://www.zumper.com/listings/27180337p/3-bedroom-galloway-ridge-columbus-oh
-47275182,zumper,7575 Dover Ridge Ct,Columbus,43004,3,,2330,,,,,,2026-11-26,https://www.zumper.com/listings/11672138p/3-bedroom-east-broad-columbus-oh
-47517593,zumper,5904 Epernay Way,Columbus,43119,3,,2370,,,,,,2026-11-26,https://www.zumper.com/listings/12037294p/3-bedroom-laurel-greene-columbus-oh
+listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,already_net,net_effective_rent,snapshot_date,listing_url
+0c086x1,apartments-com,Lakeside Village,Groveport,43125,1,681,1290,1.89,yes,free_time,8.67,no,1075,2026-11-26,https://www.apartments.com/lakeside-village-groveport-oh/0c086x1/
+16nre54,apartments-com,Hayden Reserve,Columbus,43235,1,652,1235,1.89,yes,waived_fees,,no,1235,2026-11-26,https://www.apartments.com/hayden-reserve-columbus-oh/16nre54/
+1e909j5,apartments-com,Brynwood Reserve,Canal Winchester,43110,1,681,1250,1.84,yes,free_time,8.67,no,1042,2026-11-26,https://www.apartments.com/brynwood-reserve-canal-winchester-oh/1e909j5/
+237j9mb,apartments-com,Buckstone Flats,Lockbourne,43137,1,777,1300,1.67,yes,free_time,4.33,no,1192,2026-11-26,https://www.apartments.com/buckstone-flats-lockbourne-oh/237j9mb/
+2neldeb,apartments-com,Trace Quarter,Columbus,43222,1,553,1260,2.28,yes,free_time,4.33,no,1155,2026-11-26,https://www.apartments.com/trace-quarter-columbus-oh/2neldeb/
+2wcd1y9,apartments-com,Hague Ravines,Columbus,43204,1,681,1250,1.84,yes,free_time,8.67,no,1042,2026-11-26,https://www.apartments.com/hague-ravines-columbus-oh/2wcd1y9/
+3dcb5kf,apartments-com,Primrose Place,Canal Winchester,43110,1,681,1250,1.84,yes,free_time,8.67,no,1042,2026-11-26,https://www.apartments.com/primrose-place-canal-winchester-oh/3dcb5kf/
+3q9nrge,apartments-com,Liberty House,Columbus,43235,1,652,1235,1.89,yes,waived_fees,,no,1235,2026-11-26,https://www.apartments.com/liberty-house-columbus-oh/3q9nrge/
+6dvnh8s,apartments-com,Austin Place Apartments,Columbus,43228,1,685,1159,1.69,yes,free_time,8.67,no,966,2026-11-26,https://www.apartments.com/austin-place-apartments-columbus-oh/6dvnh8s/
+7c06zjy,apartments-com,Triumph Apartments,Columbus,43205,1,598,1199,2.01,yes,waived_fees,,no,1199,2026-11-26,https://www.apartments.com/triumph-apartments-columbus-oh/7c06zjy/
+9hdpj94,apartments-com,Andrew Reserve,Columbus,43081,1,826,1400,1.69,yes,waived_fees,,no,1400,2026-11-26,https://www.apartments.com/andrew-reserve-columbus-oh/9hdpj94/
+ddgf5fk,apartments-com,Central Park Apartment Homes,Columbus,43235,1,580,1150,1.98,yes,free_time,4.33,no,1054,2026-11-26,https://www.apartments.com/central-park-apartment-homes-columbus-oh/ddgf5fk/
+dg6x8rk,apartments-com,Braxton on Bethel,Columbus,43235,1,673,1195,1.78,yes,dollar_off,,no,1137,2026-11-26,https://www.apartments.com/braxton-on-bethel-columbus-oh/dg6x8rk/
+dxlvwdl,apartments-com,TGM Meadow View,Columbus,43235,1,598,1123,1.88,yes,dollar_off,,no,1081,2026-11-26,https://www.apartments.com/tgm-meadow-view-columbus-oh/dxlvwdl/
+ey3zn7n,apartments-com,Lakeside Villas,Columbus,43229,1,497,885,1.78,yes,free_time,8.67,no,737,2026-11-26,https://www.apartments.com/lakeside-villas-columbus-oh/ey3zn7n/
+fgrcbjs,apartments-com,Lincoln Pointe,Columbus,43235,1,710,1425,2.01,yes,dollar_off,,no,1367,2026-11-26,https://www.apartments.com/lincoln-pointe-columbus-oh/fgrcbjs/
+fgx3vbv,apartments-com,Stonecrest,Columbus,43213,1,665,839,1.26,yes,dollar_off+waived_fees,,no,797,2026-11-26,https://www.apartments.com/stonecrest-columbus-oh/fgx3vbv/
+gdq8lry,apartments-com,Parkview Apartments,Columbus,43228,2,948,1099,1.16,yes,dollar_off,,no,1016,2026-11-26,https://www.apartments.com/parkview-apartments-columbus-oh/gdq8lry/
+46068432,zumper,810 Sumter St,Columbus,43119,3,,2265,,,,,,,2026-11-26,https://www.zumper.com/listings/10229433p/3-bedroom-westchester-green-countrie-columbus-oh
+46540660,zumper,5451 Ruby Fork Dr,Columbus,43016,3,,2385,,,,,,,2026-11-26,https://www.zumper.com/listings/10690497p/3-bedroom-tuttle-west-columbus-oh
+46743908,zumper,4004 Sweet Shadow Ave,Columbus,43230,3,,2320,,,,,,,2026-11-26,https://www.zumper.com/listings/11011707p/3-bedroom-preserve-south-columbus-oh
+46745793,zumper,1044 Snohomish Ave,Columbus,43085,3,,2590,,,,,,,2026-11-26,https://www.zumper.com/listings/30176579p/3-bedroom-westworth-village-columbus-oh
+47167342,zumper,5449 Longworth Dr,Columbus,43119,3,,2210,,,,,,,2026-11-26,https://www.zumper.com/listings/27180337p/3-bedroom-galloway-ridge-columbus-oh
+47275182,zumper,7575 Dover Ridge Ct,Columbus,43004,3,,2330,,,,,,,2026-11-26,https://www.zumper.com/listings/11672138p/3-bedroom-east-broad-columbus-oh
+47517593,zumper,5904 Epernay Way,Columbus,43119,3,,2370,,,,,,,2026-11-26,https://www.zumper.com/listings/12037294p/3-bedroom-laurel-greene-columbus-oh

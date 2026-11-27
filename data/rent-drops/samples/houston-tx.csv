@@ -1,26 +1,26 @@
-listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,net_effective_rent,snapshot_date,listing_url
-08l99h3,apartments-com,The JaXon,Kingwood,77345,1,687,1175,1.71,yes,free_time,2.0,1130,2026-11-26,https://www.apartments.com/the-jaxon-kingwood-tx/08l99h3/
-1nhdsd5,apartments-com,The Link,Houston,77082,1,692,988,1.43,yes,dollar_off,,946,2026-11-26,https://www.apartments.com/the-link-houston-tx/1nhdsd5/
-1swm8v6,apartments-com,The Emile,Houston,77068,1,633,877,1.39,yes,free_time+waived_fees,6.0,776,2026-11-26,https://www.apartments.com/the-emile-houston-tx/1swm8v6/
-1yrq7x6,apartments-com,The Dacoma,Houston,77092,1,758,1191,1.57,yes,dollar_off+look_and_lease,,1183,2026-11-26,https://www.apartments.com/the-dacoma-houston-tx/1yrq7x6/
-34tpj9g,apartments-com,Linara,Houston,77042,1,660,650,0.98,yes,free_time,8.0,550,2026-11-26,https://www.apartments.com/linara-houston-tx/34tpj9g/
-3b9vxng,apartments-com,Gables Cityscape,Houston,77027,1,676,1247,1.84,yes,free_time,4.0,1151,2026-11-26,https://www.apartments.com/gables-cityscape-houston-tx/3b9vxng/
-3lh65pd,apartments-com,Village at West University,Houston,77005,1,821,1289,1.57,yes,free_time,4.0,1190,2026-11-26,https://www.apartments.com/village-at-west-university-houston-tx/3lh65pd/
-3qz1zwd,apartments-com,Ainsley Heights,Houston,77009,0,652,1357,2.08,yes,free_time,4.0,1253,2026-11-26,https://www.apartments.com/ainsley-heights-houston-tx/3qz1zwd/
-506vt4m,apartments-com,Waterford Grove Apartments,Houston,77080,1,662,799,1.21,yes,free_time,4.33,732,2026-11-26,https://www.apartments.com/waterford-grove-apartments-houston-tx/506vt4m/
-576rbrq,apartments-com,Creole on Yorktown,Houston,77056,1,715,878,1.23,yes,free_time,4.0,810,2026-11-26,https://www.apartments.com/creole-on-yorktown-houston-tx/576rbrq/
-5c8nbzn,apartments-com,Phillips Pass,Houston,77077,1,708,1005,1.42,yes,free_time,4.33,921,2026-11-26,https://www.apartments.com/phillips-pass-houston-tx/5c8nbzn/
-5ny2j5n,apartments-com,The Cove,Houston,77058,0,443,800,1.81,yes,free_time,8.0,677,2026-11-26,https://www.apartments.com/the-cove-houston-tx/5ny2j5n/
-63876ft,apartments-com,Seven17 Lehman,Houston,77018,0,569,1299,2.28,yes,free_time,8.67,1082,2026-11-26,https://www.apartments.com/seven17-lehman-houston-tx/63876ft/
-6gfefss,apartments-com,Valencia Grove,Houston,77089,1,700,815,1.16,yes,dollar_off,,782,2026-11-26,https://www.apartments.com/valencia-grove-houston-tx/6gfefss/
-7q8sv4z,apartments-com,Marquis Enclave,Houston,77002,0,548,1218,2.22,yes,free_time,8.0,1031,2026-11-26,https://www.apartments.com/marquis-enclave-houston-tx/7q8sv4z/
-9cwjc35,apartments-com,The Grove,Houston,77095,1,501,689,1.38,yes,free_time,8.0,583,2026-11-26,https://www.apartments.com/the-grove-houston-tx/9cwjc35/
-9qeq4n5,apartments-com,La Serena,Houston,77055,0,608,750,1.23,yes,dollar_off,,742,2026-11-26,https://www.apartments.com/la-serena-houston-tx/9qeq4n5/
-bjsjz6b,apartments-com,Lenox Katy Grove,Katy,77494,1,702,1420,2.02,yes,free_time,8.67,1183,2026-11-26,https://www.apartments.com/lenox-katy-grove-katy-tx/bjsjz6b/
-24273862,zumper,Camden Greenway,Houston,77098,1,,1484,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p23986/camden-greenway-greenway-upper-kirby-houston-tx
-24274399,zumper,Camden Vanderbilt,Houston,77025,1,,1564,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p23937/camden-vanderbilt-braeswood-place-houston-tx
-24275319,zumper,Camden Plaza,Houston,77027,0,,1514,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p24052/camden-plaza-greenway-upper-kirby-houston-tx
-24276040,zumper,Camden Heights,Houston,77007,1,,1573,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p28975/camden-heights-greater-heights-houston-tx
-24277067,zumper,Camden Travis Street,Houston,77006,0,,1405,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p26221/camden-travis-street-midtown-houston-tx
-29146740,zumper,Camden McGowen Station,Houston,77006,0,,1638,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p284046/camden-mcgowen-station-midtown-houston-tx
-38066074,zumper,Camden Downtown,Houston,77002,0,,1653,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p410503/camden-downtown-downtown-houston-houston-tx
+listing_id,source,property_name,city,zip,beds,sqft,asking_rent,rent_per_sqft,concession_verified,concession_type,free_weeks,already_net,net_effective_rent,snapshot_date,listing_url
+08l99h3,apartments-com,The JaXon,Kingwood,77345,1,687,1175,1.71,yes,free_time,2.0,no,1130,2026-11-26,https://www.apartments.com/the-jaxon-kingwood-tx/08l99h3/
+1nhdsd5,apartments-com,The Link,Houston,77082,1,692,988,1.43,yes,dollar_off,,no,946,2026-11-26,https://www.apartments.com/the-link-houston-tx/1nhdsd5/
+1swm8v6,apartments-com,The Emile,Houston,77068,1,633,877,1.39,yes,free_time+waived_fees,6.0,no,776,2026-11-26,https://www.apartments.com/the-emile-houston-tx/1swm8v6/
+1yrq7x6,apartments-com,The Dacoma,Houston,77092,1,758,1191,1.57,yes,dollar_off+look_and_lease,,no,1183,2026-11-26,https://www.apartments.com/the-dacoma-houston-tx/1yrq7x6/
+34tpj9g,apartments-com,Linara,Houston,77042,1,660,650,0.98,yes,free_time,8.0,no,550,2026-11-26,https://www.apartments.com/linara-houston-tx/34tpj9g/
+3b9vxng,apartments-com,Gables Cityscape,Houston,77027,1,676,1247,1.84,yes,free_time,4.0,no,1151,2026-11-26,https://www.apartments.com/gables-cityscape-houston-tx/3b9vxng/
+3lh65pd,apartments-com,Village at West University,Houston,77005,1,821,1289,1.57,yes,free_time,4.0,no,1190,2026-11-26,https://www.apartments.com/village-at-west-university-houston-tx/3lh65pd/
+3qz1zwd,apartments-com,Ainsley Heights,Houston,77009,0,652,1357,2.08,yes,free_time,4.0,no,1253,2026-11-26,https://www.apartments.com/ainsley-heights-houston-tx/3qz1zwd/
+506vt4m,apartments-com,Waterford Grove Apartments,Houston,77080,1,662,799,1.21,yes,free_time,4.33,no,732,2026-11-26,https://www.apartments.com/waterford-grove-apartments-houston-tx/506vt4m/
+576rbrq,apartments-com,Creole on Yorktown,Houston,77056,1,715,878,1.23,yes,free_time,4.0,no,810,2026-11-26,https://www.apartments.com/creole-on-yorktown-houston-tx/576rbrq/
+5c8nbzn,apartments-com,Phillips Pass,Houston,77077,1,708,1005,1.42,yes,free_time,4.33,no,921,2026-11-26,https://www.apartments.com/phillips-pass-houston-tx/5c8nbzn/
+5fqxzbm,apartments-com,North Forest Trails,Houston,77028,1,648,999,1.54,yes,pct_off,,no,957,2026-11-26,https://www.apartments.com/north-forest-trails-houston-tx/5fqxzbm/
+5ny2j5n,apartments-com,The Cove,Houston,77058,0,443,800,1.81,yes,free_time,8.0,no,677,2026-11-26,https://www.apartments.com/the-cove-houston-tx/5ny2j5n/
+63876ft,apartments-com,Seven17 Lehman,Houston,77018,0,569,1299,2.28,yes,free_time,8.67,no,1082,2026-11-26,https://www.apartments.com/seven17-lehman-houston-tx/63876ft/
+6gfefss,apartments-com,Valencia Grove,Houston,77089,1,700,815,1.16,yes,dollar_off,,no,782,2026-11-26,https://www.apartments.com/valencia-grove-houston-tx/6gfefss/
+7q8sv4z,apartments-com,Marquis Enclave,Houston,77002,0,548,1218,2.22,yes,free_time,8.0,no,1031,2026-11-26,https://www.apartments.com/marquis-enclave-houston-tx/7q8sv4z/
+9cwjc35,apartments-com,The Grove,Houston,77095,1,501,689,1.38,yes,free_time,8.0,no,583,2026-11-26,https://www.apartments.com/the-grove-houston-tx/9cwjc35/
+9qeq4n5,apartments-com,La Serena,Houston,77055,0,608,750,1.23,yes,dollar_off,,no,742,2026-11-26,https://www.apartments.com/la-serena-houston-tx/9qeq4n5/
+24273862,zumper,Camden Greenway,Houston,77098,1,,1484,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p23986/camden-greenway-greenway-upper-kirby-houston-tx
+24274399,zumper,Camden Vanderbilt,Houston,77025,1,,1564,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p23937/camden-vanderbilt-braeswood-place-houston-tx
+24275319,zumper,Camden Plaza,Houston,77027,0,,1514,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p24052/camden-plaza-greenway-upper-kirby-houston-tx
+24276040,zumper,Camden Heights,Houston,77007,1,,1573,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p28975/camden-heights-greater-heights-houston-tx
+24277067,zumper,Camden Travis Street,Houston,77006,0,,1405,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p26221/camden-travis-street-midtown-houston-tx
+29146740,zumper,Camden McGowen Station,Houston,77006,0,,1638,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p284046/camden-mcgowen-station-midtown-houston-tx
+38066074,zumper,Camden Downtown,Houston,77002,0,,1653,,,,,,,2026-11-26,https://www.zumper.com/apartment-buildings/p410503/camden-downtown-downtown-houston-houston-tx

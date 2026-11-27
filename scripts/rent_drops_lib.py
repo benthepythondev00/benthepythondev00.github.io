@@ -79,6 +79,13 @@ FIRST_MONTH_RE = re.compile(
 PCT_OFF_RE = re.compile(
     rf"(?:\b(\d{{1,2}})\s?%|\b(1/2|half))\s*off\b[^.;!|]{{0,40}}?\bfor\s+(?:the\s+first\s+)?{_NUM}\s+(month|week)s?\b", re.I
 )
+# "50% off first month", "Half off first month's rent"
+FIRST_MONTH_PCT_RE = re.compile(
+    r"(?:\b(\d{1,3})\s?%|\b(?:1/2|half))\s*off\s+(?:your\s+|the\s+)?(?:first|1st)\s+(?:full\s+)?month(?:'s)?(?:\s+(?:of\s+)?rent)?\b",
+    re.I,
+)
+# "Free month of rent", "a free month"
+FREE_MONTH_RE = re.compile(r"\bfree\s+month(?![-\s]to[-\s]month)(?:\s+of\s+(?:base\s+)?rent)?\b(?!-)", re.I)
 # "$500 off", "$1,000 off rent", "$300 off your first month"
 DOLLAR_OFF_RE = re.compile(r"\$\s?(\d{1,2},?\d{3}|\d{2,4})\s*(?:off|discount|rent credit|in rent credit|move-in credit|concession)\b", re.I)
 # "$1,000 Look & Lease Incentive", "look and lease ... $500"
@@ -158,6 +165,9 @@ def parse_concession(specials) -> dict:
         if 0 < w <= 26:  # never more than half a 12-month lease
             weeks.append(round(w, 2))
             out["matched"].append(m.group(0).strip())
+    for m in FREE_MONTH_RE.finditer(text):
+        weeks.append(round(WEEKS_PER_MONTH, 2))
+        out["matched"].append(m.group(0).strip())
     for m in FIRST_MONTH_RE.finditer(text):
         weeks.append(round(WEEKS_PER_MONTH, 2))
         out["matched"].append(m.group(0).strip())
@@ -174,6 +184,11 @@ def parse_concession(specials) -> dict:
             if months <= LEASE_MONTHS:
                 pct.append(round(p / 100 * months, 3))
                 out["matched"].append(m.group(0).strip())
+    for m in FIRST_MONTH_PCT_RE.finditer(text):
+        p = float(m.group(1)) if m.group(1) else 50.0
+        if 0 < p <= 100:
+            pct.append(round(p / 100, 3))
+            out["matched"].append(m.group(0).strip())
     if pct:
         out["pct_off_months"] = max(pct)  # equivalent free months
         out["kinds"].append("pct_off")
@@ -474,7 +489,7 @@ def rent_cuts(today: str, current: dict, prior: dict[str, dict]) -> dict:
 
 
 CSV_FIELDS = ["listing_id", "source", "property_name", "city", "zip", "beds", "sqft", "asking_rent",
-              "rent_per_sqft", "concession_verified", "concession_type", "free_weeks", "net_effective_rent",
+              "rent_per_sqft", "concession_verified", "concession_type", "free_weeks", "already_net", "net_effective_rent",
               "snapshot_date", "listing_url"]
 
 
@@ -495,6 +510,7 @@ def sample_rows(apts: list[dict], zum: list[dict], snapshot_date: str, n: int = 
             "concession_verified": "yes" if c["verified"] else "no",
             "concession_type": "+".join(c["kinds"]),
             "free_weeks": c["free_weeks"] if c["free_weeks"] else "",
+            "already_net": ("yes" if c["already_net"] else "no") if c["verified"] else "",
             "net_effective_rent": int(round(net_effective(fp["rent"], c))),
             "snapshot_date": snapshot_date, "listing_url": p["url"],
         })
@@ -502,7 +518,7 @@ def sample_rows(apts: list[dict], zum: list[dict], snapshot_date: str, n: int = 
         "listing_id": z["id"], "source": "zumper", "property_name": z["name"], "city": z["city"], "zip": z["zip"],
         "beds": z["beds"] if z["beds"] is not None else "", "sqft": int(z["sqft"]) if z["sqft"] else "",
         "asking_rent": int(z["price"]), "rent_per_sqft": round(z["price"] / z["sqft"], 2) if z["sqft"] else "",
-        "concession_verified": "", "concession_type": "", "free_weeks": "", "net_effective_rent": "",
+        "concession_verified": "", "concession_type": "", "free_weeks": "", "already_net": "", "net_effective_rent": "",
         "snapshot_date": snapshot_date, "listing_url": z["url"],
     } for z in sorted(zum, key=lambda x: x["id"]) if not z["coliving"]]
     nz = min(7, len(z_rows))
